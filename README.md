@@ -6,7 +6,7 @@
 [![Build status](https://github.com/esya/oasis-wallet/actions/workflows/build.yaml/badge.svg)](https://github.com/esya/oasis-wallet/actions)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_shield)
 
-> :warning: This wallet is still a work in progress and is not compatible yet with the Mainnet. **Do not use the private keys and mnemonics given as example in this repository with real ROSE tokens until a stable release is out.**
+> :warning: This wallet is still a work in progress and is not compatible yet with the Mainnet. **NEVER use the private keys and mnemonics given as example in this repository. Do not use this wallet with real ROSE tokens until a stable release is out.**
 
 <img src="docs/images/demo.gif">
 
