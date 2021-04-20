@@ -25,7 +25,7 @@ services:
       - ./docker/genesis-local.json:/genesis.json
       - ./docker/oasis-explorer/config-local.json:/.secrets/config.json
   envoy:
-    image: envoyproxy/envoy:v1.17.1
+    image: envoyproxy/envoy:v1.18.2
     ports:
       - "42280:42280"
       - "42281:42281"
