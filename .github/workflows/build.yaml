@@ -78,13 +78,13 @@ jobs:
       uses: actions/download-artifact@v2
     - uses: codecov/codecov-action@v1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         files: ./jest-coverage/coverage-final.json
         flags: jest
         fail_ci_if_error: true # optional (default = false)
+        verbose: true
     - uses: codecov/codecov-action@v1
       with:
-        token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
         files: ./cypress-coverage/coverage-final.json
         flags: cypress 
         fail_ci_if_error: true # optional (default = false)
+        verbose: true
