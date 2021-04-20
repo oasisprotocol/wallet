@@ -16,7 +16,7 @@ export const initialState: WalletState = {
     escrow: '0',
     debonding: '0',
   },
-  transaction: { success: false },
+  transaction: { success: false, isSending: false },
 }
 
 const slice = createSlice({
@@ -33,12 +33,15 @@ const slice = createSlice({
     sendTransaction(state, action: PayloadAction<SendTransactionPayload>) {
       state.transaction.error = undefined
       state.transaction.success = false
+      state.transaction.isSending = true
     },
     transactionSent(state, action: PayloadAction<TransactionSent>) {
       state.transaction.success = true
+      state.transaction.isSending = false
     },
     transactionFailed(state, action: PayloadAction<ErrorPayload>) {
       state.transaction.error = action.payload
+      state.transaction.isSending = false
     },
     closeWallet(state, action: PayloadAction<void>) {},
     walletOpened(state, action: PayloadAction<Wallet>) {

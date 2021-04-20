@@ -52,6 +52,7 @@ export interface Wallet {
 }
 
 export interface TransactionStatus {
+  isSending: boolean
   success: boolean
   error?: ErrorPayload
 }

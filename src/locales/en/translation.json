@@ -17,9 +17,6 @@
       "button": "Create wallet"
     }
   },
-  "staking": {
-    "intro": ""
-  },
   "openWallet": {
     "header": "How do you want to open your wallet ?",
     "method": {
@@ -51,7 +48,7 @@
   "account": {
     "summary": {
       "yourAccount": "This is your account",
-      "notYourAccount": "This is not your account. Click here to go to your open wallet.",
+      "notYourAccount": "This is not your account.",
       "balance": {
         "total": "Total balance",
         "available": "Available",
@@ -74,8 +71,10 @@
       "recipient": "Recipient",
       "enterAddress": "Enter an address",
       "success": "Transaction successfully sent",
-      "send": "Send"
-    }
+      "send": "Send",
+      "sending": "Sending transaction"
+    },
+    "loading": "Loading account"
   },
   "common": {
     "amount": "Amount",

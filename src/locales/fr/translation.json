@@ -1,7 +1,4 @@
 {
-  "staking": {
-    "intro": "Intro en français"
-  },
   "menu": {
     "home": "Accueil",
     "wallet": "Portefeuille",
@@ -51,7 +48,7 @@
   "account": {
     "summary": {
       "yourAccount": "Ce compte est le votre.",
-      "notYourAccount": "Ce compte n'est pas le votre. Cliquez-ici pour accéder à votre portefeuille.",
+      "notYourAccount": "Ce compte n'est pas le votre.",
       "balance": {
         "total": "Solde total",
         "available": "Disponible",
@@ -74,8 +71,10 @@
       "recipient": "Destinataire",
       "enterAddress": "Entrez une adresse",
       "success": "Transaction effectuée",
-      "send": "Envoyer"
-    }
+      "send": "Envoyer",
+      "sending": "Envoi de la transaction"
+    },
+    "loading": "Chargement du compte"
   },
   "common": {
     "amount": "Montant",

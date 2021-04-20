@@ -1,5 +1,5 @@
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
-import { Box, Button, Form, FormField, TextInput, Text } from 'grommet'
+import { Box, Button, Form, FormField, TextInput, Text, Layer, Spinner } from 'grommet'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -11,7 +11,7 @@ import { selectTransactionStatus } from '../../slice/selectors'
 export function SendTransaction() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const { error, success } = useSelector(selectTransactionStatus)
+  const { error, success, isSending } = useSelector(selectTransactionStatus)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
 
@@ -36,6 +36,14 @@ export function SendTransaction() {
 
   return (
     <Box border={{ color: 'light-3', size: '1px' }} round="5px" background="white">
+      {isSending && (
+        <Layer position="center" responsive={false}>
+          <Box pad="medium" gap="medium" direction="row" align="center">
+            <Spinner size="medium" />
+            <Text size="large">{t('account.sendTransaction.sending', 'Sending transaction')}</Text>
+          </Box>
+        </Layer>
+      )}
       <Form>
         <Box fill gap="medium" pad="medium">
           <FormField

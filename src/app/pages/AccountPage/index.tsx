@@ -6,6 +6,7 @@
 import { Box, Layer, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
@@ -24,6 +25,7 @@ interface AccountPageParams {
 }
 
 export function AccountPage(props: Props) {
+  const { t } = useTranslation()
   const accountActions = useAccountSlice().actions
   const { address } = useParams<AccountPageParams>()
   const dispatch = useDispatch()
@@ -52,7 +54,7 @@ export function AccountPage(props: Props) {
         <Layer position="center" responsive={false}>
           <Box pad="medium" gap="medium" direction="row" align="center">
             <Spinner size="medium" />
-            <Text size="large">Loading account</Text>
+            <Text size="large">{t('account.loading', 'Loading account')}</Text>
           </Box>
         </Layer>
       )}
