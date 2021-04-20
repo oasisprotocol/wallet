@@ -1,5 +1,10 @@
 # Oasis Wallet
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![codecov](https://codecov.io/gh/esya/oasis-wallet/branch/master/graph/badge.svg)](https://codecov.io/gh/esya/oasis-wallet)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![Build status](https://github.com/esya/oasis-wallet/actions/workflows/build.yaml/badge.svg)](https://github.com/esya/oasis-wallet/actions)
+
 > :warning: This wallet is still a work in progress and is not compatible yet with the Mainnet. **Do not use the private keys and mnemonics given as example in this repository with real ROSE tokens until a stable release is out.**
 
 <img src="docs/images/demo.gif">
