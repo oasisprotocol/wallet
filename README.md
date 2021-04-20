@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/esya/oasis-wallet/branch/master/graph/badge.svg)](https://codecov.io/gh/esya/oasis-wallet)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Build status](https://github.com/esya/oasis-wallet/actions/workflows/build.yaml/badge.svg)](https://github.com/esya/oasis-wallet/actions)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_shield)
 
 > :warning: This wallet is still a work in progress and is not compatible yet with the Mainnet. **Do not use the private keys and mnemonics given as example in this repository with real ROSE tokens until a stable release is out.**
 
@@ -120,3 +121,6 @@ yarn run extract-messages
 ```
 
 To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18next-scanner.config.js](internals/extractMessages/i18next-scanner.config.js), then run the command above once more.
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_large)
