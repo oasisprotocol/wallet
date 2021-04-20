@@ -1,0 +1,424 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toolbar  /> should match snapshot 1`] = `
+.c7 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #f8f8f8;
+  stroke: #f8f8f8;
+}
+
+.c7 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c7 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c7 *[stroke*="#"],
+.c7 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c7 *[fill-rule],
+.c7 *[FILL-RULE],
+.c7 *[fill*="#"],
+.c7 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  min-height: auto;
+  width: 100%;
+  padding: 12px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: solid 2px #DADADA;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  max-width: 600px;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 30px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  border: solid 2px #DADADA;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  border-radius: 3px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.c9 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c11 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.c11:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c11:focus > circle,
+.c11:focus > ellipse,
+.c11:focus > line,
+.c11:focus > path,
+.c11:focus > polygon,
+.c11:focus > polyline,
+.c11:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c11:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c5 {
+  margin: 36px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #DADADA;
+}
+
+.c13 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c8 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(255,255,255,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  padding-left: 48px;
+}
+
+.c8:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c8::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c8::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c8:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c8::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c8::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c8:-moz-placeholder,
+.c8::-moz-placeholder {
+  opacity: 1;
+}
+
+.c3 {
+  position: relative;
+  width: 100%;
+}
+
+.c4 {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.c6 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-packjustify: center;
+  -webkit-justify: center;
+  -ms-flex-packjustify: center;
+  justify: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+  left: 12px;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    border: solid 2px #DADADA;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
+    border: solid 2px #DADADA;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c12 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    width: 6px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <form>
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <div
+            class="c4"
+          >
+            <span
+              class="c5"
+            >
+              toolbar.search.placeholder
+            </span>
+          </div>
+          <div
+            class="c6"
+          >
+            <svg
+              aria-label="Search"
+              class="c7"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15,15 L22,22 L15,15 Z M9.5,17 C13.6421356,17 17,13.6421356 17,9.5 C17,5.35786438 13.6421356,2 9.5,2 C5.35786438,2 2,5.35786438 2,9.5 C2,13.6421356 5.35786438,17 9.5,17 Z"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+          </div>
+          <input
+            autocomplete="off"
+            class="c8"
+            data-testid="searchaddress"
+            value=""
+          />
+        </div>
+        
+      </div>
+    </form>
+  </div>
+  <div
+    class="c9"
+  />
+  <div
+    class="c10"
+  >
+    <button
+      aria-label="Open Menu"
+      class="c11"
+      type="button"
+    >
+      <div
+        class="c12"
+      >
+        <svg
+          aria-label="Network"
+          class="c7"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7.5,7 L7.5,15.5142857 C7.5,19.7571429 13,18.3428571 13,22.1142857 L13,24 M11,10 L7.5,7 L4,10 M16.5,2 L16.5,10.440516 C16.5,14.5083612 13,13.1524128 13,16.7682752 L13,24 M13,5 L16.5,2 L20,5"
+            fill="none"
+            stroke="#000000"
+            stroke-width="2"
+          />
+        </svg>
+        <div
+          class="c9"
+        />
+        <span
+          class="c13"
+        >
+          Testnet
+        </span>
+      </div>
+    </button>
+  </div>
+</div>
+`;

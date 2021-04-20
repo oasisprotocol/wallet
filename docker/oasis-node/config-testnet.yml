@@ -1,0 +1,19 @@
+datadir: /node/data
+
+log:
+  level:
+    default: info
+    tendermint: info
+    tendermint/context: error
+  format: JSON
+
+genesis:
+  file: /node/etc/genesis.json
+
+consensus:
+  tendermint:
+    p2p:
+      # List of seed nodes to connect to.
+      # NOTE: You can add additional seed nodes to this list if you want.
+      seed:
+        - "05EAC99BB37F6DAAD4B13386FF5E087ACBDDC450@34.86.165.6:26656"

@@ -1,0 +1,63 @@
+version: "3.9"
+services:
+  oasis-node-local:
+    build: docker/oasis-node
+    # restart: always
+    volumes:
+      # Our local validator node
+      - ./docker/nodes/local-validator:/init_node
+      # Our local entity
+      - ./docker/entities/local-validator:/entity
+      # Will host blockchain data
+      - oasis-node-data:/node/data
+      # Oasis-node config file
+      - ./docker/oasis-node/config-local.yml:/node/etc/config.yml
+      # Genesis file
+      - ./docker/genesis-local.json:/node/etc/genesis.json
+      # Expose sock
+  oasis-explorer:
+    build: docker/oasis-explorer
+    restart: always
+    ports:
+      - "9001:9001"
+    volumes:
+      - oasis-node-data:/node/data
+      - ./docker/genesis-local.json:/genesis.json
+      - ./docker/oasis-explorer/config-local.json:/.secrets/config.json
+  envoy:
+    image: envoyproxy/envoy:v1.17.1
+    ports:
+      - "42280:42280"
+      - "42281:42281"
+    command: envoy -c /etc/envoy/envoy.yaml --component-log-level upstream:debug,connection:trace
+    environment:
+      ENVOY_UID: 0
+      ENVOY_GID: 0
+    volumes:
+      - oasis-node-data:/node/data
+      - ./docker/envoy.yaml:/etc/envoy/envoy.yaml
+  explorer-postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - explorer-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: oasis 
+      POSTGRES_USER: oasis 
+      POSTGRES_DATABASE: oasis 
+  explorer-clickhouse:
+    image: yandex/clickhouse-server
+    restart: always
+    volumes:
+      - explorer-clickhouse-data:/var/lib/clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+
+volumes:
+  oasis-node-data:
+  postgres-data:
+  explorer-postgres-data:
+  explorer-clickhouse-data:

@@ -1,0 +1,2 @@
+/* --- STATE --- */
+export interface OpenWalletState {}

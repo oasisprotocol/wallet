@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrettyAddress  /> should match snapshot 1`] = `oasis1 aaaa aaaa aaaa`;
+
+exports[`<PrettyAddress  /> should split the address 1`] = `oasis1 aaaa aaaa aaaa`;

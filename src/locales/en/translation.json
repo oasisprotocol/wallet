@@ -1,0 +1,98 @@
+{
+  "menu": {
+    "closeWallet": "Close wallet",
+    "home": "Home",
+    "wallet": "Wallet",
+    "stake": "Stake"
+  },
+  "home": {
+    "existing": {
+      "header": "Access existing wallet",
+      "description": "Open your existing wallet using Ledger, a private key, or your mnemonic phrase.",
+      "button": "Open wallet"
+    },
+    "create": {
+      "header": "Create new wallet",
+      "description": "Create a brand new wallet to send, receive, stake and swap ROSE tokens",
+      "button": "Create wallet"
+    }
+  },
+  "staking": {
+    "intro": ""
+  },
+  "openWallet": {
+    "header": "How do you want to open your wallet ?",
+    "method": {
+      "mnemonic": "Mnemonic",
+      "privateKey": "Private key",
+      "ledger": "Ledger"
+    },
+    "mnemonic": {
+      "header": "Enter your keyphrase",
+      "instruction": "Enter your 12, 18 or 24 words keyphrase below, each words separated by spaces.",
+      "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
+      "enterPhraseHere": "Enter your keyphrase here",
+      "open": "Open my wallet"
+    },
+    "privateKey": {
+      "header": "Enter your private key",
+      "instruction": "Enter your base-64 encoded private key",
+      "error": "Invalid private key",
+      "enterPrivateKeyHere": "Enter your private key here"
+    }
+  },
+  "createWallet": {
+    "newMnemonic": "Generate a new mnemonic",
+    "thisIsYourPhrase": "This is your mnemonic",
+    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
+    "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
+    "confirmSaved": "I saved my keyphrase"
+  },
+  "account": {
+    "summary": {
+      "yourAccount": "This is your account",
+      "notYourAccount": "This is not your account. Click here to go to your open wallet.",
+      "balance": {
+        "total": "Total balance",
+        "available": "Available",
+        "debonding": "Debonding",
+        "delegations": "Staked"
+      },
+      "noTransactionFound": "No transaction found"
+    },
+    "transaction": {
+      "sent": {
+        "header": "Sent <0></0>",
+        "designator": "To"
+      },
+      "received": {
+        "header": "Received <0></0>",
+        "designator": "From"
+      }
+    },
+    "sendTransaction": {
+      "recipient": "Recipient",
+      "enterAddress": "Enter an address",
+      "success": "Transaction successfully sent",
+      "send": "Send"
+    }
+  },
+  "common": {
+    "amount": "Amount",
+    "block": "Block"
+  },
+  "errors": {
+    "unknown": "Unknown error : {{message}}",
+    "invalidPrivateKey": "Invalid private key",
+    "cannotSendToSelf": "Cannot send to yourself",
+    "invalidNonce": "Invalid Nonce (transaction number)",
+    "duplicateTransaction": "Duplicate transaction",
+    "invalidAddress": "Invalid address",
+    "insufficientBalance": "Insufficient balance"
+  },
+  "toolbar": {
+    "search": {
+      "placeholder": "Search for an account or a validator"
+    }
+  }
+}

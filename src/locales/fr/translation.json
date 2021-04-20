@@ -1,0 +1,98 @@
+{
+  "staking": {
+    "intro": "Intro en français"
+  },
+  "menu": {
+    "home": "Accueil",
+    "wallet": "Portefeuille",
+    "stake": "Staking",
+    "closeWallet": "Refermer le portefeuille"
+  },
+  "home": {
+    "existing": {
+      "header": "Ouvrir un portefeuille existant",
+      "description": "Ouvrez votre portefeuille en utilisant un Ledger, votre clé privée, ou votre phrase secrète.",
+      "button": "Ouvrir mon portefeuille"
+    },
+    "create": {
+      "header": "Créer un nouveau portefeuille",
+      "description": "Créez un tout nouveau portefeuille pour envoyer, reçevoir, stake et échanger des tokens ROSE.",
+      "button": "Créer un portefeuille"
+    }
+  },
+  "openWallet": {
+    "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
+    "method": {
+      "mnemonic": "Phrase secrète",
+      "privateKey": "Clé privée",
+      "ledger": "Ledger"
+    },
+    "mnemonic": {
+      "header": "Entrez votre phrase secrète",
+      "instruction": "Entrez votre phrase secrète de 12, 18 ou 24 mots, séparés par des espaces.",
+      "error": "Phrase secrète invalide. Entrez chaque mot séparé d'un espace et dans le bon ordre.",
+      "enterPhraseHere": "Entrez votre phrase secrète ici",
+      "open": "Ouvrir mon portefeuille"
+    },
+    "privateKey": {
+      "header": "Entrez votre clé privée",
+      "instruction": "Entrez votre clé privée au format base64 ci-dessous",
+      "error": "Clé privée invalide",
+      "enterPrivateKeyHere": "Entrez votre clé privée ici"
+    }
+  },
+  "createWallet": {
+    "newMnemonic": "Générer une nouvelle phrase secrète",
+    "thisIsYourPhrase": "Voici votre phrase secrète",
+    "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
+    "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
+    "confirmSaved": "J'ai sauvegardé ma phrase secrète."
+  },
+  "account": {
+    "summary": {
+      "yourAccount": "Ce compte est le votre.",
+      "notYourAccount": "Ce compte n'est pas le votre. Cliquez-ici pour accéder à votre portefeuille.",
+      "balance": {
+        "total": "Solde total",
+        "available": "Disponible",
+        "debonding": "Debonding",
+        "delegations": "Délégué (stake)"
+      },
+      "noTransactionFound": "Aucune transaction trouvée"
+    },
+    "transaction": {
+      "sent": {
+        "header": "<0></0> envoyés",
+        "designator": "Vers"
+      },
+      "received": {
+        "header": "<0></0> reçus",
+        "designator": "Depuis"
+      }
+    },
+    "sendTransaction": {
+      "recipient": "Destinataire",
+      "enterAddress": "Entrez une adresse",
+      "success": "Transaction effectuée",
+      "send": "Envoyer"
+    }
+  },
+  "common": {
+    "amount": "Montant",
+    "block": "Bloc"
+  },
+  "errors": {
+    "unknown": "Erreur inconnue : {{message}}",
+    "invalidPrivateKey": "Clé privée invalide",
+    "cannotSendToSelf": "Impossible d'effectuer une transaction vers votre propre compte",
+    "invalidNonce": "Nonce invalide (numéro de transasction)",
+    "duplicateTransaction": "Transaction doublon",
+    "invalidAddress": "Adresse invalide",
+    "insufficientBalance": "Solde insuffisant"
+  },
+  "toolbar": {
+    "search": {
+      "placeholder": "Cherchez un compte ou un validateur"
+    }
+  }
+}

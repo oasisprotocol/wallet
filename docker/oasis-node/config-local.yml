@@ -1,0 +1,23 @@
+
+datadir: /node/data
+
+log:
+  level:
+    default: info
+    tendermint: info
+    tendermint/context: error
+  format: JSON
+
+worker:
+  registration:
+    entity: /entity/entity.json
+
+genesis:
+  file: /node/etc/genesis.json
+
+debug:
+  dont_blame_oasis: true
+  allow_test_keys: true
+
+consensus:
+  validator: true

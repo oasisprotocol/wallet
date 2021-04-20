@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NetworkSelector  /> should match snapshot 1`] = `
+.c2 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c2 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c2 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c2 *[stroke*="#"],
+.c2 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c2 *[fill-rule],
+.c2 *[FILL-RULE],
+.c2 *[fill*="#"],
+.c2 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.c3 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c0 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.c0:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c0:focus > circle,
+.c0:focus > ellipse,
+.c0:focus > line,
+.c0:focus > path,
+.c0:focus > polygon,
+.c0:focus > polyline,
+.c0:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c0:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    width: 6px;
+  }
+}
+
+<button
+  aria-label="Open Menu"
+  class="c0"
+  type="button"
+>
+  <div
+    class="c1"
+  >
+    <svg
+      aria-label="Network"
+      class="c2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M7.5,7 L7.5,15.5142857 C7.5,19.7571429 13,18.3428571 13,22.1142857 L13,24 M11,10 L7.5,7 L4,10 M16.5,2 L16.5,10.440516 C16.5,14.5083612 13,13.1524128 13,16.7682752 L13,24 M13,5 L16.5,2 L20,5"
+        fill="none"
+        stroke="#000000"
+        stroke-width="2"
+      />
+    </svg>
+    <div
+      class="c3"
+    />
+    <span
+      class="c4"
+    >
+      Testnet
+    </span>
+  </div>
+</button>
+`;

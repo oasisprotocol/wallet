@@ -1,0 +1,34 @@
+{
+  "LogLevel": "debug",
+  "API": {
+    "ListenOnPort": 9001,
+    "CORSAllowedOrigins": ["*"]
+  },
+  "CORSAllowedOrigins": ["*"],
+  "Clickhouse": {
+    "Protocol": "tcp",
+    "Host": "explorer-clickhouse",
+    "Port": 9000,
+    "User": "default",
+    "Password": "",
+    "Database": "default"
+  },
+  "Postgres": {
+    "Host": "explorer-postgres",
+    "Port": 5432,
+    "User": "oasis",
+    "Password": "oasis",
+    "Database": "oasis",
+    "Schema": "public",
+    "DebugMode": true
+  },
+  "Scanner": {
+    "BatchSize": 250,
+    "NodeRPS": 200,
+    "NodeConfig": "unix:/node/data/internal.sock",
+    "StartHeight": 3398334
+  },
+  "Cron": {
+    "ParseValidatorsRegisterInterval": 3600
+  }
+}

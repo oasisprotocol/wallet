@@ -1,0 +1,1223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateWalletPage  /> should match snapshot 1`] = `
+.c11 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #f8f8f8;
+  stroke: #f8f8f8;
+}
+
+.c11 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c11 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c11 *[stroke*="#"],
+.c11 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*="#"],
+.c11 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #DADADA;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 6px;
+  background-color: #F8F8F8;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 12px;
+  margin-right: 12px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-right: 12px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: solid 2px rgba(0,0,0,0.15);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 24px;
+  width: 24px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 6px;
+  background-color: #F8F8F8;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 6px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c12 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c9 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
+  border-radius: 18px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c9:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
+}
+
+.c9:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c25 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
+  border-radius: 18px;
+  opacity: 0.3;
+  cursor: default;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c25:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c25:focus > circle,
+.c25:focus > ellipse,
+.c25:focus > line,
+.c25:focus > path,
+.c25:focus > polygon,
+.c25:focus > polyline,
+.c25:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c25:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c14 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 56px;
+  max-width: 1200px;
+  font-weight: 600;
+}
+
+.c16 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c17 {
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFAA15;
+  font-weight: bold;
+}
+
+.c5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.c19:hover input:not([disabled]) + div,
+.c19:hover input:not([disabled]) + span {
+  border-color: #000000;
+}
+
+.c22 {
+  opacity: 0;
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.c22:checked + span > span {
+  left: calc( 48px - 24px );
+  background: #7D4CDB;
+}
+
+.c21 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 12px 12px;
+  padding: 12px;
+}
+
+.c2 {
+  display: grid;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width:768px) {
+  .c7 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c7 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    margin-top: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c13 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c13 {
+    margin-left: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c13 {
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c20 {
+    margin-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c23 {
+    border: solid 2px rgba(0,0,0,0.15);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c24 {
+    margin-top: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c4 {
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
+    font-size: 34px;
+    line-height: 40px;
+    max-width: 816px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding: 6px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            1
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            2
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            3
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            4
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            5
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            6
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            7
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            8
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            9
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            10
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            11
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            12
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            13
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            14
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            15
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            16
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            17
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            18
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            19
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            20
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            21
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            22
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            23
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+      <div
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          <span
+            class="c5"
+            style="user-select: none;"
+          >
+            24
+            .
+          </span>
+        </div>
+        <div
+          class="c6"
+        >
+          <strong>
+            test
+          </strong>
+        </div>
+      </div>
+    </div>
+    <div
+      class="c7"
+      style="word-spacing: 14px;"
+    >
+      <strong>
+        test test test test test test test test test test test test test test test test test test test test test test test test
+      </strong>
+      <div
+        class="c8"
+      >
+        <button
+          class="c9"
+          style="border-radius: 4px;"
+          type="button"
+        >
+          <div
+            class="c10"
+          >
+            <svg
+              aria-label="Refresh"
+              class="c11"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20,8 C18.5974037,5.04031171 15.536972,3 12,3 C7.02943725,3 3,7.02943725 3,12 C3,16.9705627 7.02943725,21 12,21 L12,21 C16.9705627,21 21,16.9705627 21,12 M21,3 L21,9 L15,9"
+                fill="none"
+                stroke="#000"
+                stroke-width="2"
+              />
+            </svg>
+            <div
+              class="c12"
+            />
+            createWallet.newMnemonic
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="c13"
+  >
+    <h1
+      class="c14"
+    >
+      createWallet.thisIsYourPhrase
+    </h1>
+    <div
+      class="c15"
+    >
+      <span
+        class="c16"
+      >
+        createWallet.instruction
+      </span>
+    </div>
+    <span
+      class="c17"
+    >
+      createWallet.doNotShare
+    </span>
+    <div
+      class="c18"
+    >
+      <label
+        class="c19"
+      >
+        <div
+          class="c20 c21"
+        >
+          <input
+            class="c22"
+            type="checkbox"
+          />
+          <div
+            class="c23 "
+          />
+        </div>
+        <span>
+          createWallet.confirmSaved
+        </span>
+      </label>
+      <div
+        class="c24"
+      >
+        <button
+          class="c25"
+          disabled=""
+          style="border-radius: 4px;"
+          type="submit"
+        >
+          openWallet.mnemonic.open
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

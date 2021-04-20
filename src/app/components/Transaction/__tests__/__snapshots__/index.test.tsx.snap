@@ -1,0 +1,635 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Transaction  /> should match snapshot 1`] = `
+.c3 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #f8f8f8;
+  stroke: #f8f8f8;
+}
+
+.c3 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c3 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c3 *[stroke*="#"],
+.c3 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c3 *[fill-rule],
+.c3 *[FILL-RULE],
+.c3 *[fill*="#"],
+.c3 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c10 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #7D4CDB;
+  stroke: #7D4CDB;
+}
+
+.c10 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c10 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c10 *[stroke*="#"],
+.c10 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c10 *[fill-rule],
+.c10 *[FILL-RULE],
+.c10 *[fill*="#"],
+.c10 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c17 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #777777;
+  stroke: #777777;
+}
+
+.c17 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c17 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c17 *[stroke*="#"],
+.c17 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c17 *[fill-rule],
+.c17 *[FILL-RULE],
+.c17 *[fill*="#"],
+.c17 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #F8F8F8;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.20);
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 0px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 24px;
+  cursor: pointer;
+}
+
+.c8:hover {
+  background-color: rgba(237,237,237,1);
+  color: #000000;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-right: 6px;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #F2F2F2;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.c4 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c15 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 24px;
+}
+
+.c16 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+  line-height: 0;
+  padding: 12px;
+}
+
+.c16:hover {
+  background-color: rgba(221,221,221,0.4);
+  color: #000000;
+}
+
+.c16:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus > circle,
+.c16:focus > ellipse,
+.c16:focus > line,
+.c16:focus > path,
+.c16:focus > polygon,
+.c16:focus > polyline,
+.c16:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c12 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c14 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c7 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fit,minmax(min(96px,100%),1fr) );
+  grid-gap: 0px 0px;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c6 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    padding-right: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c13 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c4 {
+    width: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
+    width: 12px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <header
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <svg
+        aria-label="Transaction"
+        class="c3"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M2,7 L20,7 M16,2 L21,7 L16,12 M22,17 L4,17 M8,12 L3,17 L8,22"
+          fill="none"
+          stroke="#000"
+          stroke-width="2"
+        />
+      </svg>
+      <div
+        class="c4"
+      />
+      <span
+        class="c5"
+      >
+        account.transaction.received.header
+      </span>
+    </div>
+  </header>
+  <div
+    class="c6"
+  >
+    <div
+      class="c7"
+    >
+      <div
+        class="c8"
+        tabindex="0"
+      >
+        <div
+          class="c9"
+        >
+          <svg
+            aria-label="Money"
+            class="c10"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16,16 C16,14.8954305 12.8659932,14 9,14 C5.13400675,14 2,14.8954305 2,16 C2,17.1045695 5.13400675,18 9,18 C12.8659932,18 16,17.1045695 16,16 Z M2,16 L2,20.9367547 C2,22.0762536 5.13400675,23 9,23 C12.8659932,23 16,22.0762537 16,20.9367548 L16,16 M9,5 C4.581722,5 1,5.8954305 1,7 C1,8.1045695 4.581722,9 9,9 M1,7 L1,12.0000002 C1,13.0128881 4.581722,14 9,14 M23,4 C23,2.8954305 19.9004329,2 16.0769231,2 C12.2534133,2 9.15384615,2.8954305 9.15384615,4 C9.15384615,5.1045695 12.2534133,6 16.0769231,6 C19.9004329,6 23,5.1045695 23,4 Z M16,16 C19.8235098,16 23.0000002,15.0128879 23.0000002,14 L23,4 M9.15384615,3.99999999 L9.15384615,14.1660042 M8.99999999,9.00000001 C8.99999999,10.0128879 12.2534135,11 16.0769233,11 C19.9004331,11 23.0000004,10.0128879 23.0000004,9.00000001"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div
+          class="c4"
+        />
+        <div
+          class="c11"
+        >
+          <span
+            class="c12"
+          >
+            common.amount
+          </span>
+          <span
+            class="c5"
+          >
+            0.001
+             
+            TEST
+          </span>
+        </div>
+      </div>
+      <div
+        class="c8"
+        tabindex="0"
+      >
+        <div
+          class="c9"
+        >
+          <svg
+            aria-label="ContactInfo"
+            class="c10"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5,12 C3.343,12 2,10.657 2,9 C2,7.343 3.343,6 5,6 C6.657,6 8,7.343 8,9 C8,10.657 6.657,12 5,12 Z M9,18 L9,16 C9,13.7504 7.2128,12 4.964,12 L5.0184,12 C2.7688,12 1,13.7504 1,16 L1,18 M12,7 L24,7 M12,17 L22,17 M12,12 L19,12"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div
+          class="c4"
+        />
+        <div
+          class="c11"
+        >
+          <span
+            class="c12"
+          >
+            account.transaction.received.designator
+          </span>
+          <span
+            class="c5"
+          >
+            source...source
+          </span>
+        </div>
+      </div>
+      <div
+        class="c8"
+        tabindex="0"
+      >
+        <div
+          class="c9"
+        >
+          <svg
+            aria-label="Cube"
+            class="c10"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12,2 L22,7 L22,17 L12,22 L2,17 L2,7 L12,2 Z M2,7 L12,12 L22,7 M12,12 L12,21.9999998 L12,12 Z"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+        <div
+          class="c4"
+        />
+        <div
+          class="c11"
+        >
+          <span
+            class="c12"
+          >
+            common.block
+          </span>
+          <span
+            class="c5"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer
+    class="c13"
+  >
+    <span
+      class="c14"
+    >
+      4/10/2021, 1:30:55 AM
+    </span>
+    <div
+      class="c15"
+    />
+    <div
+      class="c2"
+    >
+      <button
+        class="c16"
+        type="button"
+      >
+        <svg
+          aria-label="CircleInformation"
+          class="c17"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,10 L12,18 M12,6 L12,8"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+      <button
+        class="c16"
+        type="button"
+      >
+        <svg
+          aria-label="ShareOption"
+          class="c17"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M18,8 C19.6568542,8 21,6.65685425 21,5 C21,3.34314575 19.6568542,2 18,2 C16.3431458,2 15,3.34314575 15,5 C15,6.65685425 16.3431458,8 18,8 Z M6,15 C7.65685425,15 9,13.6568542 9,12 C9,10.3431458 7.65685425,9 6,9 C4.34314575,9 3,10.3431458 3,12 C3,13.6568542 4.34314575,15 6,15 Z M18,22 C19.6568542,22 21,20.6568542 21,19 C21,17.3431458 19.6568542,16 18,16 C16.3431458,16 15,17.3431458 15,19 C15,20.6568542 16.3431458,22 18,22 Z M16,18 L8,13 M16,6 L8,11"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </svg>
+      </button>
+    </div>
+  </footer>
+</div>
+`;

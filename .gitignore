@@ -1,0 +1,35 @@
+# Don't check auto-generated stuff into git
+.husky
+.nyc_output
+cypress-coverage
+coverage
+build
+node_modules
+stats.json
+.pnp
+.pnp.js
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.env.development.local
+.env.test.local
+.env.production.local
+
+# boilerplate internals
+generated-cra-app
+.cra-template-rb
+template
+
+# Docker
+node
+
+# Local debug
+debug*.c
+
+# Cypress
+cypress/screenshots
+cypress/videos

@@ -1,0 +1,1046 @@
+swagger: '2.0'
+info:
+  title: OasisExplorer API
+  version: "1"
+paths:
+  '/data/info':
+    get:
+      operationId: getInfo
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Application info endpoint
+          schema:
+            $ref: '#/definitions/Info'
+        '400':
+          description: Bad request
+        '500':
+          description: Internal error
+      tags:
+        - App Info
+  '/data/accounts':
+    get:
+      operationId: getAccountsList
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+        - in: query
+          name: sort_column
+          type: string
+          enum: [created_at, general_balance, escrow_balance, escrow_share, operations_amount]
+        - in: query
+          name: sort_side
+          type: string
+          enum: [asc,desc]
+      responses:
+        '200':
+          description: Query compatibility endpoint for account
+          schema:
+            items:
+              $ref: '#/definitions/AccountListItem'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal error
+      tags:
+        - Accounts
+  '/data/accounts/{account_id}':
+    get:
+      operationId: getAccount
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Query compatibility endpoint for account
+          schema:
+            $ref: >-
+              #/definitions/AccountsRow
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal error
+      tags:
+        - Accounts
+  '/data/validators':
+    get:
+      operationId: getValidatorsList
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        '200':
+          description: Query compatibility endpoint for account
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorRow'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal error
+      tags:
+        - Accounts
+  '/data/validators/search':
+    get:
+      operationId: getPublicValidatorsSearchList
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Query compatibility endpoint for account
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorEntity'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal error
+      tags:
+        - Accounts
+  '/data/validator/{account_id}':
+    get:
+      operationId: getValidatorInfo
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: limit
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorRow'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/validator/{account_id}/delegators':
+    get:
+      operationId: getValidatorDelegatorsList
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: limit
+          type: integer
+          default: 50
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorDelegator'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/chart/validator_stat/{account_id}':
+    get:
+      operationId: getValidatorStatChart
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorStat'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/chart/balance/{account_id}':
+    get:
+      operationId: getAccountBalanceChart
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks
+          schema:
+            items:
+              $ref: '#/definitions/BalanceChart'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/blocks':
+    get:
+      operationId: getBlocksList
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          default: 20
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+        - in: query
+          name: from
+          description: Timestamp of time interval start
+          type: integer
+        - in: query
+          name: to
+          description: Timestamp of time interval end
+          type: integer
+        - collectionFormat: multi
+          in: query
+          items:
+            type: string
+          name: block_id
+          description: Not used
+          type: array
+        - collectionFormat: multi
+          in: query
+          items:
+            type: integer
+          name: block_level
+          description: Not used
+          type: array
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks
+          schema:
+            items:
+              $ref: '#/definitions/BlocksRow'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Blocks
+  '/data/transactions':
+    get:
+      operationId: getTransactionsList
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          default: 20
+          minimum: 1
+          maximum: 500
+        - in: query
+          name: offset
+          description: Offset
+          type: integer
+          default: 0
+          minimum: 0
+        - in: query
+          name: from
+          description: Timestamp of time interval start
+          type: integer
+        - in: query
+          name: to
+          description: Timestamp of time interval end
+          type: integer
+        - in: query
+          name: sender
+          description: Sender address
+          type: string
+        - in: query
+          name: receiver
+          description: Receiver address
+          type: string
+        - in: query
+          name: account_id
+          description: Get transactions by account
+          type: string
+        - collectionFormat: multi
+          in: query
+          items:
+            type: string
+          name: block_id
+          type: array
+        - collectionFormat: multi
+          in: query
+          items:
+            type: integer
+          name: block_level
+          description: Not used
+          type: array
+        - collectionFormat: multi
+          in: query
+          items:
+            type: string
+          name: operation_id
+          description: Transaction hash
+          type: array
+        - collectionFormat: multi
+          in: query
+          items:
+            type: string
+          name: operation_kind
+          type: array
+      responses:
+        '200':
+          description: Query compatibility endpoint for transactions
+          schema:
+            items:
+              $ref: '#/definitions/OperationsRow'
+            type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - OperationsList
+  '/chart/transactions_volume':
+    get:
+      operationId: getTransactionVolume
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for transactions
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/esrow_ratio':
+    get:
+      operationId: getEscrowRatio
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for escrow ratio chart
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/accounts/count':
+    get:
+      operationId: getAccountsCount
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for account count chart
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/blocks/avg_time':
+    get:
+      operationId: getBlocksAvgTime
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [H,D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for blocks avg time chart
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/fees/volume':
+    get:
+      operationId: getFeeVolume
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [H,D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for fees volume chart
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/operations/count':
+    get:
+      operationId: getOperationsCount
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [H,D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for operations count chart
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/reclaim_amount':
+    get:
+      operationId: getReclaimAmount
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: frame
+          type: string
+          enum: [D]
+          required: true
+        - in: query
+          name: from
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: to
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for reclaim txs amount by day
+          schema:
+            items:
+              $ref: '#/definitions/ChartsData'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+  '/chart/top_escrow_ratio':
+    get:
+      operationId: getTopEscrowRatio
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: limit
+          type: integer
+          format: int64
+          default: 10
+      responses:
+        '200':
+          description: Query compatibility endpoint for top escrow ratio accounts
+          schema:
+            items:
+              $ref: '#/definitions/AccountEscrowRatio'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Charts
+definitions:
+  Info:
+    properties:
+      height:
+        format: int64
+        type: integer
+      top_stake_weight:
+        type: number
+        format: float64
+    type: object
+  AccountListItem:
+    properties:
+      account_id:
+        type: string
+      created_at:
+        format: int64
+        type: integer
+      general_balance:
+        format: int64
+        type: integer
+      escrow_balance:
+        format: int64
+        type: integer
+      escrow_balance_share:
+        format: int64
+        type: integer
+      delegations_balance:
+        format: int64
+        type: integer
+      debonding_delegations_balance:
+        format: int64
+        type: integer
+      delegate:
+        type: string
+      type:
+        type: string
+    required:
+      - general_balance
+      - escrow_balance
+      - escrow_balance_share
+      - account_id
+    type: object
+  ValidatorInfo:
+    properties:
+      status:
+        type: string
+      node_address:
+        type: string
+      consensus_address:
+        type: string
+      depositors_count:
+        format: int64
+        type: integer
+      blocks_count:
+        format: int64
+        type: integer
+      signatures_count:
+        format: int64
+        type: integer
+      rate_change_interval:
+        format: int64
+        type: integer
+      rate_bound_lead:
+        format: int64
+        type: integer
+      max_rate_steps:
+        format: int64
+        type: integer
+      max_bound_steps:
+        format: int64
+        type: integer
+  ValidatorDelegator:
+    properties:
+      account_id:
+        type: string
+      escrow_amount:
+        format: int64
+        type: integer
+      delegate_since:
+        format: int64
+        type: integer
+  AccountsRow:
+    properties:
+      address:
+        type: string
+      liquid_balance:
+        format: int64
+        type: integer
+      escrow_balance:
+        format: int64
+        type: integer
+      debonding_balance:
+        format: int64
+        type: integer
+      total_balance:
+        format: int64
+        type: integer
+      delegations_balance:
+        format: int64
+        type: integer
+      debonding_delegations_balance:
+        format: int64
+        type: integer
+      created_at:
+        format: int64
+        type: integer
+      last_active:
+        format: int64
+        type: integer
+      nonce:
+        format: int64
+        type: integer
+      type:
+        format: string
+      entity_address:
+        format: string
+      validator:
+        $ref: '#/definitions/ValidatorInfo'
+    required:
+      - address
+      - liquid_balance
+      - escrow_balance
+      - debonding_balance
+    type: object
+  ValidatorRow:
+    properties:
+      account_id:
+        type: string
+      account_name:
+        type: string
+      node_id:
+        type: string
+      fee:
+        format: int64
+        type: integer
+      escrow_balance:
+        format: int64
+        type: integer
+      escrow_shares:
+        format: int64
+        type: integer
+      general_balance:
+        format: int64
+        type: integer
+      gebonding_balance:
+        format: int64
+        type: integer
+      delegations_balance:
+        format: int64
+        type: integer
+      debonding_delegations_balance:
+        format: int64
+        type: integer
+      media_info:
+        $ref: '#/definitions/ValidatorMegiaInfo'
+      available_score:
+        format: int64
+        type: integer
+      validate_since:
+        format: int64
+        type: integer
+      status:
+        type: string
+      node_address:
+        type: string
+      consensus_address:
+        type: string
+      depositors_count:
+        format: int64
+        type: integer
+      blocks_count:
+        format: int64
+        type: integer
+      signatures_count:
+        format: int64
+        type: integer
+    required:
+      - account_id
+      - status
+      - escrow_balance
+    type: object
+  ValidatorMegiaInfo:
+    properties:
+      website_link:
+        type: string
+      email_address:
+        type: string
+      twitter_acc:
+        type: string
+      tg_chat:
+        type: string
+      medium_link:
+        type: string
+  ValidatorStat:
+    properties:
+      timestamp:
+        format: int64
+        type: integer
+      availability_score:
+        format: int64
+        type: integer
+      blocks_count:
+        format: int64
+        type: integer
+      signatures_count:
+        format: int64
+        type: integer
+  BlocksRow:
+    properties:
+      timestamp:
+        type: integer
+        format: int64
+      hash:
+        type: string
+      level:
+        format: int64
+        type: integer
+      number_of_txs:
+        format: int64
+        type: integer
+      epoch:
+        format: int64
+        type: integer
+      proposer:
+        type: string
+      numbet_of_signatures:
+        format: int64
+        type: integer
+      fees:
+        format: int64
+        type: integer
+      gas_used:
+        format: int64
+        type: integer
+    required:
+      - timestamp
+      - hash
+      - level
+    type: object
+  OperationsRow:
+    properties:
+      level:
+        format: int64
+        type: integer
+      hash:
+        type: string
+      nonce:
+        type: integer
+        format: int64
+      timestamp:
+        type: integer
+        format: int64
+      type:
+        type: string
+      from:
+        type: string
+      to:
+        type: string
+      amount:
+        type: integer
+        format: int64
+      escrow_amount:
+        type: integer
+        format: int64
+      reclaim_escrow_amount:
+        type: integer
+        format: int64
+      fee:
+        format: int64
+        type: integer
+      gas_used:
+        format: int64
+        type: integer
+      gas_price:
+        format: int64
+        type: integer
+    type: object
+  ChartsData:
+    properties:
+      timestamp:
+        type: integer
+        format: int64
+      transactions_volume:
+        type: integer
+        format: int64
+      escrow_ratio:
+        type: number
+        format: float64
+      avg_block_time:
+        type: number
+        format: float64
+      accounts_count:
+        type: integer
+        format: int64
+      fees:
+        type: integer
+        format: int64
+      operations_count:
+        type: integer
+        format: int64
+      reclaim_amount:
+        type: integer
+        format: int64
+    required:
+      - timestamp
+  BalanceChart:
+    properties:
+      timestamp:
+        type: integer
+        format: int64
+      total_balance:
+        type: integer
+        format: int64
+      escrow_balance:
+        type: integer
+        format: int64
+      debonding_balance:
+        type: integer
+        format: int64
+      delegations_balance:
+        format: int64
+        type: integer
+      debonding_delegations_balance:
+        format: int64
+        type: integer
+      self_stake_balance:
+        type: integer
+        format: int64
+    required:
+      - timestamp
+  AccountEscrowRatio:
+    properties:
+      account_id:
+        type: string
+      account_name:
+        type: string
+      escrow_ratio:
+        type: number
+        format: float64
+  ValidatorEntity:
+    properties:
+      account_id:
+        type: string
+      account_name:
+        type: string

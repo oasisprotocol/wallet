@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should render and match the snapshot 1`] = `
+<Memo(Connect(ConnectedRouterWithContext))
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Helmet
+    defaultTitle="Oasis Wallet"
+    defer={true}
+    encodeSpecialCharacters={true}
+    htmlAttributes={
+      Object {
+        "lang": "en-US",
+      }
+    }
+    titleTemplate="%s - Oasis Wallet"
+  >
+    <meta
+      content="A wallet for Oasis"
+      name="description"
+    />
+  </Helmet>
+  <Box
+    direction="row-responsive"
+    fill={true}
+  >
+    <Navigation />
+    <Box
+      flex={true}
+    >
+      <Styled(Main)
+        background="light-2"
+      >
+        <Toolbar />
+        <TransitionGroup
+          childFactory={[Function]}
+          component="div"
+        >
+          <Switch>
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/create-wallet"
+            />
+            <TransitionRoute
+              component={[Function]}
+              path="/open-wallet"
+            />
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/wallet"
+            />
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/stake"
+            />
+            <TransitionRoute
+              component={[Function]}
+              path="/account/:address"
+            />
+          </Switch>
+        </TransitionGroup>
+      </Styled(Main)>
+    </Box>
+  </Box>
+</Memo(Connect(ConnectedRouterWithContext))>
+`;

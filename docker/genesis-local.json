@@ -1,0 +1,211 @@
+{
+  "height": 1,
+  "genesis_time": "2021-04-01T06:51:21.698394Z",
+  "chain_id": "test",
+  "registry": {
+    "params": {
+      "debug_allow_unroutable_addresses": true,
+      "gas_costs": {
+        "deregister_entity": 1000,
+        "register_entity": 1000,
+        "register_node": 1000,
+        "register_runtime": 1000,
+        "runtime_epoch_maintenance": 1000,
+        "unfreeze_node": 1000,
+        "update_keymanager": 1000
+      },
+      "max_node_expiration": 5,
+      "enable_runtime_governance_models": {
+        "entity": true
+      }
+    },
+    "entities": [
+      {
+        "untrusted_raw_value": "o2F2AmJpZFggiv5zYBB5tokUy5wlC624BN+3bz7R1sqFz9iej2ieIldlbm9kZXOBWCB0CawrxLpxVZhTlEUvGqhMDHheCE7Vucfo1OFGvIxY+A==",
+        "signature": {
+          "public_key": "iv5zYBB5tokUy5wlC624BN+3bz7R1sqFz9iej2ieIlc=",
+          "signature": "ldXiL6t4BrBhl4azMgNGEfvnOP6NyjCzL9XYDDv6vbheelqjRpwVxQayCf8rkihjGYIn0SOpTVUBV1Qca6hBAw=="
+        }
+      },
+      {
+        "untrusted_raw_value": "omF2AmJpZFggTqUyj5Q+9vZtqu10yw6Zw7HEX3Ywe0JQA9vHyzY47TU=",
+        "signature": {
+          "public_key": "TqUyj5Q+9vZtqu10yw6Zw7HEX3Ywe0JQA9vHyzY47TU=",
+          "signature": "UiuPWSjYdXih3iEGBTPyWTWoXb4cXfPQi4xnrlgooXpin876uZe4Uy3D5tLYrqDCGpDJ+r/8r0gTJ6aIwCuvBQ=="
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "untrusted_raw_value": "qmF2AWJpZFggdAmsK8S6cVWYU5RFLxqoTAx4XghO1bnH6NThRryMWPhjcDJwomJpZFgggvrk1fMgmqziBnajwiL1sKI4wb+I7WmDWgD67J6baz5pYWRkcmVzc2Vz9mN0bHOjZ3B1Yl9rZXlYIEAhtYfJBhilIgg6Nk/QIjVV5nPxjmd6GF+bAf8TxM8faWFkZHJlc3Nlc/ZsbmV4dF9wdWJfa2V5WCB/CV5ZAeAmjqy2G74NxCKqU72dm43fACJ3wAa+7fiCxmVyb2xlcwhmYmVhY29uoWVwb2ludFhBBPayxbEplbPzmt1WhXi47FZBfX1Q/G54ZsLbtrCsV/qOn6ZkWB5nnQ8EI4eZfMcAwtK174XTMBz6cfBQIa8Ayu1ocnVudGltZXP2aWNvbnNlbnN1c6JiaWRYIEoUrIsD30fMx/NgxW95BV7xz4zrCYIBVEdpoLXa6/YfaWFkZHJlc3Nlc4GiYmlkWCCC+uTV8yCarOIGdqPCIvWwojjBv4jtaYNaAPrsnptrPmdhZGRyZXNzo2JJUFAAAAAAAAAAAAAA//9/AAABZFBvcnQZaCBkWm9uZWBpZW50aXR5X2lkWCCK/nNgEHm2iRTLnCULrbgE37dvPtHWyoXP2J6PaJ4iV2pleHBpcmF0aW9uAA==",
+        "signatures": [
+          {
+            "public_key": "dAmsK8S6cVWYU5RFLxqoTAx4XghO1bnH6NThRryMWPg=",
+            "signature": "ye2IPaP52d+MHru16sW9t7b4lHQp39iqRHXlcQdLmUIWJmLe8FIboNrykcmaqYArzqPAhctEFCzalea/aYh/DA=="
+          },
+          {
+            "public_key": "gvrk1fMgmqziBnajwiL1sKI4wb+I7WmDWgD67J6baz4=",
+            "signature": "hzVHOJ+d5ErkrQquITTV1LjEW/fesaVM4ZBi5OF4a/pS8oab/nIWGk1xj3k01MsO0n3+CqQq/UjUrSEILTtQDg=="
+          },
+          {
+            "public_key": "ShSsiwPfR8zH82DFb3kFXvHPjOsJggFUR2mgtdrr9h8=",
+            "signature": "Ie2z1zaWVhMR0sUHUni7yw8aorO6O7B/pOTF5RLR8FwK2oWt6CAjXUEwplVaFQMHiqDOYi2I7tz/AUq3LsQ0Bw=="
+          },
+          {
+            "public_key": "QCG1h8kGGKUiCDo2T9AiNVXmc/GOZ3oYX5sB/xPEzx8=",
+            "signature": "Ioo3RG4Y7vRteCgrK3ADPhSzrnUE22KnavvthLMedJ1n1szFPLwp7Q3jCDKRMwVxfnZ5tpklvRnWC1iLXGWfCg=="
+          }
+        ]
+      }
+    ]
+  },
+  "roothash": {
+    "params": {
+      "gas_costs": {
+        "compute_commit": 1000,
+        "evidence": 1000,
+        "proposer_timeout": 1000
+      },
+      "max_runtime_messages": 128,
+      "max_evidence_age": 0
+    }
+  },
+  "staking": {
+    "params": {
+      "thresholds": {
+        "entity": "0",
+        "node-compute": "0",
+        "node-keymanager": "0",
+        "node-storage": "0",
+        "node-validator": "0",
+        "runtime-compute": "0",
+        "runtime-keymanager": "0"
+      },
+      "commission_schedule_rules": {},
+      "min_delegation": "0",
+      "fee_split_weight_propose": "0",
+      "fee_split_weight_vote": "1",
+      "fee_split_weight_next_propose": "0",
+      "reward_factor_epoch_signed": "0",
+      "reward_factor_block_proposed": "0"
+    },
+    "token_symbol": "TEST",
+    "token_value_exponent": 0,
+    "total_supply": "1000000000000000",
+    "common_pool": "0",
+    "last_block_fees": "0",
+    "governance_deposits": "0",
+    "ledger": {
+      "oasis1qzzd6khm3acqskpxlk9vd5044cmmcce78y5l6000": {
+        "general": {
+          "balance": "100000000000000"
+        },
+        "escrow": {
+          "active": {
+            "balance": "0",
+            "total_shares": "1"
+          },
+          "debonding": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "commission_schedule": {},
+          "stake_accumulator": {}
+        }
+      },
+      "oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn": {
+        "general": {
+          "balance": "400000000000000"
+        },
+        "escrow": {
+          "active": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "debonding": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "commission_schedule": {},
+          "stake_accumulator": {}
+        }
+      },
+      "oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk": {
+        "general": {
+          "balance": "500000000000000"
+        },
+        "escrow": {
+          "active": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "debonding": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "commission_schedule": {},
+          "stake_accumulator": {}
+        }
+      }
+    },
+    "delegations": {
+      "oasis1qzzd6khm3acqskpxlk9vd5044cmmcce78y5l6000": {
+        "oasis1qzzd6khm3acqskpxlk9vd5044cmmcce78y5l6000": {
+          "shares": "1"
+        }
+      }
+    }
+  },
+  "keymanager": {},
+  "scheduler": {
+    "params": {
+      "min_validators": 1,
+      "max_validators": 100,
+      "max_validators_per_entity": 1,
+      "reward_factor_epoch_election_any": "0"
+    }
+  },
+  "beacon": {
+    "base": 0,
+    "params": {
+      "backend": "insecure",
+      "insecure_parameters": {
+        "interval": 86400
+      }
+    }
+  },
+  "governance": {
+    "params": {
+      "gas_costs": {
+        "cast_vote": 1000,
+        "submit_proposal": 1000
+      },
+      "min_proposal_deposit": "100",
+      "voting_period": 100,
+      "quorum": 90,
+      "threshold": 90,
+      "upgrade_min_epoch_diff": 300,
+      "upgrade_cancel_min_epoch_diff": 300
+    }
+  },
+  "consensus": {
+    "backend": "tendermint",
+    "params": {
+      "timeout_commit": 1000000000,
+      "skip_timeout_commit": false,
+      "empty_block_interval": 0,
+      "max_tx_size": 32768,
+      "max_block_size": 22020096,
+      "max_block_gas": 0,
+      "max_evidence_size": 1048576,
+      "state_checkpoint_interval": 10000,
+      "state_checkpoint_num_kept": 2,
+      "state_checkpoint_chunk_size": 8388608,
+      "gas_costs": {
+        "tx_byte": 1
+      }
+    }
+  },
+  "halt_epoch": 18446744073709551615,
+  "extra_data": null
+}
