@@ -81,10 +81,8 @@ jobs:
         files: ./jest-coverage/coverage-final.json
         flags: jest
         fail_ci_if_error: true # optional (default = false)
-        verbose: true
     - uses: codecov/codecov-action@v1
       with:
         files: ./cypress-coverage/coverage-final.json
         flags: cypress 
         fail_ci_if_error: true # optional (default = false)
-        verbose: true
