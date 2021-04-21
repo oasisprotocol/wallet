@@ -4,7 +4,7 @@
  *
  */
 import { ShortAddress } from 'app/components/ShortAddress'
-import { selectAddress } from 'app/pages/WalletPage/slice/selectors'
+import { selectAddress } from 'app/state/wallet/selectors'
 import { Box, Button, Heading, Layer, Text } from 'grommet'
 import { List } from 'grommet-icons/icons'
 import React, { memo, useState } from 'react'

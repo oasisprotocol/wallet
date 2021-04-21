@@ -10,7 +10,7 @@ import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useWalletSlice } from '../WalletPage/slice'
+import { useWalletSlice } from '../../state/wallet'
 import { useCreateWalletSlice } from './slice'
 import { selectCheckbox, selectMnemonic } from './slice/selectors'
 

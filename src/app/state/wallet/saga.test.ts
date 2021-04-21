@@ -6,10 +6,10 @@ import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { WalletErrors } from 'types/errors'
 
-import { walletActions as actions, walletActions } from '../slice'
-import { rootWalletSaga, sendTransaction, walletSaga } from '../slice/saga'
-import { selectAddress, selectWallet } from '../slice/selectors'
-import { WalletState, WalletType } from '../slice/types'
+import { walletActions as actions, walletActions } from '.'
+import { rootWalletSaga, sendTransaction, walletSaga } from './saga'
+import { selectAddress, selectWallet } from './selectors'
+import { WalletState, WalletType } from './types'
 
 describe('Wallet Sagas', () => {
   const validMnemonic =

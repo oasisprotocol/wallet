@@ -1,4 +1,4 @@
-import { useWalletSlice } from 'app/pages/WalletPage/slice'
+import { useWalletSlice } from 'app/state/wallet'
 import { Box, Form, Heading, Paragraph, FormField, TextArea, Button } from 'grommet'
 import { decode } from 'base64-arraybuffer'
 import * as React from 'react'

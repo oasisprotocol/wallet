@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { walletActions } from '../../slice'
-import { selectTransactionStatus } from '../../slice/selectors'
+import { walletActions } from '../../../../state/wallet'
+import { selectTransactionStatus } from '../../../../state/wallet/selectors'
 
 export function SendTransaction() {
   const { t } = useTranslation()

@@ -1,9 +1,9 @@
 // import { GithubRepoFormState } from 'app/pages/HomePage/Features/GithubRepoForm/slice/types';
 import { ThemeState } from 'styles/theme/slice/types'
-import { WalletState } from 'app/pages/WalletPage/slice/types'
+import { WalletState } from 'app/state/wallet/types'
 import { CreateWalletState } from 'app/pages/CreateWalletPage/slice/types'
 import { OpenWalletState } from 'app/pages/OpenWalletPage/slice/types'
-import { AccountState } from 'app/pages/AccountPage/slice/types'
+import { AccountState } from 'app/state/account/types'
 import { NetworkState } from 'app/state/network/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 

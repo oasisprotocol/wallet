@@ -7,7 +7,7 @@ import * as QRCode from 'qrcode.react'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { BalanceDetails } from '../../slice/types'
+import { BalanceDetails } from '../../../../state/account/types'
 
 export interface AccountSummaryProps {
   address: string

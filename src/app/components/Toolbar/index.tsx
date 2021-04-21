@@ -3,7 +3,7 @@
  * Toolbar
  *
  */
-import { selectStatus } from 'app/pages/WalletPage/slice/selectors'
+import { selectStatus } from 'app/state/wallet/selectors'
 import { Box } from 'grommet'
 import * as React from 'react'
 import { useSelector } from 'react-redux'

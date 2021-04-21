@@ -10,13 +10,13 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-import { SendTransaction } from '../WalletPage/Features/SendTransaction'
-import { selectAddress, selectStatus } from '../WalletPage/slice/selectors'
+import { useAccountSlice } from '../../state/account'
+import { selectAccount } from '../../state/account/selectors'
+import { BalanceDetails } from '../../state/account/types'
+import { selectAddress, selectStatus } from '../../state/wallet/selectors'
 import { AccountSummary } from './Features/AccountSummary'
+import { SendTransaction } from './Features/SendTransaction'
 import { TransactionHistory } from './Features/TransactionHistory'
-import { useAccountSlice } from './slice'
-import { selectAccount } from './slice/selectors'
-import { BalanceDetails } from './slice/types'
 
 interface Props {}
 

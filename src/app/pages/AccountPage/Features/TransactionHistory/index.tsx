@@ -9,7 +9,7 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { selectAccountAddress, selectTransactions } from '../../slice/selectors'
+import { selectAccountAddress, selectTransactions } from '../../../../state/account/selectors'
 
 interface Props {}
 

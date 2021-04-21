@@ -2,7 +2,7 @@
 // import { accountActions as actions } from '.';
 import { PayloadAction } from '@reduxjs/toolkit'
 import { accounts, operations } from 'app/lib/api'
-import { walletActions } from 'app/pages/WalletPage/slice'
+import { walletActions } from 'app/state/wallet'
 import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'

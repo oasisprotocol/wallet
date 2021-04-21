@@ -1,5 +1,5 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
-import { useWalletSlice } from 'app/pages/WalletPage/slice'
+import { useWalletSlice } from 'app/state/wallet'
 import { validateMnemonic } from 'bip39'
 import { Grid, Box, Form, Heading, Paragraph, FormField, TextArea, Button } from 'grommet'
 import * as React from 'react'

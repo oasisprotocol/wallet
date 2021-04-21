@@ -1,5 +1,5 @@
-import { walletActions } from 'app/pages/WalletPage/slice'
-import { selectAddress, selectStatus } from 'app/pages/WalletPage/slice/selectors'
+import { walletActions } from 'app/state/wallet'
+import { selectAddress, selectStatus } from 'app/state/wallet/selectors'
 import {
   Avatar,
   Box,
