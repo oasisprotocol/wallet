@@ -34,7 +34,7 @@ describe('<SearchAddress  />', () => {
 
   it('should redirect to the account', async () => {
     const history = createMemoryHistory()
-    const pushSpy = jest.spyOn(history, 'push') // or 'replace', 'goBack', etc.
+    const pushSpy = jest.spyOn(history, 'push')
 
     const component = render(
       <Router history={history}>
