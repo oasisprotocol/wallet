@@ -35,7 +35,7 @@
 - Multiple accounts open in parallel
 - Staking (Adding / reclaiming escrow)
 - Staking rewards and history
-- Debonding 
+- Debonding status
 - Various account & network stats
 - OETH Support 
 
