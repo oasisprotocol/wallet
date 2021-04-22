@@ -41,15 +41,3 @@ export const useAccountSlice = () => {
   useInjectSaga({ key: slice.name, saga: accountSaga })
   return { actions: slice.actions }
 }
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useAccountSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

@@ -36,6 +36,11 @@
       "instruction": "Entrez votre clé privée au format base64 ci-dessous",
       "error": "Clé privée invalide",
       "enterPrivateKeyHere": "Entrez votre clé privée ici"
+    },
+    "ledger": {
+      "selectWallets": "Select the wallets to open",
+      "cancel": "Cancel",
+      "openWallets": "Open"
     }
   },
   "createWallet": {
@@ -71,8 +76,7 @@
       "recipient": "Destinataire",
       "enterAddress": "Entrez une adresse",
       "success": "Transaction effectuée",
-      "send": "Envoyer",
-      "sending": "Envoi de la transaction"
+      "send": "Envoyer"
     },
     "loading": "Chargement du compte"
   },
@@ -87,11 +91,38 @@
     "invalidNonce": "Nonce invalide (numéro de transasction)",
     "duplicateTransaction": "Transaction doublon",
     "invalidAddress": "Adresse invalide",
-    "insufficientBalance": "Solde insuffisant"
+    "insufficientBalance": "Solde insuffisant",
+    "noOpenWallet": "",
+    "usbTransportError": "USB Transport error : {message}"
   },
   "toolbar": {
     "search": {
       "placeholder": "Cherchez un compte ou un validateur"
+    },
+    "wallets": {
+      "type": {
+        "ledger": "Ledger",
+        "mnemonic": "Mnemonic",
+        "privateKey": "Private Key"
+      },
+      "switchOtherWallet": "Switch to another wallet"
     }
+  },
+  "ledger": {
+    "steps": {
+      "openingUsb": "Opening Ledger through USB",
+      "loadingAccounts": "Loading account details",
+      "loadingBalances": "Loading balance details",
+      "done": "Done"
+    }
+  },
+  "transaction": {
+    "step": {
+      "preview": "Preview transaction",
+      "signing": "Signing transaction",
+      "submitting": "Submitting transaction"
+    },
+    "abort": "Abort",
+    "confirm": "Confirm"
   }
 }

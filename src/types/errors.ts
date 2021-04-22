@@ -12,6 +12,8 @@ export enum WalletErrors {
   CannotSendToSelf = 'cannot_send_to_self',
   InvalidNonce = 'invalid_nonce',
   DuplicateTransaction = 'duplicate_transaction',
+  NoOpenWallet = 'no_open_wallet',
+  USBTransportError = 'usb_transport_error',
 }
 
 export interface ErrorPayload {

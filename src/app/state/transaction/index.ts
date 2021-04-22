@@ -1,0 +1,51 @@
+import { PayloadAction } from '@reduxjs/toolkit'
+import { ErrorPayload } from 'types/errors'
+import { createSlice } from 'utils/@reduxjs/toolkit'
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
+import { transactionSaga } from './saga'
+import { SendTransactionPayload, TransactionSent, TransactionState, TransactionStep } from './types'
+
+export const initialState: TransactionState = {
+  success: false,
+  active: false,
+}
+
+const slice = createSlice({
+  name: 'transaction',
+  initialState,
+  reducers: {
+    clearTransaction(state, action: PayloadAction<void>) {
+      state.transaction = undefined
+      state.error = undefined
+      state.success = false
+      state.active = false
+    },
+    confirmTransaction(state, action: PayloadAction<void>) {},
+    abortTransaction(state, action: PayloadAction<void>) {},
+    setStep(state, action: PayloadAction<TransactionStep>) {
+      state.step = action.payload
+    },
+    sendTransaction(state, action: PayloadAction<SendTransactionPayload>) {
+      state.error = undefined
+      state.success = false
+      state.active = true
+      state.transaction = Object.assign({}, action.payload)
+    },
+    transactionSent(state, action: PayloadAction<TransactionSent>) {
+      state.success = true
+      state.active = false
+    },
+    transactionFailed(state, action: PayloadAction<ErrorPayload>) {
+      state.error = action.payload
+      state.active = false
+    },
+  },
+})
+
+export const { actions: transactionActions } = slice
+
+export const useTransactionSlice = () => {
+  useInjectReducer({ key: slice.name, reducer: slice.reducer })
+  useInjectSaga({ key: slice.name, saga: transactionSaga })
+  return { actions: slice.actions }
+}

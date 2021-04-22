@@ -14,10 +14,11 @@ interface Props {
 
 export function ErrorFormatter(props: Props) {
   const { t } = useTranslation()
+  const message = props.message
 
   const errorMap: { [code in WalletErrors]: string } = {
     [WalletErrors.UnknownError]: t('errors.unknown', {
-      message: props.message,
+      message,
     }),
     [WalletErrors.InvalidAddress]: t('errors.invalidAddress'),
     [WalletErrors.InvalidPrivateKey]: t('errors.invalidPrivateKey'),
@@ -25,6 +26,10 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.CannotSendToSelf]: t('errors.cannotSendToSelf'),
     [WalletErrors.InvalidNonce]: t('errors.invalidNonce'),
     [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction'),
+    [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet'),
+    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error : {message}', {
+      message,
+    }),
   }
 
   const error = errorMap[props.code]

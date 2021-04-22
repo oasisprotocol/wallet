@@ -1,5 +1,5 @@
 import * as oasis from '@oasisprotocol/client'
-import { Signer } from '@oasisprotocol/client/dist/signature'
+import { Signer, ContextSigner } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { HDKey } from './hdkey'
@@ -77,7 +77,17 @@ export class OasisTransaction {
     const gas = await tw.estimateGas(nic, signer.public())
     tw.setFeeGas(gas)
 
+    console.log(nonce, gas)
+
     return tw
+  }
+
+  public static async signUsingLedger<T>(signer: ContextSigner, tw: TW<T>): Promise<void> {
+    const chainContext = await OasisTransaction.getChaincontext()
+    await tw.sign(signer, chainContext)
+
+    // @todo Upstream bug in oasis-app, the signature is larger than 64 bytes
+    tw.signedTransaction.signature.signature = tw.signedTransaction.signature.signature.slice(0, 64)
   }
 
   public static async sign<T>(signer: Signer, tw: TW<T>): Promise<void> {

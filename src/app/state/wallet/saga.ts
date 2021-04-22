@@ -2,7 +2,6 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { HDKey } from 'app/lib/hdkey'
 import {
   hex2uint,
-  isValidAddress,
   publicKeyToAddress,
   shortPublicKey,
   stringBigint2uint,
@@ -10,23 +9,24 @@ import {
   uint2hex,
 } from 'app/lib/helpers'
 import { nic } from 'app/lib/oasis-client'
-import { OasisTransaction, signerFromHDSecret, signerFromPrivateKey } from 'app/lib/transaction'
 import { mnemonicToSeedSync } from 'bip39'
 import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
-import { call, delay, fork, put, race, select, take, takeEvery } from 'typed-redux-saga'
-import { WalletErrors, WalletError, ErrorPayload } from 'types/errors'
+import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
 
-import { walletActions as actions } from '.'
-import { selectAddress, selectPublicKey, selectWallet } from './selectors'
-import { SendTransactionPayload, WalletType } from './types'
+import { walletActions as actions, walletActions } from '.'
+import { LedgerAccount } from '../ledger/types'
+import { transactionActions } from '../transaction'
+import { sendTransaction } from '../transaction/saga'
+import { selectAddress, selectWallets } from './selectors'
+import { WalletBalance, WalletType } from './types'
 
-export function* getWallet() {
-  yield* delay(50)
+// Ensure a unique walletId per opened wallet
+// Maybe we should switch to something like uuid later
+let walletId = 0
 
-  const publicKey = yield* select(selectPublicKey)
-  const short = yield* call(shortPublicKey, hex2uint(publicKey))
-
+export function* getBalance(publicKey: Uint8Array) {
+  const short = yield* call(shortPublicKey, publicKey)
   const account = yield* call([nic, nic.stakingAccount], {
     height: 0,
     owner: short,
@@ -34,11 +34,73 @@ export function* getWallet() {
 
   const zero = stringBigint2uint('0')
 
-  yield put(
-    actions.walletLoaded({
-      available: uint2bigintString(account.general?.balance || zero),
-      debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
-      escrow: uint2bigintString(account.escrow?.active?.balance || zero),
+  const balance: Partial<WalletBalance> = {
+    available: uint2bigintString(account.general?.balance || zero),
+    debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
+    escrow: uint2bigintString(account.escrow?.active?.balance || zero),
+  }
+
+  const total = BigInt(balance.available) + BigInt(balance.debonding) + BigInt(balance.escrow)
+
+  return { ...balance, total: total.toString() } as WalletBalance
+}
+
+/**
+ * Take multiple ledger accounts that we want to open
+ */
+export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<LedgerAccount[]>) {
+  for (const account of accounts) {
+    yield* put(
+      actions.walletOpened({
+        id: walletId++,
+        address: account.address,
+        publicKey: account.publicKey,
+        type: WalletType.Ledger,
+        balance: account.balance,
+        path: account.path,
+      }),
+    )
+  }
+}
+
+export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
+  const type = WalletType.PrivateKey
+  const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(privateKey)).publicKey
+  const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
+  const publicKey = uint2hex(publicKeyBytes)
+  const balance = yield* getBalance(publicKeyBytes)
+
+  yield* put(
+    actions.walletOpened({
+      id: walletId++,
+      address: walletAddress,
+      publicKey,
+      privateKey,
+      type: type!,
+      balance,
+    }),
+  )
+}
+
+export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<string>) {
+  const seed = mnemonicToSeedSync(mnemonic).slice(0, 32)
+  const hdkey = HDKey.fromSeed(seed).derivePath("44'/474'/0'/0'/0'")
+  const privateKey = uint2hex(hdkey.secret)
+  const type = WalletType.Mnemonic
+  const publicKeyBytes = hdkey.public()
+  const publicKey = uint2hex(publicKeyBytes)
+
+  const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes!)
+  const balance = yield* getBalance(publicKeyBytes)
+
+  yield* put(
+    actions.walletOpened({
+      id: walletId++,
+      address: walletAddress,
+      publicKey,
+      privateKey,
+      type: type!,
+      balance,
     }),
   )
 }
@@ -47,43 +109,56 @@ export function* getWallet() {
  * Open wallet from a mnemonic or private key
  */
 export function* openWallet() {
-  let key
-  let publicKey: Uint8Array
-  let type: WalletType
-
-  const { mnemonic, privateKey } = yield* race({
-    mnemonic: take(actions.openWalletFromMnemonic),
-    privateKey: take(actions.openWalletFromPrivateKey),
-  })
-
-  if (privateKey) {
-    key = privateKey.payload
-    type = WalletType.PrivateKey
-    publicKey = nacl.sign.keyPair.fromSecretKey(hex2uint(key)).publicKey
-  } else if (mnemonic) {
-    const seed = mnemonicToSeedSync(mnemonic.payload).slice(0, 32)
-    const hdkey = HDKey.fromSeed(seed).derivePath("44'/474'/0'/0'/0'")
-    key = uint2hex(hdkey.secret)
-    type = WalletType.Mnemonic
-    publicKey = hdkey.public()
-  }
-
-  const walletAddress = yield* call(publicKeyToAddress, publicKey!)
-
-  yield* put(
-    actions.walletOpened({
-      address: walletAddress,
-      publicKey: uint2hex(publicKey!),
-      privateKey: key,
-      type: type!,
-    }),
-  )
+  yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
+  yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
+  yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
 }
 
 export function* closeWallet() {
   yield* put(actions.walletClosed())
 }
 
+export function* selectWallet({ payload: index }: PayloadAction<number>) {
+  yield* put(walletActions.walletSelected(index))
+}
+
+/**
+ * When a wallet is opened, select it and go to the matching account
+ */
+export function* selectOpenedWallets() {
+  while (true) {
+    const wallet = yield* take(walletActions.walletOpened)
+    yield* put(walletActions.selectWallet(wallet.payload.id))
+    yield* take(walletActions.walletSelected)
+    const address = yield* select(selectAddress)
+    yield* put(push(`/account/${address}`))
+  }
+}
+
+/**
+ * When a transaction is done, and it is related to the account we currently have in state
+ * refresh the data.
+ */
+function* reloadBalanceOnTransaction() {
+  while (true) {
+    const { payload } = yield* take(transactionActions.transactionSent)
+
+    const from = payload.from
+    const to = payload.to
+
+    const wallets = yield* select(selectWallets)
+    const matchingWallets = Object.values(wallets).filter(w => w.address === to || w.address === from)
+    for (const wallet of matchingWallets) {
+      const balance = yield* getBalance(hex2uint(wallet.publicKey))
+      yield* put(
+        walletActions.updateBalance({
+          walletId: wallet.id,
+          balance,
+        }),
+      )
+    }
+  }
+}
 /**
  * Opened wallet saga that
  *
@@ -95,86 +170,23 @@ export function* closeWallet() {
  * - etc...
  */
 export function* walletSaga() {
-  // Save pubkey and possibly private here
-  // const address = yield* select(selectAddress)
-  const address = yield* select(selectAddress)
-  yield* put(push(`/account/${address}`))
-  yield* getWallet()
-  yield* takeEvery(actions.sendTransaction, sendTransaction)
-}
-
-/**
- * Generate transaction, sign, push to node
- * The amount is converted from float to bigint (x10^9)
- */
-export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) {
-  const wallet = yield* select(selectWallet)
-  const balance = BigInt(wallet.balance.available)
-  const privateKey = wallet.privateKey!
-
-  try {
-    const amount = BigInt(action.payload.amount * 10 ** 9)
-    const recipient = action.payload.to
-    const bytes = hex2uint(privateKey!)
-
-    if (!isValidAddress(recipient)) {
-      throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
-    }
-
-    if (amount > balance) {
-      throw new WalletError(WalletErrors.InsufficientBalance, 'Insufficient balance')
-    }
-
-    if (wallet.address === recipient) {
-      throw new WalletError(WalletErrors.CannotSendToSelf, 'Cannot send to your own account')
-    }
-
-    let signer
-    if (wallet.type === WalletType.PrivateKey) {
-      // yield* call(sendFromPrivateKey, bytes, recipient, amount, nonce)
-      signer = yield* call(signerFromPrivateKey, bytes)
-    } else if (wallet.type === WalletType.Mnemonic) {
-      signer = yield* call(signerFromHDSecret, bytes)
-    } else {
-      throw new WalletError(WalletErrors.InvalidPrivateKey, 'Invalid private key')
-    }
-
-    // Build, sign, submit
-    const tw = yield* call(OasisTransaction.buildTransfer, signer, recipient, amount)
-    yield* call(OasisTransaction.sign, signer, tw)
-    yield* call(OasisTransaction.submit, tw)
-
-    // Notify that the transaction was a success
-    yield* put(
-      actions.transactionSent({ amount: action.payload.amount, from: wallet.address, to: recipient }),
-    )
-  } catch (e) {
-    console.log('Transaction error', e)
-    let payload: ErrorPayload
-    if (e instanceof WalletError) {
-      payload = { code: e.type, message: e.message }
-    } else {
-      payload = { code: WalletErrors.UnknownError, message: e.message }
-    }
-
-    yield* put(actions.transactionFailed(payload))
-  }
+  yield* takeEvery(transactionActions.sendTransaction, sendTransaction)
 }
 
 export function* rootWalletSaga() {
-  while (true) {
-    // Wait for an openWallet action (Mnemonic or PrivateKey)
-    yield* openWallet()
+  // Wait for an openWallet action (Mnemonic or PrivateKey)
+  yield* fork(openWallet)
+  yield* fork(selectOpenedWallets)
 
-    // Start the wallet saga in parallel
-    const wallet = yield* fork(walletSaga)
+  // Reload balance of matching wallets when a transaction occurs
+  yield* fork(reloadBalanceOnTransaction)
 
-    // Meanwhile, wait for a close action
-    // @todo : Add race here to auto-close wallet after X minutes
-    yield* take(actions.closeWallet)
-    yield* closeWallet()
+  // Allow switching between wallets
+  yield* takeLatest(walletActions.selectWallet, selectWallet)
 
-    // And cancel pending sagas
-    yield wallet.cancel()
-  }
+  // Start the wallet saga in parallel
+  yield* fork(walletSaga)
+
+  // Listen to closeWallet
+  yield* takeEvery(actions.closeWallet, closeWallet)
 }

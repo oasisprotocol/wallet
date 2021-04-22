@@ -6,16 +6,19 @@
 import { TransitionRoute } from 'app/components/TransitionRoute'
 import { Box, Button, Heading } from 'grommet'
 import * as React from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Switch } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { TransitionGroup } from 'react-transition-group'
+import { FromLedger } from './Features/FromLedger'
 
 import { FromMnemonic } from './Features/FromMnemonic'
 import { FromPrivateKey } from './Features/FromPrivateKey'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
+  const [ledgerModal, showLedgerModal] = useState(false)
 
   return (
     <Box
@@ -44,15 +47,23 @@ export function SelectOpenMethod() {
             primary
           />
         </NavLink>
-        <NavLink to="/open-wallet/ledger">
-          <Button
-            type="submit"
-            label={t('openWallet.method.ledger', 'Ledger')}
-            style={{ borderRadius: '4px' }}
-            primary
-            disabled
+        <Button
+          type="submit"
+          label={t('openWallet.method.ledger', 'Ledger')}
+          style={{ borderRadius: '4px' }}
+          onClick={() => {
+            showLedgerModal(true)
+          }}
+          primary
+        />
+
+        {ledgerModal && (
+          <FromLedger
+            abort={() => {
+              showLedgerModal(false)
+            }}
           />
-        </NavLink>
+        )}
       </Box>
     </Box>
   )
@@ -66,7 +77,7 @@ export function OpenWalletPage(props: Props) {
         <TransitionRoute exact path="/open-wallet" component={SelectOpenMethod} />
         <TransitionRoute exact path="/open-wallet/mnemonic" component={FromMnemonic} />
         <TransitionRoute exact path="/open-wallet/private-key" component={FromPrivateKey} />
-        {/* <TransitionRoute exact path="/open-wallet/ledger" /> */}
+        <TransitionRoute exact path="/open-wallet/ledger" component={FromLedger} />
       </Switch>
     </TransitionGroup>
   )
