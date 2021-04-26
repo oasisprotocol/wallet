@@ -162,7 +162,7 @@
     ]
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.9.4",
+    "@cypress/code-coverage": "3.9.5",
     "@cypress/instrument-cra": "1.4.0",
     "@testing-library/cypress": "7.0.6",
     "@types/jest-when": "2.7.2",
