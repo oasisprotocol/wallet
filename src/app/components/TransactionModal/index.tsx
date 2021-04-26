@@ -47,7 +47,7 @@ export function TransactionModal(props: Props) {
 
   return (
     <Layer position="center">
-      <Box pad="medium" gap="medium" width="680px">
+      <Box pad="medium" gap="medium" width="780px">
         {step === TransactionStep.Preview && (
           <Box>
             <Heading level="2" margin="none">
@@ -85,13 +85,17 @@ export function TransactionModal(props: Props) {
                 <Text weight="bold">{t('transaction.preview.from', 'From')} :</Text>
               </Box>
               <Box>
-                <PrettyAddress address={walletAddress} />
+                <Text style={{ fontFamily: 'Roboto mono' }}>
+                  <PrettyAddress address={walletAddress} />
+                </Text>
               </Box>
               <Box>
                 <Text weight="bold">{t('transaction.preview.to', 'To')} :</Text>
               </Box>
               <Box>
-                <PrettyAddress address={transaction!.to!} />
+                <Text style={{ fontFamily: 'Roboto mono' }}>
+                  <PrettyAddress address={transaction!.to!} />
+                </Text>
               </Box>
               <Box>
                 <Text weight="bold">{t('transaction.preview.amount', 'Amount')} :</Text>
