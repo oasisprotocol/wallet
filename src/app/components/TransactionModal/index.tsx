@@ -67,8 +67,10 @@ export function TransactionModal(props: Props) {
               pad="xsmall"
             >
               <Text>
-                Once you confirm this transaction you will not be able to cancel it. Carefully review it, and
-                confirm once you are sure that you want to send it.
+                {t(
+                  'transaction.preview.warning',
+                  'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
+                )}
               </Text>
             </Box>
             <Grid
@@ -76,29 +78,29 @@ export function TransactionModal(props: Props) {
               gap={{ column: 'small', row: 'xsmall' }}
             >
               <Box>
-                <Text weight="bold">Type :</Text>
+                <Text weight="bold">{t('transaction.preview.type', 'Type')} :</Text>
               </Box>
               <Box>Transfer</Box>
               <Box>
-                <Text weight="bold">From :</Text>
+                <Text weight="bold">{t('transaction.preview.from', 'From')} :</Text>
               </Box>
               <Box>
                 <PrettyAddress address={walletAddress} />
               </Box>
               <Box>
-                <Text weight="bold">To :</Text>
+                <Text weight="bold">{t('transaction.preview.to', 'To')} :</Text>
               </Box>
               <Box>
                 <PrettyAddress address={transaction!.to!} />
               </Box>
               <Box>
-                <Text weight="bold">Amount :</Text>
+                <Text weight="bold">{t('transaction.preview.amount', 'Amount')} :</Text>
               </Box>
               <Box>
                 <AmountFormatter amount={transaction!.amount! * 10 ** 9} />
               </Box>
               <Box>
-                <Text weight="bold">Balance :</Text>
+                <Text weight="bold">{t('transaction.preview.balance', 'Balance')} :</Text>
               </Box>
               <Box>
                 <AmountFormatter amount={balance.available} />

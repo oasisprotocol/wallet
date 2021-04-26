@@ -15,12 +15,24 @@ function* setStep(step: LedgerStep) {
   yield* put(ledgerActions.setStep(step))
 }
 
+function* getUSBTransport() {
+  try {
+    const transport = yield* call([TransportWebUSB, TransportWebUSB.create])
+    return transport
+  } catch (e) {
+    if (e.message.match(/No device selected/)) {
+      throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
+    } else {
+      throw new WalletError(WalletErrors.USBTransportError, e.message)
+    }
+  }
+}
+
 function* enumerateAccounts() {
   yield* setStep(LedgerStep.OpeningUSB)
-
   let transport: any
   try {
-    transport = yield* call([TransportWebUSB, TransportWebUSB.create])
+    transport = yield* getUSBTransport()
 
     yield* setStep(LedgerStep.LoadingAccounts)
     const accounts = yield* call(Ledger.enumerateAccounts, transport)
@@ -59,18 +71,14 @@ function* enumerateAccounts() {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  let transport: any
-  try {
-    transport = yield* call([TransportWebUSB, TransportWebUSB.create])
-  } catch (e) {
-    throw new WalletError(WalletErrors.USBTransportError, e.message)
-  }
+  const transport: any = yield* getUSBTransport()
 
   signer.setTransport(transport)
   try {
     yield* call([OasisTransaction, OasisTransaction.signUsingLedger], signer, tw)
   } catch (e) {
-    throw new WalletError(WalletErrors.UnknownError, e.message)
+    yield* call([transport, transport.close])
+    throw e
   }
 
   yield* call([transport, transport.close])

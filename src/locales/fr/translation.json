@@ -38,9 +38,9 @@
       "enterPrivateKeyHere": "Entrez votre clé privée ici"
     },
     "ledger": {
-      "selectWallets": "Select the wallets to open",
-      "cancel": "Cancel",
-      "openWallets": "Open"
+      "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
+      "cancel": "Annuler",
+      "openWallets": "Ouvrir"
     }
   },
   "createWallet": {
@@ -92,8 +92,13 @@
     "duplicateTransaction": "Transaction doublon",
     "invalidAddress": "Adresse invalide",
     "insufficientBalance": "Solde insuffisant",
-    "noOpenWallet": "",
-    "usbTransportError": "USB Transport error : {message}"
+    "noOpenWallet": "Pas de portefeuille ouvert",
+    "usbTransportError": "Erreur USB : {message}",
+    "ledgerAppVersionNotSupported": "Erreur reçue : \"Ledger App Version not supported\", cette erreur peut être un faux positif, relancez Oasis Wallet et réessayez. Si l'erreur persiste, mettez à jour l'application Oasis dans votre Ledger.",
+    "ledgerTransactionRejected": "Transaction rejetée sur le Ledger.",
+    "ledgerNoDeviceSelected": "Pas de Ledger sélectionné. Si vous voulez réessayer, fermez cette fenêtre et tentez à nouveau.",
+    "ledgerCannotOpenOasisApp": "Impossible d'accéder à l'application Oasis sur le Ledger. Assurez vous qu'il est dévérouillé et que l'application Oasis est ouverte.",
+    "unknownLedgerError": "Erreur Ledger inconnue : {{message}}"
   },
   "toolbar": {
     "search": {
@@ -102,27 +107,35 @@
     "wallets": {
       "type": {
         "ledger": "Ledger",
-        "mnemonic": "Mnemonic",
-        "privateKey": "Private Key"
+        "mnemonic": "Phrase secrète",
+        "privateKey": "Clé privée"
       },
-      "switchOtherWallet": "Switch to another wallet"
+      "switchOtherWallet": "Changer de portefeuille"
     }
   },
   "ledger": {
     "steps": {
-      "openingUsb": "Opening Ledger through USB",
-      "loadingAccounts": "Loading account details",
-      "loadingBalances": "Loading balance details",
-      "done": "Done"
+      "openingUsb": "Ouverture du Ledger via USB",
+      "loadingAccounts": "Chargement des adresses",
+      "loadingBalances": "Chargement du solde des adresses",
+      "done": "Fin"
     }
   },
   "transaction": {
     "step": {
-      "preview": "Preview transaction",
-      "signing": "Signing transaction",
-      "submitting": "Submitting transaction"
+      "preview": "Prévisualisez la transaction",
+      "signing": "Signature de la transaction",
+      "submitting": "Envoi de la transaction"
     },
-    "abort": "Abort",
-    "confirm": "Confirm"
+    "abort": "Annuler",
+    "confirm": "Confirmer",
+    "preview": {
+      "warning": "Vous ne pourrez plus annuler votre transaction après avoir confirmé. Prenez le temps de vérifier les montants et adresse avant de confirmer.",
+      "type": "Type",
+      "from": "Depuis",
+      "to": "Vers",
+      "amount": "Montant",
+      "balance": "Solde"
+    }
   }
 }

@@ -93,7 +93,12 @@
     "invalidAddress": "Invalid address",
     "insufficientBalance": "Insufficient balance",
     "noOpenWallet": "",
-    "usbTransportError": "USB Transport error : {{message}}"
+    "usbTransportError": "USB Transport error : {{message}}",
+    "ledgerAppVersionNotSupported": "Received : \"Ledger App Version not supported\", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.",
+    "ledgerTransactionRejected": "Transaction rejected on Ledger",
+    "ledgerNoDeviceSelected": "No ledger selected. If you wish to open your ledger, close this message and retry.",
+    "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger, make sure it is unlocked and that the Oasis App is opened.",
+    "unknownLedgerError": "Unknown ledger error : {{message}}"
   },
   "toolbar": {
     "search": {
@@ -123,6 +128,14 @@
       "submitting": "Submitting transaction"
     },
     "abort": "Abort",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "preview": {
+      "warning": "Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.",
+      "type": "Type",
+      "from": "From",
+      "to": "To",
+      "amount": "Amount",
+      "balance": "Balance"
+    }
   }
 }

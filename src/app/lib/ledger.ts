@@ -1,6 +1,7 @@
 import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 import OasisApp from '@oasisprotocol/ledger'
 import { Wallet, WalletType } from 'app/state/wallet/types'
+import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint } from './helpers'
 
 interface Response {
@@ -15,8 +16,19 @@ interface LedgerAccount {
 }
 
 const successOrThrow = (response: Response, message: string) => {
-  if (response.return_code !== 0x9000)
-    throw new Error(`${message}: ${response.return_code} ${response.error_message}`)
+  if (response.return_code !== 0x9000) {
+    switch (response.return_code) {
+      case 25600:
+        throw new WalletError(WalletErrors.LedgerAppVersionNotSupported, response.error_message)
+      case 27014:
+        throw new WalletError(WalletErrors.LedgerTransactionRejected, response.error_message)
+      case 26628:
+        throw new WalletError(WalletErrors.LedgerCannotOpenOasisApp, response.error_message)
+
+      default:
+        throw new WalletError(WalletErrors.LedgerUnknownError, response.error_message)
+    }
+  }
   return response
 }
 export class Ledger {
@@ -53,7 +65,6 @@ export class LedgerSigner implements ContextSigner {
   }
 
   public setTransport(transport: any) {
-    console.log('setting transport')
     this.transport = transport
   }
 
@@ -62,7 +73,6 @@ export class LedgerSigner implements ContextSigner {
   }
 
   public async sign(context: string, message: Uint8Array): Promise<Uint8Array> {
-    console.log('this', this)
     if (!this.transport) {
       throw new Error('Cannot sign using ledger without an active WebUSB transport')
     }
