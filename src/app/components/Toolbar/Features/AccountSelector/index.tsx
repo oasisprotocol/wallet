@@ -34,7 +34,13 @@ export const Account = memo((props: AccountProps) => {
   const size = useContext(ResponsiveContext)
 
   const address =
-    size === 'small' ? <ShortAddress address={props.address} /> : <PrettyAddress address={props.address} />
+    size === 'small' ? (
+      <ShortAddress address={props.address} />
+    ) : (
+      <Text style={{ fontFamily: 'Roboto mono' }}>
+        <PrettyAddress address={props.address} />
+      </Text>
+    )
 
   const walletTypes: { [type in WalletType]: string } = {
     [WalletType.Ledger]: t('toolbar.wallets.type.ledger', 'Ledger'),
@@ -109,7 +115,7 @@ export const AccountSelector = memo((props: Props) => {
       background="light-2"
       modal
     >
-      <Box background="light-2" pad="small" margin="medium" width={size === 'small' ? 'auto' : '700px'}>
+      <Box background="light-2" pad="small" margin="medium" width={size === 'small' ? 'auto' : '660px'}>
         <Heading size="1" margin={{ vertical: 'small' }}>
           {t('toolbar.wallets.switchOtherWallet', 'Switch to another wallet')}
         </Heading>

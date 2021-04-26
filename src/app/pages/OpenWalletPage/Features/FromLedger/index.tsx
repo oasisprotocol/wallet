@@ -71,7 +71,7 @@ export function FromLedger(props: FromLedgerProps) {
 
   return (
     <Layer position="center" modal>
-      <Box width="700px" pad="medium">
+      <Box width="750px" pad="medium">
         <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
           {t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
         </Heading>
