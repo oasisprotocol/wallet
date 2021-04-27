@@ -21,6 +21,7 @@
     - [Running the tests](#running-the-tests)
     - [Code style](#code-style)
     - [Internationalization](#internationalization)
+  - [License](#license)
 
 ## Features
 
@@ -28,11 +29,11 @@
 - Transaction history, currently all transactions are listed. We need to submit a pull-request to [oasis-explorer](https://github.com/everstake/oasis-explorer) to support pagination
 - Multiple languages (English and French currently supported)
 - Submitting transactions
+- [Ledger](http://ledger.com/) support
+- Multiple accounts open in parallel
 
 ### Additional features coming soon
 
-- [Ledger](http://ledger.com/) support
-- Multiple accounts open in parallel
 - Staking (Adding / reclaiming escrow)
 - Staking rewards and history
 - Debonding status
