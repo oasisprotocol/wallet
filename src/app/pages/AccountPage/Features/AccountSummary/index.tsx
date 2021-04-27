@@ -26,7 +26,6 @@ export function AccountSummary(props: AccountSummaryProps) {
 
   const copyAddress = () => {
     copy(address)
-    console.log('Copied address')
   }
 
   return (
@@ -84,12 +83,34 @@ export function AccountSummary(props: AccountSummaryProps) {
         </Box>
       </Box>
       {walletIsOpen && walletAddress === address && (
-        <Box background="status-ok" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+        <Box
+          border={{
+            color: 'status-ok',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-ok',
+            opacity: 0.2,
+          }}
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
           <Text weight="bold">{t('account.summary.yourAccount', 'This is your account')}</Text>
         </Box>
       )}
       {walletIsOpen && walletAddress !== address && (
-        <Box background="status-warning" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+        <Box
+          border={{
+            color: 'status-warning',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-warning',
+            opacity: 0.2,
+          }}
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
           <Text weight="bold">
             {t(
               'account.summary.notYourAccount',

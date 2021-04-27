@@ -161,9 +161,15 @@ function SidebarMenuItems() {
   const { t } = useTranslation()
 
   const menu = {
-    home: <SidebarButton icon={<Home />} label={t('menu.home')} route="/" />,
+    home: <SidebarButton icon={<Home />} label={t('menu.home')} route="/" data-testid="nav-home" />,
     wallet: (
-      <SidebarButton icon={<Money />} label={t('menu.wallet')} secure={true} route={`/account/${address}`} />
+      <SidebarButton
+        icon={<Money />}
+        label={t('menu.wallet')}
+        secure={true}
+        route={`/account/${address}`}
+        data-testid="nav-myaccount"
+      />
     ),
     stake: <SidebarButton icon={<LineChart />} label={t('menu.stake')} secure={true} route="/stake" />,
   }

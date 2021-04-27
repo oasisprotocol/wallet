@@ -35,11 +35,11 @@ describe('Scenario : from mnemonic', () => {
     cy.get('#recipient-id').type('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     cy.get('#amount-id').type('10')
     cy.findByRole('button', { name: /Send/ }).click()
+    cy.findByRole('button', { name: /Confirm/ }).click()
     cy.contains('Transaction successfully sent').should('be.visible')
   })
 
   it('Should have updated balances', function () {
-    console.log(this)
     cy.findByTestId('account-balance').invoke('text').then(parseBalance).should('be.eq', (senderBalanceBefore  - 10))
 
     cy.visit('/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
@@ -78,11 +78,11 @@ describe('Scenario : from private key', () => {
     cy.get('#recipient-id').type('oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn')
     cy.get('#amount-id').type('10')
     cy.findByRole('button', { name: /Send/ }).click()
+    cy.findByRole('button', { name: /Confirm/ }).click()
     cy.contains('Transaction successfully sent').should('be.visible')
   })
 
   it('Should have updated balances', function () {
-    console.log(this)
     cy.findByTestId('account-balance').invoke('text').then(parseBalance).should('be.eq', (senderBalanceBefore  - 10))
 
     cy.visit('/account/oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn')

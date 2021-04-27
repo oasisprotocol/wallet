@@ -6,7 +6,6 @@ import userEvent from '@testing-library/user-event'
 import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
 
-
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
     return {

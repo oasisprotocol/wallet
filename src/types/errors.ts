@@ -12,6 +12,13 @@ export enum WalletErrors {
   CannotSendToSelf = 'cannot_send_to_self',
   InvalidNonce = 'invalid_nonce',
   DuplicateTransaction = 'duplicate_transaction',
+  NoOpenWallet = 'no_open_wallet',
+  USBTransportError = 'usb_transport_error',
+  LedgerUnknownError = 'unknown_ledger_error',
+  LedgerCannotOpenOasisApp = 'cannot_open_oasis_app',
+  LedgerNoDeviceSelected = 'no_device_selected',
+  LedgerTransactionRejected = 'transaction_rejected',
+  LedgerAppVersionNotSupported = 'ledger_version_not_supported',
 }
 
 export interface ErrorPayload {

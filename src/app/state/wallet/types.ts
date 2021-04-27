@@ -1,34 +1,7 @@
-import { ErrorPayload } from 'types/errors'
-
-export enum TransactionType {
-  SENT = 0,
-  RECEIVED = 1,
-}
-
 export enum WalletType {
   Ledger = 'ledger',
   PrivateKey = 'private_key',
   Mnemonic = 'mnemonic',
-}
-
-export interface Transaction {
-  address: string
-  date: number
-  amount: number
-  type: TransactionType
-}
-
-export interface TransactionSent {
-  from: string
-  to: string
-  amount: number
-}
-export interface SendTransactionPayload {
-  /* bech32 Address */
-  to: string
-
-  /* Token amount */
-  amount: number
 }
 
 /**
@@ -42,24 +15,27 @@ export interface WalletBalance {
   available: string
   escrow: string
   debonding: string
+  total: string
+}
+
+export interface BalanceUpdatePayload {
+  walletId: number
+  balance: WalletBalance
 }
 
 export interface Wallet {
+  id: number
   publicKey: string
   address: string
-  type?: WalletType
+  type: WalletType
+  path?: number[]
   privateKey?: string
-}
-
-export interface TransactionStatus {
-  isSending: boolean
-  success: boolean
-  error?: ErrorPayload
+  balance: WalletBalance
 }
 
 /* --- STATE --- */
-export interface WalletState extends Wallet {
+export interface WalletState {
   isOpen: boolean
-  balance: WalletBalance
-  transaction: TransactionStatus
+  selectedWallet?: number
+  wallets: { [id: number]: Wallet }
 }

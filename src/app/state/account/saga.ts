@@ -2,10 +2,10 @@
 // import { accountActions as actions } from '.';
 import { PayloadAction } from '@reduxjs/toolkit'
 import { accounts, operations } from 'app/lib/api'
-import { walletActions } from 'app/state/wallet'
 import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
+import { transactionActions } from '../transaction'
 import { selectAccountAddress } from './selectors'
 
 /**
@@ -30,7 +30,7 @@ function* loadAccount(action: PayloadAction<string>) {
  */
 function* refreshAccountOnTransaction() {
   while (true) {
-    const { payload } = yield* take(walletActions.transactionSent)
+    const { payload } = yield* take(transactionActions.transactionSent)
     const currentAccount = yield* select(selectAccountAddress)
 
     const from = payload.from

@@ -1,22 +1,25 @@
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
-import { Box, Button, Form, FormField, TextInput, Text, Layer, Spinner } from 'grommet'
+import { TransactionModal } from 'app/components/TransactionModal'
+import { useTransactionSlice } from 'app/state/transaction'
+import { selectTransaction } from 'app/state/transaction/selectors'
+import { Box, Button, Form, FormField, Text, TextInput } from 'grommet'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { walletActions } from '../../../../state/wallet'
-import { selectTransactionStatus } from '../../../../state/wallet/selectors'
-
 export function SendTransaction() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const { error, success, isSending } = useSelector(selectTransactionStatus)
+  const transactionActions = useTransactionSlice().actions
+  const { error, success, active } = useSelector(selectTransaction)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
 
   const onSubmit = () => {
-    dispatch(walletActions.sendTransaction({ amount: parseFloat(amount), to: recipient.replaceAll(' ', '') }))
+    dispatch(
+      transactionActions.sendTransaction({ amount: parseFloat(amount), to: recipient.replaceAll(' ', '') }),
+    )
   }
 
   // On successful transaction, clear the fields
@@ -27,23 +30,16 @@ export function SendTransaction() {
     }
   }, [success])
 
-  // Cleanup effect
+  // Cleanup effect - clear the transaction when the component unmounts
   useEffect(() => {
     return function cleanup() {
-      dispatch(walletActions.clearTransaction())
+      dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch])
+  }, [dispatch, transactionActions])
 
   return (
     <Box border={{ color: 'light-3', size: '1px' }} round="5px" background="white">
-      {isSending && (
-        <Layer position="center" responsive={false}>
-          <Box pad="medium" gap="medium" direction="row" align="center">
-            <Spinner size="medium" />
-            <Text size="large">{t('account.sendTransaction.sending', 'Sending transaction')}</Text>
-          </Box>
-        </Layer>
-      )}
+      {active && <TransactionModal />}
       <Form>
         <Box fill gap="medium" pad="medium">
           <FormField
@@ -84,14 +80,36 @@ export function SendTransaction() {
         </Box>
       </Form>
       {error && (
-        <Box background="status-error" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+        <Box
+          border={{
+            color: 'status-error',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-error',
+            opacity: 0.3,
+          }}
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
           <Text weight="bold">
             <ErrorFormatter code={error.code} message={error.message} />
           </Text>
         </Box>
       )}
       {success && (
-        <Box background="status-ok" pad={{ horizontal: 'small', vertical: 'xsmall' }}>
+        <Box
+          border={{
+            color: 'status-ok',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-ok',
+            opacity: 0.3,
+          }}
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
           <Text weight="bold">{t('account.sendTransaction.success', 'Transaction successfully sent')}</Text>
         </Box>
       )}

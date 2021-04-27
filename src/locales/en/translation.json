@@ -36,6 +36,11 @@
       "instruction": "Enter your base-64 encoded private key",
       "error": "Invalid private key",
       "enterPrivateKeyHere": "Enter your private key here"
+    },
+    "ledger": {
+      "selectWallets": "Select the wallets to open",
+      "cancel": "Cancel",
+      "openWallets": "Open"
     }
   },
   "createWallet": {
@@ -71,8 +76,7 @@
       "recipient": "Recipient",
       "enterAddress": "Enter an address",
       "success": "Transaction successfully sent",
-      "send": "Send",
-      "sending": "Sending transaction"
+      "send": "Send"
     },
     "loading": "Loading account"
   },
@@ -87,11 +91,51 @@
     "invalidNonce": "Invalid Nonce (transaction number)",
     "duplicateTransaction": "Duplicate transaction",
     "invalidAddress": "Invalid address",
-    "insufficientBalance": "Insufficient balance"
+    "insufficientBalance": "Insufficient balance",
+    "noOpenWallet": "",
+    "usbTransportError": "USB Transport error : {{message}}",
+    "ledgerAppVersionNotSupported": "Received : \"Ledger App Version not supported\", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.",
+    "ledgerTransactionRejected": "Transaction rejected on Ledger",
+    "ledgerNoDeviceSelected": "No ledger selected. If you wish to open your ledger, close this message and retry.",
+    "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger, make sure it is unlocked and that the Oasis App is opened.",
+    "unknownLedgerError": "Unknown ledger error : {{message}}"
   },
   "toolbar": {
     "search": {
       "placeholder": "Search for an account or a validator"
+    },
+    "wallets": {
+      "type": {
+        "ledger": "Ledger",
+        "mnemonic": "Mnemonic",
+        "privateKey": "Private Key"
+      },
+      "switchOtherWallet": "Switch to another wallet"
+    }
+  },
+  "ledger": {
+    "steps": {
+      "openingUsb": "Opening Ledger through USB",
+      "loadingAccounts": "Loading account details",
+      "loadingBalances": "Loading balance details",
+      "done": "Done"
+    }
+  },
+  "transaction": {
+    "step": {
+      "preview": "Preview transaction",
+      "signing": "Signing transaction",
+      "submitting": "Submitting transaction"
+    },
+    "abort": "Abort",
+    "confirm": "Confirm",
+    "preview": {
+      "warning": "Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.",
+      "type": "Type",
+      "from": "From",
+      "to": "To",
+      "amount": "Amount",
+      "balance": "Balance"
     }
   }
 }

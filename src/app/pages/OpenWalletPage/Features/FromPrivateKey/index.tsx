@@ -19,7 +19,6 @@ const parseKey = (key: string) => {
     const key_bytes = decode(keyWithoutEnvelope)
     return OasisKey.fromPrivateKey(new Uint8Array(key_bytes))
   } catch (e) {
-    console.log('Invalid private key', e)
     throw e
   }
 }

@@ -46,6 +46,9 @@ export function AccountPage(props: Props) {
 
   useEffect(() => {
     dispatch(accountActions.fetchAccount(address))
+    return () => {
+      dispatch(accountActions.clearAccount())
+    }
   }, [dispatch, accountActions, address])
 
   return (
@@ -58,25 +61,26 @@ export function AccountPage(props: Props) {
           </Box>
         </Layer>
       )}
-      {/* <div>
-        {account.address} {account.total_balance}
-      </div> */}
-      <AccountSummary
-        address={account.address}
-        balance={balance}
-        walletAddress={walletAddress}
-        walletIsOpen={walletIsOpen}
-      />
-      <Box direction="row-responsive" pad={{ vertical: 'small' }} gap="small">
-        {walletIsOpen && (
-          <Box flex basis="1/4" width={{ min: '300px' }}>
-            <SendTransaction />
+      {address && address !== '' && (
+        <>
+          <AccountSummary
+            address={account.address}
+            balance={balance}
+            walletAddress={walletAddress}
+            walletIsOpen={walletIsOpen}
+          />
+          <Box direction="row-responsive" pad={{ vertical: 'small' }} gap="small">
+            {walletIsOpen && (
+              <Box flex basis="1/4" width={{ min: '300px' }}>
+                <SendTransaction />
+              </Box>
+            )}
+            <Box flex basis="3/4">
+              <TransactionHistory />
+            </Box>
           </Box>
-        )}
-        <Box flex basis="3/4">
-          <TransactionHistory />
-        </Box>
-      </Box>
+        </>
+      )}
     </Box>
   )
 }
