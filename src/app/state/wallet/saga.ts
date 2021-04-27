@@ -18,8 +18,8 @@ import { walletActions as actions, walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { transactionActions } from '../transaction'
 import { sendTransaction } from '../transaction/saga'
-import { selectAddress, selectWallets } from './selectors'
-import { WalletBalance, WalletType } from './types'
+import { selectWallets } from './selectors'
+import { AddWalletPayload, WalletBalance, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
 // Maybe we should switch to something like uuid later
@@ -45,19 +45,26 @@ export function* getBalance(publicKey: Uint8Array) {
   return { ...balance, total: total.toString() } as WalletBalance
 }
 
+function* getWalletByAddress(address: string) {
+  const wallets = yield* select(selectWallets)
+  const wallet = Object.values(wallets).find(w => w.address === address)
+
+  return wallet ? wallet : undefined
+}
 /**
  * Take multiple ledger accounts that we want to open
  */
 export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<LedgerAccount[]>) {
-  for (const account of accounts) {
+  for (const [index, account] of accounts.entries()) {
     yield* put(
-      actions.walletOpened({
+      actions.addWallet({
         id: walletId++,
         address: account.address,
         publicKey: account.publicKey,
         type: WalletType.Ledger,
         balance: account.balance,
         path: account.path,
+        selectImmediately: index === 0,
       }),
     )
   }
@@ -71,13 +78,14 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
   const balance = yield* getBalance(publicKeyBytes)
 
   yield* put(
-    actions.walletOpened({
+    actions.addWallet({
       id: walletId++,
       address: walletAddress,
       publicKey,
       privateKey,
       type: type!,
       balance,
+      selectImmediately: true,
     }),
   )
 }
@@ -94,24 +102,36 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
   const balance = yield* getBalance(publicKeyBytes)
 
   yield* put(
-    actions.walletOpened({
+    actions.addWallet({
       id: walletId++,
       address: walletAddress,
       publicKey,
       privateKey,
       type: type!,
       balance,
+      selectImmediately: true,
     }),
   )
 }
 
 /**
- * Open wallet from a mnemonic or private key
+ * Adds a wallet to the existing wallets
+ * If the wallet exists already, do nothingg
+ * If it has "selectImmediately", we select it immediately
  */
-export function* openWallet() {
-  yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
-  yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
-  yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
+export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
+  const existingWallet = yield* call(getWalletByAddress, newWallet.address)
+  if (!existingWallet) {
+    yield* put(actions.walletOpened(newWallet))
+  }
+
+  const walletId = existingWallet ? existingWallet.id : newWallet.id
+
+  if (newWallet.selectImmediately) {
+    yield* put(walletActions.selectWallet(walletId))
+    yield* take(walletActions.walletSelected)
+    yield* put(push(`/account/${newWallet.address}`))
+  }
 }
 
 export function* closeWallet() {
@@ -120,19 +140,6 @@ export function* closeWallet() {
 
 export function* selectWallet({ payload: index }: PayloadAction<number>) {
   yield* put(walletActions.walletSelected(index))
-}
-
-/**
- * When a wallet is opened, select it and go to the matching account
- */
-export function* selectOpenedWallets() {
-  while (true) {
-    const wallet = yield* take(walletActions.walletOpened)
-    yield* put(walletActions.selectWallet(wallet.payload.id))
-    yield* take(walletActions.walletSelected)
-    const address = yield* select(selectAddress)
-    yield* put(push(`/account/${address}`))
-  }
 }
 
 /**
@@ -174,9 +181,11 @@ export function* walletSaga() {
 }
 
 export function* rootWalletSaga() {
-  // Wait for an openWallet action (Mnemonic or PrivateKey)
-  yield* fork(openWallet)
-  yield* fork(selectOpenedWallets)
+  // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
+  yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
+  yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
+  yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
+  yield* takeEvery(walletActions.addWallet, addWallet)
 
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(reloadBalanceOnTransaction)

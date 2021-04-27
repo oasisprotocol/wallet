@@ -33,6 +33,10 @@ export interface Wallet {
   balance: WalletBalance
 }
 
+export interface AddWalletPayload extends Wallet {
+  selectImmediately: boolean
+}
+
 /* --- STATE --- */
 export interface WalletState {
   isOpen: boolean

@@ -16,12 +16,10 @@ describe('Wallet Sagas', () => {
     'abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger'
   const validPrivateKeyHex =
     '5f48e5a6fb243f5abc13aac7c56449afbc93be90ae38f10a0465bc82db954f17e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132'
-  const matchingAddress = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
+  const addressHex = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
+  const addressMnemonic = 'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn'
 
-  const providers: (EffectProviders | StaticProvider)[] = [
-    [matchers.select.selector(selectAddress), matchingAddress],
-    [matchers.call.fn(nic.stakingAccount), {}],
-  ]
+  const providers: (EffectProviders | StaticProvider)[] = [[matchers.call.fn(nic.stakingAccount), {}]]
 
   describe('Root Saga', () => {
     it('Should fork once open', () => {
@@ -39,7 +37,8 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromMnemonic(validMnemonic))
         .fork(walletSaga)
-        .put(push(`/account/${matchingAddress}`))
+        .put.actionType(walletActions.walletOpened.type)
+        .put(push(`/account/${addressMnemonic}`))
         .silentRun(50)
     })
 
@@ -49,8 +48,7 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
         .fork(walletSaga)
-        .select(selectAddress)
-        .put(push(`/account/${matchingAddress}`))
+        .put(push(`/account/${addressHex}`))
         .silentRun(50)
     })
 
@@ -61,7 +59,7 @@ describe('Wallet Sagas', () => {
         .dispatch(
           walletActions.openWalletsFromLedger([
             {
-              address: matchingAddress,
+              address: addressHex,
               balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
               path: [44, 474, 0, 0, 0],
               publicKey: '00',
@@ -70,8 +68,7 @@ describe('Wallet Sagas', () => {
           ]),
         )
         .fork(walletSaga)
-        .select(selectAddress)
-        .put(push(`/account/${matchingAddress}`))
+        .put(push(`/account/${addressHex}`))
         .silentRun(50)
     })
 
@@ -81,7 +78,7 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
         .fork(walletSaga)
-        .put(push(`/account/${matchingAddress}`))
+        .put(push(`/account/${addressHex}`))
         .dispatch(walletActions.closeWallet())
         .put(walletActions.walletClosed())
         .take(walletActions.openWalletFromMnemonic)
@@ -98,7 +95,7 @@ describe('Wallet Sagas', () => {
       .put.actionType(walletActions.walletSelected.type)
       .dispatch(walletActions.openWalletFromMnemonic(validMnemonic))
       .put.actionType(walletActions.walletOpened.type)
-      .not.put.actionType(walletActions.walletSelected.type)
+      .put.actionType(walletActions.walletSelected.type)
       .silentRun(50)
   })
 

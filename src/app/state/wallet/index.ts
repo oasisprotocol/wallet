@@ -4,7 +4,7 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 import { LedgerAccount } from '../ledger/types'
 
 import { rootWalletSaga } from './saga'
-import { BalanceUpdatePayload, Wallet, WalletBalance, WalletState } from './types'
+import { AddWalletPayload, BalanceUpdatePayload, Wallet, WalletBalance, WalletState } from './types'
 
 export const initialState: WalletState = {
   wallets: {},
@@ -27,6 +27,7 @@ const slice = createSlice({
     walletSelected(state, action: PayloadAction<number>) {
       state.selectedWallet = action.payload
     },
+    addWallet(state, action: PayloadAction<AddWalletPayload>) {},
     walletOpened(state, action: PayloadAction<Wallet>) {
       const newWallet = action.payload
       state.wallets[newWallet.id] = Object.assign({}, newWallet)
