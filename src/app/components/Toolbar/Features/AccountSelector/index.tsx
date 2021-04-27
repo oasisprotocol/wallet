@@ -50,6 +50,7 @@ export const Account = memo((props: AccountProps) => {
 
   return (
     <Box
+      data-testid="account-choice"
       round="5px"
       background={props.isActive ? 'neutral-2' : undefined}
       border={{ color: props.isActive ? 'neutral-2' : 'brand' }}
@@ -96,8 +97,9 @@ export const AccountSelector = memo((props: Props) => {
     props.closeHandler()
   }
 
-  const accounts = Object.values(wallets).map(wallet => (
+  const accounts = Object.values(wallets).map((wallet, index) => (
     <Account
+      key={index}
       index={wallet.id}
       address={wallet.address}
       balance={wallet.balance.total}

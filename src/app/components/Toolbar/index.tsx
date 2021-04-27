@@ -23,7 +23,12 @@ export function Toolbar(props: Props) {
         <SearchAddress />
       </Box>
       {isOpen && (
-        <Box justify="end" round="3px" border={{ size: '2px', color: 'light-4' }}>
+        <Box
+          justify="end"
+          round="3px"
+          border={{ size: '2px', color: 'light-4' }}
+          data-testid="account-selector"
+        >
           <AccountSelectorButton />
         </Box>
       )}
