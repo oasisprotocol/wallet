@@ -35,6 +35,10 @@
             "release": "patch"
           },
           {
+            "scope": "norelease",
+            "release": false
+          },
+          {
             "scope": "no-release",
             "release": false
           }

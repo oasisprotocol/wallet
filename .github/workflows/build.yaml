@@ -81,9 +81,28 @@ jobs:
       with:
         files: ./jest-coverage/coverage-final.json
         flags: jest
-        fail_ci_if_error: true # optional (default = false)
     - uses: codecov/codecov-action@v1
       with:
         files: ./cypress-coverage/coverage-final.json
         flags: cypress 
-        fail_ci_if_error: true # optional (default = false)
+  
+  release:
+    # Only release on develop/master and after tests
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
+    needs: [build, jest, cypress]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+    - uses: c-hive/gha-yarn-cache@v1
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14.x
+    - run: yarn install --frozen-lockfile
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npx semantic-release
