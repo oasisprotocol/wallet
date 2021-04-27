@@ -1,3 +1,11 @@
+# [1.0.0-dev.2](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2021-04-27)
+
+
+### Bug Fixes
+
+* re-opening the same wallet does not create an additional wallet ([bd36493](https://github.com/Esya/oasis-wallet/commit/bd3649384e2f9f2dff667fc805de2150bae5587b)), closes [#34](https://github.com/Esya/oasis-wallet/issues/34)
+* **deps:** update dependency @ledgerhq/hw-transport-webusb to v5.50.0 ([#31](https://github.com/Esya/oasis-wallet/issues/31)) ([3584c4c](https://github.com/Esya/oasis-wallet/commit/3584c4c0da653935aae6a8b3706db5c8c748ddd7))
+
 # 1.0.0-dev.1 (2021-04-27)
 
 
