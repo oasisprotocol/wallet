@@ -32,12 +32,12 @@ const successOrThrow = (response: Response, message: string) => {
   return response
 }
 export class Ledger {
-  public static async enumerateAccounts(transport: any) {
+  public static async enumerateAccounts(transport: any, count = 5) {
     const accounts: LedgerAccount[] = []
 
     try {
       const app = new OasisApp(transport)
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < count; i++) {
         const path = [44, 474, 0, 0, i]
         const publicKeyResponse = successOrThrow(await app.publicKey(path), 'ledger public key')
         accounts.push({ path, publicKey: new Uint8Array(publicKeyResponse.pk as Buffer) })

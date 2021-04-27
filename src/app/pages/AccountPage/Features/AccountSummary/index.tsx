@@ -26,7 +26,6 @@ export function AccountSummary(props: AccountSummaryProps) {
 
   const copyAddress = () => {
     copy(address)
-    console.log('Copied address')
   }
 
   return (

@@ -77,8 +77,6 @@ export class OasisTransaction {
     const gas = await tw.estimateGas(nic, signer.public())
     tw.setFeeGas(gas)
 
-    console.log(nonce, gas)
-
     return tw
   }
 

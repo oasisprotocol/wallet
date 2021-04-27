@@ -149,7 +149,7 @@ function* reloadBalanceOnTransaction() {
     const wallets = yield* select(selectWallets)
     const matchingWallets = Object.values(wallets).filter(w => w.address === to || w.address === from)
     for (const wallet of matchingWallets) {
-      const balance = yield* getBalance(hex2uint(wallet.publicKey))
+      const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
       yield* put(
         walletActions.updateBalance({
           walletId: wallet.id,

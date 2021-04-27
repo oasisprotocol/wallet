@@ -3,10 +3,13 @@ import { push } from 'connected-react-router'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
+import { RootState } from 'types'
 
 import { walletActions } from '.'
-import { rootWalletSaga, walletSaga } from './saga'
+import { transactionActions } from '../transaction'
+import { getBalance, rootWalletSaga, walletSaga } from './saga'
 import { selectAddress } from './selectors'
+import { Wallet, WalletState } from './types'
 
 describe('Wallet Sagas', () => {
   const validMnemonic =
@@ -96,6 +99,21 @@ describe('Wallet Sagas', () => {
       .dispatch(walletActions.openWalletFromMnemonic(validMnemonic))
       .put.actionType(walletActions.walletOpened.type)
       .not.put.actionType(walletActions.walletSelected.type)
+      .silentRun(50)
+  })
+
+  it('Should refresh balances on matching transaction', () => {
+    return expectSaga(rootWalletSaga)
+      .provide(providers)
+      .provide([[matchers.call.fn(getBalance), {}]])
+      .withState({
+        wallet: {
+          wallets: [{ address: 'sender', publicKey: '00' } as Partial<Wallet>],
+        } as Partial<WalletState>,
+      } as Partial<RootState>)
+      .dispatch(transactionActions.transactionSent({ amount: 1, from: 'sender', to: 'receiver' }))
+      .call.fn(getBalance)
+      .put.actionType(walletActions.updateBalance.type)
       .silentRun(50)
   })
 })
