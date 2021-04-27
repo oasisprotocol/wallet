@@ -35,6 +35,10 @@
             "release": "patch"
           },
           {
+            "scope": "norelease",
+            "release": false
+          },
+          {
             "scope": "no-release",
             "release": false
           }
@@ -76,15 +80,15 @@
     [
       "@semantic-release/github",
       {
-        "assets": [
-          "build/**"
-        ]
+        "assets": []
       }
     ],
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md"]
+        "assets": [
+          "CHANGELOG.md"
+        ]
       }
     ]
   ]
