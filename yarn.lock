@@ -8580,10 +8580,10 @@ html-minifier-terser@^5.0.1:
     relateurl "^0.2.7"
     terser "^4.6.3"
 
-html-parse-stringify@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.0.0.tgz"
-  integrity sha512-TrTKp/U0tACrpqalte/VhxepqMLii2mOfC8iuOt4+VA7Zdi6BUKKqNJvEsO17Cr3T3E7PpqLe3NdLII6bcYJgg==
+html-parse-stringify@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz#dfc1017347ce9f77c8141a507f233040c59c55d2"
+  integrity sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==
   dependencies:
     void-elements "3.1.0"
 
@@ -14166,13 +14166,13 @@ react-helmet-async@1.0.9:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-i18next@11.8.13:
-  version "11.8.13"
-  resolved "https://registry.npmjs.org/react-i18next/-/react-i18next-11.8.13.tgz"
-  integrity sha512-KTNuLYnEwI9y54nSEal4yBxXBnfCCfh7t/0p/UHfhlGNcIMu+V4x/y5zGKzbOEK4noQrUzZ+J47RPYH7rMs2ZQ==
+react-i18next@11.8.14:
+  version "11.8.14"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.8.14.tgz#4d2f9486513f8e23e5b77a69dc314cf153ea4545"
+  integrity sha512-IlfmezceEic7nMkhK39bYSV1tXqcOraLpiBc8ADN7CfoqTpANW6/UmNUvtlj0jEdpI69fQ2bO9+ZmTxeAg5ehA==
   dependencies:
     "@babel/runtime" "^7.13.6"
-    html-parse-stringify "^3.0.0"
+    html-parse-stringify "^3.0.1"
 
 "react-is@^16.12.0 || ^17.0.0", react-is@^17.0.1, react-is@^17.0.2:
   version "17.0.2"
