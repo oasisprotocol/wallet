@@ -25,6 +25,40 @@ import { AddWalletPayload, WalletBalance, WalletType } from './types'
 // Maybe we should switch to something like uuid later
 let walletId = 0
 
+/**
+ * Opened wallet saga that
+ *
+ * - Refreshes every Xs
+ * - Sends transactions
+ * - Stakes
+ * - Signs messages
+ * - Verifies signatures
+ * - etc...
+ */
+export function* walletSaga() {
+  yield* takeEvery(transactionActions.sendTransaction, sendTransaction)
+}
+
+export function* rootWalletSaga() {
+  // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
+  yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
+  yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
+  yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
+  yield* takeEvery(walletActions.addWallet, addWallet)
+
+  // Reload balance of matching wallets when a transaction occurs
+  yield* fork(reloadBalanceOnTransaction)
+
+  // Allow switching between wallets
+  yield* takeLatest(walletActions.selectWallet, selectWallet)
+
+  // Start the wallet saga in parallel
+  yield* fork(walletSaga)
+
+  // Listen to closeWallet
+  yield* takeEvery(actions.closeWallet, closeWallet)
+}
+
 export function* getBalance(publicKey: Uint8Array) {
   const short = yield* call(shortPublicKey, publicKey)
   const account = yield* call([nic, nic.stakingAccount], {
@@ -165,37 +199,4 @@ function* reloadBalanceOnTransaction() {
       )
     }
   }
-}
-/**
- * Opened wallet saga that
- *
- * - Refreshes every Xs
- * - Sends transactions
- * - Stakes
- * - Signs messages
- * - Verifies signatures
- * - etc...
- */
-export function* walletSaga() {
-  yield* takeEvery(transactionActions.sendTransaction, sendTransaction)
-}
-
-export function* rootWalletSaga() {
-  // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
-  yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
-  yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
-  yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
-  yield* takeEvery(walletActions.addWallet, addWallet)
-
-  // Reload balance of matching wallets when a transaction occurs
-  yield* fork(reloadBalanceOnTransaction)
-
-  // Allow switching between wallets
-  yield* takeLatest(walletActions.selectWallet, selectWallet)
-
-  // Start the wallet saga in parallel
-  yield* fork(walletSaga)
-
-  // Listen to closeWallet
-  yield* takeEvery(actions.closeWallet, closeWallet)
 }
