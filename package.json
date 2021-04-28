@@ -104,7 +104,7 @@
     "react-app-polyfill": "2.0.0",
     "react-dom": "17.0.2",
     "react-helmet-async": "1.0.9",
-    "react-i18next": "11.8.14",
+    "react-i18next": "11.8.15",
     "react-number-format": "4.5.5",
     "react-redux": "7.2.4",
     "react-router-dom": "5.2.0",
