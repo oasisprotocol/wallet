@@ -10,7 +10,12 @@ export function HomePage() {
   return (
     <>
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>
-        <Box round="5px" border={{ color: 'light-3', size: '1px' }} background="white" pad="large">
+        <Box
+          round="5px"
+          border={{ color: 'background-front-border', size: '1px' }}
+          background="background-front"
+          pad="large"
+        >
           <Heading size="1">{t('home.existing.header')}</Heading>
           <Paragraph>{t('home.existing.description')}</Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
@@ -25,7 +30,12 @@ export function HomePage() {
             </NavLink>
           </Box>
         </Box>
-        <Box round="5px" border={{ color: 'light-3', size: '1px' }} background="white" pad="large">
+        <Box
+          round="5px"
+          border={{ color: 'background-front-border', size: '1px' }}
+          background="background-front"
+          pad="large"
+        >
           <Heading size="1">{t('home.create.header')}</Heading>
           <Paragraph>{t('home.create.description')}</Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>

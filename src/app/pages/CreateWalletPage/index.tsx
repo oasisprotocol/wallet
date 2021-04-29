@@ -48,9 +48,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
 
   return (
     <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>
-      <Box background="light-5">
+      <Box background="background-front">
         <MnemonicGrid mnemonic={mnemonic} />
-        <Box margin="xsmall" pad="small" background="light-1" style={{ wordSpacing: '14px' }}>
+        <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
           <strong>{mnemonic}</strong>
           <Box direction="row" justify="end" margin={{ top: 'medium' }}>
             <Button
@@ -63,8 +63,14 @@ export function CreateWalletPage(props: CreateWalletProps) {
           </Box>
         </Box>
       </Box>
-      <Box margin={{ left: 'small', vertical: 'small', right: 'small' }}>
-        <Heading margin="0">{t('createWallet.thisIsYourPhrase', 'This is your mnemonic')}</Heading>
+      <Box
+        pad={{ left: 'small', vertical: 'small', right: 'small' }}
+        background="background-front"
+        round="5px"
+      >
+        <Heading margin="0" level="2">
+          {t('createWallet.thisIsYourPhrase', 'This is your mnemonic')}
+        </Heading>
         <Box width="100%" justify="evenly" margin={{ vertical: 'small' }}>
           <Text margin="0">
             <Trans i18nKey="createWallet.instruction" t={t}>
@@ -73,12 +79,25 @@ export function CreateWalletPage(props: CreateWalletProps) {
             </Trans>
           </Text>
         </Box>
-        <Text weight="bold" color="status-warning">
-          {t(
-            'createWallet.doNotShare',
-            'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
-          )}
-        </Text>
+        <Box
+          pad="xsmall"
+          border={{
+            color: 'status-warning',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-warning',
+            opacity: 0.2,
+          }}
+        >
+          <Text weight="bold">
+            {t(
+              'createWallet.doNotShare',
+              'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
+            )}
+          </Text>
+        </Box>
         <Box pad={{ vertical: 'medium' }}>
           <CheckBox
             label={t('createWallet.confirmSaved', 'I saved my keyphrase')}

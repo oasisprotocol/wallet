@@ -43,7 +43,7 @@ export const SearchAddress = memo((props: Props) => {
     <Form onSubmit={() => goToAddress()}>
       <Box
         round="30px"
-        border={{ size: '2px', color: 'light-4' }}
+        border={{ size: '1px' }}
         fill="vertical"
         justify="center"
         align="center"
@@ -60,9 +60,14 @@ export const SearchAddress = memo((props: Props) => {
             updatePayload(e.target.value)
           }}
           placeholder={
-            <Text margin="36px" color="light-4">
+            <Box
+              margin={{ left: '36px' }}
+              max-height="30px"
+              style={{ textOverflow: 'ellipsis' }}
+              flex="shrink"
+            >
               {t('toolbar.search.placeholder', 'Search for an account or a validator')}
-            </Text>
+            </Box>
           }
         />
         {searchPayload && <Button icon={<FormClose />} onClick={() => updatePayload('')} />}

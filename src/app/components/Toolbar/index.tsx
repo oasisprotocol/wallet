@@ -18,21 +18,23 @@ export function Toolbar(props: Props) {
   const isOpen = useSelector(selectStatus)
 
   return (
-    <Box width="100%" background="brand" direction="row" height={{ min: 'auto' }} pad="small" gap="small">
+    <Box
+      width="100%"
+      background="component-toolbar"
+      direction="row"
+      height={{ min: 'auto' }}
+      pad="small"
+      gap="small"
+    >
       <Box gap="medium" flex>
         <SearchAddress />
       </Box>
       {isOpen && (
-        <Box
-          justify="end"
-          round="3px"
-          border={{ size: '2px', color: 'light-4' }}
-          data-testid="account-selector"
-        >
+        <Box justify="end" round="3px" border={{ size: '1px' }} data-testid="account-selector">
           <AccountSelectorButton />
         </Box>
       )}
-      <Box justify="end" round="3px" border={{ size: '2px', color: 'light-4' }}>
+      <Box justify="end" round="3px" border={{ size: '1px' }}>
         <NetworkSelector />
       </Box>
     </Box>

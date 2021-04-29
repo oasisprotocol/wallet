@@ -42,7 +42,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #DADADA;
+  background-color: #FFFFFF;
   color: #444444;
   min-width: 0;
   min-height: 0;
@@ -59,8 +59,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin: 6px;
-  background-color: #F8F8F8;
-  color: #444444;
+  background: #33333310;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -117,15 +116,18 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
+  background-color: #FFFFFF;
+  color: #444444;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 5px;
 }
 
 .c15 {
@@ -149,7 +151,24 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: space-evenly;
 }
 
-.c18 {
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: rgba(255,170,21,0.2);
+  border-left: solid 3px #FFAA15;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -165,7 +184,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding-bottom: 24px;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -188,7 +207,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c23 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -214,7 +233,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -241,8 +260,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin: 6px;
-  background-color: #F8F8F8;
-  color: #444444;
+  background: #33333310;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -342,7 +360,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c25 {
+.c26 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -372,31 +390,31 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c25:focus {
+.c26:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c25:focus > circle,
-.c25:focus > ellipse,
-.c25:focus > line,
-.c25:focus > path,
-.c25:focus > polygon,
-.c25:focus > polyline,
-.c25:focus > rect {
+.c26:focus > circle,
+.c26:focus > ellipse,
+.c26:focus > line,
+.c26:focus > path,
+.c26:focus > polygon,
+.c26:focus > polyline,
+.c26:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c25:focus::-moz-focus-inner {
+.c26:focus::-moz-focus-inner {
   border: 0;
 }
 
 .c14 {
   margin: 0;
-  font-size: 50px;
-  line-height: 56px;
-  max-width: 1200px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
 }
 
@@ -406,10 +424,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c17 {
+.c18 {
   font-size: 18px;
   line-height: 24px;
-  color: #FFAA15;
   font-weight: bold;
 }
 
@@ -418,7 +435,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -440,12 +457,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c19:hover input:not([disabled]) + div,
-.c19:hover input:not([disabled]) + span {
+.c20:hover input:not([disabled]) + div,
+.c20:hover input:not([disabled]) + span {
   border-color: #000000;
 }
 
-.c22 {
+.c23 {
   opacity: 0;
   -moz-appearance: none;
   width: 0;
@@ -454,12 +471,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c22:checked + span > span {
+.c23:checked + span > span {
   left: calc( 48px - 24px );
   background: #7D4CDB;
 }
 
-.c21 {
+.c22 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -498,20 +515,20 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c13 {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c13 {
-    margin-left: 6px;
+    padding-left: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c13 {
-    margin-right: 6px;
+    padding-right: 6px;
   }
 }
 
@@ -523,26 +540,38 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c18 {
+  .c17 {
+    border-left: solid 3px #FFAA15;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c19 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c20 {
+  .c21 {
     margin-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c23 {
+  .c24 {
     border: solid 2px rgba(0,0,0,0.15);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c24 {
+  .c25 {
     margin-top: 12px;
   }
 }
@@ -573,9 +602,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c14 {
-    font-size: 34px;
-    line-height: 40px;
-    max-width: 816px;
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 
@@ -1165,11 +1194,11 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   <div
     class="c13"
   >
-    <h1
+    <h2
       class="c14"
     >
       createWallet.thisIsYourPhrase
-    </h1>
+    </h2>
     <div
       class="c15"
     >
@@ -1179,26 +1208,30 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
         createWallet.instruction
       </span>
     </div>
-    <span
+    <div
       class="c17"
     >
-      createWallet.doNotShare
-    </span>
+      <span
+        class="c18"
+      >
+        createWallet.doNotShare
+      </span>
+    </div>
     <div
-      class="c18"
+      class="c19"
     >
       <label
-        class="c19"
+        class="c20"
       >
         <div
-          class="c20 c21"
+          class="c21 c22"
         >
           <input
-            class="c22"
+            class="c23"
             type="checkbox"
           />
           <div
-            class="c23 "
+            class="c24 "
           />
         </div>
         <span>
@@ -1206,10 +1239,10 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
         </span>
       </label>
       <div
-        class="c24"
+        class="c25"
       >
         <button
-          class="c25"
+          class="c26"
           disabled=""
           style="border-radius: 4px;"
           type="submit"

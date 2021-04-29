@@ -19,6 +19,7 @@ import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory, useLocation } from 'react-router-dom'
+import { ThemeSwitcher } from '../ThemeSwitcher'
 
 interface SidebarButtonProps extends ButtonType {
   secure?: boolean
@@ -26,7 +27,7 @@ interface SidebarButtonProps extends ButtonType {
   label: string
 }
 
-const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonProps) => {
+export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonProps) => {
   const status = useSelector(selectStatus)
   const size = useContext(ResponsiveContext)
   const location = useLocation()
@@ -41,7 +42,7 @@ const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonPro
     <Box
       pad={{ vertical: 'small', right: 'medium' }}
       margin="none"
-      background={isActive ? 'brand' : 'neutral-2'}
+      background={isActive ? 'background-oasis-blue' : 'component-sidebar'}
       round={{ size: 'medium', corner: 'right' }}
     >
       {label}
@@ -52,7 +53,8 @@ const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonPro
     <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
       <Box
         pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
-        background={isActive ? 'brand' : undefined}
+        background={isActive ? 'background-oasis-blue' : undefined}
+        responsive={false}
       >
         <Button
           a11yTitle={label}
@@ -100,7 +102,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
       direction="row"
       margin={{ bottom: size !== 'small' ? 'medium' : undefined }}
       pad="medium"
-      alignSelf={size !== 'medium' ? undefined : 'center'}
+      alignSelf={size === 'large' ? undefined : 'center'}
     >
       <Avatar src={src} size={sizeLogo[size]} />
       {size !== 'medium' && <Text>Oasis Wallet</Text>}
@@ -124,9 +126,10 @@ const SidebarFooter = (props: SidebarFooterProps) => {
   }
 
   return (
-    <Nav gap="medium">
+    <Nav gap="small">
+      <ThemeSwitcher />
       <SidebarButton icon={<Logout />} label={t('menu.closeWallet')} secure={true} onClick={() => logout()} />
-      <Box pad={{ horizontal: 'small' }} align="center">
+      <Box pad={{ horizontal: 'small', top: 'small' }} align="center">
         <Menu
           hoverIndicator={false}
           dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
@@ -135,7 +138,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
             { label: 'English', onClick: () => setLanguage('en') },
           ]}
         >
-          <Box direction="row" round="4px" border={{ color: 'light-2' }}>
+          <Box direction="row" round="4px" border={{ size: '1px' }}>
             <Box pad="small">
               <Language />
             </Box>
@@ -189,11 +192,13 @@ export function Sidebar() {
 
   return (
     <GSidebar
-      background="neutral-2"
+      background="component-sidebar"
       header={<SidebarHeader size={size} />}
       footer={<SidebarFooter size={size} />}
       pad={{ left: 'none', right: 'none', vertical: 'medium' }}
+      gap="small"
       width={size === 'medium' ? undefined : '220px'}
+      border={{ side: 'end' }}
       // direction={size === 'small' ? 'row' : undefined}
       // height={size === 'small' ? '64px' : undefined}
     >
@@ -218,11 +223,11 @@ export function Navigation() {
   return (
     <>
       {size === 'small' && (
-        <Box background="neutral-2" height="64px" fill="horizontal" direction="row" justify="between">
+        <Box background="component-sidebar" height="64px" fill="horizontal" direction="row">
+          <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
           <Box justify="center">
             <SidebarHeader size="small" />
           </Box>
-          <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
         </Box>
       )}
       {size === 'small' && sidebarVisible && (

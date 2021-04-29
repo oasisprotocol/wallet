@@ -109,18 +109,6 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c3 {
-    width: 6px;
-  }
-}
-
 <button
   aria-label="Open Menu"
   class="c0"

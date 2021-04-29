@@ -3,13 +3,15 @@
  * NetworkSelector
  *
  */
-import { Menu, Box, Text } from 'grommet'
+import { Menu, Box, Text, ResponsiveContext } from 'grommet'
 import { Network } from 'grommet-icons/icons'
-import React, { memo } from 'react'
+import React, { memo, useContext } from 'react'
 
 interface Props {}
 
 export const NetworkSelector = memo((props: Props) => {
+  const size = useContext(ResponsiveContext)
+
   return (
     <Menu
       dropProps={{
@@ -22,9 +24,9 @@ export const NetworkSelector = memo((props: Props) => {
       ]}
       fill
     >
-      <Box direction="row" gap="small" pad="small">
+      <Box direction="row" gap="small" pad="small" responsive={false}>
         <Network />
-        <Text>Testnet</Text>
+        {size !== 'small' && <Text>Testnet</Text>}
       </Box>
     </Menu>
   )

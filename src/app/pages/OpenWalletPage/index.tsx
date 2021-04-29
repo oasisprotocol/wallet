@@ -23,8 +23,8 @@ export function SelectOpenMethod() {
   return (
     <Box
       round="5px"
-      border={{ color: 'light-3', size: '1px' }}
-      background="white"
+      border={{ color: 'background-front-border', size: '1px' }}
+      background="background-front"
       margin="small"
       pad="medium"
     >

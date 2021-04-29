@@ -114,23 +114,28 @@ export const AccountSelector = memo((props: Props) => {
       onClickOutside={props.closeHandler}
       onEsc={props.closeHandler}
       animation="slide"
-      background="light-2"
+      background="background-front"
       modal
     >
-      <Box background="light-2" pad="small" margin="medium" width={size === 'small' ? 'auto' : '660px'}>
+      <Box pad={{ vertical: 'small' }} margin="medium" width={size === 'small' ? 'auto' : '700px'}>
         <Heading size="1" margin={{ vertical: 'small' }}>
           {t('toolbar.wallets.switchOtherWallet', 'Switch to another wallet')}
         </Heading>
         <Box
           gap="small"
-          pad={{ vertical: 'medium' }}
+          pad={{ vertical: 'medium', right: 'small' }}
           overflow={{ vertical: 'auto' }}
           height={{ max: '400px' }}
         >
           {accounts}
         </Box>
         <Box align="end" pad={{ top: 'medium' }}>
-          <Button primary style={{ borderRadius: '4px' }} label="Close" onClick={props.closeHandler} />
+          <Button
+            primary
+            style={{ borderRadius: '4px' }}
+            label={t('toolbar.wallets.close', 'Close')}
+            onClick={props.closeHandler}
+          />
         </Box>
       </Box>
     </Layer>

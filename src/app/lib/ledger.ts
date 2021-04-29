@@ -31,6 +31,7 @@ const successOrThrow = (response: Response, message: string) => {
   }
   return response
 }
+
 export class Ledger {
   public static async enumerateAccounts(transport: any, count = 5) {
     const accounts: LedgerAccount[] = []

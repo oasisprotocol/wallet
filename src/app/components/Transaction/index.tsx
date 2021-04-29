@@ -92,9 +92,8 @@ export function Transaction(props: TransactionProps) {
   return (
     <Card
       round="small"
-      // border={{ color: 'dark-5', size: '1px' }}
       // pad="small"
-      background="light-1"
+      background="background-front"
       gap="none"
       elevation="xsmall"
     >
@@ -136,10 +135,8 @@ export function Transaction(props: TransactionProps) {
             value={transaction.level}
           />
         </Grid>
-        {/* <InfoBox label="Fee" value="0.00002" />
-        <InfoBox label="Gas" value="0.00002" /> */}
       </CardBody>
-      <CardFooter background="light-2" pad={{ horizontal: 'medium' }}>
+      <CardFooter background="background-contrast" pad={{ horizontal: 'medium' }}>
         <Text size="small">
           <DateFormatter date={transaction.timestamp!} />
         </Text>
