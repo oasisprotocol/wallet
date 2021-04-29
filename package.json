@@ -87,7 +87,7 @@
     "cross-env": "7.0.3",
     "elliptic": "6.5.4",
     "fontfaceobserver": "2.1.0",
-    "grommet": "2.17.1",
+    "grommet": "2.17.2",
     "grommet-icons": "4.5.0",
     "grpc-web": "1.2.1",
     "husky": "6.0.0",
