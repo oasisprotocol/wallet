@@ -129,7 +129,7 @@
     "@testing-library/cypress": "7.0.6",
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.6",
-    "@testing-library/user-event": "13.1.6",
+    "@testing-library/user-event": "13.1.8",
     "@types/bn.js": "5.1.0",
     "@types/fontfaceobserver": "0.0.6",
     "@types/jest": "26.0.23",
