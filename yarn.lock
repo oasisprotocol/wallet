@@ -8283,10 +8283,10 @@ grommet-styles@^0.2.0:
   resolved "https://registry.npmjs.org/grommet-styles/-/grommet-styles-0.2.0.tgz"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-grommet@2.17.1:
-  version "2.17.1"
-  resolved "https://registry.npmjs.org/grommet/-/grommet-2.17.1.tgz"
-  integrity sha512-ULHivqDHiMtHMXfPiyyL9yct0n9a6S9V+Azs9B4Ukjy6Zvp02gTzVve3K/q/IyBagD7EP3AGHuqwMZUxiJL15w==
+grommet@2.17.2:
+  version "2.17.2"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.17.2.tgz#04ce3aae1087808d014e676f7798a005771db767"
+  integrity sha512-0p5H+kiDfysUQ+tsuya1rn4Eys3eSdmlqEQWgROFXzPUaJODFG9uaggmTsJqPMK0MqgIlmDV/5FxdUYMXjJMtw==
   dependencies:
     grommet-icons "^4.5.0"
     hoist-non-react-statics "^3.2.0"
