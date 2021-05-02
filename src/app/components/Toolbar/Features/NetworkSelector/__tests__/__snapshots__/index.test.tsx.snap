@@ -116,6 +116,7 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
 >
   <div
     class="c1"
+    data-testid="network-selector"
   >
     <svg
       aria-label="Network"
@@ -134,8 +135,9 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
     />
     <span
       class="c4"
+      data-testid="active-network"
     >
-      Testnet
+      Local
     </span>
   </div>
 </button>

@@ -1,10 +1,10 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 // import { accountActions as actions } from '.';
 import { PayloadAction } from '@reduxjs/toolkit'
-import { accounts, operations } from 'app/lib/api'
 import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
+import { getExplorerAPIs } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAccountAddress } from './selectors'
 
@@ -14,6 +14,8 @@ import { selectAccountAddress } from './selectors'
  */
 function* loadAccount(action: PayloadAction<string>) {
   yield* put(actions.setLoading(true))
+  const { accounts, operations } = yield* call(getExplorerAPIs)
+
   const address = action.payload
   const result = yield* all({
     account: call([accounts, accounts.getAccount], { accountId: address }),

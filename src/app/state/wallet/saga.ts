@@ -8,7 +8,6 @@ import {
   uint2bigintString,
   uint2hex,
 } from 'app/lib/helpers'
-import { nic } from 'app/lib/oasis-client'
 import { mnemonicToSeedSync } from 'bip39'
 import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
@@ -16,6 +15,7 @@ import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redu
 
 import { walletActions as actions, walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
+import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { sendTransaction } from '../transaction/saga'
 import { selectWallets } from './selectors'
@@ -60,6 +60,7 @@ export function* rootWalletSaga() {
 }
 
 export function* getBalance(publicKey: Uint8Array) {
+  const nic = yield* call(getOasisNic)
   const short = yield* call(shortPublicKey, publicKey)
   const account = yield* call([nic, nic.stakingAccount], {
     height: 0,
@@ -109,7 +110,7 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
   const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
-  const balance = yield* getBalance(publicKeyBytes)
+  const balance = yield* call(getBalance, publicKeyBytes)
 
   yield* put(
     actions.addWallet({
@@ -133,7 +134,7 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
   const publicKey = uint2hex(publicKeyBytes)
 
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes!)
-  const balance = yield* getBalance(publicKeyBytes)
+  const balance = yield* call(getBalance, publicKeyBytes)
 
   yield* put(
     actions.addWallet({

@@ -4,7 +4,8 @@ import { WalletError, WalletErrors } from 'types/errors'
 
 import { HDKey } from './hdkey'
 import { addressToPublicKey, shortPublicKey } from './helpers'
-import { nic } from './oasis-client'
+
+type OasisClient = oasis.client.NodeInternal
 
 export const signerFromPrivateKey = (privateKey: Uint8Array) => {
   return oasis.signature.NaclSigner.fromSecret(privateKey, 'this key is not important')
@@ -21,12 +22,13 @@ export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
 
   public static async buildReclaimEscrow(
+    nic: OasisClient,
     signer: Signer,
     to: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingReclaimEscrow>> {
     const tw = oasis.staking.reclaimEscrowWrapper()
-    const nonce = await OasisTransaction.getNonce(signer)
+    const nonce = await OasisTransaction.getNonce(nic, signer)
     tw.setNonce(nonce)
     tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
     tw.setBody({
@@ -41,12 +43,13 @@ export class OasisTransaction {
   }
 
   public static async buildAddEscrow(
+    nic: OasisClient,
     signer: Signer,
     to: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingEscrow>> {
     const tw = oasis.staking.addEscrowWrapper()
-    const nonce = await OasisTransaction.getNonce(signer)
+    const nonce = await OasisTransaction.getNonce(nic, signer)
     tw.setNonce(nonce)
     tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
     tw.setBody({
@@ -61,12 +64,13 @@ export class OasisTransaction {
   }
 
   public static async buildTransfer(
+    nic: OasisClient,
     signer: Signer,
     to: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingTransfer>> {
     const tw = oasis.staking.transferWrapper()
-    const nonce = await OasisTransaction.getNonce(signer)
+    const nonce = await OasisTransaction.getNonce(nic, signer)
     tw.setNonce(nonce)
     tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
     tw.setBody({
@@ -80,20 +84,21 @@ export class OasisTransaction {
     return tw
   }
 
-  public static async signUsingLedger<T>(signer: ContextSigner, tw: TW<T>): Promise<void> {
-    const chainContext = await OasisTransaction.getChaincontext()
+  public static async signUsingLedger<T>(nic: OasisClient, signer: ContextSigner, tw: TW<T>): Promise<void> {
+    const chainContext = await OasisTransaction.getChaincontext(nic)
+    console.log(chainContext)
     await tw.sign(signer, chainContext)
 
     // @todo Upstream bug in oasis-app, the signature is larger than 64 bytes
     tw.signedTransaction.signature.signature = tw.signedTransaction.signature.signature.slice(0, 64)
   }
 
-  public static async sign<T>(signer: Signer, tw: TW<T>): Promise<void> {
-    const chainContext = await OasisTransaction.getChaincontext()
+  public static async sign<T>(nic: OasisClient, signer: Signer, tw: TW<T>): Promise<void> {
+    const chainContext = await OasisTransaction.getChaincontext(nic)
     return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
   }
 
-  public static async submit<T>(tw: TW<T>): Promise<void> {
+  public static async submit<T>(nic: OasisClient, tw: TW<T>): Promise<void> {
     try {
       await tw.submit(nic)
     } catch (e) {
@@ -114,7 +119,7 @@ export class OasisTransaction {
     }
   }
 
-  protected static async getNonce(signer: Signer): Promise<bigint> {
+  protected static async getNonce(nic: OasisClient, signer: Signer): Promise<bigint> {
     const nonce = await nic.consensusGetSignerNonce({
       account_address: await shortPublicKey(signer.public()),
       height: 0,
@@ -123,7 +128,7 @@ export class OasisTransaction {
     return BigInt(nonce || 0)
   }
 
-  protected static async getChaincontext(): Promise<string> {
+  protected static async getChaincontext(nic: OasisClient): Promise<string> {
     if (!OasisTransaction.chainContext) {
       OasisTransaction.genesis = await nic.consensusGetGenesisDocument()
       OasisTransaction.chainContext = await oasis.genesis.chainContext(OasisTransaction.genesis)

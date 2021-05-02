@@ -3,14 +3,52 @@
  * NetworkSelector
  *
  */
+import { useNetworkSlice } from 'app/state/network'
+import { selectSelectedNetwork } from 'app/state/network/selectors'
+import { NetworkType } from 'app/state/network/types'
 import { Menu, Box, Text, ResponsiveContext } from 'grommet'
 import { Network } from 'grommet-icons/icons'
 import React, { memo, useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 
 interface Props {}
 
 export const NetworkSelector = memo((props: Props) => {
+  const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
+  const actions = useNetworkSlice().actions
+  const selectedNetworkType = useSelector(selectSelectedNetwork)
+  const dispatch = useDispatch()
+
+  const switchNetwork = (network: NetworkType) => {
+    dispatch(actions.selectNetwork(network))
+  }
+
+  const networkLabels: { [code in NetworkType]: string } = {
+    local: t('toolbar.networks.local', 'Local'),
+    mainnet: t('toolbar.networks.mainnet', 'Mainnet'),
+    testnet: t('toolbar.networks.testnet', 'Testnet'),
+  }
+
+  const network = networkLabels[selectedNetworkType]
+  const menuItems = [
+    {
+      label: networkLabels['testnet'],
+      onClick: () => {
+        switchNetwork('testnet')
+      },
+    },
+  ]
+
+  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+    menuItems.push({
+      label: networkLabels['local'],
+      onClick: () => {
+        switchNetwork('local')
+      },
+    })
+  }
 
   return (
     <Menu
@@ -18,15 +56,12 @@ export const NetworkSelector = memo((props: Props) => {
         align: { top: 'bottom', left: 'left' },
         elevation: 'xlarge',
       }}
-      items={[
-        // { label: 'Mainnet', onClick: () => {} },
-        { label: 'Testnet', onClick: () => {} },
-      ]}
+      items={menuItems}
       fill
     >
-      <Box direction="row" gap="small" pad="small" responsive={false}>
+      <Box direction="row" gap="small" pad="small" responsive={false} data-testid="network-selector">
         <Network />
-        {size !== 'small' && <Text>Testnet</Text>}
+        {size !== 'small' && <Text data-testid="active-network">{network}</Text>}
       </Box>
     </Menu>
   )

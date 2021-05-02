@@ -10,6 +10,7 @@ import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { ledgerActions } from '.'
 import { getBalance } from '../wallet/saga'
 import { LedgerAccount, LedgerStep } from './types'
+import { getOasisNic } from '../network/saga'
 
 function* setStep(step: LedgerStep) {
   yield* put(ledgerActions.setStep(step))
@@ -72,10 +73,11 @@ function* enumerateAccounts() {
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
   const transport: any = yield* getUSBTransport()
+  const nic = yield* call(getOasisNic)
 
   signer.setTransport(transport)
   try {
-    yield* call([OasisTransaction, OasisTransaction.signUsingLedger], signer, tw)
+    yield* call([OasisTransaction, OasisTransaction.signUsingLedger], nic, signer, tw)
   } catch (e) {
     yield* call([transport, transport.close])
     throw e

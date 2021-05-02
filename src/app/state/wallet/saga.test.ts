@@ -1,4 +1,3 @@
-import { nic } from 'app/lib/oasis-client'
 import { push } from 'connected-react-router'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
@@ -8,7 +7,6 @@ import { RootState } from 'types'
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
 import { getBalance, rootWalletSaga, walletSaga } from './saga'
-import { selectAddress } from './selectors'
 import { Wallet, WalletState } from './types'
 
 describe('Wallet Sagas', () => {
@@ -19,7 +17,7 @@ describe('Wallet Sagas', () => {
   const addressHex = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
   const addressMnemonic = 'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn'
 
-  const providers: (EffectProviders | StaticProvider)[] = [[matchers.call.fn(nic.stakingAccount), {}]]
+  const providers: (EffectProviders | StaticProvider)[] = [[matchers.call.fn(getBalance), {}]]
 
   describe('Root Saga', () => {
     it('Should fork once open', () => {
@@ -102,7 +100,6 @@ describe('Wallet Sagas', () => {
   it('Should refresh balances on matching transaction', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)
-      .provide([[matchers.call.fn(getBalance), {}]])
       .withState({
         wallet: {
           wallets: [{ address: 'sender', publicKey: '00' } as Partial<Wallet>],

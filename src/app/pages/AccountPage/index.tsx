@@ -3,6 +3,7 @@
  * AccountPage
  *
  */
+import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { Box, Layer, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
@@ -33,6 +34,7 @@ export function AccountPage(props: Props) {
   const account = useSelector(selectAccount)
   const walletIsOpen = useSelector(selectStatus)
   const walletAddress = useSelector(selectAddress)
+  const selectedNetwork = useSelector(selectSelectedNetwork)
 
   const isLoading = account.loading
 
@@ -49,7 +51,7 @@ export function AccountPage(props: Props) {
     return () => {
       dispatch(accountActions.clearAccount())
     }
-  }, [dispatch, accountActions, address])
+  }, [dispatch, accountActions, address, selectedNetwork])
 
   return (
     <Box pad="small">

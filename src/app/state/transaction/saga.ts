@@ -8,6 +8,7 @@ import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 
 import { transactionActions } from '.'
 import { sign } from '../ledger/saga'
+import { getOasisNic } from '../network/saga'
 import { selectActiveWallet } from '../wallet/selectors'
 import { WalletType } from '../wallet/types'
 import { SendTransactionPayload, TransactionStep } from './types'
@@ -43,6 +44,8 @@ export function* expectConfirmation() {
  */
 export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) {
   const wallet = yield* select(selectActiveWallet)
+  const nic = yield* call(getOasisNic)
+
   try {
     if (!wallet) {
       throw new WalletError(WalletErrors.NoOpenWallet, 'Cannot send transaction without an active wallet')
@@ -88,16 +91,16 @@ export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) 
     }
 
     yield* setStep(TransactionStep.Signing)
-    const tw = yield* call(OasisTransaction.buildTransfer, signer as Signer, recipient, amount)
+    const tw = yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, recipient, amount)
 
     if (wallet.type === WalletType.Ledger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
-      yield* call(OasisTransaction.sign, signer as Signer, tw)
+      yield* call(OasisTransaction.sign, nic, signer as Signer, tw)
     }
 
     yield* setStep(TransactionStep.Submitting)
-    yield* call(OasisTransaction.submit, tw)
+    yield* call(OasisTransaction.submit, nic, tw)
 
     // Notify that the transaction was a success
     yield* put(

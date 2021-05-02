@@ -417,6 +417,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
     >
       <div
         class="c12"
+        data-testid="network-selector"
       >
         <svg
           aria-label="Network"
@@ -435,9 +436,8 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
         />
         <span
           class="c14"
-        >
-          Testnet
-        </span>
+          data-testid="active-network"
+        />
       </div>
     </button>
   </div>

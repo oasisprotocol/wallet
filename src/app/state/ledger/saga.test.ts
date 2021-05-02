@@ -66,6 +66,7 @@ describe('Ledger Sagas', () => {
       const mockTransport = { close: jest.fn() }
 
       return expectSaga(sign, (mockSigner as unknown) as LedgerSigner, {} as any)
+        .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.resolve()],
@@ -79,6 +80,7 @@ describe('Ledger Sagas', () => {
       const mockTransport = { close: jest.fn() }
 
       return expectSaga(sign, (mockSigner as unknown) as LedgerSigner, {} as any)
+        .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject()],

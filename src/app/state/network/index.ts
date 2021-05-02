@@ -2,17 +2,22 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 import { networkSaga } from './saga'
-import { NetworkState } from './types'
+import { NetworkState, NetworkType } from './types'
 
 export const initialState: NetworkState = {
   ticker: 'TEST',
+  chainContext: '',
+  selectedNetwork: 'local',
 }
 
 const slice = createSlice({
   name: 'network',
   initialState,
   reducers: {
-    someAction(state, action: PayloadAction<any>) {},
+    selectNetwork(state, action: PayloadAction<NetworkType>) {},
+    networkSelected(state, action: PayloadAction<NetworkType>) {
+      state.selectedNetwork = action.payload
+    },
   },
 })
 
@@ -23,15 +28,3 @@ export const useNetworkSlice = () => {
   useInjectSaga({ key: slice.name, saga: networkSaga })
   return { actions: slice.actions }
 }
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useNetworkSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

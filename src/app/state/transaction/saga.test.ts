@@ -1,4 +1,3 @@
-import { nic } from 'app/lib/oasis-client'
 import { OasisTransaction, signerFromHDSecret, signerFromPrivateKey } from 'app/lib/transaction'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
@@ -41,7 +40,6 @@ describe('Transaction Sagas', () => {
       { privateKey: validPrivateKeyHex, balance: { available: '500000000000' }, type: WalletType.PrivateKey },
     ],
     [matchers.select.selector(selectAddress), matchingAddress],
-    [matchers.call.fn(nic.stakingAccount), {}],
   ]
 
   describe('Send transaction', () => {
