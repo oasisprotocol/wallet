@@ -29,11 +29,11 @@ export function FromMnemonic(props: Props) {
 
   return (
     <Box
-      background="white"
+      background="background-front"
       margin="small"
       pad="medium"
       round="5px"
-      border={{ color: 'light-3', size: '1px' }}
+      border={{ color: 'background-front-border', size: '1px' }}
     >
       <Grid gap="small" pad="small" columns={['2fr', '2fr']}>
         <Box margin={{ left: 'small', vertical: 'small', right: 'large' }}>
@@ -83,7 +83,7 @@ export function FromMnemonic(props: Props) {
             </Box>
           </Form>
         </Box>
-        <Box background="light-5">
+        <Box background="background-contrast">
           <MnemonicGrid mnemonic={mnemonic} />
         </Box>
       </Grid>

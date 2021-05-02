@@ -39,10 +39,10 @@ export function App() {
       >
         <meta name="description" content="A wallet for Oasis" />
       </Helmet>
-      <Box direction="row-responsive" fill>
+      <Box direction="row-responsive" background="background-back" fill>
         <Navigation />
         <Box flex>
-          <AppMain background="light-2">
+          <AppMain>
             <Toolbar />
             <TransitionGroup>
               <Switch>

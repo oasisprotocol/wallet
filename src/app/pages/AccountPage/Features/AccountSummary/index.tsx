@@ -1,11 +1,14 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
 import copy from 'copy-to-clipboard'
-import { Box, Button, Grid, Text } from 'grommet'
+import { Box, Button, Grid, ResponsiveContext, Text } from 'grommet'
 import { Copy } from 'grommet-icons/icons'
 import * as QRCode from 'qrcode.react'
 import * as React from 'react'
+import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
+import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'
 
@@ -19,17 +22,19 @@ export interface AccountSummaryProps {
 
 export function AccountSummary(props: AccountSummaryProps) {
   const { t } = useTranslation()
+  const theme = useSelector(selectTheme)
   const balance = props.balance
   const address = props.address
   const walletIsOpen = props.walletIsOpen
   const walletAddress = props.walletAddress
+  const size = useContext(ResponsiveContext)
 
   const copyAddress = () => {
     copy(address)
   }
 
   return (
-    <Box round="5px" border={{ color: 'light-3', size: '1px' }} background="white">
+    <Box round="5px" border={{ color: 'background-front-border', size: '1px' }} background="background-front">
       <Box pad="small" direction="row-responsive" flex>
         <Box>
           <Box
@@ -44,7 +49,12 @@ export function AccountSummary(props: AccountSummaryProps) {
               <PrettyAddress address={address} />
             </Text>
           </Box>
-          <Grid columns={['auto', 'auto']} gap={{ column: 'medium' }} pad={{ top: 'small' }}>
+          <Grid
+            columns={['auto', 'auto']}
+            gap={{ column: 'medium' }}
+            pad={{ top: 'small' }}
+            responsive={false}
+          >
             <Box pad={{ bottom: 'small' }}>
               <Text weight="bold" size="xlarge">
                 {t('account.summary.balance.total')}
@@ -78,9 +88,11 @@ export function AccountSummary(props: AccountSummaryProps) {
             </Box>
           </Grid>
         </Box>
-        <Box align="end" flex>
-          <QRCode value={address} />
-        </Box>
+        {size !== 'small' && (
+          <Box align="end" flex>
+            <QRCode value={address} fgColor={theme === 'light' ? '#333333' : '#e8e8e8'} bgColor="#00000000" />
+          </Box>
+        )}
       </Box>
       {walletIsOpen && walletAddress === address && (
         <Box

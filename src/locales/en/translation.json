@@ -110,7 +110,8 @@
         "mnemonic": "Mnemonic",
         "privateKey": "Private Key"
       },
-      "switchOtherWallet": "Switch to another wallet"
+      "switchOtherWallet": "Switch to another wallet",
+      "close": "Close"
     }
   },
   "ledger": {

@@ -110,7 +110,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #F8F8F8;
+  background-color: #FFFFFF;
   color: #444444;
   min-width: 0;
   min-height: 0;
@@ -265,8 +265,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #F2F2F2;
-  color: #444444;
+  background: #33333310;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;

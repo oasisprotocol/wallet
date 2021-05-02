@@ -29,7 +29,12 @@ export function TransactionHistory(props: Props) {
       {allTransactions.length ? (
         transactionComponents
       ) : (
-        <Box round="5px" border={{ color: 'light-3', size: '1px' }} background="white" pad="large">
+        <Box
+          round="5px"
+          border={{ color: 'background-front-border', size: '1px' }}
+          background="background-front"
+          pad="large"
+        >
           <Heading level="3">{t('account.summary.noTransactionFound', 'No transaction found')}</Heading>
         </Box>
       )}

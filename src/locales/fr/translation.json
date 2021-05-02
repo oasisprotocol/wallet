@@ -52,8 +52,8 @@
   },
   "account": {
     "summary": {
-      "yourAccount": "Ce compte est le votre.",
-      "notYourAccount": "Ce compte n'est pas le votre.",
+      "yourAccount": "Ce compte est le vôtre.",
+      "notYourAccount": "Ce compte n'est pas le vôtre.",
       "balance": {
         "total": "Solde total",
         "available": "Disponible",
@@ -93,7 +93,7 @@
     "invalidAddress": "Adresse invalide",
     "insufficientBalance": "Solde insuffisant",
     "noOpenWallet": "Pas de portefeuille ouvert",
-    "usbTransportError": "Erreur USB : {message}",
+    "usbTransportError": "Erreur USB : {{message}}",
     "ledgerAppVersionNotSupported": "Erreur reçue : \"Ledger App Version not supported\", cette erreur peut être un faux positif, relancez Oasis Wallet et réessayez. Si l'erreur persiste, mettez à jour l'application Oasis dans votre Ledger.",
     "ledgerTransactionRejected": "Transaction rejetée sur le Ledger.",
     "ledgerNoDeviceSelected": "Pas de Ledger sélectionné. Si vous voulez réessayer, fermez cette fenêtre et tentez à nouveau.",
@@ -110,7 +110,8 @@
         "mnemonic": "Phrase secrète",
         "privateKey": "Clé privée"
       },
-      "switchOtherWallet": "Changer de portefeuille"
+      "switchOtherWallet": "Changer de portefeuille",
+      "close": "Fermer"
     }
   },
   "ledger": {

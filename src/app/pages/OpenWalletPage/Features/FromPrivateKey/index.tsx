@@ -44,11 +44,11 @@ export function FromPrivateKey(props: Props) {
 
   return (
     <Box
-      background="white"
+      background="background-front"
       margin="small"
       pad="medium"
       round="5px"
-      border={{ color: 'light-3', size: '1px' }}
+      border={{ color: 'background-front-border', size: '1px' }}
     >
       <Form>
         <Heading margin="0">{t('openWallet.privateKey.header', 'Enter your private key')}</Heading>

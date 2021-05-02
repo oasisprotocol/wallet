@@ -38,7 +38,7 @@ export function SendTransaction() {
   }, [dispatch, transactionActions])
 
   return (
-    <Box border={{ color: 'light-3', size: '1px' }} round="5px" background="white">
+    <Box border={{ color: 'background-front-border', size: '1px' }} round="5px" background="background-front">
       {active && <TransactionModal />}
       <Form>
         <Box fill gap="medium" pad="medium">

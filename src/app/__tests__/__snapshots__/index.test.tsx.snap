@@ -40,6 +40,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     />
   </Helmet>
   <Box
+    background="background-back"
     direction="row-responsive"
     fill={true}
   >
@@ -47,9 +48,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     <Box
       flex={true}
     >
-      <Styled(Main)
-        background="light-2"
-      >
+      <Styled(Main)>
         <Toolbar />
         <TransitionGroup
           childFactory={[Function]}

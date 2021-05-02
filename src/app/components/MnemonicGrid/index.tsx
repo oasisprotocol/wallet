@@ -21,7 +21,7 @@ let noSelect: React.CSSProperties = {
 
 function MnemonicWord(props: WordProp) {
   return (
-    <Box background="light-1" margin="xsmall" direction="row" pad="xsmall">
+    <Box background="background-contrast" margin="xsmall" direction="row" pad="xsmall">
       <Box pad={{ right: 'small' }}>
         <Text style={noSelect}>{props.id}.</Text>
       </Box>
