@@ -5,7 +5,7 @@ import { networkSaga } from './saga'
 import { NetworkState, NetworkType } from './types'
 
 export const initialState: NetworkState = {
-  ticker: 'TEST',
+  ticker: '',
   chainContext: '',
   selectedNetwork: 'local',
 }
@@ -15,8 +15,8 @@ const slice = createSlice({
   initialState,
   reducers: {
     selectNetwork(state, action: PayloadAction<NetworkType>) {},
-    networkSelected(state, action: PayloadAction<NetworkType>) {
-      state.selectedNetwork = action.payload
+    networkSelected(state, action: PayloadAction<NetworkState>) {
+      Object.assign(state, action.payload)
     },
   },
 })
