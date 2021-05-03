@@ -10220,10 +10220,10 @@ jest-watcher@^26.3.0, jest-watcher@^26.6.2:
     jest-util "^26.6.2"
     string-length "^4.0.1"
 
-jest-when@3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/jest-when/-/jest-when-3.3.0.tgz#478a84ce86411ef0a501666175a3f84fd48ab4af"
-  integrity sha512-xmn6sBezhiadZ1QNRzDtvsUPwfVpi1YlhGXiqhil62YHpmzr9/7/8mfvK4DoJrJw06/GUK+jKBjxaiYtswWcjw==
+jest-when@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jest-when/-/jest-when-3.3.1.tgz#04f978b2e522a290b1d91db7ab6ca029a7925513"
+  integrity sha512-nbQxKeHqfmoSE38TfLVPCgxG+rnsgHSXsdH1wdE9bqHt9US6twHjSXV+fD4ncfsIWNXqhv7zRvN5jn/QYL2UwA==
   dependencies:
     bunyan "^1.8.12"
     expect "^24.8.0"
