@@ -10,9 +10,9 @@ html {
 }
 
 * {
-  -webkit-transition: background-color 200ms linear;
-  -moz-transition: background-color 200ms linear;
-  -o-transition: background-color 200ms linear;
-  -ms-transition: background-color 200ms linear;
-  transition: background-color 200ms linear;
+  -webkit-transition: border 200ms linear, background-color 200ms linear;
+  -moz-transition: border 200ms linear, background-color 200ms linear;
+  -o-transition: border 200ms linear, background-color 200ms linear;
+  -ms-transition: border 200ms linear, background-color 200ms linear;
+  transition: border 200ms linear, background-color 200ms linear;
 }
