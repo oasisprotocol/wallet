@@ -118,6 +118,7 @@ export function FromLedger(props: FromLedgerProps) {
           />
           <Button
             primary
+            data-testid="ledger-open-accounts"
             label={t('openWallet.ledger.openWallets', 'Open')}
             onClick={openAccounts}
             style={{ borderRadius: '4px' }}
