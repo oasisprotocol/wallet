@@ -1,7 +1,7 @@
 # Oasis Wallet
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![codecov](https://codecov.io/gh/esya/oasis-wallet/branch/master/graph/badge.svg)](https://codecov.io/gh/esya/oasis-wallet)
+[![codecov](https://codecov.io/gh/esya/oasis-wallet/branch/develop/graph/badge.svg)](https://codecov.io/gh/esya/oasis-wallet)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Build status](https://github.com/esya/oasis-wallet/actions/workflows/build.yaml/badge.svg)](https://github.com/esya/oasis-wallet/actions)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_shield)
