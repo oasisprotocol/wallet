@@ -92,7 +92,7 @@ describe('OasisTransaction', () => {
         BigInt(1250),
       )
 
-      await OasisTransaction.sign(nic, testSigner, tw)
+      await OasisTransaction.sign('', testSigner, tw)
       await OasisTransaction.submit(nic, tw)
     })
 
@@ -104,7 +104,7 @@ describe('OasisTransaction', () => {
         BigInt(1250),
       )
 
-      await OasisTransaction.sign(nic, testSigner, tw)
+      await OasisTransaction.sign('', testSigner, tw)
 
       const spy = jest.spyOn(tw, 'submit')
       spy.mockRejectedValueOnce({ metadata: { 'grpc-message': 'transaction: invalid nonce' } })

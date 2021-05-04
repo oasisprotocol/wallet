@@ -57,5 +57,9 @@ export function* networkSaga() {
   yield* takeEvery(networkActions.selectNetwork, selectNetwork)
 
   // Select another default network
-  yield* put(networkActions.selectNetwork('local'))
+  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+    yield* put(networkActions.selectNetwork('local'))
+  } else {
+    yield* put(networkActions.selectNetwork('testnet'))
+  }
 }
