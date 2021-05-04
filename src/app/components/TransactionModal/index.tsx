@@ -1,3 +1,4 @@
+import { selectChainContext, selectSelectedNetwork } from 'app/state/network/selectors'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
@@ -30,6 +31,7 @@ export function TransactionModal(props: Props) {
   const { transaction, step } = useSelector(selectTransaction)
   const walletAddress = useSelector(selectAddress)
   const balance = useSelector(selectBalance)
+  const chainContext = useSelector(selectChainContext)
 
   if (!balance) {
     throw new Error('No balance found for wallet')
@@ -47,7 +49,7 @@ export function TransactionModal(props: Props) {
 
   return (
     <Layer position="center">
-      <Box pad="medium" gap="medium" width="780px" background="background-front">
+      <Box pad="medium" gap="medium" width="800px" background="background-front">
         <Box>
           <Heading level="2" margin="none">
             {t('transaction.step.preview', 'Preview transaction')}
@@ -116,6 +118,24 @@ export function TransactionModal(props: Props) {
               <Text weight="bold">{t('transaction.preview.gas', 'Gas')} :</Text>
             </Box>
             <Box>Coming soon</Box>
+            <Box>
+              <Text weight="bold">{t('transaction.preview.genesisHash', 'Genesis Hash')} :</Text>
+            </Box>
+            <Box
+              border={{
+                color: 'background-contrast-2',
+                side: 'left',
+                size: '3px',
+              }}
+              background={{
+                color: 'background-contrast',
+                opacity: 0.04,
+              }}
+              width="75%"
+              pad="xsmall"
+            >
+              {chainContext}
+            </Box>
           </Grid>
           <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
             <Button

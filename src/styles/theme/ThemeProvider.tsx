@@ -67,6 +67,10 @@ const defaultGrommetTheme: ThemeType = {
         dark: '#FFFFFF08',
         light: '#11111108',
       },
+      'background-contrast-2': {
+        dark: '#FFFFFF33',
+        light: '#11111133',
+      },
       'background-custom': {
         dark: '#0E5265',
         light: '#00C8FF',
