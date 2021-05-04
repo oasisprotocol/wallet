@@ -14,7 +14,11 @@ interface Props {
 
 export const AmountFormatter = memo((props: Props) => {
   const amount = Number(props.amount) / 10 ** 9
-  const amountString = new Intl.NumberFormat('en-US', { minimumFractionDigits: 1 }).format(amount)
+  const amountString = new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 15,
+  }).format(amount)
+
   const ticker = useSelector(selectTicker)
 
   return (

@@ -1,16 +1,16 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
-
-import * as oasis from '@oasisprotocol/client'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
-import { all, call, put, takeEvery } from 'typed-redux-saga'
+import { all, call, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
+
 import { ledgerActions } from '.'
+import { selectChainContext } from '../network/selectors'
 import { getBalance } from '../wallet/saga'
 import { LedgerAccount, LedgerStep } from './types'
-import { getOasisNic } from '../network/saga'
 
 function* setStep(step: LedgerStep) {
   yield* put(ledgerActions.setStep(step))
@@ -73,11 +73,11 @@ function* enumerateAccounts() {
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
   const transport: any = yield* getUSBTransport()
-  const nic = yield* call(getOasisNic)
+  const chainContext = yield* select(selectChainContext)
 
   signer.setTransport(transport)
   try {
-    yield* call([OasisTransaction, OasisTransaction.signUsingLedger], nic, signer, tw)
+    yield* call([OasisTransaction, OasisTransaction.signUsingLedger], chainContext, signer, tw)
   } catch (e) {
     yield* call([transport, transport.close])
     throw e

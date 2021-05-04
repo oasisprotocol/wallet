@@ -18,7 +18,6 @@ export const signerFromHDSecret = (secret: Uint8Array) => {
 type TW<T> = oasis.consensus.TransactionWrapper<T>
 
 export class OasisTransaction {
-  protected static chainContext?: string
   protected static genesis?: oasis.types.GenesisDocument
 
   public static async buildReclaimEscrow(
@@ -84,17 +83,18 @@ export class OasisTransaction {
     return tw
   }
 
-  public static async signUsingLedger<T>(nic: OasisClient, signer: ContextSigner, tw: TW<T>): Promise<void> {
-    const chainContext = await OasisTransaction.getChaincontext(nic)
-    console.log(chainContext)
+  public static async signUsingLedger<T>(
+    chainContext: string,
+    signer: ContextSigner,
+    tw: TW<T>,
+  ): Promise<void> {
     await tw.sign(signer, chainContext)
 
     // @todo Upstream bug in oasis-app, the signature is larger than 64 bytes
     tw.signedTransaction.signature.signature = tw.signedTransaction.signature.signature.slice(0, 64)
   }
 
-  public static async sign<T>(nic: OasisClient, signer: Signer, tw: TW<T>): Promise<void> {
-    const chainContext = await OasisTransaction.getChaincontext(nic)
+  public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T>): Promise<void> {
     return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
   }
 
@@ -126,14 +126,5 @@ export class OasisTransaction {
     })
 
     return BigInt(nonce || 0)
-  }
-
-  protected static async getChaincontext(nic: OasisClient): Promise<string> {
-    if (!OasisTransaction.chainContext) {
-      OasisTransaction.genesis = await nic.consensusGetGenesisDocument()
-      OasisTransaction.chainContext = await oasis.genesis.chainContext(OasisTransaction.genesis)
-    }
-
-    return OasisTransaction.chainContext
   }
 }

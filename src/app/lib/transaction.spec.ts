@@ -72,10 +72,10 @@ describe('OasisTransaction', () => {
 
     expect(tw.signedTransaction).toBeUndefined()
 
-    await OasisTransaction.sign(nic, testSigner, tw)
+    await OasisTransaction.sign('', testSigner, tw)
     const hexSignature = uint2hex(tw.signedTransaction.signature.signature)
     expect(hexSignature).toEqual(
-      '4a4245ccacd47236cd38c548d140ec6235701f34ec2e7cc1da0a44389bd187b1a46331b2a3b0af126af0b704e99a939670deeb2bad68a571206e4f2c65eb8405',
+      '275f18f4830f7c10dd9c6243791c24b7508de10b0575483cf875055607bcb2d7d6fb184ddc0606e4222f7f23438cae38e6aff0849c5cd38e5a6c7f798da85d07',
     )
   })
 

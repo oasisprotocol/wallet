@@ -3,7 +3,13 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 import { transactionSaga } from './saga'
-import { SendTransactionPayload, TransactionSent, TransactionState, TransactionStep } from './types'
+import {
+  SendTransactionPayload,
+  TransactionPreview,
+  TransactionSent,
+  TransactionState,
+  TransactionStep,
+} from './types'
 
 export const initialState: TransactionState = {
   success: false,
@@ -15,7 +21,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     clearTransaction(state, action: PayloadAction<void>) {
-      state.transaction = undefined
+      state.preview = undefined
       state.error = undefined
       state.success = false
       state.active = false
@@ -29,13 +35,17 @@ const slice = createSlice({
       state.error = undefined
       state.success = false
       state.active = true
-      state.transaction = Object.assign({}, action.payload)
+    },
+    updateTransactionPreview(state, action: PayloadAction<TransactionPreview>) {
+      state.preview = Object.assign({}, action.payload)
     },
     transactionSent(state, action: PayloadAction<TransactionSent>) {
+      state.preview = undefined
       state.success = true
       state.active = false
     },
     transactionFailed(state, action: PayloadAction<ErrorPayload>) {
+      state.preview = undefined
       state.error = action.payload
       state.active = false
     },

@@ -1,6 +1,6 @@
 import { Signer } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { hex2uint, isValidAddress } from 'app/lib/helpers'
+import { hex2uint, isValidAddress, uint2bigintString } from 'app/lib/helpers'
 import { LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction, signerFromHDSecret, signerFromPrivateKey } from 'app/lib/transaction'
 import { call, put, race, select, take } from 'typed-redux-saga'
@@ -9,6 +9,7 @@ import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { transactionActions } from '.'
 import { sign } from '../ledger/saga'
 import { getOasisNic } from '../network/saga'
+import { selectChainContext } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { WalletType } from '../wallet/types'
 import { SendTransactionPayload, TransactionStep } from './types'
@@ -45,6 +46,7 @@ export function* expectConfirmation() {
 export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) {
   const wallet = yield* select(selectActiveWallet)
   const nic = yield* call(getOasisNic)
+  const chainContext = yield* select(selectChainContext)
 
   try {
     if (!wallet) {
@@ -83,6 +85,16 @@ export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) 
       throw new WalletError(WalletErrors.InvalidPrivateKey, 'Invalid private key')
     }
 
+    const tw = yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, recipient, amount)
+    yield* put(
+      transactionActions.updateTransactionPreview({
+        transaction: { amount: action.payload.amount, to: recipient },
+        type: 'transfer',
+        fee: uint2bigintString(tw.transaction.fee?.amount!),
+        gas: BigInt(tw.transaction.fee?.gas).toString(),
+      }),
+    )
+
     yield* setStep(TransactionStep.Preview)
     const confirmed = yield* expectConfirmation()
     if (!confirmed) {
@@ -91,12 +103,11 @@ export function* sendTransaction(action: PayloadAction<SendTransactionPayload>) 
     }
 
     yield* setStep(TransactionStep.Signing)
-    const tw = yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, recipient, amount)
 
     if (wallet.type === WalletType.Ledger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
-      yield* call(OasisTransaction.sign, nic, signer as Signer, tw)
+      yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
     }
 
     yield* setStep(TransactionStep.Submitting)

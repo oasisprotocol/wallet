@@ -1,4 +1,4 @@
-import { selectChainContext, selectSelectedNetwork } from 'app/state/network/selectors'
+import { selectChainContext } from 'app/state/network/selectors'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
@@ -9,6 +9,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { AmountFormatter } from '../AmountFormatter'
 import { PrettyAddress } from '../PrettyAddress'
 
@@ -28,7 +29,7 @@ interface Props {}
  */
 export function TransactionModal(props: Props) {
   const { t } = useTranslation()
-  const { transaction, step } = useSelector(selectTransaction)
+  const { preview, step } = useSelector(selectTransaction)
   const walletAddress = useSelector(selectAddress)
   const balance = useSelector(selectBalance)
   const chainContext = useSelector(selectChainContext)
@@ -74,87 +75,101 @@ export function TransactionModal(props: Props) {
               )}
             </Text>
           </Box>
-          <Grid
-            columns={size !== 'small' ? ['auto', 'auto'] : ['auto']}
-            gap={{ column: 'small', row: 'xsmall' }}
-          >
-            <Box>
-              <Text weight="bold">{t('transaction.preview.type', 'Type')} :</Text>
-            </Box>
-            <Box>Transfer</Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.from', 'From')} :</Text>
-            </Box>
-            <Box>
-              <Text style={{ fontFamily: 'Roboto mono' }}>
-                <PrettyAddress address={walletAddress} />
-              </Text>
-            </Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.to', 'To')} :</Text>
-            </Box>
-            <Box>
-              <Text style={{ fontFamily: 'Roboto mono' }}>
-                <PrettyAddress address={transaction!.to!} />
-              </Text>
-            </Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.amount', 'Amount')} :</Text>
-            </Box>
-            <Box>
-              <AmountFormatter amount={transaction!.amount! * 10 ** 9} />
-            </Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.balance', 'Balance')} :</Text>
-            </Box>
-            <Box>
-              <AmountFormatter amount={balance.available} />
-            </Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.fee', 'Fee')} :</Text>
-            </Box>
-            <Box>Coming soon</Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.gas', 'Gas')} :</Text>
-            </Box>
-            <Box>Coming soon</Box>
-            <Box>
-              <Text weight="bold">{t('transaction.preview.genesisHash', 'Genesis Hash')} :</Text>
-            </Box>
-            <Box
-              border={{
-                color: 'background-contrast-2',
-                side: 'left',
-                size: '3px',
-              }}
-              background={{
-                color: 'background-contrast',
-                opacity: 0.04,
-              }}
-              width="75%"
-              pad="xsmall"
+          {preview && (
+            <Grid
+              columns={size !== 'small' ? ['auto', 'auto'] : ['auto']}
+              gap={{ column: 'small', row: 'xsmall' }}
             >
-              {chainContext}
+              <Box>
+                <Text weight="bold">{t('transaction.preview.type', 'Type')} :</Text>
+              </Box>
+              <Box>Transfer</Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.from', 'From')} :</Text>
+              </Box>
+              <Box>
+                <Text style={{ fontFamily: 'Roboto mono' }}>
+                  <PrettyAddress address={walletAddress} />
+                </Text>
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.to', 'To')} :</Text>
+              </Box>
+              <Box>
+                <Text style={{ fontFamily: 'Roboto mono' }}>
+                  <PrettyAddress address={preview!.transaction.to} />
+                </Text>
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.amount', 'Amount')} :</Text>
+              </Box>
+              <Box>
+                <AmountFormatter amount={preview!.transaction.amount * 10 ** 9} />
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.balance', 'Balance')} :</Text>
+              </Box>
+              <Box>
+                <AmountFormatter amount={balance.available} />
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.fee', 'Fee')} :</Text>
+              </Box>
+              <Box>
+                <AmountFormatter amount={preview!.fee!} />
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.gas', 'Gas')} :</Text>
+              </Box>
+              <Box>
+                <AmountFormatter amount={preview!.gas!} />
+              </Box>
+              <Box>
+                <Text weight="bold">{t('transaction.preview.genesisHash', 'Genesis Hash')} :</Text>
+              </Box>
+              <Box
+                border={{
+                  color: 'background-contrast-2',
+                  side: 'left',
+                  size: '3px',
+                }}
+                background={{
+                  color: 'background-contrast',
+                  opacity: 0.04,
+                }}
+                width="75%"
+                pad="xsmall"
+              >
+                {chainContext}
+              </Box>
+            </Grid>
+          )}
+          {step === TransactionStep.Preview && (
+            <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
+              <Button
+                secondary
+                label={t('transaction.abort', 'Abort')}
+                style={{ borderRadius: '4px' }}
+                icon={<Close size="18px" />}
+                onClick={abortTransaction}
+              />
+              <Button
+                primary
+                label={t('transaction.confirm', 'Confirm')}
+                onClick={confirmTransaction}
+                icon={<Checkmark size="18px" />}
+                style={{ borderRadius: '4px' }}
+                alignSelf="end"
+              />
             </Box>
-          </Grid>
-          <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
-            <Button
-              secondary
-              label={t('transaction.abort', 'Abort')}
-              style={{ borderRadius: '4px' }}
-              icon={<Close size="18px" />}
-              onClick={abortTransaction}
-            />
-            <Button
-              primary
-              label={t('transaction.confirm', 'Confirm')}
-              onClick={confirmTransaction}
-              icon={<Checkmark size="18px" />}
-              style={{ borderRadius: '4px' }}
-              alignSelf="end"
-            />
-          </Box>
+          )}
         </Box>
+        {step === TransactionStep.Building && (
+          <Box direction="row" align="center" gap="medium">
+            <Spinner size="medium" />
+            <Text size="large">{t('transaction.step.building', 'Building transaction')}</Text>
+          </Box>
+        )}
         {step === TransactionStep.Signing && (
           <Box direction="row" align="center" gap="medium">
             <Spinner size="medium" />

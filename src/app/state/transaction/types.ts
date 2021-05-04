@@ -11,7 +11,14 @@ export interface TransactionState {
    * Used to preview the transaction
    * Later, need to accomodate other transaction types.
    */
-  transaction?: SendTransactionPayload
+  preview?: TransactionPreview
+}
+
+export interface TransactionPreview {
+  type: 'transfer' | 'add_escrow' | 'reclaim_escrow'
+  transaction: SendTransactionPayload
+  fee?: string
+  gas?: string
 }
 
 /**

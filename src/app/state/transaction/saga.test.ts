@@ -29,7 +29,10 @@ describe('Transaction Sagas', () => {
   const sendProviders: (EffectProviders | StaticProvider)[] = [
     [matchers.call.fn(signerFromPrivateKey), {}],
     [matchers.call.fn(signerFromHDSecret), {}],
-    [matchers.call.fn(OasisTransaction.buildTransfer), {}],
+    [
+      matchers.call.fn(OasisTransaction.buildTransfer),
+      { transaction: { fee: { amount: new Uint8Array(0), gas: BigInt(0) } } },
+    ],
     [matchers.call.fn(OasisTransaction.sign), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
   ]
