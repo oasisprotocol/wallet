@@ -75,7 +75,7 @@
     "sendTransaction": {
       "recipient": "Recipient",
       "enterAddress": "Enter an address",
-      "success": "Transaction successfully sent",
+      "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account.",
       "send": "Send"
     },
     "loading": "Loading account"
@@ -112,6 +112,11 @@
       },
       "switchOtherWallet": "Switch to another wallet",
       "close": "Close"
+    },
+    "networks": {
+      "local": "Local",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
     }
   },
   "ledger": {
@@ -126,7 +131,8 @@
     "step": {
       "preview": "Preview transaction",
       "signing": "Signing transaction",
-      "submitting": "Submitting transaction"
+      "submitting": "Submitting transaction",
+      "building": "Building transaction"
     },
     "abort": "Abort",
     "confirm": "Confirm",
@@ -136,7 +142,14 @@
       "from": "From",
       "to": "To",
       "amount": "Amount",
-      "balance": "Balance"
+      "balance": "Balance",
+      "fee": "Fee",
+      "gas": "Gas",
+      "genesisHash": "Genesis Hash"
     }
+  },
+  "theme": {
+    "darkMode": "Dark mode",
+    "ligthMode": "Light mode"
   }
 }
