@@ -1,4 +1,4 @@
-describe('Scenario : from mnemonic', () => {
+describe('Scenario : multiple accounts', () => {
 
   it('Should open both accounts', () => {
     cy.visit('/');
