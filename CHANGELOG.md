@@ -1,3 +1,22 @@
+# [1.0.0-dev.3](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2021-05-04)
+
+
+### Bug Fixes
+
+* change the color of borders over 200ms too ([5e685a5](https://github.com/Esya/oasis-wallet/commit/5e685a5a5b4753dc2829c3b03dd30a0c4828420f))
+* **deps:** update dependency bip39 to v3.0.4 ([#36](https://github.com/Esya/oasis-wallet/issues/36)) ([da9db96](https://github.com/Esya/oasis-wallet/commit/da9db96790cc98e7d23c7ef27f359f0a860c9960))
+* **deps:** update dependency grommet to v2.17.2 ([#42](https://github.com/Esya/oasis-wallet/issues/42)) ([0083fca](https://github.com/Esya/oasis-wallet/commit/0083fca1b8f4be26952a81f6019e88c9363b67b0))
+* **deps:** update dependency react-i18next to v11.8.14 ([#38](https://github.com/Esya/oasis-wallet/issues/38)) ([06ff433](https://github.com/Esya/oasis-wallet/commit/06ff43322bcb77095a9177b02955c924f879fd87))
+* **deps:** update dependency react-i18next to v11.8.15 ([#40](https://github.com/Esya/oasis-wallet/issues/40)) ([2443666](https://github.com/Esya/oasis-wallet/commit/2443666a12532363529326a5cd87e64dc3e60912))
+
+
+### Features
+
+* adds a working network selector ([1052701](https://github.com/Esya/oasis-wallet/commit/105270181a74fa58567387f26977835422b86e1e))
+* dark theme and UI improvements ([0716223](https://github.com/Esya/oasis-wallet/commit/0716223e1b111c15682aefd9483f370c32bd1a3c))
+* display the genesis hash on transaction ([7daf8a2](https://github.com/Esya/oasis-wallet/commit/7daf8a20c851748fa44e8d74d20bda95d9cdffa0))
+* the chain context is now passed through state ([aa1fbff](https://github.com/Esya/oasis-wallet/commit/aa1fbff64c6c34f6646424fcf898a9cc2279feca))
+
 # [1.0.0-dev.2](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2021-04-27)
 
 
