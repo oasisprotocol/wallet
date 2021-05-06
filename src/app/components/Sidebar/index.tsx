@@ -174,7 +174,15 @@ function SidebarMenuItems() {
         data-testid="nav-myaccount"
       />
     ),
-    stake: <SidebarButton icon={<LineChart />} label={t('menu.stake')} secure={true} route="/stake" />,
+    stake: (
+      <SidebarButton
+        icon={<LineChart />}
+        label={t('menu.stake')}
+        secure={true}
+        route={`/account/${address}/stake`}
+        data-testid="nav-stake"
+      />
+    ),
   }
 
   // Normal

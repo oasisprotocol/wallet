@@ -20,6 +20,15 @@ export function* getOasisNic(network?: NetworkType) {
   return nic
 }
 
+function getBlocksPerEpoch(genesis: oasis.types.GenesisDocument): number {
+  if (genesis.beacon.params?.insecure_parameters?.interval) {
+    return Number(genesis.beacon.params.insecure_parameters.interval)
+  } else {
+    const pvss = genesis.beacon.params.pvss_parameters!
+    return Number(pvss.commit_interval) + Number(pvss.reveal_interval) + Number(pvss.transition_delay)
+  }
+}
+
 /**
  * Return the explorer APIs for the specified network
  * or by default, for the currently selected network
@@ -41,14 +50,22 @@ export function* getExplorerAPIs(network?: NetworkType) {
 export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>) {
   const nic = yield* call(getOasisNic, network)
   const genesis = yield* call([nic, nic.consensusGetGenesisDocument])
+  console.log(genesis)
+  const epoch = yield* call([nic, nic.beaconGetEpoch], oasis.consensus.HEIGHT_LATEST)
   const ticker = genesis.staking.token_symbol
   const chainContext = yield* call([oasis, oasis.genesis.chainContext], genesis)
+  console.log(genesis.staking.params.min_delegation)
 
   yield* put(
     networkActions.networkSelected({
       chainContext: chainContext,
       ticker: ticker,
+      epoch: Number(epoch),
       selectedNetwork: network,
+      blocksPerEpoch: getBlocksPerEpoch(genesis),
+      minimumStakingAmount: Number(
+        oasis.quantity.toBigInt(genesis.staking.params.min_delegation) / 10n ** 9n,
+      ),
     }),
   )
 }

@@ -3,17 +3,13 @@ import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
 import { selectAddress, selectBalance } from 'app/state/wallet/selectors'
-import { Box, Button, Grid, Heading, Layer, ResponsiveContext, Spinner, Text } from 'grommet'
+import { Box, Button, Heading, Layer, Spinner, Text } from 'grommet'
 import { Checkmark, Close } from 'grommet-icons/icons'
 import * as React from 'react'
-import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { AmountFormatter } from '../AmountFormatter'
-import { PrettyAddress } from '../PrettyAddress'
-
-interface Props {}
+import { TransactionPreview } from '../TransactionPreview'
 
 /**
  *
@@ -27,7 +23,7 @@ interface Props {}
  * - Display transaction sent
  *
  */
-export function TransactionModal(props: Props) {
+export function TransactionModal() {
   const { t } = useTranslation()
   const { preview, step } = useSelector(selectTransaction)
   const walletAddress = useSelector(selectAddress)
@@ -39,7 +35,6 @@ export function TransactionModal(props: Props) {
   }
 
   const dispatch = useDispatch()
-  const size = useContext(ResponsiveContext)
 
   const abortTransaction = () => {
     dispatch(transactionActions.abortTransaction())
@@ -76,73 +71,12 @@ export function TransactionModal(props: Props) {
             </Text>
           </Box>
           {preview && (
-            <Grid
-              columns={size !== 'small' ? ['auto', 'auto'] : ['auto']}
-              gap={{ column: 'small', row: 'xsmall' }}
-            >
-              <Box>
-                <Text weight="bold">{t('transaction.preview.type', 'Type')} :</Text>
-              </Box>
-              <Box>Transfer</Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.from', 'From')} :</Text>
-              </Box>
-              <Box>
-                <Text style={{ fontFamily: 'Roboto mono' }}>
-                  <PrettyAddress address={walletAddress} />
-                </Text>
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.to', 'To')} :</Text>
-              </Box>
-              <Box>
-                <Text style={{ fontFamily: 'Roboto mono' }}>
-                  <PrettyAddress address={preview!.transaction.to} />
-                </Text>
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.amount', 'Amount')} :</Text>
-              </Box>
-              <Box>
-                <AmountFormatter amount={preview!.transaction.amount * 10 ** 9} />
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.balance', 'Balance')} :</Text>
-              </Box>
-              <Box>
-                <AmountFormatter amount={balance.available} />
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.fee', 'Fee')} :</Text>
-              </Box>
-              <Box>
-                <AmountFormatter amount={preview!.fee!} />
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.gas', 'Gas')} :</Text>
-              </Box>
-              <Box>
-                <AmountFormatter amount={preview!.gas!} />
-              </Box>
-              <Box>
-                <Text weight="bold">{t('transaction.preview.genesisHash', 'Genesis Hash')} :</Text>
-              </Box>
-              <Box
-                border={{
-                  color: 'background-contrast-2',
-                  side: 'left',
-                  size: '3px',
-                }}
-                background={{
-                  color: 'background-contrast',
-                  opacity: 0.04,
-                }}
-                width="75%"
-                pad="xsmall"
-              >
-                {chainContext}
-              </Box>
-            </Grid>
+            <TransactionPreview
+              balance={balance.available}
+              chainContext={chainContext}
+              preview={preview}
+              walletAddress={walletAddress}
+            />
           )}
           {step === TransactionStep.Preview && (
             <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>

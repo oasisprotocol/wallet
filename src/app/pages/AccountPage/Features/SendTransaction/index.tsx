@@ -1,8 +1,7 @@
-import { ErrorFormatter } from 'app/components/ErrorFormatter'
-import { TransactionModal } from 'app/components/TransactionModal'
+import { TransactionStatus } from 'app/components/TransactionStatus'
 import { useTransactionSlice } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { Box, Button, Form, FormField, Text, TextInput } from 'grommet'
+import { Box, Button, Form, FormField, TextInput } from 'grommet'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -12,13 +11,17 @@ export function SendTransaction() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const transactionActions = useTransactionSlice().actions
-  const { error, success, active } = useSelector(selectTransaction)
+  const { error, success } = useSelector(selectTransaction)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
 
   const onSubmit = () => {
     dispatch(
-      transactionActions.sendTransaction({ amount: parseFloat(amount), to: recipient.replaceAll(' ', '') }),
+      transactionActions.sendTransaction({
+        type: 'transfer',
+        amount: parseFloat(amount),
+        to: recipient.replaceAll(' ', ''),
+      }),
     )
   }
 
@@ -39,7 +42,6 @@ export function SendTransaction() {
 
   return (
     <Box border={{ color: 'background-front-border', size: '1px' }} round="5px" background="background-front">
-      {active && <TransactionModal />}
       <Form>
         <Box fill gap="medium" pad="medium">
           <FormField
@@ -79,40 +81,7 @@ export function SendTransaction() {
           </Box>
         </Box>
       </Form>
-      {error && (
-        <Box
-          border={{
-            color: 'status-error',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-error',
-            opacity: 0.3,
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">
-            <ErrorFormatter code={error.code} message={error.message} />
-          </Text>
-        </Box>
-      )}
-      {success && (
-        <Box
-          border={{
-            color: 'status-ok',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-ok',
-            opacity: 0.3,
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">{t('account.sendTransaction.success', 'Transaction successfully sent')}</Text>
-        </Box>
-      )}
+      <TransactionStatus error={error} success={success} />
     </Box>
   )
 }

@@ -1,12 +1,47 @@
 import { grommet, Grommet, ThemeType } from 'grommet'
 import { deepMerge } from 'grommet/utils'
 import * as React from 'react'
+import { createTheme, IDataTableStyles, ITheme } from 'react-data-table-component'
 import { useSelector } from 'react-redux'
 
 import { useThemeSlice } from './slice'
 import { selectTheme } from './slice/selectors'
 
-const defaultGrommetTheme: ThemeType = {
+/**
+ * React-data-table by default sets its own background and text colors
+ * we make sure that they do not override grommet's
+ */
+createTheme('blank', {
+  background: { default: 'false' },
+  highlightOnHover: {
+    default: '#88888833',
+    text: 'false',
+  },
+  text: {
+    primary: 'false',
+    secondary: 'false',
+    disabled: 'false',
+  },
+  sortFocus: {
+    default: 'false',
+  },
+  divider: { default: '#AAAAAAaa' },
+} as Partial<ITheme>)
+
+export const dataTableStyles: IDataTableStyles = {
+  headCells: {
+    style: {
+      fontSize: '18px',
+    },
+  },
+  rows: {
+    style: {
+      fontSize: '16x',
+    },
+  },
+}
+
+const customTheme: ThemeType = {
   button: {
     primary: {
       background: {
@@ -92,7 +127,7 @@ const defaultGrommetTheme: ThemeType = {
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
   useThemeSlice()
 
-  const theme = deepMerge(grommet, defaultGrommetTheme)
+  const theme = deepMerge(grommet, customTheme)
   const mode = useSelector(selectTheme)
 
   return (

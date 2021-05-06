@@ -10,20 +10,23 @@ import { useSelector } from 'react-redux'
 
 interface Props {
   amount: string | number
+  minimumFractionDigits?: number
+  maximumFractionDigits?: number
+  hideTicker?: boolean
 }
 
 export const AmountFormatter = memo((props: Props) => {
   const amount = Number(props.amount) / 10 ** 9
   const amountString = new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 15,
+    minimumFractionDigits: props.minimumFractionDigits ?? 1,
+    maximumFractionDigits: props.maximumFractionDigits ?? 15,
   }).format(amount)
 
   const ticker = useSelector(selectTicker)
 
   return (
     <>
-      {amountString} {ticker}
+      {amountString} {!props.hideTicker && <>{ticker}</>}
     </>
   )
 })

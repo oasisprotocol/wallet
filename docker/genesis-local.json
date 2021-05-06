@@ -81,21 +81,86 @@
         "runtime-compute": "0",
         "runtime-keymanager": "0"
       },
-      "commission_schedule_rules": {},
-      "min_delegation": "0",
-      "fee_split_weight_propose": "0",
+      "debonding_interval": 4,
+      "reward_schedule": [
+        {
+          "until": 5000,
+          "scale": "2000"
+        },
+        {
+          "until": 50000,
+          "scale": "1000"
+        }
+      ],
+      "commission_schedule_rules": {
+        "rate_change_interval": 1,
+        "rate_bound_lead": 10,
+        "max_rate_steps": 10,
+        "max_bound_steps": 10
+      },
+      "min_delegation": "100000000000",
+      "allow_escrow_messages": true,
+      "fee_split_weight_propose": "2",
       "fee_split_weight_vote": "1",
-      "fee_split_weight_next_propose": "0",
-      "reward_factor_epoch_signed": "0",
+      "fee_split_weight_next_propose": "1",
+      "reward_factor_epoch_signed": "1",
       "reward_factor_block_proposed": "0"
     },
     "token_symbol": "TEST",
     "token_value_exponent": 0,
-    "total_supply": "1000000000000000",
-    "common_pool": "0",
+    "total_supply": "3000000000000000",
+    "common_pool": "1000000000000000",
     "last_block_fees": "0",
     "governance_deposits": "0",
     "ledger": {
+      "oasis1qqyrlc85h0mz4g00gj7r8pmxsas9yqc4nupaxy4a": {
+        "general": {
+          "balance": "1000000000000000"
+        },
+        "escrow": {
+          "active": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "debonding": {
+            "balance": "0",
+            "total_shares": "0"
+          },
+          "commission_schedule": {
+            "rates": [
+              {
+                "rate": "5000"
+              },
+              {
+                "start": 30,
+                "rate": "15000"
+              }
+            ],
+            "bounds": [
+              {
+                "rate_min": "0",
+                "rate_max": "10000"
+              },
+              {
+                "start": 5,
+                "rate_min": "0",
+                "rate_max": "15000"
+              },
+              {
+                "start": 20,
+                "rate_min": "0",
+                "rate_max": "18000"
+              },
+              {
+                "start": 2000,
+                "rate_min": "0",
+                "rate_max": "20000"
+              }
+            ]
+          },
+          "stake_accumulator": {}
+        }
+      },
       "oasis1qzzd6khm3acqskpxlk9vd5044cmmcce78y5l6000": {
         "general": {
           "balance": "100000000000000"
@@ -170,7 +235,7 @@
     "params": {
       "backend": "insecure",
       "insecure_parameters": {
-        "interval": 86400
+        "interval": 30
       }
     }
   },

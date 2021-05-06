@@ -1,8 +1,6 @@
+import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
-import { PrettyAddress } from 'app/components/PrettyAddress'
-import copy from 'copy-to-clipboard'
-import { Box, Button, Grid, ResponsiveContext, Text } from 'grommet'
-import { Copy } from 'grommet-icons/icons'
+import { Box, Grid, ResponsiveContext, Text } from 'grommet'
 import * as QRCode from 'qrcode.react'
 import * as React from 'react'
 import { useContext } from 'react'
@@ -29,26 +27,11 @@ export function AccountSummary(props: AccountSummaryProps) {
   const walletAddress = props.walletAddress
   const size = useContext(ResponsiveContext)
 
-  const copyAddress = () => {
-    copy(address)
-  }
-
   return (
     <Box round="5px" border={{ color: 'background-front-border', size: '1px' }} background="background-front">
       <Box pad="small" direction="row-responsive" flex>
         <Box>
-          <Box
-            direction="row"
-            align="center"
-            round="5px"
-            border={{ color: 'brand' }}
-            pad={{ right: 'small' }}
-          >
-            <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} />
-            <Text weight="bold" size="medium" wordBreak="break-word">
-              <PrettyAddress address={address} />
-            </Text>
-          </Box>
+          <AddressBox address={address} />
           <Grid
             columns={['auto', 'auto']}
             gap={{ column: 'medium' }}

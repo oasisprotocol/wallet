@@ -46,6 +46,7 @@ describe('<Transaction  />', () => {
       timestamp: 1618018255,
       from: 'source',
       to: 'destination',
+      type: 'transfer',
     }
 
     when(useSelector as any)

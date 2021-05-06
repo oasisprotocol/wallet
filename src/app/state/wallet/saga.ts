@@ -17,8 +17,7 @@ import { walletActions as actions, walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
-import { sendTransaction } from '../transaction/saga'
-import { selectWallets } from './selectors'
+import { selectAddress, selectWallets } from './selectors'
 import { AddWalletPayload, WalletBalance, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
@@ -26,18 +25,10 @@ import { AddWalletPayload, WalletBalance, WalletType } from './types'
 let walletId = 0
 
 /**
- * Opened wallet saga that
- *
- * - Refreshes every Xs
- * - Sends transactions
- * - Stakes
- * - Signs messages
- * - Verifies signatures
- * - etc...
+ * Opened wallet saga
+ * Will later be used to sign arbitrary messagegs
  */
-export function* walletSaga() {
-  yield* takeEvery(transactionActions.sendTransaction, sendTransaction)
-}
+export function* walletSaga() {}
 
 export function* rootWalletSaga() {
   // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
@@ -184,8 +175,12 @@ export function* selectWallet({ payload: index }: PayloadAction<number>) {
 function* reloadBalanceOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
+    if (payload.type !== 'transfer') {
+      //@TODO : This should be done for other types of transactions too
+      return
+    }
 
-    const from = payload.from
+    const from = yield* select(selectAddress)
     const to = payload.to
 
     const wallets = yield* select(selectWallets)

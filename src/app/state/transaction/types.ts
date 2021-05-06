@@ -6,17 +6,14 @@ export interface TransactionState {
   active: boolean
   success: boolean
   error?: ErrorPayload
-
-  /**
-   * Used to preview the transaction
-   * Later, need to accomodate other transaction types.
-   */
   preview?: TransactionPreview
 }
 
+export type TransactionType = 'transfer' | 'addEscrow' | 'reclaimEscrow'
+export type TransactionPayload = TransferPayload | AddEscrowPayload | ReclaimEscrowPayload
+
 export interface TransactionPreview {
-  type: 'transfer' | 'add_escrow' | 'reclaim_escrow'
-  transaction: SendTransactionPayload
+  transaction: TransactionPayload
   fee?: string
   gas?: string
 }
@@ -38,10 +35,35 @@ export interface TransactionSent {
   amount: number
 }
 
-export interface SendTransactionPayload {
+export interface TransferPayload {
+  type: 'transfer'
+
   /* bech32 Address */
   to: string
 
   /* Token amount */
+  amount: number
+}
+
+export interface AddEscrowPayload {
+  type: 'addEscrow'
+
+  /* bech32 Address */
+  validator: string
+
+  /* Token amount */
+  amount: number
+}
+
+export interface ReclaimEscrowPayload {
+  type: 'reclaimEscrow'
+
+  /* bech32 Address */
+  validator: string
+
+  /* Shares to be reclaimed */
+  shares: number
+
+  /* Amount to be reclaimed */
   amount: number
 }

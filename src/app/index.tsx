@@ -49,7 +49,7 @@ export function App() {
                 <TransitionRoute exact path="/" component={HomePage} />
                 <TransitionRoute exact path="/create-wallet" component={CreateWalletPage} />
                 <TransitionRoute path="/open-wallet" component={OpenWalletPage} />
-                <TransitionRoute exact path="/stake" component={StakingPage} />
+                <TransitionRoute exact path="/stake/:address" component={StakingPage} />
                 <TransitionRoute path="/account/:address" component={AccountPage} />
               </Switch>
             </TransitionGroup>
