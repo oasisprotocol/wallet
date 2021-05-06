@@ -119,7 +119,7 @@
     "tweetnacl": "1.0.3",
     "typed-redux-saga": "1.3.1",
     "typescript": "4.2.4",
-    "web-vitals": "1.1.1"
+    "web-vitals": "1.1.2"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.5",
