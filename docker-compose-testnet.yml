@@ -20,7 +20,7 @@ services:
       - ./docker/genesis-testnet.json:/genesis.json
       - ./docker/oasis-explorer/config-testnet.json:/.secrets/config.json
   envoy:
-    image: envoyproxy/envoy:v1.18.2
+    image: envoyproxy/envoy:v1.18.3
     ports:
       - "127.0.0.1:42280:42280"
       - "127.0.0.1:42281:42281"
