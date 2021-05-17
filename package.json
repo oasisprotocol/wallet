@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "oasis-wallet",
   "version": "0.0.0-development",
   "private": true,
   "repository": {
@@ -102,6 +102,7 @@
     "qrcode.react": "1.0.1",
     "react": "17.0.2",
     "react-app-polyfill": "2.0.0",
+    "react-data-table-component": "6.11.7",
     "react-dom": "17.0.2",
     "react-helmet-async": "1.0.9",
     "react-i18next": "11.8.15",

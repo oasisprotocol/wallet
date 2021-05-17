@@ -63,13 +63,19 @@
       "noTransactionFound": "No transaction found"
     },
     "transaction": {
-      "sent": {
-        "header": "Sent <0></0>",
-        "designator": "To"
+      "transfer": {
+        "received": "Received <0></0>",
+        "sent": {
+          "header": "Sent <0></0>"
+        }
       },
-      "received": {
-        "header": "Received <0></0>",
-        "designator": "From"
+      "addEscrow": {
+        "received": "Received <0></0> delegation in escrow",
+        "sent": "Delegated <0></0> to validator"
+      },
+      "reclaimEscrow": {
+        "received": "<0></0> reclaimed by delegator",
+        "sent": "Reclaimed <0></0> from validator"
       }
     },
     "sendTransaction": {
@@ -78,11 +84,28 @@
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account.",
       "send": "Send"
     },
-    "loading": "Loading account"
+    "loading": "Loading account",
+    "addEscrow": {
+      "delegate": "Delegate"
+    },
+    "subnavigation": {
+      "transactions": "Transactions",
+      "activeDelegations": "Active delegations ({{count}})",
+      "activeDelegations_plural": "Active delegations ({{count}})",
+      "debondingDelegations": "Debonding delegations ({{count}})",
+      "debondingDelegations_plural": "Debonding delegations ({{count}})"
+    },
+    "reclaimEscrow": {
+      "reclaim": "Reclaim"
+    }
   },
   "common": {
     "amount": "Amount",
-    "block": "Block"
+    "block": "Block",
+    "from": "From",
+    "to": "To",
+    "delegator": "Delegator",
+    "validator": "Validator"
   },
   "errors": {
     "unknown": "Unknown error : {{message}}",
@@ -102,7 +125,7 @@
   },
   "toolbar": {
     "search": {
-      "placeholder": "Search for an account or a validator"
+      "placeholder": "Search for an address"
     },
     "wallets": {
       "type": {
@@ -145,11 +168,42 @@
       "balance": "Balance",
       "fee": "Fee",
       "gas": "Gas",
-      "genesisHash": "Genesis Hash"
+      "genesisHash": "Genesis Hash",
+      "validator": "Validator",
+      "shares": "Shares"
+    },
+    "types": {
+      "addEscrow": "Delegating your tokens to a validator and generate rewards",
+      "reclaimEscrow": "Reclaiming your tokens delegated to a validator",
+      "transfer": "Transferring tokens from your account to another"
     }
   },
   "theme": {
     "darkMode": "Dark mode",
     "ligthMode": "Light mode"
+  },
+  "validator": {
+    "rank": "Rank",
+    "escrow": "Escrow",
+    "commission": "Commission",
+    "status": "Status",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "name": "Name",
+    "fee": "Fee",
+    "commissionBounds": {
+      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}% starting from Epoch {{epoch}}",
+      "label": "Commission bounds"
+    },
+    "boundsNotSet": "No bounds set (0% - 0%)",
+    "totalEscrow": "Total Escrow"
+  },
+  "delegations": {
+    "delegatedAmount": "Delegated Amount",
+    "activeDelegations": "Active delegations",
+    "debondingDelegations": "Debonding delegations",
+    "reclaimedAmount": "Reclaimed Amount",
+    "debondingEpoch": "Debonding Epoch"
   }
 }

@@ -4,8 +4,9 @@ import { createInjectorsEnhancer } from 'redux-injectors'
 import createSagaMiddleware from 'redux-saga'
 
 import { createReducer, history } from './reducers'
+import { RootState } from 'types'
 
-export function configureAppStore() {
+export function configureAppStore(state?: Partial<RootState>) {
   const reduxSagaMonitorOptions = {}
   const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions)
   const { run: runSaga } = sagaMiddleware
@@ -27,6 +28,7 @@ export function configureAppStore() {
       /* istanbul ignore next line */
       process.env.NODE_ENV !== 'production' || process.env.PUBLIC_URL.length > 0,
     enhancers,
+    preloadedState: state,
   })
 
   return store

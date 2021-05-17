@@ -72,7 +72,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
             <TransitionRoute
               component={[Function]}
               exact={true}
-              path="/stake"
+              path="/stake/:address"
             />
             <TransitionRoute
               component={[Function]}

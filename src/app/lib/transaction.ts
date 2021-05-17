@@ -15,7 +15,8 @@ export const signerFromHDSecret = (secret: Uint8Array) => {
   return HDKey.fromSecret(secret)
 }
 
-type TW<T> = oasis.consensus.TransactionWrapper<T>
+/** Transaction Wrapper */
+export type TW<T> = oasis.consensus.TransactionWrapper<T>
 
 export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
@@ -23,16 +24,16 @@ export class OasisTransaction {
   public static async buildReclaimEscrow(
     nic: OasisClient,
     signer: Signer,
-    to: string,
-    amount: bigint,
+    account: string,
+    shares: bigint,
   ): Promise<TW<oasis.types.StakingReclaimEscrow>> {
     const tw = oasis.staking.reclaimEscrowWrapper()
     const nonce = await OasisTransaction.getNonce(nic, signer)
     tw.setNonce(nonce)
     tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
     tw.setBody({
-      account: await addressToPublicKey(to),
-      shares: oasis.quantity.fromBigInt(amount),
+      account: await addressToPublicKey(account),
+      shares: oasis.quantity.fromBigInt(shares),
     })
 
     const gas = await tw.estimateGas(nic, signer.public())
@@ -44,7 +45,7 @@ export class OasisTransaction {
   public static async buildAddEscrow(
     nic: OasisClient,
     signer: Signer,
-    to: string,
+    account: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingEscrow>> {
     const tw = oasis.staking.addEscrowWrapper()
@@ -52,7 +53,7 @@ export class OasisTransaction {
     tw.setNonce(nonce)
     tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
     tw.setBody({
-      account: await addressToPublicKey(to),
+      account: await addressToPublicKey(account),
       amount: oasis.quantity.fromBigInt(amount),
     })
 

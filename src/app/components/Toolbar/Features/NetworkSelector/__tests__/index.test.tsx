@@ -23,8 +23,11 @@ describe('<NetworkSelector  />', () => {
 
   beforeEach(() => {
     store = configureAppStore()
+    ;(oasis.quantity.toBigInt as jest.Mock).mockReturnValue(0n)
+    NodeInternal.prototype.beaconGetEpoch.mockResolvedValue(1)
     NodeInternal.prototype.consensusGetGenesisDocument.mockResolvedValue({
-      staking: { token_symbol: '' },
+      staking: { token_symbol: '', params: { min_delegation: new Uint8Array([0]) } },
+      beacon: { params: { insecure_parameters: { interval: 30 } } },
     } as any)
   })
 

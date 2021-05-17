@@ -8,6 +8,9 @@ export const initialState: NetworkState = {
   ticker: '',
   chainContext: '',
   selectedNetwork: 'local',
+  blocksPerEpoch: 0,
+  epoch: 0,
+  minimumStakingAmount: 0,
 }
 
 const slice = createSlice({

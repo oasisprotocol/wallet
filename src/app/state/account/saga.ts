@@ -5,7 +5,9 @@ import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
 import { getExplorerAPIs } from '../network/saga'
+import { stakingActions } from '../staking'
 import { transactionActions } from '../transaction'
+import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress } from './selectors'
 
 /**
@@ -33,14 +35,20 @@ function* loadAccount(action: PayloadAction<string>) {
 function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
+    const from = yield* select(selectAddress)
+    let otherAddress: string
+
+    if (payload.type === 'transfer') {
+      otherAddress = payload.to
+    } else {
+      otherAddress = payload.validator
+    }
+
     const currentAccount = yield* select(selectAccountAddress)
-
-    const from = payload.from
-    const to = payload.to
-
-    if (currentAccount === from || currentAccount === to) {
+    if (currentAccount === from || currentAccount === otherAddress) {
       // Refresh current account
       yield* put(actions.fetchAccount(currentAccount))
+      yield* put(stakingActions.fetchAccount(currentAccount))
     }
   }
 }

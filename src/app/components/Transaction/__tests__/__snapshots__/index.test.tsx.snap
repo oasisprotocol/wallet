@@ -454,7 +454,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
       <span
         class="c5"
       >
-        account.transaction.received.header
+        account.transaction.transfer.received
       </span>
     </div>
   </header>
@@ -533,7 +533,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           <span
             class="c12"
           >
-            account.transaction.received.designator
+            common.from
           </span>
           <span
             class="c5"

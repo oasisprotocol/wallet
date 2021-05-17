@@ -101,11 +101,13 @@ describe('Wallet Sagas', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)
       .withState({
+        account: { address: 'sender' },
         wallet: {
+          selectedWallet: 0,
           wallets: [{ address: 'sender', publicKey: '00' } as Partial<Wallet>],
         } as Partial<WalletState>,
       } as Partial<RootState>)
-      .dispatch(transactionActions.transactionSent({ amount: 1, from: 'sender', to: 'receiver' }))
+      .dispatch(transactionActions.transactionSent({ amount: 1, type: 'transfer', to: 'receiver' }))
       .call.fn(getBalance)
       .put.actionType(walletActions.updateBalance.type)
       .silentRun(50)

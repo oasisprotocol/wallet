@@ -63,13 +63,19 @@
       "noTransactionFound": "Aucune transaction trouvée"
     },
     "transaction": {
-      "sent": {
-        "header": "<0></0> envoyés",
-        "designator": "Vers"
+      "transfer": {
+        "received": "<0></0> reçus",
+        "sent": {
+          "header": "<0></0> envoyés"
+        }
       },
-      "received": {
-        "header": "<0></0> reçus",
-        "designator": "Depuis"
+      "addEscrow": {
+        "received": "Délégation de <0></0> reçue",
+        "sent": "<0></0> délégués au validateur"
+      },
+      "reclaimEscrow": {
+        "received": "<0></0> réclamés par le délégateur",
+        "sent": "<0></0> réclamés au validateur"
       }
     },
     "sendTransaction": {
@@ -78,11 +84,28 @@
       "success": "Transaction effectuée. La transaction peut mettre une minute avant d'apparaître sur votre compte.",
       "send": "Envoyer"
     },
-    "loading": "Chargement du compte"
+    "loading": "Chargement du compte",
+    "addEscrow": {
+      "delegate": "Déléguer"
+    },
+    "subnavigation": {
+      "transactions": "Transactions",
+      "activeDelegations": "Délégation active ({{count}})",
+      "activeDelegations_plural": "Délégations actives ({{count}})",
+      "debondingDelegations": "Délégations réclamées ({{count}})",
+      "debondingDelegations_plural": "Délégations réclamées ({{count}})"
+    },
+    "reclaimEscrow": {
+      "reclaim": "Réclamer"
+    }
   },
   "common": {
     "amount": "Montant",
-    "block": "Bloc"
+    "block": "Bloc",
+    "from": "De",
+    "to": "À",
+    "delegator": "Délégateur",
+    "validator": "Validateur"
   },
   "errors": {
     "unknown": "Erreur inconnue : {{message}}",
@@ -132,7 +155,7 @@
       "preview": "Prévisualisez la transaction",
       "signing": "Signature de la transaction",
       "submitting": "Envoi de la transaction",
-      "building": "Building transaction"
+      "building": "Construction de la transaction"
     },
     "abort": "Annuler",
     "confirm": "Confirmer",
@@ -145,11 +168,42 @@
       "balance": "Solde",
       "fee": "Frais",
       "gas": "Gas",
-      "genesisHash": "Genesis Hash"
+      "genesisHash": "Genesis Hash",
+      "validator": "Validateur",
+      "shares": "Parts"
+    },
+    "types": {
+      "addEscrow": "Déléguer vos tokens à un validateur pour générer des récompenses",
+      "reclaimEscrow": "Réclamer vos tokens délégués à un validateur",
+      "transfer": "Transfert de tokens de votre compte à un autre"
     }
   },
   "theme": {
     "darkMode": "Thème nuit",
     "ligthMode": "Thème clair"
+  },
+  "validator": {
+    "rank": "Rang",
+    "escrow": "Escrow",
+    "commission": "Commission",
+    "status": "Statut",
+    "statusActive": "Actif",
+    "statusInactive": "Inactif",
+    "name": "Nom",
+    "fee": "Frais",
+    "commissionBounds": {
+      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> à l'Epoch {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}% à partir de l'Epoch {{epoch}}",
+      "label": "Bornes de commissions"
+    },
+    "boundsNotSet": "Pas de bornes définies (0% - 0%)",
+    "totalEscrow": "Escrow total"
+  },
+  "delegations": {
+    "delegatedAmount": "Montant délégué",
+    "activeDelegations": "Délégations actives",
+    "debondingDelegations": "Délégations réclamées",
+    "reclaimedAmount": "Montant réclamé",
+    "debondingEpoch": "Epoch de récupération"
   }
 }

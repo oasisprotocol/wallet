@@ -8,7 +8,7 @@ import { WalletErrors } from 'types/errors'
 import { transactionActions as actions } from '.'
 import { selectAddress, selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
-import { sendTransaction } from './saga'
+import { doTransaction } from './saga'
 
 const makeState = (wallet: Partial<Wallet>) => {
   return {
@@ -53,11 +53,14 @@ describe('Transaction Sagas', () => {
         type: WalletType.Mnemonic,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: validAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: validAddress }),
+      )
         .withState(makeState(wallet))
         .provide(providers)
         .provide(sendProviders)
-        .dispatch(actions.sendTransaction({ amount: 123, to: 'testaddress' }))
+        .dispatch(actions.sendTransaction({ type: 'transfer', amount: 123, to: 'testaddress' }))
         .dispatch(actions.confirmTransaction())
         .put.actionType(actions.transactionSent.type)
         .run()
@@ -70,11 +73,14 @@ describe('Transaction Sagas', () => {
         type: WalletType.PrivateKey,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: validAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: validAddress }),
+      )
         .withState(makeState(wallet))
         .provide(providers)
         .provide(sendProviders)
-        .dispatch(actions.sendTransaction({ amount: 123, to: 'testaddress' }))
+        .dispatch(actions.sendTransaction({ type: 'transfer', amount: 123, to: 'testaddress' }))
         .dispatch(actions.confirmTransaction())
         .put.actionType(actions.transactionSent.type)
         .run()
@@ -87,11 +93,14 @@ describe('Transaction Sagas', () => {
         type: WalletType.PrivateKey,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: validAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: validAddress }),
+      )
         .withState(makeState(wallet))
         .provide(providers)
         .provide(sendProviders)
-        .dispatch(actions.sendTransaction({ amount: 123, to: 'testaddress' }))
+        .dispatch(actions.sendTransaction({ type: 'transfer', amount: 123, to: 'testaddress' }))
         .dispatch(actions.abortTransaction())
         .not.put.actionType(actions.transactionSent.type)
         .put.actionType(actions.clearTransaction.type)
@@ -102,9 +111,13 @@ describe('Transaction Sagas', () => {
       const wallet = {
         balance: { available: '100000000000' },
         privateKey: validPrivateKeyHex,
+        type: WalletType.PrivateKey,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 200, to: validAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 200, to: validAddress }),
+      )
         .withState(makeState(wallet))
         .put(
           actions.transactionFailed({
@@ -121,7 +134,10 @@ describe('Transaction Sagas', () => {
         privateKey: '00',
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: validAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: validAddress }),
+      )
         .withState(makeState(wallet))
         .put(
           actions.transactionFailed({
@@ -140,7 +156,10 @@ describe('Transaction Sagas', () => {
         type: WalletType.PrivateKey,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: 'oasis1notvalid' }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: 'oasis1notvalid' }),
+      )
         .withState(makeState(wallet))
         .put(
           actions.transactionFailed({
@@ -156,9 +175,13 @@ describe('Transaction Sagas', () => {
         balance: { available: '100000000000' },
         privateKey: validPrivateKeyHex,
         address: matchingAddress,
+        type: WalletType.PrivateKey,
       } as Partial<Wallet>
 
-      return expectSaga(sendTransaction, actions.sendTransaction({ amount: 10, to: matchingAddress }))
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: 10, to: matchingAddress }),
+      )
         .withState(makeState(wallet))
         .put(
           actions.transactionFailed({

@@ -3,19 +3,39 @@
  * StakingPage
  *
  */
-import { Box, Heading } from 'grommet'
+import { selectSelectedNetwork } from 'app/state/network/selectors'
+import { useStakingSlice } from 'app/state/staking'
+import { Box } from 'grommet'
 import * as React from 'react'
-import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+import { ValidatorList } from './Features/ValidatorList'
 
 interface Props {}
 
+interface StakingPageParams {
+  address: string
+}
+
 export function StakingPage(props: Props) {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t } = useTranslation()
+  const stakeActions = useStakingSlice().actions
+  const { address } = useParams<StakingPageParams>()
+  const dispatch = useDispatch()
+
+  const selectedNetwork = useSelector(selectSelectedNetwork)
+
+  React.useEffect(() => {
+    dispatch(stakeActions.fetchAccount(address))
+    // dispatch(stakeActions.fetchAccount(address))
+    // return () => {
+    //   dispatch(stakeActions.clearAccount())
+    // }
+  }, [dispatch, stakeActions, address, selectedNetwork])
 
   return (
-    <Box pad="large">
-      <Heading level="1">Feature coming soon</Heading>
+    <Box>
+      <ValidatorList />
     </Box>
   )
 }

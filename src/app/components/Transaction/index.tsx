@@ -14,54 +14,36 @@ import {
 } from 'grommet-icons/icons'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
 import { OperationsRow } from 'vendors/explorer'
 
 import { AmountFormatter } from '../AmountFormatter'
 import { DateFormatter } from '../DateFormatter'
 import { ShortAddress } from '../ShortAddress'
+import { InfoBox } from './InfoBox'
 
-interface DetailProps {
-  icon?: React.ReactNode
-  label: string
-  value: string | React.ReactNode
-  link?: string
+export enum TransactionSide {
+  Sent = 'sent',
+  Received = 'received',
 }
 
-function InfoBox(props: DetailProps) {
-  const history = useHistory()
-  const boxClicked = () => {
-    if (props.link) {
-      history.push(props.link)
+/**
+ * These are manually copied from Oasis-explorer. Later, oasis-explorer should
+ * make those an enum so that we maintain strong typing across projects.
+ */
+export enum TransactionType {
+  Transfer = 'transfer',
+  AddEscrow = 'addescrow',
+  ReclaimEscrow = 'reclaimescrow',
+}
+
+type TransactionDictionnary = {
+  [type in TransactionType]: {
+    [side in TransactionSide]: {
+      icon: () => React.ReactNode
+      header: () => React.ReactNode
+      designation: string
     }
   }
-
-  return (
-    <Box
-      direction="row"
-      gap="small"
-      hoverIndicator={{ color: 'light-3' }}
-      onClick={() => boxClicked()}
-      pad="medium"
-    >
-      {props.icon && (
-        <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
-          {props.icon}
-        </Box>
-      )}
-      <Box justify="center">
-        <Text weight="bold">{props.label}</Text>
-        <Text>{props.value}</Text>
-      </Box>
-    </Box>
-  )
-}
-
-export enum TransactionType {
-  RECEIVED,
-  SENT,
-  STAKED,
-  UNSTAKED,
 }
 
 interface TransactionProps {
@@ -73,51 +55,118 @@ export function Transaction(props: TransactionProps) {
   const { t } = useTranslation()
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const amount = <AmountFormatter amount={transaction.amount!} />
-  let type: TransactionType
+  const amount = (
+    <AmountFormatter
+      amount={transaction.escrow_amount ?? transaction.reclaim_escrow_amount ?? transaction.amount!}
+    />
+  )
 
-  let otherAddressDesignator = '',
-    otherAddress
+  let side: TransactionSide
+  let otherAddress = ''
 
   if (transaction.from === referenceAddress) {
-    type = TransactionType.SENT
-    otherAddressDesignator = t('account.transaction.sent.designator', 'To')
+    side = TransactionSide.Sent
     otherAddress = transaction.to!
   } else {
-    type = TransactionType.RECEIVED
-    otherAddressDesignator = t('account.transaction.received.designator', 'From')
+    side = TransactionSide.Received
     otherAddress = transaction.from!
   }
 
+  //@TODO : This could probably cleverly be moved outside of the component
+  //for better readability and marginal performance gain, but for now
+  //the translation keys need to be read by i18next extraction
+  const transactionDictionnary: TransactionDictionnary = {
+    [TransactionType.Transfer]: {
+      [TransactionSide.Received]: {
+        designation: t('common.from', 'From'),
+        icon: () => <TxIcon />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.transfer.received"
+            t={t}
+            components={[amount]}
+            defaults="Received <0></0>"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        designation: t('common.to', 'To'),
+        icon: () => <TxIcon />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.transfer.sent.header"
+            t={t}
+            components={[amount]}
+            defaults="Sent <0></0>"
+          />
+        ),
+      },
+    },
+    [TransactionType.AddEscrow]: {
+      [TransactionSide.Received]: {
+        designation: t('common.delegator', 'Delegator'),
+        icon: () => <Money />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.addEscrow.received"
+            t={t}
+            components={[amount]}
+            defaults="Received <0></0> delegation in escrow"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        designation: t('common.validator', 'Validator'),
+        icon: () => <Money />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.addEscrow.sent"
+            t={t}
+            components={[amount]}
+            defaults="Delegated <0></0> to validator"
+          />
+        ),
+      },
+    },
+    [TransactionType.ReclaimEscrow]: {
+      [TransactionSide.Received]: {
+        designation: t('common.delegator', 'Delegator'),
+        icon: () => <Money />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.reclaimEscrow.received"
+            t={t}
+            components={[amount]}
+            defaults="<0></0> reclaimed by delegator"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        designation: t('common.validator', 'Validator'),
+        icon: () => <Money />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.reclaimEscrow.sent"
+            t={t}
+            components={[amount]}
+            defaults="Reclaimed <0></0> from validator"
+          />
+        ),
+      },
+    },
+  }
+
+  const matchingConfiguration = transactionDictionnary[transaction.type as TransactionType][side]
+  const icon = matchingConfiguration.icon()
+  const header = matchingConfiguration.header()
+  const designation = matchingConfiguration.designation
+
   return (
-    <Card
-      round="small"
-      // pad="small"
-      background="background-front"
-      gap="none"
-      elevation="xsmall"
-    >
+    <Card round="small" background="background-front" gap="none" elevation="xsmall">
       <CardHeader pad={{ horizontal: 'medium', vertical: 'small' }} gap="none" background="brand" wrap={true}>
         <Box direction="row" gap="small">
-          <TxIcon />
-          <Text>
-            {type === TransactionType.SENT && (
-              <Trans
-                i18nKey="account.transaction.sent.header"
-                t={t}
-                components={[amount]}
-                defaults="Sent <0></0>"
-              />
-            )}
-            {type === TransactionType.RECEIVED && (
-              <Trans
-                i18nKey="account.transaction.received.header"
-                t={t}
-                components={[amount]}
-                defaults="Received <0></0>"
-              />
-            )}
-          </Text>
+          {icon}
+          <Text>{header}</Text>
         </Box>
       </CardHeader>
       <CardBody pad={{ horizontal: 'none', vertical: 'none' }}>
@@ -125,7 +174,7 @@ export function Transaction(props: TransactionProps) {
           <InfoBox icon={<Money color="brand" />} label={t('common.amount', 'Amount')} value={amount} />
           <InfoBox
             icon={<ContactInfo color="brand" />}
-            label={otherAddressDesignator}
+            label={designation}
             value={<ShortAddress address={otherAddress} />}
             link={`/account/${otherAddress}`}
           />

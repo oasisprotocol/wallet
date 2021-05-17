@@ -10,4 +10,13 @@ export interface NetworkState {
 
   /** chainContext / Genesis Hash */
   chainContext: string
+
+  /** Current epoch */
+  epoch: number
+
+  /** Number of blocks per epoch */
+  blocksPerEpoch: number
+
+  /** Minimum staking amount */
+  minimumStakingAmount: number
 }

@@ -4,11 +4,13 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 import { transactionSaga } from './saga'
 import {
-  SendTransactionPayload,
+  AddEscrowPayload,
+  TransferPayload,
   TransactionPreview,
-  TransactionSent,
   TransactionState,
   TransactionStep,
+  TransactionPayload,
+  ReclaimEscrowPayload,
 } from './types'
 
 export const initialState: TransactionState = {
@@ -31,7 +33,17 @@ const slice = createSlice({
     setStep(state, action: PayloadAction<TransactionStep>) {
       state.step = action.payload
     },
-    sendTransaction(state, action: PayloadAction<SendTransactionPayload>) {
+    addEscrow(state, action: PayloadAction<AddEscrowPayload>) {
+      state.error = undefined
+      state.success = false
+      state.active = true
+    },
+    reclaimEscrow(state, action: PayloadAction<ReclaimEscrowPayload>) {
+      state.error = undefined
+      state.success = false
+      state.active = true
+    },
+    sendTransaction(state, action: PayloadAction<TransferPayload>) {
       state.error = undefined
       state.success = false
       state.active = true
@@ -39,7 +51,7 @@ const slice = createSlice({
     updateTransactionPreview(state, action: PayloadAction<TransactionPreview>) {
       state.preview = Object.assign({}, action.payload)
     },
-    transactionSent(state, action: PayloadAction<TransactionSent>) {
+    transactionSent(state, action: PayloadAction<TransactionPayload>) {
       state.preview = undefined
       state.success = true
       state.active = false

@@ -66,7 +66,7 @@ export const SearchAddress = memo((props: Props) => {
               style={{ textOverflow: 'ellipsis' }}
               flex="shrink"
             >
-              {t('toolbar.search.placeholder', 'Search for an account or a validator')}
+              {t('toolbar.search.placeholder', 'Search for an address')}
             </Box>
           }
         />
