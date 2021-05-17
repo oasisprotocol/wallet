@@ -140,7 +140,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
         tw = yield* call(
           prepareReclaimEscrow,
           signer as Signer,
-          BigInt(action.payload.shares * 10 ** 9),
+          BigInt(Math.floor(action.payload.shares * 10 ** 9)),
           action.payload.validator,
         )
         break

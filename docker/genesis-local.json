@@ -92,6 +92,8 @@
           "scale": "1000"
         }
       ],
+      "signing_reward_threshold_numerator": 3,
+      "signing_reward_threshold_denominator": 4,
       "commission_schedule_rules": {
         "rate_change_interval": 1,
         "rate_bound_lead": 10,

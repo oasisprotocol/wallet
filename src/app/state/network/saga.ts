@@ -50,11 +50,9 @@ export function* getExplorerAPIs(network?: NetworkType) {
 export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>) {
   const nic = yield* call(getOasisNic, network)
   const genesis = yield* call([nic, nic.consensusGetGenesisDocument])
-  console.log(genesis)
   const epoch = yield* call([nic, nic.beaconGetEpoch], oasis.consensus.HEIGHT_LATEST)
   const ticker = genesis.staking.token_symbol
   const chainContext = yield* call([oasis, oasis.genesis.chainContext], genesis)
-  console.log(genesis.staking.params.min_delegation)
 
   yield* put(
     networkActions.networkSelected({

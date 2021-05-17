@@ -7,7 +7,7 @@ import { StatusCritical, StatusGood } from 'grommet-icons/icons'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { CommisssionBounds } from '../CommisssionBounds'
+import { CommissionBounds } from '../CommisssionBounds'
 import { ValidatorMediaInfo } from '../ValidatorMediaInfo'
 
 interface ValidatorProps {
@@ -50,7 +50,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         <ResponsiveGridRow label={t('validator.commission', 'Commission')} value={`${validator.fee} %`} />
         <ResponsiveGridRow
           label={t('validator.commissionBounds.label', 'Commission bounds')}
-          value={details ? <CommisssionBounds bounds={details?.scheduledCommissionBounds} /> : <Spinner />}
+          value={details ? <CommissionBounds bounds={details?.scheduledCommissionBounds} /> : <Spinner />}
         />
         <ResponsiveGridRow
           label={t('validator.status', 'Status :')}

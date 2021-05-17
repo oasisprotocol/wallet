@@ -17,6 +17,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "jest.showCoverageOnLoad": true,
-  "typescriptHero.imports.insertSemicolons": false,
-  "wallaby.node": "/home/esya/.nvm/versions/node/v14.15.1/bin/node"
+  "typescriptHero.imports.insertSemicolons": false
 }

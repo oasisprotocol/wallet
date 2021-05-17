@@ -17,7 +17,9 @@ import { selectValidators } from './selectors'
 import { CommissionBounds, DebondingDelegation, Delegation, Validator } from './types'
 
 function getSharePrice(pool: StakingSharePool) {
-  return quantity.toBigInt(pool.balance!) / quantity.toBigInt(pool.total_shares!)
+  const balance = Number(quantity.toBigInt(pool.balance!)) / 10**9
+  const share = Number(quantity.toBigInt(pool.total_shares!)) / 10**9
+  return balance / share
 }
 
 function* getValidatorByAddress(address: string) {
@@ -31,7 +33,10 @@ function* makeDelegation(
   delegation: StakingDelegationInfo | StakingDebondingDelegationInfo,
 ) {
   const address = oasisAddress.toBech32('oasis', bytesAddress)
-  const amount = getSharePrice(delegation.pool) * quantity.toBigInt(delegation.shares)
+  const sharePrice = getSharePrice(delegation.pool)
+  const shares = quantity.toBigInt(delegation.shares)
+
+  const amount = BigInt(Math.round(Number(shares) * sharePrice))
 
   return {
     validator: yield* getValidatorByAddress(address),

@@ -4,17 +4,17 @@
  *
  */
 import { selectEpoch } from 'app/state/network/selectors'
-import { CommissionBounds } from 'app/state/staking/types'
+import { CommissionBounds as ICommissionBounds } from 'app/state/staking/types'
 import { Box, Text } from 'grommet'
 import React, { memo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 interface CommissionBoundProps {
-  bound: CommissionBounds
+  bound: ICommissionBounds
 }
 
-const CommisssionBound = memo((props: CommissionBoundProps) => {
+const CommissionBound = memo((props: CommissionBoundProps) => {
   const { t } = useTranslation()
   const epoch = useSelector(selectEpoch)
 
@@ -46,14 +46,14 @@ const CommisssionBound = memo((props: CommissionBoundProps) => {
 })
 
 interface Props {
-  bounds?: CommissionBounds[]
+  bounds?: ICommissionBounds[]
 }
 
-export const CommisssionBounds = memo((props: Props) => {
+export const CommissionBounds = memo((props: Props) => {
   const { t } = useTranslation()
 
   if (props.bounds && props.bounds.length > 0) {
-    const items = props.bounds.map(b => <CommisssionBound bound={b} />)
+    const items = props.bounds.map(b => <CommissionBound bound={b} />)
     return <>{items}</>
   } else {
     return <>{t('validator.boundsNotSet', 'No bounds set (0% - 0%)')}</>
