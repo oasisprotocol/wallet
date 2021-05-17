@@ -63,9 +63,7 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
       epoch: Number(epoch),
       selectedNetwork: network,
       blocksPerEpoch: getBlocksPerEpoch(genesis),
-      minimumStakingAmount: Number(
-        oasis.quantity.toBigInt(genesis.staking.params.min_delegation) / 10n ** 9n,
-      ),
+      minimumStakingAmount: Number(oasis.quantity.toBigInt(genesis.staking.params.min_delegation)) / 10 ** 9,
     }),
   )
 }

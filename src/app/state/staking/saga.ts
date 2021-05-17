@@ -106,10 +106,9 @@ function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
   const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
   const currentEpoch = yield* select(selectEpoch) || 0
 
-  console.log(account)
-  const rawBounds = account.escrow?.commission_schedule?.bounds
+  let rawBounds = account.escrow?.commission_schedule?.bounds
   if (!rawBounds) {
-    return
+    rawBounds = []
   }
 
   const bounds: CommissionBounds[] = rawBounds

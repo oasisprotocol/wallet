@@ -52,7 +52,7 @@ interface Props {
 export const CommisssionBounds = memo((props: Props) => {
   const { t } = useTranslation()
 
-  if (props.bounds) {
+  if (props.bounds && props.bounds.length > 0) {
     const items = props.bounds.map(b => <CommisssionBound bound={b} />)
     return <>{items}</>
   } else {
