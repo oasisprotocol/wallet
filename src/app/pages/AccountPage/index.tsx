@@ -78,10 +78,12 @@ export function AccountPage(props: Props) {
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
 
+  const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
+  const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balance: BalanceDetails = {
     available: account.liquid_balance ?? 0,
-    debonding: account.debonding_delegations_balance ?? 0,
-    delegations: account.delegations_balance ?? 0,
+    delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
+    debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
     escrow: account.escrow_balance ?? 0,
     total: account.total_balance ?? 0,
   }
