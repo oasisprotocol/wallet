@@ -205,7 +205,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 }
 
 .c8:hover {
-  background-color: rgba(237,237,237,1);
+  background-color: rgba(51,51,51,0.06274509803921569);
   color: #000000;
 }
 

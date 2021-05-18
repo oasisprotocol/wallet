@@ -21,7 +21,7 @@ export function InfoBox(props: DetailProps) {
     <Box
       direction="row"
       gap="small"
-      hoverIndicator={{ color: 'light-3' }}
+      hoverIndicator={{ color: 'background-contrast' }}
       onClick={() => boxClicked()}
       pad="medium"
     >
