@@ -5,7 +5,7 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
-import { Sidebar } from '..'
+import { Navigation } from '..'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -23,13 +23,13 @@ const renderComponent = store => {
   return render(
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <Sidebar />
+        <Navigation />
       </ConnectedRouter>
     </Provider>,
   )
 }
 
-describe('<Sidebar />', () => {
+describe('<Navigation />', () => {
   let store: ReturnType<typeof configureAppStore>
 
   beforeEach(() => {
@@ -41,4 +41,6 @@ describe('<Sidebar />', () => {
     const component = renderComponent(store)
     expect(component.container.firstChild).toMatchSnapshot()
   })
+
+  it.todo('should be responsive')
 })

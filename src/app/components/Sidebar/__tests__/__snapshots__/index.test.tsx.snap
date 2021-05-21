@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Sidebar /> should match snapshot 1`] = `
+exports[`<Navigation /> should match snapshot 1`] = `
 .c11 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
