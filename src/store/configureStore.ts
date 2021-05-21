@@ -31,7 +31,5 @@ export function configureAppStore(state?: Partial<RootState>) {
     preloadedState: state,
   })
 
-  console.log(store.getState())
-
   return store
 }

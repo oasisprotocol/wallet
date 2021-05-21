@@ -4,14 +4,13 @@
  *
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
-import { ReclaimEscrowForm } from 'app/components/ReclaimEscrowForm'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { selectAccountAddress } from 'app/state/account/selectors'
 import { useStakingSlice } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
-import { DebondingDelegation, Delegation, ValidatorDetails } from 'app/state/staking/types'
+import { Delegation } from 'app/state/staking/types'
 import { selectActiveWallet } from 'app/state/wallet/selectors'
-import { Box, Text } from 'grommet'
+import { Text } from 'grommet'
 import { Down, StatusCritical, StatusGood } from 'grommet-icons'
 import React, { memo } from 'react'
 import DataTable, { IDataTableColumn } from 'react-data-table-component'
@@ -19,34 +18,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
 
-import { ValidatorInformations } from '../ValidatorList/ValidatorInformations'
-
-interface DelegationProps {
-  data: Delegation | DebondingDelegation
-  validatorDetails: ValidatorDetails | null
-  canReclaim: boolean
-}
-const DelegationItem = memo((props: DelegationProps) => {
-  const delegation = props.data
-  const validator = props.data.validator
-  const canReclaim = props.canReclaim
-  const details = props.validatorDetails
-
-  return (
-    <Box pad="medium" background="background-contrast" data-testid="validator-item">
-      {validator && <ValidatorInformations validator={validator} details={details} />}
-      {!validator && <>Unknown validator</>}
-      {canReclaim && (
-        <ReclaimEscrowForm
-          address={delegation.validatorAddress}
-          maxAmount={delegation.amount}
-          shares={delegation.shares}
-        />
-      )}
-      {/* {isWalletOpen && <AddEscrowForm validatorAddress={validator.address} />} */}
-    </Box>
-  )
-})
+import { DelegationItem } from './DelegationItem'
 
 interface Props {
   type: 'active' | 'debonding'
@@ -86,6 +58,7 @@ export const DelegationList = memo((props: Props) => {
   > = {
     icon: {
       name: '',
+      id: 'icon',
       cell: datum => (
         <img
           src="https://avatars.githubusercontent.com/u/52803776?s=200&v=4"
@@ -98,6 +71,7 @@ export const DelegationList = memo((props: Props) => {
     },
     status: {
       name: '',
+      id: 'status',
       cell: datum =>
         datum.validator && datum.validator.status === 'active' ? (
           <StatusGood color="status-ok" />
@@ -108,6 +82,7 @@ export const DelegationList = memo((props: Props) => {
     },
     name: {
       name: t('validator.name', 'Name'),
+      id: 'name',
       cell: datum =>
         datum.validator && datum.validator.name ? (
           datum.validator.name
@@ -122,6 +97,7 @@ export const DelegationList = memo((props: Props) => {
         type === 'active'
           ? t('delegations.delegatedAmount', 'Delegated Amount')
           : t('delegations.reclaimedAmount', 'Reclaimed Amount'),
+      id: 'amount',
       selector: 'amount',
       cell: datum =>
         datum.amount && (
@@ -132,6 +108,7 @@ export const DelegationList = memo((props: Props) => {
     },
     fee: {
       name: t('validator.fee', 'Fee'),
+      id: 'fee',
       selector: 'fee',
       sortable: true,
       width: '100px',
@@ -139,6 +116,7 @@ export const DelegationList = memo((props: Props) => {
     },
     epoch: {
       name: t('delegations.debondingEpoch', 'Debonding Epoch'),
+      id: 'epoch',
       selector: 'epoch',
       sortable: true,
       // width: '120px',

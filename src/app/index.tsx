@@ -22,7 +22,6 @@ import { AccountPage } from './pages/AccountPage'
 import { CreateWalletPage } from './pages/CreateWalletPage'
 import { HomePage } from './pages/HomePage'
 import { OpenWalletPage } from './pages/OpenWalletPage'
-import { StakingPage } from './pages/StakingPage'
 
 const AppMain = styled(Main)`
   position: relative;
@@ -49,7 +48,7 @@ export function App() {
                 <TransitionRoute exact path="/" component={HomePage} />
                 <TransitionRoute exact path="/create-wallet" component={CreateWalletPage} />
                 <TransitionRoute path="/open-wallet" component={OpenWalletPage} />
-                <TransitionRoute exact path="/stake/:address" component={StakingPage} />
+                <TransitionRoute exact path="/account/:address/stake" component={AccountPage} />
                 <TransitionRoute path="/account/:address" component={AccountPage} />
               </Switch>
             </TransitionGroup>

@@ -7,7 +7,7 @@ import { StatusCritical, StatusGood } from 'grommet-icons/icons'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { CommissionBounds } from '../CommisssionBounds'
+import { CommissionBounds } from '../CommissionBounds'
 import { ValidatorMediaInfo } from '../ValidatorMediaInfo'
 
 interface ValidatorProps {
