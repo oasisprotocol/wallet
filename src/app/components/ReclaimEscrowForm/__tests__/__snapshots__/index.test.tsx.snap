@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AddEscrowForm /> should match snapshot 1`] = `
+exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -32,7 +32,22 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c4 {
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 192px;
+}
+
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -42,7 +57,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c5 {
+.c6 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -70,31 +85,31 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c5:hover {
+.c6:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c5:focus {
+.c6:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c5:focus > circle,
-.c5:focus > ellipse,
-.c5:focus > line,
-.c5:focus > path,
-.c5:focus > polygon,
-.c5:focus > polyline,
-.c5:focus > rect {
+.c6:focus > circle,
+.c6:focus > ellipse,
+.c6:focus > line,
+.c6:focus > path,
+.c6:focus > polygon,
+.c6:focus > polyline,
+.c6:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c5:focus::-moz-focus-inner {
+.c6:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c3 {
+.c4 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -106,57 +121,59 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   padding: 11px;
   font-weight: 600;
   margin: 0;
+  font-size: 18px;
+  line-height: 24px;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
 }
 
-.c3:focus {
+.c4:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c3:focus > circle,
-.c3:focus > ellipse,
-.c3:focus > line,
-.c3:focus > path,
-.c3:focus > polygon,
-.c3:focus > polyline,
-.c3:focus > rect {
+.c4:focus > circle,
+.c4:focus > ellipse,
+.c4:focus > line,
+.c4:focus > path,
+.c4:focus > polygon,
+.c4:focus > polyline,
+.c4:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c3:focus::-moz-focus-inner {
+.c4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c3::-webkit-input-placeholder {
+.c4::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c3::-moz-placeholder {
+.c4::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c3:-ms-input-placeholder {
+.c4:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c3::-webkit-search-decoration {
+.c4::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c3::-moz-focus-inner {
+.c4::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c3:-moz-placeholder,
-.c3::-moz-placeholder {
+.c4:-moz-placeholder,
+.c4::-moz-placeholder {
   opacity: 1;
 }
 
-.c2 {
+.c3 {
   position: relative;
   width: 100%;
 }
@@ -168,7 +185,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c5 {
     width: 6px;
   }
 }
@@ -183,29 +200,35 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
       <div
         class="c2"
       >
-        <input
-          autocomplete="off"
+        <div
           class="c3"
-          data-testid="amount"
-          id="amount-id"
-          min="0"
-          name="amount"
-          placeholder="common.amount"
-          required=""
-          type="number"
-          value=""
-        />
+        >
+          <input
+            autocomplete="off"
+            class="c4"
+            data-testid="amount"
+            id="amount-id"
+            max="0.000001"
+            min="0.0001"
+            name="amount"
+            placeholder="common.amount"
+            required=""
+            step="any"
+            type="number"
+            value=""
+          />
+        </div>
       </div>
     </div>
     <div
-      class="c4"
+      class="c5"
     />
     <button
-      class="c5"
+      class="c6"
       style="border-radius: 4px;"
       type="submit"
     >
-      account.addEscrow.delegate
+      account.reclaimEscrow.reclaim
     </button>
   </div>
 </form>

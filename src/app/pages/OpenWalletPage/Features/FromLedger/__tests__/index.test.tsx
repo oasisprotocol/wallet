@@ -73,7 +73,7 @@ describe('<FromLedger  />', () => {
     const dispatchFn = jest.fn()
     mockDispatch.mockImplementation(() => dispatchFn)
 
-    const component = renderComponent(store)
+    renderComponent(store)
     store.dispatch(
       ledgerActions.accountsListed([
         {

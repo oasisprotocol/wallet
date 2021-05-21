@@ -1,8 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
+
 import { AddEscrowForm } from '..'
 
 jest.mock('react-i18next', () => ({
@@ -36,10 +37,9 @@ describe('<AddEscrowForm />', () => {
   })
 
   it('should dispatch an addEscrow transaction', () => {
-    const component = renderComponent(store, 'dummy-address')
+    renderComponent(store, 'dummy-address')
 
-    //@TODO: Spinbutton ? Really testing-library ? Add a testid and open an issue
-    userEvent.type(screen.getByRole('spinbutton'), '1000')
+    userEvent.type(screen.getByTestId('amount'), '1000')
     userEvent.click(screen.getByRole('button'))
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()

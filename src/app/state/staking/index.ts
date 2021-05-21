@@ -45,7 +45,7 @@ const slice = createSlice({
   },
 })
 
-export const { actions: stakingActions } = slice
+export const { actions: stakingActions, reducer: stakingReducer } = slice
 
 export const useStakingSlice = () => {
   useInjectReducer({ key: slice.name, reducer: slice.reducer })

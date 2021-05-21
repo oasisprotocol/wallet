@@ -63,6 +63,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
         <Box background="background-front">
           <Box width="small">
             <TextInput
+              data-testid="amount"
               id="amount-id"
               name="amount"
               placeholder={t('common.amount')}
@@ -84,7 +85,11 @@ export const ReclaimEscrowForm = memo((props: Props) => {
           style={{ borderRadius: '4px' }}
         />
       </Box>
-      {shares > 0 && <Text size="small">Corresponding number of shares : {shares}</Text>}
+      {shares > 0 && (
+        <Text size="small" data-testid="numberOfShares">
+          Corresponding number of shares : {shares}
+        </Text>
+      )}
       <TransactionStatus error={error} success={success} />
     </Form>
   )

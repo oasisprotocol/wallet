@@ -65,7 +65,7 @@ describe('Ledger Sagas', () => {
       const mockSigner = { setTransport: jest.fn(), sign: jest.fn().mockResolvedValue(null) }
       const mockTransport = { close: jest.fn() }
 
-      return expectSaga(sign, (mockSigner as unknown) as LedgerSigner, {} as any)
+      return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
         .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
@@ -79,7 +79,7 @@ describe('Ledger Sagas', () => {
       const mockSigner = { setTransport: jest.fn(), sign: jest.fn().mockResolvedValue(null) }
       const mockTransport = { close: jest.fn() }
 
-      return expectSaga(sign, (mockSigner as unknown) as LedgerSigner, {} as any)
+      return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
         .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.create), mockTransport],

@@ -24,7 +24,6 @@ function getSharePrice(pool: StakingSharePool) {
 
 function* getValidatorByAddress(address: string) {
   const validators = yield* select(selectValidators)
-
   return validators.find(v => v.address === address)
 }
 
@@ -157,5 +156,4 @@ export function* fetchAccount({ payload: address }: PayloadAction<string>) {
 export function* stakingSaga() {
   yield* takeEvery(stakingActions.fetchAccount, fetchAccount)
   yield* takeEvery(stakingActions.validatorSelected, getValidatorDetails)
-  // yield takeLatest(actions.someAction.type, doSomething);
 }

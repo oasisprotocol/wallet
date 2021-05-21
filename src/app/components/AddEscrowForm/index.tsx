@@ -46,6 +46,7 @@ export const AddEscrowForm = memo((props: Props) => {
       <Box direction="row" gap="small" pad={{ top: 'small' }}>
         <Box background="background-front">
           <TextInput
+            data-testid="amount"
             id="amount-id"
             name="amount"
             placeholder={t('common.amount')}
