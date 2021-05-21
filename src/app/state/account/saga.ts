@@ -1,4 +1,3 @@
-import { address as oasisAddress, quantity } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey } from 'app/lib/helpers'
 import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
@@ -27,7 +26,7 @@ function* loadAccount(action: PayloadAction<string>) {
     transactions: call([operations, operations.getTransactionsList], { accountId: address }),
     //@TODO Use this for now instead of oasis-explorer because of the ongoing
     //issue with staking balances being wrong
-    nicAccount: call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
+    nicAccount: call([nic, nic.stakingAccount], { owner: publicKey, height: 0 }),
   })
 
   yield put(actions.accountLoaded(result.account))

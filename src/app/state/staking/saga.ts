@@ -17,8 +17,8 @@ import { selectValidators } from './selectors'
 import { CommissionBounds, DebondingDelegation, Delegation, Validator } from './types'
 
 function getSharePrice(pool: StakingSharePool) {
-  const balance = Number(quantity.toBigInt(pool.balance!)) / 10**9
-  const share = Number(quantity.toBigInt(pool.total_shares!)) / 10**9
+  const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
+  const share = Number(quantity.toBigInt(pool.total_shares!)) / 10 ** 9
   return balance / share
 }
 
