@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { initialState, stakingActions } from 'app/state/staking'
+import { stakingActions } from 'app/state/staking'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
@@ -29,7 +29,7 @@ describe('<ValidatorList  />', () => {
   let store: ReturnType<typeof configureAppStore>
 
   beforeEach(() => {
-    store = configureAppStore({ staking: initialState })
+    store = configureAppStore()
   })
 
   it('should match snapshot', () => {
@@ -39,29 +39,25 @@ describe('<ValidatorList  />', () => {
   })
 
   it('should display validator details on click', async () => {
-    store = configureAppStore({
-      staking: {
-        ...initialState,
-        validators: [
-          {
-            address: 'oasis123456789',
-            fee: 10,
-            rank: 0,
-            status: 'active',
-            escrow: 1000,
-            name: 'test-validator',
-            media: {
-              email_address: 'test@test.com',
-              tg_chat: 'telegram',
-              twitter_acc: 'https://twitter.com/my_twitter',
-              website_link: 'https://test.com',
-            },
-          },
-        ],
-      },
-    })
-
     renderComponent(store)
+    store.dispatch(
+      stakingActions.updateValidators([
+        {
+          address: 'oasis123456789',
+          fee: 10,
+          rank: 0,
+          status: 'active',
+          escrow: 1000,
+          name: 'test-validator',
+          media: {
+            email_address: 'test@test.com',
+            tg_chat: 'telegram',
+            twitter_acc: 'https://twitter.com/my_twitter',
+            website_link: 'https://test.com',
+          },
+        },
+      ]),
+    )
 
     let row = screen.getByText(/test-validator/)
     expect(row).toBeVisible()
@@ -76,43 +72,39 @@ describe('<ValidatorList  />', () => {
   })
 
   it('should only display the details of a single validator', async () => {
-    store = configureAppStore({
-      staking: {
-        ...initialState,
-        validators: [
-          {
-            address: 'oasis1validator1',
-            fee: 10,
-            rank: 0,
-            status: 'active',
-            escrow: 1000,
-            name: 'test-validator1',
-            media: {
-              email_address: 'test@test.com',
-              tg_chat: 'telegram',
-              twitter_acc: 'https://twitter.com/my_twitter',
-              website_link: 'https://test.com',
-            },
-          },
-          {
-            address: 'oasis1validator2',
-            fee: 10,
-            rank: 1,
-            status: 'inactive',
-            escrow: 1000,
-            name: 'test-validator2',
-            media: {
-              email_address: 'test@test.com',
-              tg_chat: 'telegram',
-              twitter_acc: 'https://twitter.com/my_twitter',
-              website_link: 'https://test.com',
-            },
-          },
-        ],
-      },
-    })
-
     renderComponent(store)
+    store.dispatch(
+      stakingActions.updateValidators([
+        {
+          address: 'oasis1validator1',
+          fee: 10,
+          rank: 0,
+          status: 'active',
+          escrow: 1000,
+          name: 'test-validator1',
+          media: {
+            email_address: 'test@test.com',
+            tg_chat: 'telegram',
+            twitter_acc: 'https://twitter.com/my_twitter',
+            website_link: 'https://test.com',
+          },
+        },
+        {
+          address: 'oasis1validator2',
+          fee: 10,
+          rank: 1,
+          status: 'inactive',
+          escrow: 1000,
+          name: 'test-validator2',
+          media: {
+            email_address: 'test@test.com',
+            tg_chat: 'telegram',
+            twitter_acc: 'https://twitter.com/my_twitter',
+            website_link: 'https://test.com',
+          },
+        },
+      ]),
+    )
 
     let row = screen.getByText(/test-validator1/)
     expect(row).toBeVisible()

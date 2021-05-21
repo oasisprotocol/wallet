@@ -9,10 +9,10 @@ describe('reducer', () => {
     expect(state.test).toBe('dummyResult')
   })
 
-  it('should return identity reducers when empty', () => {
+  it('should only contain the router state initially', () => {
     const reducer = createReducer() as Reducer<any, any>
     const state = { a: 1 }
     const newState = reducer(state, '')
-    expect(newState).toBe(state)
+    expect(newState).toHaveProperty('router')
   })
 })
