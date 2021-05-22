@@ -49,6 +49,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
       flex={true}
     >
       <Styled(Main)>
+        <FatalErrorHandler />
         <Toolbar />
         <TransitionGroup
           childFactory={[Function]}

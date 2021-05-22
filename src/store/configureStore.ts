@@ -5,10 +5,20 @@ import createSagaMiddleware from 'redux-saga'
 
 import { createReducer, history } from './reducers'
 import { RootState } from 'types'
+import { fatalErrorActions } from 'app/state/fatalerror'
 
 export function configureAppStore(state?: Partial<RootState>) {
-  const reduxSagaMonitorOptions = {}
-  const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions)
+  const sagaMiddleware = createSagaMiddleware({
+    onError: (error, info) => {
+      store.dispatch(
+        fatalErrorActions.setError({
+          message: error.message,
+          stack: error.stack,
+          sagaStack: info.sagaStack,
+        }),
+      )
+    },
+  })
   const { run: runSaga } = sagaMiddleware
 
   // Create the store with saga middleware

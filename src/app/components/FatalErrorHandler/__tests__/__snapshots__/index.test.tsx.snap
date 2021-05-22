@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FatalErrorHandler /> should be null without an error 1`] = `null`;
