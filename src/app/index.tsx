@@ -15,6 +15,7 @@ import { TransitionGroup } from 'react-transition-group'
 import styled from 'styled-components'
 
 import { history } from './../store/reducers'
+import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Navigation } from './components/Sidebar'
 import { Toolbar } from './components/Toolbar'
 import { TransitionRoute } from './components/TransitionRoute'
@@ -42,6 +43,7 @@ export function App() {
         <Navigation />
         <Box flex>
           <AppMain>
+            <FatalErrorHandler />
             <Toolbar />
             <TransitionGroup>
               <Switch>
