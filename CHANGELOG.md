@@ -1,3 +1,28 @@
+# [1.0.0-dev.4](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.3...v1.0.0-dev.4) (2021-05-23)
+
+
+### Bug Fixes
+
+* better hover color for darkmode on transactions ([a6f50b7](https://github.com/Esya/oasis-wallet/commit/a6f50b77a93a4d106341fc05e37ea16f64a4768e))
+* hotfix for oasis-explorer account summary issue ([a9f1e9a](https://github.com/Esya/oasis-wallet/commit/a9f1e9a33aea61aea94f27cbf26a98f70654d09c))
+* **deps:** update dependency @ledgerhq/hw-transport-webusb to v5.51.0 ([#52](https://github.com/Esya/oasis-wallet/issues/52)) ([bfb6b24](https://github.com/Esya/oasis-wallet/commit/bfb6b24857f13d80e12d6c77ab1e96bc56b9f475))
+* **deps:** update dependency @ledgerhq/hw-transport-webusb to v5.51.1 ([#54](https://github.com/Esya/oasis-wallet/issues/54)) ([7032a2e](https://github.com/Esya/oasis-wallet/commit/7032a2ec2c826e22110c81337383588b842d5a83))
+* **deps:** update dependency cborg to v1.3.1 ([#57](https://github.com/Esya/oasis-wallet/issues/57)) ([5875baf](https://github.com/Esya/oasis-wallet/commit/5875baf33c80b40d7416096c75ad64df97db5b7b))
+* **deps:** update dependency combinate to v1.1.4 ([#63](https://github.com/Esya/oasis-wallet/issues/63)) ([5ab0f32](https://github.com/Esya/oasis-wallet/commit/5ab0f3294c4bc7d73244d231d0ec4f350d340a58))
+* **deps:** update dependency i18next to v20.2.4 ([#69](https://github.com/Esya/oasis-wallet/issues/69)) ([9754a31](https://github.com/Esya/oasis-wallet/commit/9754a31fcbe965d54dc25328236ec9a6b288d967))
+* **deps:** update dependency i18next to v20.3.0 ([#73](https://github.com/Esya/oasis-wallet/issues/73)) ([7cb4583](https://github.com/Esya/oasis-wallet/commit/7cb458372cce8fbae6d1bedd9ec2391ae9e5ebd2))
+* **deps:** update dependency i18next-browser-languagedetector to v6.1.1 ([#58](https://github.com/Esya/oasis-wallet/issues/58)) ([3790999](https://github.com/Esya/oasis-wallet/commit/3790999d61d78af4424bcb8b70dadb321d49c3b2))
+* **deps:** update dependency styled-components to v5.3.0 ([#50](https://github.com/Esya/oasis-wallet/issues/50)) ([4cd2043](https://github.com/Esya/oasis-wallet/commit/4cd2043caa8a2779601edd64e3da1840870478d8))
+* **deps:** update dependency web-vitals to v1.1.2 ([#51](https://github.com/Esya/oasis-wallet/issues/51)) ([f13b72a](https://github.com/Esya/oasis-wallet/commit/f13b72ae972dd1e791b5905b85fc3b15541c5ad0))
+* update total to bypass oasis-explorer's ([7b8985d](https://github.com/Esya/oasis-wallet/commit/7b8985d913a6e0c7b8300e2d8f428f482026e0a2))
+* workaround around oasis-explorer balance issue ([ee77517](https://github.com/Esya/oasis-wallet/commit/ee7751706b54995696ce8e8aad588fd690f2035f))
+
+
+### Features
+
+* fatal error handler ([67e445c](https://github.com/Esya/oasis-wallet/commit/67e445c8da6dd3b3fce7a333a646fbccb96afa3c)), closes [#74](https://github.com/Esya/oasis-wallet/issues/74)
+* staking - wip ([06de359](https://github.com/Esya/oasis-wallet/commit/06de3598a989d22c5f8ff9359feb7da32bad6dc4))
+
 # [1.0.0-dev.3](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2021-05-04)
 
 
