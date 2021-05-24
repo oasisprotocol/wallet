@@ -131,7 +131,7 @@ export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const mode = useSelector(selectTheme)
 
   return (
-    <Grommet full theme={theme} themeMode={mode}>
+    <Grommet theme={theme} themeMode={mode} style={{ minHeight: '100vh' }}>
       {React.Children.only(props.children)}
     </Grommet>
   )

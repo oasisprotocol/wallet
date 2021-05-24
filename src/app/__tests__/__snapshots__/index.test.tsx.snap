@@ -43,10 +43,20 @@ exports[`<App /> should render and match the snapshot 1`] = `
     background="background-back"
     direction="row-responsive"
     fill={true}
+    style={
+      Object {
+        "minHeight": "100vh",
+      }
+    }
   >
     <Navigation />
     <Box
       flex={true}
+      pad={
+        Object {
+          "top": undefined,
+        }
+      }
     >
       <Styled(Main)>
         <FatalErrorHandler />

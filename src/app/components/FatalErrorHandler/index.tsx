@@ -6,12 +6,14 @@
 import { useFatalErrorSlice } from 'app/state/fatalerror'
 import { selectFatalError } from 'app/state/fatalerror/selectors'
 import copy from 'copy-to-clipboard'
-import { Anchor, Box, Button, Heading, Layer, Text } from 'grommet'
+import { Anchor, Box, Button, Heading, Text } from 'grommet'
 import { Copy, StatusWarning } from 'grommet-icons'
 import * as React from 'react'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+
+import { ResponsiveLayer } from '../ResponsiveLayer'
 
 interface Props {}
 
@@ -31,7 +33,7 @@ export function FatalErrorHandler(props: Props) {
   }
 
   return (
-    <Layer background="background-front" full>
+    <ResponsiveLayer background="background-front" full>
       <Box pad="large">
         <Box direction="row" align="center" gap="small" pad={{ vertical: 'small' }}>
           <StatusWarning size="large" />
@@ -80,6 +82,6 @@ export function FatalErrorHandler(props: Props) {
           />
         </Box>
       </Box>
-    </Layer>
+    </ResponsiveLayer>
   )
 }

@@ -231,7 +231,18 @@ export function Navigation() {
   return (
     <>
       {size === 'small' && (
-        <Box background="component-sidebar" height="64px" fill="horizontal" direction="row">
+        <Box
+          background="component-sidebar"
+          height="64px"
+          fill="horizontal"
+          direction="row"
+          style={{
+            position: 'fixed',
+            top: 0,
+            width: '100%',
+            zIndex: 2,
+          }}
+        >
           <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
           <Box justify="center">
             <SidebarHeader size="small" />

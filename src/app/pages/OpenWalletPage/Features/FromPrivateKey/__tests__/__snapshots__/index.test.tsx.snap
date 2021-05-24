@@ -158,9 +158,6 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   -ms-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
 }
 
 .c3 {
@@ -274,6 +271,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 
 <div
   class="c0"
+  style="min-height: 100vh;"
 >
   <div
     class="c1"

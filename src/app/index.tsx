@@ -6,8 +6,9 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 import { ConnectedRouter } from 'connected-react-router'
-import { Box, Main } from 'grommet'
+import { Box, Main, ResponsiveContext } from 'grommet'
 import * as React from 'react'
+import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Switch } from 'react-router-dom'
@@ -25,11 +26,12 @@ import { HomePage } from './pages/HomePage'
 import { OpenWalletPage } from './pages/OpenWalletPage'
 
 const AppMain = styled(Main)`
-  position: relative;
+  /* position: relative; */
 `
 
 export function App() {
   const { i18n } = useTranslation()
+  const size = useContext(ResponsiveContext)
   return (
     <ConnectedRouter history={history}>
       <Helmet
@@ -39,9 +41,9 @@ export function App() {
       >
         <meta name="description" content="A wallet for Oasis" />
       </Helmet>
-      <Box direction="row-responsive" background="background-back" fill>
+      <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
         <Navigation />
-        <Box flex>
+        <Box flex pad={{ top: size === 'small' ? '64px' : undefined }}>
           <AppMain>
             <FatalErrorHandler />
             <Toolbar />

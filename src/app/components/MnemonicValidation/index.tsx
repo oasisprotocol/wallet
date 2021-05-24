@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { MnemonicGrid } from '../MnemonicGrid'
+import { ResponsiveLayer } from '../ResponsiveLayer'
 
 interface Props {
   validMnemonic: string[]
@@ -63,7 +64,7 @@ export function MnemonicValidation({ validMnemonic, successHandler, abortHandler
   return (
     <Layer plain full data-testid="mnemonic-validation">
       <Box fill style={{ backdropFilter: 'blur(5px)' }}>
-        <Layer background="background-front" onClickOutside={abortHandler}>
+        <ResponsiveLayer background="background-front" onClickOutside={abortHandler}>
           <Box background="background-front" pad="medium" gap="small" overflow="auto">
             <Heading size="4" margin="none">
               {t('createWallet.confirmMnemonic.header', 'Confirm your mnemonic ({{progress}}/{{total}})', {
@@ -98,7 +99,7 @@ export function MnemonicValidation({ validMnemonic, successHandler, abortHandler
               />
             </Box>
           </Box>
-        </Layer>
+        </ResponsiveLayer>
       </Box>
     </Layer>
   )

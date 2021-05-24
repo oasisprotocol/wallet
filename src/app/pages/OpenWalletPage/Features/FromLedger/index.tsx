@@ -5,13 +5,14 @@
  */
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { LedgerStepFormatter } from 'app/components/LedgerStepFormatter'
+import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { Account } from 'app/components/Toolbar/Features/AccountSelector'
 import { ledgerActions, useLedgerSlice } from 'app/state/ledger'
 import { selectLedger, selectSelectedLedgerAccounts } from 'app/state/ledger/selectors'
 import { LedgerAccount, LedgerStep } from 'app/state/ledger/types'
 import { useWalletSlice } from 'app/state/wallet'
 import { WalletType } from 'app/state/wallet/types'
-import { Text, Box, Button, Heading, Layer, Spinner } from 'grommet'
+import { Box, Button, Heading, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -70,7 +71,7 @@ export function FromLedger(props: FromLedgerProps) {
   const confirmDisabled = ledger.step !== LedgerStep.Done || selectedAccounts.length === 0
 
   return (
-    <Layer position="center" modal>
+    <ResponsiveLayer position="center" modal>
       <Box width="750px" pad="medium" background="background-front">
         <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
           {t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
@@ -127,6 +128,6 @@ export function FromLedger(props: FromLedgerProps) {
           />
         </Box>
       </Box>
-    </Layer>
+    </ResponsiveLayer>
   )
 }
