@@ -1,3 +1,10 @@
+# [1.0.0-dev.5](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.4...v1.0.0-dev.5) (2021-05-24)
+
+
+### Features
+
+* mnemonic validation on wallet creation ([#85](https://github.com/Esya/oasis-wallet/issues/85)) ([acb2ed1](https://github.com/Esya/oasis-wallet/commit/acb2ed17419534d2cd306df93003224d57fac5c0)), closes [#13](https://github.com/Esya/oasis-wallet/issues/13)
+
 # [1.0.0-dev.4](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.3...v1.0.0-dev.4) (2021-05-23)
 
 
