@@ -26,7 +26,7 @@
     "BatchSize": 250,
     "NodeRPS": 200,
     "NodeConfig": "unix:/node/data/internal.sock",
-    "StartHeight": 1 
+    "StartHeight": 1
   },
   "Cron": {
     "ParseValidatorsRegisterInterval": 3600

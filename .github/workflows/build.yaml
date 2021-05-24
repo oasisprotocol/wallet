@@ -2,86 +2,86 @@ name: Build
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [master, develop]
   pull_request:
-    branches: [ master, develop ]
+    branches: [master, develop]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: c-hive/gha-yarn-cache@v1
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14.x
-    - run: yarn install --frozen-lockfile
-    - run: yarn lint 
-    - run: yarn build
+      - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
+      - run: yarn build
 
   jest:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: c-hive/gha-yarn-cache@v1
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14.x
-    - run: yarn install --frozen-lockfile
-    - run: yarn test --coverage
-    - name: 'Upload coverage report'
-      uses: actions/upload-artifact@v2
-      with:
-        name: jest-coverage 
-        path: coverage 
-        retention-days: 5
-  
+      - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn install --frozen-lockfile
+      - run: yarn test --coverage
+      - name: 'Upload coverage report'
+        uses: actions/upload-artifact@v2
+        with:
+          name: jest-coverage
+          path: coverage
+          retention-days: 5
+
   cypress:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: c-hive/gha-yarn-cache@v1
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14.x
-    - run: yarn install --frozen-lockfile
-    - run: docker-compose pull
-    - uses: satackey/action-docker-layer-caching@v0.0.11
-      # Ignore the failure of a step and avoid terminating the job.
-      continue-on-error: true
-    - run: yarn start & 
-    - run: docker-compose up --build -d
-    - uses: nev7n/wait_for_response@v1
-      with:
-        url: 'http://localhost:3000/'
-        responseCode: 200
-        timeout: 2000
-        interval: 500
-    - run: npx cypress run
-    - name: 'Upload coverage report'
-      uses: actions/upload-artifact@v2
-      with:
-        name: cypress-coverage 
-        path: cypress-coverage
-        retention-days: 5
+      - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn install --frozen-lockfile
+      - run: docker-compose pull
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
+      - run: yarn start &
+      - run: docker-compose up --build -d
+      - uses: nev7n/wait_for_response@v1
+        with:
+          url: 'http://localhost:3000/'
+          responseCode: 200
+          timeout: 2000
+          interval: 500
+      - run: npx cypress run
+      - name: 'Upload coverage report'
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-coverage
+          path: cypress-coverage
+          retention-days: 5
 
   upload-coverage:
     needs: [cypress, jest]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Download coverage reports
-      uses: actions/download-artifact@v2
-    - uses: codecov/codecov-action@v1
-      with:
-        files: ./jest-coverage/coverage-final.json
-        flags: jest
-    - uses: codecov/codecov-action@v1
-      with:
-        files: ./cypress-coverage/coverage-final.json
-        flags: cypress 
+      - uses: actions/checkout@v2
+      - name: Download coverage reports
+        uses: actions/download-artifact@v2
+      - uses: codecov/codecov-action@v1
+        with:
+          files: ./jest-coverage/coverage-final.json
+          flags: jest
+      - uses: codecov/codecov-action@v1
+        with:
+          files: ./cypress-coverage/coverage-final.json
+          flags: cypress

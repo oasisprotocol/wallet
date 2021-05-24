@@ -1,5 +1,4 @@
-import { account } from "../fixtures/account";
-
+import { account } from '../fixtures/account'
 
 describe('Open wallet', () => {
   beforeEach(() => {
@@ -8,13 +7,13 @@ describe('Open wallet', () => {
 
   describe('Method selection', () => {
     it('Should be able to open from Mnemonic', () => {
-      cy.visit('/open-wallet');
+      cy.visit('/open-wallet')
       cy.findByRole('button', { name: /Mnemonic/ }).click()
       cy.url().should('include', 'mnemonic')
     })
 
     it('Should be able to open from private key', () => {
-      cy.visit('/open-wallet');
+      cy.visit('/open-wallet')
       cy.findByRole('button', { name: /Private key/ }).click()
       cy.url().should('include', 'private-key')
     })
@@ -32,7 +31,10 @@ describe('Open wallet', () => {
     })
 
     it('Should accept valid mnemonic', () => {
-      cy.findByTestId('mnemonic').type('planet believe session regular rib kiss police deposit prison hundred apart tongue', { delay: 1 })
+      cy.findByTestId('mnemonic').type(
+        'planet believe session regular rib kiss police deposit prison hundred apart tongue',
+        { delay: 1 },
+      )
       cy.findByRole('button', { name: /Open my wallet/ }).click()
       cy.findByText(/Invalid keyphrase/).should('not.exist')
       cy.url().should('include', '/account/oasis1qzq9d7xylpvqpsltv60a4ghxtz8eghmsqvga5ce3')
@@ -51,7 +53,10 @@ describe('Open wallet', () => {
     })
 
     it('Should accept valid base64 pkey', () => {
-      cy.findByTestId('privatekey').type('X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==', { delay: 1 })
+      cy.findByTestId('privatekey').type(
+        'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
+        { delay: 1 },
+      )
       cy.findByRole('button', { name: /Open my wallet/ }).click()
       cy.findByText(/Invalid private key/).should('not.exist')
       cy.url().should('include', '/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
@@ -82,4 +87,4 @@ describe('Open wallet', () => {
   //   // Back to homepage
   //   cy.findByRole('button', { name: /Create wallet/i }).should('be.visible')
   // })
-});
+})

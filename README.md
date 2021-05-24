@@ -38,13 +38,13 @@
 - Staking rewards and history
 - Debonding status
 - Various account & network stats
-- OETH Support 
+- OETH Support
 
 ## Getting started
 
 ### Installing and running oasis-wallet
 
-You can quickly get started with a local network with the following command : 
+You can quickly get started with a local network with the following command :
 
 ```shell
 docker-compose up --build -d
@@ -58,7 +58,7 @@ Then go to [http://localhost:3000](http://localhost:3000) to access the wallet.
 
 The local single-node network used for development comes built-in with two accounts already having tokens.
 
-```
+```none
 Using a private key : 
 X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==
 oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk
@@ -89,7 +89,7 @@ The repository has two different test strategies :
 - E2E (End-to-end) tests, ran with [Cypress](https://www.cypress.io/), located in [cypress/](/cypress). These tests require the react app to be started on accessible on port `3000` and the docker-compose stack to be up.
 - Unit & functional tests, ran with [Jest](https://github.com/facebook/jest), located throughout the codebase
 
-To run all tests : 
+To run all tests :
 
 ```bash
 # Run jest tests
@@ -115,9 +115,9 @@ yarn lint:fix
 
 ### Internationalization
 
-Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running 
+Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running
 
-```
+```shell
 yarn run extract-messages
 ```
 

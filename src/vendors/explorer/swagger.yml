@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: OasisExplorer API
-  version: "1"
+  version: '1'
 paths:
   '/data/info':
     get:
@@ -44,7 +44,7 @@ paths:
         - in: query
           name: sort_side
           type: string
-          enum: [asc,desc]
+          enum: [asc, desc]
       responses:
         '200':
           description: Query compatibility endpoint for account
@@ -548,7 +548,7 @@ paths:
         - in: query
           name: frame
           type: string
-          enum: [H,D]
+          enum: [H, D]
           required: true
         - in: query
           name: from
@@ -582,7 +582,7 @@ paths:
         - in: query
           name: frame
           type: string
-          enum: [H,D]
+          enum: [H, D]
           required: true
         - in: query
           name: from
@@ -616,7 +616,7 @@ paths:
         - in: query
           name: frame
           type: string
-          enum: [H,D]
+          enum: [H, D]
           required: true
         - in: query
           name: from

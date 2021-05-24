@@ -437,7 +437,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <span>
               0
             </span>
-             ROSE
+            ROSE
           </h2>
           <h4
             class="c5"

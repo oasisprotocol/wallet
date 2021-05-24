@@ -2,13 +2,7 @@
   "compilerOptions": {
     "noImplicitAny": false,
     "target": "es2020",
-    "lib": [
-      "dom",
-      "esnext.bigint",
-      "dom.iterable",
-      "ES2020",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext.bigint", "dom.iterable", "ES2020", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -24,9 +18,5 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
-  "include": [
-    "src",
-    "vendors",
-    "internals/startingTemplate/**/*"
-  ]
+  "include": ["src", "vendors", "internals/startingTemplate/**/*"]
 }

@@ -1,4 +1,4 @@
 #!/bin/sh
 yarn build
-tar -cvzf 
+tar -cvzf
 yarn semantic-release --no-ci
