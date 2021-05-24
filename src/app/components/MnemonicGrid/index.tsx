@@ -10,6 +10,8 @@ import { useContext } from 'react'
 interface WordProp {
   id: number
   word: string
+  hidden?: boolean
+  higlighted?: boolean
 }
 
 let noSelect: React.CSSProperties = {
@@ -21,22 +23,35 @@ let noSelect: React.CSSProperties = {
 
 function MnemonicWord(props: WordProp) {
   return (
-    <Box background="background-contrast" margin="xsmall" direction="row" pad="xsmall">
+    <Box
+      background={props.higlighted ? 'brand' : 'background-contrast'}
+      margin="xsmall"
+      direction="row"
+      pad="xsmall"
+      border={{ side: 'bottom' }}
+    >
       <Box pad={{ right: 'small' }}>
         <Text style={noSelect}>{props.id}.</Text>
       </Box>
       <Box>
-        <strong>{props.word}</strong>
+        <strong>{props.hidden ? '' : props.word}</strong>
       </Box>
     </Box>
   )
 }
 
 interface Props {
-  mnemonic: string
+  // List of words
+  mnemonic: string[]
+
+  /** Indexes of hidden words, used for mnemonic validation */
+  hiddenWords?: number[]
+
+  /** Highlighted word indexes, used for mnemonic validation */
+  highlightedIndex?: number
 }
 
-export function MnemonicGrid({ mnemonic }: Props) {
+export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hiddenWords }: Props) {
   const size = useContext(ResponsiveContext)
   const columns = {
     small: ['1fr', '1fr'],
@@ -44,15 +59,18 @@ export function MnemonicGrid({ mnemonic }: Props) {
     large: ['1fr', '1fr', '1fr', '1fr'],
   }
 
-  const words = mnemonic!
-    .split(' ')
-    .map(word => word.trim())
-    .filter(word => word !== '')
+  const words = mnemonic!.map(word => word.trim()).filter(word => word !== '')
 
   return (
-    <Grid columns={columns[size]}>
+    <Grid columns={columns[size]} data-testid="mnemonic-grid">
       {words.map((word, index) => (
-        <MnemonicWord key={index + 1} id={index + 1} word={word}></MnemonicWord>
+        <MnemonicWord
+          key={index + 1}
+          id={index + 1}
+          word={word}
+          higlighted={index === hilightedIndex}
+          hidden={hiddenWords && hiddenWords.indexOf(index) !== -1}
+        />
       ))}
     </Grid>
   )

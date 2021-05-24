@@ -1,5 +1,5 @@
 /* --- STATE --- */
 export interface CreateWalletState {
-  mnemonic: string
+  mnemonic: string[]
   checkbox: boolean
 }

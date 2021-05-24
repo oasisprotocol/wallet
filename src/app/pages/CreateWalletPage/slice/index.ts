@@ -6,7 +6,7 @@ import { CreateWalletState } from './types'
 
 export const initialState: CreateWalletState = {
   checkbox: false,
-  mnemonic: '',
+  mnemonic: [],
 }
 
 const slice = createSlice({
@@ -17,14 +17,14 @@ const slice = createSlice({
      * Generate a new mnemonic
      */
     generateMnemonic(state, action: PayloadAction<void>) {
-      state.mnemonic = HDKey.generateValidMnemonic(256)
+      state.mnemonic = HDKey.generateValidMnemonic(256).split(' ')
       state.checkbox = false
     },
     setChecked(state, action: PayloadAction<boolean>) {
       state.checkbox = action.payload
     },
     clear(state, action: PayloadAction<void>) {
-      state.mnemonic = ''
+      state.mnemonic = []
       state.checkbox = false
     },
   },

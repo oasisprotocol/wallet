@@ -261,6 +261,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   max-width: 100%;
   margin: 6px;
   background: #33333310;
+  border-bottom: solid 1px rgba(0,0,0,0.33);
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -584,6 +585,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c3 {
+    border-bottom: solid 1px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
     padding: 3px;
   }
 }
@@ -622,6 +629,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   >
     <div
       class="c2"
+      data-testid="mnemonic-grid"
     >
       <div
         class="c3"
@@ -1156,7 +1164,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
       class="c7"
       style="word-spacing: 14px;"
     >
-      <strong>
+      <strong
+        data-testid="generated-mnemonic"
+      >
         test test test test test test test test test test test test test test test test test test test test test test test test
       </strong>
       <div
