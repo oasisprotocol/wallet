@@ -33,3 +33,6 @@ debug*.c
 # Cypress
 cypress/screenshots
 cypress/videos
+
+# Megalinter
+report

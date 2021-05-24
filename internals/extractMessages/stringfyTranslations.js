@@ -11,58 +11,58 @@
  * So, this function converts them into strings like the first one so that scanner recognizes
  */
 
-function stringfyTranslationObjects(content) {
-  let contentWithObjectsStringified = content;
-  const pattern = /_t\((.+?)[),]/gim;
-  const matches = content.matchAll(pattern);
+function stringfyTranslationObjects (content) {
+  let contentWithObjectsStringified = content
+  const pattern = /_t\((.+?)[),]/gim
+  const matches = content.matchAll(pattern)
   for (const match of matches) {
     if (match.length < 1) {
-      continue;
+      continue
     }
-    const key = match[1];
-    let keyAsStringValue = '';
+    const key = match[1]
+    let keyAsStringValue = ''
     if (["'", '"', '`'].some(x => key.includes(x))) {
-      keyAsStringValue = key;
+      keyAsStringValue = key
     } else {
-      keyAsStringValue = stringifyRecursively(content, key);
-      keyAsStringValue = `'${keyAsStringValue}'`;
+      keyAsStringValue = stringifyRecursively(content, key)
+      keyAsStringValue = `'${keyAsStringValue}'`
     }
     contentWithObjectsStringified = replaceTranslationObjectWithString(
       contentWithObjectsStringified,
       key,
-      keyAsStringValue,
-    );
+      keyAsStringValue
+    )
   }
-  return contentWithObjectsStringified;
+  return contentWithObjectsStringified
 }
 
 // Recursively concatenate all the `variables` until we hit the imported translations object
-function stringifyRecursively(content, key) {
-  let [root, ...rest] = key.split('.');
-  const pattern = `${root} =(.+?);`;
-  const regex = RegExp(pattern, 'gim');
-  let match = regex.exec(content);
+function stringifyRecursively (content, key) {
+  let [root, ...rest] = key.split('.')
+  const pattern = `${root} =(.+?);`
+  const regex = RegExp(pattern, 'gim')
+  const match = regex.exec(content)
   if (match && match.length > 1) {
-    const key = match[1].trim();
-    root = stringifyRecursively(content, key);
+    const key = match[1].trim()
+    root = stringifyRecursively(content, key)
   } else if (isImportedTranslationObject(content, root)) {
-    root = null;
+    root = null
   }
 
   if (root != null) {
-    return [root, ...rest].join('.');
+    return [root, ...rest].join('.')
   } else {
-    return [...rest].join('.');
+    return [...rest].join('.')
   }
 }
 
-function isImportedTranslationObject(content, key) {
-  const pattern = `import {.*?${key}.*?} from.+locales/translations.*`;
-  return RegExp(pattern, 'gim').test(content);
+function isImportedTranslationObject (content, key) {
+  const pattern = `import {.*?${key}.*?} from.+locales/translations.*`
+  return RegExp(pattern, 'gim').test(content)
 }
 
-function replaceTranslationObjectWithString(content, key, keyAsStringValue) {
-  return content.replace(`_t(${key}`, `t(${keyAsStringValue}`);
+function replaceTranslationObjectWithString (content, key, keyAsStringValue) {
+  return content.replace(`_t(${key}`, `t(${keyAsStringValue}`)
 }
 
-module.exports = stringfyTranslationObjects;
+module.exports = stringfyTranslationObjects

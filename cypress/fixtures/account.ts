@@ -6,5 +6,5 @@ export const account: AccountsRow = {
   escrowBalance: 0,
   liquidBalance: 0,
   nonce: 0,
-  totalBalance: 0
+  totalBalance: 0,
 }

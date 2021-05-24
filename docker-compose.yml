@@ -1,4 +1,4 @@
-version: "3.9"
+version: '3.9'
 services:
   oasis-node-local:
     build: docker/oasis-node
@@ -19,7 +19,7 @@ services:
     build: docker/oasis-explorer
     restart: always
     ports:
-      - "9001:9001"
+      - '9001:9001'
     volumes:
       - oasis-node-data:/node/data:z
       - ./docker/genesis-local.json:/genesis.json:z
@@ -27,8 +27,8 @@ services:
   envoy:
     image: docker.io/envoyproxy/envoy:v1.18.3
     ports:
-      - "42280:42280"
-      - "42281:42281"
+      - '42280:42280'
+      - '42281:42281'
     command: envoy -c /etc/envoy/envoy.yaml --component-log-level upstream:debug,connection:trace
     environment:
       ENVOY_UID: 0
@@ -42,19 +42,19 @@ services:
     volumes:
       - explorer-postgres-data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
-      POSTGRES_PASSWORD: oasis 
-      POSTGRES_USER: oasis 
-      POSTGRES_DATABASE: oasis 
+      POSTGRES_PASSWORD: oasis
+      POSTGRES_USER: oasis
+      POSTGRES_DATABASE: oasis
   explorer-clickhouse:
     image: docker.io/yandex/clickhouse-server
     restart: always
     volumes:
       - explorer-clickhouse-data:/var/lib/clickhouse:z
     ports:
-      - "8123:8123"
-      - "9000:9000"
+      - '8123:8123'
+      - '9000:9000'
 
 volumes:
   oasis-node-data:

@@ -7,12 +7,12 @@ module.exports = {
   extends: ['react-app', 'prettier'],
   plugins: ['prettier'],
   rules: {
-    'prettier/prettier': ['error', prettierOptions],
+    'prettier/prettier': ['error', prettierOptions]
   },
   overrides: [
     {
       files: ['**/*.ts?(x)'],
-      rules: { 'prettier/prettier': ['warn', prettierOptions] },
-    },
-  ],
+      rules: { 'prettier/prettier': ['warn', prettierOptions] }
+    }
+  ]
 }

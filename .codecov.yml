@@ -1,14 +1,13 @@
+---
 comment:
   layout: "reach, diff, flags, files"
   behavior: default
-  require_changes: false  
-  require_base: yes
-  require_head: yes       
+  require_changes: false
+  require_base: true
+  require_head: true
   branches: null
 
-# new section in the root YAML, flag_management:
 flag_management:
-  # this section will govern all default rules of Flags
   default_rules:
     carryforward: boolean?
     ignore: [path]?

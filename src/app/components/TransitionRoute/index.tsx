@@ -29,7 +29,7 @@ const Transition = styled.div`
     opacity: 1;
   }
 
-  // exit to 
+  // exit to
   &.fade-exit-active {
     opacity: 0;
   }
