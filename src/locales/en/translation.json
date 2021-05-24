@@ -48,7 +48,11 @@
     "thisIsYourPhrase": "This is your mnemonic",
     "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
     "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
-    "confirmSaved": "I saved my keyphrase"
+    "confirmSaved": "I saved my keyphrase",
+    "confirmMnemonic": {
+      "header": "Confirm your mnemonic ({{progress}}/{{total}})",
+      "pickWord": "Pick the right word corresponding to word #{{index}}"
+    }
   },
   "account": {
     "summary": {
@@ -105,7 +109,8 @@
     "from": "From",
     "to": "To",
     "delegator": "Delegator",
-    "validator": "Validator"
+    "validator": "Validator",
+    "cancel": "Cancel"
   },
   "errors": {
     "unknown": "Unknown error : {{message}}",
@@ -197,7 +202,8 @@
       "label": "Commission bounds"
     },
     "boundsNotSet": "No bounds set (0% - 0%)",
-    "totalEscrow": "Total Escrow"
+    "totalEscrow": "Total Escrow",
+    "unknownValidator": "Unknown validator"
   },
   "delegations": {
     "delegatedAmount": "Delegated Amount",
@@ -205,5 +211,11 @@
     "debondingDelegations": "Debonding delegations",
     "reclaimedAmount": "Reclaimed Amount",
     "debondingEpoch": "Debonding Epoch"
+  },
+  "fatalError": {
+    "instruction": "A fatal unexpected error has occurred and Oasis-wallet must stop. Please copy report this issue below on our <0>github account</0>. You can also try refreshing page to see if the issue persists. Once you leave this page, all of your wallets will be closed.",
+    "heading": "A fatal error occurred",
+    "copy": "Copy error to clipboard",
+    "copied": "Error copied to clipboard"
   }
 }

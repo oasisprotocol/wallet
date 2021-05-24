@@ -84,7 +84,7 @@ export function FromMnemonic(props: Props) {
           </Form>
         </Box>
         <Box background="background-contrast">
-          <MnemonicGrid mnemonic={mnemonic} />
+          <MnemonicGrid mnemonic={mnemonic.split(' ')} />
         </Box>
       </Grid>
     </Box>
