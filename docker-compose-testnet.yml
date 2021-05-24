@@ -4,11 +4,11 @@ services:
     build: docker/oasis-node
     # restart: always
     volumes:
-      - oasis-node-data:/node/data
+      - oasis-node-data:/node/data:z
       # Oasis-node config file
-      - ./docker/oasis-node/config-testnet.yml:/node/etc/config.yml
+      - ./docker/oasis-node/config-testnet.yml:/node/etc/config.yml:z
       # Genesis file
-      - ./docker/genesis-testnet.json:/node/etc/genesis.json
+      - ./docker/genesis-testnet.json:/node/etc/genesis.json:z
       # Expose sock
   oasis-explorer:
     build: docker/oasis-explorer
@@ -16,9 +16,9 @@ services:
     ports:
       - "127.0.0.1:9001:9001"
     volumes:
-      - oasis-node-data:/node/data
-      - ./docker/genesis-testnet.json:/genesis.json
-      - ./docker/oasis-explorer/config-testnet.json:/.secrets/config.json
+      - oasis-node-data:/node/data:z
+      - ./docker/genesis-testnet.json:/genesis.json:z
+      - ./docker/oasis-explorer/config-testnet.json:/.secrets/config.json:z
   envoy:
     image: envoyproxy/envoy:v1.18.3
     ports:
@@ -29,13 +29,13 @@ services:
       ENVOY_UID: 0
       ENVOY_GID: 0
     volumes:
-      - oasis-node-data:/node/data
-      - ./docker/envoy.yaml:/etc/envoy/envoy.yaml
+      - oasis-node-data:/node/data:z
+      - ./docker/envoy.yaml:/etc/envoy/envoy.yaml:z
   explorer-postgres:
     image: postgres
     restart: always
     volumes:
-      - explorer-postgres-data:/var/lib/postgresql/data
+      - explorer-postgres-data:/var/lib/postgresql/data:z
     ports:
       - "127.0.0.1:5432:5432"
     environment:
@@ -46,7 +46,7 @@ services:
     image: yandex/clickhouse-server
     restart: always
     volumes:
-      - explorer-clickhouse-data:/var/lib/clickhouse
+      - explorer-clickhouse-data:/var/lib/clickhouse:z
     ports:
       - "127.0.0.1:8123:8123"
       - "127.0.0.1:9000:9000"
