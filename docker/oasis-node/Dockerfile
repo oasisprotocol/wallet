@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM docker.io/library/debian:latest
 
 RUN apt-get update && apt-get install -y wget
 RUN wget -O oasis.tar.gz https://github.com/oasisprotocol/oasis-core/releases/download/v21.1/oasis_core_21.1_linux_amd64.tar.gz

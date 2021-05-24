@@ -1,22 +1,19 @@
-FROM golang:1.16 AS build-env
+FROM docker.io/library/golang:1.16 AS build-env
 WORKDIR /app
 
-ARG CB=1234567
-ARG BRANCH="balance-and-startheight"
+ARG COMMIT="ce1eb145161a52b85a0db6df470392e155a2129d"
 
 # Fetch and build oasis-core-rosetta-gateway.
-RUN git clone --single-branch --branch $BRANCH https://github.com/esya/oasis-explorer.git /app &&  \ 
-    cd /app
+RUN git clone https://github.com/everstake/oasis-explorer.git /app &&  \ 
+    cd /app && \
+    git checkout $COMMIT
 
 ENV CGO_ENABLED 0
 RUN go build
 
-FROM alpine:latest
+FROM docker.io/library/alpine:latest
 RUN apk add ca-certificates
 COPY --from=build-env /app/oasisTracker /oasisTracker
-# COPY --from=build-env /app/oasisTracker /
-# COPY --from=build-env /app/.secrets /
-# COPY --from=build-env /app/genesis.json /
 COPY --from=build-env app/dao/postgres/migrations /dao/postgres/migrations
 COPY --from=build-env app/dao/clickhouse/migrations /dao/clickhouse/migrations
 
