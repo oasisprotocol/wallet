@@ -41,7 +41,7 @@ export const NetworkSelector = memo((props: Props) => {
     },
   ]
 
-  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production' && !process.env.REACT_APP_BYPASS_LOCAL) {
     menuItems.push({
       label: networkLabels['local'],
       onClick: () => {
