@@ -3,12 +3,13 @@ import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
 import { selectAddress, selectBalance } from 'app/state/wallet/selectors'
-import { Box, Button, Heading, Layer, Spinner, Text } from 'grommet'
+import { Box, Button, Heading, Spinner, Text } from 'grommet'
 import { Checkmark, Close } from 'grommet-icons/icons'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
+import { ResponsiveLayer } from '../ResponsiveLayer'
 import { TransactionPreview } from '../TransactionPreview'
 
 /**
@@ -44,7 +45,7 @@ export function TransactionModal() {
   }
 
   return (
-    <Layer position="center">
+    <ResponsiveLayer position="center">
       <Box pad="medium" gap="medium" width="800px" background="background-front">
         <Box>
           <Heading level="2" margin="none">
@@ -117,6 +118,6 @@ export function TransactionModal() {
           </Box>
         )}
       </Box>
-    </Layer>
+    </ResponsiveLayer>
   )
 }

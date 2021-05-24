@@ -5,11 +5,12 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
+import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { walletActions } from 'app/state/wallet'
 import { selectActiveWalletId, selectWallets } from 'app/state/wallet/selectors'
 import { WalletType } from 'app/state/wallet/types'
-import { Box, Button, CheckBox, Heading, Layer, ResponsiveContext, Text } from 'grommet'
+import { Box, Button, CheckBox, Heading, ResponsiveContext, Text } from 'grommet'
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -110,7 +111,7 @@ export const AccountSelector = memo((props: Props) => {
   ))
 
   return (
-    <Layer
+    <ResponsiveLayer
       onClickOutside={props.closeHandler}
       onEsc={props.closeHandler}
       animation="slide"
@@ -138,6 +139,6 @@ export const AccountSelector = memo((props: Props) => {
           />
         </Box>
       </Box>
-    </Layer>
+    </ResponsiveLayer>
   )
 })

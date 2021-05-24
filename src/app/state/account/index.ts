@@ -11,7 +11,7 @@ export const initialState: AccountState = {
   escrow_balance: 0,
   liquid_balance: 0,
   transactions: [],
-  loading: false,
+  loading: true,
 }
 
 const slice = createSlice({
