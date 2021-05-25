@@ -1,3 +1,11 @@
+# [1.0.0-dev.6](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.5...v1.0.0-dev.6) (2021-05-25)
+
+
+### Bug Fixes
+
+* fix scrolling issues on mobile ([dc226b6](https://github.com/Esya/oasis-wallet/commit/dc226b682889bdf9798378cb9c038ede573b6c78)), closes [#91](https://github.com/Esya/oasis-wallet/issues/91)
+* handle rare case with duplicates in mnemonic validation ([97e498d](https://github.com/Esya/oasis-wallet/commit/97e498dbeb1844fb6b4779745a3057a37c39fa65))
+
 # [1.0.0-dev.5](https://github.com/Esya/oasis-wallet/compare/v1.0.0-dev.4...v1.0.0-dev.5) (2021-05-24)
 
 
