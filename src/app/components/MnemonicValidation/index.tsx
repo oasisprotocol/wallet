@@ -81,16 +81,16 @@ export function MnemonicValidation({ validMnemonic, successHandler, abortHandler
               )}
             </Text>
             <Grid columns={size !== 'small' ? 'small' : '100%'} gap="small">
-              {choices.map(w => (
+              {choices.map((w, i) => (
                 <Button
                   label={w}
                   style={{ borderRadius: '4px' }}
                   onClick={() => wordClicked(w)}
-                  key={`${currentStep}-${w}`}
+                  key={`${currentStep}-${i}-${w}`}
                 />
               ))}
             </Grid>
-            <Box align="end" pad={{ top: 'medium' }}>
+            <Box align="end" pad={{ vertical: 'medium' }}>
               <Button
                 primary
                 style={{ borderRadius: '4px' }}
