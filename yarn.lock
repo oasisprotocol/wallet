@@ -4970,10 +4970,10 @@ caseless@~0.12.0:
   resolved "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cborg@1.3.3:
-  version "1.3.3"
-  resolved "https://registry.yarnpkg.com/cborg/-/cborg-1.3.3.tgz#1dbb471857d0333fee43b37280d19f22f2266687"
-  integrity sha512-VN5MgyNDis2udgHm+gZy+FoB8LFSmML7gfoxe32x0DMfoBxbvRGnZQrTub/Us8mhLinIMd9zWE8swr/fcmwLvA==
+cborg@1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/cborg/-/cborg-1.3.4.tgz#12390c691e53fccf9a0759f10a4855b86ac09c5a"
+  integrity sha512-w/sCTLy2k4AI6XbDMiaPsGc07bBAcX/It3VYQBwKJ5fvAAyUOXi5nC1wjW0OXIfY5ROkOGJCAUOR5AW1ykkiCQ==
 
 cborg@^1.1.2:
   version "1.2.1"
