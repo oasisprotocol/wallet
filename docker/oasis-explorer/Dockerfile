@@ -1,7 +1,7 @@
 FROM docker.io/library/golang:1.16 AS build-env
 WORKDIR /app
 
-ARG COMMIT="ce1eb145161a52b85a0db6df470392e155a2129d"
+ARG COMMIT="28332c0b3d3becceee113817471d53d42f2c1dc3"
 
 # Fetch and build oasis-core-rosetta-gateway.
 RUN git clone https://github.com/everstake/oasis-explorer.git /app &&  \
