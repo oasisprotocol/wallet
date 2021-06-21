@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 0
 
       # Install dependencies
-      - uses: c-hive/gha-yarn-cache@v1
+      - uses: c-hive/gha-yarn-cache@v2
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
