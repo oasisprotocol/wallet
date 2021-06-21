@@ -14,7 +14,7 @@ describe('OasisTransaction', () => {
     const tw = await OasisTransaction.buildReclaimEscrow(
       nic,
       testSigner,
-      'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+      'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
       BigInt(1250),
     )
 
@@ -27,7 +27,7 @@ describe('OasisTransaction', () => {
     const tw = await OasisTransaction.buildAddEscrow(
       nic,
       testSigner,
-      'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+      'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
       BigInt(1250),
     )
 
@@ -40,7 +40,7 @@ describe('OasisTransaction', () => {
     const tw = await OasisTransaction.buildTransfer(
       nic,
       testSigner,
-      'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+      'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
       BigInt(1250),
     )
 
@@ -53,7 +53,7 @@ describe('OasisTransaction', () => {
     const tw = await OasisTransaction.buildTransfer(
       nic,
       testSigner,
-      'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+      'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
       BigInt(1250),
     )
 
@@ -66,7 +66,7 @@ describe('OasisTransaction', () => {
     const tw = await OasisTransaction.buildTransfer(
       nic,
       testSigner,
-      'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+      'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
       BigInt(1250),
     )
 
@@ -75,7 +75,7 @@ describe('OasisTransaction', () => {
     await OasisTransaction.sign('', testSigner, tw)
     const hexSignature = uint2hex(tw.signedTransaction.signature.signature)
     expect(hexSignature).toEqual(
-      '275f18f4830f7c10dd9c6243791c24b7508de10b0575483cf875055607bcb2d7d6fb184ddc0606e4222f7f23438cae38e6aff0849c5cd38e5a6c7f798da85d07',
+      '19f7c47e6b3c36fa88aa53b2e9e2cd47d7a6140a4cfbfdf28014ba6f81afbea27c76f9a3125e64f4297571ee0b5f0c5588895b0738975ec2ce3349adc3880e06',
     )
   })
 
@@ -88,7 +88,7 @@ describe('OasisTransaction', () => {
       const tw = await OasisTransaction.buildTransfer(
         nic,
         testSigner,
-        'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+        'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
         BigInt(1250),
       )
 
@@ -100,7 +100,7 @@ describe('OasisTransaction', () => {
       const tw = await OasisTransaction.buildTransfer(
         nic,
         testSigner,
-        'oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn',
+        'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
         BigInt(1250),
       )
 

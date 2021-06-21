@@ -1,18 +1,13 @@
 import * as oasis from '@oasisprotocol/client'
-import { Signer, ContextSigner } from '@oasisprotocol/client/dist/signature'
+import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
 
-import { HDKey } from './hdkey'
 import { addressToPublicKey, shortPublicKey } from './helpers'
 
 type OasisClient = oasis.client.NodeInternal
 
 export const signerFromPrivateKey = (privateKey: Uint8Array) => {
   return oasis.signature.NaclSigner.fromSecret(privateKey, 'this key is not important')
-}
-
-export const signerFromHDSecret = (secret: Uint8Array) => {
-  return HDKey.fromSecret(secret)
 }
 
 /** Transaction Wrapper */

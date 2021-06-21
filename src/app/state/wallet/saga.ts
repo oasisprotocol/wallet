@@ -1,5 +1,5 @@
+import { hdkey } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { HDKey } from 'app/lib/hdkey'
 import {
   hex2uint,
   publicKeyToAddress,
@@ -8,7 +8,6 @@ import {
   uint2bigintString,
   uint2hex,
 } from 'app/lib/helpers'
-import { mnemonicToSeedSync } from 'bip39'
 import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
@@ -117,11 +116,10 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
 }
 
 export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<string>) {
-  const seed = mnemonicToSeedSync(mnemonic).slice(0, 32)
-  const hdkey = HDKey.fromSeed(seed).derivePath("44'/474'/0'/0'/0'")
-  const privateKey = uint2hex(hdkey.secret)
+  const signer = yield* call(hdkey.HDKey.getAccountSigner, mnemonic)
+  const privateKey = uint2hex(signer.secretKey)
   const type = WalletType.Mnemonic
-  const publicKeyBytes = hdkey.public()
+  const publicKeyBytes = signer.publicKey
   const publicKey = uint2hex(publicKeyBytes)
 
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes!)

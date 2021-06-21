@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { HDKey } from 'app/lib/hdkey'
 import { createSlice } from 'utils/@reduxjs/toolkit'
+import { hdkey } from '@oasisprotocol/client'
 import { useInjectReducer } from 'utils/redux-injectors'
 import { CreateWalletState } from './types'
 
@@ -17,7 +17,7 @@ const slice = createSlice({
      * Generate a new mnemonic
      */
     generateMnemonic(state, action: PayloadAction<void>) {
-      state.mnemonic = HDKey.generateValidMnemonic(256).split(' ')
+      state.mnemonic = hdkey.HDKey.generateMnemonic(256).split(' ')
       state.checkbox = false
     },
     setChecked(state, action: PayloadAction<boolean>) {

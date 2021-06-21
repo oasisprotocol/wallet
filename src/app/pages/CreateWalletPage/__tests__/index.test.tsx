@@ -4,7 +4,9 @@ import { fireEvent, render } from '@testing-library/react'
 import { CreateWalletPage } from '..'
 import { configureAppStore } from 'store/configureStore'
 import { Provider } from 'react-redux'
-import { HDKey } from 'app/lib/hdkey'
+import { hdkey } from '@oasisprotocol/client'
+
+const HDKey = hdkey.HDKey
 
 jest.mock('react-i18next', () => ({
   Trans: ({ i18nKey }) => <>{i18nKey}</>,
@@ -30,7 +32,7 @@ describe('<CreateWalletPage  />', () => {
   let generateMnemonicMock: jest.MockedFunction<any>
 
   beforeEach(() => {
-    generateMnemonicMock = jest.spyOn(HDKey, 'generateValidMnemonic')
+    generateMnemonicMock = jest.spyOn(HDKey, 'generateMnemonic')
     store = configureAppStore()
     generateMnemonicMock.mockImplementation(() => {
       return new Array(24).fill('test').join(' ')

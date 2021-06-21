@@ -1,4 +1,4 @@
-import { OasisTransaction, signerFromHDSecret, signerFromPrivateKey } from 'app/lib/transaction'
+import { OasisTransaction, signerFromMnemonic, signerFromPrivateKey } from 'app/lib/transaction'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
@@ -28,7 +28,7 @@ describe('Transaction Sagas', () => {
 
   const sendProviders: (EffectProviders | StaticProvider)[] = [
     [matchers.call.fn(signerFromPrivateKey), {}],
-    [matchers.call.fn(signerFromHDSecret), {}],
+    [matchers.call.fn(signerFromMnemonic), {}],
     [
       matchers.call.fn(OasisTransaction.buildTransfer),
       { transaction: { fee: { amount: new Uint8Array(0), gas: BigInt(0) } } },

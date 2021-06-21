@@ -2,7 +2,7 @@ import { Signer } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, isValidAddress, uint2bigintString } from 'app/lib/helpers'
 import { LedgerSigner } from 'app/lib/ledger'
-import { OasisTransaction, signerFromHDSecret, signerFromPrivateKey, TW } from 'app/lib/transaction'
+import { OasisTransaction, signerFromPrivateKey, TW } from 'app/lib/transaction'
 import { call, put, race, select, take, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 
@@ -53,12 +53,9 @@ function* getSigner() {
   const privateKey = wallet.privateKey!
 
   let signer: Signer | LedgerSigner
-  if (wallet.type === WalletType.PrivateKey) {
+  if (wallet.type === WalletType.PrivateKey || wallet.type === WalletType.Mnemonic) {
     const bytes = hex2uint(privateKey!)
     signer = yield* call(signerFromPrivateKey, bytes)
-  } else if (wallet.type === WalletType.Mnemonic) {
-    const bytes = hex2uint(privateKey!)
-    signer = yield* call(signerFromHDSecret, bytes)
   } else if (wallet.type === WalletType.Ledger) {
     signer = new LedgerSigner(wallet)
   } else {

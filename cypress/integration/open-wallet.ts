@@ -37,7 +37,7 @@ describe('Open wallet', () => {
       )
       cy.findByRole('button', { name: /Open my wallet/ }).click()
       cy.findByText(/Invalid keyphrase/).should('not.exist')
-      cy.url().should('include', '/account/oasis1qzq9d7xylpvqpsltv60a4ghxtz8eghmsqvga5ce3')
+      cy.url().should('include', 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh')
     })
   })
 
