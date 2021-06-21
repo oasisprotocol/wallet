@@ -10,7 +10,7 @@ describe('Scenario : multiple accounts', () => {
       { delay: 0 },
     )
     cy.findByRole('button', { name: /Open my wallet/ }).click()
-    cy.url().should('include', '/account/oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn')
+    cy.url().should('include', '/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
 
     cy.findByTestId('nav-home').click()
 
@@ -30,6 +30,6 @@ describe('Scenario : multiple accounts', () => {
     cy.findAllByTestId('account-choice').eq(0).click()
 
     cy.findByTestId('nav-myaccount').click()
-    cy.url().should('include', '/account/oasis1qq8dt2jxf57kuszg3mdf78wtkggsvtuepctlftnn')
+    cy.url().should('include', '/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
   })
 })

@@ -1927,13 +1927,14 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@oasisprotocol/client@0.1.0-alpha1":
-  version "0.1.0-alpha1"
-  resolved "https://registry.npmjs.org/@oasisprotocol/client/-/client-0.1.0-alpha1.tgz"
-  integrity sha512-7oWrJNeDdm3MQRaiWZY88hrpHS5as+16N51fgnKERjsIFjNZv53fUwFSTt0/gXqvn+JtIc3Jxfe3wLTsAsUNTw==
+"@oasisprotocol/client@0.1.0-alpha4":
+  version "0.1.0-alpha4"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/client/-/client-0.1.0-alpha4.tgz#d5ce6ed2cdf6c9c9a2994634727133ca173c2538"
+  integrity sha512-iXHGbJMwIWGuCDLABQlqkauCnGk6gtaMiurS8+wlhX3IA9QbW4ZL4/tX3mhFCYvSZY/eVHE9FGSF17rhZt0zpQ==
   dependencies:
-    bech32 "^1.1.4"
-    cborg "^1.1.2"
+    bech32 "^2.0.0"
+    bip39 "^3.0.4"
+    cborg "^1.3.4"
     grpc-web "^1.2.1"
     js-sha512 "^0.8.0"
     tweetnacl "^1.0.3"
@@ -4219,12 +4220,12 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bech32@2.0.0:
+bech32@2.0.0, bech32@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/bech32/-/bech32-2.0.0.tgz"
   integrity sha512-LcknSilhIGatDAsY1ak2I8VtGaHNhgMSYVxFrGLXv+xLHytaKZKcaUJJUE7qmBr7h33o5YQwP55pMI0xmkpJwg==
 
-bech32@^1.1.3, bech32@^1.1.4:
+bech32@^1.1.3:
   version "1.1.4"
   resolved "https://registry.npmjs.org/bech32/-/bech32-1.1.4.tgz"
   integrity sha512-s0IrSOzLlbvX7yp4WBfPITzpAU8sqQcpsmwXDiKwrG4r491vwCO/XpejasRNl0piBMe/DvP4Tz0mIS/X1DPJBQ==
@@ -4291,7 +4292,7 @@ bip32@2.0.6:
     typeforce "^1.11.5"
     wif "^2.0.6"
 
-bip39@3.0.4:
+bip39@3.0.4, bip39@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/bip39/-/bip39-3.0.4.tgz#5b11fed966840b5e1b8539f0f54ab6392969b2a0"
   integrity sha512-YZKQlb752TrUWqHWj7XAwCSjYEgGAk+/Aas3V7NyjQeZYsztO8JnQUaCWhcnL4T+jL8nvB8typ2jRPzTlgugNw==
@@ -4965,15 +4966,10 @@ caseless@~0.12.0:
   resolved "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cborg@1.3.4:
+cborg@1.3.4, cborg@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/cborg/-/cborg-1.3.4.tgz#12390c691e53fccf9a0759f10a4855b86ac09c5a"
   integrity sha512-w/sCTLy2k4AI6XbDMiaPsGc07bBAcX/It3VYQBwKJ5fvAAyUOXi5nC1wjW0OXIfY5ROkOGJCAUOR5AW1ykkiCQ==
-
-cborg@^1.1.2:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/cborg/-/cborg-1.2.1.tgz"
-  integrity sha512-eA14hhjU6a9QxCvam/hdRl5LMLfqB1YGG/VA5woI5LxVDjh7kDiRxFp/uSfYQjAGVuk2BvSjx7L60u+B1k3gGw==
 
 chalk@2.4.1:
   version "2.4.1"
