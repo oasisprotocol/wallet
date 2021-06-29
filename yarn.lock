@@ -1917,10 +1917,10 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@oasisprotocol/client@0.1.0-alpha4":
-  version "0.1.0-alpha4"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/client/-/client-0.1.0-alpha4.tgz#d5ce6ed2cdf6c9c9a2994634727133ca173c2538"
-  integrity sha512-iXHGbJMwIWGuCDLABQlqkauCnGk6gtaMiurS8+wlhX3IA9QbW4ZL4/tX3mhFCYvSZY/eVHE9FGSF17rhZt0zpQ==
+"@oasisprotocol/client@0.1.0-alpha5":
+  version "0.1.0-alpha5"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/client/-/client-0.1.0-alpha5.tgz#b3327883c9bbb50c040943a3649c2f47c75da955"
+  integrity sha512-N0kBdTdPcPMo1iuK8SPXC54Xj2V6eF7MWdguuZ3c93kQeXzmEMEIbJg2KW2qJV/tPICvspnU4N/opbKrnzbAtQ==
   dependencies:
     bech32 "^2.0.0"
     bip39 "^3.0.4"
