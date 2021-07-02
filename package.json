@@ -149,7 +149,7 @@
     "@types/styled-components": "5.1.10",
     "@types/testing-library__jest-dom": "5.14.0",
     "@types/webpack": "5.28.0",
-    "@types/webpack-env": "1.16.1",
+    "@types/webpack-env": "1.16.2",
     "cypress": "7.6.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
