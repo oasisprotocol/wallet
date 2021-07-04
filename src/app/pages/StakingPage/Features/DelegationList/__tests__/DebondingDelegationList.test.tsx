@@ -81,7 +81,7 @@ describe('<DebondingDelegationList  />', () => {
     expect(row).toBeVisible()
     userEvent.click(row)
 
-    const details = screen.getByTestId('validator-item')
+    const details = await screen.findByTestId('validator-item')
     row = screen.getAllByText(/test-validator1/)[0]
 
     expect(details).toBeVisible()

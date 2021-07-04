@@ -40,6 +40,8 @@ describe('<NetworkSelector  />', () => {
     const component = renderComponent(store)
     expect(component.queryByTestId('active-network')).toContainHTML('Local')
     userEvent.click(screen.getByTestId('network-selector'))
+
+    await waitFor(() => expect(screen.getByText('Testnet')))
     screen.getByText('Testnet').click()
     await waitFor(() => expect(component.queryByTestId('active-network')).toContainHTML('Testnet'))
   })
