@@ -50,8 +50,8 @@
     "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
     "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
     "confirmMnemonic": {
-      "header": "Confirm your mnemonic ({{progress}}/{{total}})",
-      "pickWord": "Pick the right word corresponding to word #{{index}}"
+      "header": "Confirmez votre phrase secrète ({{progress}}/{{total}})",
+      "pickWord": "Choisissez le mot #{{index}}"
     }
   },
   "account": {
@@ -213,9 +213,12 @@
     "debondingEpoch": "Epoch de récupération"
   },
   "fatalError": {
-    "instruction": "A fatal unexpected error has occurred and Oasis-wallet must stop. Please copy report this issue below on our <0>github account</0>. You can also try refreshing page to see if the issue persists. Once you leave this page, all of your wallets will be closed.",
-    "heading": "A fatal error occurred",
-    "copy": "Copy error to clipboard",
-    "copied": "Error copied to clipboard"
+    "instruction": "Une erreur fatale s'est produite et le portefeuille Oasis a dû être arrêté. Merci de copier l'erreur et de la soumettre en tant qu'Issue sur notre <0>Github</0>. Vous pouvez également rafraîchir la page pour voir si le problème persiste. Une fois que vous quittez cette page votre portefeuille sera refermé.",
+    "heading": "Une erreur fatale s'est produite",
+    "copy": "Copier l'erreur",
+    "copied": "Erreur copiée"
+  },
+  "footer": {
+    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !"
   }
 }
