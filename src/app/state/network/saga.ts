@@ -14,7 +14,7 @@ import { NetworkType } from './types'
 export function* getOasisNic(network?: NetworkType) {
   let selectedNetwork = network ? network : yield* select(selectSelectedNetwork)
   let nic = new oasis.client.NodeInternal(
-    selectedNetwork === 'local' ? 'http://localhost:42280' : 'https://grpc.testnet.oasis-wallet.com',
+    selectedNetwork === 'local' ? 'http://localhost:42280' : 'https://grpc-web.oasis.dev/api/testnet',
   )
 
   return nic
