@@ -91,6 +91,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
             />
           </Switch>
         </TransitionGroup>
+        <Memo />
       </Styled(Main)>
     </Box>
   </Box>

@@ -217,5 +217,8 @@
     "heading": "A fatal error occurred",
     "copy": "Copy error to clipboard",
     "copied": "Error copied to clipboard"
+  },
+  "footer": {
+    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!"
   }
 }
