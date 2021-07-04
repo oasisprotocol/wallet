@@ -59,7 +59,7 @@ export function* getBalance(publicKey: Uint8Array) {
 
   const zero = stringBigint2uint('0')
 
-  const balance: Partial<WalletBalance> = {
+  const balance: Pick<WalletBalance, 'available' | 'debonding' | 'escrow'> = {
     available: uint2bigintString(account.general?.balance || zero),
     debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
     escrow: uint2bigintString(account.escrow?.active?.balance || zero),

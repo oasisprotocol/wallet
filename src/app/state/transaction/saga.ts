@@ -150,7 +150,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
       transactionActions.updateTransactionPreview({
         transaction: action.payload,
         fee: uint2bigintString(tw.transaction.fee?.amount!),
-        gas: BigInt(tw.transaction.fee?.gas).toString(),
+        gas: BigInt(tw.transaction.fee?.gas!).toString(),
       }),
     )
 
