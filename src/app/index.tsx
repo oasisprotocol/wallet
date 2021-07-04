@@ -17,6 +17,7 @@ import styled from 'styled-components'
 
 import { history } from './../store/reducers'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
+import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
 import { Toolbar } from './components/Toolbar'
 import { TransitionRoute } from './components/TransitionRoute'
@@ -56,6 +57,7 @@ export function App() {
                 <TransitionRoute path="/account/:address" component={AccountPage} />
               </Switch>
             </TransitionGroup>
+            <Footer />
           </AppMain>
         </Box>
       </Box>
