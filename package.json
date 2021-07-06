@@ -134,7 +134,7 @@
     "@testing-library/user-event": "13.1.9",
     "@types/bn.js": "5.1.0",
     "@types/body-scroll-lock": "2.6.1",
-    "@types/fontfaceobserver": "0.0.6",
+    "@types/fontfaceobserver": "0.0.7",
     "@types/jest": "26.0.23",
     "@types/jest-when": "2.7.3",
     "@types/node": "14.17.4",
