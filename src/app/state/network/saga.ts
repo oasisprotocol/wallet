@@ -36,8 +36,7 @@ function getBlocksPerEpoch(genesis: oasis.types.GenesisDocument): number {
 export function* getExplorerAPIs(network?: NetworkType) {
   const selectedNetwork = yield* select(selectSelectedNetwork)
   const config = new Configuration({
-    basePath:
-      selectedNetwork === 'local' ? 'http://localhost:9001' : 'https://explorer.testnet.oasis-wallet.com',
+    basePath: selectedNetwork === 'local' ? 'http://localhost:9001' : 'https://testnet-api.oasismonitor.com',
   })
 
   const accounts = new AccountsApi(config)
