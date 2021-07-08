@@ -2565,10 +2565,10 @@
   resolved "https://registry.npmjs.org/@types/fined/-/fined-1.1.2.tgz"
   integrity sha512-hzzTS+X9EqDhx4vwdch/DOZci/bfh5J6Nyz8lqvyfBg2ROx2fPafX+LpDfpVgSvQKj0EYkwTYpBO3z2etwbkOw==
 
-"@types/fontfaceobserver@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@types/fontfaceobserver/-/fontfaceobserver-0.0.7.tgz#42cd17d228fb50a094604bbac17d68b7d434c2cb"
-  integrity sha512-jPTRhVafNSgONZxJsECIizXCOX4O7sybFKHNOpzaenRjVnC4Dgu2CMLicXDd+mMph3eRTTkAiBTX+SpXTJ67Jw==
+"@types/fontfaceobserver@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz#9ec2eabadfcaaf8c68c5e1254d19f5a293d132b4"
+  integrity sha512-Vqf183RAiFdIjUi4asKqogf2HIfLDnxn+dQo9GCpnsU5QrrsLMA2bkJU1dHRudQlizLybWD61Csd1zAgUQ3JKQ==
 
 "@types/glob@*", "@types/glob@^7.1.1":
   version "7.1.3"
