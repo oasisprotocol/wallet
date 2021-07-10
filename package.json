@@ -124,7 +124,7 @@
     "web-vitals": "2.1.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.9.8",
+    "@cypress/code-coverage": "3.9.9",
     "@cypress/instrument-cra": "1.4.0",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "9.0.0",
