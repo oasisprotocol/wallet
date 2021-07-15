@@ -51,6 +51,7 @@ export const AddEscrowForm = memo((props: Props) => {
             name="amount"
             placeholder={t('common.amount')}
             type="number"
+            step="any"
             min={minStaking}
             value={amount}
             onChange={event => setAmount(event.target.value)}

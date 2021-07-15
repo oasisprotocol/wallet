@@ -192,6 +192,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
           name="amount"
           placeholder="common.amount"
           required=""
+          step="any"
           type="number"
           value=""
         />
