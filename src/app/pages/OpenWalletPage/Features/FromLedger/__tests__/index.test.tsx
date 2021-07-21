@@ -56,7 +56,7 @@ describe('<FromLedger  />', () => {
     store.dispatch(
       ledgerActions.accountsListed([
         {
-          address: 'oasis1abcdefghijkl',
+          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
           balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
           path: [44, 474, 0],
           publicKey: '00',
@@ -66,7 +66,9 @@ describe('<FromLedger  />', () => {
     )
 
     store.dispatch(ledgerActions.setStep(LedgerStep.Done))
-    expect(component.getByText('oasis1 abcd efgh ijkl')).toBeInTheDocument()
+    expect(
+      component.getByText('oasis1 qzyq axes tzlu m26e 2vdg vker m6d9 qgdp 7gh2 pxqe'),
+    ).toBeInTheDocument()
   })
 
   it('should open the selected accounts', () => {
@@ -77,14 +79,14 @@ describe('<FromLedger  />', () => {
     store.dispatch(
       ledgerActions.accountsListed([
         {
-          address: 'oasis1aaaaaaaa',
+          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
           balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
           path: [44, 474, 0],
           publicKey: '00',
           selected: false,
         },
         {
-          address: 'oasis1bbbbbbbb',
+          address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
           balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
           path: [44, 474, 1],
           publicKey: '00',
@@ -94,7 +96,7 @@ describe('<FromLedger  />', () => {
     )
 
     store.dispatch(ledgerActions.setStep(LedgerStep.Done))
-    userEvent.click(screen.getByText('oasis1 aaaa aaaa'))
+    userEvent.click(screen.getByText('oasis1 qzyq axes tzlu m26e 2vdg vker m6d9 qgdp 7gh2 pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({ payload: 0, type: ledgerActions.toggleAccount.type })
     store.dispatch(ledgerActions.toggleAccount(0))
 
