@@ -63,7 +63,8 @@ export function SendTransaction() {
               id="amount-id"
               name="amount"
               placeholder="0"
-              type="float"
+              type="number"
+              step="any"
               min="0"
               value={amount}
               onChange={event => setAmount(event.target.value)}
