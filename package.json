@@ -137,7 +137,7 @@
     "@types/fontfaceobserver": "2.1.0",
     "@types/jest": "26.0.23",
     "@types/jest-when": "2.7.3",
-    "@types/node": "14.17.4",
+    "@types/node": "14.17.5",
     "@types/node-fetch": "2.5.10",
     "@types/react": "17.0.13",
     "@types/react-dom": "17.0.8",
