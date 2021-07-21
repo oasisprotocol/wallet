@@ -69,7 +69,7 @@
     "report-dir": "cypress-coverage"
   },
   "dependencies": {
-    "@ledgerhq/hw-transport-webusb": "6.1.0",
+    "@ledgerhq/hw-transport-webusb": "6.2.0",
     "@oasisprotocol/client": "0.1.0-alpha5",
     "@oasisprotocol/ledger": "0.1.0",
     "@reduxjs/toolkit": "1.5.1",
