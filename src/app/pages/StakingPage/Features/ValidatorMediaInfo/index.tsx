@@ -7,6 +7,7 @@ import { ValidatorMediaInfo as MediaInfo } from 'app/state/staking/types'
 import { Button } from 'grommet'
 import { Home, MailOption, Twitter } from 'grommet-icons'
 import React, { memo } from 'react'
+import { isWebUri } from 'valid-url'
 
 interface Props {
   mediaInfo: MediaInfo
@@ -17,8 +18,12 @@ export const ValidatorMediaInfo = memo((props: Props) => {
   return (
     <>
       {info.email_address && <MediaButton href={`mailto:${info.email_address}`} icon={<MailOption />} />}
-      {info.website_link && <MediaButton href={info.website_link} icon={<Home />} />}
-      {info.twitter_acc && <MediaButton href={info.twitter_acc} icon={<Twitter />} />}
+      {info.website_link && isWebUri(info.website_link) && (
+        <MediaButton href={info.website_link} icon={<Home />} />
+      )}
+      {info.twitter_acc && isWebUri(info.twitter_acc) && (
+        <MediaButton href={info.twitter_acc} icon={<Twitter />} />
+      )}
     </>
   )
 })
