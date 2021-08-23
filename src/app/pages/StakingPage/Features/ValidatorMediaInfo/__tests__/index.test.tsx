@@ -21,4 +21,16 @@ describe('<ValidatorMediaInfo />', () => {
     const el = screen.queryByRole('link')
     expect(el).toBeNull()
   })
+
+  it('should display an email if the address is valid', () => {
+    render(<ValidatorMediaInfo mediaInfo={{ email_address: 'test@test.com' }} />)
+    const el = screen.getByRole('link')
+    expect(el).toHaveAttribute('href', 'mailto:test@test.com')
+  })
+
+  it('should not display the email if the address is dangerous', () => {
+    render(<ValidatorMediaInfo mediaInfo={{ email_address: 'test@test.com?attach=dangerouspayload' }} />)
+    const el = screen.queryByRole('link')
+    expect(el).toBeNull()
+  })
 })
