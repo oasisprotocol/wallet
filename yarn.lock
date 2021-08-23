@@ -14061,10 +14061,10 @@ react-app-polyfill@2.0.0, react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-data-table-component@6.11.7:
-  version "6.11.7"
-  resolved "https://registry.yarnpkg.com/react-data-table-component/-/react-data-table-component-6.11.7.tgz#112761005ceb13ae09732e1c1125eeacbda9e21d"
-  integrity sha512-p+wdtaaKs2udJByL2tyvL9uj8EDFy5GtpVVtNGd6d5dT0KikVhgCKFMDyv0ef+azdBVS68BaxGQ8JArDr31nWw==
+react-data-table-component@6.11.8:
+  version "6.11.8"
+  resolved "https://registry.yarnpkg.com/react-data-table-component/-/react-data-table-component-6.11.8.tgz#483677d22385c0e4458cda299954b2dc4ff080fc"
+  integrity sha512-ukKJKaKNDU5+jEEZFo16+4zwQPRvw1Z13S7FOj4dr73JWRf/lKkE108jciK2tj1JPMub3qXG2h0zXDn5y2WUfQ==
   dependencies:
     deepmerge "^4.2.2"
     lodash.orderby "^4.6.0"
