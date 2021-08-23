@@ -9,14 +9,17 @@ DISABLE_LINTERS:
   - MARKDOWN_MARKDOWN_LINK_CHECK
   - TYPESCRIPT_STANDARD
   - DOCKERFILE_HADOLINT
+  - CREDENTIALS_SECRETLINT
 DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   - SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
 ADDITIONAL_EXCLUDED_DIRECTORIES:
   - misc
   - .husky
+  - build
+  - cypress-coverage
 FILTER_REGEX_EXCLUDE: (LICENCE|\.codecov.yml|CHANGELOG.md)
-CREDENTIALS_SECRETLINT_FILTER_REGEX_EXCLUDE: (docker/)
+CREDENTIALS_SECRETLINT_FILTER_REGEX_EXCLUDE: (docker)
 SHOW_ELAPSED_TIME: true
 PRE_COMMANDS:
   - command: yarn install
