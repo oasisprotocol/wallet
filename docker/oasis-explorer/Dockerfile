@@ -1,4 +1,4 @@
-FROM docker.io/library/golang:1.16 AS build-env
+FROM docker.io/library/golang:1.17 AS build-env
 WORKDIR /app
 
 ARG COMMIT="2861780b1dcc9ea6d876621ad059cea6dcd77955"
