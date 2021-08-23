@@ -71,7 +71,7 @@
   "dependencies": {
     "@ledgerhq/hw-transport-webusb": "6.2.0",
     "@oasisprotocol/client": "0.1.0-alpha5",
-    "@oasisprotocol/ledger": "0.1.0",
+    "@oasisprotocol/ledger": "0.2.0",
     "@reduxjs/toolkit": "1.5.1",
     "base64-arraybuffer": "0.2.0",
     "bech32": "2.0.0",
