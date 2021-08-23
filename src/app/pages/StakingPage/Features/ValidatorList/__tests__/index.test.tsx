@@ -43,7 +43,7 @@ describe('<ValidatorList  />', () => {
     store.dispatch(
       stakingActions.updateValidators([
         {
-          address: 'oasis123456789',
+          address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
           fee: 10,
           rank: 0,
           status: 'active',
@@ -76,7 +76,7 @@ describe('<ValidatorList  />', () => {
     store.dispatch(
       stakingActions.updateValidators([
         {
-          address: 'oasis1validator1',
+          address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
           fee: 10,
           rank: 0,
           status: 'active',
@@ -90,7 +90,7 @@ describe('<ValidatorList  />', () => {
           },
         },
         {
-          address: 'oasis1validator2',
+          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
           fee: 10,
           rank: 1,
           status: 'inactive',

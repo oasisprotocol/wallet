@@ -64,16 +64,21 @@ describe('<DebondingDelegationList  />', () => {
           epoch: 100,
           amount: '100',
           shares: '100',
-          validatorAddress: 'test-validator1',
+          validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
           validator: {
-            address: 'test-validator1',
+            address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
             fee: 0,
             rank: 1,
             status: 'active',
             name: 'test-validator1',
           },
         },
-        { amount: '50', shares: '50', validatorAddress: 'test-validator2', epoch: 100 },
+        {
+          amount: '50',
+          shares: '50',
+          validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+          epoch: 100,
+        },
       ]),
     )
 
