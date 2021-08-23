@@ -309,6 +309,23 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
+.c16 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c18 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c5 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c9 {
   display: inline-block;
   box-sizing: border-box;
@@ -358,6 +375,26 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 .c9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c9:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -411,29 +448,32 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
+.c26:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c26:focus:not(:focus-visible) > circle,
+.c26:focus:not(:focus-visible) > ellipse,
+.c26:focus:not(:focus-visible) > line,
+.c26:focus:not(:focus-visible) > path,
+.c26:focus:not(:focus-visible) > polygon,
+.c26:focus:not(:focus-visible) > polyline,
+.c26:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c26:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
 .c14 {
   margin: 0;
   font-size: 34px;
   line-height: 40px;
   max-width: 816px;
   font-weight: 600;
-}
-
-.c16 {
-  margin: 0;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c18 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.c5 {
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .c20 {

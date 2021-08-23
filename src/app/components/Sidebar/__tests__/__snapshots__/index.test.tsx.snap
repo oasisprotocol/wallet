@@ -317,6 +317,11 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 24px;
 }
 
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c9 {
   display: inline-block;
   box-sizing: border-box;
@@ -336,6 +341,26 @@ exports[`<Navigation /> should match snapshot 1`] = `
   border: none;
   padding: 0;
   text-align: inherit;
+}
+
+.c9:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
 }
 
 .c16 {
@@ -376,9 +401,24 @@ exports[`<Navigation /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c4 {
-  font-size: 18px;
-  line-height: 24px;
+.c16:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible) > circle,
+.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,
+.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,
+.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
 }
 
 @media only screen and (max-width:768px) {

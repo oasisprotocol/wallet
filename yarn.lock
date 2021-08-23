@@ -8282,17 +8282,10 @@ graceful-fs@^4.0.0, graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.6.tgz"
   integrity sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ==
 
-grommet-icons@4.6.0:
+grommet-icons@4.6.0, grommet-icons@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.6.0.tgz#f5933a4cc23a4c70d2378f12391643e49a542e5b"
   integrity sha512-ytnFHPvCEDv7dUZddXUDxG/r/2Mbiq1MDy+kbmCelLXZ09B2zyC2N9KQPKHsm/XbJV6LnOnwchz2pobdz0OITQ==
-  dependencies:
-    grommet-styles "^0.2.0"
-
-grommet-icons@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/grommet-icons/-/grommet-icons-4.5.0.tgz"
-  integrity sha512-q7TNXV996fDh2e++7WapiNFUk0UEll17iEZ2d75W4yz+8Bb3+vdQ1MeT/d1RRlM0pV2KnTpSeR00GeN4KA9upg==
   dependencies:
     grommet-styles "^0.2.0"
 
@@ -8301,15 +8294,14 @@ grommet-styles@^0.2.0:
   resolved "https://registry.npmjs.org/grommet-styles/-/grommet-styles-0.2.0.tgz"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-grommet@2.17.2:
-  version "2.17.2"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.17.2.tgz#04ce3aae1087808d014e676f7798a005771db767"
-  integrity sha512-0p5H+kiDfysUQ+tsuya1rn4Eys3eSdmlqEQWgROFXzPUaJODFG9uaggmTsJqPMK0MqgIlmDV/5FxdUYMXjJMtw==
+grommet@2.17.4:
+  version "2.17.4"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.17.4.tgz#443241c04ab839b08493748ec052db9732e48105"
+  integrity sha512-RUdYExaaFQvNkAPEixPm1LxiZ6Bejek5w5t7yI3+QhjCBmQNmfSoQfpopJntTL8IuX1aZR4XGVyT8hcnxmhapQ==
   dependencies:
-    grommet-icons "^4.5.0"
+    grommet-icons "^4.6.0"
     hoist-non-react-statics "^3.2.0"
-    markdown-to-jsx "^6.11.4"
-    polished "^3.4.1"
+    markdown-to-jsx "^7.1.3"
     prop-types "^15.7.2"
     react-desc "^4.1.3"
 
@@ -11126,13 +11118,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-markdown-to-jsx@^6.11.4:
-  version "6.11.4"
-  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-6.11.4.tgz"
-  integrity sha512-3lRCD5Sh+tfA52iGgfs/XZiw33f7fFX9Bn55aNnVNUd2GzLDkOWyKYYD8Yju2B1Vn+feiEdgJs8T6Tg0xNokPw==
-  dependencies:
-    prop-types "^15.6.2"
-    unquote "^1.1.0"
+markdown-to-jsx@^7.1.3:
+  version "7.1.3"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.1.3.tgz#f00bae66c0abe7dd2d274123f84cb6bd2a2c7c6a"
+  integrity sha512-jtQ6VyT7rMT5tPV0g2EJakEnXLiPksnvlYtwQsVVZ611JsWGN8bQ1tVSDX4s6JllfEH6wmsYxNjTUAMrPmNA8w==
 
 marked-terminal@^4.1.1:
   version "4.1.1"
@@ -12945,13 +12934,6 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
-
-polished@^3.4.1:
-  version "3.7.1"
-  resolved "https://registry.npmjs.org/polished/-/polished-3.7.1.tgz"
-  integrity sha512-/QgHrNGYwIA4mwxJ/7FSvalUJsm7KNfnXiScVSEG2Xa5qxDeBn4nmdjN2pW00mkM2Tts64ktc47U8F7Ed1BRAA==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
 
 portable-fetch@3.0.0:
   version "3.0.0"
@@ -17126,7 +17108,7 @@ unpipe@1.0.0, unpipe@~1.0.0:
   resolved "https://registry.npmjs.org/unpipe/-/unpipe-1.0.0.tgz"
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
-unquote@^1.1.0, unquote@~1.1.1:
+unquote@~1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/unquote/-/unquote-1.1.1.tgz"
   integrity sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=

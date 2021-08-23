@@ -169,6 +169,11 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   width: 12px;
 }
 
+.c14 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c11 {
   display: inline-block;
   box-sizing: border-box;
@@ -213,9 +218,24 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c14 {
-  font-size: 18px;
-  line-height: 24px;
+.c11:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c11:focus:not(:focus-visible) > circle,
+.c11:focus:not(:focus-visible) > ellipse,
+.c11:focus:not(:focus-visible) > line,
+.c11:focus:not(:focus-visible) > path,
+.c11:focus:not(:focus-visible) > polygon,
+.c11:focus:not(:focus-visible) > polyline,
+.c11:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c11:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
 }
 
 .c8 {

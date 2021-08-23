@@ -3,13 +3,16 @@ import { WalletType } from 'app/state/wallet/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { AccountSelector } from '..'
 
 const renderComponent = store =>
   render(
     <Provider store={store}>
-      <AccountSelector closeHandler={() => {}} />
+      <ThemeProvider>
+        <AccountSelector closeHandler={() => {}} />
+      </ThemeProvider>
     </Provider>,
   )
 

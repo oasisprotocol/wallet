@@ -6,6 +6,7 @@ import { walletActions } from 'app/state/wallet'
 import * as React from 'react'
 import { Provider, useDispatch } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FromLedger } from '..'
 
@@ -25,7 +26,9 @@ jest.mock('react-redux', () => ({
 const renderComponent = (store, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
-      <FromLedger abort={abortFunction} />
+      <ThemeProvider>
+        <FromLedger abort={abortFunction} />
+      </ThemeProvider>
     </Provider>,
   )
 
@@ -67,7 +70,7 @@ describe('<FromLedger  />', () => {
 
     store.dispatch(ledgerActions.setStep(LedgerStep.Done))
     expect(
-      component.getByText('oasis1 qzyq axes tzlu m26e 2vdg vker m6d9 qgdp 7gh2 pxqe'),
+      component.getByText('oasis1qzyq...7gh2pxqe'),
     ).toBeInTheDocument()
   })
 
@@ -96,7 +99,7 @@ describe('<FromLedger  />', () => {
     )
 
     store.dispatch(ledgerActions.setStep(LedgerStep.Done))
-    userEvent.click(screen.getByText('oasis1 qzyq axes tzlu m26e 2vdg vker m6d9 qgdp 7gh2 pxqe'))
+    userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({ payload: 0, type: ledgerActions.toggleAccount.type })
     store.dispatch(ledgerActions.toggleAccount(0))
 

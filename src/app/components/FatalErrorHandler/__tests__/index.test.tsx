@@ -3,13 +3,16 @@ import { fatalErrorActions } from 'app/state/fatalerror'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FatalErrorHandler } from '..'
 
 const renderComponent = store =>
   render(
     <Provider store={store}>
-      <FatalErrorHandler />
+      <ThemeProvider>
+        <FatalErrorHandler />
+      </ThemeProvider>
     </Provider>,
   )
 
@@ -23,7 +26,7 @@ describe('<FatalErrorHandler />', () => {
   it('should be null without an error', () => {
     const component = renderComponent(store)
     expect(component.container.firstChild).toMatchSnapshot()
-    expect(component.container.firstChild).toBeNull()
+    expect(component.container.firstChild!.firstChild).toBeNull()
   })
 
   it('should display the error', async () => {

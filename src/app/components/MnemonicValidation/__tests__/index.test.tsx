@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { MnemonicValidation } from '..'
 
@@ -10,7 +11,11 @@ jest.mock('bip39', () => ({
 }))
 
 const renderComponent = (store, component: React.ReactNode) =>
-  render(<Provider store={store}>{component}</Provider>)
+  render(
+    <Provider store={store}>
+      <ThemeProvider>{component}</ThemeProvider>
+    </Provider>,
+  )
 
 describe('<MnemonicValidation  />', () => {
   let store: ReturnType<typeof configureAppStore>
