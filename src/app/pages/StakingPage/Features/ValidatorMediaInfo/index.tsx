@@ -17,7 +17,9 @@ export const ValidatorMediaInfo = memo((props: Props) => {
   const info = props.mediaInfo
   return (
     <>
-      {info.email_address && <MediaButton href={`mailto:${info.email_address}`} icon={<MailOption />} />}
+      {info.email_address && !info.email_address.includes('?') && (
+        <MediaButton href={`mailto:${info.email_address}`} icon={<MailOption />} />
+      )}
       {info.website_link && isWebUri(info.website_link) && (
         <MediaButton href={info.website_link} icon={<Home />} />
       )}
