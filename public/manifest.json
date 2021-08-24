@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Oasis Wallet",
+  "name": "Non-custodial web wallet for Oasis",
   "icons": [
     {
       "src": "favicon.ico",
