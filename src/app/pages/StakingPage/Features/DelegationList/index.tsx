@@ -59,14 +59,7 @@ export const DelegationList = memo((props: Props) => {
     icon: {
       name: '',
       id: 'icon',
-      cell: datum => (
-        <img
-          src="https://avatars.githubusercontent.com/u/52803776?s=200&v=4"
-          height="16px"
-          width="16px"
-          alt=""
-        />
-      ),
+      cell: datum => <img src={process.env.PUBLIC_URL + '/logo192.png'} height="16px" width="16px" alt="" />,
       width: '34px',
     },
     status: {

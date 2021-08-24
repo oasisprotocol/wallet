@@ -91,7 +91,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url(https://avatars.githubusercontent.com/u/52803776?s=200&v=4) no-repeat center center;
+  background: url(/logo192.png) no-repeat center center;
   background-size: cover;
   min-width: 0;
   min-height: 0;

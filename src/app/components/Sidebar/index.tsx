@@ -77,8 +77,6 @@ export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarBu
   return component
 }
 
-const src = 'https://avatars.githubusercontent.com/u/52803776?s=200&v=4'
-
 interface SidebarHeaderProps {
   size: string
 }
@@ -104,7 +102,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
       pad="medium"
       alignSelf={size === 'large' ? undefined : 'center'}
     >
-      <Avatar src={src} size={sizeLogo[size]} />
+      <Avatar src={process.env.PUBLIC_URL + '/logo192.png'} size={sizeLogo[size]} />
       {size !== 'medium' && <Text>Oasis Wallet</Text>}
     </Box>
   )
