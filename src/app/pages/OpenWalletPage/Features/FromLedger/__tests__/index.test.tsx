@@ -69,9 +69,7 @@ describe('<FromLedger  />', () => {
     )
 
     store.dispatch(ledgerActions.setStep(LedgerStep.Done))
-    expect(
-      component.getByText('oasis1qzyq...7gh2pxqe'),
-    ).toBeInTheDocument()
+    expect(component.getByText('oasis1qzyq...7gh2pxqe')).toBeInTheDocument()
   })
 
   it('should open the selected accounts', () => {
