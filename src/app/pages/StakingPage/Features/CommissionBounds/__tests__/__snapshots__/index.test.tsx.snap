@@ -113,13 +113,13 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="StyledBox-sc-13pk1d4-0 kUTqHn"
+      class="StyledBox-sc-13pk1d4-0 kSZjsO"
     >
       <span
-        class="StyledText-sc-1sadyjn-0 fxbXHC"
+        class="StyledText-sc-1sadyjn-0 fkNrQP"
       >
         <span
-          class="StyledText-sc-1sadyjn-0 onXHw"
+          class="StyledText-sc-1sadyjn-0 fDswbh"
         >
           10% - 20%
         </span>
@@ -218,10 +218,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="StyledBox-sc-13pk1d4-0 kUTqHn"
+      class="StyledBox-sc-13pk1d4-0 kSZjsO"
     >
       <span
-        class="StyledText-sc-1sadyjn-0 fxbXHC"
+        class="StyledText-sc-1sadyjn-0 fkNrQP"
       >
         10% - 20% starting from Epoch 0
       </span>

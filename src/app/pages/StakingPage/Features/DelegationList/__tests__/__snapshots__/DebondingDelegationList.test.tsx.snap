@@ -557,39 +557,39 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="StyledBox-sc-13pk1d4-0 eRkyDF"
+      class="StyledBox-sc-13pk1d4-0 huNNsk"
     >
       <h1
-        class="StyledHeading-sc-1rdh4aw-0 jmOSfz"
+        class="StyledHeading-sc-1rdh4aw-0 ghJfNG"
       >
         delegations.debondingDelegations
       </h1>
       <div
-        class="sc-hHEiqL fhaVWy"
+        class="sc-hHfuMS eHijxz"
       >
         <div
-          class="sc-kfYoZR bIRQQN"
+          class="sc-kfzBvY gVVUtR"
         >
           <div
-            class="sc-bdnxRM boQJMy rdt_Table"
+            class="sc-bdfBQB dVIjvR rdt_Table"
             role="table"
           >
             <div
-              class="sc-gtsrHT kofSid rdt_TableHead"
+              class="sc-gsTEea hbMOSD rdt_TableHead"
               role="rowgroup"
             >
               <div
-                class="sc-dlnjwi yVmJy rdt_TableHeadRow"
+                class="sc-dlfnuX krZTYY rdt_TableHeadRow"
                 role="row"
               >
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-iqAclL ixhUkm cDyxki ikSTQe rdt_TableCol"
+                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz eceSDa fTUNZi rdt_TableCol"
                 />
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-iqAclL ixhUkm domoiu ikSTQe rdt_TableCol"
+                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
                 >
                   <div
-                    class="sc-crzoAE cGfhQI rdt_TableCol_Sortable"
+                    class="sc-crrszt itItDX rdt_TableCol_Sortable"
                     id="column-undefined"
                     role="columnheader"
                     tabindex="0"
@@ -600,10 +600,10 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-iqAclL ixhUkm domoiu ikSTQe rdt_TableCol"
+                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
                 >
                   <div
-                    class="sc-crzoAE JMKRh rdt_TableCol_Sortable"
+                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
                     id="column-amount"
                     role="columnheader"
                     tabindex="0"
@@ -616,7 +616,7 @@ Object {
                     >
                       <svg
                         aria-label="Down"
-                        class="StyledIcon-ofa7kd-0 hVBrNB"
+                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -630,10 +630,10 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-iqAclL ixhUkm domoiu ikSTQe rdt_TableCol"
+                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
                 >
                   <div
-                    class="sc-crzoAE JMKRh rdt_TableCol_Sortable"
+                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
                     id="column-epoch"
                     role="columnheader"
                     tabindex="0"
@@ -646,7 +646,7 @@ Object {
                     >
                       <svg
                         aria-label="Down"
-                        class="StyledIcon-ofa7kd-0 hVBrNB"
+                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -662,17 +662,17 @@ Object {
               </div>
             </div>
             <div
-              class="sc-dIvrsQ iAFSOj rdt_TableBody"
+              class="sc-dIUeWJ gUlcRh rdt_TableBody"
               offset="250px"
               role="rowgroup"
             >
               <div
-                class="sc-jrsJWt kyUmmk rdt_TableRow"
+                class="sc-jrAFXE XoGWB rdt_TableRow"
                 id="row-0"
                 role="row"
               >
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-jSFjdj iCxiXr cDyxki iizuaN rdt_TableCell"
+                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-icon-undefined"
                   role="gridcell"
@@ -685,7 +685,7 @@ Object {
                   />
                 </div>
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-jSFjdj iCxiXr domoiu iizuaN rdt_TableCell"
+                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-name-undefined"
                   role="gridcell"
@@ -693,7 +693,7 @@ Object {
                   test-validator
                 </div>
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-jSFjdj iCxiXr domoiu iizuaN rdt_TableCell"
+                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-amount-undefined"
                   role="gridcell"
@@ -703,7 +703,7 @@ Object {
                   
                 </div>
                 <div
-                  class="sc-hKFxyN sc-eCApnc sc-jSFjdj iCxiXr domoiu dUbULe rdt_TableCell"
+                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS iCHCMz rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-epoch-undefined"
                   role="gridcell"
