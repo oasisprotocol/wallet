@@ -1,5 +1,6 @@
 import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
+import { config } from 'config'
 import { call, put, select, takeEvery } from 'typed-redux-saga'
 import { AccountsApi, BlocksApi, Configuration, OperationsListApi } from 'vendors/explorer'
 
@@ -13,10 +14,9 @@ import { NetworkType } from './types'
  */
 export function* getOasisNic(network?: NetworkType) {
   let selectedNetwork = network ? network : yield* select(selectSelectedNetwork)
-  let nic = new oasis.client.NodeInternal(
-    selectedNetwork === 'local' ? 'http://localhost:42280' : 'https://grpc-web.oasis.dev/api/testnet',
-  )
+  const url = config[selectedNetwork].grpc
 
+  let nic = new oasis.client.NodeInternal(url)
   return nic
 }
 
@@ -35,13 +35,15 @@ function getBlocksPerEpoch(genesis: oasis.types.GenesisDocument): number {
  */
 export function* getExplorerAPIs(network?: NetworkType) {
   const selectedNetwork = yield* select(selectSelectedNetwork)
-  const config = new Configuration({
-    basePath: selectedNetwork === 'local' ? 'http://localhost:9001' : 'https://testnet-api.oasismonitor.com',
+  const url = config[selectedNetwork].explorer
+
+  const explorerConfig = new Configuration({
+    basePath: url,
   })
 
-  const accounts = new AccountsApi(config)
-  const blocks = new BlocksApi(config)
-  const operations = new OperationsListApi(config)
+  const accounts = new AccountsApi(explorerConfig)
+  const blocks = new BlocksApi(explorerConfig)
+  const operations = new OperationsListApi(explorerConfig)
 
   return { accounts, blocks, operations }
 }
@@ -68,10 +70,9 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
 export function* networkSaga() {
   yield* takeEvery(networkActions.selectNetwork, selectNetwork)
 
-  // Select another default network
   if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production' && !process.env.REACT_APP_BYPASS_LOCAL) {
     yield* put(networkActions.selectNetwork('local'))
   } else {
-    yield* put(networkActions.selectNetwork('testnet'))
+    yield* put(networkActions.selectNetwork('mainnet'))
   }
 }

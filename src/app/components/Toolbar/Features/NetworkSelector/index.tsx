@@ -34,6 +34,12 @@ export const NetworkSelector = memo((props: Props) => {
   const network = networkLabels[selectedNetworkType]
   const menuItems = [
     {
+      label: networkLabels['mainnet'],
+      onClick: () => {
+        switchNetwork('mainnet')
+      },
+    },
+    {
       label: networkLabels['testnet'],
       onClick: () => {
         switchNetwork('testnet')

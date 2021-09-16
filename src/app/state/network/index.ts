@@ -7,7 +7,10 @@ import { NetworkState, NetworkType } from './types'
 export const initialState: NetworkState = {
   ticker: '',
   chainContext: '',
-  selectedNetwork: 'local',
+  selectedNetwork:
+    process.env.NODE_ENV && process.env.NODE_ENV !== 'production' && !process.env.REACT_APP_BYPASS_LOCAL
+      ? 'local'
+      : 'mainnet',
   blocksPerEpoch: 0,
   epoch: 0,
   minimumStakingAmount: 0,
