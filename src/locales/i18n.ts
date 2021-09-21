@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import './type-only-test-translation-keys'
 import en from './en/translation.json'
 import fr from './fr/translation.json'
+import sl from './sl/translation.json'
 
 export const translationsJson = {
   en: {
@@ -12,6 +13,9 @@ export const translationsJson = {
   },
   fr: {
     translation: fr,
+  },
+  sl: {
+    translation: sl,
   },
 }
 
