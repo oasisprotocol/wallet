@@ -219,6 +219,7 @@
     "copied": "Error copied to clipboard"
   },
   "footer": {
-    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!"
+    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!",
+    "terms": "<0>Terms and Conditions</0>"
   }
 }
