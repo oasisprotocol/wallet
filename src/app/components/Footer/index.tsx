@@ -7,7 +7,7 @@ export const Footer = memo(() => {
 
   return (
     <Box
-      direction="row"
+      direction="column"
       justify="center"
       align="center"
       round="5px"
@@ -20,6 +20,14 @@ export const Footer = memo(() => {
           t={t}
           components={[<Anchor href="https://github.com/oasisprotocol/oasis-wallet-web" />]}
           defaults="Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!"
+        />
+      </Text>
+      <Text>
+        <Trans
+          i18nKey="footer.terms"
+          t={t}
+          components={[<Anchor href="https://wallet.oasisprotocol.org/t-c" />]}
+          defaults="<0>Terms and Conditions</0>"
         />
       </Text>
     </Box>
