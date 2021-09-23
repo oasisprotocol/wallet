@@ -1,0 +1,265 @@
+{
+  "menu": {
+    "closeWallet": "Cüzdanı kapat",
+    "home": "Ana Sayfa",
+    "wallet": "Cüzdan",
+    "stake": "Stake"
+  },
+  "home": {
+    "existing": {
+      "header": "Mevcut cüzdana giriş yap",
+      "description": "Mevcut cüzdanınıza Ledger kullanarak, bir özel anahtar, ya da mnemonic kelimeleriniz ile giriş yapın.",
+      "button": "Cüzdan aç"
+    },
+    "create": {
+      "header": "Yeni cüzdan oluştur",
+      "description": "ROSE tokenlarınızı göndermek, almak, stake etmek ve swap yapmak için yepyeni bir cüzdan oluşturun",
+      "button": "Cüzdan oluştur"
+    }
+  },
+  "openWallet": {
+    "header": "Cüzdanınızı nasıl açmak istersiniz?",
+    "method": {
+      "mnemonic": "Mnemonic",
+      "privateKey": "Özel anahtar",
+      "ledger": "Ledger"
+    },
+    "mnemonic": {
+      "header": "Anahtar kelimelerinizi girin",
+      "instruction": "12, 18 veya 24 kelimelik anahtar kelimenizi aşağıya girin, her kelime boşlukla ayrılmıştır.",
+      "error": "Geçersiz anahtar kelime. Lütfen kelimeleri doğru sırayla girdiğinizden emin olun, hepsi küçük harf olmalı.",
+      "enterPhraseHere": "Anahtar kelimelerinizi buraya girin",
+      "open": "Cüzdanımı aç"
+    },
+    "privateKey": {
+      "header": "Özel anahtarınızı girin",
+      "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin",
+      "error": "Geçersiz özel anahtar",
+      "enterPrivateKeyHere": "Özel anahtarınızı buraya girin",
+      "hidePrivateKey": "Hide private key",
+      "showPrivateKey": "Show private key"
+    },
+    "ledger": {
+      "header": "Open from Ledger device",
+      "selectWallets": "Açılacak cüzdanları seçin",
+      "cancel": "İptal et",
+      "openWallets": "Aç"
+    },
+    "bitpie": {
+      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
+    }
+  },
+  "createWallet": {
+    "newMnemonic": "Yeni bir mnemonic oluştur",
+    "thisIsYourPhrase": "Size ait olan mnemonic",
+    "instruction": "Anahtar kelimelerinizi <1>doğru sırada</1> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
+    "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
+    "confirmSaved": "Anahtar kelimelerimi kaydettim",
+    "mnemonicMismatch": "Entered mnemonic does not match."
+  },
+  "account": {
+    "summary": {
+      "yourAccount": "Bu sizin hesabınız",
+      "notYourAccount": "Bu sizin hesabınız değil.",
+      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
+      "balance": {
+        "total": "Toplam bakiye",
+        "available": "Uygun",
+        "debonding": "Ayrılmış",
+        "delegations": "Stake Edilmiş"
+      },
+      "noTransactionFound": "İşlem bulunamadı"
+    },
+    "transaction": {
+      "transfer": {
+        "received": "Alındı <0></0>",
+        "sent": {
+          "header": "Gönderildi <0></0>"
+        }
+      },
+      "addEscrow": {
+        "received": "Escrowdaki delegasyondan <0></0> alındı",
+        "sent": "Doğrulayıcıya <0></0> delege edildi"
+      },
+      "reclaimEscrow": {
+        "received": "<0></0> delegator tarafından alındı",
+        "sent": "Doğrulayıcıdan <0></0> alındı"
+      },
+      "loadingError": "Couldn't load transactions. List may be empty or out of date."
+    },
+    "otherTransaction": {
+      "header": "Unrecognized transaction, method '{{method}}'",
+      "designation": "Other address"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
+        "title": "Are you sure you want to continue?"
+      },
+      "recipient": "Alıcı",
+      "enterAddress": "Bir adres girin",
+      "success": "İşlem başarıyla gönderildi. İşlemin hesabınıza yansıması birkaç dakika sürebilir.",
+      "send": "Gönder"
+    },
+    "loading": "Hesap yükleniyor",
+    "loadingError": "Couldn't load account. Information may be missing or out of date.",
+    "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
+        "title": "Are you sure you want to continue?"
+      },
+      "delegate": "Delegate"
+    },
+    "subnavigation": {
+      "transactions": "İşlemler",
+      "activeDelegations": "Aktif delegasyon ({{count}})",
+      "activeDelegations_plural": "Aktif delegasyon ({{count}})",
+      "debondingDelegations": "Ayrılmış delegasyon ({{count}})",
+      "debondingDelegations_plural": "Ayrılmış delegasyon ({{count}})"
+    },
+    "reclaimEscrow": {
+      "reclaim": "Al"
+    },
+    "validator": {
+      "loadingError": "Couldn't load validators.",
+      "showingStale": "Showing validator list as of {{staleTimestamp}}."
+    }
+  },
+  "common": {
+    "amount": "Miktar",
+    "block": "Engelle",
+    "from": "Kimden",
+    "to": "Kime",
+    "delegator": "Delegatör",
+    "validator": "Doğrulayıcı",
+    "cancel": "İptal et",
+    "confirm": "Confirm",
+    "unavailable": "Unavailable",
+    "validators": "Validators"
+  },
+  "errors": {
+    "unknown": "Bilinmeyen hata : {{message}}",
+    "unknownGrpc": "Unknown gRPC error: {{message}}",
+    "invalidPrivateKey": "Geçersiz anahtar kelime",
+    "cannotSendToSelf": "Kendinize gönderemezsiniz",
+    "invalidNonce": "Geçersiz Nonce (transaction number)",
+    "duplicateTransaction": "Tekrarlayan işlem",
+    "invalidAddress": "Geçersiz adres",
+    "insufficientBalance": "Yetersiz bakiye",
+    "noOpenWallet": "",
+    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.",
+    "usbTransportError": "USB hatası : {{message}}",
+    "ledgerAppVersionNotSupported": "Alındı : \"Ledger uygulama versiyonu desteklenmiyor\", bu yanlış bir işlem olabilir, işlemi tekrar edin, eğer hata devam ederse Ledger'ınızdaki Oasis uygulamasını güncelleyin.",
+    "ledgerTransactionRejected": "İşlem, Ledger tarafından reddedildi",
+    "ledgerNoDeviceSelected": "Ledger seçilmedi. eğer Ledger'ınızı açmak isterseniz, bu mesajı yok sayın ve tekrar deneyin.",
+    "ledgerCannotOpenOasisApp": "Oasis uygulamasını Ledger üzerinde açamadı, kilidin açık olduğundan ve Oasis uygulamasının açık olduğundan emin olun.",
+    "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
+    "unknownLedgerError": "Bilinmeyen ledger hatası : {{message}}"
+  },
+  "toolbar": {
+    "search": {
+      "placeholder": "Bir adres arayın"
+    },
+    "wallets": {
+      "type": {
+        "ledger": "Ledger",
+        "mnemonic": "Anahtar kelime",
+        "privateKey": "Özel Anahtar"
+      },
+      "switchOtherWallet": "Başka cüzdana geç",
+      "close": "Kapat"
+    },
+    "networks": {
+      "local": "Yerel",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
+    }
+  },
+  "ledger": {
+    "instructionSteps": {
+      "header": "Steps:",
+      "connectLedger": "Connect your Ledger device to the computer",
+      "closeLedgerLive": "Close Ledger Live app on the computer",
+      "openOasisApp": "Open the Oasis App on your Ledger device",
+      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
+    },
+    "steps": {
+      "openingUsb": "Ledger USB Üzerinden Açılıyor",
+      "loadingAccounts": "Hesap detayları yükleniyor",
+      "loadingBalances": "Bakiye detayları yükleniyor",
+      "done": "Tamam"
+    }
+  },
+  "transaction": {
+    "step": {
+      "preview": "İşlemi önizle",
+      "signing": "İşlem imzalanıyor",
+      "submitting": "İşlem gönderiliyor",
+      "building": "İşlem oluşturuluyor"
+    },
+    "abort": "İptal et",
+    "confirm": "Onayla",
+    "preview": {
+      "warning": "Bu işlemi onayladıktan sonra iptal edemezsiniz. Dikkatlice inceleyin ve göndermek istediğinizden emin olduğunuzda onaylayın.",
+      "type": "Tip",
+      "from": "Kimden",
+      "to": "Kime",
+      "amount": "Miktar",
+      "fee": "İşlem ücreti",
+      "gas": "Gas",
+      "genesisHash": "Genesis Hash",
+      "validator": "Doğrulayıcı",
+      "shares": "Paylaşanlar"
+    },
+    "types": {
+      "addEscrow": "Tokenları bir doğrulayıcıya devretme ve ödüller oluşturma",
+      "reclaimEscrow": "Bir doğrulayıcıya devredilen tokenları geri alma",
+      "transfer": "Tokenları bir hesabınızdan diğerine aktarma"
+    }
+  },
+  "theme": {
+    "darkMode": "Gece modu",
+    "ligthMode": "Gündüz modu"
+  },
+  "validator": {
+    "rank": "Seviye",
+    "escrow": "Escrow",
+    "commission": "Komisyon",
+    "status": "Durum",
+    "statusActive": "Aktif",
+    "statusInactive": "İnaktif",
+    "statusUnknown": "Unknown",
+    "name": "İsim",
+    "fee": "İşlem ücreti",
+    "commissionBounds": {
+      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> şu anki dönemde {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}%  dönemden başlıyor {{epoch}}",
+      "label": "Komisyon sınırları"
+    },
+    "boundsNotSet": "Sınır ayarlanmadı (0% - 0%)",
+    "totalEscrow": "Toplam Escrow",
+    "unknownValidator": "Bilinmeyen doğrulayıcı"
+  },
+  "delegations": {
+    "delegatedAmount": "Devredilen miktar",
+    "activeDelegations": "Aktif delegasyonlar",
+    "debondingDelegations": "Ayrılan delegasyonlar",
+    "reclaimedAmount": "Alınan miktar",
+    "debondingEpoch": "Ayrılma Dönemi"
+  },
+  "fatalError": {
+    "instruction": "Beklenmeyen önemli bir hata oluştu ve Oasis cüzdan durdurulmalı. Lütfen bu sorunu aşağıdaki <0>GitHub hesabımıza</0> kopyalayın. Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi de deneyebilirsiniz. Bu sayfadan ayrıldığınızda, tüm cüzdanlarınız kapatılacaktır.",
+    "heading": "Önemli bir hata oluştu",
+    "copy": "Hatayı panoya kopyala",
+    "copied": "Hata panoya kopyalandı"
+  },
+  "footer": {
+    "github": "Oasis Cüzdan tamamen <0>açık kaynaktır</0> - Geri bildirim ve sorunlar için teşekkür ederiz!",
+    "poweredBy": {
+      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC",
+      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC"
+    },
+    "terms": "<0>Şartlar ve Koşullar</0>",
+    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
+  }
+}
