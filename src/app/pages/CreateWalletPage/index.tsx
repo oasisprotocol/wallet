@@ -47,6 +47,10 @@ export function CreateWalletPage(props: CreateWalletProps) {
     }
   }, [createWalletActions, dispatch])
 
+  //@TODO Remove when firefox supports backdropFilter (used inside MnemonicValidation)
+  // https://github.com/oasisprotocol/oasis-wallet-web/issues/287
+  const blurMnemonicInFirefox = showConfirmation ? { filter: 'blur(5px)' } : {}
+
   return (
     <>
       {showConfirmation && (
@@ -57,7 +61,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
         />
       )}
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>
-        <Box background="background-front">
+        <Box background="background-front" style={blurMnemonicInFirefox}>
           <MnemonicGrid mnemonic={mnemonic} />
           <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
             <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
