@@ -110,7 +110,8 @@
     "to": "À",
     "delegator": "Délégateur",
     "validator": "Validateur",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "validators": "Validateurs"
   },
   "errors": {
     "unknown": "Erreur inconnue : {{message}}",

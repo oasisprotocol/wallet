@@ -92,7 +92,7 @@ export const ValidatorList = memo((props: Props) => {
 
   return (
     <Box pad="medium" background="background-front">
-      Validators
+      {t('common.validators', 'Validators')}
       <DataTable
         noHeader={true}
         columns={columns}

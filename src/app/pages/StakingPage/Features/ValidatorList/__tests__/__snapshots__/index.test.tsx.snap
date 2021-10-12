@@ -79,7 +79,7 @@ exports[`<ValidatorList  /> should match snapshot 1`] = `
 <div
   class="c0"
 >
-  Validators
+  common.validators
   <div
     class="c1"
   >
