@@ -123,7 +123,7 @@
     "@testing-library/user-event": "13.2.1",
     "@types/body-scroll-lock": "3.1.0",
     "@types/fontfaceobserver": "2.1.0",
-    "@types/jest": "27.0.1",
+    "@types/jest": "27.0.2",
     "@types/jest-when": "2.7.3",
     "@types/node": "16.9.1",
     "@types/node-fetch": "3.0.3",
