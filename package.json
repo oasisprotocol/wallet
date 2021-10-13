@@ -72,7 +72,7 @@
     "@ledgerhq/hw-transport-webusb": "6.6.0",
     "@oasisprotocol/client": "0.1.0-alpha5",
     "@oasisprotocol/ledger": "0.2.0",
-    "@reduxjs/toolkit": "1.6.1",
+    "@reduxjs/toolkit": "1.6.2",
     "base64-arraybuffer": "1.0.1",
     "bech32": "2.0.0",
     "bip39": "3.0.4",
