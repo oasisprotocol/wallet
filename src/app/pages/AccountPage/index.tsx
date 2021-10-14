@@ -9,6 +9,7 @@ import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { useStakingSlice } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
+import { walletActions } from 'app/state/wallet'
 import { Box, Layer, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
@@ -20,7 +21,7 @@ import { TransitionGroup } from 'react-transition-group'
 import { useAccountSlice } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
 import { BalanceDetails } from '../../state/account/types'
-import { selectAddress, selectStatus } from '../../state/wallet/selectors'
+import { selectAddress, selectStatus, selectWallets } from '../../state/wallet/selectors'
 import { ActiveDelegationList } from '../StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from '../StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
@@ -77,6 +78,7 @@ export function AccountPage(props: Props) {
   const walletAddress = useSelector(selectAddress)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
+  const wallets = useSelector(selectWallets)
 
   const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
@@ -88,6 +90,7 @@ export function AccountPage(props: Props) {
     total: (account.liquid_balance ?? 0) + balanceDelegations + balanceDebondingDelegations,
   }
 
+  // Reload account balances if address or network changes
   useEffect(() => {
     dispatch(accountActions.fetchAccount(address))
     dispatch(stakeActions.fetchAccount(address))
@@ -95,6 +98,13 @@ export function AccountPage(props: Props) {
       dispatch(accountActions.clearAccount())
     }
   }, [dispatch, accountActions, stakeActions, address, selectedNetwork])
+
+  // Reload wallet balances if network changes
+  useEffect(() => {
+    for (const wallet of Object.values(wallets)) {
+      dispatch(walletActions.fetchWallet(wallet))
+    }
+  }, [dispatch, wallets, selectedNetwork])
 
   return (
     <Box pad="small">

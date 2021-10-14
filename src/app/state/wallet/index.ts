@@ -21,6 +21,7 @@ const slice = createSlice({
     openWalletsFromLedger(state, action: PayloadAction<LedgerAccount[]>) {},
     selectWallet(state, action: PayloadAction<number>) {},
     closeWallet(state, action: PayloadAction<void>) {},
+    fetchWallet(state, action: PayloadAction<Wallet>) {},
     updateBalance(state, action: PayloadAction<BalanceUpdatePayload>) {
       Object.assign(state.wallets[action.payload.walletId].balance, action.payload.balance)
     },
