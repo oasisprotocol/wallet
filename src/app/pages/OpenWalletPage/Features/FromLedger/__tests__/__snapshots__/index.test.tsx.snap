@@ -361,44 +361,47 @@ Object {
           <div
             class="c3"
             data-g-portal-id="0"
+            style="overflow-y: auto;"
           >
             <a
               aria-hidden="true"
               class="c4"
               tabindex="-1"
             />
-            <div
-              class="c5"
-            >
-              <h1
-                class="c6"
-                size="1"
-              >
-                Select the wallets to open
-              </h1>
+            <div>
               <div
-                class="c7"
+                class="c5"
               >
-                <button
-                  class="c8"
-                  disabled=""
-                  style="border-radius: 4px;"
-                  type="button"
+                <h1
+                  class="c6"
+                  size="1"
                 >
-                  Cancel
-                </button>
+                  Select the wallets to open
+                </h1>
                 <div
-                  class="c9"
-                />
-                <button
-                  class="c10"
-                  data-testid="ledger-open-accounts"
-                  disabled=""
-                  style="border-radius: 4px;"
-                  type="button"
+                  class="c7"
                 >
-                  Open
-                </button>
+                  <button
+                    class="c8"
+                    disabled=""
+                    style="border-radius: 4px;"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <div
+                    class="c9"
+                  />
+                  <button
+                    class="c10"
+                    data-testid="ledger-open-accounts"
+                    disabled=""
+                    style="border-radius: 4px;"
+                    type="button"
+                  >
+                    Open
+                  </button>
+                </div>
               </div>
             </div>
           </div>

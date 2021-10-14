@@ -31,5 +31,9 @@ export function ResponsiveLayer(props: LayerExtendedProps) {
     node => enableBodyScroll(node),
   )
 
-  return <Layer {...props} ref={layerRef} />
+  return (
+    <Layer {...props} ref={layerRef} style={{ overflowY: 'auto' }}>
+      <div>{props.children}</div>
+    </Layer>
+  )
 }
