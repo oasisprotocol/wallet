@@ -162,7 +162,7 @@
     "stylelint-config-recommended": "5.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
-    "ts-node": "10.2.1"
+    "ts-node": "10.3.0"
   },
   "engines": {
     "node": ">=10.13.0",
