@@ -88,7 +88,7 @@
     "i18next": "20.6.1",
     "i18next-browser-languagedetector": "6.1.2",
     "portable-fetch": "3.0.0",
-    "prettier": "2.4.0",
+    "prettier": "2.4.1",
     "qrcode.react": "1.0.1",
     "react": "17.0.2",
     "react-app-polyfill": "2.0.0",
