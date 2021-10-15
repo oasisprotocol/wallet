@@ -110,7 +110,8 @@
     "to": "À",
     "delegator": "Délégateur",
     "validator": "Validateur",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "validators": "Validateurs"
   },
   "errors": {
     "unknown": "Erreur inconnue : {{message}}",
@@ -219,6 +220,7 @@
     "copied": "Erreur copiée"
   },
   "footer": {
-    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !"
+    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !",
+    "terms": "<0>Termes et Conditions</0>"
   }
 }
