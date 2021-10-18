@@ -17,7 +17,7 @@ import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
-import { AddWalletPayload, WalletBalance, WalletType } from './types'
+import { AddWalletPayload, Wallet, WalletBalance, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
 // Maybe we should switch to something like uuid later
@@ -38,6 +38,7 @@ export function* rootWalletSaga() {
 
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(reloadBalanceOnTransaction)
+  yield* takeEvery(walletActions.fetchWallet, loadWallet)
 
   // Allow switching between wallets
   yield* takeLatest(walletActions.selectWallet, selectWallet)
@@ -166,6 +167,17 @@ export function* selectWallet({ payload: index }: PayloadAction<number>) {
   yield* put(walletActions.walletSelected(index))
 }
 
+function* loadWallet(action: PayloadAction<Wallet>) {
+  const wallet = action.payload
+  const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
+  yield* put(
+    walletActions.updateBalance({
+      walletId: wallet.id,
+      balance,
+    }),
+  )
+}
+
 /**
  * When a transaction is done, and it is related to the account we currently have in state
  * refresh the data.
@@ -184,13 +196,7 @@ function* reloadBalanceOnTransaction() {
     const wallets = yield* select(selectWallets)
     const matchingWallets = Object.values(wallets).filter(w => w.address === to || w.address === from)
     for (const wallet of matchingWallets) {
-      const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
-      yield* put(
-        walletActions.updateBalance({
-          walletId: wallet.id,
-          balance,
-        }),
-      )
+      yield* put(walletActions.fetchWallet(wallet))
     }
   }
 }
