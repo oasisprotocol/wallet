@@ -35,5 +35,5 @@ interface MediaButtonProps {
   href: string
 }
 const MediaButton = memo((props: MediaButtonProps) => (
-  <Button href={props.href} icon={props.icon} hoverIndicator size="small" target="_blank" />
+  <Button href={props.href} icon={props.icon} hoverIndicator size="small" target="_blank" rel="noopener" />
 ))
