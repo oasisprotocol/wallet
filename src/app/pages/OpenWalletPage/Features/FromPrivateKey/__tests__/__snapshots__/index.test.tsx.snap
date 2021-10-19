@@ -311,7 +311,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
         class="c4 "
       >
         <div
-          class="c5 FormField__FormFieldContentBox-m9hood-1"
+          class="c5 FormField__FormFieldContentBox-sc-m9hood-1"
         >
           <textarea
             class="c6"
