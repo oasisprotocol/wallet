@@ -16,7 +16,10 @@ export function FromMnemonic(props: Props) {
   const [mnemonic, setMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
 
-  const onChange = event => setMnemonic(event.target.value.replaceAll('\n', ''))
+  // Normalize newlines and double spaces into single space
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMnemonic(event.target.value.replaceAll(/\s+/g, ' '))
+  }
   const onSubmit = () => {
     const trimmedMnemonic = mnemonic.trim()
     const isValid = validateMnemonic(trimmedMnemonic)

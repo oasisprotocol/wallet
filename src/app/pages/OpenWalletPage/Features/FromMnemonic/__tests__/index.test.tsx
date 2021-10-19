@@ -55,4 +55,14 @@ describe('<FromMnemonic/>', () => {
     userEvent.click(button)
     expect(errorElem).not.toBeInTheDocument()
   })
+
+  it('newlines in mnemonic should be valid', () => {
+    renderPage(store)
+    const textbox = screen.getByRole('textbox')
+    const button = screen.getByRole('button')
+    userEvent.type(textbox, 'echo\ntoward\thold   roast\n rather reduce cute civil equal whale wait conduct')
+    userEvent.click(button)
+    const errorElem = screen.queryByText('openWallet.mnemonic.error')
+    expect(errorElem).toBeNull()
+  })
 })
