@@ -150,7 +150,7 @@
     "jest-styled-components": "7.0.5",
     "jest-when": "3.4.1",
     "lint-staged": "11.2.3",
-    "node-plop": "0.26.2",
+    "node-plop": "0.26.3",
     "plop": "2.7.4",
     "postinstall-postinstall": "2.1.0",
     "redux-saga-test-plan": "4.0.3",

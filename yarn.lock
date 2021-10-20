@@ -11705,7 +11705,24 @@ node-notifier@^8.0.0:
     uuid "^8.3.0"
     which "^2.0.2"
 
-node-plop@0.26.2, node-plop@~0.26.2:
+node-plop@0.26.3:
+  version "0.26.3"
+  resolved "https://registry.yarnpkg.com/node-plop/-/node-plop-0.26.3.tgz#d6fa7e71393c8b940513ba8c4868f8aaa6dea9df"
+  integrity sha512-Cov028YhBZ5aB7MdMWJEmwyBig43aGL5WT4vdoB28Oitau1zZAcHUn8Sgfk9HM33TqhtLJ9PlM/O0Mv+QpV/4Q==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.9.2"
+    "@types/inquirer" "^6.5.0"
+    change-case "^3.1.0"
+    del "^5.1.0"
+    globby "^10.0.1"
+    handlebars "^4.4.3"
+    inquirer "^7.1.0"
+    isbinaryfile "^4.0.2"
+    lodash.get "^4.4.2"
+    mkdirp "^0.5.1"
+    resolve "^1.12.0"
+
+node-plop@~0.26.2:
   version "0.26.2"
   resolved "https://registry.npmjs.org/node-plop/-/node-plop-0.26.2.tgz"
   integrity sha512-q444beWkMvZwAiYC3BRGJUHgRlpOItQHy+xdy6egXg8KjxDY/Ro309spQTNvH01qK9A8XF6pc0xLKbrHDpxW7w==
