@@ -47,7 +47,7 @@ export function FromMnemonic(props: Props) {
                 'Enter your 12, 18 or 24 words keyphrase below, each words separated by spaces.',
               )}
             </Paragraph>
-            <Box border={false} height="140px">
+            <Box border={false}>
               <FormField
                 htmlFor="mnemonic"
                 error={
@@ -59,7 +59,7 @@ export function FromMnemonic(props: Props) {
                     : ''
                 }
               >
-                <Box border={false} height="100px">
+                <Box border={false}>
                   <TextArea
                     id="mnemonic"
                     data-testid="mnemonic"
