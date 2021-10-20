@@ -16,7 +16,9 @@ export function FromMnemonic(props: Props) {
   const [mnemonic, setMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
 
-  const onChange = event => setMnemonic(event.target.value.replaceAll('\n', ''))
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMnemonic(event.target.value)
+  }
   const onSubmit = () => {
     const trimmedMnemonic = mnemonic.trim()
     const isValid = validateMnemonic(trimmedMnemonic)
