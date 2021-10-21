@@ -17,5 +17,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "jest.showCoverageOnLoad": true,
-  "typescriptHero.imports.insertSemicolons": false
+  "typescriptHero.imports.insertSemicolons": false,
+  "files.exclude": {
+    "cypress-coverage/": true,
+    "build/": true
+  }
 }
