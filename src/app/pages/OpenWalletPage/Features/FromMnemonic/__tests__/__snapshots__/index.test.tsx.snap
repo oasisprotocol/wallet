@@ -51,7 +51,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 140px;
 }
 
 .c7 {
@@ -84,22 +83,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 100px;
-}
-
-.c11 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -115,7 +99,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding-bottom: 24px;
 }
 
-.c12 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -134,7 +118,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -149,7 +133,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c13 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -178,47 +162,47 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c13:hover {
+.c12:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c13:focus {
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus > circle,
-.c13:focus > ellipse,
-.c13:focus > line,
-.c13:focus > path,
-.c13:focus > polygon,
-.c13:focus > polyline,
-.c13:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c13:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,
-.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,
-.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,
-.c13:focus:not(:focus-visible) > polyline,
-.c13:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,
+.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,
+.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,
+.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -238,7 +222,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c15 {
+.c14 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: 1fr 1fr;
@@ -263,7 +247,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   max-width: 432px;
 }
 
-.c10 {
+.c9 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -282,49 +266,49 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   height: 100%;
 }
 
-.c10:focus {
+.c9:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus > circle,
-.c10:focus > ellipse,
-.c10:focus > line,
-.c10:focus > path,
-.c10:focus > polygon,
-.c10:focus > polyline,
-.c10:focus > rect {
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus::-moz-focus-inner {
+.c9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c10::-webkit-input-placeholder {
+.c9::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c10::-moz-placeholder {
+.c9::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c10:-ms-input-placeholder {
+.c9:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c10::-webkit-search-decoration {
+.c9::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c10::-moz-focus-inner {
+.c9::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c10:-moz-placeholder,
-.c10::-moz-placeholder {
+.c9:-moz-placeholder,
+.c9::-moz-placeholder {
   opacity: 1;
 }
 
@@ -378,14 +362,14 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c10 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c11 {
     margin-top: 12px;
   }
 }
@@ -444,10 +428,10 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
                 class="c8 FormField__FormFieldContentBox-sc-m9hood-1"
               >
                 <div
-                  class="c9"
+                  class="c6"
                 >
                   <textarea
-                    class="c10"
+                    class="c9"
                     data-testid="mnemonic"
                     id="mnemonic"
                     placeholder="openWallet.mnemonic.enterPhraseHere"
@@ -457,13 +441,13 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c11"
+            class="c10"
           >
             <div
-              class="c12"
+              class="c11"
             >
               <button
-                class="c13"
+                class="c12"
                 style="border-radius: 4px;"
                 type="submit"
               >
@@ -474,10 +458,10 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
         </form>
       </div>
       <div
-        class="c14"
+        class="c13"
       >
         <div
-          class="c15"
+          class="c14"
           data-testid="mnemonic-grid"
         />
       </div>

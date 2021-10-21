@@ -16,7 +16,9 @@ export function FromMnemonic(props: Props) {
   const [mnemonic, setMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
 
-  const onChange = event => setMnemonic(event.target.value.replaceAll('\n', ''))
+  const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMnemonic(event.target.value)
+  }
   const onSubmit = () => {
     const trimmedMnemonic = mnemonic.trim()
     const isValid = validateMnemonic(trimmedMnemonic)
@@ -45,7 +47,7 @@ export function FromMnemonic(props: Props) {
                 'Enter your 12, 18 or 24 words keyphrase below, each words separated by spaces.',
               )}
             </Paragraph>
-            <Box border={false} height="140px">
+            <Box border={false}>
               <FormField
                 htmlFor="mnemonic"
                 error={
@@ -57,7 +59,7 @@ export function FromMnemonic(props: Props) {
                     : ''
                 }
               >
-                <Box border={false} height="100px">
+                <Box border={false}>
                   <TextArea
                     id="mnemonic"
                     data-testid="mnemonic"

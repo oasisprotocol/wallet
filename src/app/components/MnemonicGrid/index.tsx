@@ -21,6 +21,11 @@ let noSelect: React.CSSProperties = {
   userSelect: 'none',
 }
 
+// Make typos obvious e.g. if user has pasted mnemonic containing a newline
+let keepWhitespace: React.CSSProperties = {
+  whiteSpace: 'pre',
+}
+
 function MnemonicWord(props: WordProp) {
   return (
     <Box
@@ -34,7 +39,7 @@ function MnemonicWord(props: WordProp) {
         <Text style={noSelect}>{props.id}.</Text>
       </Box>
       <Box>
-        <strong>{props.hidden ? '' : props.word}</strong>
+        <strong style={keepWhitespace}>{props.hidden ? '' : props.word}</strong>
       </Box>
     </Box>
   )
