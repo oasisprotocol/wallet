@@ -13,11 +13,11 @@ html {
   transition: border 200ms linear, background-color 200ms linear;
 }
 
-.logotype_big {
+.logotype-big {
   max-height: 40px;
 }
 
-.logotype_small {
+.logotype-small {
   max-width: 16px;
   max-height: 16px;
 }

@@ -19,7 +19,7 @@ export const ValidatorMediaInfo = memo((props: Props) => {
   return (
     <>
       <Box direction="row-responsive" gap={size !== 'small' ? 'medium' : 'none'}>
-        {info.logotype && isWebUri(info.logotype) && <Image src={info.logotype} className={'logotype_big'} />}
+        {info.logotype && isWebUri(info.logotype) && <Image src={info.logotype} className={'logotype-big'} />}
         <Box direction="row-responsive" gap={'none'}>
           {info.email_address && !info.email_address.includes('?') && (
             <MediaButton href={`mailto:${info.email_address}`} icon={<MailOption />} />

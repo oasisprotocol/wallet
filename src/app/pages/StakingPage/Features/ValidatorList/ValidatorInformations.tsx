@@ -47,7 +47,10 @@ export const ValidatorInformations = (props: ValidatorProps) => {
           label={t('validator.totalEscrow', 'Total Escrow')}
           value={<AmountFormatter amount={validator.escrow ?? 0} />}
         />
-        <ResponsiveGridRow label={t('validator.commission', 'Commission')} value={`${validator.fee} %`} />
+        <ResponsiveGridRow
+          label={t('validator.commission', 'Commission')}
+          value={`${validator.current_rate !== undefined ? validator.current_rate.rate * 100 : 'Unknown'} %`}
+        />
         <ResponsiveGridRow
           label={t('validator.commissionBounds.label', 'Commission bounds')}
           value={details ? <CommissionBounds bounds={details?.scheduledCommissionBounds} /> : <Spinner />}

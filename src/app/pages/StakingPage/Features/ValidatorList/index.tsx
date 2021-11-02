@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
 
 import { ValidatorItem } from './ValidatorItem'
+import { isWebUri } from 'valid-url'
 
 interface Props {}
 
@@ -45,7 +46,17 @@ export const ValidatorList = memo((props: Props) => {
   const columns: IDataTableColumn<Validator>[] = [
     {
       name: '',
-      cell: datum => <img src={process.env.PUBLIC_URL + '/logo192.png'} height="16px" width="16px" alt="" />,
+      cell: datum => (
+        <img
+          src={
+            datum.media?.logotype && isWebUri(datum.media?.logotype)
+              ? datum.media.logotype
+              : process.env.PUBLIC_URL + '/logo192.png'
+          }
+          className={'logotype-small'}
+          alt=""
+        />
+      ),
       width: '34px',
     },
     {
@@ -60,6 +71,7 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: t('validator.name', 'Name'),
+      selector: 'name',
       cell: datum =>
         datum.name ? (
           datum.name
@@ -68,6 +80,11 @@ export const ValidatorList = memo((props: Props) => {
             <ShortAddress address={datum.address} />
           </Text>
         ),
+      sortable: true,
+      sortFunction: (row1, row2) =>
+        row1.name
+          ? row1.name.localeCompare(row2.name ?? row2.address)
+          : row1.address.localeCompare(row2.name ?? row2.address),
     },
     {
       name: t('validator.escrow', 'Escrow'),
@@ -83,10 +100,11 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: t('validator.fee', 'Fee'),
       selector: 'fee',
-      sortable: true,
-      width: '100px',
-      cell: datum => `${datum.fee}%`,
+      width: '110px',
+      cell: datum => (datum.current_rate !== undefined ? `${datum.current_rate.rate * 100}%` : 'Unknown'),
       hide: 'sm',
+      sortable: true,
+      sortFunction: (row1, row2) => (row1.current_rate?.rate ?? 0) - (row2.current_rate?.rate ?? 0),
     },
   ]
 
