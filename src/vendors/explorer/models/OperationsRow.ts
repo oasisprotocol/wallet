@@ -20,82 +20,82 @@ import { exists, mapValues } from '../runtime';
  */
 export interface OperationsRow {
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     level?: number;
     /**
-    *
-    * @type {string}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {string}
+     * @memberof OperationsRow
+     */
     hash?: string;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     nonce?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     timestamp?: number;
     /**
-    *
-    * @type {string}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {string}
+     * @memberof OperationsRow
+     */
     type?: string;
     /**
-    *
-    * @type {string}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {string}
+     * @memberof OperationsRow
+     */
     from?: string;
     /**
-    *
-    * @type {string}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {string}
+     * @memberof OperationsRow
+     */
     to?: string;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     amount?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     escrow_amount?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     reclaim_escrow_amount?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     fee?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     gas_used?: number;
     /**
-    *
-    * @type {number}
-    * @memberof OperationsRow
-    */
+     *
+     * @type {number}
+     * @memberof OperationsRow
+     */
     gas_price?: number;
 }
 
@@ -149,3 +149,5 @@ export function OperationsRowToJSON(value?: OperationsRow | null): any {
         'gas_price': value.gas_price,
     };
 }
+
+

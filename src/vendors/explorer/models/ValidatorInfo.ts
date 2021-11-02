@@ -20,64 +20,64 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ValidatorInfo {
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorInfo
+     */
     status?: string;
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorInfo
+     */
     node_address?: string;
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorInfo
+     */
     consensus_address?: string;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     depositors_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     blocks_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     signatures_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     rate_change_interval?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     rate_bound_lead?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     max_rate_steps?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorInfo
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorInfo
+     */
     max_bound_steps?: number;
 }
 
@@ -125,3 +125,5 @@ export function ValidatorInfoToJSON(value?: ValidatorInfo | null): any {
         'max_bound_steps': value.max_bound_steps,
     };
 }
+
+

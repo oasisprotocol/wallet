@@ -20,58 +20,64 @@ import { exists, mapValues } from '../runtime';
  */
 export interface AccountListItem {
     /**
-    *
-    * @type {string}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {string}
+     * @memberof AccountListItem
+     */
     account_id: string;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     created_at?: number;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     general_balance: number;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     escrow_balance: number;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     escrow_balance_share: number;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     delegations_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
     debonding_delegations_balance?: number;
     /**
-    *
-    * @type {string}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {number}
+     * @memberof AccountListItem
+     */
+    self_delegation_balance?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof AccountListItem
+     */
     delegate?: string;
     /**
-    *
-    * @type {string}
-    * @memberof AccountListItem
-    */
+     *
+     * @type {string}
+     * @memberof AccountListItem
+     */
     type?: string;
 }
 
@@ -92,6 +98,7 @@ export function AccountListItemFromJSONTyped(json: any, ignoreDiscriminator: boo
         'escrow_balance_share': json['escrow_balance_share'],
         'delegations_balance': !exists(json, 'delegations_balance') ? undefined : json['delegations_balance'],
         'debonding_delegations_balance': !exists(json, 'debonding_delegations_balance') ? undefined : json['debonding_delegations_balance'],
+        'self_delegation_balance': !exists(json, 'self_delegation_balance') ? undefined : json['self_delegation_balance'],
         'delegate': !exists(json, 'delegate') ? undefined : json['delegate'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -113,7 +120,10 @@ export function AccountListItemToJSON(value?: AccountListItem | null): any {
         'escrow_balance_share': value.escrow_balance_share,
         'delegations_balance': value.delegations_balance,
         'debonding_delegations_balance': value.debonding_delegations_balance,
+        'self_delegation_balance': value.self_delegation_balance,
         'delegate': value.delegate,
         'type': value.type,
     };
 }
+
+

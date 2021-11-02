@@ -20,28 +20,28 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ValidatorStat {
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorStat
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorStat
+     */
     timestamp?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorStat
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorStat
+     */
     availability_score?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorStat
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorStat
+     */
     blocks_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorStat
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorStat
+     */
     signatures_count?: number;
 }
 
@@ -77,3 +77,5 @@ export function ValidatorStatToJSON(value?: ValidatorStat | null): any {
         'signatures_count': value.signatures_count,
     };
 }
+
+

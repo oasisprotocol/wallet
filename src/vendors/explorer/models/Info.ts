@@ -20,16 +20,16 @@ import { exists, mapValues } from '../runtime';
  */
 export interface Info {
     /**
-    *
-    * @type {number}
-    * @memberof Info
-    */
+     *
+     * @type {number}
+     * @memberof Info
+     */
     height?: number;
     /**
-    *
-    * @type {number}
-    * @memberof Info
-    */
+     *
+     * @type {number}
+     * @memberof Info
+     */
     top_stake_weight?: number;
 }
 
@@ -61,3 +61,5 @@ export function InfoToJSON(value?: Info | null): any {
         'top_stake_weight': value.top_stake_weight,
     };
 }
+
+

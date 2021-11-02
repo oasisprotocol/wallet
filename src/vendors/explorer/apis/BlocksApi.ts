@@ -35,8 +35,8 @@ export interface GetBlocksListRequest {
 export class BlocksApi extends runtime.BaseAPI {
 
     /**
-    */
-    async getBlocksListRaw(requestParameters: GetBlocksListRequest): Promise<runtime.ApiResponse<Array<BlocksRow>>> {
+     */
+    async getBlocksListRaw(requestParameters: GetBlocksListRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<BlocksRow>>> {
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -70,15 +70,15 @@ export class BlocksApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BlocksRowFromJSON));
     }
 
     /**
-    */
-    async getBlocksList(requestParameters: GetBlocksListRequest): Promise<Array<BlocksRow>> {
-        const response = await this.getBlocksListRaw(requestParameters);
+     */
+    async getBlocksList(requestParameters: GetBlocksListRequest, initOverrides?: RequestInit): Promise<Array<BlocksRow>> {
+        const response = await this.getBlocksListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

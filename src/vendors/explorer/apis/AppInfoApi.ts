@@ -26,8 +26,8 @@ import {
 export class AppInfoApi extends runtime.BaseAPI {
 
     /**
-    */
-    async getInfoRaw(): Promise<runtime.ApiResponse<Info>> {
+     */
+    async getInfoRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<Info>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -37,15 +37,15 @@ export class AppInfoApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => InfoFromJSON(jsonValue));
     }
 
     /**
-    */
-    async getInfo(): Promise<Info> {
-        const response = await this.getInfoRaw();
+     */
+    async getInfo(initOverrides?: RequestInit): Promise<Info> {
+        const response = await this.getInfoRaw(initOverrides);
         return await response.value();
     }
 

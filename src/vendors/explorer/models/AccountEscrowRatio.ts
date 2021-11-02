@@ -20,22 +20,22 @@ import { exists, mapValues } from '../runtime';
  */
 export interface AccountEscrowRatio {
     /**
-    *
-    * @type {string}
-    * @memberof AccountEscrowRatio
-    */
+     *
+     * @type {string}
+     * @memberof AccountEscrowRatio
+     */
     account_id?: string;
     /**
-    *
-    * @type {string}
-    * @memberof AccountEscrowRatio
-    */
+     *
+     * @type {string}
+     * @memberof AccountEscrowRatio
+     */
     account_name?: string;
     /**
-    *
-    * @type {number}
-    * @memberof AccountEscrowRatio
-    */
+     *
+     * @type {number}
+     * @memberof AccountEscrowRatio
+     */
     escrow_ratio?: number;
 }
 
@@ -69,3 +69,5 @@ export function AccountEscrowRatioToJSON(value?: AccountEscrowRatio | null): any
         'escrow_ratio': value.escrow_ratio,
     };
 }
+
+

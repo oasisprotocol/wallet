@@ -20,58 +20,58 @@ import { exists, mapValues } from '../runtime';
  */
 export interface BlocksRow {
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     timestamp: number;
     /**
-    *
-    * @type {string}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {string}
+     * @memberof BlocksRow
+     */
     hash: string;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     level: number;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     number_of_txs?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     epoch?: number;
     /**
-    *
-    * @type {string}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {string}
+     * @memberof BlocksRow
+     */
     proposer?: string;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
-    numbet_of_signatures?: number;
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
+    number_of_signatures?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     fees?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BlocksRow
-    */
+     *
+     * @type {number}
+     * @memberof BlocksRow
+     */
     gas_used?: number;
 }
 
@@ -91,7 +91,7 @@ export function BlocksRowFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'number_of_txs': !exists(json, 'number_of_txs') ? undefined : json['number_of_txs'],
         'epoch': !exists(json, 'epoch') ? undefined : json['epoch'],
         'proposer': !exists(json, 'proposer') ? undefined : json['proposer'],
-        'numbet_of_signatures': !exists(json, 'numbet_of_signatures') ? undefined : json['numbet_of_signatures'],
+        'number_of_signatures': !exists(json, 'number_of_signatures') ? undefined : json['number_of_signatures'],
         'fees': !exists(json, 'fees') ? undefined : json['fees'],
         'gas_used': !exists(json, 'gas_used') ? undefined : json['gas_used'],
     };
@@ -112,8 +112,10 @@ export function BlocksRowToJSON(value?: BlocksRow | null): any {
         'number_of_txs': value.number_of_txs,
         'epoch': value.epoch,
         'proposer': value.proposer,
-        'numbet_of_signatures': value.numbet_of_signatures,
+        'number_of_signatures': value.number_of_signatures,
         'fees': value.fees,
         'gas_used': value.gas_used,
     };
 }
+
+

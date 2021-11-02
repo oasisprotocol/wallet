@@ -1,15 +1,25 @@
 /* --- STATE --- */
+import { ValidatorCommissionSchedule } from '../../../vendors/explorer'
+
 export interface Validator {
   name?: string
   address: string
   escrow?: number
   status: string
   rank: number
-  fee: number
   media?: ValidatorMediaInfo
+  commission_schedule: ValidatorCommissionSchedule
+  current_rate?: Rate
+  current_commission_bound?: CommissionBound
 }
 
-export interface CommissionBounds {
+export interface Rate {
+  epochStart: number
+  epochEnd?: number
+  rate: number
+}
+
+export interface CommissionBound {
   lower: number
   upper: number
   epochStart: number
@@ -17,8 +27,8 @@ export interface CommissionBounds {
 }
 
 export interface ValidatorDetails {
-  currentCommissionBounds?: CommissionBounds
-  scheduledCommissionBounds?: CommissionBounds[]
+  currentCommissionBounds?: CommissionBound
+  scheduledCommissionBounds?: CommissionBound[]
   nextCommission?: {
     fee: number
     epochStart: number
@@ -29,6 +39,7 @@ export interface ValidatorMediaInfo {
   email_address?: string
   twitter_acc?: string
   tg_chat?: string
+  logotype?: string
 }
 
 export interface Delegation {

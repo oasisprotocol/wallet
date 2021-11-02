@@ -40,8 +40,8 @@ export interface GetTransactionsListRequest {
 export class OperationsListApi extends runtime.BaseAPI {
 
     /**
-    */
-    async getTransactionsListRaw(requestParameters: GetTransactionsListRequest): Promise<runtime.ApiResponse<Array<OperationsRow>>> {
+     */
+    async getTransactionsListRaw(requestParameters: GetTransactionsListRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<OperationsRow>>> {
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -95,15 +95,15 @@ export class OperationsListApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(OperationsRowFromJSON));
     }
 
     /**
-    */
-    async getTransactionsList(requestParameters: GetTransactionsListRequest): Promise<Array<OperationsRow>> {
-        const response = await this.getTransactionsListRaw(requestParameters);
+     */
+    async getTransactionsList(requestParameters: GetTransactionsListRequest, initOverrides?: RequestInit): Promise<Array<OperationsRow>> {
+        const response = await this.getTransactionsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

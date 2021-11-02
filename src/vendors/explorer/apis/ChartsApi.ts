@@ -75,8 +75,8 @@ export interface GetTransactionVolumeRequest {
 export class ChartsApi extends runtime.BaseAPI {
 
     /**
-    */
-    async getAccountsCountRaw(requestParameters: GetAccountsCountRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getAccountsCountRaw(requestParameters: GetAccountsCountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getAccountsCount.');
         }
@@ -110,21 +110,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getAccountsCount(requestParameters: GetAccountsCountRequest): Promise<Array<ChartsData>> {
-        const response = await this.getAccountsCountRaw(requestParameters);
+     */
+    async getAccountsCount(requestParameters: GetAccountsCountRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getAccountsCountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getBlocksAvgTimeRaw(requestParameters: GetBlocksAvgTimeRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getBlocksAvgTimeRaw(requestParameters: GetBlocksAvgTimeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getBlocksAvgTime.');
         }
@@ -158,21 +158,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getBlocksAvgTime(requestParameters: GetBlocksAvgTimeRequest): Promise<Array<ChartsData>> {
-        const response = await this.getBlocksAvgTimeRaw(requestParameters);
+     */
+    async getBlocksAvgTime(requestParameters: GetBlocksAvgTimeRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getBlocksAvgTimeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getEscrowRatioRaw(requestParameters: GetEscrowRatioRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getEscrowRatioRaw(requestParameters: GetEscrowRatioRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getEscrowRatio.');
         }
@@ -206,21 +206,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getEscrowRatio(requestParameters: GetEscrowRatioRequest): Promise<Array<ChartsData>> {
-        const response = await this.getEscrowRatioRaw(requestParameters);
+     */
+    async getEscrowRatio(requestParameters: GetEscrowRatioRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getEscrowRatioRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getFeeVolumeRaw(requestParameters: GetFeeVolumeRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getFeeVolumeRaw(requestParameters: GetFeeVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getFeeVolume.');
         }
@@ -254,21 +254,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getFeeVolume(requestParameters: GetFeeVolumeRequest): Promise<Array<ChartsData>> {
-        const response = await this.getFeeVolumeRaw(requestParameters);
+     */
+    async getFeeVolume(requestParameters: GetFeeVolumeRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getFeeVolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getOperationsCountRaw(requestParameters: GetOperationsCountRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getOperationsCountRaw(requestParameters: GetOperationsCountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getOperationsCount.');
         }
@@ -302,21 +302,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getOperationsCount(requestParameters: GetOperationsCountRequest): Promise<Array<ChartsData>> {
-        const response = await this.getOperationsCountRaw(requestParameters);
+     */
+    async getOperationsCount(requestParameters: GetOperationsCountRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getOperationsCountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getReclaimAmountRaw(requestParameters: GetReclaimAmountRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getReclaimAmountRaw(requestParameters: GetReclaimAmountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getReclaimAmount.');
         }
@@ -350,21 +350,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getReclaimAmount(requestParameters: GetReclaimAmountRequest): Promise<Array<ChartsData>> {
-        const response = await this.getReclaimAmountRaw(requestParameters);
+     */
+    async getReclaimAmount(requestParameters: GetReclaimAmountRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getReclaimAmountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getTopEscrowRatioRaw(requestParameters: GetTopEscrowRatioRequest): Promise<runtime.ApiResponse<Array<AccountEscrowRatio>>> {
+     */
+    async getTopEscrowRatioRaw(requestParameters: GetTopEscrowRatioRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<AccountEscrowRatio>>> {
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -378,21 +378,21 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AccountEscrowRatioFromJSON));
     }
 
     /**
-    */
-    async getTopEscrowRatio(requestParameters: GetTopEscrowRatioRequest): Promise<Array<AccountEscrowRatio>> {
-        const response = await this.getTopEscrowRatioRaw(requestParameters);
+     */
+    async getTopEscrowRatio(requestParameters: GetTopEscrowRatioRequest, initOverrides?: RequestInit): Promise<Array<AccountEscrowRatio>> {
+        const response = await this.getTopEscrowRatioRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getTransactionVolumeRaw(requestParameters: GetTransactionVolumeRequest): Promise<runtime.ApiResponse<Array<ChartsData>>> {
+     */
+    async getTransactionVolumeRaw(requestParameters: GetTransactionVolumeRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ChartsData>>> {
         if (requestParameters.frame === null || requestParameters.frame === undefined) {
             throw new runtime.RequiredError('frame','Required parameter requestParameters.frame was null or undefined when calling getTransactionVolume.');
         }
@@ -426,15 +426,15 @@ export class ChartsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ChartsDataFromJSON));
     }
 
     /**
-    */
-    async getTransactionVolume(requestParameters: GetTransactionVolumeRequest): Promise<Array<ChartsData>> {
-        const response = await this.getTransactionVolumeRaw(requestParameters);
+     */
+    async getTransactionVolume(requestParameters: GetTransactionVolumeRequest, initOverrides?: RequestInit): Promise<Array<ChartsData>> {
+        const response = await this.getTransactionVolumeRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

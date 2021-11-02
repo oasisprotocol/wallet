@@ -20,46 +20,46 @@ import { exists, mapValues } from '../runtime';
  */
 export interface BalanceChart {
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     timestamp: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     total_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     escrow_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     debonding_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     delegations_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     debonding_delegations_balance?: number;
     /**
-    *
-    * @type {number}
-    * @memberof BalanceChart
-    */
+     *
+     * @type {number}
+     * @memberof BalanceChart
+     */
     self_stake_balance?: number;
 }
 
@@ -101,3 +101,5 @@ export function BalanceChartToJSON(value?: BalanceChart | null): any {
         'self_stake_balance': value.self_stake_balance,
     };
 }
+
+

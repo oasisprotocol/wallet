@@ -20,16 +20,16 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ValidatorEntity {
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorEntity
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorEntity
+     */
     account_id?: string;
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorEntity
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorEntity
+     */
     account_name?: string;
 }
 
@@ -61,3 +61,5 @@ export function ValidatorEntityToJSON(value?: ValidatorEntity | null): any {
         'account_name': value.account_name,
     };
 }
+
+

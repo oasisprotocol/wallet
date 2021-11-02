@@ -20,22 +20,22 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ValidatorDelegator {
     /**
-    *
-    * @type {string}
-    * @memberof ValidatorDelegator
-    */
+     *
+     * @type {string}
+     * @memberof ValidatorDelegator
+     */
     account_id?: string;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorDelegator
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorDelegator
+     */
     escrow_amount?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ValidatorDelegator
-    */
+     *
+     * @type {number}
+     * @memberof ValidatorDelegator
+     */
     delegate_since?: number;
 }
 
@@ -69,3 +69,5 @@ export function ValidatorDelegatorToJSON(value?: ValidatorDelegator | null): any
         'delegate_since': value.delegate_since,
     };
 }
+
+

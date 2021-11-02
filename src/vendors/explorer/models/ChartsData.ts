@@ -20,52 +20,52 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ChartsData {
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     timestamp: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     transactions_volume?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     escrow_ratio?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     avg_block_time?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     accounts_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     fees?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     operations_count?: number;
     /**
-    *
-    * @type {number}
-    * @memberof ChartsData
-    */
+     *
+     * @type {number}
+     * @memberof ChartsData
+     */
     reclaim_amount?: number;
 }
 
@@ -109,3 +109,5 @@ export function ChartsDataToJSON(value?: ChartsData | null): any {
         'reclaim_amount': value.reclaim_amount,
     };
 }
+
+

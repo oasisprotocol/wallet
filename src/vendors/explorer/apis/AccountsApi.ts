@@ -18,6 +18,12 @@ import {
     AccountListItem,
     AccountListItemFromJSON,
     AccountListItemToJSON,
+    AccountReward,
+    AccountRewardFromJSON,
+    AccountRewardToJSON,
+    AccountRewardsStat,
+    AccountRewardsStatFromJSON,
+    AccountRewardsStatToJSON,
     AccountsRow,
     AccountsRowFromJSON,
     AccountsRowToJSON,
@@ -30,6 +36,12 @@ import {
     ValidatorEntity,
     ValidatorEntityFromJSON,
     ValidatorEntityToJSON,
+    ValidatorReward,
+    ValidatorRewardFromJSON,
+    ValidatorRewardToJSON,
+    ValidatorRewardsStat,
+    ValidatorRewardsStatFromJSON,
+    ValidatorRewardsStatToJSON,
     ValidatorRow,
     ValidatorRowFromJSON,
     ValidatorRowToJSON,
@@ -49,11 +61,21 @@ export interface GetAccountBalanceChartRequest {
     to: number;
 }
 
+export interface GetAccountRewardsRequest {
+    accountId: string;
+    limit: number;
+    offset: number;
+}
+
 export interface GetAccountsListRequest {
     limit?: number;
     offset?: number;
     sortColumn?: GetAccountsListSortColumnEnum;
     sortSide?: GetAccountsListSortSideEnum;
+}
+
+export interface GetAccountsRewardsStatRequest {
+    accountId: string;
 }
 
 export interface GetValidatorDelegatorsListRequest {
@@ -66,6 +88,16 @@ export interface GetValidatorInfoRequest {
     accountId: string;
     limit?: number;
     offset?: number;
+}
+
+export interface GetValidatorRewardsRequest {
+    accountId: string;
+    limit: number;
+    offset: number;
+}
+
+export interface GetValidatorRewardsStatRequest {
+    accountId: string;
 }
 
 export interface GetValidatorStatChartRequest {
@@ -86,8 +118,8 @@ export interface GetValidatorsListRequest {
 export class AccountsApi extends runtime.BaseAPI {
 
     /**
-    */
-    async getAccountRaw(requestParameters: GetAccountRequest): Promise<runtime.ApiResponse<AccountsRow>> {
+     */
+    async getAccountRaw(requestParameters: GetAccountRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<AccountsRow>> {
         if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
             throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAccount.');
         }
@@ -101,21 +133,21 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AccountsRowFromJSON(jsonValue));
     }
 
     /**
-    */
-    async getAccount(requestParameters: GetAccountRequest): Promise<AccountsRow> {
-        const response = await this.getAccountRaw(requestParameters);
+     */
+    async getAccount(requestParameters: GetAccountRequest, initOverrides?: RequestInit): Promise<AccountsRow> {
+        const response = await this.getAccountRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getAccountBalanceChartRaw(requestParameters: GetAccountBalanceChartRequest): Promise<runtime.ApiResponse<Array<BalanceChart>>> {
+     */
+    async getAccountBalanceChartRaw(requestParameters: GetAccountBalanceChartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<BalanceChart>>> {
         if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
             throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAccountBalanceChart.');
         }
@@ -153,21 +185,65 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(BalanceChartFromJSON));
     }
 
     /**
-    */
-    async getAccountBalanceChart(requestParameters: GetAccountBalanceChartRequest): Promise<Array<BalanceChart>> {
-        const response = await this.getAccountBalanceChartRaw(requestParameters);
+     */
+    async getAccountBalanceChart(requestParameters: GetAccountBalanceChartRequest, initOverrides?: RequestInit): Promise<Array<BalanceChart>> {
+        const response = await this.getAccountBalanceChartRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getAccountsListRaw(requestParameters: GetAccountsListRequest): Promise<runtime.ApiResponse<Array<AccountListItem>>> {
+     */
+    async getAccountRewardsRaw(requestParameters: GetAccountRewardsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<AccountReward>>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAccountRewards.');
+        }
+
+        if (requestParameters.limit === null || requestParameters.limit === undefined) {
+            throw new runtime.RequiredError('limit','Required parameter requestParameters.limit was null or undefined when calling getAccountRewards.');
+        }
+
+        if (requestParameters.offset === null || requestParameters.offset === undefined) {
+            throw new runtime.RequiredError('offset','Required parameter requestParameters.offset was null or undefined when calling getAccountRewards.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/data/accounts/{account_id}/rewards`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AccountRewardFromJSON));
+    }
+
+    /**
+     */
+    async getAccountRewards(requestParameters: GetAccountRewardsRequest, initOverrides?: RequestInit): Promise<Array<AccountReward>> {
+        const response = await this.getAccountRewardsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getAccountsListRaw(requestParameters: GetAccountsListRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<AccountListItem>>> {
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -193,21 +269,49 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(AccountListItemFromJSON));
     }
 
     /**
-    */
-    async getAccountsList(requestParameters: GetAccountsListRequest): Promise<Array<AccountListItem>> {
-        const response = await this.getAccountsListRaw(requestParameters);
+     */
+    async getAccountsList(requestParameters: GetAccountsListRequest, initOverrides?: RequestInit): Promise<Array<AccountListItem>> {
+        const response = await this.getAccountsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getPublicValidatorsSearchListRaw(): Promise<runtime.ApiResponse<Array<ValidatorEntity>>> {
+     */
+    async getAccountsRewardsStatRaw(requestParameters: GetAccountsRewardsStatRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<AccountRewardsStat>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getAccountsRewardsStat.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/data/accounts/{account_id}/rewards/stat`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountRewardsStatFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getAccountsRewardsStat(requestParameters: GetAccountsRewardsStatRequest, initOverrides?: RequestInit): Promise<AccountRewardsStat> {
+        const response = await this.getAccountsRewardsStatRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getPublicValidatorsSearchListRaw(initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorEntity>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -217,21 +321,21 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorEntityFromJSON));
     }
 
     /**
-    */
-    async getPublicValidatorsSearchList(): Promise<Array<ValidatorEntity>> {
-        const response = await this.getPublicValidatorsSearchListRaw();
+     */
+    async getPublicValidatorsSearchList(initOverrides?: RequestInit): Promise<Array<ValidatorEntity>> {
+        const response = await this.getPublicValidatorsSearchListRaw(initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getValidatorDelegatorsListRaw(requestParameters: GetValidatorDelegatorsListRequest): Promise<runtime.ApiResponse<Array<ValidatorDelegator>>> {
+     */
+    async getValidatorDelegatorsListRaw(requestParameters: GetValidatorDelegatorsListRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorDelegator>>> {
         if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
             throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getValidatorDelegatorsList.');
         }
@@ -253,21 +357,21 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorDelegatorFromJSON));
     }
 
     /**
-    */
-    async getValidatorDelegatorsList(requestParameters: GetValidatorDelegatorsListRequest): Promise<Array<ValidatorDelegator>> {
-        const response = await this.getValidatorDelegatorsListRaw(requestParameters);
+     */
+    async getValidatorDelegatorsList(requestParameters: GetValidatorDelegatorsListRequest, initOverrides?: RequestInit): Promise<Array<ValidatorDelegator>> {
+        const response = await this.getValidatorDelegatorsListRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getValidatorInfoRaw(requestParameters: GetValidatorInfoRequest): Promise<runtime.ApiResponse<Array<ValidatorRow>>> {
+     */
+    async getValidatorInfoRaw(requestParameters: GetValidatorInfoRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorRow>>> {
         if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
             throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getValidatorInfo.');
         }
@@ -289,21 +393,93 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorRowFromJSON));
     }
 
     /**
-    */
-    async getValidatorInfo(requestParameters: GetValidatorInfoRequest): Promise<Array<ValidatorRow>> {
-        const response = await this.getValidatorInfoRaw(requestParameters);
+     */
+    async getValidatorInfo(requestParameters: GetValidatorInfoRequest, initOverrides?: RequestInit): Promise<Array<ValidatorRow>> {
+        const response = await this.getValidatorInfoRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getValidatorStatChartRaw(requestParameters: GetValidatorStatChartRequest): Promise<runtime.ApiResponse<Array<ValidatorStat>>> {
+     */
+    async getValidatorRewardsRaw(requestParameters: GetValidatorRewardsRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorReward>>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getValidatorRewards.');
+        }
+
+        if (requestParameters.limit === null || requestParameters.limit === undefined) {
+            throw new runtime.RequiredError('limit','Required parameter requestParameters.limit was null or undefined when calling getValidatorRewards.');
+        }
+
+        if (requestParameters.offset === null || requestParameters.offset === undefined) {
+            throw new runtime.RequiredError('offset','Required parameter requestParameters.offset was null or undefined when calling getValidatorRewards.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/data/validator/{account_id}/rewards`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorRewardFromJSON));
+    }
+
+    /**
+     */
+    async getValidatorRewards(requestParameters: GetValidatorRewardsRequest, initOverrides?: RequestInit): Promise<Array<ValidatorReward>> {
+        const response = await this.getValidatorRewardsRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getValidatorRewardsStatRaw(requestParameters: GetValidatorRewardsStatRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<ValidatorRewardsStat>> {
+        if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+            throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getValidatorRewardsStat.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/data/validator/{account_id}/rewards/stat`.replace(`{${"account_id"}}`, encodeURIComponent(String(requestParameters.accountId))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorRewardsStatFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getValidatorRewardsStat(requestParameters: GetValidatorRewardsStatRequest, initOverrides?: RequestInit): Promise<ValidatorRewardsStat> {
+        const response = await this.getValidatorRewardsStatRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getValidatorStatChartRaw(requestParameters: GetValidatorStatChartRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorStat>>> {
         if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
             throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling getValidatorStatChart.');
         }
@@ -341,21 +517,21 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorStatFromJSON));
     }
 
     /**
-    */
-    async getValidatorStatChart(requestParameters: GetValidatorStatChartRequest): Promise<Array<ValidatorStat>> {
-        const response = await this.getValidatorStatChartRaw(requestParameters);
+     */
+    async getValidatorStatChart(requestParameters: GetValidatorStatChartRequest, initOverrides?: RequestInit): Promise<Array<ValidatorStat>> {
+        const response = await this.getValidatorStatChartRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-    */
-    async getValidatorsListRaw(requestParameters: GetValidatorsListRequest): Promise<runtime.ApiResponse<Array<ValidatorRow>>> {
+     */
+    async getValidatorsListRaw(requestParameters: GetValidatorsListRequest, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Array<ValidatorRow>>> {
         const queryParameters: any = {};
 
         if (requestParameters.limit !== undefined) {
@@ -373,7 +549,7 @@ export class AccountsApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ValidatorRowFromJSON));
     }
@@ -403,19 +579,19 @@ export enum GetAccountBalanceChartFrameEnum {
     * @enum {string}
     */
 export enum GetAccountsListSortColumnEnum {
-    created_at = 'created_at',
-    general_balance = 'general_balance',
-    escrow_balance = 'escrow_balance',
-    escrow_share = 'escrow_share',
-    operations_amount = 'operations_amount'
+    CreatedAt = 'created_at',
+    GeneralBalance = 'general_balance',
+    EscrowBalance = 'escrow_balance',
+    EscrowShare = 'escrow_share',
+    OperationsAmount = 'operations_amount'
 }
 /**
     * @export
     * @enum {string}
     */
 export enum GetAccountsListSortSideEnum {
-    asc = 'asc',
-    desc = 'desc'
+    Asc = 'asc',
+    Desc = 'desc'
 }
 /**
     * @export
