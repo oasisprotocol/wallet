@@ -5,7 +5,7 @@
  */
 import { useNetworkSlice } from 'app/state/network'
 import { selectEpoch } from 'app/state/network/selectors'
-import { CommissionBounds as ICommissionBounds } from 'app/state/staking/types'
+import { CommissionBound as ICommissionBounds } from 'app/state/staking/types'
 import { Box, Text } from 'grommet'
 import React, { memo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
@@ -55,7 +55,9 @@ export const CommissionBounds = memo((props: Props) => {
   const { t } = useTranslation()
 
   if (props.bounds && props.bounds.length > 0) {
-    const items = props.bounds.map((b, i) => <CommissionBound bound={b} key={i} />)
+    const items = props.bounds
+      .sort((a, b) => a.epochStart - b.epochStart)
+      .map((b, i) => <CommissionBound bound={b} key={i} />)
     return <>{items}</>
   } else {
     return <>{t('validator.boundsNotSet', 'No bounds set (0% - 0%)')}</>

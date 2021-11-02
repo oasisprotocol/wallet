@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { networkActions } from 'app/state/network'
 import { NetworkState } from 'app/state/network/types'
-import { CommissionBounds as ICommissionBounds } from 'app/state/staking/types'
+import { CommissionBound as ICommissionBounds } from 'app/state/staking/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'

@@ -219,8 +219,8 @@ Object {
   flex-basis: 0;
   max-width: 100%;
   min-width: 100px;
-  min-width: 100px;
-  max-width: 100px;
+  min-width: 110px;
+  max-width: 110px;
 }
 
 .c17 {
@@ -604,7 +604,7 @@ Object {
                     id="cell-fee-undefined"
                     role="gridcell"
                   >
-                    0.1%
+                    10%
                   </div>
                 </div>
               </div>
@@ -692,7 +692,7 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz hSZcZi fTUNZi rdt_TableCol"
+                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz dnuoOe fTUNZi rdt_TableCol"
                 >
                   <div
                     class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
@@ -784,12 +784,12 @@ Object {
                   
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi hSZcZi gSqEps rdt_TableCell"
+                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi dnuoOe gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-fee-undefined"
                   role="gridcell"
                 >
-                  0.1%
+                  10%
                 </div>
               </div>
             </div>
