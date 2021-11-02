@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Rubik:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Rubik:wght@300&display=swap");
 
 a {
   color: inherit; /* blue colors for links too */
@@ -10,9 +10,14 @@ html {
 }
 
 * {
-  -webkit-transition: border 200ms linear, background-color 200ms linear;
-  -moz-transition: border 200ms linear, background-color 200ms linear;
-  -o-transition: border 200ms linear, background-color 200ms linear;
-  -ms-transition: border 200ms linear, background-color 200ms linear;
   transition: border 200ms linear, background-color 200ms linear;
+}
+
+.logotype_big {
+  max-height: 40px;
+}
+
+.logotype_small {
+  max-width: 16px;
+  max-height: 16px;
 }
