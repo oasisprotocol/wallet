@@ -52,6 +52,10 @@ paths:
             items:
               $ref: '#/definitions/AccountListItem'
             type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
         '400':
           description: Bad request
         '404':
@@ -104,11 +108,15 @@ paths:
           minimum: 0
       responses:
         '200':
-          description: Query compatibility endpoint for account
+          description: Query compatibility endpoint for validators
           schema:
             items:
               $ref: '#/definitions/ValidatorRow'
             type: array
+          headers:
+            X-Total-Count:
+              description: The total number of data entries.
+              type: integer
         '400':
           description: Bad request
         '404':
@@ -161,7 +169,7 @@ paths:
           minimum: 0
       responses:
         '200':
-          description: Query compatibility endpoint for blocks
+          description: Query compatibility endpoint for validator account
           schema:
             items:
               $ref: '#/definitions/ValidatorRow'
@@ -200,7 +208,7 @@ paths:
           minimum: 0
       responses:
         '200':
-          description: Query compatibility endpoint for blocks
+          description: Query compatibility endpoint for validator delegators
           schema:
             items:
               $ref: '#/definitions/ValidatorDelegator'
@@ -293,6 +301,114 @@ paths:
             X-Total-Count:
               description: The total number of data entries.
               type: integer
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/accounts/{account_id}/rewards':
+    get:
+      operationId: getAccountRewards
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: limit
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: offset
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for account rewards
+          schema:
+            items:
+              $ref: '#/definitions/AccountReward'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/accounts/{account_id}/rewards/stat':
+    get:
+      operationId: getAccountsRewardsStat
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Query compatibility endpoint for account reward stats
+          schema:
+            $ref: '#/definitions/AccountRewardsStat'
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/validator/{account_id}/rewards':
+    get:
+      operationId: getValidatorRewards
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+        - in: query
+          name: limit
+          type: integer
+          format: int64
+          required: true
+        - in: query
+          name: offset
+          type: integer
+          format: int64
+          required: true
+      responses:
+        '200':
+          description: Query compatibility endpoint for validator rewards
+          schema:
+            items:
+              $ref: '#/definitions/ValidatorReward'
+            type: array
+        '400':
+          description: Bad request
+        '404':
+          description: Not Found
+      tags:
+        - Accounts
+  '/data/validator/{account_id}/rewards/stat':
+    get:
+      operationId: getValidatorRewardsStat
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: account_id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Query compatibility endpoint for validator reward stats
+          schema:
+            $ref: '#/definitions/ValidatorRewardsStat'
         '400':
           description: Bad request
         '404':
@@ -731,6 +847,9 @@ definitions:
       debonding_delegations_balance:
         format: int64
         type: integer
+      self_delegation_balance:
+        format: int64
+        type: integer
       delegate:
         type: string
       type:
@@ -802,6 +921,9 @@ definitions:
       debonding_delegations_balance:
         format: int64
         type: integer
+      self_delegation_balance:
+        format: int64
+        type: integer
       created_at:
         format: int64
         type: integer
@@ -831,9 +953,6 @@ definitions:
         type: string
       node_id:
         type: string
-      fee:
-        format: int64
-        type: integer
       escrow_balance:
         format: int64
         type: integer
@@ -843,7 +962,7 @@ definitions:
       general_balance:
         format: int64
         type: integer
-      gebonding_balance:
+      debonding_balance:
         format: int64
         type: integer
       delegations_balance:
@@ -852,8 +971,13 @@ definitions:
       debonding_delegations_balance:
         format: int64
         type: integer
+      self_delegation_balance:
+        format: int64
+        type: integer
       media_info:
-        $ref: '#/definitions/ValidatorMegiaInfo'
+        $ref: '#/definitions/ValidatorMediaInfo'
+      commission_schedule:
+        $ref: '#/definitions/ValidatorCommissionSchedule'
       available_score:
         format: int64
         type: integer
@@ -880,7 +1004,31 @@ definitions:
       - status
       - escrow_balance
     type: object
-  ValidatorMegiaInfo:
+  ValidatorCommissionSchedule:
+    properties:
+      bounds:
+        items:
+          type: object
+          properties:
+            start:
+              format: int64
+              type: integer
+            rate_min:
+              type: string
+            rate_max:
+              type: string
+        type: array
+      rates:
+        items:
+          type: object
+          properties:
+            start:
+              format: int64
+              type: integer
+            rate:
+              type: string
+        type: array
+  ValidatorMediaInfo:
     properties:
       website_link:
         type: string
@@ -891,6 +1039,8 @@ definitions:
       tg_chat:
         type: string
       medium_link:
+        type: string
+      logotype:
         type: string
   ValidatorStat:
     properties:
@@ -924,7 +1074,7 @@ definitions:
         type: integer
       proposer:
         type: string
-      numbet_of_signatures:
+      number_of_signatures:
         format: int64
         type: integer
       fees:
@@ -1044,3 +1194,65 @@ definitions:
         type: string
       account_name:
         type: string
+  AccountReward:
+    properties:
+      block_level:
+        type: integer
+        format: int64
+      validator_address:
+        type: string
+      epoch:
+        type: integer
+        format: int64
+      amount:
+        type: integer
+        format: int64
+      type:
+        type: string
+      created_at:
+        type: integer
+        format: int64
+  AccountRewardsStat:
+    properties:
+      account_id:
+        type: string
+      total_reward:
+        type: string
+      day_reward:
+        type: integer
+        format: int64
+      week_reward:
+        type: integer
+        format: int64
+      month_reward:
+        type: integer
+        format: int64
+  ValidatorReward:
+    properties:
+      block_level:
+        type: integer
+        format: int64
+      epoch:
+        type: integer
+        format: int64
+      amount:
+        type: integer
+        format: int64
+      created_at:
+        type: integer
+        format: int64
+  ValidatorRewardsStat:
+    properties:
+      entity_address:
+        type: string
+      total_reward:
+        type: string
+      day_reward:
+        type: integer
+        format: int64
+      week_reward:
+        type: integer
+        format: int64
+      month_reward:
+        type: integer
+        format: int64
