@@ -104,7 +104,6 @@ function* refreshValidators() {
     })
 
   yield* put(stakingActions.updateValidators(payload))
-  return validators
 }
 
 function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionScheduleRates[]) {
