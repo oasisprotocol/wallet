@@ -38,7 +38,7 @@ export enum TransactionType {
   ReclaimEscrow = 'reclaimescrow',
 }
 
-type TransactionDictionnary = {
+type TransactionDictionary = {
   [type in TransactionType]: {
     [side in TransactionSide]: {
       icon: () => React.ReactNode
@@ -77,7 +77,7 @@ export function Transaction(props: TransactionProps) {
   //@TODO : This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
   //the translation keys need to be read by i18next extraction
-  const transactionDictionnary: TransactionDictionnary = {
+  const transactionDictionary: TransactionDictionary = {
     [TransactionType.Transfer]: {
       [TransactionSide.Received]: {
         designation: t('common.from', 'From'),
@@ -159,8 +159,8 @@ export function Transaction(props: TransactionProps) {
   }
 
   let icon, header, designation
-  if ((transaction.type as TransactionType) in transactionDictionnary) {
-    const matchingConfiguration = transactionDictionnary[transaction.type as TransactionType][side]
+  if ((transaction.type as TransactionType) in transactionDictionary) {
+    const matchingConfiguration = transactionDictionary[transaction.type as TransactionType][side]
     icon = matchingConfiguration.icon()
     header = matchingConfiguration.header()
     designation = matchingConfiguration.designation
