@@ -9,6 +9,7 @@ import {
   ContactInfo,
   Cube,
   Money,
+  New,
   ShareOption,
   Transaction as TxIcon,
 } from 'grommet-icons/icons'
@@ -157,10 +158,24 @@ export function Transaction(props: TransactionProps) {
     },
   }
 
-  const matchingConfiguration = transactionDictionnary[transaction.type as TransactionType][side]
-  const icon = matchingConfiguration.icon()
-  const header = matchingConfiguration.header()
-  const designation = matchingConfiguration.designation
+  let icon, header, designation
+  if ((transaction.type as TransactionType) in transactionDictionnary) {
+    const matchingConfiguration = transactionDictionnary[transaction.type as TransactionType][side]
+    icon = matchingConfiguration.icon()
+    header = matchingConfiguration.header()
+    designation = matchingConfiguration.designation
+  } else {
+    icon = <New />
+    header = (
+      <Trans
+        i18nKey="account.otherTransaction.header"
+        t={t}
+        components={[transaction.type]}
+        defaults="Unrecognized transaction, type '<0></0>'"
+      />
+    )
+    designation = t('account.otherTransaction.designation', 'Other address')
+  }
 
   return (
     <Card round="small" background="background-front" gap="none" elevation="xsmall">

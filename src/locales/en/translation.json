@@ -82,6 +82,10 @@
         "sent": "Reclaimed <0></0> from validator"
       }
     },
+    "otherTransaction": {
+      "header": "Unrecognized transaction, type '<0></0>'",
+      "designation": "Other address"
+    },
     "sendTransaction": {
       "recipient": "Recipient",
       "enterAddress": "Enter an address",
