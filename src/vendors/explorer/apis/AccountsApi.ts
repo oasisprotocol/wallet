@@ -557,10 +557,14 @@ export class AccountsApi extends runtime.BaseAPI {
     /**
      */
     async getValidatorsList(requestParameters: GetValidatorsListRequest): Promise<Array<ValidatorRow>> {
+      try {
         const response = await this.getValidatorsListRaw(requestParameters);
         return await response.value();
+      } catch (e) {
+        // TODO: Properly handle this error - should show a warning or so! See #403
+        return [];
+      }
     }
-
 }
 
 /**
