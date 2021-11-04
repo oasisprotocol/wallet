@@ -21,7 +21,7 @@ import { TransitionGroup } from 'react-transition-group'
 import { useAccountSlice } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
 import { BalanceDetails } from '../../state/account/types'
-import { selectAddress, selectStatus, selectWallets } from '../../state/wallet/selectors'
+import { selectActiveWallet, selectAddress, selectStatus, selectWallets } from '../../state/wallet/selectors'
 import { ActiveDelegationList } from '../StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from '../StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
@@ -79,15 +79,15 @@ export function AccountPage(props: Props) {
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
   const wallets = useSelector(selectWallets)
+  const activeWallet = useSelector(selectActiveWallet)
 
   const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
-  const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balance: BalanceDetails = {
-    available: account.liquid_balance ?? 0,
+    available: parseFloat(activeWallet?.balance.available ?? '') ?? 0,
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
-    debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
-    escrow: account.escrow_balance ?? 0,
-    total: (account.liquid_balance ?? 0) + balanceDelegations + balanceDebondingDelegations,
+    debonding: parseFloat(activeWallet?.balance.debonding ?? '') ?? 0, //@TODO oasis-explorer : account.delegations_balance ?? 0,
+    escrow: parseFloat(activeWallet?.balance.escrow ?? '') ?? 0,
+    total: parseFloat(activeWallet?.balance.total ?? '') ?? 0,
   }
 
   // Reload account balances if address or network changes
