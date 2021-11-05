@@ -85,7 +85,14 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 
 function* refreshValidators() {
   const { accounts } = yield* call(getExplorerAPIs)
-  const validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
+  let validators
+  try {
+    validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
+  } catch (e) {
+    // TODO: signal that this failed
+    console.error('get validators list failed, continuing without updated list.', e)
+    return
+  }
   const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
