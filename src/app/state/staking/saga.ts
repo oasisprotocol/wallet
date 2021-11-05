@@ -89,8 +89,8 @@ function* refreshValidators() {
   try {
     validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
   } catch (e) {
-    // TODO: signal that this failed
     console.error('get validators list failed, continuing without updated list.', e)
+    yield* put(stakingActions.updateValidatorsError('' + e))
     return
   }
   const currentEpoch = yield* select(selectEpoch)
