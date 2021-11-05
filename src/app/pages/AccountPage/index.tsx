@@ -82,12 +82,13 @@ export function AccountPage(props: Props) {
   const activeWallet = useSelector(selectActiveWallet)
 
   const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
+  const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balance: BalanceDetails = {
-    available: parseFloat(activeWallet?.balance.available ?? '') ?? 0,
+    available: parseFloat(activeWallet?.balance.available ?? '0'), // Use local oasis-node available balance.
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
-    debonding: parseFloat(activeWallet?.balance.debonding ?? '') ?? 0, //@TODO oasis-explorer : account.delegations_balance ?? 0,
-    escrow: parseFloat(activeWallet?.balance.escrow ?? '') ?? 0,
-    total: parseFloat(activeWallet?.balance.total ?? '') ?? 0,
+    debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
+    escrow: account.escrow_balance ?? 0,
+    total: (account.liquid_balance ?? 0) + balanceDelegations + balanceDebondingDelegations,
   }
 
   // Reload account balances if address or network changes
