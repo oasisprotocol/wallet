@@ -117,6 +117,9 @@ export function AccountPage(props: Props) {
           </Box>
         </Layer>
       )}
+      {account.accountError ? (
+        <p>Couldn't load account. Information may be missing or out of date. {account.accountError}</p>
+      ) : null}
       {address && address !== '' && (
         <>
           <AccountSummary

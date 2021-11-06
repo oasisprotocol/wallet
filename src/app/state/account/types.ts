@@ -11,5 +11,7 @@ export interface BalanceDetails {
 /* --- STATE --- */
 export interface AccountState extends AccountsRow {
   loading: boolean
+  accountError: string | null
   transactions: OperationsRow[]
+  transactionsError: string | null
 }

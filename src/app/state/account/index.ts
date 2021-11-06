@@ -10,7 +10,9 @@ export const initialState: AccountState = {
   debonding_balance: 0,
   escrow_balance: 0,
   liquid_balance: 0,
+  accountError: null,
   transactions: [],
+  transactionsError: null,
   loading: true,
 }
 
@@ -23,10 +25,18 @@ const slice = createSlice({
     },
     fetchAccount(state, action: PayloadAction<string>) {},
     accountLoaded(state, action: PayloadAction<AccountsRow>) {
+      state.accountError = null
       Object.assign(state, action.payload)
     },
+    accountError(state, action: PayloadAction<string>) {
+      state.accountError = action.payload
+    },
     transactionsLoaded(state, action: PayloadAction<OperationsRow[]>) {
+      state.transactionsError = null
       state.transactions = action.payload
+    },
+    transactionsError(state, action: PayloadAction<string>) {
+      state.transactionsError = action.payload
     },
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload
