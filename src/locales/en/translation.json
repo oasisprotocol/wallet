@@ -171,7 +171,6 @@
       "from": "From",
       "to": "To",
       "amount": "Amount",
-      "balance": "Balance",
       "fee": "Fee",
       "gas": "Gas",
       "genesisHash": "Genesis Hash",

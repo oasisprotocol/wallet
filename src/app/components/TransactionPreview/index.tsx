@@ -17,13 +17,12 @@ interface Props {
   preview: Preview
   walletAddress: string
   chainContext: string
-  balance: string
 }
 
 export const TransactionPreview = memo((props: Props) => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
-  const { preview, walletAddress, balance, chainContext } = props
+  const { preview, walletAddress, chainContext } = props
 
   return (
     <Grid columns={size !== 'small' ? ['auto', 'auto'] : ['auto']} gap={{ column: 'small', row: 'xsmall' }}>
@@ -69,10 +68,6 @@ export const TransactionPreview = memo((props: Props) => {
           value={<AmountFormatter amount={preview.transaction.shares * 10 ** 9} hideTicker />}
         />
       )}
-      <ResponsiveGridRow
-        label={t('transaction.preview.balance', 'Current balance')}
-        value={<AmountFormatter amount={balance} />}
-      />
       <ResponsiveGridRow
         label={t('transaction.preview.fee', 'Fee')}
         value={<AmountFormatter amount={preview.fee!} />}
