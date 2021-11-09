@@ -1,4 +1,4 @@
-import { select } from 'redux-saga/effects';
+import { select } from 'redux-saga/effects'
 import { push } from 'connected-react-router'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
@@ -89,7 +89,7 @@ describe('Wallet Sagas', () => {
   it('Should redirect user when selecting a wallet', () => {
     return expectSaga(selectWallet, { type: '', payload: 1 })
       .provide([...providers, [select(selectActiveWallet), { address: addressHex } as Partial<Wallet>]])
-      .put({type: walletActions.walletSelected.type, payload: 1 })
+      .put({ type: walletActions.walletSelected.type, payload: 1 })
       .select(selectActiveWallet)
       .put(push(`/account/${addressHex}`))
       .run()
