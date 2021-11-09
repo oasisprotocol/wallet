@@ -1,3 +1,4 @@
+import { select } from 'redux-saga/effects';
 import { push } from 'connected-react-router'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
@@ -6,7 +7,8 @@ import { RootState } from 'types'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { getBalance, rootWalletSaga, walletSaga } from './saga'
+import { getBalance, rootWalletSaga, walletSaga, selectWallet } from './saga'
+import { selectActiveWallet } from './selectors'
 import { Wallet, WalletState } from './types'
 
 describe('Wallet Sagas', () => {
@@ -36,7 +38,7 @@ describe('Wallet Sagas', () => {
         .dispatch(walletActions.openWalletFromMnemonic(validMnemonic))
         .fork(walletSaga)
         .put.actionType(walletActions.walletOpened.type)
-        .put(push(`/account/${addressMnemonic}`))
+        .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
     })
 
@@ -46,7 +48,7 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
         .fork(walletSaga)
-        .put(push(`/account/${addressHex}`))
+        .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
     })
 
@@ -66,7 +68,7 @@ describe('Wallet Sagas', () => {
           ]),
         )
         .fork(walletSaga)
-        .put(push(`/account/${addressHex}`))
+        .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
     })
 
@@ -76,12 +78,21 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
         .fork(walletSaga)
-        .put(push(`/account/${addressHex}`))
+        .put.actionType(walletActions.selectWallet.type)
         .dispatch(walletActions.closeWallet())
         .put(walletActions.walletClosed())
         .take(walletActions.openWalletFromMnemonic)
         .silentRun(50)
     })
+  })
+
+  it('Should redirect user when selecting a wallet', () => {
+    return expectSaga(selectWallet, { type: '', payload: 1 })
+      .provide([...providers, [select(selectActiveWallet), { address: addressHex } as Partial<Wallet>]])
+      .put({type: walletActions.walletSelected.type, payload: 1 })
+      .select(selectActiveWallet)
+      .put(push(`/account/${addressHex}`))
+      .run()
   })
 
   it('Should allow opening multiple wallets', () => {

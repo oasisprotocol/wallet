@@ -16,7 +16,7 @@ import { walletActions as actions, walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
-import { selectAddress, selectWallets } from './selectors'
+import { selectActiveWallet, selectAddress, selectWallets } from './selectors'
 import { AddWalletPayload, Wallet, WalletBalance, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
@@ -154,8 +154,6 @@ export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayloa
 
   if (newWallet.selectImmediately) {
     yield* put(walletActions.selectWallet(walletId))
-    yield* take(walletActions.walletSelected)
-    yield* put(push(`/account/${newWallet.address}`))
   }
 }
 
@@ -165,6 +163,8 @@ export function* closeWallet() {
 
 export function* selectWallet({ payload: index }: PayloadAction<number>) {
   yield* put(walletActions.walletSelected(index))
+  const newWallet = yield* select(selectActiveWallet)
+  yield* put(push(`/account/${newWallet?.address}`))
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {
