@@ -158,24 +158,29 @@ export function Transaction(props: TransactionProps) {
     },
   }
 
-  let icon, header, designation
-  if ((transaction.type as TransactionType) in transactionDictionary) {
-    const matchingConfiguration = transactionDictionary[transaction.type as TransactionType][side]
-    icon = matchingConfiguration.icon()
-    header = matchingConfiguration.header()
-    designation = matchingConfiguration.designation
-  } else {
-    icon = <New />
-    header = (
+  const unrecognizedTransaction: TransactionDictionary[TransactionType][TransactionSide] = {
+    designation: t('account.otherTransaction.designation', 'Other address'),
+    icon: () => <New />,
+    header: () => (
       <Trans
         i18nKey="account.otherTransaction.header"
         t={t}
         components={[transaction.type]}
         defaults="Unrecognized transaction, type '<0></0>'"
       />
-    )
-    designation = t('account.otherTransaction.designation', 'Other address')
+    ),
   }
+
+  const isTypeRecognized = (type: string | undefined): type is TransactionType =>
+    type ? type in transactionDictionary : false
+
+  const matchingConfiguration = isTypeRecognized(transaction.type)
+    ? transactionDictionary[transaction.type][side]
+    : unrecognizedTransaction
+
+  const icon = matchingConfiguration.icon()
+  const header = matchingConfiguration.header()
+  const designation = matchingConfiguration.designation
 
   return (
     <Card round="small" background="background-front" gap="none" elevation="xsmall">
