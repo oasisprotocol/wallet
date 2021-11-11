@@ -104,8 +104,11 @@ export const DelegationList = memo((props: Props) => {
       id: 'fee',
       selector: 'fee',
       sortable: true,
-      width: '100px',
-      cell: datum => (datum.validator?.fee !== undefined ? `${datum.validator.fee}%` : 'Unknown'),
+      width: '110px',
+      cell: datum =>
+        datum.validator?.current_rate !== undefined
+          ? `${datum.validator.current_rate.rate * 100}%`
+          : 'Unknown',
     },
     epoch: {
       name: t('delegations.debondingEpoch', 'Debonding Epoch'),
