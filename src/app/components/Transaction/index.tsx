@@ -13,6 +13,7 @@ import {
   Transaction as TxIcon,
 } from 'grommet-icons/icons'
 import * as React from 'react'
+import { NavLink } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import { OperationsRow } from 'vendors/explorer'
 
@@ -172,12 +173,13 @@ export function Transaction(props: TransactionProps) {
       <CardBody pad={{ horizontal: 'none', vertical: 'none' }}>
         <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
           <InfoBox icon={<Money color="brand" />} label={t('common.amount', 'Amount')} value={amount} />
-          <InfoBox
-            icon={<ContactInfo color="brand" />}
-            label={designation}
-            value={<ShortAddress address={otherAddress} />}
-            link={`/account/${otherAddress}`}
-          />
+          <NavLink to={`/account/${otherAddress}`}>
+            <InfoBox
+              icon={<ContactInfo color="brand" />}
+              label={designation}
+              value={<ShortAddress address={otherAddress} />}
+            />
+          </NavLink>
           <InfoBox
             icon={<Cube color="brand" />}
             label={t('common.block', 'Block')}
