@@ -44,7 +44,7 @@ export function FatalErrorHandler(props: Props) {
             <Trans
               i18nKey="fatalError.instruction"
               t={t}
-              components={[<Anchor href="https://github.com/esya/oasis-wallet/issues" />]}
+              components={[<Anchor href="https://github.com/oasisprotocol/oasis-wallet-web/issues" />]}
               defaults="A fatal unexpected error has occurred and Oasis-wallet must stop. Please copy report this issue below on our <0>github account</0>. You can also try refreshing page to see if the issue persists. Once you leave this page, all of your wallets will be closed."
             />
           </Text>
