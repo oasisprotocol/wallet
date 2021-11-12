@@ -44,7 +44,11 @@ describe('<ValidatorList  />', () => {
       stakingActions.updateValidators([
         {
           address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
-          fee: 10,
+          commission_schedule: {},
+          current_rate: {
+            epochStart: 0,
+            rate: 0.1,
+          },
           rank: 0,
           status: 'active',
           escrow: 1000,
@@ -77,7 +81,11 @@ describe('<ValidatorList  />', () => {
       stakingActions.updateValidators([
         {
           address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
-          fee: 10,
+          commission_schedule: {},
+          current_rate: {
+            epochStart: 0,
+            rate: 0.1,
+          },
           rank: 0,
           status: 'active',
           escrow: 1000,
@@ -91,7 +99,11 @@ describe('<ValidatorList  />', () => {
         },
         {
           address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          fee: 10,
+          commission_schedule: {},
+          current_rate: {
+            epochStart: 0,
+            rate: 0.2,
+          },
           rank: 1,
           status: 'inactive',
           escrow: 1000,

@@ -18,8 +18,7 @@ ADDITIONAL_EXCLUDED_DIRECTORIES:
   - .husky
   - build
   - cypress-coverage
-FILTER_REGEX_EXCLUDE: (LICENCE|\.codecov.yml|CHANGELOG.md)
-CREDENTIALS_SECRETLINT_FILTER_REGEX_EXCLUDE: (docker)
+FILTER_REGEX_EXCLUDE: (LICENCE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*)
 SHOW_ELAPSED_TIME: true
 PRE_COMMANDS:
   - command: yarn install

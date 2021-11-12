@@ -14,7 +14,8 @@ import { stakingActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch } from '../network/selectors'
 import { selectValidators } from './selectors'
-import { CommissionBounds, DebondingDelegation, Delegation, Validator } from './types'
+import { CommissionBound, DebondingDelegation, Delegation, Rate, Validator } from './types'
+import { ValidatorCommissionScheduleRates } from '../../../vendors/explorer'
 
 function getSharePrice(pool: StakingSharePool) {
   const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
@@ -85,6 +86,7 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 function* refreshValidators() {
   const { accounts } = yield* call(getExplorerAPIs)
   const validators = yield* call([accounts, accounts.getValidatorsList], {})
+  const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
     .sort((a, b) => b.escrow_balance - a.escrow_balance)
@@ -93,7 +95,8 @@ function* refreshValidators() {
         address: v.account_id,
         name: v.account_name,
         escrow: v.escrow_balance,
-        fee: v.fee,
+        commission_schedule: v.commission_schedule,
+        current_rate: computeCurrentRate(currentEpoch, v.commission_schedule?.rates ?? []),
         status: v.status,
         media: v.media_info,
         rank: index + 1,
@@ -104,18 +107,40 @@ function* refreshValidators() {
   return validators
 }
 
+function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionScheduleRates[]) {
+  const rates: Rate[] = rawRates
+    .map(r => ({
+      epochStart: r.start ? Number(r.start) : 0,
+      rate: Number(r.rate!) / 100_000,
+    }))
+    .sort((a, b) => a.epochStart - b.epochStart)
+    // If we have another bound after this one, attach the epochEnd to this one
+    .map((b, i, array) => ({
+      ...b,
+      epochEnd: array[i + 1] ? array[i + 1].epochStart - 1 : undefined,
+    }))
+
+    // Filter out bounds that ended in the past
+    .filter(b => !b.epochEnd || b.epochEnd > currentEpoch)
+
+  if (!rates.length) {
+    return undefined
+  }
+  return rates[rates.length - 1]
+}
+
 function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
   const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
-  const currentEpoch = yield* select(selectEpoch) || 0
+  const currentEpoch = yield* select(selectEpoch)
 
   let rawBounds = account.escrow?.commission_schedule?.bounds
   if (!rawBounds) {
     rawBounds = []
   }
 
-  const bounds: CommissionBounds[] = rawBounds
+  const bounds: CommissionBound[] = rawBounds
     .map(b => ({
       epochStart: b.start ? Number(b.start) : 0,
       lower: b.rate_min ? Number(quantity.toBigInt(b.rate_min)) / 100_000 : 0,
