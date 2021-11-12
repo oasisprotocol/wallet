@@ -104,7 +104,7 @@ export const DelegationList = memo((props: Props) => {
       id: 'fee',
       selector: 'fee',
       sortable: true,
-      width: '110px',
+      width: '100px',
       cell: datum =>
         datum.validator?.current_rate !== undefined
           ? `${datum.validator.current_rate.rate * 100}%`
