@@ -9,6 +9,7 @@ import {
   ContactInfo,
   Cube,
   Money,
+  New,
   ShareOption,
   Transaction as TxIcon,
 } from 'grommet-icons/icons'
@@ -37,7 +38,7 @@ export enum TransactionType {
   ReclaimEscrow = 'reclaimescrow',
 }
 
-type TransactionDictionnary = {
+type TransactionDictionary = {
   [type in TransactionType]: {
     [side in TransactionSide]: {
       icon: () => React.ReactNode
@@ -76,7 +77,7 @@ export function Transaction(props: TransactionProps) {
   //@TODO : This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
   //the translation keys need to be read by i18next extraction
-  const transactionDictionnary: TransactionDictionnary = {
+  const transactionDictionary: TransactionDictionary = {
     [TransactionType.Transfer]: {
       [TransactionSide.Received]: {
         designation: t('common.from', 'From'),
@@ -157,7 +158,26 @@ export function Transaction(props: TransactionProps) {
     },
   }
 
-  const matchingConfiguration = transactionDictionnary[transaction.type as TransactionType][side]
+  const unrecognizedTransaction: TransactionDictionary[TransactionType][TransactionSide] = {
+    designation: t('account.otherTransaction.designation', 'Other address'),
+    icon: () => <New />,
+    header: () => (
+      <Trans
+        i18nKey="account.otherTransaction.header"
+        t={t}
+        components={[transaction.type]}
+        defaults="Unrecognized transaction, type '<0></0>'"
+      />
+    ),
+  }
+
+  const isTypeRecognized = (type: string | undefined): type is TransactionType =>
+    type ? type in transactionDictionary : false
+
+  const matchingConfiguration = isTypeRecognized(transaction.type)
+    ? transactionDictionary[transaction.type][side]
+    : unrecognizedTransaction
+
   const icon = matchingConfiguration.icon()
   const header = matchingConfiguration.header()
   const designation = matchingConfiguration.designation

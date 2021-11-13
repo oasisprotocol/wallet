@@ -81,4 +81,15 @@ describe('<Transaction  />', () => {
     userEvent.click(screen.getByLabelText('Cube'))
     expect(pushSpy).not.toHaveBeenCalled()
   })
+
+  it('should handle unknown transaction types gracefully', () => {
+    const component = renderComponent(store, 'sourceAddr', {
+      amount: 1000000,
+      timestamp: 1618018255,
+      from: 'source',
+      to: 'destination',
+      type: 'turboencabulate',
+    })
+    expect(component.container.firstChild).toMatchSnapshot()
+  })
 })

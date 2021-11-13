@@ -50,7 +50,7 @@ export class BaseAPI {
         if (response.status >= 200 && response.status < 300) {
             return response;
         }
-        throw response;
+        throw new Error(`request ${url} status ${response.status}`);
     }
 
     private createFetchParams(context: RequestOpts) {
