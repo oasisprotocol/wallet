@@ -604,7 +604,7 @@ Object {
                     id="cell-fee-undefined"
                     role="gridcell"
                   >
-                    10%
+                    7.000000000000001%
                   </div>
                 </div>
               </div>
@@ -789,7 +789,7 @@ Object {
                   id="cell-fee-undefined"
                   role="gridcell"
                 >
-                  10%
+                  7.000000000000001%
                 </div>
               </div>
             </div>
