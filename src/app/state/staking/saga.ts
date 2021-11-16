@@ -1,6 +1,6 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 // import { stakingActions as actions } from '.';
-import { address as oasisAddress, quantity } from '@oasisprotocol/client'
+import { address as oasisAddress, consensus, quantity } from '@oasisprotocol/client'
 import {
   StakingDebondingDelegationInfo,
   StakingDelegationInfo,
@@ -84,8 +84,15 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 }
 
 function* refreshValidators() {
+  // Fetch active validator set size.
+  const nic = yield* call(getOasisNic)
+  const consensusParams = yield* call([nic, nic.schedulerConsensusParameters], consensus.HEIGHT_LATEST)
+
+  // Fetch validators.
   const { accounts } = yield* call(getExplorerAPIs)
-  const validators = yield* call(() => accounts.getValidatorsList({ limit: 500 }))
+  const validators = yield* call([accounts, accounts.getValidatorsList], {
+    limit: consensusParams.max_validators,
+  })
   const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
