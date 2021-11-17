@@ -85,7 +85,7 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 
 function* refreshValidators() {
   const { accounts } = yield* call(getExplorerAPIs)
-  const validators = yield* call(() => accounts.getValidatorsList({ limit: 500 }))
+  const validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
   const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
