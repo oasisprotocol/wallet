@@ -123,24 +123,24 @@ export function AccountPage(props: Props) {
       {address && address !== '' && (
         <>
           <AccountSummary
-            address={account.address}
+            address={address}
             balance={balance}
             walletAddress={walletAddress}
             walletIsOpen={walletIsOpen}
           />
           <Box background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
             <NavItem
-              route={`/account/${account.address}`}
+              route={`/account/${address}`}
               label={t('account.subnavigation.transactions', 'Transactions')}
             />
             <NavItem
-              route={`/account/${account.address}/active-delegations`}
+              route={`/account/${address}/active-delegations`}
               label={t('account.subnavigation.activeDelegations', 'Active delegations ({{count}})', {
                 count: stake.delegations.length,
               })}
             />
             <NavItem
-              route={`/account/${account.address}/debonding-delegations`}
+              route={`/account/${address}/debonding-delegations`}
               label={t('account.subnavigation.debondingDelegations', 'Debonding delegations ({{count}})', {
                 count: stake.debondingDelegations.length,
               })}
