@@ -100,9 +100,12 @@ export const ValidatorList = memo((props: Props) => {
   return (
     <Box pad="medium" background="background-front">
       {t('common.validators', 'Validators')}
-      {updateValidatorsError ? (
-        <p>Couldn't load validators. List may be empty or out of date. {updateValidatorsError}</p>
-      ) : null}
+      {updateValidatorsError && (
+        <p>
+          {t('account.validator.loadingError', "Couldn't load validators. List may be empty or out of date.")}{' '}
+          {updateValidatorsError}
+        </p>
+      )}
       <DataTable
         noHeader={true}
         columns={columns}

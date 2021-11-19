@@ -31,9 +31,15 @@ export function TransactionHistory(props: Props) {
 
   return (
     <Box gap="small" margin="none">
-      {transactionsError ? (
-        <p>Couldn't load transactions. List may be empty or out of date. {transactionsError}</p>
-      ) : null}
+      {transactionsError && (
+        <p>
+          {t(
+            'account.transaction.loadingError',
+            "Couldn't load transactions. List may be empty or out of date.",
+          )}{' '}
+          {transactionsError}
+        </p>
+      )}
       {allTransactions.length ? (
         transactionComponents
       ) : (

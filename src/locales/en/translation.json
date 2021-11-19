@@ -80,7 +80,8 @@
       "reclaimEscrow": {
         "received": "<0></0> reclaimed by delegator",
         "sent": "Reclaimed <0></0> from validator"
-      }
+      },
+      "loadingError": "Couldn't load transactions. List may be empty or out of date."
     },
     "otherTransaction": {
       "header": "Unrecognized transaction, type '<0></0>'",
@@ -93,6 +94,7 @@
       "send": "Send"
     },
     "loading": "Loading account",
+    "loadingError": "Couldn't load account. Information may be missing or out of date.",
     "addEscrow": {
       "delegate": "Delegate"
     },
@@ -105,6 +107,9 @@
     },
     "reclaimEscrow": {
       "reclaim": "Reclaim"
+    },
+    "validator": {
+      "loadingError": "Couldn't load transactions. List may be empty or out of date."
     }
   },
   "common": {
