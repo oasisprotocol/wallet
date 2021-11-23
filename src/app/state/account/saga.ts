@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey } from 'app/lib/helpers'
-import { all, call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
+import { all, call, fork, join, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -21,16 +21,38 @@ function* loadAccount(action: PayloadAction<string>) {
   const publicKey = yield* call(addressToPublicKey, address)
   const { accounts, operations } = yield* call(getExplorerAPIs)
 
-  const result = yield* all({
-    account: call([accounts, accounts.getAccount], { accountId: address }),
-    transactions: call([operations, operations.getTransactionsList], { accountId: address }),
+  yield* all([
+    join(
+      yield* fork(function* () {
+        let account
+        try {
+          account = yield* call([accounts, accounts.getAccount], { accountId: address })
+        } catch (e) {
+          console.error('get account, continuing without updated account.', e)
+          yield put(actions.accountError('' + e))
+          return
+        }
+        yield put(actions.accountLoaded(account))
+      }),
+    ),
+    join(
+      yield* fork(function* () {
+        let transactions
+        try {
+          transactions = yield* call([operations, operations.getTransactionsList], { accountId: address })
+        } catch (e) {
+          console.error('get transactions list failed, continuing without updated list.', e)
+          yield put(actions.transactionsError('' + e))
+          return
+        }
+        yield put(actions.transactionsLoaded(transactions))
+      }),
+    ),
     //@TODO Use this for now instead of oasis-explorer because of the ongoing
     //issue with staking balances being wrong
-    nicAccount: call([nic, nic.stakingAccount], { owner: publicKey, height: 0 }),
-  })
+    call([nic, nic.stakingAccount], { owner: publicKey, height: 0 }),
+  ])
 
-  yield put(actions.accountLoaded(result.account))
-  yield put(actions.transactionsLoaded(result.transactions))
   yield* put(actions.setLoading(false))
 }
 

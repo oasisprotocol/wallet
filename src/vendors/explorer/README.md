@@ -16,8 +16,3 @@ To update the bindings:
     npx @openapitools/openapi-generator-cli generate -i swagger.yml -g typescript-fetch -o . --additional-properties=modelPropertyNaming=snake_case,typescriptThreePlus=true
     ```
 
-3. Reapply hotfix (commit generated changes first):
-
-    ```sh
-    git cherry-pick 'HEAD^{/^hotfix: Return empty list of validators, if oasismonitor\.com is down}'
-    ```

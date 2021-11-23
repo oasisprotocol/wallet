@@ -6,7 +6,12 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { useStakingSlice } from 'app/state/staking'
-import { selectSelectedAddress, selectValidatorDetails, selectValidators } from 'app/state/staking/selectors'
+import {
+  selectSelectedAddress,
+  selectUpdateValidatorsError,
+  selectValidatorDetails,
+  selectValidators,
+} from 'app/state/staking/selectors'
 import { Validator } from 'app/state/staking/types'
 import { useWalletSlice } from 'app/state/wallet'
 import { selectStatus } from 'app/state/wallet/selectors'
@@ -30,6 +35,7 @@ export const ValidatorList = memo((props: Props) => {
   useWalletSlice()
 
   const validators = useSelector(selectValidators)
+  const updateValidatorsError = useSelector(selectUpdateValidatorsError)
   const walletIsOpen = useSelector(selectStatus)
   const selectedAddress = useSelector(selectSelectedAddress)
   const validatorDetails = useSelector(selectValidatorDetails)
@@ -94,6 +100,12 @@ export const ValidatorList = memo((props: Props) => {
   return (
     <Box pad="medium" background="background-front">
       {t('common.validators', 'Validators')}
+      {updateValidatorsError && (
+        <p>
+          {t('account.validator.loadingError', "Couldn't load validators. List may be empty or out of date.")}{' '}
+          {updateValidatorsError}
+        </p>
+      )}
       <DataTable
         noHeader={true}
         columns={columns}

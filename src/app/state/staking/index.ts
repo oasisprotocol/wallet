@@ -9,6 +9,7 @@ export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
   validators: [],
+  updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,
   loading: false,
@@ -23,7 +24,11 @@ const slice = createSlice({
     },
     fetchAccount(state, action: PayloadAction<string>) {},
     updateValidators(state, action: PayloadAction<Validator[]>) {
+      state.updateValidatorsError = null
       state.validators = action.payload
+    },
+    updateValidatorsError(state, action: PayloadAction<string>) {
+      state.updateValidatorsError = action.payload
     },
     updateDelegations(state, action: PayloadAction<Delegation[]>) {
       state.delegations = action.payload

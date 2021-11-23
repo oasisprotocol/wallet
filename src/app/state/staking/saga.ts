@@ -85,7 +85,14 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 
 function* refreshValidators() {
   const { accounts } = yield* call(getExplorerAPIs)
-  const validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
+  let validators
+  try {
+    validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
+  } catch (e) {
+    console.error('get validators list failed, continuing without updated list.', e)
+    yield* put(stakingActions.updateValidatorsError('' + e))
+    return
+  }
   const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
@@ -104,7 +111,6 @@ function* refreshValidators() {
     })
 
   yield* put(stakingActions.updateValidators(payload))
-  return validators
 }
 
 function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionScheduleRates[]) {

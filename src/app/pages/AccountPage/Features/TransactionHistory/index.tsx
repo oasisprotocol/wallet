@@ -9,7 +9,11 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
-import { selectAccountAddress, selectTransactions } from '../../../../state/account/selectors'
+import {
+  selectAccountAddress,
+  selectTransactions,
+  selectTransactionsError,
+} from '../../../../state/account/selectors'
 
 interface Props {}
 
@@ -19,6 +23,7 @@ interface Props {}
 export function TransactionHistory(props: Props) {
   const { t } = useTranslation()
   const allTransactions = useSelector(selectTransactions)
+  const transactionsError = useSelector(selectTransactionsError)
   const address = useSelector(selectAccountAddress)
   const transactionComponents = allTransactions.map((t, i) => (
     <Transaction key={i} transaction={t} referenceAddress={address} />
@@ -26,6 +31,15 @@ export function TransactionHistory(props: Props) {
 
   return (
     <Box gap="small" margin="none">
+      {transactionsError && (
+        <p>
+          {t(
+            'account.transaction.loadingError',
+            "Couldn't load transactions. List may be empty or out of date.",
+          )}{' '}
+          {transactionsError}
+        </p>
+      )}
       {allTransactions.length ? (
         transactionComponents
       ) : (
