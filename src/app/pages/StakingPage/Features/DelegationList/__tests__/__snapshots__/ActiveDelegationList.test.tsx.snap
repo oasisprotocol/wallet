@@ -3,7 +3,7 @@
 exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
-  "baseElement": .c12 {
+  "baseElement": .c11 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -14,30 +14,30 @@ Object {
   stroke: #666666;
 }
 
-.c12 g {
+.c11 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c12 *:not([stroke])[fill="none"] {
+.c11 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c12 *[stroke*="#"],
-.c12 *[STROKE*="#"] {
+.c11 *[stroke*="#"],
+.c11 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c12 *[fill-rule],
-.c12 *[FILL-RULE],
-.c12 *[fill*="#"],
-.c12 *[FILL*="#"] {
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*="#"],
+.c11 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
 
-.c18 {
+.c17 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -48,25 +48,25 @@ Object {
   stroke: #00C781;
 }
 
-.c18 g {
+.c17 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c18 *:not([stroke])[fill="none"] {
+.c17 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c18 *[stroke*="#"],
-.c18 *[STROKE*="#"] {
+.c17 *[stroke*="#"],
+.c17 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c18 *[fill-rule],
-.c18 *[FILL-RULE],
-.c18 *[fill*="#"],
-.c18 *[FILL*="#"] {
+.c17 *[fill-rule],
+.c17 *[FILL-RULE],
+.c17 *[fill*="#"],
+.c17 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -157,7 +157,7 @@ Object {
   padding-right: 16px;
 }
 
-.c16 {
+.c15 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -206,7 +206,7 @@ Object {
   min-width: 100px;
 }
 
-.c13 {
+.c12 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -223,11 +223,11 @@ Object {
   max-width: 100px;
 }
 
-.c17 {
+.c16 {
   font-weight: 400;
 }
 
-.c15 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -247,13 +247,13 @@ Object {
   min-height: 48px;
 }
 
-.c15:not(:last-of-type) {
+.c14:not(:last-of-type) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #AAAAAAaa;
 }
 
-.c15:hover {
+.c14:hover {
   color: false;
   background-color: #88888833;
   -webkit-transition-duration: 0.15s;
@@ -266,7 +266,7 @@ Object {
   outline-color: false;
 }
 
-.c15:hover {
+.c14:hover {
   cursor: pointer;
 }
 
@@ -322,68 +322,16 @@ Object {
   transform: rotate(180deg);
 }
 
-.c11 {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 100%;
-  line-height: 1;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.c11:focus {
-  outline: none;
-  color: false;
-}
-
-.c11:hover {
-  color: false;
-}
-
-.c11 span.__rdt_custom_sort_icon__ i,
-.c11 span.__rdt_custom_sort_icon__ svg {
-  opacity: 0;
-  color: inherit;
-  font-size: 18px !important;
-  height: 18px !important;
-  width: 18px !important;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transition-duration: 125ms;
-  transition-duration: 125ms;
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-
-.c11 span.__rdt_custom_sort_icon__.asc i,
-.c11 span.__rdt_custom_sort_icon__.asc svg {
-  -webkit-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.c11:hover {
+.c10:hover {
   cursor: pointer;
 }
 
-.c11:hover span,
-.c11:hover span.__rdt_custom_sort_icon__ * {
+.c10:hover span,
+.c10:hover span.__rdt_custom_sort_icon__ * {
   opacity: 1;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -467,33 +415,19 @@ Object {
                   >
                     <div
                       class="c10 rdt_TableCol_Sortable"
-                      id="column-undefined"
+                      id="column-name"
                       role="columnheader"
                       tabindex="0"
                     >
                       <div>
                         validator.name
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    class="c7 c9 rdt_TableCol"
-                  >
-                    <div
-                      class="c11 rdt_TableCol_Sortable"
-                      id="column-amount"
-                      role="columnheader"
-                      tabindex="0"
-                    >
-                      <div>
-                        delegations.delegatedAmount
-                      </div>
                       <span
                         class="asc __rdt_custom_sort_icon__"
                       >
                         <svg
                           aria-label="Down"
-                          class="c12"
+                          class="c11"
                           viewBox="0 0 24 24"
                         >
                           <path
@@ -507,10 +441,40 @@ Object {
                     </div>
                   </div>
                   <div
-                    class="c7 c13 rdt_TableCol"
+                    class="c7 c9 rdt_TableCol"
                   >
                     <div
-                      class="c11 rdt_TableCol_Sortable"
+                      class="c10 rdt_TableCol_Sortable"
+                      id="column-amount"
+                      role="columnheader"
+                      tabindex="0"
+                    >
+                      <div>
+                        delegations.delegatedAmount
+                      </div>
+                      <span
+                        class="asc __rdt_custom_sort_icon__"
+                      >
+                        <svg
+                          aria-label="Down"
+                          class="c11"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="m2 8.35 10.173 9.823L21.997 8"
+                            fill="none"
+                            stroke="#000"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="c7 c12 rdt_TableCol"
+                  >
+                    <div
+                      class="c10 rdt_TableCol_Sortable"
                       id="column-fee"
                       role="columnheader"
                       tabindex="0"
@@ -523,7 +487,7 @@ Object {
                       >
                         <svg
                           aria-label="Down"
-                          class="c12"
+                          class="c11"
                           viewBox="0 0 24 24"
                         >
                           <path
@@ -539,17 +503,17 @@ Object {
                 </div>
               </div>
               <div
-                class="c14 rdt_TableBody"
+                class="c13 rdt_TableBody"
                 offset="250px"
                 role="rowgroup"
               >
                 <div
-                  class="c15 rdt_TableRow"
+                  class="c14 rdt_TableRow"
                   id="row-0"
                   role="row"
                 >
                   <div
-                    class="c16 c8 c17 rdt_TableCell"
+                    class="c15 c8 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
                     id="cell-icon-undefined"
                     role="gridcell"
@@ -562,14 +526,14 @@ Object {
                     />
                   </div>
                   <div
-                    class="c16 c8 c17 rdt_TableCell"
+                    class="c15 c8 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
                     id="cell-status-undefined"
                     role="gridcell"
                   >
                     <svg
                       aria-label="StatusGood"
-                      class="c18"
+                      class="c17"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -581,7 +545,7 @@ Object {
                     </svg>
                   </div>
                   <div
-                    class="c16 c9 c17 rdt_TableCell"
+                    class="c15 c9 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
                     id="cell-name-undefined"
                     role="gridcell"
@@ -589,7 +553,7 @@ Object {
                     test-validator
                   </div>
                   <div
-                    class="c16 c9 c17 rdt_TableCell"
+                    class="c15 c9 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
                     id="cell-amount-undefined"
                     role="gridcell"
@@ -599,7 +563,7 @@ Object {
                     
                   </div>
                   <div
-                    class="c16 c13 c17 rdt_TableCell"
+                    class="c15 c12 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
                     id="cell-fee-undefined"
                     role="gridcell"
@@ -651,14 +615,30 @@ Object {
                   class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
                 >
                   <div
-                    class="sc-crrszt itItDX rdt_TableCol_Sortable"
-                    id="column-undefined"
+                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
+                    id="column-name"
                     role="columnheader"
                     tabindex="0"
                   >
                     <div>
                       validator.name
                     </div>
+                    <span
+                      class="asc __rdt_custom_sort_icon__"
+                    >
+                      <svg
+                        aria-label="Down"
+                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="m2 8.35 10.173 9.823L21.997 8"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
                   </div>
                 </div>
                 <div

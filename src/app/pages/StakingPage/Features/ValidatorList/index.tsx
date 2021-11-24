@@ -66,14 +66,15 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: t('validator.name', 'Name'),
+      selector: 'name',
       cell: datum =>
-        datum.name ? (
-          datum.name
-        ) : (
+        datum.name ?? (
           <Text data-tag="allowRowEvents">
             <ShortAddress address={datum.address} />
           </Text>
         ),
+      sortable: true,
+      sortFunction: (row1, row2) => (row1.name ?? row1.address).localeCompare(row2.name ?? row2.address),
     },
     {
       name: t('validator.escrow', 'Escrow'),
