@@ -5,6 +5,7 @@ import { CreateWalletPage } from '..'
 import { configureAppStore } from 'store/configureStore'
 import { Provider } from 'react-redux'
 import { hdkey } from '@oasisprotocol/client'
+import * as bip39 from 'bip39'
 
 const HDKey = hdkey.HDKey
 
@@ -37,6 +38,7 @@ describe('<CreateWalletPage  />', () => {
     generateMnemonicMock.mockImplementation(() => {
       return new Array(24).fill('test').join(' ')
     })
+    jest.spyOn(bip39, 'validateMnemonic').mockImplementation(() => true)
   })
 
   afterEach(() => {
