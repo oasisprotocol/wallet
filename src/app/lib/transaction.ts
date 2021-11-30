@@ -97,7 +97,7 @@ export class OasisTransaction {
   public static async submit<T>(nic: OasisClient, tw: TW<T>): Promise<void> {
     try {
       await tw.submit(nic)
-    } catch (e) {
+    } catch (e: any) {
       const grpcError = e?.metadata?.['grpc-message']
 
       if (!grpcError) {

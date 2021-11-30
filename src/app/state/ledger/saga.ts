@@ -20,7 +20,7 @@ function* getUSBTransport() {
   try {
     const transport = yield* call([TransportWebUSB, TransportWebUSB.create])
     return transport
-  } catch (e) {
+  } catch (e: any) {
     if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
     } else {
@@ -55,7 +55,7 @@ function* enumerateAccounts() {
 
     yield* setStep(LedgerStep.Done)
     yield* put(ledgerActions.accountsListed(wallets))
-  } catch (e) {
+  } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
       payload = { code: e.type, message: e.message }
