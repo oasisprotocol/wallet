@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  ButtonExtendedProps,
   Layer,
   Menu,
   Nav,
@@ -20,10 +21,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useHistory, useLocation } from 'react-router-dom'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 
-// TODO: remove and just use ButtonType in next grommet
-type ButtonProps = typeof Button extends React.FC<infer T> ? T : never
-
-interface SidebarButtonProps extends ButtonProps {
+interface SidebarButtonProps extends ButtonExtendedProps {
   secure?: boolean
   route?: string
   label: string
