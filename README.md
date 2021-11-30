@@ -44,7 +44,14 @@
 
 ### Installing and running oasis-wallet
 
-You can quickly get started with a local network with the following command :
+You can quickly get started with the following commands :
+
+```shell
+yarn install
+REACT_APP_BYPASS_LOCAL=1 yarn start
+```
+
+Alternatively, to get started with a local network :
 
 ```shell
 docker-compose up --build -d
