@@ -76,13 +76,17 @@ export const DelegationList = memo((props: Props) => {
     name: {
       name: t('validator.name', 'Name'),
       id: 'name',
+      selector: 'name',
       cell: datum =>
-        datum.validator && datum.validator.name ? (
-          datum.validator.name
-        ) : (
+        datum.validator?.name ?? (
           <Text data-tag="allowRowEvents">
             <ShortAddress address={datum.validatorAddress} />
           </Text>
+        ),
+      sortable: true,
+      sortFunction: (row1, row2) =>
+        (row1.validator?.name ?? row1.validatorAddress).localeCompare(
+          row2.validator?.name ?? row2.validatorAddress,
         ),
     },
     amount: {
@@ -97,18 +101,20 @@ export const DelegationList = memo((props: Props) => {
           <AmountFormatter amount={datum.amount} minimumFractionDigits={1} maximumFractionDigits={4} />
         ),
       sortable: true,
-      sortFunction: (row1, row2) => Number(row1) - Number(row2),
+      sortFunction: (row1, row2) => Number(row1.amount) - Number(row2.amount),
     },
     fee: {
       name: t('validator.fee', 'Fee'),
       id: 'fee',
       selector: 'fee',
-      sortable: true,
       width: '100px',
       cell: datum =>
         datum.validator?.current_rate !== undefined
           ? `${datum.validator.current_rate.rate * 100}%`
           : 'Unknown',
+      sortable: true,
+      sortFunction: (row1, row2) =>
+        (row1.validator?.current_rate?.rate ?? 0) - (row2.validator?.current_rate?.rate ?? 0),
     },
     epoch: {
       name: t('delegations.debondingEpoch', 'Debonding Epoch'),
