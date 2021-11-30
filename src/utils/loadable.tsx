@@ -3,11 +3,10 @@ import React, { lazy, Suspense } from 'react'
 interface Opts {
   fallback: React.ReactNode
 }
-type Unpromisify<T> = T extends Promise<infer P> ? P : never
 
 export const lazyLoad = <T extends Promise<any>, U extends React.ComponentType<any>>(
   importFunc: () => T,
-  selectorFunc?: (s: Unpromisify<T>) => U,
+  selectorFunc?: (s: Awaited<T>) => U,
   opts: Opts = { fallback: null },
 ) => {
   let lazyFactory: () => Promise<{ default: U }> = importFunc

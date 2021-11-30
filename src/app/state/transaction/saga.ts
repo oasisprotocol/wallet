@@ -174,7 +174,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     // Notify that the transaction was a success
     yield* put(transactionActions.transactionSent(action.payload))
-  } catch (e) {
+  } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
       payload = { code: e.type, message: e.message }
