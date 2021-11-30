@@ -1,7 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { screen, waitFor } from '@testing-library/react'
-import * as React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 
 import { Provider } from 'react-redux'
 import { ActiveDelegationList } from '../ActiveDelegationList'
@@ -57,6 +55,10 @@ describe('<ActiveDelegationList  />', () => {
     )
 
     expect(component).toMatchSnapshot()
+
+    // @TODO expect no rounding issues
+    expect(screen.queryByText('7.000000000000001%')).toBeTruthy()
+    expect(screen.queryByText('7%')).toBeFalsy()
   })
 
   it('should expand and display the delegation on click', async () => {
