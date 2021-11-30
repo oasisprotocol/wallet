@@ -1320,6 +1320,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
     >
       <label
         class="c20"
+        label="createWallet.confirmSaved"
       >
         <div
           class="c21 c22"
