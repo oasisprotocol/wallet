@@ -39,6 +39,7 @@ export interface ValidatorMediaInfo {
   email_address?: string
   twitter_acc?: string
   tg_chat?: string
+  logotype?: string
 }
 
 export interface Delegation {

@@ -22,6 +22,7 @@ import DataTable, { IDataTableColumn } from 'react-data-table-component'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
+import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
 
@@ -51,7 +52,17 @@ export const ValidatorList = memo((props: Props) => {
   const columns: IDataTableColumn<Validator>[] = [
     {
       name: '',
-      cell: datum => <img src={process.env.PUBLIC_URL + '/logo192.png'} height="16px" width="16px" alt="" />,
+      cell: datum => (
+        <img
+          src={
+            datum.media?.logotype && isWebUri(datum.media.logotype)
+              ? datum.media.logotype
+              : process.env.PUBLIC_URL + '/logo192.png'
+          }
+          className={'logotype-small'}
+          alt=""
+        />
+      ),
       width: '34px',
     },
     {
