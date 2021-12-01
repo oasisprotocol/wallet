@@ -14,7 +14,7 @@
     "test": "TZ=UTC react-scripts test --silent",
     "eject": "react-scripts eject",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/generators/test-generators.ts",
-    "start:prod": "yarn run build && serve -s build",
+    "start:prod": "yarn run build && serve -c ./internals/serve-with-csp.json --single --no-etag",
     "checkTs": "tsc --noEmit",
     "eslint": "eslint --ext js,ts,tsx",
     "lint": "yarn run eslint src",

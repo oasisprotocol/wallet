@@ -66,11 +66,11 @@ Then go to [http://localhost:3000](http://localhost:3000) to access the wallet.
 The local single-node network used for development comes built-in with two accounts already having tokens.
 
 ```none
-Using a private key : 
+Using a private key :
 X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==
 oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk
 
-Using a mnemonic : 
+Using a mnemonic :
 abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger
 oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 ```
@@ -106,6 +106,11 @@ yarn test
 docker-compose up -d
 yarn start # Run this in another terminal to keep it open
 yarn cypress:run
+
+# Manually check that content-security-policy in ./internals/serve-with-csp.json doesn't break any functionality
+yarn start:prod
+# Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake and switch to testnet.
+# This exercises at least: fonts, grpc, testnet grpc, monitor, and validator logos
 ```
 
 ### Code style
