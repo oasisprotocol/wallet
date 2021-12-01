@@ -32,5 +32,3 @@ function requireIgnoringCache (moduleName) {
   require.cache[fullPath] = overridenModule
   return importedModule
 }
-
-require('react-scripts/scripts/build.js')
