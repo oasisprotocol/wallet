@@ -9,26 +9,27 @@
  * recommend forking react-scripts or ejecting. That seems too much to maintain.
  * And "alternatives to ejecting" seem very heavy or outdated.
  *
- * If this ever starts breaking: just switch back to `build:minified`.
+ * If this ever starts breaking: just switch back to `react-scripts build`
+ * without preloading this.
  */
 
-function overrideWebpackConfigModule (originalModule) {
-  /** @type {import('react-scripts/config/webpack.config')} */
-  const configFactory = originalModule
-  return function (webpackEnv) {
+// 'react-scripts/scripts/build.js' imports '../config/webpack.config'
+// @ts-ignore
+require.cache[require.resolve('react-scripts/config/webpack.config')] = {
+  exports: webpackEnv => {
+    const configFactory = requireIgnoringCache('react-scripts/config/webpack.config')
     const webpackConfig = configFactory(webpackEnv)
     webpackConfig.optimization.minimize = false
     return webpackConfig
   }
 }
 
-// Override global `require` (could use `proxyquire` or `rewire`)
-const Module = require('module')
-const originalGlobalRequire = Module.prototype.require
-// @ts-ignore
-Module.prototype.require = function (filename) {
-  const importedModule = originalGlobalRequire.call(this, filename)
-  if (filename === '../config/webpack.config') return overrideWebpackConfigModule(importedModule)
+function requireIgnoringCache (moduleName) {
+  const fullPath = require.resolve(moduleName)
+  const overridenModule = require.cache[fullPath]
+  delete require.cache[fullPath]
+  const importedModule = require(fullPath)
+  require.cache[fullPath] = overridenModule
   return importedModule
 }
 
