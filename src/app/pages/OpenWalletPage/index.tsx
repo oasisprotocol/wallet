@@ -4,10 +4,10 @@
  *
  */
 import { TransitionRoute } from 'app/components/TransitionRoute'
-import { Box, Button, Heading } from 'grommet'
+import { Anchor, Box, Button, Heading } from 'grommet'
 import * as React from 'react'
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Switch } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { TransitionGroup } from 'react-transition-group'
@@ -64,6 +64,23 @@ export function SelectOpenMethod() {
             }}
           />
         )}
+      </Box>
+
+      <Box
+        direction="row-responsive"
+        justify="start"
+        margin={{ top: 'medium' }}
+        gap="medium"
+        style={{ whiteSpace: 'pre-wrap', display: 'inline' }}
+      >
+        <Trans
+          i18nKey="openWallet.bitpie.warning"
+          t={t}
+          defaults="❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
+          components={[
+            <Anchor href="https://docs.oasis.dev/general/manage-tokens/oasis-wallets#how-can-i-transfer-rose-tokens-from-my-bitpie-wallet-to-my-oasis-wallet" />,
+          ]}
+        />
       </Box>
     </Box>
   )
