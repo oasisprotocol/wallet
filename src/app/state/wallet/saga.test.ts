@@ -17,7 +17,7 @@ describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
     '5f48e5a6fb243f5abc13aac7c56449afbc93be90ae38f10a0465bc82db954f17e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132'
   const addressHex = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
-  const addressMnemonic = 'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l'
+  // const addressMnemonic = 'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l'
 
   const providers: (EffectProviders | StaticProvider)[] = [[matchers.call.fn(getBalance), {}]]
 
