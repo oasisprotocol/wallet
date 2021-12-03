@@ -27,12 +27,12 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.InvalidNonce]: t('errors.invalidNonce'),
     [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction'),
     [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet'),
-    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error : {{message}}', {
+    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error: {{message}}', {
       message,
     }),
     [WalletErrors.LedgerAppVersionNotSupported]: t(
       'errors.ledgerAppVersionNotSupported',
-      'Received : "Ledger App Version not supported", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.',
+      'Received: "Ledger App Version not supported", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.',
     ),
     [WalletErrors.LedgerTransactionRejected]: t(
       'errors.ledgerTransactionRejected',
@@ -46,7 +46,7 @@ export function ErrorFormatter(props: Props) {
       'errors.ledgerCannotOpenOasisApp',
       'Could not open Oasis App on Ledger, make sure it is unlocked and that the Oasis App is opened.',
     ),
-    [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error : {{message}}', {
+    [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error: {{message}}', {
       message,
     }),
   }

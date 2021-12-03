@@ -123,7 +123,7 @@
     "validators": "Validators"
   },
   "errors": {
-    "unknown": "Unknown error : {{message}}",
+    "unknown": "Unknown error: {{message}}",
     "invalidPrivateKey": "Invalid private key",
     "cannotSendToSelf": "Cannot send to yourself",
     "invalidNonce": "Invalid Nonce (transaction number)",
@@ -131,12 +131,12 @@
     "invalidAddress": "Invalid address",
     "insufficientBalance": "Insufficient balance",
     "noOpenWallet": "",
-    "usbTransportError": "USB Transport error : {{message}}",
-    "ledgerAppVersionNotSupported": "Received : \"Ledger App Version not supported\", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.",
+    "usbTransportError": "USB Transport error: {{message}}",
+    "ledgerAppVersionNotSupported": "Received: \"Ledger App Version not supported\", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.",
     "ledgerTransactionRejected": "Transaction rejected on Ledger",
     "ledgerNoDeviceSelected": "No ledger selected. If you wish to open your ledger, close this message and retry.",
     "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger, make sure it is unlocked and that the Oasis App is opened.",
-    "unknownLedgerError": "Unknown ledger error : {{message}}"
+    "unknownLedgerError": "Unknown ledger error: {{message}}"
   },
   "toolbar": {
     "search": {

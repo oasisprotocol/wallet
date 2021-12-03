@@ -16,7 +16,7 @@ import { TransactionPreview } from '../TransactionPreview'
  *
  * TransactionModal
  *
- * Takes a transaction payload as input - then through the modal :
+ * Takes a transaction payload as input - then through the modal:
  *
  * - Review the transaction (Display the raw body)
  * - Submit
