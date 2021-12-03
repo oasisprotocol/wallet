@@ -12,7 +12,7 @@ export function configureAppStore(state?: Partial<RootState>) {
     onError: (error, info) => {
       store.dispatch(
         fatalErrorActions.setError({
-          message: error.message,
+          message: error.toString(),
           stack: error.stack,
           sagaStack: info.sagaStack,
         }),
