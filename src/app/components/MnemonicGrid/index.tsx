@@ -39,7 +39,9 @@ function MnemonicWord(props: WordProp) {
         <Text style={noSelect}>{props.id}.</Text>
       </Box>
       <Box>
-        <strong style={keepWhitespace}>{props.hidden ? '' : props.word}</strong>
+        <strong className="notranslate" translate="no" style={keepWhitespace}>
+          {props.hidden ? '' : props.word}
+        </strong>
       </Box>
     </Box>
   )
@@ -67,16 +69,18 @@ export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hidde
   const words = mnemonic!.map(word => word.trim()).filter(word => word !== '')
 
   return (
-    <Grid columns={columns[size]} data-testid="mnemonic-grid">
-      {words.map((word, index) => (
-        <MnemonicWord
-          key={index + 1}
-          id={index + 1}
-          word={word}
-          higlighted={index === hilightedIndex}
-          hidden={hiddenWords && hiddenWords.indexOf(index) !== -1}
-        />
-      ))}
-    </Grid>
+    <div className="notranslate" translate="no">
+      <Grid columns={columns[size]} data-testid="mnemonic-grid">
+        {words.map((word, index) => (
+          <MnemonicWord
+            key={index + 1}
+            id={index + 1}
+            word={word}
+            higlighted={index === hilightedIndex}
+            hidden={hiddenWords && hiddenWords.indexOf(index) !== -1}
+          />
+        ))}
+      </Grid>
+    </div>
   )
 }

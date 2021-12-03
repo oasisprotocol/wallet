@@ -64,7 +64,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
         <Box background="background-front" style={blurMnemonicInFirefox}>
           <MnemonicGrid mnemonic={mnemonic} />
           <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
-            <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
+            <div className="notranslate" translate="no">
+              <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
+            </div>
             <Box direction="row" justify="end" margin={{ top: 'medium' }}>
               <Button
                 icon={<Refresh />}
