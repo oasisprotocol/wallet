@@ -48,11 +48,7 @@
     "thisIsYourPhrase": "This is your mnemonic",
     "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
     "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
-    "confirmSaved": "I saved my keyphrase",
-    "confirmMnemonic": {
-      "header": "Confirm your mnemonic ({{progress}}/{{total}})",
-      "pickWord": "Pick the right word corresponding to word #{{index}}"
-    }
+    "confirmSaved": "I saved my keyphrase"
   },
   "account": {
     "summary": {
