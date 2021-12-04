@@ -1,17 +1,16 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
-import { useWalletSlice } from 'app/state/wallet'
 import { validateMnemonic } from 'bip39'
 import { Grid, Box, Form, Heading, Paragraph, FormField, TextArea, Button } from 'grommet'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 
-interface Props {}
+interface Props {
+  /** Called once the mnemonic is confirmed */
+  successHandler: (mnemonic: string) => void
+}
 
-export function MnemonicValidation(props: Props) {
+export function MnemonicValidation({ successHandler }: Props) {
   const { t } = useTranslation()
-  const walletActions = useWalletSlice().actions
-  const dispatch = useDispatch()
 
   const [rawMnemonic, setRawMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
@@ -24,8 +23,8 @@ export function MnemonicValidation(props: Props) {
     const isValid = validateMnemonic(mnemonic)
     setMnemonicIsValid(isValid)
 
-    if (isValid === true) {
-      dispatch(walletActions.openWalletFromMnemonic(mnemonic))
+    if (isValid) {
+      successHandler(mnemonic)
     }
   }
 
