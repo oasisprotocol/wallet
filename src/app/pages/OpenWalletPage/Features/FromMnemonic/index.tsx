@@ -13,19 +13,19 @@ export function FromMnemonic(props: Props) {
   const walletActions = useWalletSlice().actions
   const dispatch = useDispatch()
 
-  const [mnemonic, setMnemonic] = React.useState('')
+  const [rawMnemonic, setRawMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
 
+  const mnemonic = rawMnemonic.trim().replace(/[ \n]+/g, ' ')
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMnemonic(event.target.value)
+    setRawMnemonic(event.target.value)
   }
   const onSubmit = () => {
-    const trimmedMnemonic = mnemonic.trim()
-    const isValid = validateMnemonic(trimmedMnemonic)
+    const isValid = validateMnemonic(mnemonic)
     setMnemonicIsValid(isValid)
 
     if (isValid === true) {
-      dispatch(walletActions.openWalletFromMnemonic(trimmedMnemonic))
+      dispatch(walletActions.openWalletFromMnemonic(mnemonic))
     }
   }
 
@@ -65,7 +65,7 @@ export function FromMnemonic(props: Props) {
                     data-testid="mnemonic"
                     placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
                     size="medium"
-                    value={mnemonic}
+                    value={rawMnemonic}
                     onChange={onChange}
                     fill
                   />
