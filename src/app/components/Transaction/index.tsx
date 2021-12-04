@@ -74,7 +74,7 @@ export function Transaction(props: TransactionProps) {
     otherAddress = transaction.from!
   }
 
-  //@TODO : This could probably cleverly be moved outside of the component
+  // @TODO: This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
   //the translation keys need to be read by i18next extraction
   const transactionDictionary: TransactionDictionary = {

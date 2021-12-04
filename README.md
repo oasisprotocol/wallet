@@ -44,14 +44,14 @@
 
 ### Installing and running oasis-wallet
 
-You can quickly get started with the following commands :
+You can quickly get started with the following commands:
 
 ```shell
 yarn install
 REACT_APP_BYPASS_LOCAL=1 yarn start
 ```
 
-Alternatively, to get started with a local network :
+Alternatively, to get started with a local network:
 
 ```shell
 docker-compose up --build -d
@@ -66,11 +66,11 @@ Then go to [http://localhost:3000](http://localhost:3000) to access the wallet.
 The local single-node network used for development comes built-in with two accounts already having tokens.
 
 ```none
-Using a private key : 
+Using a private key:
 X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==
 oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk
 
-Using a mnemonic : 
+Using a mnemonic:
 abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger
 oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 ```
@@ -91,12 +91,12 @@ Oasis-wallet needs multiple components to run, all provided in the [docker-compo
 
 ### Running the tests
 
-The repository has two different test strategies :
+The repository has two different test strategies:
 
 - E2E (End-to-end) tests, ran with [Cypress](https://www.cypress.io/), located in [cypress/](/cypress). These tests require the react app to be started on accessible on port `3000` and the docker-compose stack to be up.
 - Unit & functional tests, ran with [Jest](https://github.com/facebook/jest), located throughout the codebase
 
-To run all tests :
+To run all tests:
 
 ```bash
 # Run jest tests
@@ -106,11 +106,16 @@ yarn test
 docker-compose up -d
 yarn start # Run this in another terminal to keep it open
 yarn cypress:run
+
+# Manually check that content-security-policy in ./internals/serve-with-csp.json doesn't break any functionality
+yarn start:prod
+# Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake and switch to testnet.
+# This exercises at least: fonts, grpc, testnet grpc, monitor, and validator logos
 ```
 
 ### Code style
 
-This repository uses [prettier](https://prettier.io/) as a code formatter and [eslint](https://github.com/eslint/eslint) as it's linter. You can use the following commands :
+This repository uses [prettier](https://prettier.io/) as a code formatter and [eslint](https://github.com/eslint/eslint) as it's linter. You can use the following commands:
 
 ```bash
 # Lint the whole repository

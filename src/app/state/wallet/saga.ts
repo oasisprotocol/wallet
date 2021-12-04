@@ -186,7 +186,7 @@ function* reloadBalanceOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
     if (payload.type !== 'transfer') {
-      //@TODO : This should be done for other types of transactions too
+      // @TODO: This should be done for other types of transactions too
       return
     }
 

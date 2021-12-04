@@ -42,7 +42,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         fill={false}
         pad={{ top: 'small' }}
       >
-        <ResponsiveGridRow label={t('validator.rank', 'Rank :')} value={`#${validator.rank}`} />
+        <ResponsiveGridRow label={t('validator.rank', 'Rank:')} value={`#${validator.rank}`} />
         <ResponsiveGridRow
           label={t('validator.totalEscrow', 'Total Escrow')}
           value={<AmountFormatter amount={validator.escrow ?? 0} />}
@@ -56,7 +56,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
           value={details ? <CommissionBounds bounds={details?.scheduledCommissionBounds} /> : <Spinner />}
         />
         <ResponsiveGridRow
-          label={t('validator.status', 'Status :')}
+          label={t('validator.status', 'Status:')}
           value={
             validator.status === 'active' ? (
               <Box direction="row" align="center" gap="xxsmall">
