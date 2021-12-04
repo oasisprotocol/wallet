@@ -6,14 +6,15 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { NoTranslate } from 'app/components/NoTranslate'
-import { Box, Button, CheckBox, Grid, Heading, ResponsiveContext, Text } from 'grommet'
+import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
+import { useWalletSlice } from 'app/state/wallet'
+import { Box, Button, CheckBox, Grid, Heading, Layer, ResponsiveContext, Text } from 'grommet'
 import { Refresh } from 'grommet-icons/icons'
 import * as React from 'react'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useWalletSlice } from '../../state/wallet'
 import { useCreateWalletSlice } from './slice'
 import { selectCheckbox, selectMnemonic } from './slice/selectors'
 
@@ -22,6 +23,7 @@ export interface CreateWalletProps {}
 export function CreateWalletPage(props: CreateWalletProps) {
   const { t } = useTranslation()
   const [showConfirmation, setConfirmation] = useState(false)
+  const [showMnemonicMismatch, setMnemonicMismatch] = useState(false)
   const size = React.useContext(ResponsiveContext)
   const createWalletActions = useCreateWalletSlice().actions
   const walletActions = useWalletSlice().actions
@@ -33,9 +35,14 @@ export function CreateWalletPage(props: CreateWalletProps) {
 
   const setChecked = (value: boolean) => dispatch(createWalletActions.setChecked(value))
   const regenerateMnemonic = () => dispatch(createWalletActions.generateMnemonic())
-  const openWallet = () => {
+  const openWallet = (enteredMnemonic: string) => {
+    const doesMnemonicMatch = enteredMnemonic === mnemonic.join(' ')
+    setMnemonicMismatch(!doesMnemonicMatch)
     setConfirmation(false)
-    dispatch(walletActions.openWalletFromMnemonic(mnemonic.join(' ')))
+
+    if (doesMnemonicMatch) {
+      dispatch(walletActions.openWalletFromMnemonic(enteredMnemonic))
+    }
   }
 
   // Generate a mnemonic on first mount
@@ -54,12 +61,34 @@ export function CreateWalletPage(props: CreateWalletProps) {
 
   return (
     <>
+      {showMnemonicMismatch && (
+        <Box
+          pad="small"
+          border={{
+            color: 'status-error',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-error',
+            opacity: 0.3,
+          }}
+        >
+          <Text weight="bold">{t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}</Text>
+        </Box>
+      )}
       {showConfirmation && (
-        <MnemonicValidation
-          validMnemonic={mnemonic}
-          successHandler={openWallet}
-          abortHandler={() => setConfirmation(false)}
-        />
+        <Layer plain full data-testid="mnemonic-validation">
+          <Box fill style={{ backdropFilter: 'blur(5px)' }}>
+            <ResponsiveLayer
+              style={{ width: '90vw', maxWidth: '1500px' }}
+              background="background-front"
+              onClickOutside={() => setConfirmation(false)}
+            >
+              <MnemonicValidation successHandler={openWallet}></MnemonicValidation>
+            </ResponsiveLayer>
+          </Box>
+        </Layer>
       )}
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>
         <Box background="background-front" style={blurMnemonicInFirefox}>
