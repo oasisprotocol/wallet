@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 
 interface Props {}
 
-export function FromMnemonic(props: Props) {
+export function MnemonicValidation(props: Props) {
   const { t } = useTranslation()
   const walletActions = useWalletSlice().actions
   const dispatch = useDispatch()
