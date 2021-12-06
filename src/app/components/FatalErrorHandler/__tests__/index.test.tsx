@@ -33,6 +33,6 @@ describe('<FatalErrorHandler />', () => {
     renderComponent(store)
     store.dispatch(fatalErrorActions.setError({ message: 'dummy-message' }))
 
-    await waitFor(() => expect(screen.queryByTestId('fatalerror-message')).toContainHTML('dummy-message'))
+    await waitFor(() => expect(screen.queryByTestId('fatalerror-stacktrace')).toContainHTML('dummy-message'))
   })
 })

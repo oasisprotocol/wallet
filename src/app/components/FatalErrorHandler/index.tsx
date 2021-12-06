@@ -27,8 +27,10 @@ export function FatalErrorHandler(props: Props) {
     return null
   }
 
+  const combinedStacktrace = `${fatalError.message}\n\n${fatalError.sagaStack}\n\n${fatalError.stack}`
+
   const copyError = () => {
-    copy(`${fatalError.message}\n${fatalError.sagaStack}\n${fatalError.stack}`)
+    copy(combinedStacktrace)
     setCopied(true)
   }
 
@@ -61,13 +63,7 @@ export function FatalErrorHandler(props: Props) {
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
-          <Box>
-            <Text weight="bold" data-testid="fatalerror-message">
-              {fatalError.message}
-            </Text>
-          </Box>
-          <pre>{fatalError.sagaStack}</pre>
-          <pre>{fatalError.stack}</pre>
+          <pre data-testid="fatalerror-stacktrace">{combinedStacktrace}</pre>
         </Box>
         <Box align="end" pad={{ vertical: 'medium' }}>
           <Button
