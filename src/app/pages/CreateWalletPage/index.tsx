@@ -5,6 +5,7 @@
  */
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
+import { NoTranslate } from 'app/components/NoTranslate'
 import { Box, Button, CheckBox, Grid, Heading, ResponsiveContext, Text } from 'grommet'
 import { Refresh } from 'grommet-icons/icons'
 import * as React from 'react'
@@ -64,7 +65,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
         <Box background="background-front" style={blurMnemonicInFirefox}>
           <MnemonicGrid mnemonic={mnemonic} />
           <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
-            <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
+            <NoTranslate>
+              <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
+            </NoTranslate>
             <Box direction="row" justify="end" margin={{ top: 'medium' }}>
               <Button
                 icon={<Refresh />}

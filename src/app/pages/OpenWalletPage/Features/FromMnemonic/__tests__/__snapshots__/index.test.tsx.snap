@@ -460,10 +460,15 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
       <div
         class="c13"
       >
-        <div
-          class="c14"
-          data-testid="mnemonic-grid"
-        />
+        <span
+          class="notranslate"
+          translate="no"
+        >
+          <div
+            class="c14"
+            data-testid="mnemonic-grid"
+          />
+        </span>
       </div>
     </div>
   </div>
