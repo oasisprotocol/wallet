@@ -1,3 +1,4 @@
+import { NoTranslate } from 'app/components/NoTranslate'
 import { wordlists } from 'bip39'
 import { Box, Button, Grid, Heading, Layer, ResponsiveContext, Text } from 'grommet'
 import * as React from 'react'
@@ -80,7 +81,7 @@ export function MnemonicValidation({ validMnemonic, successHandler, abortHandler
                 { index: indexes[0] + 1 },
               )}
             </Text>
-            <div className="notranslate" translate="no">
+            <NoTranslate>
               <Grid columns={size !== 'small' ? 'small' : '100%'} gap="small">
                 {choices.map((w, i) => (
                   <Button
@@ -91,7 +92,7 @@ export function MnemonicValidation({ validMnemonic, successHandler, abortHandler
                   />
                 ))}
               </Grid>
-            </div>
+            </NoTranslate>
             <Box align="end" pad={{ vertical: 'medium' }}>
               <Button
                 primary

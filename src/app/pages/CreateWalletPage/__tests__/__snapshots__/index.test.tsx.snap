@@ -667,7 +667,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   <div
     class="c1"
   >
-    <div
+    <span
       class="notranslate"
       translate="no"
     >
@@ -692,13 +692,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -718,13 +721,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -744,13 +750,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -770,13 +779,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -796,13 +808,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -822,13 +837,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -848,13 +866,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -874,13 +895,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -900,13 +924,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -926,13 +953,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -952,13 +982,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -978,13 +1011,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1004,13 +1040,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1030,13 +1069,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1056,13 +1098,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1082,13 +1127,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1108,13 +1156,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1134,13 +1185,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1160,13 +1214,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1186,13 +1243,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1212,13 +1272,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1238,13 +1301,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1264,13 +1330,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
         <div
@@ -1290,22 +1359,25 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           <div
             class="c6"
           >
-            <strong
+            <span
               class="notranslate"
-              style="white-space: pre;"
               translate="no"
             >
-              test
-            </strong>
+              <strong
+                style="white-space: pre;"
+              >
+                test
+              </strong>
+            </span>
           </div>
         </div>
       </div>
-    </div>
+    </span>
     <div
       class="c7"
       style="word-spacing: 14px;"
     >
-      <div
+      <span
         class="notranslate"
         translate="no"
       >
@@ -1314,7 +1386,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
         >
           test test test test test test test test test test test test test test test test test test test test test test test test
         </strong>
-      </div>
+      </span>
       <div
         class="c8"
       >
