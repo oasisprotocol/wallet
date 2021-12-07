@@ -1,3 +1,8 @@
+// @TODO: Future improvements:
+// - remove google exceptions by downloading fonts
+// - remove 'unsafe-inline' style by precomputing theme hash
+// - add report-uri to gather errors if anything was missed
+
 // Keep synced with deployment
 const csp = `
     default-src 'none';
