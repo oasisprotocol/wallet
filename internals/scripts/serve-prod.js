@@ -2,6 +2,8 @@
 const path = require('path')
 const http = require('http')
 const serveHandler = require('serve-handler')
+const { csp } = require('../getCsp.js')
+console.log(`Content-Security-Policy: ${csp}\n`)
 
 const root = path.resolve(__dirname, '../..')
 
@@ -11,8 +13,8 @@ const server = http.createServer((request, response) => {
     rewrites: [
       {
         source: '**',
-        destination: '/index.html',
-      },
+        destination: '/index.html'
+      }
     ],
     // Disable etag so we don't need to clear cache if we only change CSP.
     etag: false,
@@ -21,13 +23,12 @@ const server = http.createServer((request, response) => {
         source: '**',
         headers: [
           {
-            // Keep synced with deployment
             key: 'Content-Security-Policy',
-            value: `default-src 'none'; script-src 'report-sample' 'self'; style-src 'report-sample' 'self' fonts.googleapis.com 'unsafe-inline'; font-src 'self' fonts.gstatic.com; connect-src 'self' grpc.oasis.dev testnet.grpc.oasis.dev monitor.oasis.dev; img-src 'self' data: https:; prefetch-src 'self'; base-uri 'self'; manifest-src 'self';`,
-          },
-        ],
-      },
-    ],
+            value: csp
+          }
+        ]
+      }
+    ]
   })
 })
 
