@@ -24,7 +24,8 @@
     "cleanAndSetup": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/scripts/clean.ts",
     "prettify": "prettier --write",
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "print-csp": "node ./internals/scripts/print-csp.js"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
