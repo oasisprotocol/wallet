@@ -67,12 +67,10 @@ export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hidde
     large: ['1fr', '1fr', '1fr', '1fr'],
   }
 
-  const words = mnemonic!.map(word => word.trim()).filter(word => word !== '')
-
   return (
     <NoTranslate>
       <Grid columns={columns[size]} data-testid="mnemonic-grid">
-        {words.map((word, index) => (
+        {mnemonic.map((word, index) => (
           <MnemonicWord
             key={index + 1}
             id={index + 1}
