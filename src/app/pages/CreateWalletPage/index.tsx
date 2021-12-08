@@ -85,7 +85,10 @@ export function CreateWalletPage(props: CreateWalletProps) {
               background="background-front"
               onClickOutside={() => setConfirmation(false)}
             >
-              <MnemonicValidation successHandler={openWallet}></MnemonicValidation>
+              <MnemonicValidation
+                successHandler={openWallet}
+                abortHandler={() => setConfirmation(false)}
+              ></MnemonicValidation>
             </ResponsiveLayer>
           </Box>
         </Layer>

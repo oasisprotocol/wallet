@@ -7,9 +7,11 @@ import { useTranslation } from 'react-i18next'
 interface Props {
   /** Called once the mnemonic is confirmed */
   successHandler: (mnemonic: string) => void
+  /** Adds a cancel button */
+  abortHandler?: () => void
 }
 
-export function MnemonicValidation({ successHandler }: Props) {
+export function MnemonicValidation(props: Props) {
   const { t } = useTranslation()
 
   const [rawMnemonic, setRawMnemonic] = React.useState('')
@@ -24,7 +26,7 @@ export function MnemonicValidation({ successHandler }: Props) {
     setMnemonicIsValid(isValid)
 
     if (isValid) {
-      successHandler(mnemonic)
+      props.successHandler(mnemonic)
     }
   }
 
@@ -71,16 +73,22 @@ export function MnemonicValidation({ successHandler }: Props) {
                 </Box>
               </FormField>
             </Box>
-            <Box pad={{ vertical: 'medium' }}>
-              <Box direction="row" justify="between" margin={{ top: 'medium' }}>
+            <Box direction="row" gap="small" margin={{ top: 'medium' }}>
+              <Button
+                type="submit"
+                label={t('openWallet.mnemonic.open', 'Open my wallet')}
+                style={{ borderRadius: '4px' }}
+                primary
+                onClick={onSubmit}
+              />
+              {props.abortHandler && (
                 <Button
-                  type="submit"
-                  label={t('openWallet.mnemonic.open', 'Open my wallet')}
+                  label={t('common.cancel', 'Cancel')}
                   style={{ borderRadius: '4px' }}
-                  primary
-                  onClick={onSubmit}
+                  secondary
+                  onClick={props.abortHandler}
                 />
-              </Box>
+              )}
             </Box>
           </Form>
         </Box>
