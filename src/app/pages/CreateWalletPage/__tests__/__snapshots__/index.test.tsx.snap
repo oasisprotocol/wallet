@@ -534,6 +534,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 .c2 {
   display: grid;
   box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
 }
 
 @media only screen and (max-width:768px) {

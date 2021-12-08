@@ -243,7 +243,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 .c13 {
   display: grid;
   box-sizing: border-box;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
 }
 
 .c0 {
