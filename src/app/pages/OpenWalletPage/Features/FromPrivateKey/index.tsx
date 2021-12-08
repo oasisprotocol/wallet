@@ -59,13 +59,15 @@ export function FromPrivateKey(props: Props) {
           htmlFor="privateKey"
           error={privateKeyIsValid === false ? t('openWallet.privateKey.error', 'Invalid private key') : ''}
         >
-          <TextArea
-            id="privatekey"
-            data-testid="privatekey"
-            placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
-            value={privateKey}
-            onChange={onChange}
-          />
+          <Box border={false}>
+            <TextArea
+              id="privatekey"
+              data-testid="privatekey"
+              placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
+              value={privateKey}
+              onChange={onChange}
+            />
+          </Box>
         </FormField>
         <Box pad={{ vertical: 'medium' }}>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
