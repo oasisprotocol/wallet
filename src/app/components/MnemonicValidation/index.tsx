@@ -1,6 +1,6 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { validateMnemonic } from 'bip39'
-import { Grid, Box, Form, Heading, Paragraph, FormField, TextArea, Button } from 'grommet'
+import { Grid, Box, Form, Heading, Paragraph, FormField, TextArea, Button, ResponsiveContext } from 'grommet'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -16,6 +16,7 @@ export function MnemonicValidation(props: Props) {
 
   const [rawMnemonic, setRawMnemonic] = React.useState('')
   const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
+  const size = React.useContext(ResponsiveContext)
 
   const mnemonic = rawMnemonic.trim().replace(/[ \n]+/g, ' ')
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,7 +39,7 @@ export function MnemonicValidation(props: Props) {
       round="5px"
       border={{ color: 'background-front-border', size: '1px' }}
     >
-      <Grid gap="small" pad="small" columns={['2fr', '2fr']}>
+      <Grid gap="small" pad="small" columns={size === 'small' ? '100%' : ['1fr', '1fr']}>
         <Box margin={{ left: 'small', vertical: 'small', right: 'large' }}>
           <Form>
             <Heading margin="0">{t('openWallet.mnemonic.header', 'Enter your keyphrase')}</Heading>
@@ -66,6 +67,7 @@ export function MnemonicValidation(props: Props) {
                     data-testid="mnemonic"
                     placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
                     size="medium"
+                    rows={5}
                     value={rawMnemonic}
                     onChange={onChange}
                     fill

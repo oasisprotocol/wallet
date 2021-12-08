@@ -81,7 +81,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
         <Layer plain full data-testid="mnemonic-validation">
           <Box fill style={{ backdropFilter: 'blur(5px)' }}>
             <ResponsiveLayer
-              style={{ width: '90vw', maxWidth: '1500px' }}
+              style={{
+                width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
+              }}
               background="background-front"
               onClickOutside={() => setConfirmation(false)}
             >

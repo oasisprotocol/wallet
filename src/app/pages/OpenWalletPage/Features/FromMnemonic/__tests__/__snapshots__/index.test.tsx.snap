@@ -232,18 +232,18 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c2 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: 2fr 2fr;
-  grid-gap: 12px 12px;
-  padding: 12px;
-}
-
 .c13 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+.c2 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(100%,1fr) );
+  grid-gap: 12px 12px;
+  padding: 12px;
 }
 
 .c0 {
@@ -424,6 +424,10 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
   .c2 {
     padding: 6px;
   }
@@ -470,6 +474,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
                     data-testid="mnemonic"
                     id="mnemonic"
                     placeholder="openWallet.mnemonic.enterPhraseHere"
+                    rows="5"
                   />
                 </div>
               </div>
