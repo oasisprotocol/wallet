@@ -48,11 +48,7 @@
     "thisIsYourPhrase": "Voici votre phrase secrète",
     "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
     "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
-    "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
-    "confirmMnemonic": {
-      "header": "Confirmez votre phrase secrète ({{progress}}/{{total}})",
-      "pickWord": "Choisissez le mot #{{index}}"
-    }
+    "confirmSaved": "J'ai sauvegardé ma phrase secrète."
   },
   "account": {
     "summary": {

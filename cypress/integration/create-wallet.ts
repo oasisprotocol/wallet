@@ -27,18 +27,23 @@ describe('Create wallet', () => {
       .click()
   })
 
-  describe('Confirm mnemonic', () => {
-    for (let i = 1; i <= 5; i++) {
-      // eslint-disable-next-line no-loop-func
-      it(`Should pick word ${i}/5`, () => {
-        cy.findByTestId('pick-word')
-          .invoke('text')
-          .then(text => {
-            const id = Number(text.match(/#([0-9]+)/)![1])
-            const missing = generatedMnemonic.split(' ')[id - 1]
-            cy.findByRole('button', { name: missing }).click()
-          })
-      })
-    }
+  it('Should not be able to confirm with a different (valid) mnemonic', () => {
+    cy.contains('mnemonic does not match').should('not.exist')
+
+    cy.findByTestId('mnemonic').type(
+      'abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger',
+      { delay: 0 },
+    )
+    cy.findByRole('button', { name: /Open my wallet/ }).click()
+    cy.contains('mnemonic does not match').should('exist')
+  })
+
+  it('Should confirm mnemonic', () => {
+    cy.findByRole('button', { name: /Send/ }).should('not.exist')
+    cy.findByRole('button', { name: /Open my wallet/ }).click()
+    cy.findByTestId('mnemonic').type(generatedMnemonic, { delay: 0 })
+    cy.findByRole('button', { name: /Open my wallet/ }).click()
+    cy.contains('mnemonic does not match').should('not.exist')
+    cy.findByRole('button', { name: /Send/ }).should('exist')
   })
 })

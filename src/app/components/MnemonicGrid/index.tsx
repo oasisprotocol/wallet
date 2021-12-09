@@ -61,15 +61,14 @@ interface Props {
 
 export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hiddenWords }: Props) {
   const size = useContext(ResponsiveContext)
-  const columns = {
-    small: ['1fr', '1fr'],
-    medium: ['1fr', '1fr', '1fr'],
-    large: ['1fr', '1fr', '1fr', '1fr'],
-  }
+  const maxEnglishLength = 8
+  const numberDotSpaceLength = 4
+  const columnSize =
+    size === 'large' ? ['1fr', '1fr', '1fr', '1fr'] : `${maxEnglishLength + numberDotSpaceLength + 2}ch`
 
   return (
     <NoTranslate>
-      <Grid columns={columns[size]} data-testid="mnemonic-grid">
+      <Grid columns={columnSize} data-testid="mnemonic-grid">
         {mnemonic.map((word, index) => (
           <MnemonicWord
             key={index + 1}

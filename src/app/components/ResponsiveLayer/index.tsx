@@ -32,7 +32,7 @@ export function ResponsiveLayer(props: LayerExtendedProps) {
   )
 
   return (
-    <Layer {...props} ref={layerRef} style={{ overflowY: 'auto' }}>
+    <Layer {...props} ref={layerRef} style={{ overflowY: 'auto', ...props.style }}>
       <div>{props.children}</div>
     </Layer>
   )
