@@ -4,7 +4,8 @@
  *
  */
 import * as React from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
+import { Anchor } from 'grommet'
 import { WalletErrors } from 'types/errors'
 
 interface Props {
@@ -16,7 +17,7 @@ export function ErrorFormatter(props: Props) {
   const { t } = useTranslation()
   const message = props.message
 
-  const errorMap: { [code in WalletErrors]: string } = {
+  const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {
     [WalletErrors.UnknownError]: t('errors.unknown', {
       message,
     }),
@@ -42,9 +43,19 @@ export function ErrorFormatter(props: Props) {
       'errors.ledgerTransactionRejected',
       'Transaction rejected on Ledger',
     ),
-    [WalletErrors.LedgerNoDeviceSelected]: t(
-      'errors.ledgerNoDeviceSelected',
-      'No ledger selected. If you wish to open your ledger, close this message and retry.',
+    [WalletErrors.LedgerNoDeviceSelected]: (
+      <Trans
+        i18nKey="errors.ledgerNoDeviceSelected"
+        t={t}
+        defaults="No Ledger device selected. Make sure it is connected and <0>check common USB connection issues with Ledger</0>."
+        components={[
+          <Anchor
+            href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
+            target="_blank"
+            rel="noopener"
+          />,
+        ]}
+      />
     ),
     [WalletErrors.LedgerCannotOpenOasisApp]: t(
       'errors.ledgerCannotOpenOasisApp',

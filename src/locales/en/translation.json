@@ -131,7 +131,7 @@
     "usbTransportError": "USB Transport error: {{message}}. This usually means your browser does not support WebUSB (e.g. Firefox). Try using Chrome and check application permissions.",
     "ledgerAppVersionNotSupported": "Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.",
     "ledgerTransactionRejected": "Transaction rejected on Ledger",
-    "ledgerNoDeviceSelected": "No ledger selected. If you wish to open your ledger, close this message and retry.",
+    "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected and <0>check common USB connection issues with Ledger</0>.",
     "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.",
     "unknownLedgerError": "Unknown ledger error: {{message}}"
   },
