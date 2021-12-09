@@ -128,7 +128,7 @@
     "invalidAddress": "Invalid address",
     "insufficientBalance": "Insufficient balance",
     "noOpenWallet": "",
-    "usbTransportError": "USB Transport error: {{message}}",
+    "usbTransportError": "USB Transport error: {{message}}. This usually means your browser does not support WebUSB (e.g. Firefox). Try using Chrome and check application permissions.",
     "ledgerAppVersionNotSupported": "Received: \"Ledger App Version not supported\", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.",
     "ledgerTransactionRejected": "Transaction rejected on Ledger",
     "ledgerNoDeviceSelected": "No ledger selected. If you wish to open your ledger, close this message and retry.",

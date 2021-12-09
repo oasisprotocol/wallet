@@ -27,9 +27,13 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.InvalidNonce]: t('errors.invalidNonce'),
     [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction'),
     [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet'),
-    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error: {{message}}', {
-      message,
-    }),
+    [WalletErrors.USBTransportError]: t(
+      'errors.usbTransportError',
+      'USB Transport error: {{message}}. This usually means your browser does not support WebUSB (e.g. Firefox). Try using Chrome and check application permissions.',
+      {
+        message,
+      },
+    ),
     [WalletErrors.LedgerAppVersionNotSupported]: t(
       'errors.ledgerAppVersionNotSupported',
       'Received: "Ledger App Version not supported", this can be a false positive, retry the operation, if the error persists, update the Oasis App on your Ledger.',
