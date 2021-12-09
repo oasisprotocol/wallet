@@ -156,7 +156,7 @@
     "redux-saga-test-plan": "4.0.4",
     "sanitize.css": "13.0.0",
     "semantic-release": "18.0.0",
-    "serve": "12.0.1",
+    "serve": "13.0.2",
     "shelljs": "0.8.4",
     "stylelint": "14.0.1",
     "stylelint-config-recommended": "6.0.0",
