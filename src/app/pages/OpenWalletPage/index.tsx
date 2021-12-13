@@ -79,9 +79,7 @@ export function SelectOpenMethod() {
           i18nKey="openWallet.bitpie.warning"
           t={t}
           defaults="❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
-          components={[
-            <Anchor href="https://docs.oasis.dev/general/manage-tokens/oasis-wallets#how-can-i-transfer-rose-tokens-from-my-bitpie-wallet-to-my-oasis-wallet" />,
-          ]}
+          components={[<Anchor href="https://docs.oasis.dev/general/manage-tokens/faq" />]}
         />
       </Box>
     </Box>
