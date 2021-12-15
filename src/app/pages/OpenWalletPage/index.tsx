@@ -28,7 +28,7 @@ export function SelectOpenMethod() {
       margin="small"
       pad="medium"
     >
-      <Heading level="3">{t('openWallet.header', 'How do you want to open your wallet ?')}</Heading>
+      <Heading level="3">{t('openWallet.header', 'How do you want to open your wallet?')}</Heading>
 
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <NavLink to="/open-wallet/mnemonic">
@@ -42,7 +42,7 @@ export function SelectOpenMethod() {
         <NavLink to="/open-wallet/private-key">
           <Button
             type="submit"
-            label={t('openWallet.method.privateKey', 'privateKey')}
+            label={t('openWallet.method.privateKey', 'Private key')}
             style={{ borderRadius: '4px' }}
             primary
           />
