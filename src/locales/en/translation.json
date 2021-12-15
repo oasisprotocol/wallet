@@ -41,6 +41,9 @@
       "selectWallets": "Select the wallets to open",
       "cancel": "Cancel",
       "openWallets": "Open"
+    },
+    "bitpie": {
+      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
     }
   },
   "createWallet": {
