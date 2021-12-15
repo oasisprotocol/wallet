@@ -6,6 +6,7 @@ module.exports = {
   options: {
     debug: false,
     removeUnusedKeys: true,
+    sort: true,
     func: {
       list: ['t'],
       extensions: ['js', 'jsx'] // We dont want this extension because we manually check on transform function below
