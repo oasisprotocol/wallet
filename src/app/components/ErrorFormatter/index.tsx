@@ -41,7 +41,7 @@ export function ErrorFormatter(props: Props) {
     ),
     [WalletErrors.LedgerTransactionRejected]: t(
       'errors.ledgerTransactionRejected',
-      'Transaction rejected on Ledger',
+      'Transaction rejected on Ledger.',
     ),
     [WalletErrors.LedgerNoDeviceSelected]: (
       <Trans

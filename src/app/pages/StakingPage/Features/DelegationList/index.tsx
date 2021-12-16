@@ -92,8 +92,8 @@ export const DelegationList = memo((props: Props) => {
     amount: {
       name:
         type === 'active'
-          ? t('delegations.delegatedAmount', 'Delegated Amount')
-          : t('delegations.reclaimedAmount', 'Reclaimed Amount'),
+          ? t('delegations.delegatedAmount', 'Delegated amount')
+          : t('delegations.reclaimedAmount', 'Amount to reclaim'),
       id: 'amount',
       selector: 'amount',
       cell: datum =>

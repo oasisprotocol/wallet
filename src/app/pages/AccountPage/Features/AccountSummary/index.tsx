@@ -90,7 +90,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
-          <Text weight="bold">{t('account.summary.yourAccount', 'This is your account')}</Text>
+          <Text weight="bold">{t('account.summary.yourAccount', 'This is your account.')}</Text>
         </Box>
       )}
       {walletIsOpen && walletAddress !== address && (

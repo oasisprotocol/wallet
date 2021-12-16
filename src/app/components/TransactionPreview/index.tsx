@@ -77,7 +77,7 @@ export const TransactionPreview = memo((props: Props) => {
         value={<AmountFormatter amount={preview.gas!} hideTicker />}
       />
       <ResponsiveGridRow
-        label={t('transaction.preview.genesisHash', 'Genesis Hash')}
+        label={t('transaction.preview.genesisHash', 'Genesis hash')}
         value={
           <Box
             border={{

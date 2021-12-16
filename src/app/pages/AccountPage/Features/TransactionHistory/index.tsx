@@ -49,7 +49,7 @@ export function TransactionHistory(props: Props) {
           background="background-front"
           pad="large"
         >
-          <Heading level="3">{t('account.summary.noTransactionFound', 'No transaction found')}</Heading>
+          <Heading level="3">{t('account.summary.noTransactionFound', 'No transactions found.')}</Heading>
         </Box>
       )}
     </Box>

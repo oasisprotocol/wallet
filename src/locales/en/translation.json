@@ -13,12 +13,12 @@
     },
     "create": {
       "header": "Create new wallet",
-      "description": "Create a brand new wallet to send, receive, stake and swap ROSE tokens",
+      "description": "Create a brand new wallet to send, receive, stake and swap ROSE tokens.",
       "button": "Create wallet"
     }
   },
   "openWallet": {
-    "header": "How do you want to open your wallet ?",
+    "header": "How do you want to open your wallet?",
     "method": {
       "mnemonic": "Mnemonic",
       "privateKey": "Private key",
@@ -56,7 +56,7 @@
   },
   "account": {
     "summary": {
-      "yourAccount": "This is your account",
+      "yourAccount": "This is your account.",
       "notYourAccount": "This is not your account.",
       "balance": {
         "total": "Total balance",
@@ -64,7 +64,7 @@
         "debonding": "Debonding",
         "delegations": "Staked"
       },
-      "noTransactionFound": "No transaction found"
+      "noTransactionFound": "No transactions found."
     },
     "transaction": {
       "transfer": {
@@ -126,14 +126,14 @@
     "unknown": "Unknown error: {{message}}",
     "invalidPrivateKey": "Invalid private key",
     "cannotSendToSelf": "Cannot send to yourself",
-    "invalidNonce": "Invalid Nonce (transaction number)",
+    "invalidNonce": "Invalid nonce (transaction number)",
     "duplicateTransaction": "Duplicate transaction",
     "invalidAddress": "Invalid address",
     "insufficientBalance": "Insufficient balance",
     "noOpenWallet": "",
     "usbTransportError": "USB Transport error: {{message}}. This usually means your browser does not support WebUSB (e.g. Firefox). Try using Chrome and check application permissions.",
     "ledgerAppVersionNotSupported": "Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.",
-    "ledgerTransactionRejected": "Transaction rejected on Ledger",
+    "ledgerTransactionRejected": "Transaction rejected on Ledger.",
     "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected and <0>check common USB connection issues with Ledger</0>.",
     "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.",
     "unknownLedgerError": "Unknown ledger error: {{message}}"
@@ -146,7 +146,7 @@
       "type": {
         "ledger": "Ledger",
         "mnemonic": "Mnemonic",
-        "privateKey": "Private Key"
+        "privateKey": "Private key"
       },
       "switchOtherWallet": "Switch to another wallet",
       "close": "Close"
@@ -182,7 +182,7 @@
       "amount": "Amount",
       "fee": "Fee",
       "gas": "Gas",
-      "genesisHash": "Genesis Hash",
+      "genesisHash": "Genesis hash",
       "validator": "Validator",
       "shares": "Shares"
     },
@@ -211,18 +211,18 @@
       "label": "Commission bounds"
     },
     "boundsNotSet": "No bounds set (0% - 0%)",
-    "totalEscrow": "Total Escrow",
+    "totalEscrow": "Total escrow",
     "unknownValidator": "Unknown validator"
   },
   "delegations": {
-    "delegatedAmount": "Delegated Amount",
+    "delegatedAmount": "Delegated amount",
     "activeDelegations": "Active delegations",
     "debondingDelegations": "Debonding delegations",
-    "reclaimedAmount": "Reclaimed Amount",
-    "debondingEpoch": "Debonding Epoch"
+    "reclaimedAmount": "Amount to reclaim",
+    "debondingEpoch": "Debonding epoch"
   },
   "fatalError": {
-    "instruction": "A fatal unexpected error has occurred and Oasis-wallet must stop. Please copy report this issue below on our <0>github account</0>. You can also try refreshing page to see if the issue persists. Once you leave this page, all of your wallets will be closed.",
+    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. Please file an issue to our <0>github project</0> and attach the report below.",
     "heading": "A fatal error occurred",
     "copy": "Copy error to clipboard",
     "copied": "Error copied to clipboard"
