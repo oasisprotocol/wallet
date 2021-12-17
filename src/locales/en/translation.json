@@ -33,7 +33,7 @@
     },
     "privateKey": {
       "header": "Enter your private key",
-      "instruction": "Enter your base-64 encoded private key",
+      "instruction": "Enter your private key in Base64 format.",
       "error": "Invalid private key",
       "enterPrivateKeyHere": "Enter your private key here"
     },

@@ -53,7 +53,7 @@ export function FromPrivateKey(props: Props) {
       <Form>
         <Heading margin="0">{t('openWallet.privateKey.header', 'Enter your private key')}</Heading>
         <Paragraph>
-          {t('openWallet.privateKey.instruction', 'Enter your base-64 encoded private key')}
+          {t('openWallet.privateKey.instruction', 'Enter your private key in Base64 format.')}
         </Paragraph>
         <FormField
           htmlFor="privateKey"

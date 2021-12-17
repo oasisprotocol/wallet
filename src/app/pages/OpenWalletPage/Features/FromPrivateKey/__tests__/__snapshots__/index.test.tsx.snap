@@ -335,7 +335,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
       <p
         class="c3"
       >
-        Enter your base-64 encoded private key
+        Enter your private key in Base64 format.
       </p>
       <div
         class="c4 "
