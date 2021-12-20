@@ -33,7 +33,7 @@
     },
     "privateKey": {
       "header": "Entrez votre clé privée",
-      "instruction": "Entrez votre clé privée au format base64 ci-dessous",
+      "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
       "error": "Clé privée invalide",
       "enterPrivateKeyHere": "Entrez votre clé privée ici"
     },
@@ -41,6 +41,9 @@
       "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
       "cancel": "Annuler",
       "openWallets": "Ouvrir"
+    },
+    "bitpie": {
+      "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
     }
   },
   "createWallet": {
@@ -48,7 +51,8 @@
     "thisIsYourPhrase": "Voici votre phrase secrète",
     "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
     "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
-    "confirmSaved": "J'ai sauvegardé ma phrase secrète."
+    "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
+    "mnemonicMismatch": "La phrase mnémonique saisie ne correspond pas."
   },
   "account": {
     "summary": {
@@ -76,7 +80,8 @@
       "reclaimEscrow": {
         "received": "<0></0> réclamés par le délégateur",
         "sent": "<0></0> réclamés au validateur"
-      }
+      },
+      "loadingError": "Impossible de charger les transactions. La liste peut être vide ou obsolète."
     },
     "sendTransaction": {
       "recipient": "Destinataire",
@@ -97,6 +102,14 @@
     },
     "reclaimEscrow": {
       "reclaim": "Réclamer"
+    },
+    "otherTransaction": {
+      "header": "Transaction non reconnue, le type '<0></0>'",
+      "designation": "Autre adresse"
+    },
+    "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
+    "validator": {
+      "loadingError": "Impossible de charger les validateurs. La liste peut être vide ou obsolète."
     }
   },
   "common": {
@@ -113,7 +126,7 @@
     "unknown": "Erreur inconnue : {{message}}",
     "invalidPrivateKey": "Clé privée invalide",
     "cannotSendToSelf": "Impossible d'effectuer une transaction vers votre propre compte",
-    "invalidNonce": "Nonce invalide (numéro de transasction)",
+    "invalidNonce": "Nonce invalide (numéro de transaction)",
     "duplicateTransaction": "Transaction doublon",
     "invalidAddress": "Adresse invalide",
     "insufficientBalance": "Solde insuffisant",
