@@ -13,10 +13,10 @@ import { selectActiveWallet } from 'app/state/wallet/selectors'
 import { Text } from 'grommet'
 import { Down, StatusCritical, StatusGood } from 'grommet-icons'
 import React, { memo } from 'react'
-import DataTable, { IDataTableColumn } from 'react-data-table-component'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
+import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
 
 import { DelegationItem } from './DelegationItem'
 
@@ -54,7 +54,7 @@ export const DelegationList = memo((props: Props) => {
   // All possible columns
   const columnTypes: Record<
     'icon' | 'status' | 'name' | 'amount' | 'fee' | 'epoch',
-    IDataTableColumn<Delegation>
+    ITypeSafeDataTableColumn<Delegation>
   > = {
     icon: {
       name: '',
@@ -132,7 +132,7 @@ export const DelegationList = memo((props: Props) => {
       : [columnTypes.icon, columnTypes.name, columnTypes.amount, columnTypes.epoch]
 
   return (
-    <DataTable
+    <TypeSafeDataTable
       noHeader={true}
       columns={columns}
       data={delegations}

@@ -18,10 +18,10 @@ import { selectStatus } from 'app/state/wallet/selectors'
 import { Box, Text } from 'grommet'
 import { Down, StatusCritical, StatusGood } from 'grommet-icons/icons'
 import React, { memo } from 'react'
-import DataTable, { IDataTableColumn } from 'react-data-table-component'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
+import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
 import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
@@ -49,7 +49,7 @@ export const ValidatorList = memo((props: Props) => {
     }
   }
 
-  const columns: IDataTableColumn<Validator>[] = [
+  const columns: ITypeSafeDataTableColumn<Validator>[] = [
     {
       name: '',
       id: 'icon',
@@ -124,7 +124,7 @@ export const ValidatorList = memo((props: Props) => {
           {updateValidatorsError}
         </p>
       )}
-      <DataTable
+      <TypeSafeDataTable
         noHeader={true}
         columns={columns}
         data={validators}
