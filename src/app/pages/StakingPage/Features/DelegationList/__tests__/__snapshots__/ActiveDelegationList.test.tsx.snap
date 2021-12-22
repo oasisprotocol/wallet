@@ -509,26 +509,26 @@ Object {
               >
                 <div
                   class="c14 rdt_TableRow"
-                  id="row-0"
+                  id="row-test-validator"
                   role="row"
                 >
                   <div
                     class="c15 c8 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
-                    id="cell-icon-undefined"
+                    id="cell-icon-test-validator"
                     role="gridcell"
                   >
                     <img
                       alt=""
-                      height="16px"
+                      class="logotype-small"
+                      loading="lazy"
                       src="/logo192.png"
-                      width="16px"
                     />
                   </div>
                   <div
                     class="c15 c8 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
-                    id="cell-status-undefined"
+                    id="cell-status-test-validator"
                     role="gridcell"
                   >
                     <svg
@@ -547,7 +547,7 @@ Object {
                   <div
                     class="c15 c9 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
-                    id="cell-name-undefined"
+                    id="cell-name-test-validator"
                     role="gridcell"
                   >
                     test-validator
@@ -555,7 +555,7 @@ Object {
                   <div
                     class="c15 c9 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
-                    id="cell-amount-undefined"
+                    id="cell-amount-test-validator"
                     role="gridcell"
                   >
                     0.0
@@ -565,7 +565,7 @@ Object {
                   <div
                     class="c15 c12 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
-                    id="cell-fee-undefined"
+                    id="cell-fee-test-validator"
                     role="gridcell"
                   >
                     7.000000000000001%
@@ -710,26 +710,26 @@ Object {
             >
               <div
                 class="sc-jrAFXE XoGWB rdt_TableRow"
-                id="row-0"
+                id="row-test-validator"
                 role="row"
               >
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-icon-undefined"
+                  id="cell-icon-test-validator"
                   role="gridcell"
                 >
                   <img
                     alt=""
-                    height="16px"
+                    class="logotype-small"
+                    loading="lazy"
                     src="/logo192.png"
-                    width="16px"
                   />
                 </div>
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-status-undefined"
+                  id="cell-status-test-validator"
                   role="gridcell"
                 >
                   <svg
@@ -748,7 +748,7 @@ Object {
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-name-undefined"
+                  id="cell-name-test-validator"
                   role="gridcell"
                 >
                   test-validator
@@ -756,7 +756,7 @@ Object {
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-amount-undefined"
+                  id="cell-amount-test-validator"
                   role="gridcell"
                 >
                   0.0
@@ -766,7 +766,7 @@ Object {
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi hSZcZi gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-fee-undefined"
+                  id="cell-fee-test-validator"
                   role="gridcell"
                 >
                   7.000000000000001%
