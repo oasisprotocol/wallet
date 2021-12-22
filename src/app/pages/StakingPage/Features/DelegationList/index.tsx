@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableStyles } from 'styles/theme/ThemeProvider'
 import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
+import { isWebUri } from 'valid-url'
 
 import { DelegationItem } from './DelegationItem'
 
@@ -59,7 +60,18 @@ export const DelegationList = memo((props: Props) => {
     icon: {
       name: '',
       id: 'icon',
-      cell: datum => <img src={process.env.PUBLIC_URL + '/logo192.png'} height="16px" width="16px" alt="" />,
+      cell: datum => (
+        <img
+          src={
+            datum.validator?.media?.logotype && isWebUri(datum.validator?.media.logotype)
+              ? datum.validator?.media.logotype
+              : process.env.PUBLIC_URL + '/logo192.png'
+          }
+          loading="lazy"
+          className={'logotype-small'}
+          alt=""
+        />
+      ),
       width: '34px',
     },
     status: {

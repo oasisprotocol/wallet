@@ -520,9 +520,9 @@ Object {
                   >
                     <img
                       alt=""
-                      height="16px"
+                      class="logotype-small"
+                      loading="lazy"
                       src="/logo192.png"
-                      width="16px"
                     />
                   </div>
                   <div
@@ -721,9 +721,9 @@ Object {
                 >
                   <img
                     alt=""
-                    height="16px"
+                    class="logotype-small"
+                    loading="lazy"
                     src="/logo192.png"
-                    width="16px"
                   />
                 </div>
                 <div
