@@ -52,6 +52,7 @@ export const ValidatorList = memo((props: Props) => {
   const columns: IDataTableColumn<Validator>[] = [
     {
       name: '',
+      id: 'icon',
       cell: datum => (
         <img
           src={
@@ -68,6 +69,7 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: '',
+      id: 'status',
       cell: datum =>
         datum.status === 'active' ? (
           <StatusGood color="status-ok" />
@@ -78,6 +80,7 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: t('validator.name', 'Name'),
+      id: 'name',
       selector: 'name',
       cell: datum =>
         datum.name ?? (
@@ -90,6 +93,7 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: t('validator.escrow', 'Escrow'),
+      id: 'escrow',
       selector: 'escrow',
       hide: 'sm',
       cell: datum =>
@@ -101,6 +105,7 @@ export const ValidatorList = memo((props: Props) => {
     },
     {
       name: t('validator.fee', 'Fee'),
+      id: 'fee',
       selector: 'fee',
       sortable: true,
       width: '110px',
@@ -123,6 +128,7 @@ export const ValidatorList = memo((props: Props) => {
         noHeader={true}
         columns={columns}
         data={validators}
+        keyField="address"
         style={{}}
         customStyles={dataTableStyles}
         expandableRowsHideExpander
