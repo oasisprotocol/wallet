@@ -19,6 +19,7 @@
   "jest.showCoverageOnLoad": true,
   "typescriptHero.imports.insertSemicolons": false,
   "files.exclude": {
+    "**/__snapshots__/": true,
     "cypress-coverage/": true,
     "build/": true
   }
