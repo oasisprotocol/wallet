@@ -59,6 +59,7 @@ export const ValidatorList = memo((props: Props) => {
               ? datum.media.logotype
               : process.env.PUBLIC_URL + '/logo192.png'
           }
+          loading="lazy"
           className={'logotype-small'}
           alt=""
         />
