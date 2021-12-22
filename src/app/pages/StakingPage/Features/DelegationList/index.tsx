@@ -136,6 +136,7 @@ export const DelegationList = memo((props: Props) => {
       noHeader={true}
       columns={columns}
       data={delegations}
+      keyField="validatorAddress"
       style={{}}
       customStyles={dataTableStyles}
       expandableRowsHideExpander
