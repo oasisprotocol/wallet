@@ -150,7 +150,7 @@
     "inquirer-directory": "2.2.0",
     "jest-styled-components": "7.0.5",
     "jest-when": "3.4.2",
-    "lint-staged": "12.1.2",
+    "lint-staged": "12.1.4",
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
     "plop": "2.7.6",
