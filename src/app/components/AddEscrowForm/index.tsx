@@ -82,7 +82,7 @@ export const AddEscrowForm = memo((props: Props) => {
             label={t('account.addEscrow.delegate', 'Delegate')}
             type="submit"
             primary
-            style={{ borderRadius: '4px', height: '44px' }}
+            style={{ borderRadius: '4px', height: '46px' }}
           />
         </Box>
       </Box>
