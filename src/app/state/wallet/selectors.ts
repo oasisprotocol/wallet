@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit'
+import { parseBigIntToString } from 'app/lib/helpers'
 
 import { RootState } from 'types'
 import { initialState } from '.'
@@ -17,4 +18,7 @@ export const selectWallets = createSelector([selectSlice], state => state.wallet
 export const selectAddress = createSelector([selectActiveWallet], wallet => wallet?.address ?? '')
 export const selectPublicKey = createSelector([selectActiveWallet], wallet => wallet?.publicKey ?? '')
 export const selectBalance = createSelector([selectActiveWallet], wallet => wallet?.balance)
+export const selectAvailableBalanceStringValue = createSelector([selectBalance], balance =>
+  balance?.available ? parseBigIntToString(balance.available) : '',
+)
 export const selectStatus = createSelector([selectSlice], wallet => wallet.isOpen)

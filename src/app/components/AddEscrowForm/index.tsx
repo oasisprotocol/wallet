@@ -3,11 +3,13 @@
  * AddEscrowForm
  *
  */
+import { AmountTextInput } from 'app/components/AmountTextInput'
 import { selectMinStaking } from 'app/state/network/selectors'
 import { useTransactionSlice } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { Box, Button, Form, TextInput } from 'grommet'
-import React, { memo, useEffect, useState } from 'react'
+import { selectAvailableBalanceStringValue } from 'app/state/wallet/selectors'
+import { Box, Button, Form } from 'grommet'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -17,23 +19,40 @@ interface Props {
   validatorAddress: string
 }
 
+interface AddEscrowFormState {
+  amount: string
+}
+
+const initialAddEscrowFormState = {
+  amount: '',
+}
+
 export const AddEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
   const actions = useTransactionSlice().actions
   const { error, success } = useSelector(selectTransaction)
-  const [amount, setAmount] = useState('')
+  const availableBalance = useSelector(selectAvailableBalanceStringValue)
+  const [formValues, setFormValues] = useState<AddEscrowFormState>(initialAddEscrowFormState)
   const dispatch = useDispatch()
   const minStaking = useSelector(selectMinStaking)
 
-  const submit = () => {
+  const onSubmit = ({ value }) => {
     dispatch(
       actions.addEscrow({
         type: 'addEscrow',
-        amount: Number(amount),
+        amount: Number(value.amount),
         validator: props.validatorAddress,
       }),
     )
   }
+
+  const handleMaxValue = useCallback(
+    () =>
+      setFormValues({
+        amount: availableBalance,
+      }),
+    [availableBalance],
+  )
 
   useEffect(() => {
     return () => {
@@ -42,28 +61,30 @@ export const AddEscrowForm = memo((props: Props) => {
   }, [dispatch, actions])
 
   return (
-    <Form onSubmit={submit}>
+    <Form<AddEscrowFormState>
+      onSubmit={onSubmit}
+      validate="submit"
+      onChange={values => setFormValues(values)}
+      value={formValues}
+    >
       <Box direction="row" gap="small" pad={{ top: 'small' }}>
-        <Box background="background-front">
-          <TextInput
-            data-testid="amount"
-            id="amount-id"
-            name="amount"
-            placeholder={t('common.amount')}
-            type="number"
-            step="any"
+        <Box>
+          <AmountTextInput
+            disabled={!!availableBalance}
+            placeholder={t('common.amount', 'Amount')}
+            handleMaxValue={handleMaxValue}
             min={minStaking}
-            value={amount}
-            onChange={event => setAmount(event.target.value)}
-            required
+            inline={true}
           />
         </Box>
-        <Button
-          label={t('account.addEscrow.delegate', 'Delegate')}
-          type="submit"
-          primary
-          style={{ borderRadius: '4px' }}
-        />
+        <Box>
+          <Button
+            label={t('account.addEscrow.delegate', 'Delegate')}
+            type="submit"
+            primary
+            style={{ borderRadius: '4px', height: '46px' }}
+          />
+        </Box>
       </Box>
       <TransactionStatus error={error} success={success} />
     </Form>
