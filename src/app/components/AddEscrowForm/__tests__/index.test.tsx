@@ -40,7 +40,7 @@ describe('<AddEscrowForm />', () => {
     renderComponent(store, 'dummy-address')
 
     userEvent.type(screen.getByTestId('amount'), '1000')
-    userEvent.click(screen.getByRole('button'))
+    userEvent.click(screen.getByRole('button', { name: /delegate/ }))
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()
   })

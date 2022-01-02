@@ -80,7 +80,7 @@ export function SendTransaction() {
             />
           </FormField>
           <AmountTextInput
-            disabled={!!availableBalance}
+            disabled={Number(availableBalance) === 0}
             label={t('common.amount', 'Amount')}
             handleMaxValue={handleMaxValue}
           />

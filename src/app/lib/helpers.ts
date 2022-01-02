@@ -50,3 +50,5 @@ export function concat(...parts: Uint8Array[]) {
 }
 
 export const parseNumberToBigInt = (value: number) => BigInt(Math.round(value * 10 ** 9))
+
+export var parseBigIntToString = (value: string) => (Number(value) / 10 ** 9).toString()

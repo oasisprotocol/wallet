@@ -70,7 +70,7 @@ export const AddEscrowForm = memo((props: Props) => {
       <Box direction="row" gap="small" pad={{ top: 'small' }}>
         <Box>
           <AmountTextInput
-            disabled={!!availableBalance}
+            disabled={Number(availableBalance) === 0}
             placeholder={t('common.amount', 'Amount')}
             handleMaxValue={handleMaxValue}
             min={minStaking}
@@ -82,7 +82,7 @@ export const AddEscrowForm = memo((props: Props) => {
             label={t('account.addEscrow.delegate', 'Delegate')}
             type="submit"
             primary
-            style={{ borderRadius: '4px', height: '46px' }}
+            style={{ borderRadius: '4px', height: '44px' }}
           />
         </Box>
       </Box>
