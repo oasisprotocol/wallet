@@ -5,6 +5,7 @@
  */
 import React from 'react'
 import { Box, Button, FormField, TextInput } from 'grommet'
+import { useTranslation } from 'react-i18next'
 
 interface Props {
   disabled: boolean
@@ -30,6 +31,8 @@ export function AmountTextInput({
   min = 0,
   placeholder = '0',
 }: Props) {
+  const { t } = useTranslation()
+
   return (
     <>
       <FormField
@@ -39,7 +42,7 @@ export function AmountTextInput({
         name="amount"
         validate={{
           regexp: /^\d*((\.|,)\d{0,9})?$/,
-          message: 'Accepts numbers with 9 decimal precision',
+          message: t('errors.invalidAmount', 'Amount'),
         }}
       >
         <TextInput

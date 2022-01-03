@@ -126,6 +126,7 @@
     "unknown": "Unknown error: {{message}}",
     "invalidPrivateKey": "Invalid private key",
     "cannotSendToSelf": "Cannot send to yourself",
+    "invalidAmount": "Accepts numbers with 9 decimal precision",
     "invalidNonce": "Invalid nonce (transaction number)",
     "duplicateTransaction": "Duplicate transaction",
     "invalidAddress": "Invalid address",
