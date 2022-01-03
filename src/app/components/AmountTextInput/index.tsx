@@ -8,12 +8,12 @@ import { Box, Button, FormField, TextInput } from 'grommet'
 
 interface Props {
   disabled: boolean
-  label?: string
-  min?: number
-  max?: number
-  placeholder?: string
   handleMaxValue: () => void
   inline?: boolean
+  label?: string
+  max?: number
+  min?: number
+  placeholder?: string
 }
 
 const contentProps = {
@@ -23,36 +23,36 @@ const contentProps = {
 
 export function AmountTextInput({
   disabled,
-  label,
-  min = 0,
-  max,
   handleMaxValue,
-  placeholder = '0',
   inline = false,
+  label,
+  max,
+  min = 0,
+  placeholder = '0',
 }: Props) {
   return (
     <>
       <FormField
+        contentProps={inline ? contentProps : {}}
         htmlFor="amount-id"
-        name="amount"
         label={label}
+        name="amount"
         validate={{
           regexp: /^\d*((\.|,)\d{0,9})?$/,
           message: 'Accepts numbers with 9 decimal precision',
         }}
-        contentProps={inline ? contentProps : {}}
       >
         <TextInput
           data-testid="amount"
           id="amount-id"
           lang="en-US"
+          max={max}
+          min={min}
           name="amount"
           placeholder={placeholder}
-          type="number"
-          step="any"
-          min={min}
-          max={max}
           required
+          step="any"
+          type="number"
         />
       </FormField>
       <Box justify="end" align="flex-end">
