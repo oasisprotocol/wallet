@@ -517,14 +517,7 @@ Object {
                     data-tag="allowRowEvents"
                     id="cell-icon-test-validator"
                     role="gridcell"
-                  >
-                    <img
-                      alt=""
-                      class="logotype-small"
-                      loading="lazy"
-                      src="/logo192.png"
-                    />
-                  </div>
+                  />
                   <div
                     class="c15 c8 c16 rdt_TableCell"
                     data-tag="allowRowEvents"
@@ -718,14 +711,7 @@ Object {
                   data-tag="allowRowEvents"
                   id="cell-icon-test-validator"
                   role="gridcell"
-                >
-                  <img
-                    alt=""
-                    class="logotype-small"
-                    loading="lazy"
-                    src="/logo192.png"
-                  />
-                </div>
+                />
                 <div
                   class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
                   data-tag="allowRowEvents"
