@@ -1,11 +1,12 @@
 import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
-import { Box, Grid, ResponsiveContext, Text } from 'grommet'
+import { Anchor, Box, Grid, ResponsiveContext, Text } from 'grommet'
 import * as QRCode from 'qrcode.react'
 import * as React from 'react'
 import { useContext } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'
@@ -111,6 +112,29 @@ export function AccountSummary(props: AccountSummaryProps) {
               'account.summary.notYourAccount',
               'This is not your account. Click here to go to your open wallet.',
             )}
+          </Text>
+        </Box>
+      )}
+      {!walletIsOpen && (
+        <Box
+          border={{
+            color: 'status-warning',
+            side: 'left',
+            size: '3px',
+          }}
+          background={{
+            color: 'status-warning',
+            opacity: 0.2,
+          }}
+          pad={{ horizontal: 'small', vertical: 'xsmall' }}
+        >
+          <Text weight="bold">
+            <Trans
+              i18nKey="account.summary.noWalletIsOpen"
+              t={t}
+              components={[<Link to="/" component={Anchor} />]}
+              defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
+            />
           </Text>
         </Box>
       )}
