@@ -18,7 +18,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useHistory, useLocation } from 'react-router-dom'
+import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 
 interface SidebarButtonProps extends ButtonExtendedProps {
@@ -96,14 +96,16 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
   return (
     <Box
       align="center"
-      gap="small"
-      direction="row"
       margin={{ bottom: size !== 'small' ? 'medium' : undefined }}
       pad="medium"
       alignSelf={size === 'large' ? undefined : 'center'}
     >
-      <Avatar src={process.env.PUBLIC_URL + '/logo192.png'} size={sizeLogo[size]} />
-      {size !== 'medium' && <Text>Oasis Wallet</Text>}
+      <Link to="/">
+        <Box align="center" direction="row" gap="small">
+          <Avatar src={process.env.PUBLIC_URL + '/logo192.png'} size={sizeLogo[size]} />
+          {size !== 'medium' && <Text>Oasis Wallet</Text>}
+        </Box>
+      </Link>
     </Box>
   )
 }
