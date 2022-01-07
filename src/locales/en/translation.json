@@ -58,6 +58,7 @@
     "summary": {
       "yourAccount": "This is your account.",
       "notYourAccount": "This is not your account.",
+      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
       "balance": {
         "total": "Total balance",
         "available": "Available",
