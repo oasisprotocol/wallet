@@ -53,18 +53,11 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: '',
       id: 'icon',
-      cell: datum => (
-        <img
-          src={
-            datum.media?.logotype && isWebUri(datum.media.logotype)
-              ? datum.media.logotype
-              : process.env.PUBLIC_URL + '/logo192.png'
-          }
-          loading="lazy"
-          className={'logotype-small'}
-          alt=""
-        />
-      ),
+      cell: datum =>
+        datum.media?.logotype &&
+        isWebUri(datum.media.logotype) && (
+          <img src={datum.media.logotype} loading="lazy" className={'logotype-small'} alt="" />
+        ),
       width: '34px',
     },
     {

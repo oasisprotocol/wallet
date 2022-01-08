@@ -60,18 +60,11 @@ export const DelegationList = memo((props: Props) => {
     icon: {
       name: '',
       id: 'icon',
-      cell: datum => (
-        <img
-          src={
-            datum.validator?.media?.logotype && isWebUri(datum.validator?.media.logotype)
-              ? datum.validator?.media.logotype
-              : process.env.PUBLIC_URL + '/logo192.png'
-          }
-          loading="lazy"
-          className={'logotype-small'}
-          alt=""
-        />
-      ),
+      cell: datum =>
+        datum.validator?.media?.logotype &&
+        isWebUri(datum.validator?.media.logotype) && (
+          <img src={datum.validator?.media.logotype} loading="lazy" className={'logotype-small'} alt="" />
+        ),
       width: '34px',
     },
     status: {
