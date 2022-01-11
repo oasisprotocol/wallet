@@ -89,6 +89,10 @@
       "designation": "Other address"
     },
     "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
+        "title": "Are you sure you want to continue?"
+      },
       "recipient": "Recipient",
       "enterAddress": "Enter an address",
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account.",
@@ -121,6 +125,7 @@
     "delegator": "Delegator",
     "validator": "Validator",
     "cancel": "Cancel",
+    "confirm": "Confirm",
     "validators": "Validators"
   },
   "errors": {
