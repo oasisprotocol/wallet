@@ -1,6 +1,8 @@
 import { TransactionStatus } from 'app/components/TransactionStatus'
+import { useModal } from 'app/components/Modal'
 import { useTransactionSlice } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
+import { selectValidators } from 'app/state/staking/selectors'
 import { Box, Button, Form, FormField, TextInput } from 'grommet'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
@@ -10,12 +12,13 @@ import { useDispatch, useSelector } from 'react-redux'
 export function SendTransaction() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const { launchModal } = useModal()
   const transactionActions = useTransactionSlice().actions
   const { error, success } = useSelector(selectTransaction)
+  const validators = useSelector(selectValidators)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
-
-  const onSubmit = () => {
+  const sendTransaction = () =>
     dispatch(
       transactionActions.sendTransaction({
         type: 'transfer',
@@ -23,6 +26,17 @@ export function SendTransaction() {
         to: recipient.replaceAll(' ', ''),
       }),
     )
+  const onSubmit = () => {
+    if (validators?.some(validator => validator.address === recipient)) {
+      launchModal({
+        description: t('account.sendTransaction.confirmSendingToValidator.description'),
+        handleConfirm: sendTransaction,
+        title: t('account.sendTransaction.confirmSendingToValidator.title'),
+        isDangerous: true,
+      })
+    } else {
+      sendTransaction()
+    }
   }
 
   // On successful transaction, clear the fields
