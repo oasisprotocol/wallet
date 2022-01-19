@@ -1099,12 +1099,12 @@ exports[`<Transaction  /> should match snapshot 1`] = `
       class="c2"
     >
       <svg
-        aria-label="Transaction"
+        aria-label="LinkPrevious"
         class="c3"
         viewBox="0 0 24 24"
       >
         <path
-          d="M2 7h18m-4-5 5 5-5 5m6 5H4m4-5-5 5 5 5"
+          d="M22 12H2m9-9-9 9 9 9"
           fill="none"
           stroke="#000"
           stroke-width="2"
