@@ -9,9 +9,11 @@ import {
   ContactInfo,
   Cube,
   Money,
+  LineChart,
   New,
   ShareOption,
-  Transaction as TxIcon,
+  LinkPrevious,
+  LinkNext,
 } from 'grommet-icons/icons'
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -81,7 +83,7 @@ export function Transaction(props: TransactionProps) {
     [TransactionType.Transfer]: {
       [TransactionSide.Received]: {
         designation: t('common.from', 'From'),
-        icon: () => <TxIcon />,
+        icon: () => <LinkPrevious />,
         header: () => (
           <Trans
             i18nKey="account.transaction.transfer.received"
@@ -93,7 +95,7 @@ export function Transaction(props: TransactionProps) {
       },
       [TransactionSide.Sent]: {
         designation: t('common.to', 'To'),
-        icon: () => <TxIcon />,
+        icon: () => <LinkNext />,
         header: () => (
           <Trans
             i18nKey="account.transaction.transfer.sent.header"
@@ -107,7 +109,7 @@ export function Transaction(props: TransactionProps) {
     [TransactionType.AddEscrow]: {
       [TransactionSide.Received]: {
         designation: t('common.delegator', 'Delegator'),
-        icon: () => <Money />,
+        icon: () => <LineChart />,
         header: () => (
           <Trans
             i18nKey="account.transaction.addEscrow.received"
@@ -119,7 +121,7 @@ export function Transaction(props: TransactionProps) {
       },
       [TransactionSide.Sent]: {
         designation: t('common.validator', 'Validator'),
-        icon: () => <Money />,
+        icon: () => <LineChart />,
         header: () => (
           <Trans
             i18nKey="account.transaction.addEscrow.sent"
