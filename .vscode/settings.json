@@ -20,6 +20,7 @@
   "typescriptHero.imports.insertSemicolons": false,
   "files.exclude": {
     "**/__snapshots__/": true,
+    ".nyc_output/": true,
     "cypress-coverage/": true,
     "build/": true
   }

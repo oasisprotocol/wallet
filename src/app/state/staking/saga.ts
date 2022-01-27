@@ -96,6 +96,8 @@ function* refreshValidators() {
   const currentEpoch = yield* select(selectEpoch)
 
   const payload: Validator[] = validators
+    // Always clone before sort so it doesn't mutate source
+    .slice()
     .sort((a, b) => b.escrow_balance - a.escrow_balance)
     .map((v, index) => {
       return {
@@ -119,6 +121,8 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
       epochStart: r.start ? Number(r.start) : 0,
       rate: Number(r.rate!) / 100_000,
     }))
+    // Always clone before sort so it doesn't mutate source
+    .slice()
     .sort((a, b) => a.epochStart - b.epochStart)
     // If we have another bound after this one, attach the epochEnd to this one
     .map((b, i, array) => ({
@@ -152,6 +156,8 @@ function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
       lower: b.rate_min ? Number(quantity.toBigInt(b.rate_min)) / 100_000 : 0,
       upper: b.rate_max ? Number(quantity.toBigInt(b.rate_max)) / 100_000 : 0,
     }))
+    // Always clone before sort so it doesn't mutate source
+    .slice()
     .sort((a, b) => a.epochStart - b.epochStart)
     // If we have another bound after this one, attach the epochEnd to this one
     .map((b, i, array) => ({

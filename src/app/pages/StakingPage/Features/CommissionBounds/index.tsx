@@ -56,6 +56,8 @@ export const CommissionBounds = memo((props: Props) => {
 
   if (props.bounds && props.bounds.length > 0) {
     const items = props.bounds
+      // Always clone before sort so it doesn't mutate source
+      .slice()
       .sort((a, b) => a.epochStart - b.epochStart)
       .map((b, i) => <CommissionBound bound={b} key={i} />)
     return <>{items}</>
