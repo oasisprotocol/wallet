@@ -64,6 +64,7 @@ export function FromPrivateKey(props: Props) {
           htmlFor="privateKey"
           error={privateKeyIsValid === false ? t('openWallet.privateKey.error', 'Invalid private key') : ''}
           border
+          contentProps={{ border: privateKeyIsValid ? false : 'bottom' }}
           round="small"
           width="xlarge"
         >
