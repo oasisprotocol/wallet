@@ -65,9 +65,9 @@ export function FromPrivateKey(props: Props) {
           error={privateKeyIsValid === false ? t('openWallet.privateKey.error', 'Invalid private key') : ''}
           border
           round="small"
-          width="large"
+          width="xlarge"
         >
-          <Box border={false} direction="row" round="small">
+          <Box direction="row" align="center">
             <TextInput
               id="privatekey"
               data-testid="privatekey"
