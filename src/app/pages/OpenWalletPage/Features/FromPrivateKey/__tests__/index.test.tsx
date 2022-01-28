@@ -30,8 +30,8 @@ describe('<FromPrivateKey  />', () => {
 
   it('should display an error on invalid private key', () => {
     renderPage(store)
-    const textbox = screen.getByRole('textbox')
-    const button = screen.getByRole('button')
+    const textbox = screen.getByLabelText(/Enter your private key/)
+    const button = screen.getByRole('button', { name: /Open my wallet/ })
     userEvent.type(textbox, 'hello')
     userEvent.click(button)
     const errorElem = screen.getByText(/Invalid private key/)
