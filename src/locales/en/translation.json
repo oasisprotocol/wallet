@@ -35,7 +35,9 @@
       "header": "Enter your private key",
       "instruction": "Enter your private key in Base64 format.",
       "error": "Invalid private key",
-      "enterPrivateKeyHere": "Enter your private key here"
+      "enterPrivateKeyHere": "Enter your private key here",
+      "hidePrivateKey": "Hide private key",
+      "showPrivateKey": "Show private key"
     },
     "ledger": {
       "selectWallets": "Select the wallets to open",

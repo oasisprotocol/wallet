@@ -1,5 +1,6 @@
 import { useWalletSlice } from 'app/state/wallet'
-import { Box, Form, Heading, Paragraph, FormField, TextArea, Button } from 'grommet'
+import { Box, Form, Heading, Paragraph, FormField, Button, TextInput, Tip } from 'grommet'
+import { View, Hide } from 'grommet-icons'
 import { decode } from 'base64-arraybuffer'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
@@ -12,9 +13,10 @@ interface Props {}
 const parseKey = (key: string) => {
   try {
     const keyWithoutEnvelope = key
-      .replace(/^-----.*$\n?/gm, '')
       .replace(/\n/gm, '')
       .replace(/ /g, '')
+      .replace(/^-----.*?-----/, '')
+      .replace(/-----.*?-----$/, '')
 
     const key_bytes = decode(keyWithoutEnvelope)
     return OasisKey.fromPrivateKey(new Uint8Array(key_bytes))
@@ -30,6 +32,7 @@ export function FromPrivateKey(props: Props) {
 
   const [privateKey, setPrivateKey] = React.useState('')
   const [privateKeyIsValid, setPrivateKeyIsValid] = React.useState(true)
+  const [privateKeyIsVisible, setPrivateKeyIsVisible] = React.useState(false)
 
   const onChange = event => setPrivateKey(event.target.value)
   const onSubmit = () => {
@@ -53,20 +56,40 @@ export function FromPrivateKey(props: Props) {
       <Form>
         <Heading margin="0">{t('openWallet.privateKey.header', 'Enter your private key')}</Heading>
         <Paragraph>
-          {t('openWallet.privateKey.instruction', 'Enter your private key in Base64 format.')}
+          <label htmlFor="privatekey">
+            {t('openWallet.privateKey.instruction', 'Enter your private key in Base64 format.')}
+          </label>
         </Paragraph>
         <FormField
           htmlFor="privateKey"
           error={privateKeyIsValid === false ? t('openWallet.privateKey.error', 'Invalid private key') : ''}
+          border
+          contentProps={{ border: privateKeyIsValid ? false : 'bottom' }}
+          round="small"
+          width="xlarge"
         >
-          <Box border={false}>
-            <TextArea
+          <Box direction="row" align="center">
+            <TextInput
               id="privatekey"
               data-testid="privatekey"
               placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
               value={privateKey}
               onChange={onChange}
+              type={privateKeyIsVisible ? 'text' : 'password'}
+              plain
             />
+            <Tip
+              content={
+                privateKeyIsVisible
+                  ? t('openWallet.privateKey.hidePrivateKey', 'Hide private key')
+                  : t('openWallet.privateKey.showPrivateKey', 'Show private key')
+              }
+            >
+              <Button
+                onClick={() => setPrivateKeyIsVisible(!privateKeyIsVisible)}
+                icon={privateKeyIsVisible ? <View /> : <Hide />}
+              />
+            </Tip>
           </Box>
         </FormField>
         <Box pad={{ vertical: 'medium' }}>

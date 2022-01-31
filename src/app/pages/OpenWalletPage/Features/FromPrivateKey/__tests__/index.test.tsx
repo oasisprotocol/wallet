@@ -30,20 +30,37 @@ describe('<FromPrivateKey  />', () => {
 
   it('should display an error on invalid private key', () => {
     renderPage(store)
-    const textbox = screen.getByRole('textbox')
-    const button = screen.getByRole('button')
+    const textbox = screen.getByLabelText(/Enter your private key/)
+    const button = screen.getByRole('button', { name: /Open my wallet/ })
     userEvent.type(textbox, 'hello')
     userEvent.click(button)
     const errorElem = screen.getByText(/Invalid private key/)
     expect(errorElem).toBeInTheDocument()
 
     // A valid phrase should remove the error
-    textbox.setSelectionRange(0, 5)
+    userEvent.clear(textbox)
     userEvent.type(
       textbox,
       'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
     )
     userEvent.click(button)
+    expect(errorElem).not.toBeInTheDocument()
+  })
+
+  it('should allow multiline private keys with envelope', async () => {
+    renderPage(store)
+    const textbox = screen.getByLabelText(/Enter your private key/)
+    const button = screen.getByRole('button', { name: /Open my wallet/ })
+    userEvent.type(
+      textbox,
+      `
+      -----BEGIN ED25519 PRIVATE KEY-----
+      ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN
+      4MEkyO0pi7lJeunILQKiZA==
+      -----END ED25519 PRIVATE KEY-----`,
+    )
+    userEvent.click(button)
+    const errorElem = screen.queryByText(/Invalid private key/)
     expect(errorElem).not.toBeInTheDocument()
   })
 })

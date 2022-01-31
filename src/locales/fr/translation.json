@@ -35,7 +35,9 @@
       "header": "Entrez votre clé privée",
       "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
       "error": "Clé privée invalide",
-      "enterPrivateKeyHere": "Entrez votre clé privée ici"
+      "enterPrivateKeyHere": "Entrez votre clé privée ici",
+      "hidePrivateKey": "Masquer la clé privée",
+      "showPrivateKey": "Montrer la clé privée"
     },
     "ledger": {
       "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
