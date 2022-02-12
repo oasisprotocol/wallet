@@ -14,6 +14,7 @@ export enum WalletErrors {
   DuplicateTransaction = 'duplicate_transaction',
   NoOpenWallet = 'no_open_wallet',
   USBTransportError = 'usb_transport_error',
+  USBTransportNotSupported = 'usb_transport_not_supported',
   LedgerUnknownError = 'unknown_ledger_error',
   LedgerCannotOpenOasisApp = 'cannot_open_oasis_app',
   LedgerNoDeviceSelected = 'no_device_selected',

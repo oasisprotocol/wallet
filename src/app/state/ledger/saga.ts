@@ -17,6 +17,10 @@ function* setStep(step: LedgerStep) {
 }
 
 function* getUSBTransport() {
+  const isSupported = yield* call([TransportWebUSB, TransportWebUSB.isSupported])
+  if (!isSupported) {
+    throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
+  }
   try {
     const transport = yield* call([TransportWebUSB, TransportWebUSB.create])
     return transport

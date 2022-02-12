@@ -28,13 +28,13 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.InvalidNonce]: t('errors.invalidNonce'),
     [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction'),
     [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet'),
-    [WalletErrors.USBTransportError]: t(
-      'errors.usbTransportError',
-      'USB Transport error: {{message}}. This usually means your browser does not support WebUSB (e.g. Firefox). Try using Chrome and check application permissions.',
-      {
-        message,
-      },
+    [WalletErrors.USBTransportNotSupported]: t(
+      'errors.usbTransportNotSupported',
+      'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',
     ),
+    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error: {{message}}.', {
+      message,
+    }),
     [WalletErrors.LedgerAppVersionNotSupported]: t(
       'errors.ledgerAppVersionNotSupported',
       'Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.',
@@ -47,13 +47,14 @@ export function ErrorFormatter(props: Props) {
       <Trans
         i18nKey="errors.ledgerNoDeviceSelected"
         t={t}
-        defaults="No Ledger device selected. Make sure it is connected and <0>check common USB connection issues with Ledger</0>."
+        defaults="No Ledger device selected. Make sure it is connected, <0>check common USB connection issues with Ledger</0>, and <1>check site permissions don't block USB devices</1>."
         components={[
           <Anchor
             href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
             target="_blank"
             rel="noopener"
           />,
+          <Anchor href="https://support.google.com/chrome/answer/114662" target="_blank" rel="noopener" />,
         ]}
       />
     ),
