@@ -49,7 +49,7 @@ describe('Ledger Library', () => {
     it('Should catch Cannot open Oasis app', async () => {
       mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 26628 })
+      pubKey.mockResolvedValueOnce({ return_code: 0x6804 })
 
       const accounts = Ledger.enumerateAccounts({})
       expect(accounts).rejects.toThrowError(WalletError)
@@ -59,7 +59,7 @@ describe('Ledger Library', () => {
     it('Should catch App version not supported', async () => {
       mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 25600 })
+      pubKey.mockResolvedValueOnce({ return_code: 0x6400 })
 
       const accounts = Ledger.enumerateAccounts({})
       expect(accounts).rejects.toThrowError(WalletError)
@@ -120,7 +120,7 @@ describe('Ledger Library', () => {
 
     it('Should throw if the transaction was rejected', () => {
       const sign: jest.Mock<any> = OasisApp.prototype.sign
-      sign.mockResolvedValueOnce({ return_code: 27014 })
+      sign.mockResolvedValueOnce({ return_code: 0x6986 })
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
