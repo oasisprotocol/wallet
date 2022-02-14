@@ -57,6 +57,20 @@ export function FromLedger(props: FromLedgerProps) {
     >
       <Heading margin={{ top: '0' }}>{t('openWallet.ledger.header', 'Open from Ledger device')}</Heading>
 
+      <Heading level="3" margin="0">
+        {t('ledger.instructionSteps.header', 'Steps:')}
+      </Heading>
+      <ol>
+        <li>{t('ledger.instructionSteps.connectLedger', 'Connect your Ledger device to the computer')}</li>
+        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the computer')}</li>
+        <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis App on your Ledger device')}</li>
+        <li>
+          {t(
+            'ledger.instructionSteps.confirmPendingReview',
+            'Press both buttons on Ledger device to confirm `Pending Ledger review`',
+          )}
+        </li>
+      </ol>
       <Box direction="row" margin={{ top: 'medium' }}>
         <Button
           type="submit"
