@@ -110,7 +110,7 @@ describe('OasisTransaction', () => {
       spy.mockRejectedValueOnce({ metadata: { 'grpc-message': 'transaction: invalid nonce' } })
 
       const call = OasisTransaction.submit(nic, tw)
-      expect(call).rejects.toThrow(/Invalid nonce/)
+      await expect(call).rejects.toThrow(/Invalid nonce/)
     })
   })
 })
