@@ -20,6 +20,7 @@ describe('Ledger Sagas', () => {
 
       return expectSaga(ledgerSaga)
         .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
           [matchers.call.fn(Ledger.enumerateAccounts), [validAccount]],
           [matchers.call.fn(getBalance), {}],
@@ -30,9 +31,21 @@ describe('Ledger Sagas', () => {
         .run(50)
     })
 
+    it('should handle unsupported browsers', async () => {
+      return expectSaga(ledgerSaga)
+        .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), false],
+          [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
+        ])
+        .dispatch(ledgerActions.enumerateAccounts())
+        .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
+        .run(50)
+    })
+
     it('should handle transport errors', async () => {
       return expectSaga(ledgerSaga)
         .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
         .dispatch(ledgerActions.enumerateAccounts())
@@ -42,7 +55,10 @@ describe('Ledger Sagas', () => {
 
     it('should bubble-up USB unknown errors', async () => {
       return expectSaga(ledgerSaga)
-        .provide([[matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))]])
+        .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
+          [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
+        ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
         .run(50)
@@ -51,6 +67,7 @@ describe('Ledger Sagas', () => {
     it('should bubble-up other unknown errors', async () => {
       return expectSaga(ledgerSaga)
         .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
           [matchers.call.fn(Ledger.enumerateAccounts), Promise.reject(new Error('Dummy error'))],
         ])
@@ -68,6 +85,7 @@ describe('Ledger Sagas', () => {
       return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
         .withState({ network: {} })
         .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.resolve()],
         ])
@@ -82,6 +100,7 @@ describe('Ledger Sagas', () => {
       return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
         .withState({ network: {} })
         .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject()],
         ])

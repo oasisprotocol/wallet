@@ -38,6 +38,10 @@ export class Ledger {
 
     try {
       const app = new OasisApp(transport)
+      const appInfo = successOrThrow(await app.appInfo(), 'ledger app info')
+      if (appInfo.appName !== 'Oasis') {
+        throw new WalletError(WalletErrors.LedgerOasisAppIsNotOpen, 'Oasis App is not open')
+      }
       for (let i = 0; i < count; i++) {
         const path = [44, 474, 0, 0, i]
         const publicKeyResponse = successOrThrow(await app.publicKey(path), 'ledger public key')

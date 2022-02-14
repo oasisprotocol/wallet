@@ -5,13 +5,37 @@ import { Wallet, WalletType } from 'app/state/wallet/types'
 
 jest.mock('@oasisprotocol/ledger')
 
+function mockAppIsOpen(appName) {
+  const appInfo: jest.Mock<any> = OasisApp.prototype.appInfo
+  appInfo.mockResolvedValueOnce({ appName: appName, return_code: 0x9000 })
+}
+
 describe('Ledger Library', () => {
   afterEach(() => {
     jest.resetAllMocks()
   })
 
   describe('Ledger', () => {
+    it('enumerateAccounts should pass when Oasis App is open', async () => {
+      mockAppIsOpen('Oasis')
+      const accounts = Ledger.enumerateAccounts({}, 0)
+      await expect(accounts).resolves.toEqual([])
+    })
+
+    it('Should catch "Oasis App is not open"', async () => {
+      mockAppIsOpen('BOLOS')
+      const accountsMainMenu = Ledger.enumerateAccounts({}, 0)
+      await expect(accountsMainMenu).rejects.toThrowError(WalletError)
+      await expect(accountsMainMenu).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
+
+      mockAppIsOpen('Ethereum')
+      const accountsEth = Ledger.enumerateAccounts({}, 0)
+      await expect(accountsEth).rejects.toThrowError(WalletError)
+      await expect(accountsEth).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
+    })
+
     it('Should enumerate and return the accounts', async () => {
+      mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([1, 2, 3])) })
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([4, 5, 6])) })
@@ -23,6 +47,7 @@ describe('Ledger Library', () => {
     })
 
     it('Should catch Cannot open Oasis app', async () => {
+      mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 26628 })
 
@@ -32,6 +57,7 @@ describe('Ledger Library', () => {
     })
 
     it('Should catch App version not supported', async () => {
+      mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 25600 })
 
@@ -41,6 +67,7 @@ describe('Ledger Library', () => {
     })
 
     it('Should catch ledger unknown errors', async () => {
+      mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: -1, error_message: 'unknown dummy error' })
 
