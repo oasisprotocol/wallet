@@ -62,6 +62,10 @@ export function ErrorFormatter(props: Props) {
       'errors.ledgerCannotOpenOasisApp',
       'Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.',
     ),
+    [WalletErrors.LedgerOasisAppIsNotOpen]: t(
+      'errors.LedgerOasisAppIsNotOpen',
+      'Oasis App on Ledger is closed.',
+    ),
     [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error: {{message}}', {
       message,
     }),
