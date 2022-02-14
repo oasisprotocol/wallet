@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FromLedger  /> should match snapshot 1`] = `
+exports[`<FromLedgerModal  /> should match snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": .c5 {

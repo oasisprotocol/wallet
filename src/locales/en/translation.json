@@ -40,6 +40,7 @@
       "showPrivateKey": "Show private key"
     },
     "ledger": {
+      "header": "Open from Ledger device",
       "selectWallets": "Select the wallets to open",
       "cancel": "Cancel",
       "openWallets": "Open"

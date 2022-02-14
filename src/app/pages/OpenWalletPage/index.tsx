@@ -4,9 +4,8 @@
  *
  */
 import { TransitionRoute } from 'app/components/TransitionRoute'
-import { Anchor, Box, Button, Heading, Text } from 'grommet'
+import { Anchor, Box, Button, Heading } from 'grommet'
 import * as React from 'react'
-import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Switch } from 'react-router'
 import { NavLink } from 'react-router-dom'
@@ -18,7 +17,6 @@ import { FromPrivateKey } from './Features/FromPrivateKey'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
-  const [ledgerModal, showLedgerModal] = useState(false)
 
   return (
     <Box
@@ -47,25 +45,14 @@ export function SelectOpenMethod() {
             primary
           />
         </NavLink>
-        <Text>
+        <NavLink to="/open-wallet/ledger">
           <Button
             type="submit"
             label={t('openWallet.method.ledger', 'Ledger')}
             style={{ borderRadius: '4px' }}
-            onClick={() => {
-              showLedgerModal(true)
-            }}
             primary
           />
-        </Text>
-
-        {ledgerModal && (
-          <FromLedger
-            abort={() => {
-              showLedgerModal(false)
-            }}
-          />
-        )}
+        </NavLink>
       </Box>
 
       <Box

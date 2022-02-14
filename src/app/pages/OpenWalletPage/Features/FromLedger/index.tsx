@@ -14,7 +14,7 @@ import { useWalletSlice } from 'app/state/wallet'
 import { WalletType } from 'app/state/wallet/types'
 import { Box, Button, Heading, Spinner, Text } from 'grommet'
 import * as React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -43,10 +43,46 @@ function LedgerAccountSelector(props: LedgerAccountSelectorProps) {
   return <Box gap="small">{accounts}</Box>
 }
 
-interface FromLedgerProps {
+interface FromLedgerProps {}
+export function FromLedger(props: FromLedgerProps) {
+  const { t } = useTranslation()
+  const [ledgerModal, showLedgerModal] = useState(false)
+  return (
+    <Box
+      background="background-front"
+      margin="small"
+      pad="medium"
+      round="5px"
+      border={{ color: 'background-front-border', size: '1px' }}
+    >
+      <Heading margin={{ top: '0' }}>{t('openWallet.ledger.header', 'Open from Ledger device')}</Heading>
+
+      <Box direction="row" margin={{ top: 'medium' }}>
+        <Button
+          type="submit"
+          label={t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
+          style={{ borderRadius: '4px' }}
+          onClick={() => {
+            showLedgerModal(true)
+          }}
+          primary
+        />
+      </Box>
+      {ledgerModal && (
+        <FromLedgerModal
+          abort={() => {
+            showLedgerModal(false)
+          }}
+        />
+      )}
+    </Box>
+  )
+}
+
+interface FromLedgerModalProps {
   abort: () => void
 }
-export function FromLedger(props: FromLedgerProps) {
+export function FromLedgerModal(props: FromLedgerModalProps) {
   const { t } = useTranslation()
   const ledgerActions = useLedgerSlice().actions
   const walletActions = useWalletSlice().actions
