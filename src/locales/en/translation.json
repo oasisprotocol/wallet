@@ -40,6 +40,7 @@
       "showPrivateKey": "Show private key"
     },
     "ledger": {
+      "header": "Open from Ledger device",
       "selectWallets": "Select the wallets to open",
       "cancel": "Cancel",
       "openWallets": "Open"
@@ -168,6 +169,13 @@
     }
   },
   "ledger": {
+    "instructionSteps": {
+      "header": "Steps:",
+      "connectLedger": "Connect your Ledger device to the computer",
+      "closeLedgerLive": "Close Ledger Live app on the computer",
+      "openOasisApp": "Open the Oasis App on your Ledger device",
+      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
+    },
     "steps": {
       "openingUsb": "Opening Ledger through USB",
       "loadingAccounts": "Loading account details",

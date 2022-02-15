@@ -8,7 +8,7 @@ import { Provider, useDispatch } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
-import { FromLedger } from '..'
+import { FromLedgerModal } from '..'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -27,12 +27,12 @@ const renderComponent = (store, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <FromLedger abort={abortFunction} />
+        <FromLedgerModal abort={abortFunction} />
       </ThemeProvider>
     </Provider>,
   )
 
-describe('<FromLedger  />', () => {
+describe('<FromLedgerModal  />', () => {
   let store: ReturnType<typeof configureAppStore>
   let mockDispatch = useDispatch as jest.Mock<typeof useDispatch>
 

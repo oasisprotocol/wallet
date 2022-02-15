@@ -3,6 +3,7 @@ import OasisApp from '@oasisprotocol/ledger'
 import { Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint } from './helpers'
+import type Transport from '@ledgerhq/hw-transport'
 
 interface Response {
   return_code: number
@@ -33,7 +34,7 @@ const successOrThrow = (response: Response, message: string) => {
 }
 
 export class Ledger {
-  public static async enumerateAccounts(transport: any, count = 5) {
+  public static async enumerateAccounts(transport: Transport, count = 5) {
     const accounts: LedgerAccount[] = []
 
     try {
@@ -57,7 +58,7 @@ export class Ledger {
 
 export class LedgerSigner implements ContextSigner {
   // Oasis ledger app. Some typings would be great...!
-  protected transport?: any
+  protected transport?: Transport
   protected path: number[]
   protected publicKey: Uint8Array
 
@@ -69,7 +70,7 @@ export class LedgerSigner implements ContextSigner {
     this.publicKey = hex2uint(wallet.publicKey)
   }
 
-  public setTransport(transport: any) {
+  public setTransport(transport: Transport) {
     this.transport = transport
   }
 

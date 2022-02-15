@@ -11,6 +11,7 @@ import { ledgerActions } from '.'
 import { selectChainContext } from '../network/selectors'
 import { getBalance } from '../wallet/saga'
 import { LedgerAccount, LedgerStep } from './types'
+import type Transport from '@ledgerhq/hw-transport'
 
 function* setStep(step: LedgerStep) {
   yield* put(ledgerActions.setStep(step))
@@ -35,7 +36,7 @@ function* getUSBTransport() {
 
 function* enumerateAccounts() {
   yield* setStep(LedgerStep.OpeningUSB)
-  let transport: any
+  let transport: Transport | undefined
   try {
     transport = yield* getUSBTransport()
 
@@ -76,7 +77,7 @@ function* enumerateAccounts() {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  const transport: any = yield* getUSBTransport()
+  const transport = yield* getUSBTransport()
   const chainContext = yield* select(selectChainContext)
 
   signer.setTransport(transport)
