@@ -1,5 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`parse account 1`] = `
+Object {
+  "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
+  "escrow_balance": 336982978187110660,
+  "escrow_debonding_balance": 11942413553858170,
+  "liquid_balance": 756455428396,
+}
+`;
+
 exports[`parse monitor validators 1`] = `
 Array [
   Object {

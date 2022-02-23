@@ -1,4 +1,37 @@
-import { parseValidatorsList } from './monitor'
+import { parseValidatorsList, parseAccount } from './monitor'
+
+test('parse account', () => {
+  expect(
+    // https://monitor.oasis.dev/data/accounts/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe
+    parseAccount({
+      address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+      liquid_balance: 756455428396,
+      escrow_balance: 336982978187110627,
+      escrow_debonding_balance: 11942413553858170,
+      delegations_balance: 1460535533308247,
+      debonding_delegations_balance: 0,
+      self_delegation_balance: 1460535533308247,
+      total_balance: 336983734642539023,
+      created_at: '2021-04-28T16:00:00Z',
+      last_active: '2022-02-23T00:32:19Z',
+      nonce: 2,
+      type: 'validator',
+      entity_address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+      validator: {
+        rate_change_interval: 1,
+        rate_bound_lead: 14,
+        max_rate_steps: 21,
+        max_bound_steps: 21,
+        status: 'active',
+        node_address: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
+        consensus_address: '5E690F476067545CB5DD29BE90004EC7C691C8BF',
+        depositors_count: 9690,
+        blocks_count: 284137,
+        signatures_count: 8387143,
+      },
+    }),
+  ).toMatchSnapshot()
+})
 
 test('parse monitor validators', () => {
   expect(
