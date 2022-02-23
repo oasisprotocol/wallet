@@ -35,8 +35,6 @@ export function getMonitorAPIs(url: string) {
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    escrow_balance: account.escrow_balance,
-    escrow_debonding_balance: account.escrow_debonding_balance,
     liquid_balance: account.liquid_balance,
   }
 }

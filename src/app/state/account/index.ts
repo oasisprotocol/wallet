@@ -7,8 +7,6 @@ import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
   address: '',
-  escrow_debonding_balance: 0,
-  escrow_balance: 0,
   liquid_balance: 0,
 
   accountError: null,
