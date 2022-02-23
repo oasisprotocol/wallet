@@ -909,7 +909,7 @@ definitions:
       escrow_balance:
         format: int64
         type: integer
-      debonding_balance:
+      escrow_debonding_balance:
         format: int64
         type: integer
       total_balance:
@@ -925,25 +925,23 @@ definitions:
         format: int64
         type: integer
       created_at:
-        format: int64
-        type: integer
+        type: string
       last_active:
-        format: int64
-        type: integer
+        type: string
       nonce:
         format: int64
         type: integer
       type:
-        format: string
+        type: string
       entity_address:
-        format: string
+        type: string
       validator:
         $ref: '#/definitions/ValidatorInfo'
     required:
       - address
       - liquid_balance
       - escrow_balance
-      - debonding_balance
+      - escrow_debonding_balance
     type: object
   ValidatorRow:
     properties:
@@ -978,9 +976,15 @@ definitions:
         $ref: '#/definitions/ValidatorMediaInfo'
       commission_schedule:
         $ref: '#/definitions/ValidatorCommissionSchedule'
-      available_score:
+      current_epoch:
         format: int64
         type: integer
+      day_uptime:
+        type: number
+        format: float64
+      total_uptime:
+        type: number
+        format: float64
       validate_since:
         format: int64
         type: integer
