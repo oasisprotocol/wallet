@@ -51,7 +51,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
       name: v.name,
       escrow: parseFloat(v.escrow) * 10 ** 9,
       current_rate: v.commission,
-      status: v.active ? 'active' : 'inactive',
+      status: v.active ? 'active' : 'inactive', // TODO: v.status
       media: {
         email_address: v.email,
         logotype: v.icon,
