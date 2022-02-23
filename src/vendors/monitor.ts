@@ -36,7 +36,6 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
           address: v.account_id,
           name: v.account_name,
           escrow: v.escrow_balance,
-          commission_schedule: v.commission_schedule,
           current_rate: computeCurrentRate(v.current_epoch!, v.commission_schedule?.rates ?? []),
           status: v.status,
           media: v.media_info,
