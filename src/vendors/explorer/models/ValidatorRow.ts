@@ -107,7 +107,19 @@ export interface ValidatorRow {
      * @type {number}
      * @memberof ValidatorRow
      */
-    available_score?: number;
+    current_epoch?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ValidatorRow
+     */
+    day_uptime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ValidatorRow
+     */
+    total_uptime?: number;
     /**
      * 
      * @type {number}
@@ -174,7 +186,9 @@ export function ValidatorRowFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'self_delegation_balance': !exists(json, 'self_delegation_balance') ? undefined : json['self_delegation_balance'],
         'media_info': !exists(json, 'media_info') ? undefined : ValidatorMediaInfoFromJSON(json['media_info']),
         'commission_schedule': !exists(json, 'commission_schedule') ? undefined : ValidatorCommissionScheduleFromJSON(json['commission_schedule']),
-        'available_score': !exists(json, 'available_score') ? undefined : json['available_score'],
+        'current_epoch': !exists(json, 'current_epoch') ? undefined : json['current_epoch'],
+        'day_uptime': !exists(json, 'day_uptime') ? undefined : json['day_uptime'],
+        'total_uptime': !exists(json, 'total_uptime') ? undefined : json['total_uptime'],
         'validate_since': !exists(json, 'validate_since') ? undefined : json['validate_since'],
         'status': json['status'],
         'node_address': !exists(json, 'node_address') ? undefined : json['node_address'],
@@ -206,7 +220,9 @@ export function ValidatorRowToJSON(value?: ValidatorRow | null): any {
         'self_delegation_balance': value.self_delegation_balance,
         'media_info': ValidatorMediaInfoToJSON(value.media_info),
         'commission_schedule': ValidatorCommissionScheduleToJSON(value.commission_schedule),
-        'available_score': value.available_score,
+        'current_epoch': value.current_epoch,
+        'day_uptime': value.day_uptime,
+        'total_uptime': value.total_uptime,
         'validate_since': value.validate_since,
         'status': value.status,
         'node_address': value.node_address,
