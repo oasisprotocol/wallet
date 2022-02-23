@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parse monitor validators 1`] = `
+Array [
+  Object {
+    "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
+    "commission_schedule": Object {
+      "bounds": Array [
+        Object {
+          "rate_max": "20000",
+          "rate_min": "0",
+        },
+      ],
+      "rates": Array [
+        Object {
+          "rate": "5000",
+        },
+      ],
+    },
+    "current_rate": Object {
+      "epochEnd": undefined,
+      "epochStart": 0,
+      "rate": 0.05,
+    },
+    "escrow": 336904789689084160,
+    "media": Object {
+      "email_address": "s@s.f",
+      "twitter_acc": "https://twitter.com/s",
+      "website_link": "https://s.com",
+    },
+    "name": "s",
+    "rank": 1,
+    "status": "inactive",
+  },
+  Object {
+    "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
+    "commission_schedule": Object {
+      "bounds": Array [
+        Object {
+          "rate_max": "25000",
+          "rate_min": "0",
+          "start": 4725,
+        },
+      ],
+      "rates": Array [
+        Object {
+          "rate": "10000",
+          "start": 4725,
+        },
+      ],
+    },
+    "current_rate": Object {
+      "epochEnd": undefined,
+      "epochStart": 4725,
+      "rate": 0.1,
+    },
+    "escrow": 326477290615842940,
+    "media": Object {
+      "website_link": "https://www.b.com",
+    },
+    "name": "b",
+    "rank": 2,
+    "status": "inactive",
+  },
+]
+`;
