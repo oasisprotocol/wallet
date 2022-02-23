@@ -7,10 +7,14 @@
     "url": "https://github.com/Esya/oasis-wallet.git"
   },
   "scripts": {
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "yarn start:oasismonitor",
+    "start:oasismonitor": "react-scripts -r ./internals/scripts/set-oasismonitor-backend-env.js -r @cypress/instrument-cra start",
+    "start:oasisscan": "react-scripts -r ./internals/scripts/set-oasisscan-backend-env.js -r @cypress/instrument-cra start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
+    "build": "yarn build:oasismonitor",
+    "build:oasismonitor": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-oasismonitor-backend-env.js -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
+    "build:oasisscan": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-oasisscan-backend-env.js -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
     "test": "TZ=UTC react-scripts test --silent",
     "eject": "react-scripts eject",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/generators/test-generators.ts",

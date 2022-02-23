@@ -2,7 +2,7 @@ import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { config } from 'config'
 import { call, put, select, takeEvery } from 'typed-redux-saga'
-import { getMonitorAPIs } from 'vendors/monitor'
+import { backend, backendApi } from 'vendors/backend'
 
 import { networkActions } from '.'
 import { selectSelectedNetwork } from './selectors'
@@ -35,8 +35,8 @@ function getBlocksPerEpoch(genesis: oasis.types.GenesisDocument): number {
  */
 export function* getExplorerAPIs(network?: NetworkType) {
   const selectedNetwork = yield* select(selectSelectedNetwork)
-  const url = config[selectedNetwork].explorer
-  return getMonitorAPIs(url)
+  const url = config[selectedNetwork][backend].explorer
+  return backendApi(url)
 }
 
 export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>) {
