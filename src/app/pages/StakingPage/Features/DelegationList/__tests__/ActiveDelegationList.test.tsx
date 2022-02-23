@@ -41,10 +41,7 @@ describe('<ActiveDelegationList  />', () => {
           validatorAddress: 'test-validator',
           validator: {
             commission_schedule: {},
-            current_rate: {
-              epochStart: 0,
-              rate: 0.07,
-            },
+            current_rate: 0.07,
             address: 'test-validator',
             rank: 1,
             status: 'active',

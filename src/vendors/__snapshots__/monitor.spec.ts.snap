@@ -17,11 +17,7 @@ Array [
         },
       ],
     },
-    "current_rate": Object {
-      "epochEnd": undefined,
-      "epochStart": 0,
-      "rate": 0.05,
-    },
+    "current_rate": 0.05,
     "escrow": 336904789689084160,
     "media": Object {
       "email_address": "s@s.f",
@@ -49,11 +45,7 @@ Array [
         },
       ],
     },
-    "current_rate": Object {
-      "epochEnd": undefined,
-      "epochStart": 4725,
-      "rate": 0.1,
-    },
+    "current_rate": 0.1,
     "escrow": 326477290615842940,
     "media": Object {
       "website_link": "https://www.b.com",

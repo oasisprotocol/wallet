@@ -67,5 +67,5 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
   if (!rates.length) {
     return undefined
   }
-  return rates[rates.length - 1]
+  return rates[rates.length - 1].rate
 }
