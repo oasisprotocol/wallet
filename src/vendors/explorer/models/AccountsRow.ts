@@ -49,7 +49,7 @@ export interface AccountsRow {
      * @type {number}
      * @memberof AccountsRow
      */
-    debonding_balance: number;
+    escrow_debonding_balance: number;
     /**
      * 
      * @type {number}
@@ -76,16 +76,16 @@ export interface AccountsRow {
     self_delegation_balance?: number;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof AccountsRow
      */
-    created_at?: number;
+    created_at?: string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof AccountsRow
      */
-    last_active?: number;
+    last_active?: string;
     /**
      * 
      * @type {number}
@@ -94,16 +94,16 @@ export interface AccountsRow {
     nonce?: number;
     /**
      * 
-     * @type {object}
+     * @type {string}
      * @memberof AccountsRow
      */
-    type?: object;
+    type?: string;
     /**
      * 
-     * @type {object}
+     * @type {string}
      * @memberof AccountsRow
      */
-    entity_address?: object;
+    entity_address?: string;
     /**
      * 
      * @type {ValidatorInfo}
@@ -125,7 +125,7 @@ export function AccountsRowFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'address': json['address'],
         'liquid_balance': json['liquid_balance'],
         'escrow_balance': json['escrow_balance'],
-        'debonding_balance': json['debonding_balance'],
+        'escrow_debonding_balance': json['escrow_debonding_balance'],
         'total_balance': !exists(json, 'total_balance') ? undefined : json['total_balance'],
         'delegations_balance': !exists(json, 'delegations_balance') ? undefined : json['delegations_balance'],
         'debonding_delegations_balance': !exists(json, 'debonding_delegations_balance') ? undefined : json['debonding_delegations_balance'],
@@ -151,7 +151,7 @@ export function AccountsRowToJSON(value?: AccountsRow | null): any {
         'address': value.address,
         'liquid_balance': value.liquid_balance,
         'escrow_balance': value.escrow_balance,
-        'debonding_balance': value.debonding_balance,
+        'escrow_debonding_balance': value.escrow_debonding_balance,
         'total_balance': value.total_balance,
         'delegations_balance': value.delegations_balance,
         'debonding_delegations_balance': value.debonding_delegations_balance,

@@ -14,8 +14,7 @@ import { stakingActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch } from '../network/selectors'
 import { selectValidators } from './selectors'
-import { CommissionBound, DebondingDelegation, Delegation, Rate, Validator } from './types'
-import { ValidatorCommissionScheduleRates } from '../../../vendors/explorer'
+import { CommissionBound, DebondingDelegation, Delegation } from './types'
 
 function getSharePrice(pool: StakingSharePool) {
   const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
@@ -84,59 +83,15 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 }
 
 function* refreshValidators() {
-  const { accounts } = yield* call(getExplorerAPIs)
-  let validators
+  const { getAllValidators } = yield* call(getExplorerAPIs)
   try {
-    validators = yield* call([accounts, accounts.getValidatorsList], { limit: 500 })
+    const payload = yield* call(getAllValidators)
+    yield* put(stakingActions.updateValidators(payload))
   } catch (e) {
     console.error('get validators list failed, continuing without updated list.', e)
     yield* put(stakingActions.updateValidatorsError('' + e))
     return
   }
-  const currentEpoch = yield* select(selectEpoch)
-
-  const payload: Validator[] = validators
-    // Always clone before sort so it doesn't mutate source
-    .slice()
-    .sort((a, b) => b.escrow_balance - a.escrow_balance)
-    .map((v, index) => {
-      return {
-        address: v.account_id,
-        name: v.account_name,
-        escrow: v.escrow_balance,
-        commission_schedule: v.commission_schedule,
-        current_rate: computeCurrentRate(currentEpoch, v.commission_schedule?.rates ?? []),
-        status: v.status,
-        media: v.media_info,
-        rank: index + 1,
-      } as Validator
-    })
-
-  yield* put(stakingActions.updateValidators(payload))
-}
-
-function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionScheduleRates[]) {
-  const rates: Rate[] = rawRates
-    .map(r => ({
-      epochStart: r.start ? Number(r.start) : 0,
-      rate: Number(r.rate!) / 100_000,
-    }))
-    // Always clone before sort so it doesn't mutate source
-    .slice()
-    .sort((a, b) => a.epochStart - b.epochStart)
-    // If we have another bound after this one, attach the epochEnd to this one
-    .map((b, i, array) => ({
-      ...b,
-      epochEnd: array[i + 1] ? array[i + 1].epochStart - 1 : undefined,
-    }))
-
-    // Filter out bounds that ended in the past
-    .filter(b => !b.epochEnd || b.epochEnd > currentEpoch)
-
-  if (!rates.length) {
-    return undefined
-  }
-  return rates[rates.length - 1]
 }
 
 function* getValidatorDetails({ payload: address }: PayloadAction<string>) {

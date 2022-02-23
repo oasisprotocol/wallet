@@ -1,5 +1,4 @@
 /* --- STATE --- */
-import { ValidatorCommissionSchedule } from '../../../vendors/explorer'
 
 export interface Validator {
   name?: string
@@ -8,15 +7,8 @@ export interface Validator {
   status: string
   rank: number
   media?: ValidatorMediaInfo
-  commission_schedule: ValidatorCommissionSchedule
-  current_rate?: Rate
+  current_rate?: number
   current_commission_bound?: CommissionBound
-}
-
-export interface Rate {
-  epochStart: number
-  epochEnd?: number
-  rate: number
 }
 
 export interface CommissionBound {

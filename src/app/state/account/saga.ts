@@ -19,20 +19,19 @@ function* loadAccount(action: PayloadAction<string>) {
   yield* put(actions.setLoading(true))
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
-  const { accounts, operations } = yield* call(getExplorerAPIs)
+  const { getAccount, operations } = yield* call(getExplorerAPIs)
 
   yield* all([
     join(
       yield* fork(function* () {
-        let account
         try {
-          account = yield* call([accounts, accounts.getAccount], { accountId: address })
+          const account = yield* call(getAccount, address)
+          yield put(actions.accountLoaded(account))
         } catch (e) {
           console.error('get account, continuing without updated account.', e)
           yield put(actions.accountError('' + e))
           return
         }
-        yield put(actions.accountLoaded(account))
       }),
     ),
     join(

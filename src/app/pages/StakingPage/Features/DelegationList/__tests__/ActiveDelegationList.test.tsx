@@ -40,11 +40,7 @@ describe('<ActiveDelegationList  />', () => {
           shares: '100',
           validatorAddress: 'test-validator',
           validator: {
-            commission_schedule: {},
-            current_rate: {
-              epochStart: 0,
-              rate: 0.07,
-            },
+            current_rate: 0.07,
             address: 'test-validator',
             rank: 1,
             status: 'active',
@@ -71,7 +67,6 @@ describe('<ActiveDelegationList  />', () => {
           validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
           validator: {
             address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-            commission_schedule: {},
             rank: 1,
             status: 'active',
             name: 'test-validator1',

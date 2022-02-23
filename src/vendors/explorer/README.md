@@ -15,4 +15,13 @@ To update the bindings:
     ```sh
     npx @openapitools/openapi-generator-cli generate -i swagger.yml -g typescript-fetch -o . --additional-properties=modelPropertyNaming=snake_case,typescriptThreePlus=true
     ```
+    or
+    ```sh
+    docker run --rm --user "${UID}:${GID}" -v ${PWD}:/local --workdir /local openapitools/openapi-generator-cli:v5.1.0 generate -i swagger.yml -g typescript-fetch -o . --additional-properties=modelPropertyNaming=snake_case,typescriptThreePlus=true
+    ```
 
+3. Lint:
+
+    ```sh
+    yarn lint:fix
+    ```

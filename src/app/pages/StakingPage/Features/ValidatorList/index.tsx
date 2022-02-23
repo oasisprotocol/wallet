@@ -102,8 +102,8 @@ export const ValidatorList = memo((props: Props) => {
       selector: 'fee',
       sortable: true,
       width: '110px',
-      cell: datum => (datum.current_rate !== undefined ? `${datum.current_rate.rate * 100}%` : 'Unknown'),
-      sortFunction: (row1, row2) => (row1.current_rate?.rate ?? 0) - (row2.current_rate?.rate ?? 0),
+      cell: datum => (datum.current_rate !== undefined ? `${datum.current_rate * 100}%` : 'Unknown'),
+      sortFunction: (row1, row2) => (row1.current_rate ?? 0) - (row2.current_rate ?? 0),
       hide: 'sm',
     },
   ]

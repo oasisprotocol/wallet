@@ -1,15 +1,14 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
-import { AccountsRow, OperationsRow } from 'vendors/explorer'
+import { OperationsRow } from 'vendors/explorer'
 import { accountSaga } from './saga'
-import { AccountState } from './types'
+import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
   address: '',
-  debonding_balance: 0,
-  escrow_balance: 0,
   liquid_balance: 0,
+
   accountError: null,
   transactions: [],
   transactionsError: null,
@@ -24,7 +23,7 @@ const slice = createSlice({
       Object.assign(state, initialState)
     },
     fetchAccount(state, action: PayloadAction<string>) {},
-    accountLoaded(state, action: PayloadAction<AccountsRow>) {
+    accountLoaded(state, action: PayloadAction<Account>) {
       state.accountError = null
       Object.assign(state, action.payload)
     },

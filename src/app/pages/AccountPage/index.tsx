@@ -86,7 +86,6 @@ export function AccountPage(props: Props) {
     available: account.liquid_balance ?? 0,
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
     debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
-    escrow: account.escrow_balance ?? 0,
     total: (account.liquid_balance ?? 0) + balanceDelegations + balanceDebondingDelegations,
   }
 

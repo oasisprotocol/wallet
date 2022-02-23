@@ -49,7 +49,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         />
         <ResponsiveGridRow
           label={t('validator.commission', 'Commission')}
-          value={`${validator.current_rate !== undefined ? validator.current_rate.rate * 100 : 'Unknown'} %`}
+          value={`${validator.current_rate !== undefined ? validator.current_rate * 100 : 'Unknown'} %`}
         />
         <ResponsiveGridRow
           label={t('validator.commissionBounds.label', 'Commission bounds')}

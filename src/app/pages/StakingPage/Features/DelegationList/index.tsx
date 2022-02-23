@@ -114,12 +114,9 @@ export const DelegationList = memo((props: Props) => {
       selector: 'fee',
       width: '100px',
       cell: datum =>
-        datum.validator?.current_rate !== undefined
-          ? `${datum.validator.current_rate.rate * 100}%`
-          : 'Unknown',
+        datum.validator?.current_rate !== undefined ? `${datum.validator.current_rate * 100}%` : 'Unknown',
       sortable: true,
-      sortFunction: (row1, row2) =>
-        (row1.validator?.current_rate?.rate ?? 0) - (row2.validator?.current_rate?.rate ?? 0),
+      sortFunction: (row1, row2) => (row1.validator?.current_rate ?? 0) - (row2.validator?.current_rate ?? 0),
     },
     epoch: {
       name: t('delegations.debondingEpoch', 'Debonding Epoch'),
