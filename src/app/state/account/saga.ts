@@ -38,7 +38,13 @@ function* loadAccount(action: PayloadAction<string>) {
       yield* fork(function* () {
         let transactions
         try {
-          transactions = yield* call([operations, operations.getTransactionsList], { accountId: address })
+          // TODO
+          // https://monitor.oasis.dev/data/transactions?account_id=oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe&limit=20
+          // https://api.oasisscan.com/mainnet/chain/transactions?address=oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe&size=20&runtime=true
+          transactions = yield* call([operations, operations.getTransactionsList], {
+            accountId: address,
+            limit: 20,
+          })
         } catch (e) {
           console.error('get transactions list failed, continuing without updated list.', e)
           yield put(actions.transactionsError('' + e))
