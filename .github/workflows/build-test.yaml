@@ -62,7 +62,7 @@ jobs:
           responseCode: 200
           timeout: 2000
           interval: 500
-      - run: npx cypress run
+      - run: yarn cypress:run
       - name: 'Upload coverage report'
         uses: actions/upload-artifact@v2
         with:
