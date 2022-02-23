@@ -21,6 +21,7 @@ const csp = `
       'self'
       grpc.oasis.dev
       testnet.grpc.oasis.dev
+      api.oasisscan.com
       monitor.oasis.dev;
     img-src 'self' data: https:;
     prefetch-src 'self';
