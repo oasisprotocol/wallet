@@ -20,7 +20,7 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ValidatorRow {
     /**
-     * 
+     * If "true", entity is part of validator set (top 110).
      * @type {boolean}
      * @memberof ValidatorRow
      */
@@ -140,7 +140,7 @@ export interface ValidatorRow {
      */
     signs: number;
     /**
-     * 
+     * If "true", an entity has a node that is registered for being a validator, node is up to date, and has successfully registered itself. However, it may or may not be part of validator set (top 110).
      * @type {boolean}
      * @memberof ValidatorRow
      */

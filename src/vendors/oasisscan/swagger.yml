@@ -139,6 +139,8 @@ definitions:
     properties:
       active:
         type: boolean
+        description:
+          If "true", entity is part of validator set (top 110).
       balance:
         type: string
       bound:
@@ -193,6 +195,10 @@ definitions:
         type: integer
       status:
         type: boolean
+        description:
+          If "true", an entity has a node that is registered for being a
+          validator, node is up to date, and has successfully registered itself.
+          However, it may or may not be part of validator set (top 110).
       totalShares:
         type: string
       twitter:
