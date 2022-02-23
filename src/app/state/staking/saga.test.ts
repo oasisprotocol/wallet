@@ -4,13 +4,12 @@ import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { select } from 'redux-saga/effects'
-import { ValidatorRow } from 'vendors/explorer'
 
 import { initialState, stakingActions, stakingReducer } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch } from '../network/selectors'
 import { fetchAccount, stakingSaga } from './saga'
-import { StakingState } from './types'
+import { StakingState, Validator } from './types'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
 const fixtureDebondingDelegation = new Map<Uint8Array, StakingDebondingDelegationInfo[]>([
@@ -25,7 +24,7 @@ const fixtureDelegation = new Map<Uint8Array, StakingDelegationInfo>([
 ])
 
 describe('Staking Sagas', () => {
-  const accounts = { getValidatorsList: jest.fn() }
+  const getAllValidators = jest.fn()
   const nic = {
     stakingAccount: jest.fn(),
     stakingDebondingDelegationInfosFor: jest.fn(),
@@ -33,7 +32,7 @@ describe('Staking Sagas', () => {
   }
 
   const providers: (EffectProviders | StaticProvider)[] = [
-    [matchers.call.fn(getExplorerAPIs), { accounts }],
+    [matchers.call.fn(getExplorerAPIs), { getAllValidators }],
     [matchers.call.fn(getOasisNic), nic],
   ]
   const validAddress = 'oasis1qqty93azxp4qeft3krvv23ljyj57g3tzk56tqhqe'
@@ -44,10 +43,10 @@ describe('Staking Sagas', () => {
 
   describe('Fetch Account', () => {
     it('Should load the delegations and validators', () => {
-      accounts.getValidatorsList.mockResolvedValue([
-        { account_id: 'oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7', escrow_balance: 1000 },
-        { account_id: 'dummy', escrow_balance: 2000 },
-      ] as ValidatorRow[])
+      getAllValidators.mockResolvedValue([
+        { address: 'oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7', escrow: 1000 },
+        { address: 'dummy', escrow: 2000 },
+      ] as Validator[])
 
       nic.stakingDelegationInfosFor.mockResolvedValue(fixtureDelegation)
       nic.stakingDebondingDelegationInfosFor.mockResolvedValue(fixtureDebondingDelegation)
