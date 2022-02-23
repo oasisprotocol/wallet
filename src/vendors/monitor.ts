@@ -10,7 +10,7 @@ import {
   ValidatorRow,
 } from 'vendors/explorer'
 
-export function getMonitorAPIs(url: string) {
+export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
   const explorerConfig = new Configuration({
     basePath: url,
   })
