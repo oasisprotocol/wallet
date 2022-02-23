@@ -1,6 +1,8 @@
+import { Account } from 'app/state/account/types'
 import { Validator } from 'app/state/staking/types'
 import {
   AccountsApi,
+  AccountsRow,
   BlocksApi,
   Configuration,
   OperationsListApi,
@@ -17,12 +19,26 @@ export function getMonitorAPIs(url: string) {
   const blocks = new BlocksApi(explorerConfig)
   const operations = new OperationsListApi(explorerConfig)
 
-  async function getAllValidators() {
+  async function getAccount(address: string): Promise<Account> {
+    const account = await accounts.getAccount({ accountId: address })
+    return parseAccount(account)
+  }
+
+  async function getAllValidators(): Promise<Validator[]> {
     const validators = await accounts.getValidatorsList({ limit: 500 })
     return parseValidatorsList(validators)
   }
 
-  return { accounts, blocks, operations, getAllValidators }
+  return { accounts, blocks, operations, getAccount, getAllValidators }
+}
+
+export function parseAccount(account: AccountsRow): Account {
+  return {
+    address: account.address,
+    escrow_balance: account.escrow_balance,
+    escrow_debonding_balance: account.escrow_debonding_balance,
+    liquid_balance: account.liquid_balance,
+  }
 }
 
 export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
