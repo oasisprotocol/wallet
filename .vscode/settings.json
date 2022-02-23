@@ -22,6 +22,8 @@
     "**/__snapshots__/": true,
     ".nyc_output/": true,
     "cypress-coverage/": true,
-    "build/": true
-  }
+    "build/": true,
+    "src/vendors/explorer/": true,
+    "src/vendors/oasisscan/": true,
+  },
 }
