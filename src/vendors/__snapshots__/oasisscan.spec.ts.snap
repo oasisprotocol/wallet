@@ -1,22 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`monitor parse account 1`] = `
+exports[`oasisscan parse account 1`] = `
 Object {
   "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
   "liquid_balance": 756455428396,
 }
 `;
 
-exports[`monitor parse validators 1`] = `
+exports[`oasisscan parse validators 1`] = `
 Array [
   Object {
     "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
     "current_rate": 0.05,
-    "escrow": 336904789689084160,
+    "escrow": 336904789680000000,
     "media": Object {
       "email_address": "s@s.f",
-      "twitter_acc": "https://twitter.com/s",
-      "website_link": "https://s.com",
+      "logotype": "https://s3.amazonaws.com/s.jpg",
+      "twitter_acc": "s",
+      "website_link": "https://stake.fish",
     },
     "name": "s",
     "rank": 1,
@@ -25,8 +26,11 @@ Array [
   Object {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
-    "escrow": 326477290615842940,
+    "escrow": 326477290610000000,
     "media": Object {
+      "email_address": null,
+      "logotype": null,
+      "twitter_acc": null,
       "website_link": "https://www.b.com",
     },
     "name": "b",
