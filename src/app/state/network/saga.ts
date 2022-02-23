@@ -20,15 +20,6 @@ export function* getOasisNic(network?: NetworkType) {
   return nic
 }
 
-function getBlocksPerEpoch(genesis: oasis.types.GenesisDocument): number {
-  if (genesis.beacon.params?.insecure_parameters?.interval) {
-    return Number(genesis.beacon.params.insecure_parameters.interval)
-  } else {
-    const pvss = genesis.beacon.params.pvss_parameters!
-    return Number(pvss.commit_interval) + Number(pvss.reveal_interval) + Number(pvss.transition_delay)
-  }
-}
-
 /**
  * Return the explorer APIs for the specified network
  * or by default, for the currently selected network
@@ -52,7 +43,6 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
       ticker: ticker,
       epoch: Number(epoch),
       selectedNetwork: network,
-      blocksPerEpoch: getBlocksPerEpoch(genesis),
       minimumStakingAmount: Number(oasis.quantity.toBigInt(genesis.staking.params.min_delegation)) / 10 ** 9,
     }),
   )

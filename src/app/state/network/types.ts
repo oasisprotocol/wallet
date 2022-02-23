@@ -14,9 +14,6 @@ export interface NetworkState {
   /** Current epoch */
   epoch: number
 
-  /** Number of blocks per epoch */
-  blocksPerEpoch: number
-
   /** Minimum staking amount */
   minimumStakingAmount: number
 }

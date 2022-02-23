@@ -11,7 +11,6 @@ export const initialState: NetworkState = {
     process.env.NODE_ENV && process.env.NODE_ENV !== 'production' && !process.env.REACT_APP_BYPASS_LOCAL
       ? 'local'
       : 'mainnet',
-  blocksPerEpoch: 0,
   epoch: 0,
   minimumStakingAmount: 0,
 }
