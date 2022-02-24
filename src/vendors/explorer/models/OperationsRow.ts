@@ -48,7 +48,7 @@ export interface OperationsRow {
      * @type {string}
      * @memberof OperationsRow
      */
-    type?: string;
+    type?: OperationsRowTypeEnum;
     /**
      * 
      * @type {string}
@@ -109,6 +109,26 @@ export interface OperationsRow {
      * @memberof OperationsRow
      */
     error?: string;
+}
+
+/**
+* @export
+* @enum {string}
+*/
+export enum OperationsRowTypeEnum {
+    Transfer = 'transfer',
+    Addescrow = 'addescrow',
+    Reclaimescrow = 'reclaimescrow',
+    Allow = 'allow',
+    Amendcommissionschedule = 'amendcommissionschedule',
+    Executorcommit = 'executorcommit',
+    Executorproposertimeout = 'executorproposertimeout',
+    Registerentity = 'registerentity',
+    Registernode = 'registernode',
+    Registerruntime = 'registerruntime',
+    Castvote = 'castvote',
+    Pvsscommit = 'pvsscommit',
+    Pvssreveal = 'pvssreveal'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {

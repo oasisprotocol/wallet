@@ -1112,6 +1112,20 @@ definitions:
         format: int64
       type:
         type: string
+        enum:
+          - transfer
+          - addescrow
+          - reclaimescrow
+          - allow
+          - amendcommissionschedule
+          - executorcommit
+          - executorproposertimeout
+          - registerentity
+          - registernode
+          - registerruntime
+          - castvote
+          - pvsscommit
+          - pvssreveal
       from:
         type: string
       to:
