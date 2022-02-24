@@ -77,6 +77,7 @@ paths:
           name: runtime
           type: boolean
           required: true
+          description: Include ParaTime transactions
       responses:
         '200':
           description: Query compatibility endpoint for transactions
