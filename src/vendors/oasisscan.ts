@@ -1,6 +1,6 @@
 import { Account } from 'app/state/account/types'
 import { Validator } from 'app/state/staking/types'
-import { Transaction } from 'app/state/transaction/types'
+import { Transaction, TransactionType } from 'app/state/transaction/types'
 import { parseStringValueToInt } from 'app/lib/helpers'
 import {
   AccountsApi,
@@ -80,37 +80,34 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   })
 }
 
-const transactionMethodMap = {
-  [OperationsRowMethodEnum.StakingTransfer]: 'transfer',
-  [OperationsRowMethodEnum.StakingAddEscrow]: 'addescrow',
-  [OperationsRowMethodEnum.StakingReclaimEscrow]: 'reclaimescrow',
-}
-
-const transactionAmountMap = {
-  [OperationsRowMethodEnum.StakingTransfer]: 'amount',
-  [OperationsRowMethodEnum.StakingAddEscrow]: 'escrow_amount',
-  [OperationsRowMethodEnum.StakingReclaimEscrow]: 'reclaim_escrow_amount',
-}
-
-function setTransactionAmountProperty(amount?: string, method?: OperationsRowMethodEnum) {
-  if (!amount || !method) return undefined
-  const amountField = transactionAmountMap[method]
-  if (!amountField) return undefined
-  return {
-    [amountField]: parseStringValueToInt(amount),
-  }
+const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
+  [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
+  [OperationsRowMethodEnum.StakingAddEscrow]: TransactionType.StakingAddEscrow,
+  [OperationsRowMethodEnum.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
+  [OperationsRowMethodEnum.StakingAllow]: TransactionType.StakingAllow,
+  [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
+  [OperationsRowMethodEnum.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
+  [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
+  [OperationsRowMethodEnum.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
+  [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
+  [OperationsRowMethodEnum.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
+  [OperationsRowMethodEnum.GovernanceCastVote]: TransactionType.GovernanceCastVote,
+  [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
+  [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
     const parsed: Transaction = {
-      from: t.from,
-      hash: t.tx_hash,
-      level: t.height,
-      timestamp: t.timestamp,
-      to: t.to,
-      type: t.method && transactionMethodMap[t.method],
-      ...setTransactionAmountProperty(t.amount, t.method),
+      amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
+      fee: t.fee == null ? undefined : parseStringValueToInt(t.fee),
+      from: t.from == null ? undefined : t.from,
+      hash: t.tx_hash!,
+      level: t.height == null ? undefined : t.height,
+      status: t.status == null ? undefined : t.status,
+      timestamp: t.timestamp == null ? undefined : t.timestamp,
+      to: t.to == null ? undefined : t.to,
+      type: transactionMethodMap[t.method!],
     }
     return parsed
   })

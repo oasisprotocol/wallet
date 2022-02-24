@@ -7,9 +7,9 @@ import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
 import { Provider, useSelector } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
-import { OperationsRow } from 'vendors/explorer'
 
 import { Transaction } from '..'
+import * as transactionTypes from 'app/state/transaction/types'
 
 jest.mock('react-i18next', () => ({
   Trans: ({ i18nKey }) => <>{i18nKey}</>,
@@ -42,7 +42,7 @@ const renderComponent = (store, ref, transaction) =>
 describe('<Transaction  />', () => {
   let store: ReturnType<typeof configureAppStore>
   const ref = 'sourceAddr'
-  const transaction: Partial<OperationsRow> = {
+  const transaction: Partial<transactionTypes.Transaction> = {
     amount: 1000000,
     timestamp: 1618018255,
     from: 'source',

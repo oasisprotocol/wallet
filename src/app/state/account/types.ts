@@ -1,4 +1,4 @@
-import { OperationsRow } from 'vendors/explorer'
+import { Transaction } from 'app/state/transaction/types'
 
 export interface BalanceDetails {
   total: number
@@ -16,6 +16,6 @@ export interface Account {
 export interface AccountState extends Account {
   loading: boolean
   accountError: string | null
-  transactions: OperationsRow[]
+  transactions: Transaction[]
   transactionsError: string | null
 }
