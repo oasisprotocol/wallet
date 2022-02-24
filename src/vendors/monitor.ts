@@ -1,5 +1,6 @@
 import { Account } from 'app/state/account/types'
 import { Validator } from 'app/state/staking/types'
+import { Transaction } from 'app/state/transaction/types'
 import {
   AccountsApi,
   AccountsRow,
@@ -29,7 +30,11 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
     return parseValidatorsList(validators)
   }
 
-  return { accounts, blocks, operations, getAccount, getAllValidators }
+  async function getTransactionsList({ accountId }): Promise<Transaction[]> {
+    return await operations.getTransactionsList({ accountId })
+  }
+
+  return { accounts, blocks, getAccount, getAllValidators, getTransactionsList }
 }
 
 export function parseAccount(account: AccountsRow): Account {

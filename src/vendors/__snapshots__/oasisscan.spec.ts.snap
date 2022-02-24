@@ -7,6 +7,38 @@ Object {
 }
 `;
 
+exports[`oasisscan parse transaction list 1`] = `
+Array [
+  Object {
+    "amount": 9143650000000,
+    "from": "oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz",
+    "hash": undefined,
+    "level": 5860530,
+    "timestamp": 1636537424,
+    "to": "oasis1qzmpk8ha3jg6ua0k00w34ud77lun7jf0lc6m9a0k",
+    "type": "transfer",
+  },
+  Object {
+    "escrow_amount": 9150000000,
+    "from": "oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz",
+    "hash": undefined,
+    "level": 5859985,
+    "timestamp": 1636534194,
+    "to": "oasis1qzmpk8ha3jg6ua0k00w34ud77lun7jf0lc6m9a0k",
+    "type": "addescrow",
+  },
+  Object {
+    "from": "oasis1qprje45lh2qqrsy4rcvgx4zpnpzkhkqcm58emr3l",
+    "hash": undefined,
+    "level": 5830798,
+    "reclaim_escrow_amount": 9102900000000,
+    "timestamp": 1636361404,
+    "to": "oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz",
+    "type": "reclaimescrow",
+  },
+]
+`;
+
 exports[`oasisscan parse validators 1`] = `
 Array [
   Object {
@@ -35,7 +67,7 @@ Array [
     },
     "name": "b",
     "rank": 2,
-    "status": "inactive",
+    "status": "active",
   },
 ]
 `;
