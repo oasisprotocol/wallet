@@ -254,9 +254,17 @@ definitions:
         enum:
           - staking.Transfer
           - staking.AddEscrow
-          - roothash.ExecutorCommit
           - staking.ReclaimEscrow
           - staking.Allow
+          - staking.AmendCommissionSchedule
+          - roothash.ExecutorCommit
+          - roothash.ExecutorProposerTimeout
+          - registry.RegisterEntity
+          - registry.RegisterNode
+          - registry.RegisterRuntime
+          - governance.CastVote
+          - beacon.PVSSCommit
+          - beacon.PVSSReveal
       fee:
         type: string
       amount:
@@ -275,16 +283,20 @@ definitions:
         type: string
       to:
         type: string
-      runtimeId:
-        type: string
-      runtimeName:
-        type: string
       round:
         type: integer
+      runtimeId:
+        type: string
+        description: ParaTime only
+      runtimeName:
+        type: string
+        description: ParaTime only
       result:
         type: boolean
+        description: ParaTime only
       type:
         type: string
+        description: ParaTime only
     required:
       - timestamp
       - txHash

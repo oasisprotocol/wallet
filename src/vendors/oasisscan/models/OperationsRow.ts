@@ -93,30 +93,30 @@ export interface OperationsRow {
     to?: string;
     /**
      * 
-     * @type {string}
-     * @memberof OperationsRow
-     */
-    runtime_id?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof OperationsRow
-     */
-    runtime_name?: string;
-    /**
-     * 
      * @type {number}
      * @memberof OperationsRow
      */
     round?: number;
     /**
-     * 
+     * ParaTime only
+     * @type {string}
+     * @memberof OperationsRow
+     */
+    runtime_id?: string;
+    /**
+     * ParaTime only
+     * @type {string}
+     * @memberof OperationsRow
+     */
+    runtime_name?: string;
+    /**
+     * ParaTime only
      * @type {boolean}
      * @memberof OperationsRow
      */
     result?: boolean;
     /**
-     * 
+     * ParaTime only
      * @type {string}
      * @memberof OperationsRow
      */
@@ -130,9 +130,17 @@ export interface OperationsRow {
 export enum OperationsRowMethodEnum {
     StakingTransfer = 'staking.Transfer',
     StakingAddEscrow = 'staking.AddEscrow',
-    RoothashExecutorCommit = 'roothash.ExecutorCommit',
     StakingReclaimEscrow = 'staking.ReclaimEscrow',
-    StakingAllow = 'staking.Allow'
+    StakingAllow = 'staking.Allow',
+    StakingAmendCommissionSchedule = 'staking.AmendCommissionSchedule',
+    RoothashExecutorCommit = 'roothash.ExecutorCommit',
+    RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
+    RegistryRegisterEntity = 'registry.RegisterEntity',
+    RegistryRegisterNode = 'registry.RegisterNode',
+    RegistryRegisterRuntime = 'registry.RegisterRuntime',
+    GovernanceCastVote = 'governance.CastVote',
+    BeaconPvssCommit = 'beacon.PVSSCommit',
+    BeaconPvssReveal = 'beacon.PVSSReveal'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {
@@ -157,9 +165,9 @@ export function OperationsRowFromJSONTyped(json: any, ignoreDiscriminator: boole
         'status': !exists(json, 'status') ? undefined : json['status'],
         'from': !exists(json, 'from') ? undefined : json['from'],
         'to': !exists(json, 'to') ? undefined : json['to'],
+        'round': !exists(json, 'round') ? undefined : json['round'],
         'runtime_id': !exists(json, 'runtimeId') ? undefined : json['runtimeId'],
         'runtime_name': !exists(json, 'runtimeName') ? undefined : json['runtimeName'],
-        'round': !exists(json, 'round') ? undefined : json['round'],
         'result': !exists(json, 'result') ? undefined : json['result'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -186,9 +194,9 @@ export function OperationsRowToJSON(value?: OperationsRow | null): any {
         'status': value.status,
         'from': value.from,
         'to': value.to,
+        'round': value.round,
         'runtimeId': value.runtime_id,
         'runtimeName': value.runtime_name,
-        'round': value.round,
         'result': value.result,
         'type': value.type,
     };
