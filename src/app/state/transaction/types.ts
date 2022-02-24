@@ -1,6 +1,5 @@
 import { ErrorPayload } from 'types/errors'
 
-/* --- STATE --- */
 export interface Transaction {
   amount?: number
   escrow_amount?: number
@@ -17,6 +16,7 @@ export interface Transaction {
   type?: string
 }
 
+/* --- STATE --- */
 export interface TransactionState {
   step?: TransactionStep
   active: boolean

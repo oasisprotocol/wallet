@@ -38,10 +38,10 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     }
   }
 
-  async function getTransactionsList({ accountId, limit }): Promise<Transaction[]> {
+  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
     const transactionsList = await operations.getTransactionsList({
-      address: accountId,
-      size: limit,
+      address: params.accountId,
+      size: params.limit,
       runtime: false,
     })
     if (transactionsList && transactionsList.code === 0) {
@@ -57,7 +57,7 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    liquid_balance: parseFloat(account.available) * 10 ** 9,
+    liquid_balance: parseStringValueToInt(account.available),
   }
 }
 
@@ -93,23 +93,25 @@ const transactionAmountMap = {
 }
 
 function setTransactionAmountProperty(amount?: string, method?: OperationsRowMethodEnum) {
-  if (!amount || !method) {
-    return {}
-  }
-
+  if (!amount || !method) return undefined
+  const amountField = transactionAmountMap[method]
+  if (!amountField) return undefined
   return {
-    [transactionAmountMap[method]]: parseStringValueToInt(amount),
+    [amountField]: parseStringValueToInt(amount),
   }
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
-  return transactionsList.map(t => ({
-    from: t.from,
-    hash: t.tx_hash,
-    level: t.height,
-    timestamp: t.timestamp,
-    to: t.to,
-    type: t.method && transactionMethodMap[t.method],
-    ...setTransactionAmountProperty(t.amount, t.method),
-  }))
+  return transactionsList.map(t => {
+    const parsed: Transaction = {
+      from: t.from,
+      hash: t.tx_hash,
+      level: t.height,
+      timestamp: t.timestamp,
+      to: t.to,
+      type: t.method && transactionMethodMap[t.method],
+      ...setTransactionAmountProperty(t.amount, t.method),
+    }
+    return parsed
+  })
 }

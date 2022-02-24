@@ -30,8 +30,11 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
     return parseValidatorsList(validators)
   }
 
-  async function getTransactionsList({ accountId }): Promise<Transaction[]> {
-    return await operations.getTransactionsList({ accountId })
+  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
+    return await operations.getTransactionsList({
+      accountId: params.accountId,
+      limit: params.limit,
+    })
   }
 
   return { accounts, blocks, getAccount, getAllValidators, getTransactionsList }

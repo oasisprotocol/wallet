@@ -36,18 +36,17 @@ function* loadAccount(action: PayloadAction<string>) {
     ),
     join(
       yield* fork(function* () {
-        let transactions
         try {
-          transactions = yield* call(getTransactionsList, {
+          const transactions = yield* call(getTransactionsList, {
             accountId: address,
             limit: 20,
           })
+          yield put(actions.transactionsLoaded(transactions))
         } catch (e) {
           console.error('get transactions list failed, continuing without updated list.', e)
           yield put(actions.transactionsError('' + e))
           return
         }
-        yield put(actions.transactionsLoaded(transactions))
       }),
     ),
     //@TODO Use this for now instead of oasis-explorer because of the ongoing
