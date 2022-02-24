@@ -49,21 +49,21 @@ describe('Ledger Library', () => {
     it('Should catch Cannot open Oasis app', async () => {
       mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 26628 })
+      pubKey.mockResolvedValueOnce({ return_code: 0x6804 })
 
       const accounts = Ledger.enumerateAccounts({})
-      expect(accounts).rejects.toThrowError(WalletError)
-      expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerCannotOpenOasisApp)
+      await expect(accounts).rejects.toThrowError(WalletError)
+      await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerCannotOpenOasisApp)
     })
 
     it('Should catch App version not supported', async () => {
       mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 25600 })
+      pubKey.mockResolvedValueOnce({ return_code: 0x6400 })
 
       const accounts = Ledger.enumerateAccounts({})
-      expect(accounts).rejects.toThrowError(WalletError)
-      expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerAppVersionNotSupported)
+      await expect(accounts).rejects.toThrowError(WalletError)
+      await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerAppVersionNotSupported)
     })
 
     it('Should catch ledger unknown errors', async () => {
@@ -72,9 +72,9 @@ describe('Ledger Library', () => {
       pubKey.mockResolvedValueOnce({ return_code: -1, error_message: 'unknown dummy error' })
 
       const accounts = Ledger.enumerateAccounts({})
-      expect(accounts).rejects.toThrowError(WalletError)
-      expect(accounts).rejects.toThrow(/unknown dummy error/)
-      expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerUnknownError)
+      await expect(accounts).rejects.toThrowError(WalletError)
+      await expect(accounts).rejects.toThrow(/unknown dummy error/)
+      await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerUnknownError)
     })
   })
 
@@ -118,9 +118,9 @@ describe('Ledger Library', () => {
       expect(signer.public()).toEqual(new Uint8Array([170, 187, 204]))
     })
 
-    it('Should throw if the transaction was rejected', () => {
+    it('Should throw if the transaction was rejected', async () => {
       const sign: jest.Mock<any> = OasisApp.prototype.sign
-      sign.mockResolvedValueOnce({ return_code: 27014 })
+      sign.mockResolvedValueOnce({ return_code: 0x6986 })
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
@@ -130,11 +130,11 @@ describe('Ledger Library', () => {
 
       signer.setTransport({})
       const result = signer.sign('', new Uint8Array())
-      expect(result).rejects.toThrowError(WalletError)
-      expect(result).rejects.toHaveProperty('type', WalletErrors.LedgerTransactionRejected)
+      await expect(result).rejects.toThrowError(WalletError)
+      await expect(result).rejects.toHaveProperty('type', WalletErrors.LedgerTransactionRejected)
     })
 
-    it('Should return the signature', () => {
+    it('Should return the signature', async () => {
       const sign: jest.Mock<any> = OasisApp.prototype.sign
       sign.mockResolvedValueOnce({ return_code: 0x9000, signature: Buffer.from(new Uint8Array([1, 2, 3])) })
 
@@ -145,7 +145,7 @@ describe('Ledger Library', () => {
       } as Wallet)
 
       signer.setTransport({})
-      expect(signer.sign('', new Uint8Array())).resolves.toEqual(new Uint8Array([1, 2, 3]))
+      await expect(signer.sign('', new Uint8Array())).resolves.toEqual(new Uint8Array([1, 2, 3]))
     })
   })
 })

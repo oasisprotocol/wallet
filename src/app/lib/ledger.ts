@@ -19,11 +19,11 @@ interface LedgerAccount {
 const successOrThrow = (response: Response, message: string) => {
   if (response.return_code !== 0x9000) {
     switch (response.return_code) {
-      case 25600:
+      case 0x6400:
         throw new WalletError(WalletErrors.LedgerAppVersionNotSupported, response.error_message)
-      case 27014:
+      case 0x6986:
         throw new WalletError(WalletErrors.LedgerTransactionRejected, response.error_message)
-      case 26628:
+      case 0x6804:
         throw new WalletError(WalletErrors.LedgerCannotOpenOasisApp, response.error_message)
 
       default:
