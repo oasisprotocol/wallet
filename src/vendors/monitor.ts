@@ -96,18 +96,12 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
     const parsed: Transaction = {
-      amount: t.amount,
-      escrow_amount: t.escrow_amount,
+      amount: t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount,
       fee: t.fee,
       from: t.from,
-      gas_price: t.gas_price,
-      gas_used: t.gas_used,
       hash: t.hash,
       level: t.level,
-      nonce: t.nonce,
-      reclaim_escrow_amount: t.reclaim_escrow_amount,
       status: t.status,
-      error: t.error,
       timestamp: t.timestamp,
       to: t.to,
       type: t.type,

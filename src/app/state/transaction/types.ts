@@ -1,21 +1,29 @@
 import { ErrorPayload } from 'types/errors'
 
 export interface Transaction {
-  amount?: number
-  escrow_amount?: number
-  fee?: number
-  from?: string
-  gas_price?: number
-  gas_used?: number
-  hash?: string
-  level?: number
-  nonce?: number
-  reclaim_escrow_amount?: number
-  status?: boolean
-  error?: string
-  timestamp?: number
-  to?: string
-  type?: string
+  amount: number | undefined
+  fee: number | undefined
+  from: string | undefined
+  hash: string | undefined
+  level: number | undefined
+  status: boolean | undefined
+  timestamp: number | undefined
+  to: string | undefined
+  type:
+    | undefined
+    | 'transfer'
+    | 'addescrow'
+    | 'reclaimescrow'
+    | 'allow'
+    | 'amendcommissionschedule'
+    | 'executorcommit'
+    | 'executorproposertimeout'
+    | 'registerentity'
+    | 'registernode'
+    | 'registerruntime'
+    | 'castvote'
+    | 'pvsscommit'
+    | 'pvssreveal'
 }
 
 /* --- STATE --- */

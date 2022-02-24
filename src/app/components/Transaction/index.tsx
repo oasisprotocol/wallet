@@ -59,11 +59,7 @@ export function Transaction(props: TransactionProps) {
   const { t } = useTranslation()
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const amount = (
-    <AmountFormatter
-      amount={transaction.escrow_amount ?? transaction.reclaim_escrow_amount ?? transaction.amount!}
-    />
-  )
+  const amount = <AmountFormatter amount={transaction.amount!} />
 
   let side: TransactionSide
   let otherAddress = ''

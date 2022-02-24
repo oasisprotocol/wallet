@@ -80,37 +80,34 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   })
 }
 
-const transactionMethodMap = {
+const transactionMethodMap: { [k in OperationsRowMethodEnum]: Transaction['type'] } = {
   [OperationsRowMethodEnum.StakingTransfer]: 'transfer',
   [OperationsRowMethodEnum.StakingAddEscrow]: 'addescrow',
   [OperationsRowMethodEnum.StakingReclaimEscrow]: 'reclaimescrow',
-}
-
-const transactionAmountMap = {
-  [OperationsRowMethodEnum.StakingTransfer]: 'amount',
-  [OperationsRowMethodEnum.StakingAddEscrow]: 'escrow_amount',
-  [OperationsRowMethodEnum.StakingReclaimEscrow]: 'reclaim_escrow_amount',
-}
-
-function setTransactionAmountProperty(amount?: string, method?: OperationsRowMethodEnum) {
-  if (!amount || !method) return undefined
-  const amountField = transactionAmountMap[method]
-  if (!amountField) return undefined
-  return {
-    [amountField]: parseStringValueToInt(amount),
-  }
+  [OperationsRowMethodEnum.StakingAllow]: 'allow',
+  [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: 'amendcommissionschedule',
+  [OperationsRowMethodEnum.RoothashExecutorCommit]: 'executorcommit',
+  [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: 'executorproposertimeout',
+  [OperationsRowMethodEnum.RegistryRegisterEntity]: 'registerentity',
+  [OperationsRowMethodEnum.RegistryRegisterNode]: 'registernode',
+  [OperationsRowMethodEnum.RegistryRegisterRuntime]: 'registerruntime',
+  [OperationsRowMethodEnum.GovernanceCastVote]: 'castvote',
+  [OperationsRowMethodEnum.BeaconPvssCommit]: 'pvsscommit',
+  [OperationsRowMethodEnum.BeaconPvssReveal]: 'pvssreveal',
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
     const parsed: Transaction = {
-      from: t.from,
-      hash: t.tx_hash,
-      level: t.height,
-      timestamp: t.timestamp,
-      to: t.to,
-      type: t.method && transactionMethodMap[t.method],
-      ...setTransactionAmountProperty(t.amount, t.method),
+      amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
+      fee: t.fee == null ? undefined : parseStringValueToInt(t.fee),
+      from: t.from == null ? undefined : t.from,
+      hash: t.tx_hash == null ? undefined : t.tx_hash,
+      level: t.height == null ? undefined : t.height,
+      status: t.status == null ? undefined : t.status,
+      timestamp: t.timestamp == null ? undefined : t.timestamp,
+      to: t.to == null ? undefined : t.to,
+      type: t.method == null ? undefined : transactionMethodMap[t.method] ?? (t.method as any),
     }
     return parsed
   })
