@@ -7,6 +7,7 @@ import {
   BlocksApi,
   Configuration,
   OperationsListApi,
+  OperationsRow,
   ValidatorCommissionScheduleRates,
   ValidatorRow,
 } from 'vendors/explorer'
@@ -31,10 +32,11 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
   }
 
   async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
-    return await operations.getTransactionsList({
+    const transactions = await operations.getTransactionsList({
       accountId: params.accountId,
       limit: params.limit,
     })
+    return parseTransactionsList(transactions)
   }
 
   return { accounts, blocks, getAccount, getAllValidators, getTransactionsList }
@@ -89,4 +91,27 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
     return undefined
   }
   return rates[rates.length - 1].rate
+}
+
+export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
+  return transactionsList.map(t => {
+    const parsed: Transaction = {
+      amount: t.amount,
+      escrow_amount: t.escrow_amount,
+      fee: t.fee,
+      from: t.from,
+      gas_price: t.gas_price,
+      gas_used: t.gas_used,
+      hash: t.hash,
+      level: t.level,
+      nonce: t.nonce,
+      reclaim_escrow_amount: t.reclaim_escrow_amount,
+      status: t.status,
+      error: t.error,
+      timestamp: t.timestamp,
+      to: t.to,
+      type: t.type,
+    }
+    return parsed
+  })
 }

@@ -6,11 +6,13 @@ export interface Transaction {
   fee?: number
   from?: string
   gas_price?: number
+  gas_used?: number
   hash?: string
   level?: number
   nonce?: number
   reclaim_escrow_amount?: number
-  status?: string
+  status?: boolean
+  error?: string
   timestamp?: number
   to?: string
   type?: string

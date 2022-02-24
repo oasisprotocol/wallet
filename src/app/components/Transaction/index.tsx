@@ -18,12 +18,12 @@ import {
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
-import { OperationsRow } from 'vendors/explorer'
 
 import { AmountFormatter } from '../AmountFormatter'
 import { DateFormatter } from '../DateFormatter'
 import { ShortAddress } from '../ShortAddress'
 import { InfoBox } from './InfoBox'
+import * as transactionTypes from 'app/state/transaction/types'
 
 export enum TransactionSide {
   Sent = 'sent',
@@ -52,7 +52,7 @@ type TransactionDictionary = {
 
 interface TransactionProps {
   referenceAddress: string
-  transaction: OperationsRow
+  transaction: transactionTypes.Transaction
 }
 
 export function Transaction(props: TransactionProps) {
