@@ -1,4 +1,4 @@
-import { parseValidatorsList, parseAccount } from './oasisscan'
+import { parseValidatorsList, parseAccount, parseTransactionsList } from './oasisscan'
 
 describe('oasisscan', () => {
   test('parse account', () => {
@@ -88,6 +88,56 @@ describe('oasisscan', () => {
           escrow_shares_status: null,
           escrow_amount_status: null,
           status: true,
+        },
+      ]),
+    ).toMatchSnapshot()
+  })
+
+  test('parse transaction list', () => {
+    expect(
+      // https://api.oasisscan.com/mainnet/chain/transactions?address=oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe&size=20&runtime=true
+      parseTransactionsList([
+        {
+          txHash: 'af1b72b6e9e2b3ab6cb06b7962a98551d1fce566018b5dd71568495c34125a44',
+          height: 5860530,
+          method: 'staking.Transfer',
+          fee: '0',
+          amount: '9143.65',
+          shares: null,
+          add: true,
+          timestamp: 1636537424,
+          time: 9169712,
+          status: true,
+          from: 'oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz',
+          to: 'oasis1qzmpk8ha3jg6ua0k00w34ud77lun7jf0lc6m9a0k',
+        },
+        {
+          txHash: 'b394885e0c059307a1620d49ed05d89a8b2712b4220e94c3dbe89d6a478d35af',
+          height: 5859985,
+          method: 'staking.AddEscrow',
+          fee: '0',
+          amount: '9.15',
+          shares: null,
+          add: true,
+          timestamp: 1636534194,
+          time: 9172942,
+          status: true,
+          from: 'oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz',
+          to: 'oasis1qzmpk8ha3jg6ua0k00w34ud77lun7jf0lc6m9a0k',
+        },
+        {
+          txHash: '9d85fc7e2939de94ae43c736cdef2c3f5b55d70a8611897dc04e4e8060da2a3f',
+          height: 5830798,
+          method: 'staking.ReclaimEscrow',
+          fee: '0',
+          amount: '9102.90',
+          shares: null,
+          add: true,
+          timestamp: 1636361404,
+          time: 9345732,
+          status: true,
+          from: 'oasis1qprje45lh2qqrsy4rcvgx4zpnpzkhkqcm58emr3l',
+          to: 'oasis1qp6pu7sr822u3mecyt3vtzm54wq2rl5ezg5gutvz',
         },
       ]),
     ).toMatchSnapshot()
