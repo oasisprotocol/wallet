@@ -84,7 +84,7 @@
     "cross-env": "7.0.3",
     "fontfaceobserver": "2.1.0",
     "grommet": "2.19.1",
-    "grommet-icons": "4.6.2",
+    "grommet-icons": "4.7.0",
     "husky": "7.0.4",
     "i18next": "20.6.1",
     "i18next-browser-languagedetector": "6.1.2",
