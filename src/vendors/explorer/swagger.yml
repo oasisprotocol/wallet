@@ -1134,6 +1134,10 @@ definitions:
       gas_price:
         format: int64
         type: integer
+      status:
+        type: boolean
+      error:
+        type: string
     type: object
   ChartsData:
     properties:
