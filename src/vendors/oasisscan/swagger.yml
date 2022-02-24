@@ -2,6 +2,8 @@ swagger: '2.0'
 info:
   title: Oasisscan API
   version: "1"
+  description:
+    https://github.com/bitcat365/oasisscan-backend#readme
 paths:
   '/chain/account/info/{account_id}':
     get:
@@ -66,18 +68,27 @@ paths:
       produces:
         - application/json
       parameters:
-        - in: query
-          name: size
+        - name: size
           type: integer
-        - in: query
-          name: address
-          description: Get transactions by account
+          in: query
+        - name: page
+          type: integer
+          in: query
+        - name: height
+          type: integer
+          in: query
+        - name: address
           type: string
-        - in: query
-          name: runtime
+          description: Get transactions by account
+          in: query
+        - name: method
+          type: string
+          in: query
+        - name: runtime
           type: boolean
           required: true
           description: Include ParaTime transactions
+          in: query
       responses:
         '200':
           description: Query compatibility endpoint for transactions
