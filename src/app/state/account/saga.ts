@@ -19,7 +19,7 @@ function* loadAccount(action: PayloadAction<string>) {
   yield* put(actions.setLoading(true))
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
-  const { getAccount, operations } = yield* call(getExplorerAPIs)
+  const { getAccount, getTransactionsList } = yield* call(getExplorerAPIs)
 
   yield* all([
     join(
@@ -38,10 +38,7 @@ function* loadAccount(action: PayloadAction<string>) {
       yield* fork(function* () {
         let transactions
         try {
-          // TODO
-          // https://monitor.oasis.dev/data/transactions?account_id=oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe&limit=20
-          // https://api.oasisscan.com/mainnet/chain/transactions?address=oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe&size=20&runtime=true
-          transactions = yield* call([operations, operations.getTransactionsList], {
+          transactions = yield* call(getTransactionsList, {
             accountId: address,
             limit: 20,
           })
