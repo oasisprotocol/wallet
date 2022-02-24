@@ -210,38 +210,38 @@ definitions:
         type: string
     type: object
     required:
-    - active
-    - balance
-    - bound
-    - bounds
-    - commission
-    - delegators
-    - description
-    - email
-    - entityAddress
-    - entityId
-    - escrow
-    - escrowAmountStatus
-    - escrowChange24
-    - escrowPercent
-    - escrowSharesStatus
-    - icon
-    - keybase
-    - name
-    - nodeAddress
-    - nodeId
-    - nodes
-    - nonce
-    - proposals
-    - rank
-    - rates
-    - score
-    - signs
-    - status
-    - totalShares
-    - twitter
-    - uptime
-    - website
+      - active
+      - balance
+      - bound
+      - bounds
+      - commission
+      - delegators
+      - description
+      - email
+      - entityAddress
+      - entityId
+      - escrow
+      - escrowAmountStatus
+      - escrowChange24
+      - escrowPercent
+      - escrowSharesStatus
+      - icon
+      - keybase
+      - name
+      - nodeAddress
+      - nodeId
+      - nodes
+      - nonce
+      - proposals
+      - rank
+      - rates
+      - score
+      - signs
+      - status
+      - totalShares
+      - twitter
+      - uptime
+      - website
   OperationsRow:
     type: object
     properties:
@@ -252,11 +252,11 @@ definitions:
       method:
         type: string
         enum:
-        - staking.Transfer
-        - staking.AddEscrow
-        - roothash.ExecutorCommit
-        - staking.ReclaimEscrow
-        - staking.Allow
+          - staking.Transfer
+          - staking.AddEscrow
+          - roothash.ExecutorCommit
+          - staking.ReclaimEscrow
+          - staking.Allow
       fee:
         type: string
       amount:
@@ -286,5 +286,5 @@ definitions:
       type:
         type: string
     required:
-    - timestamp
-    - txHash
+      - timestamp
+      - txHash
