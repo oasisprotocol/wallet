@@ -35,7 +35,7 @@ export interface TransactionState {
   preview?: TransactionPreview
 }
 
-export type TransactionType = 'transfer' | 'addEscrow' | 'reclaimEscrow'
+export type NewTransactionType = 'transfer' | 'addEscrow' | 'reclaimEscrow'
 export type TransactionPayload = TransferPayload | AddEscrowPayload | ReclaimEscrowPayload
 
 export interface TransactionPreview {
