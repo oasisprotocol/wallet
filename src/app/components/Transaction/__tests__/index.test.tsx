@@ -47,7 +47,8 @@ describe('<Transaction  />', () => {
     timestamp: 1618018255,
     from: 'source',
     to: 'destination',
-    type: 'transfer',
+    type: transactionTypes.TransactionType.StakingTransfer,
+    hash: 'ff1234',
   }
 
   beforeEach(() => {
@@ -89,6 +90,7 @@ describe('<Transaction  />', () => {
       from: 'source',
       to: 'destination',
       type: 'turboencabulate',
+      hash: 'ff1234',
     })
     expect(component.container.firstChild).toMatchSnapshot()
   })

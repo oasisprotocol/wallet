@@ -11,7 +11,6 @@ import {
   Money,
   LineChart,
   New,
-  ShareOption,
   LinkPrevious,
   LinkNext,
 } from 'grommet-icons/icons'
@@ -240,8 +239,13 @@ export function Transaction(props: TransactionProps) {
           <DateFormatter date={transaction.timestamp!} />
         </Text>
         <Box direction="row">
-          <Button icon={<CircleInformation color="dark-3" />} hoverIndicator />
-          <Button icon={<ShareOption color="dark-3" />} hoverIndicator />
+          <Button
+            icon={<CircleInformation color="dark-3" />}
+            hoverIndicator
+            href={'https://www.oasisscan.com/transactions/' + encodeURIComponent(transaction.hash)}
+            target="_blank"
+            rel="noopener"
+          />
         </Box>
       </CardFooter>
     </Card>
