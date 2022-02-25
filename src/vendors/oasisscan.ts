@@ -1,5 +1,6 @@
+import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
-import { Validator } from 'app/state/staking/types'
+import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { Transaction, TransactionType } from 'app/state/transaction/types'
 import { parseStringValueToInt } from 'app/lib/helpers'
 import {
@@ -11,6 +12,8 @@ import {
   OperationsRow,
   OperationsRowMethodEnum,
 } from 'vendors/oasisscan/index'
+import { DelegationRow } from 'vendors/oasisscan/models/DelegationRow'
+import { DebondingDelegationRow } from 'vendors/oasisscan/models/DebondingDelegationRow'
 
 import { sortByStatus } from './helpers'
 
@@ -44,7 +47,22 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     return parseTransactionsList(transactionsList.data.list)
   }
 
-  return { accounts, operations, getAccount, getAllValidators, getTransactionsList }
+  async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
+    delegations: Delegation[]
+    debonding: DebondingDelegation[]
+  }> {
+    const delegations = await accounts.getDelegations({ address: params.accountId, size: 500 })
+    const debonding = await accounts.getDebondingDelegations({ address: params.accountId, size: 500 })
+    if (!delegations || delegations.code !== 0) throw new Error('Wrong response code') // TODO
+    if (!debonding || debonding.code !== 0) throw new Error('Wrong response code') // TODO
+
+    return {
+      delegations: parseDelegations(delegations.data.list),
+      debonding: parseDebonding(debonding.data.list),
+    }
+  }
+
+  return { accounts, operations, getAccount, getAllValidators, getTransactionsList, getDelegations }
 }
 
 export function parseAccount(account: AccountsRow): Account {
@@ -106,6 +124,31 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
       timestamp: t.timestamp,
       to: t.to ?? undefined,
       type: transactionMethodMap[t.method],
+    }
+    return parsed
+  })
+}
+
+export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
+  return delegations.map(delegation => {
+    const parsed: Delegation = {
+      amount: parseStringValueToInt(delegation.amount).toString(),
+      shares: parseStringValueToInt(delegation.shares).toString(),
+      validatorAddress: delegation.validator_address,
+    }
+    return parsed
+  })
+}
+export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDelegation[] {
+  return debonding.map(debonding => {
+    // TODO: use amount field, or share price when it is available. Until then,
+    // using price=1 is inaccurate if debonding pool gets slashed.
+    const sharePrice = 1
+    const parsed: DebondingDelegation = {
+      amount: (parseStringValueToInt(debonding.shares) * sharePrice).toString(),
+      shares: parseStringValueToInt(debonding.shares).toString(),
+      validatorAddress: debonding.validator_address,
+      epoch: debonding.debond_end,
     }
     return parsed
   })
