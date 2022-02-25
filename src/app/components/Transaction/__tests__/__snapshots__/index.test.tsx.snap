@@ -518,6 +518,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         </div>
       </div>
       <a
+        data-testid="external-wallet-address"
         href="/account/source"
       >
         <div
@@ -1151,6 +1152,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         </div>
       </div>
       <a
+        data-testid="external-wallet-address"
         href="/account/source"
       >
         <div

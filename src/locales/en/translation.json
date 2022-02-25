@@ -129,6 +129,7 @@
     "validator": "Validator",
     "cancel": "Cancel",
     "confirm": "Confirm",
+    "unavailable": "Unavailable",
     "validators": "Validators"
   },
   "errors": {

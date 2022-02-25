@@ -94,4 +94,18 @@ describe('<Transaction  />', () => {
     })
     expect(component.container.firstChild).toMatchSnapshot()
   })
+
+  it('should not render a link when address is undefined', () => {
+    renderComponent(store, 'sourceAddr', {
+      amount: 1000000,
+      timestamp: 1618018255,
+      from: 'sourceAddr',
+      to: undefined,
+      type: 'anyType',
+      hash: 'ff1234',
+    })
+
+    expect(screen.queryByTestId('external-wallet-address')).not.toBeInTheDocument()
+    expect(screen.getByText('common.unavailable')).toBeInTheDocument()
+  })
 })
