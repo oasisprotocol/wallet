@@ -24,6 +24,7 @@ export const AmountFormatter = memo((props: Props) => {
 
   const ticker = useSelector(selectTicker)
 
+  if (props.amount == null) return <>-</>
   return (
     <>
       {amountString} {!props.hideTicker && <>{ticker}</>}
