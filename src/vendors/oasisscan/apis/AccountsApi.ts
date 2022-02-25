@@ -21,10 +21,31 @@ import {
     InlineResponse2001,
     InlineResponse2001FromJSON,
     InlineResponse2001ToJSON,
+    InlineResponse2003,
+    InlineResponse2003FromJSON,
+    InlineResponse2003ToJSON,
+    InlineResponse2004,
+    InlineResponse2004FromJSON,
+    InlineResponse2004ToJSON,
 } from '../models';
 
 export interface GetAccountRequest {
     accountId: string;
+}
+
+export interface GetDebondingDelegationsRequest {
+    size?: number;
+    page?: number;
+    height?: number;
+    address?: string;
+}
+
+export interface GetDelegationsRequest {
+    size?: number;
+    page?: number;
+    height?: number;
+    address?: string;
+    all?: boolean;
 }
 
 export interface GetValidatorsListRequest {
@@ -61,6 +82,90 @@ export class AccountsApi extends runtime.BaseAPI {
      */
     async getAccount(requestParameters: GetAccountRequest): Promise<InlineResponse200> {
         const response = await this.getAccountRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getDebondingDelegationsRaw(requestParameters: GetDebondingDelegationsRequest): Promise<runtime.ApiResponse<InlineResponse2004>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.size !== undefined) {
+            queryParameters['size'] = requestParameters.size;
+        }
+
+        if (requestParameters.page !== undefined) {
+            queryParameters['page'] = requestParameters.page;
+        }
+
+        if (requestParameters.height !== undefined) {
+            queryParameters['height'] = requestParameters.height;
+        }
+
+        if (requestParameters.address !== undefined) {
+            queryParameters['address'] = requestParameters.address;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chain/account/debonding`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse2004FromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getDebondingDelegations(requestParameters: GetDebondingDelegationsRequest): Promise<InlineResponse2004> {
+        const response = await this.getDebondingDelegationsRaw(requestParameters);
+        return await response.value();
+    }
+
+    /**
+     */
+    async getDelegationsRaw(requestParameters: GetDelegationsRequest): Promise<runtime.ApiResponse<InlineResponse2003>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.size !== undefined) {
+            queryParameters['size'] = requestParameters.size;
+        }
+
+        if (requestParameters.page !== undefined) {
+            queryParameters['page'] = requestParameters.page;
+        }
+
+        if (requestParameters.height !== undefined) {
+            queryParameters['height'] = requestParameters.height;
+        }
+
+        if (requestParameters.address !== undefined) {
+            queryParameters['address'] = requestParameters.address;
+        }
+
+        if (requestParameters.all !== undefined) {
+            queryParameters['all'] = requestParameters.all;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/chain/account/delegations`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => InlineResponse2003FromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async getDelegations(requestParameters: GetDelegationsRequest): Promise<InlineResponse2003> {
+        const response = await this.getDelegationsRaw(requestParameters);
         return await response.value();
     }
 
