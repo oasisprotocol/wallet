@@ -41,7 +41,7 @@ export const Footer = memo(() => {
             components={[
               <Anchor
                 href={`${githubLink}commit/${process.env.REACT_APP_BUILD_VERSION}`}
-                label={process.env.REACT_APP_BUILD_VERSION}
+                label={process.env.REACT_APP_BUILD_VERSION.substring(0, 7)}
               />,
             ]}
             defaults="Version: <0>{{commit}}</0> built at {{buildTime}}"

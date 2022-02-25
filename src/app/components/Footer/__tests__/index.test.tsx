@@ -22,7 +22,7 @@ describe('<Footer />', () => {
   it('should render a link with version number', () => {
     render(<Footer />)
 
-    expect(screen.getByRole('link', { name: 'versionNumber' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'version' })).toHaveAttribute(
       'href',
       'https://github.com/oasisprotocol/oasis-wallet-web/commit/versionNumber',
     )
