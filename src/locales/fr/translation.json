@@ -106,7 +106,7 @@
       "reclaim": "Réclamer"
     },
     "otherTransaction": {
-      "header": "Transaction non reconnue, le type '<0></0>'",
+      "header": "Transaction non reconnue, le type '{{method}}'",
       "designation": "Autre adresse"
     },
     "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
