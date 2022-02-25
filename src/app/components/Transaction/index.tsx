@@ -30,18 +30,8 @@ export enum TransactionSide {
   Received = 'received',
 }
 
-/**
- * These are manually copied from Oasis-explorer. Later, oasis-explorer should
- * make those an enum so that we maintain strong typing across projects.
- */
-export enum TransactionType {
-  Transfer = 'transfer',
-  AddEscrow = 'addescrow',
-  ReclaimEscrow = 'reclaimescrow',
-}
-
 type TransactionDictionary = {
-  [type in TransactionType]: {
+  [type in transactionTypes.TransactionType]: {
     [side in TransactionSide]: {
       icon: () => React.ReactNode
       header: () => React.ReactNode
@@ -72,11 +62,24 @@ export function Transaction(props: TransactionProps) {
     otherAddress = transaction.from!
   }
 
+  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
+    designation: t('account.otherTransaction.designation', 'Other address'),
+    icon: () => <New />,
+    header: () => (
+      <Trans
+        i18nKey="account.otherTransaction.header"
+        t={t}
+        components={[transaction.type]}
+        defaults="Unrecognized transaction, type '<0></0>'"
+      />
+    ),
+  }
+
   // @TODO: This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
   //the translation keys need to be read by i18next extraction
   const transactionDictionary: TransactionDictionary = {
-    [TransactionType.Transfer]: {
+    [transactionTypes.TransactionType.StakingTransfer]: {
       [TransactionSide.Received]: {
         designation: t('common.from', 'From'),
         icon: () => <LinkPrevious />,
@@ -102,7 +105,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [TransactionType.AddEscrow]: {
+    [transactionTypes.TransactionType.StakingAddEscrow]: {
       [TransactionSide.Received]: {
         designation: t('common.delegator', 'Delegator'),
         icon: () => <LineChart />,
@@ -128,7 +131,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [TransactionType.ReclaimEscrow]: {
+    [transactionTypes.TransactionType.StakingReclaimEscrow]: {
       [TransactionSide.Received]: {
         designation: t('common.delegator', 'Delegator'),
         icon: () => <Money />,
@@ -154,22 +157,49 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.StakingAllow]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RoothashExecutorCommit]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RoothashExecutorProposerTimeout]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterEntity]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterNode]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterRuntime]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.GovernanceCastVote]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.BeaconPvssCommit]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.BeaconPvssReveal]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
   }
 
-  const unrecognizedTransaction: TransactionDictionary[TransactionType][TransactionSide] = {
-    designation: t('account.otherTransaction.designation', 'Other address'),
-    icon: () => <New />,
-    header: () => (
-      <Trans
-        i18nKey="account.otherTransaction.header"
-        t={t}
-        components={[transaction.type]}
-        defaults="Unrecognized transaction, type '<0></0>'"
-      />
-    ),
-  }
-
-  const isTypeRecognized = (type: string | undefined): type is TransactionType =>
+  const isTypeRecognized = (type: string | undefined): type is transactionTypes.TransactionType =>
     type ? type in transactionDictionary : false
 
   const matchingConfiguration = isTypeRecognized(transaction.type)

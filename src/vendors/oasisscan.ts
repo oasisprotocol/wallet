@@ -1,6 +1,6 @@
 import { Account } from 'app/state/account/types'
 import { Validator } from 'app/state/staking/types'
-import { Transaction } from 'app/state/transaction/types'
+import { Transaction, TransactionType } from 'app/state/transaction/types'
 import { parseStringValueToInt } from 'app/lib/helpers'
 import {
   AccountsApi,
@@ -80,20 +80,20 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   })
 }
 
-const transactionMethodMap: { [k in OperationsRowMethodEnum]: Transaction['type'] } = {
-  [OperationsRowMethodEnum.StakingTransfer]: 'transfer',
-  [OperationsRowMethodEnum.StakingAddEscrow]: 'addescrow',
-  [OperationsRowMethodEnum.StakingReclaimEscrow]: 'reclaimescrow',
-  [OperationsRowMethodEnum.StakingAllow]: 'allow',
-  [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: 'amendcommissionschedule',
-  [OperationsRowMethodEnum.RoothashExecutorCommit]: 'executorcommit',
-  [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: 'executorproposertimeout',
-  [OperationsRowMethodEnum.RegistryRegisterEntity]: 'registerentity',
-  [OperationsRowMethodEnum.RegistryRegisterNode]: 'registernode',
-  [OperationsRowMethodEnum.RegistryRegisterRuntime]: 'registerruntime',
-  [OperationsRowMethodEnum.GovernanceCastVote]: 'castvote',
-  [OperationsRowMethodEnum.BeaconPvssCommit]: 'pvsscommit',
-  [OperationsRowMethodEnum.BeaconPvssReveal]: 'pvssreveal',
+const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
+  [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
+  [OperationsRowMethodEnum.StakingAddEscrow]: TransactionType.StakingAddEscrow,
+  [OperationsRowMethodEnum.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
+  [OperationsRowMethodEnum.StakingAllow]: TransactionType.StakingAllow,
+  [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
+  [OperationsRowMethodEnum.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
+  [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
+  [OperationsRowMethodEnum.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
+  [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
+  [OperationsRowMethodEnum.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
+  [OperationsRowMethodEnum.GovernanceCastVote]: TransactionType.GovernanceCastVote,
+  [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
+  [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
@@ -102,12 +102,12 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
       amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
       fee: t.fee == null ? undefined : parseStringValueToInt(t.fee),
       from: t.from == null ? undefined : t.from,
-      hash: t.tx_hash == null ? undefined : t.tx_hash,
+      hash: t.tx_hash!,
       level: t.height == null ? undefined : t.height,
       status: t.status == null ? undefined : t.status,
       timestamp: t.timestamp == null ? undefined : t.timestamp,
       to: t.to == null ? undefined : t.to,
-      type: t.method == null ? undefined : transactionMethodMap[t.method] ?? (t.method as any),
+      type: transactionMethodMap[t.method!],
     }
     return parsed
   })

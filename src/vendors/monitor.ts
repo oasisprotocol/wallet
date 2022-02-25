@@ -1,6 +1,6 @@
 import { Account } from 'app/state/account/types'
 import { Validator } from 'app/state/staking/types'
-import { Transaction } from 'app/state/transaction/types'
+import { Transaction, TransactionType } from 'app/state/transaction/types'
 import {
   AccountsApi,
   AccountsRow,
@@ -8,6 +8,7 @@ import {
   Configuration,
   OperationsListApi,
   OperationsRow,
+  OperationsRowTypeEnum,
   ValidatorCommissionScheduleRates,
   ValidatorRow,
 } from 'vendors/explorer'
@@ -93,18 +94,34 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
   return rates[rates.length - 1].rate
 }
 
+const transactionMethodMap: { [k in OperationsRowTypeEnum]: TransactionType } = {
+  [OperationsRowTypeEnum.Transfer]: TransactionType.StakingTransfer,
+  [OperationsRowTypeEnum.Addescrow]: TransactionType.StakingAddEscrow,
+  [OperationsRowTypeEnum.Reclaimescrow]: TransactionType.StakingReclaimEscrow,
+  [OperationsRowTypeEnum.Allow]: TransactionType.StakingAllow,
+  [OperationsRowTypeEnum.Amendcommissionschedule]: TransactionType.StakingAmendCommissionSchedule,
+  [OperationsRowTypeEnum.Executorcommit]: TransactionType.RoothashExecutorCommit,
+  [OperationsRowTypeEnum.Executorproposertimeout]: TransactionType.RoothashExecutorProposerTimeout,
+  [OperationsRowTypeEnum.Registerentity]: TransactionType.RegistryRegisterEntity,
+  [OperationsRowTypeEnum.Registernode]: TransactionType.RegistryRegisterNode,
+  [OperationsRowTypeEnum.Registerruntime]: TransactionType.RegistryRegisterRuntime,
+  [OperationsRowTypeEnum.Castvote]: TransactionType.GovernanceCastVote,
+  [OperationsRowTypeEnum.Pvsscommit]: TransactionType.BeaconPvssCommit,
+  [OperationsRowTypeEnum.Pvssreveal]: TransactionType.BeaconPvssReveal,
+}
+
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
     const parsed: Transaction = {
       amount: t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount,
       fee: t.fee,
       from: t.from,
-      hash: t.hash,
+      hash: t.hash!,
       level: t.level,
       status: t.status,
       timestamp: t.timestamp,
       to: t.to,
-      type: t.type,
+      type: transactionMethodMap[t.type!],
     }
     return parsed
   })

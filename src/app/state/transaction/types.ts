@@ -1,29 +1,35 @@
 import { ErrorPayload } from 'types/errors'
 
+/**
+ * These are manually copied from Oasis-explorer. Later, oasis-explorer should
+ * make those an enum so that we maintain strong typing across projects.
+ */
+export enum TransactionType {
+  StakingTransfer = 'transfer',
+  StakingAddEscrow = 'addescrow',
+  StakingReclaimEscrow = 'reclaimescrow',
+  StakingAllow = 'allow',
+  StakingAmendCommissionSchedule = 'amendcommissionschedule',
+  RoothashExecutorCommit = 'executorcommit',
+  RoothashExecutorProposerTimeout = 'executorproposertimeout',
+  RegistryRegisterEntity = 'registerentity',
+  RegistryRegisterNode = 'registernode',
+  RegistryRegisterRuntime = 'registerruntime',
+  GovernanceCastVote = 'castvote',
+  BeaconPvssCommit = 'pvsscommit',
+  BeaconPvssReveal = 'pvssreveal',
+}
+
 export interface Transaction {
   amount: number | undefined
   fee: number | undefined
   from: string | undefined
-  hash: string | undefined
+  hash: string
   level: number | undefined
   status: boolean | undefined
   timestamp: number | undefined
   to: string | undefined
-  type:
-    | undefined
-    | 'transfer'
-    | 'addescrow'
-    | 'reclaimescrow'
-    | 'allow'
-    | 'amendcommissionschedule'
-    | 'executorcommit'
-    | 'executorproposertimeout'
-    | 'registerentity'
-    | 'registernode'
-    | 'registerruntime'
-    | 'castvote'
-    | 'pvsscommit'
-    | 'pvssreveal'
+  type: TransactionType
 }
 
 /* --- STATE --- */
