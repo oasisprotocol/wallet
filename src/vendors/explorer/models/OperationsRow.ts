@@ -48,7 +48,7 @@ export interface OperationsRow {
      * @type {string}
      * @memberof OperationsRow
      */
-    type?: string;
+    type?: OperationsRowTypeEnum;
     /**
      * 
      * @type {string}
@@ -97,6 +97,38 @@ export interface OperationsRow {
      * @memberof OperationsRow
      */
     gas_price?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof OperationsRow
+     */
+    status?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof OperationsRow
+     */
+    error?: string;
+}
+
+/**
+* @export
+* @enum {string}
+*/
+export enum OperationsRowTypeEnum {
+    Transfer = 'transfer',
+    Addescrow = 'addescrow',
+    Reclaimescrow = 'reclaimescrow',
+    Allow = 'allow',
+    Amendcommissionschedule = 'amendcommissionschedule',
+    Executorcommit = 'executorcommit',
+    Executorproposertimeout = 'executorproposertimeout',
+    Registerentity = 'registerentity',
+    Registernode = 'registernode',
+    Registerruntime = 'registerruntime',
+    Castvote = 'castvote',
+    Pvsscommit = 'pvsscommit',
+    Pvssreveal = 'pvssreveal'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {
@@ -122,6 +154,8 @@ export function OperationsRowFromJSONTyped(json: any, ignoreDiscriminator: boole
         'fee': !exists(json, 'fee') ? undefined : json['fee'],
         'gas_used': !exists(json, 'gas_used') ? undefined : json['gas_used'],
         'gas_price': !exists(json, 'gas_price') ? undefined : json['gas_price'],
+        'status': !exists(json, 'status') ? undefined : json['status'],
+        'error': !exists(json, 'error') ? undefined : json['error'],
     };
 }
 
@@ -147,6 +181,8 @@ export function OperationsRowToJSON(value?: OperationsRow | null): any {
         'fee': value.fee,
         'gas_used': value.gas_used,
         'gas_price': value.gas_price,
+        'status': value.status,
+        'error': value.error,
     };
 }
 

@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
+import { Transaction } from 'app/state/transaction/types'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
-import { OperationsRow } from 'vendors/explorer'
 import { accountSaga } from './saga'
 import { AccountState, Account } from './types'
 
@@ -30,7 +30,7 @@ const slice = createSlice({
     accountError(state, action: PayloadAction<string>) {
       state.accountError = action.payload
     },
-    transactionsLoaded(state, action: PayloadAction<OperationsRow[]>) {
+    transactionsLoaded(state, action: PayloadAction<Transaction[]>) {
       state.transactionsError = null
       state.transactions = action.payload
     },

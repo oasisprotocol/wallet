@@ -127,11 +127,11 @@ export interface ValidatorRow {
      */
     validate_since?: number;
     /**
-     * 
+     * If "active", an entity has a node that is registered for being a validator, node is up to date, and has successfully registered itself. However, it may or may not be part of validator set (top <scheduler.params.max_validators> by stake).
      * @type {string}
      * @memberof ValidatorRow
      */
-    status: string;
+    status: ValidatorRowStatusEnum;
     /**
      * 
      * @type {string}
@@ -162,6 +162,15 @@ export interface ValidatorRow {
      * @memberof ValidatorRow
      */
     signatures_count?: number;
+}
+
+/**
+* @export
+* @enum {string}
+*/
+export enum ValidatorRowStatusEnum {
+    Active = 'active',
+    Inactive = 'inactive'
 }
 
 export function ValidatorRowFromJSON(json: any): ValidatorRow {

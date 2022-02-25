@@ -11,37 +11,26 @@ import {
   Money,
   LineChart,
   New,
-  ShareOption,
   LinkPrevious,
   LinkNext,
 } from 'grommet-icons/icons'
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
-import { OperationsRow } from 'vendors/explorer'
 
 import { AmountFormatter } from '../AmountFormatter'
 import { DateFormatter } from '../DateFormatter'
 import { ShortAddress } from '../ShortAddress'
 import { InfoBox } from './InfoBox'
+import * as transactionTypes from 'app/state/transaction/types'
 
 export enum TransactionSide {
   Sent = 'sent',
   Received = 'received',
 }
 
-/**
- * These are manually copied from Oasis-explorer. Later, oasis-explorer should
- * make those an enum so that we maintain strong typing across projects.
- */
-export enum TransactionType {
-  Transfer = 'transfer',
-  AddEscrow = 'addescrow',
-  ReclaimEscrow = 'reclaimescrow',
-}
-
 type TransactionDictionary = {
-  [type in TransactionType]: {
+  [type in transactionTypes.TransactionType]: {
     [side in TransactionSide]: {
       icon: () => React.ReactNode
       header: () => React.ReactNode
@@ -52,18 +41,14 @@ type TransactionDictionary = {
 
 interface TransactionProps {
   referenceAddress: string
-  transaction: OperationsRow
+  transaction: transactionTypes.Transaction
 }
 
 export function Transaction(props: TransactionProps) {
   const { t } = useTranslation()
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const amount = (
-    <AmountFormatter
-      amount={transaction.escrow_amount ?? transaction.reclaim_escrow_amount ?? transaction.amount!}
-    />
-  )
+  const amount = <AmountFormatter amount={transaction.amount!} />
 
   let side: TransactionSide
   let otherAddress = ''
@@ -76,11 +61,24 @@ export function Transaction(props: TransactionProps) {
     otherAddress = transaction.from!
   }
 
+  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
+    designation: t('account.otherTransaction.designation', 'Other address'),
+    icon: () => <New />,
+    header: () => (
+      <Trans
+        i18nKey="account.otherTransaction.header"
+        t={t}
+        values={{ method: transaction.type }}
+        defaults="Unrecognized transaction, method '{{method}}'"
+      />
+    ),
+  }
+
   // @TODO: This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
   //the translation keys need to be read by i18next extraction
   const transactionDictionary: TransactionDictionary = {
-    [TransactionType.Transfer]: {
+    [transactionTypes.TransactionType.StakingTransfer]: {
       [TransactionSide.Received]: {
         designation: t('common.from', 'From'),
         icon: () => <LinkPrevious />,
@@ -106,7 +104,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [TransactionType.AddEscrow]: {
+    [transactionTypes.TransactionType.StakingAddEscrow]: {
       [TransactionSide.Received]: {
         designation: t('common.delegator', 'Delegator'),
         icon: () => <LineChart />,
@@ -132,7 +130,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [TransactionType.ReclaimEscrow]: {
+    [transactionTypes.TransactionType.StakingReclaimEscrow]: {
       [TransactionSide.Received]: {
         designation: t('common.delegator', 'Delegator'),
         icon: () => <Money />,
@@ -158,22 +156,49 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.StakingAllow]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RoothashExecutorCommit]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RoothashExecutorProposerTimeout]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterEntity]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterNode]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryRegisterRuntime]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.GovernanceCastVote]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.BeaconPvssCommit]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.BeaconPvssReveal]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
   }
 
-  const unrecognizedTransaction: TransactionDictionary[TransactionType][TransactionSide] = {
-    designation: t('account.otherTransaction.designation', 'Other address'),
-    icon: () => <New />,
-    header: () => (
-      <Trans
-        i18nKey="account.otherTransaction.header"
-        t={t}
-        components={[transaction.type]}
-        defaults="Unrecognized transaction, type '<0></0>'"
-      />
-    ),
-  }
-
-  const isTypeRecognized = (type: string | undefined): type is TransactionType =>
+  const isTypeRecognized = (type: string | undefined): type is transactionTypes.TransactionType =>
     type ? type in transactionDictionary : false
 
   const matchingConfiguration = isTypeRecognized(transaction.type)
@@ -195,13 +220,22 @@ export function Transaction(props: TransactionProps) {
       <CardBody pad={{ horizontal: 'none', vertical: 'none' }}>
         <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
           <InfoBox icon={<Money color="brand" />} label={t('common.amount', 'Amount')} value={amount} />
-          <NavLink to={`/account/${otherAddress}`}>
+          {otherAddress && (
+            <NavLink data-testid="external-wallet-address" to={`/account/${otherAddress}`}>
+              <InfoBox
+                icon={<ContactInfo color="brand" />}
+                label={designation}
+                value={<ShortAddress address={otherAddress} />}
+              />
+            </NavLink>
+          )}
+          {!otherAddress && (
             <InfoBox
               icon={<ContactInfo color="brand" />}
               label={designation}
-              value={<ShortAddress address={otherAddress} />}
+              value={t('common.unavailable', 'Unavailable')}
             />
-          </NavLink>
+          )}
           <InfoBox
             icon={<Cube color="brand" />}
             label={t('common.block', 'Block')}
@@ -214,8 +248,13 @@ export function Transaction(props: TransactionProps) {
           <DateFormatter date={transaction.timestamp!} />
         </Text>
         <Box direction="row">
-          <Button icon={<CircleInformation color="dark-3" />} hoverIndicator />
-          <Button icon={<ShareOption color="dark-3" />} hoverIndicator />
+          <Button
+            icon={<CircleInformation color="dark-3" />}
+            hoverIndicator
+            href={'https://www.oasisscan.com/transactions/' + encodeURIComponent(transaction.hash)}
+            target="_blank"
+            rel="noopener"
+          />
         </Box>
       </CardFooter>
     </Card>

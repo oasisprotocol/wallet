@@ -7,9 +7,9 @@ import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
 import { Provider, useSelector } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
-import { OperationsRow } from 'vendors/explorer'
 
 import { Transaction } from '..'
+import * as transactionTypes from 'app/state/transaction/types'
 
 jest.mock('react-i18next', () => ({
   Trans: ({ i18nKey }) => <>{i18nKey}</>,
@@ -42,12 +42,13 @@ const renderComponent = (store, ref, transaction) =>
 describe('<Transaction  />', () => {
   let store: ReturnType<typeof configureAppStore>
   const ref = 'sourceAddr'
-  const transaction: Partial<OperationsRow> = {
+  const transaction: Partial<transactionTypes.Transaction> = {
     amount: 1000000,
     timestamp: 1618018255,
     from: 'source',
     to: 'destination',
-    type: 'transfer',
+    type: transactionTypes.TransactionType.StakingTransfer,
+    hash: 'ff1234',
   }
 
   beforeEach(() => {
@@ -89,7 +90,22 @@ describe('<Transaction  />', () => {
       from: 'source',
       to: 'destination',
       type: 'turboencabulate',
+      hash: 'ff1234',
     })
     expect(component.container.firstChild).toMatchSnapshot()
+  })
+
+  it('should not render a link when address is undefined', () => {
+    renderComponent(store, 'sourceAddr', {
+      amount: 1000000,
+      timestamp: 1618018255,
+      from: 'sourceAddr',
+      to: undefined,
+      type: 'anyType',
+      hash: 'ff1234',
+    })
+
+    expect(screen.queryByTestId('external-wallet-address')).not.toBeInTheDocument()
+    expect(screen.getByText('common.unavailable')).toBeInTheDocument()
   })
 })

@@ -518,6 +518,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         </div>
       </div>
       <a
+        data-testid="external-wallet-address"
         href="/account/source"
       >
         <div
@@ -609,9 +610,11 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     <div
       class="c2"
     >
-      <button
+      <a
         class="c16"
-        type="button"
+        href="https://www.oasisscan.com/transactions/ff1234"
+        rel="noopener"
+        target="_blank"
       >
         <svg
           aria-label="CircleInformation"
@@ -625,24 +628,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
             stroke-width="2"
           />
         </svg>
-      </button>
-      <button
-        class="c16"
-        type="button"
-      >
-        <svg
-          aria-label="ShareOption"
-          class="c17"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-2-4-8-5m8-7-8 5"
-            fill="none"
-            stroke="#000"
-            stroke-width="2"
-          />
-        </svg>
-      </button>
+      </a>
     </div>
   </footer>
 </div>
@@ -1166,6 +1152,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         </div>
       </div>
       <a
+        data-testid="external-wallet-address"
         href="/account/source"
       >
         <div
@@ -1257,9 +1244,11 @@ exports[`<Transaction  /> should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <button
+      <a
         class="c16"
-        type="button"
+        href="https://www.oasisscan.com/transactions/ff1234"
+        rel="noopener"
+        target="_blank"
       >
         <svg
           aria-label="CircleInformation"
@@ -1273,24 +1262,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
             stroke-width="2"
           />
         </svg>
-      </button>
-      <button
-        class="c16"
-        type="button"
-      >
-        <svg
-          aria-label="ShareOption"
-          class="c17"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-2-4-8-5m8-7-8 5"
-            fill="none"
-            stroke="#000"
-            stroke-width="2"
-          />
-        </svg>
-      </button>
+      </a>
     </div>
   </footer>
 </div>
