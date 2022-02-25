@@ -7,12 +7,12 @@
     "url": "https://github.com/Esya/oasis-wallet.git"
   },
   "scripts": {
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts -r ./internals/scripts/set-app-version-env.js -r @cypress/instrument-cra start",
     "start:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn start",
     "start:oasisscan": "REACT_APP_BACKEND=oasisscan yarn start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
+    "build": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-app-version-env.js -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
     "build:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn build",
     "build:oasisscan": "REACT_APP_BACKEND=oasisscan yarn build",
     "test": "TZ=UTC react-scripts test --silent",
