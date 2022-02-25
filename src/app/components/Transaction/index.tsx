@@ -221,13 +221,22 @@ export function Transaction(props: TransactionProps) {
       <CardBody pad={{ horizontal: 'none', vertical: 'none' }}>
         <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
           <InfoBox icon={<Money color="brand" />} label={t('common.amount', 'Amount')} value={amount} />
-          <NavLink to={`/account/${otherAddress}`}>
+          {otherAddress && (
+            <NavLink data-testid="external-wallet-address" to={`/account/${otherAddress}`}>
+              <InfoBox
+                icon={<ContactInfo color="brand" />}
+                label={designation}
+                value={<ShortAddress address={otherAddress} />}
+              />
+            </NavLink>
+          )}
+          {!otherAddress && (
             <InfoBox
               icon={<ContactInfo color="brand" />}
               label={designation}
-              value={<ShortAddress address={otherAddress} />}
+              value={t('common.unavailable', 'Unavailable')}
             />
-          </NavLink>
+          )}
           <InfoBox
             icon={<Cube color="brand" />}
             label={t('common.block', 'Block')}
