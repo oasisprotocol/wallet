@@ -80,7 +80,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   })
 }
 
-const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
+export const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
   [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
   [OperationsRowMethodEnum.StakingAddEscrow]: TransactionType.StakingAddEscrow,
   [OperationsRowMethodEnum.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
