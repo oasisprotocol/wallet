@@ -1,4 +1,4 @@
-import { parseValidatorsList, parseAccount, parseTransactionsList } from './monitor'
+import { parseValidatorsList, parseAccount, parseTransactionsList } from '../monitor'
 
 describe('monitor', () => {
   test('parse account', () => {

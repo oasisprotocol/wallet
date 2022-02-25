@@ -1,4 +1,4 @@
-import { parseValidatorsList, parseAccount, parseTransactionsList } from './oasisscan'
+import { parseValidatorsList, parseAccount, parseTransactionsList } from '../oasisscan'
 
 describe('oasisscan', () => {
   test('parse account', () => {
