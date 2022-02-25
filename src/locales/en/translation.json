@@ -241,7 +241,7 @@
     "debondingEpoch": "Debonding epoch"
   },
   "fatalError": {
-    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. Please file an issue to our <0>github project</0> and attach the report below.",
+    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below.",
     "heading": "A fatal error occurred",
     "copy": "Copy error to clipboard",
     "copied": "Error copied to clipboard"
