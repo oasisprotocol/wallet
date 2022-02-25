@@ -88,7 +88,7 @@
       "loadingError": "Couldn't load transactions. List may be empty or out of date."
     },
     "otherTransaction": {
-      "header": "Unrecognized transaction, type '<0></0>'",
+      "header": "Unrecognized transaction, method '{{method}}'",
       "designation": "Other address"
     },
     "sendTransaction": {
