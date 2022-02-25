@@ -990,6 +990,12 @@ definitions:
         type: integer
       status:
         type: string
+        enum: [active, inactive]
+        description:
+          If "active", an entity has a node that is registered for being a
+          validator, node is up to date, and has successfully registered itself.
+          However, it may or may not be part of validator set
+          (top <scheduler.params.max_validators> by stake).
       node_address:
         type: string
       consensus_address:
@@ -1107,6 +1113,20 @@ definitions:
         format: int64
       type:
         type: string
+        enum:
+          - transfer
+          - addescrow
+          - reclaimescrow
+          - allow
+          - amendcommissionschedule
+          - executorcommit
+          - executorproposertimeout
+          - registerentity
+          - registernode
+          - registerruntime
+          - castvote
+          - pvsscommit
+          - pvssreveal
       from:
         type: string
       to:
@@ -1129,6 +1149,10 @@ definitions:
       gas_price:
         format: int64
         type: integer
+      status:
+        type: boolean
+      error:
+        type: string
     type: object
   ChartsData:
     properties:
