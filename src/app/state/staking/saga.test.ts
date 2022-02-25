@@ -26,6 +26,7 @@ const fixtureDelegation = new Map<Uint8Array, StakingDelegationInfo>([
 
 describe('Staking Sagas', () => {
   const getAllValidators = jest.fn()
+  const getDelegations = jest.fn()
   const nic = {
     stakingAccount: jest.fn(),
     stakingDebondingDelegationInfosFor: jest.fn(),
@@ -34,7 +35,7 @@ describe('Staking Sagas', () => {
   }
 
   const providers: (EffectProviders | StaticProvider)[] = [
-    [matchers.call.fn(getExplorerAPIs), { getAllValidators }],
+    [matchers.call.fn(getExplorerAPIs), { getAllValidators, getDelegations }],
     [matchers.call.fn(getOasisNic), nic],
     [matchers.call.fn(now), new Date('2022').getTime()],
   ]
@@ -51,8 +52,10 @@ describe('Staking Sagas', () => {
         { address: 'dummy', escrow: 2000 },
       ] as Validator[])
 
-      nic.stakingDelegationInfosFor.mockResolvedValue(fixtureDelegation)
-      nic.stakingDebondingDelegationInfosFor.mockResolvedValue(fixtureDebondingDelegation)
+      getDelegations.mockResolvedValue({
+        delegations: fixtureDelegation,
+        debonding: fixtureDebondingDelegation,
+      })
 
       return (
         expectSaga(fetchAccount, stakingActions.fetchAccount(validAddress))

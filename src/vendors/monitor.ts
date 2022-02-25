@@ -1,5 +1,7 @@
+import * as oasis from '@oasisprotocol/client'
+import { StakingDebondingDelegationInfo, StakingDelegationInfo } from '@oasisprotocol/client/dist/types'
 import { Account } from 'app/state/account/types'
-import { Validator } from 'app/state/staking/types'
+import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { Transaction, TransactionType } from 'app/state/transaction/types'
 import {
   AccountsApi,
@@ -12,6 +14,7 @@ import {
   ValidatorCommissionScheduleRates,
   ValidatorRow,
 } from 'vendors/explorer'
+import { addressToPublicKey } from 'app/lib/helpers'
 
 import { sortByStatus } from './helpers'
 
@@ -42,7 +45,35 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
     return parseTransactionsList(transactions)
   }
 
-  return { accounts, blocks, getAccount, getAllValidators, getTransactionsList }
+  async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
+    delegations: Delegation[]
+    debonding: DebondingDelegation[]
+  }> {
+    // TODO: convert to explorer API
+    const nic = params.nic
+    const publicKey = await addressToPublicKey(params.accountId)
+    const [delegationsResponse, debondingResponse] = await Promise.all([
+      nic.stakingDelegationInfosFor({ owner: publicKey, height: 0 }),
+      nic.stakingDebondingDelegationInfosFor({ owner: publicKey, height: 0 }),
+    ])
+
+    const delegations: Delegation[] = [...delegationsResponse.entries()].map(
+      ([validatorPublicKey, rawDelegation]) => parseDelegation(validatorPublicKey, rawDelegation),
+    )
+    const debonding: DebondingDelegation[] = [...debondingResponse.entries()].flatMap(
+      ([validatorPublicKey, rawDebondingDelegations]) => {
+        return rawDebondingDelegations.map(rawDebonding => {
+          return {
+            ...parseDelegation(validatorPublicKey, rawDebonding),
+            epoch: Number(rawDebonding.debond_end),
+          }
+        })
+      },
+    )
+    return { delegations, debonding }
+  }
+
+  return { accounts, blocks, getAccount, getAllValidators, getTransactionsList, getDelegations }
 }
 
 export function parseAccount(account: AccountsRow): Account {
@@ -131,4 +162,27 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
     }
     return parsed
   })
+}
+
+function getSharePrice(pool: oasis.types.StakingSharePool) {
+  const balance = Number(oasis.quantity.toBigInt(pool.balance!)) / 10 ** 9
+  const share = Number(oasis.quantity.toBigInt(pool.total_shares!)) / 10 ** 9
+  return balance / share
+}
+
+function parseDelegation(
+  bytesAddress: Uint8Array,
+  delegation: StakingDelegationInfo | StakingDebondingDelegationInfo,
+) {
+  const address = oasis.address.toBech32('oasis', bytesAddress)
+  const sharePrice = getSharePrice(delegation.pool)
+  const shares = oasis.quantity.toBigInt(delegation.shares)
+
+  const amount = BigInt(Math.round(Number(shares) * sharePrice))
+
+  return {
+    validatorAddress: address,
+    amount: amount.toString(),
+    shares: oasis.quantity.toBigInt(delegation.shares).toString(),
+  }
 }
