@@ -224,7 +224,7 @@
     "debondingEpoch": "Epoch de récupération"
   },
   "fatalError": {
-    "instruction": "Une erreur fatale s'est produite et le portefeuille Oasis a dû être arrêté. Merci de copier l'erreur et de la soumettre en tant qu'Issue sur notre <0>Github</0>. Vous pouvez également rafraîchir la page pour voir si le problème persiste. Une fois que vous quittez cette page votre portefeuille sera refermé.",
+    "instruction": "Une erreur fatale s'est produite et le portefeuille Oasis a dû être arrêté. Merci de copier l'erreur et de la soumettre en tant qu'Issue sur notre via <0>wallet@oasisprotocol.org</0> email. Vous pouvez également rafraîchir la page pour voir si le problème persiste. Une fois que vous quittez cette page votre portefeuille sera refermé.",
     "heading": "Une erreur fatale s'est produite",
     "copy": "Copier l'erreur",
     "copied": "Erreur copiée"
