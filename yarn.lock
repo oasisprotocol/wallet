@@ -2634,14 +2634,14 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@oasisprotocol/client@0.1.0-alpha7":
-  version "0.1.0-alpha7"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/client/-/client-0.1.0-alpha7.tgz#3f4bd8edd3539e2262bdd07027d95e2becc6c011"
-  integrity sha512-JzLkyZ6VuiNrOT6x4XqOsqpMqbIhhMBnt8ve535fq1z7oKpx6+WrkyerI5CeoMX1UR8DKxT3MyMq7Dq8+5caRg==
+"@oasisprotocol/client@0.1.0-alpha8":
+  version "0.1.0-alpha8"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/client/-/client-0.1.0-alpha8.tgz#717cf6bdfcf964c7e476ec3bb8007730a55fd3d1"
+  integrity sha512-PtJyysR9Tlt3VDcMJlR7h1XyDidYZwPWQGZBFLOViTzMMlc686uxiNBOD9UYeP6IVQPAwpSmYmL0hEMV9dDbiQ==
   dependencies:
     bech32 "^2.0.0"
     bip39 "^3.0.4"
-    cborg "^1.5.2"
+    cborg "^1.6.0"
     grpc-web "^1.3.0"
     js-sha512 "^0.8.0"
     protobufjs "~6.11.2"
@@ -5731,10 +5731,10 @@ caseless@~0.12.0:
   resolved "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cborg@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/cborg/-/cborg-1.5.2.tgz#87964ce85bcb894c8175f3f34eed3fd512aaff6e"
-  integrity sha512-w7RJ0Hm29B/Y5kvUXrP+TfgvBmkRUwYVr8hD63z5MlIGdlelhzNMCV/xKbG+yAyp4euJrqxPsQMXGyJKnfGhPQ==
+cborg@^1.6.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/cborg/-/cborg-1.8.0.tgz#d75be6c5cdaa0f9aab3d24c62b8d2c47ed57ca76"
+  integrity sha512-zT4TJQJJFXLGpd0iMmj1gQCscbcrBxC6X5S0D9bdA8nH34ZbsSdtzJXD0A2ZJzBWP95WI1pKX9CLkwW6UpolwA==
 
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.2, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
