@@ -7,13 +7,13 @@ import {
   AccountsApi,
   AccountsRow,
   Configuration,
+  DelegationRow,
+  DebondingDelegationRow,
   OperationsListApi,
   ValidatorRow,
   OperationsRow,
   OperationsRowMethodEnum,
 } from 'vendors/oasisscan/index'
-import { DelegationRow } from 'vendors/oasisscan/models/DelegationRow'
-import { DebondingDelegationRow } from 'vendors/oasisscan/models/DebondingDelegationRow'
 
 import { sortByStatus } from './helpers'
 
