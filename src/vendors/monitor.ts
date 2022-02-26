@@ -57,20 +57,10 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
       nic.stakingDebondingDelegationInfosFor({ owner: publicKey, height: 0 }),
     ])
 
-    const delegations: Delegation[] = [...delegationsResponse.entries()].map(
-      ([validatorPublicKey, rawDelegation]) => parseDelegation(validatorPublicKey, rawDelegation),
-    )
-    const debonding: DebondingDelegation[] = [...debondingResponse.entries()].flatMap(
-      ([validatorPublicKey, rawDebondingDelegations]) => {
-        return rawDebondingDelegations.map(rawDebonding => {
-          return {
-            ...parseDelegation(validatorPublicKey, rawDebonding),
-            epoch: Number(rawDebonding.debond_end),
-          }
-        })
-      },
-    )
-    return { delegations, debonding }
+    return {
+      delegations: parseDelegations(delegationsResponse),
+      debonding: parseDebonding(debondingResponse),
+    }
   }
 
   return { accounts, blocks, getAccount, getAllValidators, getTransactionsList, getDelegations }
@@ -185,4 +175,29 @@ function parseDelegation(
     amount: amount.toString(),
     shares: oasis.quantity.toBigInt(delegation.shares).toString(),
   }
+}
+
+export function parseDelegations(
+  delegationsResponse: Awaited<ReturnType<oasis.client.NodeInternal['stakingDelegationInfosFor']>>,
+): Delegation[] {
+  const delegations = [...delegationsResponse.entries()].map(([validatorPublicKey, rawDelegation]) =>
+    parseDelegation(validatorPublicKey, rawDelegation),
+  )
+  return delegations
+}
+
+export function parseDebonding(
+  debondingResponse: Awaited<ReturnType<oasis.client.NodeInternal['stakingDebondingDelegationInfosFor']>>,
+): DebondingDelegation[] {
+  const debonding = [...debondingResponse.entries()].flatMap(
+    ([validatorPublicKey, rawDebondingDelegations]) => {
+      return rawDebondingDelegations.map(rawDebonding => {
+        return {
+          ...parseDelegation(validatorPublicKey, rawDebonding),
+          epoch: Number(rawDebonding.debond_end),
+        }
+      })
+    },
+  )
+  return debonding
 }

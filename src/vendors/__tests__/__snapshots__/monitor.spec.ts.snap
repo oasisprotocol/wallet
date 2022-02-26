@@ -7,6 +7,26 @@ Object {
 }
 `;
 
+exports[`monitor parse delegations 1`] = `
+Object {
+  "debonding": Array [
+    Object {
+      "amount": "363940923824",
+      "epoch": 12626,
+      "shares": "363940923824",
+      "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
+    },
+  ],
+  "delegations": Array [
+    Object {
+      "amount": "89387",
+      "shares": "80078",
+      "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
+    },
+  ],
+}
+`;
+
 exports[`monitor parse transaction list 1`] = `
 Array [
   Object {
