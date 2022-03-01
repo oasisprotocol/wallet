@@ -36,7 +36,7 @@ describe('<SendTransaction />', () => {
 
     userEvent.type(screen.getByPlaceholderText('account.sendTransaction.enterAddress'), 'walletAddress')
     userEvent.type(screen.getByPlaceholderText('0'), '10')
-    userEvent.click(screen.getByRole('button'))
+    userEvent.click(screen.getByRole('button', { name: 'account.sendTransaction.send' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {

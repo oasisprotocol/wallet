@@ -1,6 +1,8 @@
+import { AmountTextInput } from 'app/components/AmountTextInput'
 import { TransactionStatus } from 'app/components/TransactionStatus'
 import { useModal } from 'app/components/Modal'
 import { useTransactionSlice } from 'app/state/transaction'
+import { selectAvailableBalance } from 'app/state/wallet/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { selectValidators } from 'app/state/staking/selectors'
 import { Box, Button, Form, FormField, TextInput } from 'grommet'
@@ -16,6 +18,7 @@ export function SendTransaction() {
   const transactionActions = useTransactionSlice().actions
   const { error, success } = useSelector(selectTransaction)
   const validators = useSelector(selectValidators)
+  const availableBalance = useSelector(selectAvailableBalance)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
   const sendTransaction = () =>
@@ -72,19 +75,12 @@ export function SendTransaction() {
               required
             />
           </FormField>
-          <FormField htmlFor="amount-id" name="amount" label={t('common.amount', 'Amount')}>
-            <TextInput
-              id="amount-id"
-              name="amount"
-              placeholder="0"
-              type="number"
-              step="any"
-              min="0"
-              value={amount}
-              onChange={event => setAmount(event.target.value)}
-              required
-            />
-          </FormField>
+          <AmountTextInput
+            handleChange={setAmount}
+            label={t('common.amount', 'Amount')}
+            max={availableBalance}
+            value={amount}
+          />
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <Button
               type="submit"

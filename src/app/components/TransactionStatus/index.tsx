@@ -49,6 +49,7 @@ export const TransactionStatus = memo((props: Props) => {
             color: 'status-ok',
             opacity: 0.3,
           }}
+          margin={{ top: 'small' }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
           <Text weight="bold">{t('account.sendTransaction.success', 'Transaction successfully sent')}</Text>

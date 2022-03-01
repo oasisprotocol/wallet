@@ -39,8 +39,8 @@ describe('<AddEscrowForm />', () => {
   it('should dispatch an addEscrow transaction', () => {
     renderComponent(store, 'dummy-address')
 
-    userEvent.type(screen.getByTestId('amount'), '1000')
-    userEvent.click(screen.getByRole('button'))
+    userEvent.type(screen.getByTestId('amount-form-field'), '1000')
+    userEvent.click(screen.getByRole('button', { name: 'account.addEscrow.delegate' }))
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()
   })

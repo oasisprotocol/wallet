@@ -40,8 +40,8 @@ describe('<ReclaimEscrowForm />', () => {
   it('should error without an open wallet', () => {
     renderComponent(store, 'dummy-address', '1000', '1000')
 
-    userEvent.type(screen.getByTestId('amount'), '1000')
-    userEvent.click(screen.getByRole('button'))
+    userEvent.type(screen.getByTestId('amount-form-field'), '1000')
+    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaim' }))
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()
   })
@@ -50,7 +50,7 @@ describe('<ReclaimEscrowForm />', () => {
     renderComponent(store, 'dummy-address', '1000', '1000')
 
     expect(screen.queryByTestId('numberOfShares')).toBeNull()
-    userEvent.type(screen.getByTestId('amount'), '500')
+    userEvent.type(screen.getByTestId('amount-form-field'), '500')
     expect(screen.getByTestId('numberOfShares')).toBeInTheDocument()
   })
 
@@ -58,8 +58,8 @@ describe('<ReclaimEscrowForm />', () => {
     const spy = jest.spyOn(store, 'dispatch')
     renderComponent(store, 'dummy-address', '2000', '1000')
 
-    userEvent.type(screen.getByTestId('amount'), '500')
-    userEvent.click(screen.getByRole('button'))
+    userEvent.type(screen.getByTestId('amount-form-field'), '500')
+    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaim' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {

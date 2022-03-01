@@ -23,8 +23,6 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #FFFFFF;
-  color: #444444;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -32,7 +30,62 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c4 {
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-bottom: 12px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  color: #444444;
+  border: solid 1px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 6px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c8 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -42,7 +95,74 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c5 {
+.c7 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0.3;
+  cursor: default;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c7:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c7:focus > circle,
+.c7:focus > ellipse,
+.c7:focus > line,
+.c7:focus > path,
+.c7:focus > polygon,
+.c7:focus > polyline,
+.c7:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c7:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c7:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c7:focus:not(:focus-visible) > circle,
+.c7:focus:not(:focus-visible) > ellipse,
+.c7:focus:not(:focus-visible) > line,
+.c7:focus:not(:focus-visible) > path,
+.c7:focus:not(:focus-visible) > polygon,
+.c7:focus:not(:focus-visible) > polyline,
+.c7:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c7:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c9 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -70,51 +190,51 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   transition-timing-function: ease-in-out;
 }
 
-.c5:hover {
+.c9:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c5:focus {
+.c9:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c5:focus > circle,
-.c5:focus > ellipse,
-.c5:focus > line,
-.c5:focus > path,
-.c5:focus > polygon,
-.c5:focus > polyline,
-.c5:focus > rect {
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c5:focus::-moz-focus-inner {
+.c9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c5:focus:not(:focus-visible) {
+.c9:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c5:focus:not(:focus-visible) > circle,
-.c5:focus:not(:focus-visible) > ellipse,
-.c5:focus:not(:focus-visible) > line,
-.c5:focus:not(:focus-visible) > path,
-.c5:focus:not(:focus-visible) > polygon,
-.c5:focus:not(:focus-visible) > polyline,
-.c5:focus:not(:focus-visible) > rect {
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c5:focus:not(:focus-visible)::-moz-focus-inner {
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c3 {
+.c5 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -128,55 +248,37 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
-}
-
-.c3:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  border: none;
 }
 
-.c3:focus > circle,
-.c3:focus > ellipse,
-.c3:focus > line,
-.c3:focus > path,
-.c3:focus > polygon,
-.c3:focus > polyline,
-.c3:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c3:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c3::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c3::-moz-placeholder {
+.c5::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c3:-ms-input-placeholder {
+.c5:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c3::-webkit-search-decoration {
+.c5::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c3::-moz-focus-inner {
+.c5::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c3:-moz-placeholder,
-.c3::-moz-placeholder {
+.c5:-moz-placeholder,
+.c5::-moz-placeholder {
   opacity: 1;
 }
 
-.c2 {
+.c4 {
   position: relative;
   width: 100%;
 }
@@ -188,7 +290,25 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c2 {
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    border: solid 1px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    border-radius: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
     width: 6px;
   }
 }
@@ -201,33 +321,57 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
       class="c1"
     >
       <div
-        class="c2"
+        class="c2 "
       >
-        <input
-          autocomplete="off"
-          class="c3"
-          data-testid="amount"
-          id="amount-id"
-          min="0"
-          name="amount"
-          placeholder="common.amount"
-          required=""
-          step="any"
-          type="number"
-          value=""
-        />
+        <div
+          class="c3 FormField__FormFieldContentBox-sc-m9hood-1"
+        >
+          <div
+            class="c4"
+          >
+            <input
+              autocomplete="off"
+              class="c5"
+              data-testid="amount-form-field"
+              id="amount-id"
+              max="0"
+              min="0"
+              name="amount"
+              placeholder="common.amount"
+              required=""
+              step="any"
+              type="number"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <button
+          class="c7"
+          disabled=""
+          type="button"
+        >
+          100%
+        </button>
       </div>
     </div>
     <div
-      class="c4"
+      class="c8"
     />
-    <button
-      class="c5"
-      style="border-radius: 4px;"
-      type="submit"
+    <div
+      class="c1"
     >
-      account.addEscrow.delegate
-    </button>
+      <button
+        class="c9"
+        style="border-radius: 4px; height: 45px;"
+        type="submit"
+      >
+        account.addEscrow.delegate
+      </button>
+    </div>
   </div>
 </form>
 `;

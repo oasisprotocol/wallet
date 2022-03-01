@@ -5,10 +5,12 @@
  */
 import { useTransactionSlice } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { Box, Button, Form, TextInput, Text } from 'grommet'
+import { Box, Button, Form, Text } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector, useDispatch } from 'react-redux'
+import { AmountTextInput } from 'app/components/AmountTextInput'
+import { parseBigIntStringToInt } from 'app/lib/helpers'
 import { TransactionStatus } from '../TransactionStatus'
 
 interface Props {
@@ -59,21 +61,15 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   return (
     <Form onSubmit={submit}>
       <Box direction="row" gap="small" pad={{ top: 'small' }}>
-        <Box background="background-front">
+        <Box>
           <Box width="small">
-            <TextInput
-              data-testid="amount"
-              id="amount-id"
-              name="amount"
-              placeholder={t('common.amount')}
-              type="number"
-              step="any"
+            <AmountTextInput
+              handleChange={amountChanged}
+              inline={true}
+              max={parseBigIntStringToInt(props.maxAmount)}
               min={0.0001}
-              max={Number(props.maxAmount) / 10 ** 9}
-              size="medium"
+              placeholder={t('common.amount')}
               value={amount}
-              onChange={event => amountChanged(event.target.value)}
-              required
             />
           </Box>
         </Box>
@@ -81,7 +77,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
           label={t('account.reclaimEscrow.reclaim', 'Reclaim')}
           type="submit"
           primary
-          style={{ borderRadius: '4px' }}
+          style={{ borderRadius: '4px', height: '45px' }}
         />
       </Box>
       {shares > 0 && (
