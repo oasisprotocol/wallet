@@ -1,5 +1,15 @@
 {
   "name": "oasis-wallet",
+  "alias": {
+    "utils": "./src/utils",
+    "app": "./src/app",
+    "types": "./src/types",
+    "styles": "./src/styles",
+    "config": "./src/config",
+    "store": "./src/store",
+    "reportWebVitals": "./src/reportWebVitals.ts",
+    "vendors": "./src/vendors"
+  },
   "version": "0.0.0-development",
   "private": true,
   "repository": {
@@ -7,6 +17,7 @@
     "url": "https://github.com/Esya/oasis-wallet.git"
   },
   "scripts": {
+    "parcel": "parcel public/index.html",
     "start": "react-scripts -r @cypress/instrument-cra start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -153,6 +164,7 @@
     "lint-staged": "12.1.7",
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
+    "parcel": "2.3.2",
     "plop": "2.7.6",
     "postinstall-postinstall": "2.1.0",
     "redux-saga-test-plan": "4.0.4",

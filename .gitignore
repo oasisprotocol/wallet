@@ -36,3 +36,4 @@ cypress/videos
 
 # Megalinter
 report
+.parcel-cache
