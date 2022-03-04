@@ -4,11 +4,12 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 
 import { stakingSaga } from './saga'
 import { DebondingDelegation, Delegation, StakingState, Validator, ValidatorDetails } from './types'
+import * as validatorsDump from 'vendors/smartstake/validators_dump'
 
 export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
-  validators: [],
+  validators: validatorsDump.validators,
   updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,

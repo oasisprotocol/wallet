@@ -76,6 +76,14 @@ exports[`<ValidatorList  /> should match snapshot 1`] = `
   }
 }
 
+@media screen and (max-width:599px) {
+
+}
+
+@media screen and (max-width:599px) {
+
+}
+
 <div
   class="c0"
 >
