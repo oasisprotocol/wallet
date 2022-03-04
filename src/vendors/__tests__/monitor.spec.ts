@@ -310,4 +310,22 @@ describe('monitor', () => {
       ]),
     ).toMatchSnapshot()
   })
+
+  it('check all transaction methods are handled by parsing latest transactions on oasismonitor', async () => {
+    const response = await Promise.race([
+      fetch('https://monitor.oasis.dev/data/transactions?limit=2000'),
+      new Promise<Response>(r => setTimeout(r, 4000)),
+    ])
+    if (!response?.ok) return // Ignore if API is broken or timed out
+
+    const transactionsFromApi = await response.json()
+    transactionsFromApi.forEach(transactionFromApi => {
+      const [parsedTransaction] = parseTransactionsList([transactionFromApi])
+      const typeFromApi = transactionFromApi.type
+      const parsedType = parsedTransaction.type
+      // Intentionally using deep property to check if parsedTransaction.type is
+      // a string, just so that on error, jest prints type from api.
+      expect({ typeFromApi, parsedType }).toHaveProperty('parsedType.substring')
+    })
+  }, 5000)
 })

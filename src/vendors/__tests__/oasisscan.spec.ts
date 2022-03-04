@@ -1,4 +1,4 @@
-import { parseValidatorsList, parseAccount, parseTransactionsList } from '../oasisscan'
+import { parseValidatorsList, parseAccount, parseTransactionsList, transactionMethodMap } from '../oasisscan'
 
 describe('oasisscan', () => {
   test('parse account', () => {
@@ -306,4 +306,15 @@ describe('oasisscan', () => {
       ]),
     ).toMatchSnapshot()
   })
+
+  it('check all transaction methods are handled by comparing list of methods from oasisscan', async () => {
+    const response = await Promise.race([
+      fetch('https://api.oasisscan.com/mainnet/chain/methods'),
+      new Promise<Response>(r => setTimeout(r, 4000)),
+    ])
+    if (!response?.ok) return // Ignore if API is broken or timed out
+
+    const allApiMethods = (await response.json()).data.list
+    expect(allApiMethods.sort()).toEqual(Object.keys(transactionMethodMap).sort())
+  }, 5000)
 })
