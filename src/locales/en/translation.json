@@ -26,7 +26,7 @@
     },
     "mnemonic": {
       "header": "Enter your keyphrase",
-      "instruction": "Enter your 12, 18 or 24 words keyphrase below, each words separated by spaces.",
+      "instruction": "Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.",
       "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
       "enterPhraseHere": "Enter your keyphrase here",
       "open": "Open my wallet"

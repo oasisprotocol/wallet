@@ -26,7 +26,7 @@
     },
     "mnemonic": {
       "header": "Entrez votre phrase secrète",
-      "instruction": "Entrez votre phrase secrète de 12, 18 ou 24 mots, séparés par des espaces.",
+      "instruction": "Entrez ci-dessous tous les mots qui composent votre phrase secrète (séparés par des espaces). La plupart des phrases secrètes sont composées de 24 ou 12 mots.",
       "error": "Phrase secrète invalide. Entrez chaque mot séparé d'un espace et dans le bon ordre.",
       "enterPhraseHere": "Entrez votre phrase secrète ici",
       "open": "Ouvrir mon portefeuille"
