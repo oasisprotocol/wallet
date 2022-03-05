@@ -63,20 +63,21 @@ export function parseAccount(account: AccountsRow): Account {
 
 export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   return validators.map(v => {
-    return {
+    const parsed: Validator = {
       address: v.entity_address,
-      name: v.name,
+      name: v.name ?? undefined,
       escrow: parseStringValueToInt(v.escrow),
       current_rate: v.commission,
       status: v.status ? 'active' : 'inactive',
       media: {
-        email_address: v.email,
-        logotype: v.icon,
-        twitter_acc: v.twitter,
-        website_link: v.website,
+        email_address: v.email ?? undefined,
+        logotype: v.icon ?? undefined,
+        twitter_acc: v.twitter ?? undefined,
+        website_link: v.website ?? undefined,
       },
       rank: v.rank,
-    } as Validator
+    }
+    return parsed
   })
 }
 
