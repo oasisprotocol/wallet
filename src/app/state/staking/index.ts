@@ -4,11 +4,17 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 
 import { stakingSaga } from './saga'
 import { DebondingDelegation, Delegation, StakingState, Validator, ValidatorDetails } from './types'
+import * as dump_validators from 'vendors/oasisscan/dump_validators.json'
 
 export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
-  validators: [],
+  validators: dump_validators.list.map(v => {
+    return {
+      ...v,
+      status: 'inactive', // In case validators are stale
+    }
+  }),
   updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,
