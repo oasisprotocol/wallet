@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { addressToPublicKey } from 'app/lib/helpers'
+import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
 import { all, call, fork, join, put, select, take, takeEvery } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
@@ -27,10 +27,17 @@ function* loadAccount(action: PayloadAction<string>) {
         try {
           const account = yield* call(getAccount, address)
           yield put(actions.accountLoaded(account))
-        } catch (e) {
-          console.error('get account, continuing without updated account.', e)
-          yield put(actions.accountError('' + e))
-          return
+        } catch (apiError) {
+          console.error('get account failed, continuing to RPC fallback.', apiError)
+          try {
+            const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
+            const balance = parseRpcBalance(account)
+            yield put(actions.accountLoaded({ address, liquid_balance: parseFloat(balance.available) }))
+          } catch (rpcError) {
+            console.error('get account with RPC failed, continuing without updated account.', rpcError)
+            yield put(actions.accountError('' + apiError))
+            return
+          }
         }
       }),
     ),
@@ -49,9 +56,6 @@ function* loadAccount(action: PayloadAction<string>) {
         }
       }),
     ),
-    //@TODO Use this for now instead of oasis-explorer because of the ongoing
-    //issue with staking balances being wrong
-    call([nic, nic.stakingAccount], { owner: publicKey, height: 0 }),
   ])
 
   yield* put(actions.setLoading(false))
