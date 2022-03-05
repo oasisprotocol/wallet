@@ -1,13 +1,6 @@
 import { hdkey } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
-import {
-  hex2uint,
-  publicKeyToAddress,
-  shortPublicKey,
-  stringBigint2uint,
-  uint2bigintString,
-  uint2hex,
-} from 'app/lib/helpers'
+import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
@@ -17,7 +10,7 @@ import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectActiveWallet, selectAddress, selectWallets } from './selectors'
-import { AddWalletPayload, Wallet, WalletBalance, WalletType } from './types'
+import { AddWalletPayload, Wallet, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
 // Maybe we should switch to something like uuid later
@@ -58,17 +51,7 @@ export function* getBalance(publicKey: Uint8Array) {
     owner: short,
   })
 
-  const zero = stringBigint2uint('0')
-
-  const balance: Pick<WalletBalance, 'available' | 'debonding' | 'escrow'> = {
-    available: uint2bigintString(account.general?.balance || zero),
-    debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
-    escrow: uint2bigintString(account.escrow?.active?.balance || zero),
-  }
-
-  const total = BigInt(balance.available) + BigInt(balance.debonding) + BigInt(balance.escrow)
-
-  return { ...balance, total: total.toString() } as WalletBalance
+  return parseRpcBalance(account)
 }
 
 function* getWalletByAddress(address: string) {
