@@ -1,5 +1,6 @@
 import { bech32 } from 'bech32'
-import { address, quantity } from '@oasisprotocol/client'
+import { address, quantity, types } from '@oasisprotocol/client'
+import { WalletBalance } from 'app/state/wallet/types'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
@@ -51,3 +52,17 @@ export function concat(...parts: Uint8Array[]) {
 
 export const parseNumberToBigInt = (value: number) => BigInt(Math.round(value * 10 ** 9))
 export const parseStringValueToInt = (value: string) => parseFloat(value) * 10 ** 9
+
+export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
+  const zero = stringBigint2uint('0')
+
+  const balance = {
+    available: uint2bigintString(account.general?.balance || zero),
+    debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
+    escrow: uint2bigintString(account.escrow?.active?.balance || zero),
+  }
+
+  const total = BigInt(balance.available) + BigInt(balance.debonding) + BigInt(balance.escrow)
+
+  return { ...balance, total: total.toString() }
+}
