@@ -59,7 +59,7 @@ export function TransactionModal() {
             }}
             background={{
               color: 'status-warning',
-              opacity: 0.2,
+              opacity: 'weak',
             }}
             margin={{ vertical: 'small' }}
             pad="xsmall"

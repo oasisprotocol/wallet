@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateWalletPage  /> should match snapshot 1`] = `
-.c11 {
+.c12 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,30 +12,30 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   stroke: #f8f8f8;
 }
 
-.c11 g {
+.c12 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c11 *:not([stroke])[fill="none"] {
+.c12 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c11 *[stroke*="#"],
-.c11 *[STROKE*="#"] {
+.c12 *[stroke*="#"],
+.c12 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c11 *[fill-rule],
-.c11 *[FILL-RULE],
-.c11 *[fill*="#"],
-.c11 *[FILL*="#"] {
+.c12 *[fill-rule],
+.c12 *[FILL-RULE],
+.c12 *[fill*="#"],
+.c12 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51,7 +51,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -59,7 +59,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin: 6px;
-  background: #33333310;
+  background: #11111108;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -68,7 +68,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -87,7 +87,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: flex-end;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -109,7 +109,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -130,7 +130,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 5px;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -151,15 +151,15 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: space-evenly;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: rgba(255,170,21,0.2);
-  border-left: solid 3px #FFAA15;
+  background-color: rgba(244,206,75,0.25);
+  border-left: solid 3px #f4ce4b;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -168,7 +168,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding: 6px;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -184,7 +184,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding-bottom: 24px;
 }
 
-.c21 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -207,7 +207,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -233,7 +233,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.c25 {
+.c26 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -252,7 +252,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -260,7 +260,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin: 6px;
-  background: #33333310;
+  background: #11111108;
   border-bottom: solid 1px rgba(0,0,0,0.33);
   min-width: 0;
   min-height: 0;
@@ -270,7 +270,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding: 6px;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -285,7 +285,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -299,7 +299,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c12 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -309,24 +309,24 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c16 {
+.c17 {
   margin: 0;
   font-size: 18px;
   line-height: 24px;
 }
 
-.c18 {
+.c19 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
 }
 
-.c5 {
+.c6 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c9 {
+.c10 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -337,13 +337,13 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #7D4CDB;
+  border: 2px solid #0092f6;
   border-radius: 18px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #7D4CDB;
+  background-color: #0092f6;
   color: #f8f8f8;
   border-radius: 18px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -352,53 +352,54 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
-.c9:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
+.c10:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c10:focus > circle,
+.c10:focus > ellipse,
+.c10:focus > line,
+.c10:focus > path,
+.c10:focus > polygon,
+.c10:focus > polyline,
+.c10:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus::-moz-focus-inner {
+.c10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9:focus:not(:focus-visible) {
+.c10:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
+.c10:focus:not(:focus-visible) > circle,
+.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,
+.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,
+.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
+.c10:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c26 {
+.c27 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -409,13 +410,13 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #7D4CDB;
+  border: 2px solid #0092f6;
   border-radius: 18px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #7D4CDB;
+  background-color: #0092f6;
   color: #f8f8f8;
   border-radius: 18px;
   opacity: 0.3;
@@ -426,49 +427,50 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
-.c26:focus {
+.c27:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c26:focus > circle,
-.c26:focus > ellipse,
-.c26:focus > line,
-.c26:focus > path,
-.c26:focus > polygon,
-.c26:focus > polyline,
-.c26:focus > rect {
+.c27:focus > circle,
+.c27:focus > ellipse,
+.c27:focus > line,
+.c27:focus > path,
+.c27:focus > polygon,
+.c27:focus > polyline,
+.c27:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c26:focus::-moz-focus-inner {
+.c27:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c26:focus:not(:focus-visible) {
+.c27:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c26:focus:not(:focus-visible) > circle,
-.c26:focus:not(:focus-visible) > ellipse,
-.c26:focus:not(:focus-visible) > line,
-.c26:focus:not(:focus-visible) > path,
-.c26:focus:not(:focus-visible) > polygon,
-.c26:focus:not(:focus-visible) > polyline,
-.c26:focus:not(:focus-visible) > rect {
+.c27:focus:not(:focus-visible) > circle,
+.c27:focus:not(:focus-visible) > ellipse,
+.c27:focus:not(:focus-visible) > line,
+.c27:focus:not(:focus-visible) > path,
+.c27:focus:not(:focus-visible) > polygon,
+.c27:focus:not(:focus-visible) > polyline,
+.c27:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c26:focus:not(:focus-visible)::-moz-focus-inner {
+.c27:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c14 {
+.c15 {
   margin: 0;
   font-size: 34px;
   line-height: 40px;
@@ -476,7 +478,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -498,12 +500,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c20:hover input:not([disabled]) + div,
-.c20:hover input:not([disabled]) + span {
+.c21:hover input:not([disabled]) + div,
+.c21:hover input:not([disabled]) + span {
   border-color: #000000;
 }
 
-.c23 {
+.c24 {
   opacity: 0;
   -moz-appearance: none;
   width: 0;
@@ -512,144 +514,157 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c23:checked + span > span {
+.c24:checked + span > span {
   left: calc( 48px - 24px );
-  background: #7D4CDB;
+  background: #0092f6;
 }
 
-.c22 {
+.c23 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
 }
 
-.c0 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: 2fr 2fr;
-  grid-gap: 12px 12px;
-  padding: 12px;
-}
-
-.c2 {
+.c3 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
 }
 
+.c1 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto;
+  grid-gap: 12px 12px;
+  padding: 12px;
+}
+
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     margin: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c9 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-top: 6px;
     padding-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-left: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     margin-top: 6px;
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
-    border-left: solid 3px #FFAA15;
+  .c18 {
+    border-left: solid 3px #f4ce4b;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
+  .c18 {
     padding: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c19 {
+  .c20 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c21 {
+  .c22 {
     margin-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c24 {
+  .c25 {
     border: solid 2px rgba(0,0,0,0.15);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c25 {
+  .c26 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c3 {
+  .c4 {
     margin: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c3 {
+  .c4 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c3 {
+  .c4 {
     padding: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c5 {
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c15 {
     margin: 0;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c15 {
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
@@ -657,828 +672,837 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c0 {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
     padding: 6px;
   }
 }
 
 <div
   class="c0"
+  style="min-height: 100vh;"
 >
   <div
     class="c1"
   >
-    <span
-      class="notranslate"
-      translate="no"
-    >
-      <div
-        class="c2"
-        data-testid="mnemonic-grid"
-      >
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              1
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              2
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              3
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              4
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              5
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              6
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              7
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              8
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              9
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              10
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              11
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              12
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              13
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              14
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              15
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              16
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              17
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              18
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              19
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              20
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              21
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              22
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              23
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-        <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <span
-              class="c5"
-              style="user-select: none;"
-            >
-              24
-              .
-            </span>
-          </div>
-          <div
-            class="c6"
-          >
-            <span
-              class="notranslate"
-              translate="no"
-            >
-              <strong
-                style="white-space: pre;"
-              >
-                test
-              </strong>
-            </span>
-          </div>
-        </div>
-      </div>
-    </span>
     <div
-      class="c7"
-      style="word-spacing: 14px;"
+      class="c2"
     >
       <span
         class="notranslate"
         translate="no"
       >
-        <strong
-          data-testid="generated-mnemonic"
+        <div
+          class="c3"
+          data-testid="mnemonic-grid"
         >
-          test test test test test test test test test test test test test test test test test test test test test test test test
-        </strong>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                1
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                2
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                3
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                4
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                5
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                6
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                7
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                8
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                9
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                10
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                11
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                12
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                13
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                14
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                15
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                16
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                17
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                18
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                19
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                20
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                21
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                22
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                23
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+          <div
+            class="c4"
+          >
+            <div
+              class="c5"
+            >
+              <span
+                class="c6"
+                style="user-select: none;"
+              >
+                24
+                .
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                <strong
+                  style="white-space: pre;"
+                >
+                  test
+                </strong>
+              </span>
+            </div>
+          </div>
+        </div>
       </span>
       <div
         class="c8"
+        style="word-spacing: 14px;"
       >
-        <button
-          class="c9"
-          style="border-radius: 4px;"
-          type="button"
+        <span
+          class="notranslate"
+          translate="no"
         >
-          <div
-            class="c10"
+          <strong
+            data-testid="generated-mnemonic"
           >
-            <svg
-              aria-label="Refresh"
-              class="c11"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M20 8c-1.403-2.96-4.463-5-8-5a9 9 0 1 0 0 18 9 9 0 0 0 9-9m0-9v6h-6"
-                fill="none"
-                stroke="#000"
-                stroke-width="2"
-              />
-            </svg>
+            test test test test test test test test test test test test test test test test test test test test test test test test
+          </strong>
+        </span>
+        <div
+          class="c9"
+        >
+          <button
+            class="c10"
+            style="border-radius: 4px;"
+            type="button"
+          >
             <div
-              class="c12"
-            />
-            createWallet.newMnemonic
-          </div>
-        </button>
+              class="c11"
+            >
+              <svg
+                aria-label="Refresh"
+                class="c12"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 8c-1.403-2.96-4.463-5-8-5a9 9 0 1 0 0 18 9 9 0 0 0 9-9m0-9v6h-6"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+              <div
+                class="c13"
+              />
+              createWallet.newMnemonic
+            </div>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="c13"
-  >
-    <h2
+    <div
       class="c14"
     >
-      createWallet.thisIsYourPhrase
-    </h2>
-    <div
-      class="c15"
-    >
-      <span
+      <h2
+        class="c15"
+      >
+        createWallet.thisIsYourPhrase
+      </h2>
+      <div
         class="c16"
       >
-        createWallet.instruction
-      </span>
-    </div>
-    <div
-      class="c17"
-    >
-      <span
+        <span
+          class="c17"
+        >
+          createWallet.instruction
+        </span>
+      </div>
+      <div
         class="c18"
       >
-        createWallet.doNotShare
-      </span>
-    </div>
-    <div
-      class="c19"
-    >
-      <label
-        class="c20"
-        label="createWallet.confirmSaved"
-      >
-        <div
-          class="c21 c22"
+        <span
+          class="c19"
         >
-          <input
-            class="c23"
-            type="checkbox"
-          />
-          <div
-            class="c24 "
-          />
-        </div>
-        <span>
-          createWallet.confirmSaved
+          createWallet.doNotShare
         </span>
-      </label>
+      </div>
       <div
-        class="c25"
+        class="c20"
       >
-        <button
-          class="c26"
-          disabled=""
-          style="border-radius: 4px;"
-          type="submit"
+        <label
+          class="c21"
+          label="createWallet.confirmSaved"
         >
-          openWallet.mnemonic.open
-        </button>
+          <div
+            class="c22 c23"
+          >
+            <input
+              class="c24"
+              type="checkbox"
+            />
+            <div
+              class="c25 "
+            />
+          </div>
+          <span>
+            createWallet.confirmSaved
+          </span>
+        </label>
+        <div
+          class="c26"
+        >
+          <button
+            class="c27"
+            disabled=""
+            style="border-radius: 4px;"
+            type="submit"
+          >
+            openWallet.mnemonic.open
+          </button>
+        </div>
       </div>
     </div>
   </div>

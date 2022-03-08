@@ -100,7 +100,6 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
   const { t } = useTranslation()
   const ledgerActions = useLedgerSlice().actions
   const walletActions = useWalletSlice().actions
-
   const ledger = useSelector(selectLedger)
   const error = ledger.error
   const selectedAccounts = useSelector(selectSelectedLedgerAccounts)
@@ -150,7 +149,7 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
             }}
             background={{
               color: 'status-error',
-              opacity: 0.3,
+              opacity: 'weak',
             }}
             pad={{ horizontal: 'small', vertical: 'xsmall' }}
           >
