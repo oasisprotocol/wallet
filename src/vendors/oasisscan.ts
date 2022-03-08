@@ -22,20 +22,14 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 
   async function getAccount(address: string): Promise<Account> {
     const account = await accounts.getAccount({ accountId: address })
-    if (account && account.code === 0) {
-      return parseAccount(account.data)
-    } else {
-      throw new Error('Wrong response code') // TODO
-    }
+    if (!account || account.code !== 0) throw new Error('Wrong response code') // TODO
+    return parseAccount(account.data)
   }
 
   async function getAllValidators(): Promise<Validator[]> {
     const validators = await accounts.getValidatorsList({ pageSize: 500 })
-    if (validators && validators.code === 0) {
-      return parseValidatorsList(validators.data.list)
-    } else {
-      throw new Error('Wrong response code') // TODO
-    }
+    if (!validators || validators.code !== 0) throw new Error('Wrong response code') // TODO
+    return parseValidatorsList(validators.data.list)
   }
 
   async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
@@ -44,11 +38,8 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
       size: params.limit,
       runtime: false,
     })
-    if (transactionsList && transactionsList.code === 0) {
-      return parseTransactionsList(transactionsList.data.list)
-    } else {
-      throw new Error('Wrong response code') // TODO
-    }
+    if (!transactionsList || transactionsList.code !== 0) throw new Error('Wrong response code') // TODO
+    return parseTransactionsList(transactionsList.data.list)
   }
 
   return { getAccount, getAllValidators, getTransactionsList }

@@ -116,6 +116,100 @@ paths:
                     type: integer
       tags:
         - OperationsList
+  '/chain/account/delegations':
+    get:
+      operationId: getDelegations
+      produces:
+        - application/json
+      parameters:
+        - name: size
+          type: integer
+          in: query
+        - name: page
+          type: integer
+          in: query
+        - name: height
+          type: integer
+          in: query
+        - name: address
+          type: string
+          in: query
+        - name: all
+          type: boolean
+          in: query
+          description: Include non-validators
+      responses:
+        '200':
+          description: Query delegations
+          schema:
+            type: object
+            required: ["code", "data"]
+            properties:
+              code:
+                type: integer
+              data:
+                type: object
+                required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                properties:
+                  list:
+                    type: array
+                    items:
+                      $ref: "#/definitions/DelegationRow"
+                  page:
+                    type: integer
+                  size:
+                    type: integer
+                  maxPage:
+                    type: integer
+                  totalSize:
+                    type: integer
+      tags:
+        - Accounts
+  '/chain/account/debonding':
+    get:
+      operationId: getDebondingDelegations
+      produces:
+        - application/json
+      parameters:
+        - name: size
+          type: integer
+          in: query
+        - name: page
+          type: integer
+          in: query
+        - name: height
+          type: integer
+          in: query
+        - name: address
+          type: string
+          in: query
+      responses:
+        '200':
+          description: Query debonding delegations
+          schema:
+            type: object
+            required: ["code", "data"]
+            properties:
+              code:
+                type: integer
+              data:
+                type: object
+                required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                properties:
+                  list:
+                    type: array
+                    items:
+                      $ref: "#/definitions/DebondingDelegationRow"
+                  page:
+                    type: integer
+                  size:
+                    type: integer
+                  maxPage:
+                    type: integer
+                  totalSize:
+                    type: integer
+      tags:
+        - Accounts
 definitions:
   AccountsRow:
     properties:
@@ -313,3 +407,45 @@ definitions:
     required:
       - timestamp
       - txHash
+  DelegationRow:
+    type: object
+    properties:
+      validatorAddress:
+        type: string
+      shares:
+        type: string
+      amount:
+        type: string
+      active:
+        type: boolean
+      validatorName:
+        type: string
+      icon:
+        type: string
+      entityAddress:
+        type: 'null'
+    required:
+      - validatorAddress
+      - shares
+      - amount
+      - active
+  DebondingDelegationRow:
+    type: object
+    properties:
+      validatorAddress:
+        type: string
+      shares:
+        type: string
+      debondEnd:
+        type: integer
+      epochLeft:
+        type: integer
+      validatorName:
+        type: string
+      icon:
+        type: string
+    required:
+      - validatorAddress
+      - shares
+      - debondEnd
+      - epochLeft
