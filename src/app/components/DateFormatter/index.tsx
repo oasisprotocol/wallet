@@ -9,6 +9,12 @@ interface Props {
   date: Date | number
 }
 
+// Workaround - https://github.com/parcel-bundler/parcel/issues/4458
+const getTimeZone = () => {
+  if (process && process.env && process.env.NODE_ENV === 'test') return 'UTC'
+  else return undefined
+}
+
 const dateFormat = new Intl.DateTimeFormat(undefined, {
   year: 'numeric',
   month: 'numeric',
@@ -16,7 +22,7 @@ const dateFormat = new Intl.DateTimeFormat(undefined, {
   hour: 'numeric',
   minute: 'numeric',
   second: 'numeric',
-  timeZone: process?.env?.NODE_ENV === 'test' ? 'UTC' : undefined,
+  timeZone: getTimeZone(),
 })
 
 export function DateFormatter(props: Props) {

@@ -1,25 +1,36 @@
 {
-  "short_name": "Oasis Wallet",
-  "name": "The official non-custodial web wallet for the Oasis Network.",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appName__",
+  "description": "__MSG_appDescription__",
+  "manifest_version": 2,
+  "version": "1.3.1",
+  "icons": {
+    "16": "static/img/oasis.png",
+    "19": "static/img/oasis.png",
+    "32": "static/img/oasis.png",
+    "38": "static/img/oasis.png",
+    "64": "static/img/oasis.png",
+    "128": "static/img/oasis.png",
+    "512": "static/img/oasis.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "static/img/oasis.png",
+      "19": "static/img/oasis.png",
+      "32": "static/img/oasis.png",
+      "38": "static/img/oasis.png",
+      "64": "static/img/oasis.png",
+      "128": "static/img/oasis.png",
+      "512": "static/img/oasis.png"
     },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "default_title": "Oasis Wallet",
+    "default_popup": "static/popup.html"
+  },
+  "permissions": ["storage", "notifications", "activeTab"],
+  "content_security_policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.oasisscan.com https://www.oasisscan.com https://testnet.oasisscan.com https://grpc-mainnet.oasisscan.com https://grpc.oasis.dev https://grpc-testnet.oasisscan.com https://testnet.grpc.oasis.dev; frame-ancestors 'self' https: http://localhost:* http://127.0.0.1:*; img-src 'self' data: https: http://localhost:* http://127.0.0.1:*; base-uri 'self'; manifest-src 'self';",
+  "background": {
+    "scripts": ["background.ts"],
+    "persistent": true
+  },
+  "web_accessible_resources": ["oasis-xu-frame.html"]
 }
