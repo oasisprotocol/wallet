@@ -525,7 +525,7 @@ Object {
                     role="gridcell"
                   >
                     <svg
-                      aria-label="StatusGood"
+                      aria-label="Status is okay"
                       class="c17"
                       viewBox="0 0 24 24"
                     >
@@ -719,7 +719,7 @@ Object {
                   role="gridcell"
                 >
                   <svg
-                    aria-label="StatusGood"
+                    aria-label="Status is okay"
                     class="StyledIcon-sc-ofa7kd-0 hfdlHh"
                     viewBox="0 0 24 24"
                   >
