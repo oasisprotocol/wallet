@@ -33,8 +33,8 @@ describe('<ValidatorList  />', () => {
   })
 
   it('should match snapshot', () => {
-    store.dispatch(stakingActions.updateValidators([]))
     const component = renderComponent(store)
+    store.dispatch(stakingActions.updateValidators([]))
     expect(component.container.firstChild).toMatchSnapshot()
   })
 

@@ -176,9 +176,9 @@ Array [
     "current_rate": 0.1,
     "escrow": 326477290610000000,
     "media": Object {
-      "email_address": null,
-      "logotype": null,
-      "twitter_acc": null,
+      "email_address": undefined,
+      "logotype": undefined,
+      "twitter_acc": undefined,
       "website_link": "https://www.b.com",
     },
     "name": "b",
