@@ -3,6 +3,7 @@ import { fireEvent, render } from '@testing-library/react'
 
 import { CreateWalletPage } from '..'
 import { configureAppStore } from 'store/configureStore'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { Provider } from 'react-redux'
 import { hdkey } from '@oasisprotocol/client'
 import * as bip39 from 'bip39'
@@ -24,7 +25,9 @@ jest.mock('react-i18next', () => ({
 const renderPage = store =>
   render(
     <Provider store={store}>
-      <CreateWalletPage />
+      <ThemeProvider>
+        <CreateWalletPage />
+      </ThemeProvider>
     </Provider>,
   )
 

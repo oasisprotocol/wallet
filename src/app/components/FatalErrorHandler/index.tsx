@@ -58,7 +58,7 @@ export function FatalErrorHandler(props: Props) {
           }}
           background={{
             color: 'status-error',
-            opacity: 0.3,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >

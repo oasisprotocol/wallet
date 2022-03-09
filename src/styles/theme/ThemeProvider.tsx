@@ -122,6 +122,9 @@ const customTheme: ThemeType = {
     font: {
       family: 'Rubik',
     },
+    opacity: {
+      weak: 0.25,
+    },
   },
 }
 export const ThemeProvider = (props: { children: React.ReactChild }) => {

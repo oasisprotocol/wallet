@@ -71,7 +71,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
           }}
           background={{
             color: 'status-error',
-            opacity: 0.3,
+            opacity: 'weak',
           }}
         >
           <Text weight="bold">{t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}</Text>
@@ -138,7 +138,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
             }}
             background={{
               color: 'status-warning',
-              opacity: 0.2,
+              opacity: 'weak',
             }}
           >
             <Text weight="bold">

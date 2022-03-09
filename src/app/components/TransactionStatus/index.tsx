@@ -29,7 +29,7 @@ export const TransactionStatus = memo((props: Props) => {
           }}
           background={{
             color: 'status-error',
-            opacity: 0.3,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
@@ -47,7 +47,7 @@ export const TransactionStatus = memo((props: Props) => {
           }}
           background={{
             color: 'status-ok',
-            opacity: 0.3,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >

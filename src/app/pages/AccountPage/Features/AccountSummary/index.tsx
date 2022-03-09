@@ -87,7 +87,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           }}
           background={{
             color: 'status-ok',
-            opacity: 0.2,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
@@ -103,7 +103,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           }}
           background={{
             color: 'status-warning',
-            opacity: 0.2,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
@@ -124,7 +124,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           }}
           background={{
             color: 'status-warning',
-            opacity: 0.2,
+            opacity: 'weak',
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
