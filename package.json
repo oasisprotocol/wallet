@@ -192,10 +192,6 @@
     "stylelint-processor-styled-components": "1.10.0",
     "ts-node": "10.4.0"
   },
-  "engines": {
-    "node": ">=10.13.0",
-    "npm": ">=6.4.1"
-  },
   "husky(remove-everything-in-these-parentheses.See-the-issue-#29)": {
     "hooks": {
       "pre-commit": "yarn run checkTs && lint-staged"
