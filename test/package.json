@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "node test.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "13.5.1"
+  },
+  "engines": {
+    "npm": ">=8.1.2",
+    "node": ">=16.13.2"
+  }
+}
