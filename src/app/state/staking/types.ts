@@ -11,6 +11,11 @@ export interface Validator {
   current_commission_bound?: CommissionBound
 }
 
+export interface Validators {
+  timestamp: number
+  list: Validator[]
+}
+
 export interface CommissionBound {
   lower: number
   upper: number
@@ -47,7 +52,7 @@ export interface DebondingDelegation extends Delegation {
 
 export interface StakingState {
   /** List of all the validators */
-  validators: Validator[]
+  validators: Validators
 
   /** Error from last attempt to update our list of validators */
   updateValidatorsError: string | null

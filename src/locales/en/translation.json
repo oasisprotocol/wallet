@@ -117,7 +117,7 @@
       "reclaim": "Reclaim"
     },
     "validator": {
-      "loadingError": "Couldn't load validators. List may be empty or out of date."
+      "loadingError": "Couldn't load validators. Showing validator list as of {{staleTimestamp}}."
     }
   },
   "common": {
