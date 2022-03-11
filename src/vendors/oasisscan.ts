@@ -42,7 +42,7 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     return parseTransactionsList(transactionsList.data.list)
   }
 
-  return { getAccount, getAllValidators, getTransactionsList }
+  return { accounts, operations, getAccount, getAllValidators, getTransactionsList }
 }
 
 export function parseAccount(account: AccountsRow): Account {
