@@ -104,6 +104,10 @@
     "loading": "Loading account",
     "loadingError": "Couldn't load account. Information may be missing or out of date.",
     "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
+        "title": "Are you sure you want to continue?"
+      },
       "delegate": "Delegate"
     },
     "subnavigation": {

@@ -21,7 +21,7 @@ jest.mock('react-i18next', () => ({
 const renderComponent = (store: any, address: string) =>
   render(
     <Provider store={store}>
-      <AddEscrowForm validatorAddress={address} />
+      <AddEscrowForm validatorAddress={address} validatorStatus="active" />
     </Provider>,
   )
 
