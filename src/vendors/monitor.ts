@@ -59,7 +59,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
       .slice()
       .sort((a, b) => b.escrow_balance - a.escrow_balance)
       .map((v, index) => {
-        return {
+        const parsed: Validator = {
           address: v.account_id,
           name: v.account_name,
           escrow: v.escrow_balance,
@@ -67,7 +67,8 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
           status: v.status,
           media: v.media_info,
           rank: index + 1,
-        } as Validator
+        }
+        return parsed
       })
       .sort(sortByStatus)
   )

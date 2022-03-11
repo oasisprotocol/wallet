@@ -1,9 +1,9 @@
 import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ResponsiveGridRow } from 'app/components/ResponsiveGridRow'
+import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { Validator, ValidatorDetails } from 'app/state/staking/types'
-import { Box, Grid, Heading, ResponsiveContext, Spinner, Text } from 'grommet'
-import { StatusCritical, StatusGood } from 'grommet-icons/icons'
+import { Box, Grid, Heading, ResponsiveContext, Spinner } from 'grommet'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -57,18 +57,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         />
         <ResponsiveGridRow
           label={t('validator.status', 'Status:')}
-          value={
-            validator.status === 'active' ? (
-              <Box direction="row" align="center" gap="xxsmall">
-                <StatusGood color="status-ok" /> <Text>{t('validator.statusActive', 'Active')}</Text>
-              </Box>
-            ) : (
-              <Box direction="row" align="center" gap="xxsmall">
-                <StatusCritical color="status-critical" />{' '}
-                <Text>{t('validator.statusInactive', 'Inactive')}</Text>
-              </Box>
-            )
-          }
+          value={<ValidatorStatus status={validator.status} showLabel={true}></ValidatorStatus>}
         />
       </Grid>
     </>

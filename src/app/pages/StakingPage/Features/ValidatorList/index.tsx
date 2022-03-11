@@ -5,6 +5,7 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
+import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { useStakingSlice } from 'app/state/staking'
 import {
   selectSelectedAddress,
@@ -16,7 +17,7 @@ import { Validator } from 'app/state/staking/types'
 import { useWalletSlice } from 'app/state/wallet'
 import { selectStatus } from 'app/state/wallet/selectors'
 import { Box, Text } from 'grommet'
-import { Down, StatusCritical, StatusGood } from 'grommet-icons/icons'
+import { Down } from 'grommet-icons/icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -63,12 +64,7 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: '',
       id: 'status',
-      cell: datum =>
-        datum.status === 'active' ? (
-          <StatusGood color="status-ok" />
-        ) : (
-          <StatusCritical color="status-critical" />
-        ),
+      cell: datum => <ValidatorStatus status={datum.status} showLabel={false}></ValidatorStatus>,
       width: '34px',
     },
     {
