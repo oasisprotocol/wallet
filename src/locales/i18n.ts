@@ -16,6 +16,7 @@ export const translationsJson = {
 }
 
 // Create the 'translations' object to provide full intellisense support for the static json files.
+// Note: superseeded by type-safe strings for translation keys
 convertLanguageJsonToObject(en)
 
 export const i18n = i18next
