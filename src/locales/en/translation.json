@@ -223,6 +223,7 @@
     "status": "Status",
     "statusActive": "Active",
     "statusInactive": "Inactive",
+    "statusUnknown": "Unknown",
     "name": "Name",
     "fee": "Fee",
     "commissionBounds": {

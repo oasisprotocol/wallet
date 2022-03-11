@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Text } from 'grommet'
-import { StatusCritical, StatusGood } from 'grommet-icons/icons'
+import { StatusCritical, StatusGood, StatusUnknown } from 'grommet-icons/icons'
 import { useTranslation } from 'react-i18next'
 import { Validator } from 'app/state/staking/types'
 
@@ -20,9 +20,13 @@ export const ValidatorStatus = (props: Props) => {
       icon: <StatusCritical color="status-critical" />,
       label: t('validator.statusInactive', 'Inactive'),
     }),
+    unknown: () => ({
+      icon: <StatusUnknown color="status-critical" />,
+      label: t('validator.statusUnknown', 'Unknown'),
+    }),
   }
 
-  const getMapped = mapStatus[props.status] ?? mapStatus.inactive
+  const getMapped = mapStatus[props.status] ?? mapStatus.unknown
   const mapped = getMapped()
 
   if (props.showLabel) {

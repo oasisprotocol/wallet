@@ -4,7 +4,7 @@ export interface Validator {
   name?: string
   address: string
   escrow?: number
-  status: 'active' | 'inactive'
+  status: 'active' | 'inactive' | 'unknown'
   rank: number
   media?: ValidatorMediaInfo
   current_rate?: number

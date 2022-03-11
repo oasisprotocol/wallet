@@ -12,7 +12,7 @@ export const initialState: StakingState = {
   validators: dump_validators.list.map(v => {
     return {
       ...v,
-      status: 'inactive', // In case validators are stale
+      status: 'unknown',
     }
   }),
   updateValidatorsError: null,
