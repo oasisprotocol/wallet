@@ -134,7 +134,8 @@
     "cancel": "Cancel",
     "confirm": "Confirm",
     "unavailable": "Unavailable",
-    "validators": "Validators"
+    "validators": "Validators",
+    "understandDanger": "Advanced users only: I understand the risk, but still wish to continue."
   },
   "errors": {
     "unknown": "Unknown error: {{message}}",

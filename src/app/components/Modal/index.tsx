@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react'
-import { Box, Button, Layer, Heading, Paragraph } from 'grommet'
+import { Box, Button, Layer, Heading, Paragraph, CheckBox } from 'grommet'
 import { useTranslation } from 'react-i18next'
 import { Alert, Checkmark, Close } from 'grommet-icons/icons'
 
@@ -28,6 +28,8 @@ const ModalContext = createContext<ModalContextProps>({} as ModalContextProps)
 
 const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
   const { t } = useTranslation()
+  const [understandDanger, setUnderstandDanger] = useState(false)
+
   const confirm = useCallback(() => {
     modal.handleConfirm()
     closeModal()
@@ -38,6 +40,18 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
       <Box margin="medium">
         <Heading size="small">{modal.title}</Heading>
         <Paragraph fill>{modal.description}</Paragraph>
+
+        {modal.isDangerous && (
+          <CheckBox
+            label={t(
+              'common.understandDanger',
+              'Advanced users only: I understand the risk, but still wish to continue.',
+            )}
+            checked={understandDanger}
+            onChange={event => setUnderstandDanger(event.target.checked)}
+          />
+        )}
+
         <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
           <Button
             label={t('common.cancel', 'Cancel')}
@@ -49,7 +63,7 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
           <Button
             label={t('common.confirm', 'Confirm')}
             onClick={confirm}
-            disabled={modal.isDangerous}
+            disabled={modal.isDangerous && !understandDanger}
             primary={modal.isDangerous}
             color={modal.isDangerous ? 'status-error' : ''}
             style={{ borderRadius: '4px' }}
