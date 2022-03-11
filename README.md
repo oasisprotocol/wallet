@@ -126,6 +126,22 @@ yarn lint
 yarn lint:fix
 ```
 
+#### Git Commit Messages
+
+A quick summary:
+
+* Separate subject from body with a blank line.
+* Limit the subject line to 72 characters.
+* Capitalize the subject line.
+* Do not end the subject line with a period.
+* Use the present tense ("Add feature" not "Added feature").
+* Use the imperative mood ("Move component to..." not "Moves component to...").
+* Wrap the body at 80 characters.
+* Use the body to explain _what_ and _why_ vs. _how_.
+
+A detailed post on Git commit messages: [How To Write a Git Commit Message](
+https://chris.beams.io/posts/git-commit/).
+
 ### Internationalization
 
 Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running
