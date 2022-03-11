@@ -1,5 +1,3 @@
-'use strict'
-
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
     return false
@@ -18,10 +16,10 @@ module.exports = require('babel-jest').default.createTransformer({
     [
       require.resolve('babel-preset-react-app'),
       {
-        runtime: hasJsxRuntime ? 'automatic' : 'classic',
-      },
-    ],
+        runtime: hasJsxRuntime ? 'automatic' : 'classic'
+      }
+    ]
   ],
   babelrc: false,
-  configFile: false,
+  configFile: false
 })
