@@ -42,7 +42,7 @@ interface Props {
 }
 
 export function TransitionRoute(props: Props) {
-  const fullPath = process.env.PUBLIC_URL + props.path
+  const fullPath = props.path
   const Component = props.component as any
   const nodeRef = useRef(null)
   let match = useRouteMatch(fullPath)
