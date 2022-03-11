@@ -36,7 +36,7 @@ export function configureAppStore(state?: Partial<RootState>) {
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
     devTools:
       /* istanbul ignore next line */
-      process.env.NODE_ENV !== 'production' || process.env.PUBLIC_URL.length > 0,
+      process.env.NODE_ENV !== 'production',
     // A bit dirty because of https://github.com/react-boilerplate/redux-injectors/issues/27
     // Waiting on redux-injectors to fix their typings for recent reduxjs/toolkit
     enhancers: enhancers as any,
