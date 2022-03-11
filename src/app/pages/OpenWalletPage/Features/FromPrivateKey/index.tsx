@@ -1,6 +1,6 @@
 import { useWalletSlice } from 'app/state/wallet'
 import { Box, Form, Heading, Paragraph, FormField, Button, TextInput, Tip } from 'grommet'
-import { View, Hide } from 'grommet-icons'
+import { View, Hide } from 'grommet-icons/icons'
 import { decode } from 'base64-arraybuffer'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'

@@ -5,7 +5,7 @@
  */
 import copy from 'copy-to-clipboard'
 import { Box, Button, Text } from 'grommet'
-import { Copy } from 'grommet-icons'
+import { Copy } from 'grommet-icons/icons'
 import React, { memo } from 'react'
 
 import { PrettyAddress } from '../PrettyAddress'
