@@ -1,11 +1,10 @@
 import { useWalletSlice } from 'app/state/wallet'
 import { Box, Form, Heading, Paragraph, FormField, Button, TextInput, Tip } from 'grommet'
 import { View, Hide } from 'grommet-icons/icons'
-import { decode } from 'base64-arraybuffer'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { OasisKey } from 'app/lib/key'
-import { uint2hex } from 'app/lib/helpers'
+import { base64ToUint, uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 
 interface Props {}
@@ -18,8 +17,8 @@ const parseKey = (key: string) => {
       .replace(/^-----.*?-----/, '')
       .replace(/-----.*?-----$/, '')
 
-    const key_bytes = decode(keyWithoutEnvelope)
-    return OasisKey.fromPrivateKey(new Uint8Array(key_bytes))
+    const key_bytes = base64ToUint(keyWithoutEnvelope)
+    return OasisKey.fromPrivateKey(key_bytes)
   } catch (e) {
     throw e
   }

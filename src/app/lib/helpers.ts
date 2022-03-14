@@ -1,9 +1,11 @@
 import { bech32 } from 'bech32'
 import { quantity, staking, types } from '@oasisprotocol/client'
 import { WalletBalance } from 'app/state/wallet/types'
+import { decode as base64decode } from 'base64-arraybuffer'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
+export const base64ToUint = (value: string) => new Uint8Array(base64decode(value))
 
 export const shortPublicKey = async (publicKey: Uint8Array) => {
   return await staking.addressFromPublicKey(publicKey)
