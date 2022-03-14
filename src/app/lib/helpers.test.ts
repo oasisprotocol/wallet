@@ -6,6 +6,7 @@ import {
   publicKeyToAddress,
   addressToPublicKey,
   isValidAddress,
+  parseRpcBalance,
 } from './helpers'
 
 describe('parseNumberToBigInt', () => {
@@ -50,5 +51,59 @@ describe('parsing public key', () => {
 
     const validBechBTC = 'bc1q9swhsc6qpd309scrzwzhgs2jd56xtxvjuxwx4c'
     expect(isValidAddress(validBechBTC)).toEqual(false)
+  })
+})
+
+describe('parseRpcBalance', () => {
+  it('normal account', () => {
+    expect(
+      parseRpcBalance({
+        general: {
+          nonce: 6,
+          balance: new Uint8Array([4, 156, 44, 5, 255]),
+          allowances: new Map([
+            [
+              new Uint8Array([
+                0, 231, 194, 146, 238, 23, 67, 225, 130, 250, 91, 112, 220, 4, 79, 18, 79, 171, 186, 228, 198,
+              ]),
+              new Uint8Array([59, 154, 202, 0]),
+            ],
+          ]),
+        },
+      }),
+    ).toEqual({
+      available: '19799999999',
+      debonding: '0',
+      escrow: '0',
+      total: '19799999999',
+    })
+  })
+
+  it('validator account', () => {
+    expect(
+      parseRpcBalance({
+        escrow: {
+          active: {
+            balance: new Uint8Array([3, 83, 246, 133, 201, 58, 236, 66]),
+            total_shares: new Uint8Array([2, 186, 5, 225, 168, 230, 50, 231]),
+          },
+          debonding: {
+            balance: new Uint8Array([119, 83, 91, 169, 228, 206]),
+            total_shares: new Uint8Array([119, 83, 91, 169, 228, 206]),
+          },
+          commission_schedule: {},
+          stake_accumulator: {},
+        },
+        general: {
+          nonce: 18,
+          balance: new Uint8Array([10, 111, 221, 122, 100, 106]),
+        },
+      }),
+    ).toEqual({
+      available: '11475573433450',
+      debonding: '131199903851726',
+      escrow: '239806259647933506',
+      total: '239948935125218682',
+    })
   })
 })
