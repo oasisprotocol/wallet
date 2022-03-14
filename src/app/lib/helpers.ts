@@ -24,17 +24,15 @@ export const uint2bigintString = (uint: Uint8Array) => quantity.toBigInt(uint).t
 export const stringBigint2uint = (number: string) => quantity.fromBigInt(BigInt(number))
 
 export const isValidAddress = (addr: string) => {
-  let valid = false
+  if (!addr.match(/^oasis1/)) {
+    return false
+  }
   try {
-    if (!addr.match(/^oasis1/)) {
-      throw new Error('Invalid')
-    }
-
     bech32.decode(addr)
-    valid = true
-  } catch (e) {}
-
-  return valid
+    return true
+  } catch (e) {
+    return false
+  }
 }
 
 export function concat(...parts: Uint8Array[]) {
