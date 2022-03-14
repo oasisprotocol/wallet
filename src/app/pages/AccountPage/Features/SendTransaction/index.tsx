@@ -29,9 +29,9 @@ export function SendTransaction() {
   const onSubmit = () => {
     if (validators?.some(validator => validator.address === recipient)) {
       launchModal({
+        title: t('account.sendTransaction.confirmSendingToValidator.title'),
         description: t('account.sendTransaction.confirmSendingToValidator.description'),
         handleConfirm: sendTransaction,
-        title: t('account.sendTransaction.confirmSendingToValidator.title'),
         isDangerous: true,
       })
     } else {

@@ -11,7 +11,7 @@ import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking
 import { Delegation } from 'app/state/staking/types'
 import { selectActiveWallet } from 'app/state/wallet/selectors'
 import { Text } from 'grommet'
-import { Down, StatusCritical, StatusGood } from 'grommet-icons'
+import { Down, StatusCritical, StatusGood } from 'grommet-icons/icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'

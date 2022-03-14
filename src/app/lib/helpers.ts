@@ -1,39 +1,38 @@
 import { bech32 } from 'bech32'
-import { address, quantity, types } from '@oasisprotocol/client'
+import { quantity, staking, types } from '@oasisprotocol/client'
 import { WalletBalance } from 'app/state/wallet/types'
+import { decode as base64decode } from 'base64-arraybuffer'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
+export const base64ToUint = (value: string) => new Uint8Array(base64decode(value))
 
 export const shortPublicKey = async (publicKey: Uint8Array) => {
-  return await address.fromData('oasis-core/address: staking', 0, publicKey)
+  return await staking.addressFromPublicKey(publicKey)
 }
 
 export const publicKeyToAddress = async (publicKey: Uint8Array) => {
-  const data = await address.fromData('oasis-core/address: staking', 0, publicKey)
-  return address.toBech32('oasis', data)
+  const data = await staking.addressFromPublicKey(publicKey)
+  return staking.addressToBech32(data)
 }
 
 export const addressToPublicKey = async (addr: string) => {
-  // const data = await address.fromData('oasis-core/address: staking', 0, publicKey)
-  return address.fromBech32('oasis', addr)
+  return staking.addressFromBech32(addr)
 }
 
 export const uint2bigintString = (uint: Uint8Array) => quantity.toBigInt(uint).toString()
 export const stringBigint2uint = (number: string) => quantity.fromBigInt(BigInt(number))
 
 export const isValidAddress = (addr: string) => {
-  let valid = false
+  if (!addr.match(/^oasis1/)) {
+    return false
+  }
   try {
-    if (!addr.match(/^oasis1/)) {
-      throw new Error('Invalid')
-    }
-
     bech32.decode(addr)
-    valid = true
-  } catch (e) {}
-
-  return valid
+    return true
+  } catch (e) {
+    return false
+  }
 }
 
 export function concat(...parts: Uint8Array[]) {

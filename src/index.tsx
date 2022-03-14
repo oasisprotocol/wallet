@@ -23,7 +23,6 @@ import { HelmetProvider } from 'react-helmet-async'
 import { configureAppStore } from 'store/configureStore'
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
-import { ModalProvider } from './app/components/Modal'
 
 import reportWebVitals from 'reportWebVitals'
 
@@ -50,9 +49,7 @@ ReactDOM.render(
     <ThemeProvider>
       <HelmetProvider>
         <React.StrictMode>
-          <ModalProvider>
-            <App />
-          </ModalProvider>
+          <App />
         </React.StrictMode>
       </HelmetProvider>
     </ThemeProvider>

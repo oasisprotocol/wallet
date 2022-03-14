@@ -3,9 +3,9 @@ import { Box, Button, Layer, Heading, Paragraph } from 'grommet'
 import { useTranslation } from 'react-i18next'
 
 interface Modal {
-  handleConfirm: () => void
-  description: string
   title: string
+  description: string
+  handleConfirm: () => void
   isDangerous: boolean
 }
 

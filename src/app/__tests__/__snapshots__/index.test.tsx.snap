@@ -1,100 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should render and match the snapshot 1`] = `
-<Memo(Connect(ConnectedRouterWithContext))
-  history={
-    Object {
-      "action": "POP",
-      "block": [Function],
-      "createHref": [Function],
-      "go": [Function],
-      "goBack": [Function],
-      "goForward": [Function],
-      "length": 1,
-      "listen": [Function],
-      "location": Object {
-        "hash": "",
-        "pathname": "/",
-        "search": "",
-        "state": undefined,
-      },
-      "push": [Function],
-      "replace": [Function],
-    }
-  }
->
-  <Helmet
-    defaultTitle="Oasis Wallet"
-    defer={true}
-    encodeSpecialCharacters={true}
-    htmlAttributes={
+<ModalProvider>
+  <Memo(Connect(ConnectedRouterWithContext))
+    history={
       Object {
-        "lang": "en-US",
-      }
-    }
-    prioritizeSeoTags={false}
-    titleTemplate="%s - Oasis Wallet"
-  >
-    <meta
-      content="A wallet for Oasis"
-      name="description"
-    />
-  </Helmet>
-  <Box
-    background="background-back"
-    direction="row-responsive"
-    fill={true}
-    style={
-      Object {
-        "minHeight": "100vh",
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
       }
     }
   >
-    <Navigation />
-    <Box
-      flex={true}
-      pad={
+    <Helmet
+      defaultTitle="Oasis Wallet"
+      defer={true}
+      encodeSpecialCharacters={true}
+      htmlAttributes={
         Object {
-          "top": undefined,
+          "lang": "en-US",
+        }
+      }
+      prioritizeSeoTags={false}
+      titleTemplate="%s - Oasis Wallet"
+    >
+      <meta
+        content="A wallet for Oasis"
+        name="description"
+      />
+    </Helmet>
+    <Box
+      background="background-back"
+      direction="row-responsive"
+      fill={true}
+      style={
+        Object {
+          "minHeight": "100vh",
         }
       }
     >
-      <Styled(Main)>
-        <FatalErrorHandler />
-        <Toolbar />
-        <TransitionGroup
-          childFactory={[Function]}
-          component="div"
-        >
-          <Switch>
-            <TransitionRoute
-              component={[Function]}
-              exact={true}
-              path="/"
-            />
-            <TransitionRoute
-              component={[Function]}
-              exact={true}
-              path="/create-wallet"
-            />
-            <TransitionRoute
-              component={[Function]}
-              path="/open-wallet"
-            />
-            <TransitionRoute
-              component={[Function]}
-              exact={true}
-              path="/account/:address/stake"
-            />
-            <TransitionRoute
-              component={[Function]}
-              path="/account/:address"
-            />
-          </Switch>
-        </TransitionGroup>
-        <Memo />
-      </Styled(Main)>
+      <Navigation />
+      <Box
+        flex={true}
+        pad={
+          Object {
+            "top": undefined,
+          }
+        }
+      >
+        <Styled(Main)>
+          <FatalErrorHandler />
+          <Toolbar />
+          <TransitionGroup
+            childFactory={[Function]}
+            component="div"
+          >
+            <Switch>
+              <TransitionRoute
+                component={[Function]}
+                exact={true}
+                path="/"
+              />
+              <TransitionRoute
+                component={[Function]}
+                exact={true}
+                path="/create-wallet"
+              />
+              <TransitionRoute
+                component={[Function]}
+                path="/open-wallet"
+              />
+              <TransitionRoute
+                component={[Function]}
+                exact={true}
+                path="/account/:address/stake"
+              />
+              <TransitionRoute
+                component={[Function]}
+                path="/account/:address"
+              />
+            </Switch>
+          </TransitionGroup>
+          <Memo />
+        </Styled(Main)>
+      </Box>
     </Box>
-  </Box>
-</Memo(Connect(ConnectedRouterWithContext))>
+  </Memo(Connect(ConnectedRouterWithContext))>
+</ModalProvider>
 `;
