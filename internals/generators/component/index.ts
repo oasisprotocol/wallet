@@ -103,15 +103,6 @@ export const componentGenerator: PlopGeneratorConfig = {
       })
     }
 
-    if (answers.wantTranslations) {
-      actions.push({
-        type: 'add',
-        path: `${componentPath}/messages.ts`,
-        templateFile: './component/messages.ts.hbs',
-        abortOnFail: true,
-      })
-    }
-
     actions.push({
       type: 'prettify',
       data: { path: `${actualComponentPath}/**` },
