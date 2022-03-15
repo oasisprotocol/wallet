@@ -5,7 +5,6 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import './type-only-test-translation-keys'
 import en from './en/translation.json'
 import fr from './fr/translation.json'
-import { convertLanguageJsonToObject } from './translations'
 
 export const translationsJson = {
   en: {
@@ -15,10 +14,6 @@ export const translationsJson = {
     translation: fr,
   },
 }
-
-// Create the 'translations' object to provide full intellisense support for the static json files.
-// Note: superseeded by type-safe strings for translation keys
-convertLanguageJsonToObject(en)
 
 export const i18n = i18next
   // pass the i18n instance to react-i18next.
