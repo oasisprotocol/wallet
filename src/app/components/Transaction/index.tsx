@@ -23,6 +23,9 @@ import { DateFormatter } from '../DateFormatter'
 import { ShortAddress } from '../ShortAddress'
 import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'
+import { NetworkType } from 'app/state/network/types'
+import { config } from 'config'
+import { backend } from 'vendors/backend'
 
 export enum TransactionSide {
   Sent = 'sent',
@@ -42,6 +45,7 @@ type TransactionDictionary = {
 interface TransactionProps {
   referenceAddress: string
   transaction: transactionTypes.Transaction
+  network: NetworkType
 }
 
 export function Transaction(props: TransactionProps) {
@@ -208,6 +212,7 @@ export function Transaction(props: TransactionProps) {
   const icon = matchingConfiguration.icon()
   const header = matchingConfiguration.header()
   const designation = matchingConfiguration.designation
+  const blockExplorerLink = config[props.network][backend()]?.blockExplorer
 
   return (
     <Card round="small" background="background-front" gap="none" elevation="xsmall">
@@ -251,9 +256,10 @@ export function Transaction(props: TransactionProps) {
           <Button
             icon={<CircleInformation color="dark-3" />}
             hoverIndicator
-            href={'https://www.oasisscan.com/transactions/' + encodeURIComponent(transaction.hash)}
+            href={blockExplorerLink.replace('{{txHash}}', encodeURIComponent(transaction.hash))}
             target="_blank"
             rel="noopener"
+            data-testid="explorer-link"
           />
         </Box>
       </CardFooter>

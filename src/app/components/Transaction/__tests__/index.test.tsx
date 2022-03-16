@@ -6,7 +6,9 @@ import * as React from 'react'
 import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
 import { Provider, useSelector } from 'react-redux'
+import { mocked } from 'ts-jest/utils'
 import { configureAppStore } from 'store/configureStore'
+import { BackendAPIs, backend } from 'vendors/backend'
 
 import { Transaction } from '..'
 import * as transactionTypes from 'app/state/transaction/types'
@@ -23,6 +25,7 @@ jest.mock('react-i18next', () => ({
   },
 }))
 
+jest.mock('vendors/backend')
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useSelector: jest.fn(),
@@ -30,11 +33,11 @@ jest.mock('react-redux', () => ({
 
 const history = createMemoryHistory()
 const pushSpy = jest.spyOn(history, 'push')
-const renderComponent = (store, ref, transaction) =>
+const renderComponent = (store, ref, transaction, network) =>
   render(
     <Router history={history}>
       <Provider store={store}>
-        <Transaction referenceAddress={ref} transaction={transaction} />
+        <Transaction referenceAddress={ref} transaction={transaction} network={network} />
       </Provider>
     </Router>,
   )
@@ -50,8 +53,10 @@ describe('<Transaction  />', () => {
     type: transactionTypes.TransactionType.StakingTransfer,
     hash: 'ff1234',
   }
+  const network = 'mainnet'
 
   beforeEach(() => {
+    mocked(backend).mockImplementation(() => BackendAPIs.OasisScan)
     store = configureAppStore()
 
     when(useSelector as any)
@@ -60,12 +65,12 @@ describe('<Transaction  />', () => {
   })
 
   it('should match snapshot', () => {
-    const component = renderComponent(store, ref, transaction)
+    const component = renderComponent(store, ref, transaction, network)
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
   it('should redirect user when clicking on address section', () => {
-    renderComponent(store, ref, transaction)
+    renderComponent(store, ref, transaction, network)
 
     userEvent.click(screen.getByLabelText('ContactInfo'))
     expect(pushSpy).toHaveBeenCalledWith(
@@ -76,7 +81,7 @@ describe('<Transaction  />', () => {
   })
 
   it('should not redirect user when clicking on amount or block section', () => {
-    renderComponent(store, ref, transaction)
+    renderComponent(store, ref, transaction, network)
 
     userEvent.click(screen.getByLabelText('Money'))
     userEvent.click(screen.getByLabelText('Cube'))
@@ -84,28 +89,64 @@ describe('<Transaction  />', () => {
   })
 
   it('should handle unknown transaction types gracefully', () => {
-    const component = renderComponent(store, 'sourceAddr', {
-      amount: 1000000,
-      timestamp: 1618018255,
-      from: 'source',
-      to: 'destination',
-      type: 'turboencabulate',
-      hash: 'ff1234',
-    })
+    const component = renderComponent(
+      store,
+      'sourceAddr',
+      {
+        amount: 1000000,
+        timestamp: 1618018255,
+        from: 'source',
+        to: 'destination',
+        type: 'turboencabulate',
+        hash: 'ff1234',
+      },
+      network,
+    )
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
   it('should not render a link when address is undefined', () => {
-    renderComponent(store, 'sourceAddr', {
-      amount: 1000000,
-      timestamp: 1618018255,
-      from: 'sourceAddr',
-      to: undefined,
-      type: 'anyType',
-      hash: 'ff1234',
-    })
+    renderComponent(
+      store,
+      'sourceAddr',
+      {
+        amount: 1000000,
+        timestamp: 1618018255,
+        from: 'sourceAddr',
+        to: undefined,
+        type: 'anyType',
+        hash: 'ff1234',
+      },
+      network,
+    )
 
     expect(screen.queryByTestId('external-wallet-address')).not.toBeInTheDocument()
     expect(screen.getByText('common.unavailable')).toBeInTheDocument()
+  })
+
+  it('should render testnet link', () => {
+    renderComponent(store, ref, transaction, 'testnet')
+    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
+      'href',
+      'https://testnet.oasisscan.com/transactions/ff1234',
+    )
+  })
+
+  it('should render monitor link', () => {
+    mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
+    renderComponent(store, ref, transaction, network)
+    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
+      'href',
+      'https://oasismonitor.com/operation/ff1234',
+    )
+  })
+
+  it('should render testnet monitor link', () => {
+    mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
+    renderComponent(store, ref, transaction, 'testnet')
+    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
+      'href',
+      'https://testnet.oasismonitor.com/operation/ff1234',
+    )
   })
 })
