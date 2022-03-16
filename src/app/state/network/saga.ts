@@ -26,7 +26,7 @@ export function* getOasisNic(network?: NetworkType) {
  */
 export function* getExplorerAPIs(network?: NetworkType) {
   const selectedNetwork = yield* select(selectSelectedNetwork)
-  const url = config[selectedNetwork][backend].explorer
+  const url = config[selectedNetwork][backend()].explorer
   return backendApi(url)
 }
 

@@ -14,6 +14,7 @@ import {
   selectTransactions,
   selectTransactionsError,
 } from '../../../../state/account/selectors'
+import { selectSelectedNetwork } from 'app/state/network/selectors'
 
 interface Props {}
 
@@ -25,8 +26,9 @@ export function TransactionHistory(props: Props) {
   const allTransactions = useSelector(selectTransactions)
   const transactionsError = useSelector(selectTransactionsError)
   const address = useSelector(selectAccountAddress)
+  const network = useSelector(selectSelectedNetwork)
   const transactionComponents = allTransactions.map((t, i) => (
-    <Transaction key={i} transaction={t} referenceAddress={address} />
+    <Transaction key={i} transaction={t} referenceAddress={address} network={network} />
   ))
 
   return (

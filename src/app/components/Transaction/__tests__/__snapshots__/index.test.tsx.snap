@@ -612,7 +612,8 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     >
       <a
         class="c16"
-        href="https://www.oasisscan.com/transactions/ff1234"
+        data-testid="explorer-link"
+        href="https://oasisscan.com/transactions/ff1234"
         rel="noopener"
         target="_blank"
       >
@@ -1246,7 +1247,8 @@ exports[`<Transaction  /> should match snapshot 1`] = `
     >
       <a
         class="c16"
-        href="https://www.oasisscan.com/transactions/ff1234"
+        data-testid="explorer-link"
+        href="https://oasisscan.com/transactions/ff1234"
         rel="noopener"
         target="_blank"
       >
