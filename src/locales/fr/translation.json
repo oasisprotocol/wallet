@@ -231,6 +231,10 @@
   },
   "footer": {
     "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !",
+    "poweredBy": {
+      "oasisscan": "Alimenté par Oasis Scan",
+      "oasismonitor": "Alimenté par Oasis Monitor API & SimplyVC’s gRPC"
+    },
     "terms": "<0>Termes et Conditions</0>",
     "version": "Version: <0>{{commit}}</0> construit à {{buildTime}}"
   }

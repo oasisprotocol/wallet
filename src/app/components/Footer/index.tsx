@@ -2,10 +2,16 @@ import { Anchor, Box, Text } from 'grommet'
 import React, { memo } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { dateFormat } from '../DateFormatter'
+import { BackendAPIs } from 'vendors/backend'
+
 const githubLink = 'https://github.com/oasisprotocol/oasis-wallet-web/'
 
 export const Footer = memo(() => {
   const { t } = useTranslation()
+  const poweredByLabel =
+    process.env.REACT_APP_BACKEND === BackendAPIs.OasisMonitor
+      ? t('footer.poweredBy.oasismonitor')
+      : t('footer.poweredBy.oasisscan')
 
   return (
     <Box
@@ -50,6 +56,7 @@ export const Footer = memo(() => {
               commit: process.env.REACT_APP_WALLET_VERSION,
             }}
           />
+          {process.env.REACT_APP_BACKEND && <Box align="center">{poweredByLabel}</Box>}
         </Text>
       )}
     </Box>
