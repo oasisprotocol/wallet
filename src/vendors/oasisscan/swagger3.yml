@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: '3.0.1'
 info:
   title: Oasisscan API
   version: "1"
@@ -7,445 +7,463 @@ info:
 paths:
   '/chain/account/info/{account_id}':
     get:
+      tags:
+        - Accounts
       operationId: getAccount
-      produces:
-        - application/json
       parameters:
-        - in: path
-          name: account_id
+        - name: account_id
+          in: path
           required: true
-          type: string
+          schema:
+            type: string
       responses:
         '200':
           description: Query compatibility endpoint for account
-          schema:
-            type: object
-            required: ["code", "data"]
-            properties:
-              code:
-                type: integer
-              data:
-                $ref: '#/definitions/AccountsRow'
-      tags:
-        - Accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                required: ["code", "data"]
+                properties:
+                  code:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/AccountsRow'
   '/validator/list':
     get:
+      tags:
+        - Accounts
       operationId: getValidatorsList
-      produces:
-        - application/json
       parameters:
-        - in: query
-          name: pageSize
-          type: integer
+        - name: pageSize
+          schema:
+            type: integer
+          in: query
       responses:
         '200':
           description: Query compatibility endpoint for validators
-          schema:
-            type: object
-            required: ["code", "data"]
-            properties:
-              code:
-                type: integer
-              data:
+          content:
+            application/json:
+              schema:
                 type: object
-                required: ["active", "delegators", "inactive", "list"]
+                required: ["code", "data"]
                 properties:
-                  active:
+                  code:
                     type: integer
-                  delegators:
-                    type: integer
-                  inactive:
-                    type: integer
-                  list:
-                    type: array
-                    items:
-                      $ref: '#/definitions/ValidatorRow'
-      tags:
-        - Accounts
+                  data:
+                    type: object
+                    required: ["active", "delegators", "inactive", "list"]
+                    properties:
+                      active:
+                        type: integer
+                      delegators:
+                        type: integer
+                      inactive:
+                        type: integer
+                      list:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ValidatorRow'
   '/chain/transactions':
     get:
+      tags:
+        - OperationsList
       operationId: getTransactionsList
-      produces:
-        - application/json
       parameters:
         - name: size
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: page
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: height
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: address
-          type: string
+          schema:
+            type: string
           description: Get transactions by account
           in: query
         - name: method
-          type: string
+          schema:
+            type: string
           in: query
         - name: runtime
-          type: boolean
+          schema:
+            type: boolean
           required: true
           description: Include ParaTime transactions
           in: query
       responses:
         '200':
           description: Query compatibility endpoint for transactions
-          schema:
-            type: object
-            required: ["code", "data"]
-            properties:
-              code:
-                type: integer
-              data:
+          content:
+            application/json:
+              schema:
                 type: object
-                required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                required: ["code", "data"]
                 properties:
-                  list:
-                    type: array
-                    items:
-                      $ref: "#/definitions/OperationsRow"
-                  page:
+                  code:
                     type: integer
-                  size:
-                    type: integer
-                  maxPage:
-                    type: integer
-                  totalSize:
-                    type: integer
-      tags:
-        - OperationsList
+                  data:
+                    type: object
+                    required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                    properties:
+                      list:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/OperationsRow'
+                      page:
+                        type: integer
+                      size:
+                        type: integer
+                      maxPage:
+                        type: integer
+                      totalSize:
+                        type: integer
   '/chain/account/delegations':
     get:
+      tags:
+        - Accounts
       operationId: getDelegations
-      produces:
-        - application/json
       parameters:
         - name: size
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: page
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: height
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: address
-          type: string
+          schema:
+            type: string
           in: query
         - name: all
-          type: boolean
+          schema:
+            type: boolean
           in: query
           description: Include non-validators
       responses:
         '200':
           description: Query delegations
-          schema:
-            type: object
-            required: ["code", "data"]
-            properties:
-              code:
-                type: integer
-              data:
+          content:
+            application/json:
+              schema:
                 type: object
-                required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                required: ["code", "data"]
                 properties:
-                  list:
-                    type: array
-                    items:
-                      $ref: "#/definitions/DelegationRow"
-                  page:
+                  code:
                     type: integer
-                  size:
-                    type: integer
-                  maxPage:
-                    type: integer
-                  totalSize:
-                    type: integer
-      tags:
-        - Accounts
+                  data:
+                    type: object
+                    required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                    properties:
+                      list:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/DelegationRow'
+                      page:
+                        type: integer
+                      size:
+                        type: integer
+                      maxPage:
+                        type: integer
+                      totalSize:
+                        type: integer
   '/chain/account/debonding':
     get:
+      tags:
+        - Accounts
       operationId: getDebondingDelegations
-      produces:
-        - application/json
       parameters:
         - name: size
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: page
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: height
-          type: integer
+          schema:
+            type: integer
           in: query
         - name: address
-          type: string
+          schema:
+            type: string
           in: query
       responses:
         '200':
           description: Query debonding delegations
-          schema:
-            type: object
-            required: ["code", "data"]
-            properties:
-              code:
-                type: integer
-              data:
+          content:
+            application/json:
+              schema:
                 type: object
-                required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                required: ["code", "data"]
                 properties:
-                  list:
-                    type: array
-                    items:
-                      $ref: "#/definitions/DebondingDelegationRow"
-                  page:
+                  code:
                     type: integer
-                  size:
-                    type: integer
-                  maxPage:
-                    type: integer
-                  totalSize:
-                    type: integer
-      tags:
-        - Accounts
-definitions:
-  AccountsRow:
-    properties:
-      rank:
-        type: integer
-      address:
-        type: string
-      available:
-        type: string
-      escrow:
-        type: string
-      debonding:
-        type: string
-      total:
-        type: string
-      nonce:
-        type: integer
-      allowances:
-        type: array
-        items:
-          type: object
-    type: object
-    required:
-      - rank
-      - address
-      - available
-      - escrow
-      - debonding
-      - total
-      - nonce
-      - allowances
-  ValidatorRow:
-    properties:
-      active:
-        type: boolean
+                  data:
+                    type: object
+                    required: ["list", "maxPage", "page", "size", "totalSize", "tags"]
+                    properties:
+                      list:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/DebondingDelegationRow'
+                      page:
+                        type: integer
+                      size:
+                        type: integer
+                      maxPage:
+                        type: integer
+                      totalSize:
+                        type: integer
+components:
+  schemas:
+    AccountsRow:
+      type: object
+      properties:
+        rank:
+          type: integer
+        address:
+          type: string
+        available:
+          type: string
+        escrow:
+          type: string
+        debonding:
+          type: string
+        total:
+          type: string
+        nonce:
+          type: integer
+        allowances:
+          type: array
+          items:
+            type: object
+      required:
+        - rank
+        - address
+        - available
+        - escrow
+        - debonding
+        - total
+        - nonce
+        - allowances
+    ValidatorRow:
+      type: object
+      properties:
+        active:
+          type: boolean
+          description:
+            If "true", entity is part of validator set
+            (top <scheduler.params.max_validators> by stake).
+        balance:
+          type: string
+        bound:
+          type: 'null'
+        bounds:
+          type: 'null'
+        commission:
+          type: number
+        delegators:
+          type: integer
         description:
-          If "true", entity is part of validator set
-          (top <scheduler.params.max_validators> by stake).
-      balance:
-        type: string
-      bound:
-        type: 'null'
-      bounds:
-        type: 'null'
-      commission:
-        type: number
-      delegators:
-        type: integer
-      description:
-        type: 'null'
-      email:
-        type: string
-      entityAddress:
-        type: string
-      entityId:
-        type: string
-      escrow:
-        type: string
-      escrowAmountStatus:
-        type: 'null'
-      escrowChange24:
-        type: string
-      escrowPercent:
-        type: number
-      escrowSharesStatus:
-        type: 'null'
-      icon:
-        type: string
-      keybase:
-        type: string
-      name:
-        type: string
-      nodeAddress:
-        type: string
-      nodeId:
-        type: string
-      nodes:
-        type: 'null'
-      nonce:
-        type: integer
-      proposals:
-        type: integer
-      rank:
-        type: integer
-      rates:
-        type: 'null'
-      score:
-        type: integer
-      signs:
-        type: integer
-      status:
-        type: boolean
-        description:
-          If "true", an entity has a node that is registered for being a
-          validator, node is up to date, and has successfully registered itself.
-          However, it may or may not be part of validator set
-          (top <scheduler.params.max_validators> by stake).
-      totalShares:
-        type: string
-      twitter:
-        type: string
-      uptime:
-        type: string
-      website:
-        type: string
-    type: object
-    required:
-      - active
-      - balance
-      - bound
-      - bounds
-      - commission
-      - delegators
-      - description
-      - email
-      - entityAddress
-      - entityId
-      - escrow
-      - escrowAmountStatus
-      - escrowChange24
-      - escrowPercent
-      - escrowSharesStatus
-      - icon
-      - keybase
-      - name
-      - nodeAddress
-      - nodeId
-      - nodes
-      - nonce
-      - proposals
-      - rank
-      - rates
-      - score
-      - signs
-      - status
-      - totalShares
-      - twitter
-      - uptime
-      - website
-  OperationsRow:
-    type: object
-    properties:
-      txHash:
-        type: string
-      height:
-        type: integer
-      method:
-        type: string
-        enum:
-          - staking.Transfer
-          - staking.AddEscrow
-          - staking.ReclaimEscrow
-          - staking.Allow
-          - staking.AmendCommissionSchedule
-          - roothash.ExecutorCommit
-          - roothash.ExecutorProposerTimeout
-          - registry.RegisterEntity
-          - registry.RegisterNode
-          - registry.RegisterRuntime
-          - governance.CastVote
-          - beacon.PVSSCommit
-          - beacon.PVSSReveal
-      fee:
-        type: string
-      amount:
-        type: string
-      shares:
-        type: string
-      add:
-        type: boolean
-      timestamp:
-        type: integer
-      time:
-        type: integer
-      status:
-        type: boolean
-      from:
-        type: string
-      to:
-        type: string
-      round:
-        type: integer
-      runtimeId:
-        type: string
-        description: ParaTime only
-      runtimeName:
-        type: string
-        description: ParaTime only
-      result:
-        type: boolean
-        description: ParaTime only
-      type:
-        type: string
-        description: ParaTime only
-    required:
-      - timestamp
-      - txHash
-  DelegationRow:
-    type: object
-    properties:
-      validatorAddress:
-        type: string
-      shares:
-        type: string
-      amount:
-        type: string
-      active:
-        type: boolean
-      validatorName:
-        type: string
-      icon:
-        type: string
-      entityAddress:
-        type: 'null'
-    required:
-      - validatorAddress
-      - shares
-      - amount
-      - active
-  DebondingDelegationRow:
-    type: object
-    properties:
-      validatorAddress:
-        type: string
-      shares:
-        type: string
-      debondEnd:
-        type: integer
-      epochLeft:
-        type: integer
-      validatorName:
-        type: string
-      icon:
-        type: string
-    required:
-      - validatorAddress
-      - shares
-      - debondEnd
-      - epochLeft
+          type: 'null'
+        email:
+          type: string
+        entityAddress:
+          type: string
+        entityId:
+          type: string
+        escrow:
+          type: string
+        escrowAmountStatus:
+          type: 'null'
+        escrowChange24:
+          type: string
+        escrowPercent:
+          type: number
+        escrowSharesStatus:
+          type: 'null'
+        icon:
+          type: string
+        keybase:
+          type: string
+        name:
+          type: string
+        nodeAddress:
+          type: string
+        nodeId:
+          type: string
+        nodes:
+          type: 'null'
+        nonce:
+          type: integer
+        proposals:
+          type: integer
+        rank:
+          type: integer
+        rates:
+          type: 'null'
+        score:
+          type: integer
+        signs:
+          type: integer
+        status:
+          type: boolean
+          description:
+            If "true", an entity has a node that is registered for being a
+            validator, node is up to date, and has successfully registered itself.
+            However, it may or may not be part of validator set
+            (top <scheduler.params.max_validators> by stake).
+        totalShares:
+          type: string
+        twitter:
+          type: string
+        uptime:
+          type: string
+        website:
+          type: string
+      required:
+        - active
+        - balance
+        - bound
+        - bounds
+        - commission
+        - delegators
+        - description
+        - email
+        - entityAddress
+        - entityId
+        - escrow
+        - escrowAmountStatus
+        - escrowChange24
+        - escrowPercent
+        - escrowSharesStatus
+        - icon
+        - keybase
+        - name
+        - nodeAddress
+        - nodeId
+        - nodes
+        - nonce
+        - proposals
+        - rank
+        - rates
+        - score
+        - signs
+        - status
+        - totalShares
+        - twitter
+        - uptime
+        - website
+    OperationsRow:
+      type: object
+      properties:
+        txHash:
+          type: string
+        height:
+          type: integer
+        method:
+          type: string
+          enum:
+            - staking.Transfer
+            - staking.AddEscrow
+            - staking.ReclaimEscrow
+            - staking.Allow
+            - staking.AmendCommissionSchedule
+            - roothash.ExecutorCommit
+            - roothash.ExecutorProposerTimeout
+            - registry.RegisterEntity
+            - registry.RegisterNode
+            - registry.RegisterRuntime
+            - governance.CastVote
+            - beacon.PVSSCommit
+            - beacon.PVSSReveal
+        fee:
+          type: string
+        amount:
+          type: string
+        shares:
+          type: string
+        add:
+          type: boolean
+        timestamp:
+          type: integer
+        time:
+          type: integer
+        status:
+          type: boolean
+        from:
+          type: string
+        to:
+          type: string
+        round:
+          type: integer
+        runtimeId:
+          type: string
+          description: ParaTime only
+        runtimeName:
+          type: string
+          description: ParaTime only
+        result:
+          type: boolean
+          description: ParaTime only
+        type:
+          type: string
+          description: ParaTime only
+      required:
+        - timestamp
+        - txHash
+    DelegationRow:
+      type: object
+      properties:
+        validatorAddress:
+          type: string
+        shares:
+          type: string
+        amount:
+          type: string
+        active:
+          type: boolean
+        validatorName:
+          type: string
+        icon:
+          type: string
+        entityAddress:
+          type: 'null'
+      required:
+        - validatorAddress
+        - shares
+        - amount
+        - active
+    DebondingDelegationRow:
+      type: object
+      properties:
+        validatorAddress:
+          type: string
+        shares:
+          type: string
+        debondEnd:
+          type: integer
+        epochLeft:
+          type: integer
+        validatorName:
+          type: string
+        icon:
+          type: string
+      required:
+        - validatorAddress
+        - shares
+        - debondEnd
+        - epochLeft
