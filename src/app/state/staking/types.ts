@@ -56,7 +56,7 @@ export interface DebondingDelegation extends Delegation {
 
 export interface StakingState {
   /** List of all the validators */
-  validators: Validators
+  validators: Validators | null
 
   /** Error from last attempt to update our list of validators */
   updateValidatorsError: string | null

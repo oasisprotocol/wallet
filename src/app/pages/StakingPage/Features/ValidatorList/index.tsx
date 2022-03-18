@@ -115,7 +115,7 @@ export const ValidatorList = memo((props: Props) => {
             'account.validator.loadingError',
             "Couldn't load validators. Showing validator list as of {{staleTimestamp}}.",
             {
-              staleTimestamp: new Date(validatorsTimestamp).toLocaleString(),
+              staleTimestamp: new Date(validatorsTimestamp!).toLocaleString(),
             },
           )}
           <br />

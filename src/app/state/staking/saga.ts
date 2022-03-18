@@ -1,21 +1,23 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 // import { stakingActions as actions } from '.';
-import { address as oasisAddress, quantity } from '@oasisprotocol/client'
+import { address as oasisAddress, consensus, quantity } from '@oasisprotocol/client'
 import {
+  SchedulerValidator,
   StakingDebondingDelegationInfo,
   StakingDelegationInfo,
   StakingSharePool,
 } from '@oasisprotocol/client/dist/types'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { addressToPublicKey } from 'app/lib/helpers'
+import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
+import { NetworkType } from 'app/state/network/types'
 import { all, call, put, select, takeEvery } from 'typed-redux-saga'
+import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
-import { selectValidators } from './selectors'
-import { CommissionBound, DebondingDelegation, Delegation } from './types'
-import * as dump_validators from 'vendors/oasisscan/dump_validators.json'
+import { selectValidators, selectValidatorsNetwork } from './selectors'
+import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
 
 function getSharePrice(pool: StakingSharePool) {
   const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
@@ -84,7 +86,13 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 }
 
 function* refreshValidators() {
+  const existingValidators = yield* select(selectValidators)
+  const existingValidatorsNetwork = yield* select(selectValidatorsNetwork)
   const network = yield* select(selectSelectedNetwork)
+
+  // Skip if validators are already in store, and network didn't change
+  if (existingValidators.length > 0 && network === existingValidatorsNetwork) return
+
   const { getAllValidators } = yield* call(getExplorerAPIs)
   try {
     const validators = yield* call(getAllValidators)
@@ -95,25 +103,91 @@ function* refreshValidators() {
         list: validators,
       }),
     )
-  } catch (e) {
-    console.error('get validators list failed, continuing without updated list.', e)
+  } catch (errorApi) {
+    console.error('get validators list failed', errorApi)
+
+    const fallback = yield* call(getFallbackValidators, network, '' + errorApi)
     yield* put(
       stakingActions.updateValidatorsError({
-        error: '' + e,
-        validators: {
-          timestamp: dump_validators.dump_timestamp,
-          network: network,
-          list: dump_validators.list.map(v => {
-            return {
-              ...v,
-              status: 'unknown',
-            }
-          }),
-        },
+        error: fallback.error,
+        validators: fallback.validators,
       }),
     )
-    return
   }
+}
+
+function* getFallbackValidators(network: NetworkType, errorApi: string) {
+  let fallbackValidators: Validators = {
+    timestamp: Date.now(),
+    network: network,
+    list: [],
+  }
+  // If API fails on testnet/local, fall back to empty list
+  if (network !== 'mainnet') {
+    return {
+      error: errorApi,
+      validators: fallbackValidators,
+    }
+  }
+
+  try {
+    const dump_validators = yield* call(getMainnetDumpValidators)
+    fallbackValidators = {
+      timestamp: dump_validators.dump_timestamp,
+      network: 'mainnet',
+      list: dump_validators.list.map(v => {
+        return {
+          ...v,
+          status: 'unknown',
+        }
+      }),
+    }
+  } catch (errorDumpValidators) {
+    // If fetching dump_validators fails, fall back to empty list
+    return {
+      error: 'Lost connection',
+      validators: fallbackValidators,
+    }
+  }
+
+  // If API fails on mainnet, fall back to dump_validators, and refresh validators' status with RPC
+  const nic = yield* call(getOasisNic)
+  let rpcActiveValidators: SchedulerValidator[]
+  try {
+    rpcActiveValidators = yield* call([nic, nic.schedulerGetValidators], consensus.HEIGHT_LATEST)
+  } catch (errorRpc) {
+    // If RPC fails, fall back to dump_validators with unknown validators' status
+    return {
+      error: errorApi,
+      validators: fallbackValidators,
+    }
+  }
+
+  // Fall back to dump_validators with refreshed validators' status from RPC
+  const activeNodes: { [nodeAddress: string]: true } = {}
+  for (const rpcValidator of rpcActiveValidators) {
+    const nodeAddress = yield* call(publicKeyToAddress, rpcValidator.id)
+    activeNodes[nodeAddress] = true
+  }
+  fallbackValidators = {
+    ...fallbackValidators,
+    list: fallbackValidators.list
+      .map(v => {
+        return {
+          ...v,
+          status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
+        }
+      })
+      .sort(sortByStatus),
+  }
+  return {
+    error: errorApi,
+    validators: fallbackValidators,
+  }
+}
+
+async function getMainnetDumpValidators() {
+  return await import('vendors/oasisscan/dump_validators.json')
 }
 
 function* getValidatorDetails({ payload: address }: PayloadAction<string>) {

@@ -8,11 +8,7 @@ import { DebondingDelegation, Delegation, StakingState, Validators, ValidatorDet
 export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
-  validators: {
-    timestamp: 0,
-    network: 'mainnet',
-    list: [],
-  },
+  validators: null,
   updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,
