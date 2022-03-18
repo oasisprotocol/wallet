@@ -996,10 +996,6 @@ definitions:
           validator, node is up to date, and has successfully registered itself.
           However, it may or may not be part of validator set
           (top <scheduler.params.max_validators> by stake).
-      node_address:
-        type: string
-      consensus_address:
-        type: string
       depositors_count:
         format: int64
         type: integer
@@ -1011,8 +1007,21 @@ definitions:
         type: integer
     required:
       - account_id
-      - status
+      - node_id
       - escrow_balance
+      - escrow_shares
+      - general_balance
+      - debonding_balance
+      - delegations_balance
+      - debonding_delegations_balance
+      - self_delegation_balance
+      - day_uptime
+      - total_uptime
+      - validate_since
+      - current_epoch
+      - status
+      - blocks_count
+      - signatures_count
     type: object
   ValidatorCommissionSchedule:
     properties:

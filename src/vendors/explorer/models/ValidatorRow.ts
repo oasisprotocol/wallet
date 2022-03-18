@@ -47,7 +47,7 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    node_id?: string;
+    node_id: string;
     /**
      * 
      * @type {number}
@@ -59,37 +59,37 @@ export interface ValidatorRow {
      * @type {number}
      * @memberof ValidatorRow
      */
-    escrow_shares?: number;
+    escrow_shares: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    general_balance?: number;
+    general_balance: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    debonding_balance?: number;
+    debonding_balance: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    delegations_balance?: number;
+    delegations_balance: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    debonding_delegations_balance?: number;
+    debonding_delegations_balance: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    self_delegation_balance?: number;
+    self_delegation_balance: number;
     /**
      * 
      * @type {ValidatorMediaInfo}
@@ -107,43 +107,31 @@ export interface ValidatorRow {
      * @type {number}
      * @memberof ValidatorRow
      */
-    current_epoch?: number;
+    current_epoch: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    day_uptime?: number;
+    day_uptime: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    total_uptime?: number;
+    total_uptime: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    validate_since?: number;
+    validate_since: number;
     /**
      * If "active", an entity has a node that is registered for being a validator, node is up to date, and has successfully registered itself. However, it may or may not be part of validator set (top <scheduler.params.max_validators> by stake).
      * @type {string}
      * @memberof ValidatorRow
      */
     status: ValidatorRowStatusEnum;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidatorRow
-     */
-    node_address?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ValidatorRow
-     */
-    consensus_address?: string;
     /**
      * 
      * @type {number}
@@ -155,13 +143,13 @@ export interface ValidatorRow {
      * @type {number}
      * @memberof ValidatorRow
      */
-    blocks_count?: number;
+    blocks_count: number;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    signatures_count?: number;
+    signatures_count: number;
 }
 
 /**
@@ -185,26 +173,24 @@ export function ValidatorRowFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'account_id': json['account_id'],
         'account_name': !exists(json, 'account_name') ? undefined : json['account_name'],
-        'node_id': !exists(json, 'node_id') ? undefined : json['node_id'],
+        'node_id': json['node_id'],
         'escrow_balance': json['escrow_balance'],
-        'escrow_shares': !exists(json, 'escrow_shares') ? undefined : json['escrow_shares'],
-        'general_balance': !exists(json, 'general_balance') ? undefined : json['general_balance'],
-        'debonding_balance': !exists(json, 'debonding_balance') ? undefined : json['debonding_balance'],
-        'delegations_balance': !exists(json, 'delegations_balance') ? undefined : json['delegations_balance'],
-        'debonding_delegations_balance': !exists(json, 'debonding_delegations_balance') ? undefined : json['debonding_delegations_balance'],
-        'self_delegation_balance': !exists(json, 'self_delegation_balance') ? undefined : json['self_delegation_balance'],
+        'escrow_shares': json['escrow_shares'],
+        'general_balance': json['general_balance'],
+        'debonding_balance': json['debonding_balance'],
+        'delegations_balance': json['delegations_balance'],
+        'debonding_delegations_balance': json['debonding_delegations_balance'],
+        'self_delegation_balance': json['self_delegation_balance'],
         'media_info': !exists(json, 'media_info') ? undefined : ValidatorMediaInfoFromJSON(json['media_info']),
         'commission_schedule': !exists(json, 'commission_schedule') ? undefined : ValidatorCommissionScheduleFromJSON(json['commission_schedule']),
-        'current_epoch': !exists(json, 'current_epoch') ? undefined : json['current_epoch'],
-        'day_uptime': !exists(json, 'day_uptime') ? undefined : json['day_uptime'],
-        'total_uptime': !exists(json, 'total_uptime') ? undefined : json['total_uptime'],
-        'validate_since': !exists(json, 'validate_since') ? undefined : json['validate_since'],
+        'current_epoch': json['current_epoch'],
+        'day_uptime': json['day_uptime'],
+        'total_uptime': json['total_uptime'],
+        'validate_since': json['validate_since'],
         'status': json['status'],
-        'node_address': !exists(json, 'node_address') ? undefined : json['node_address'],
-        'consensus_address': !exists(json, 'consensus_address') ? undefined : json['consensus_address'],
         'depositors_count': !exists(json, 'depositors_count') ? undefined : json['depositors_count'],
-        'blocks_count': !exists(json, 'blocks_count') ? undefined : json['blocks_count'],
-        'signatures_count': !exists(json, 'signatures_count') ? undefined : json['signatures_count'],
+        'blocks_count': json['blocks_count'],
+        'signatures_count': json['signatures_count'],
     };
 }
 
@@ -234,8 +220,6 @@ export function ValidatorRowToJSON(value?: ValidatorRow | null): any {
         'total_uptime': value.total_uptime,
         'validate_since': value.validate_since,
         'status': value.status,
-        'node_address': value.node_address,
-        'consensus_address': value.consensus_address,
         'depositors_count': value.depositors_count,
         'blocks_count': value.blocks_count,
         'signatures_count': value.signatures_count,
