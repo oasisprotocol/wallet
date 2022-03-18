@@ -210,7 +210,7 @@ describe('oasisscan', () => {
           to: null,
         },
 
-        // https://api.oasisscan.com/mainnet/chain/transactions?size=2000&runtime=false&method=roothash.ExecutorCommit&address=oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg
+        // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=roothash.ExecutorCommit&address=oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg
         {
           tx_hash: 'd6298496fc19fd95fa1e2b245d1c33661b9ebd7ffb184280c363a31d13210c2a',
           height: 7381204,
