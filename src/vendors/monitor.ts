@@ -62,6 +62,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
         const parsed: Validator = {
           address: v.account_id,
           name: v.account_name,
+          nodeAddress: v.node_id,
           escrow: v.escrow_balance,
           current_rate: computeCurrentRate(v.current_epoch!, v.commission_schedule?.rates ?? []),
           status: v.status,

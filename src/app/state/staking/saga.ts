@@ -12,9 +12,10 @@ import { all, call, put, select, takeEvery } from 'typed-redux-saga'
 
 import { stakingActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
-import { selectEpoch } from '../network/selectors'
+import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation } from './types'
+import * as dump_validators from 'vendors/oasisscan/dump_validators.json'
 
 function getSharePrice(pool: StakingSharePool) {
   const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
@@ -83,13 +84,34 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
 }
 
 function* refreshValidators() {
+  const network = yield* select(selectSelectedNetwork)
   const { getAllValidators } = yield* call(getExplorerAPIs)
   try {
-    const payload = yield* call(getAllValidators)
-    yield* put(stakingActions.updateValidators(payload))
+    const validators = yield* call(getAllValidators)
+    yield* put(
+      stakingActions.updateValidators({
+        timestamp: Date.now(),
+        network: network,
+        list: validators,
+      }),
+    )
   } catch (e) {
     console.error('get validators list failed, continuing without updated list.', e)
-    yield* put(stakingActions.updateValidatorsError('' + e))
+    yield* put(
+      stakingActions.updateValidatorsError({
+        error: '' + e,
+        validators: {
+          timestamp: dump_validators.dump_timestamp,
+          network: network,
+          list: dump_validators.list.map(v => {
+            return {
+              ...v,
+              status: 'unknown',
+            }
+          }),
+        },
+      }),
+    )
     return
   }
 }

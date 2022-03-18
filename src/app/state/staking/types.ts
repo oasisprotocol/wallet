@@ -1,8 +1,11 @@
 /* --- STATE --- */
 
+import { NetworkType } from 'app/state/network/types'
+
 export interface Validator {
-  name?: string
   address: string
+  name?: string
+  nodeAddress: string
   escrow?: number
   status: 'active' | 'inactive' | 'unknown'
   rank: number
@@ -13,6 +16,7 @@ export interface Validator {
 
 export interface Validators {
   timestamp: number
+  network: NetworkType
   list: Validator[]
 }
 
