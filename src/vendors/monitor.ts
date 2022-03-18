@@ -13,6 +13,8 @@ import {
   ValidatorRow,
 } from 'vendors/explorer'
 
+import { sortByStatus } from './helpers'
+
 export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
   const explorerConfig = new Configuration({
     basePath: url,
@@ -67,6 +69,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
           rank: index + 1,
         } as Validator
       })
+      .sort(sortByStatus)
   )
 }
 

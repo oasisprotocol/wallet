@@ -171,6 +171,19 @@ Array [
     "status": "active",
   },
   Object {
+    "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
+    "current_rate": 0.15,
+    "escrow": 261889743044845470,
+    "media": Object {
+      "email_address": "go@staking.fund",
+      "twitter_acc": "https://twitter.com/StakingFund",
+      "website_link": "https://staking.fund",
+    },
+    "name": "Staking Fund",
+    "rank": 3,
+    "status": "active",
+  },
+  Object {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
     "escrow": 326477290615842940,
