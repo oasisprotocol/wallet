@@ -5,13 +5,14 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
+import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectAccountAddress } from 'app/state/account/selectors'
 import { useStakingSlice } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
 import { Delegation } from 'app/state/staking/types'
 import { selectActiveWallet } from 'app/state/wallet/selectors'
 import { Text } from 'grommet'
-import { Down, StatusCritical, StatusGood } from 'grommet-icons/icons'
+import { Down } from 'grommet-icons/icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -71,10 +72,8 @@ export const DelegationList = memo((props: Props) => {
       name: '',
       id: 'status',
       cell: datum =>
-        datum.validator && datum.validator.status === 'active' ? (
-          <StatusGood color="status-ok" />
-        ) : (
-          <StatusCritical color="status-critical" />
+        datum.validator && (
+          <ValidatorStatus status={datum.validator.status} showLabel={false}></ValidatorStatus>
         ),
       width: '34px',
     },
