@@ -5,6 +5,9 @@ import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 
+export const DerivationPathTypeAdr8 = 'adr8'
+export const DerivationPathTypeLegacy = 'legacy'
+
 interface Response {
   return_code: number
   error_message: string
@@ -34,7 +37,18 @@ const successOrThrow = (response: Response, message: string) => {
 }
 
 export class Ledger {
-  public static async enumerateAccounts(transport: Transport, count = 5) {
+  public static mustGetPath(pathType: string, i: number) {
+    switch (pathType) {
+      case DerivationPathTypeAdr8:
+        return [44, 474, i]
+      case DerivationPathTypeLegacy:
+        return [44, 474, 0, 0, i]
+    }
+
+    throw new TypeError('invalid pathType: ' + pathType)
+  }
+
+  public static async enumerateAccounts(transport: Transport, pathType: string, count = 5) {
     const accounts: LedgerAccount[] = []
 
     try {
@@ -44,7 +58,7 @@ export class Ledger {
         throw new WalletError(WalletErrors.LedgerOasisAppIsNotOpen, 'Oasis App is not open')
       }
       for (let i = 0; i < count; i++) {
-        const path = [44, 474, 0, 0, i]
+        const path = Ledger.mustGetPath(pathType, i)
         const publicKeyResponse = successOrThrow(await app.publicKey(path), 'ledger public key')
         accounts.push({ path, publicKey: new Uint8Array(publicKeyResponse.pk as Buffer) })
       }

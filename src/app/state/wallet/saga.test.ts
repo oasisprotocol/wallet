@@ -10,6 +10,7 @@ import { transactionActions } from '../transaction'
 import { getBalance, rootWalletSaga, walletSaga, selectWallet } from './saga'
 import { selectActiveWallet } from './selectors'
 import { Wallet, WalletState } from './types'
+import { DerivationPathTypeAdr8, Ledger } from '../../lib/ledger'
 
 describe('Wallet Sagas', () => {
   const validMnemonic =
@@ -61,7 +62,7 @@ describe('Wallet Sagas', () => {
             {
               address: addressHex,
               balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
-              path: [44, 474, 0, 0, 0],
+              path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
               publicKey: '00',
               selected: true,
             },

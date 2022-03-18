@@ -13,10 +13,12 @@ const slice = createSlice({
   reducers: {
     clear(state, action: PayloadAction<void>) {
       state.accounts = []
+      state.derivationPathType = undefined
       state.error = undefined
     },
-    enumerateAccounts(state, action: PayloadAction<void>) {
+    enumerateAccounts(state, action: PayloadAction<string>) {
       state.step = undefined
+      state.derivationPathType = action.payload
       state.accounts = []
     },
     toggleAccount(state, action: PayloadAction<number>) {
@@ -28,6 +30,10 @@ const slice = createSlice({
     },
     setStep(state, action: PayloadAction<LedgerStep>) {
       state.step = action.payload
+    },
+    setDerivationPathType(state, action: PayloadAction<string>) {
+      state.derivationPathType = action.payload
+      state.accounts = []
     },
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload

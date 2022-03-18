@@ -7,16 +7,19 @@ import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { LedgerStepFormatter } from 'app/components/LedgerStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { Account } from 'app/components/Toolbar/Features/AccountSelector'
+import { DerivationPathTypeAdr8, DerivationPathTypeLegacy } from 'app/lib/ledger'
 import { ledgerActions, useLedgerSlice } from 'app/state/ledger'
 import { selectLedger, selectSelectedLedgerAccounts } from 'app/state/ledger/selectors'
 import { LedgerAccount, LedgerStep } from 'app/state/ledger/types'
 import { useWalletSlice } from 'app/state/wallet'
 import { WalletType } from 'app/state/wallet/types'
-import { Box, Button, Heading, Spinner, Text } from 'grommet'
+import { Anchor, Box, Button, Heading, Select, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+
+const ledgerDerivationPathLink = 'https://docs.oasis.dev/general/manage-tokens/faq#ledger-derivation-paths'
 
 interface LedgerAccountSelectorProps {
   accounts: LedgerAccount[]
@@ -104,13 +107,30 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
   const error = ledger.error
   const selectedAccounts = useSelector(selectSelectedLedgerAccounts)
   const dispatch = useDispatch()
+  const [derivationPathType, setDerivationPathType] = useState(DerivationPathTypeLegacy)
+
+  const derivationPathTypes = [
+    {
+      label: t('ledger.derivationPathType.legacy', 'Legacy (backward compatible)'),
+      value: DerivationPathTypeLegacy,
+    },
+    {
+      label: t('ledger.derivationPathType.adr8', 'ADR 0008 (recommended for new wallets)'),
+      value: DerivationPathTypeAdr8,
+    },
+  ]
 
   const openAccounts = () => {
     dispatch(walletActions.openWalletsFromLedger(selectedAccounts))
   }
 
+  const onChangeDerivationPathType = (arg: any) => {
+    setDerivationPathType(arg.value)
+    dispatch(ledgerActions.enumerateAccounts(arg.value))
+  }
+
   useEffect(() => {
-    dispatch(ledgerActions.enumerateAccounts())
+    dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeLegacy!))
     return () => {
       dispatch(ledgerActions.clear())
     }
@@ -125,6 +145,34 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
         <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
           {t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
         </Heading>
+        <Box fill="vertical" align="center" justify="end" direction="row">
+          <Box
+            pad={{
+              right: '5px',
+            }}
+          >
+            {t('openWallet.ledger.derivationPath', 'Derivation path')}
+          </Box>
+          <Box width="440px">
+            <Select
+              id="DerivationPathSelect"
+              labelKey="label"
+              onChange={onChangeDerivationPathType}
+              options={derivationPathTypes}
+              value={derivationPathType}
+              valueKey={{ key: 'value', reduce: true }}
+              disabled={cancelDisabled}
+            />
+          </Box>
+        </Box>
+        <Text alignSelf="end" size="small">
+          <Trans
+            i18nKey="openWallet.ledger.derivationPathInfo"
+            t={t}
+            components={[<Anchor href={ledgerDerivationPathLink} target="_blank" rel="noopener" />]}
+            defaults="<0>Learn more</0>"
+          />
+        </Text>
         {ledger.step && ledger.step !== LedgerStep.Done && (
           <Box direction="row" gap="medium" alignContent="center">
             <Spinner size="medium" />
@@ -136,7 +184,7 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
           </Box>
         )}
         {ledger.step && ledger.step === LedgerStep.Done && (
-          <Box>
+          <Box margin={{ top: 'small' }}>
             <LedgerAccountSelector accounts={ledger.accounts} />
           </Box>
         )}

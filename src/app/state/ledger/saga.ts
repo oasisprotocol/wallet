@@ -1,4 +1,5 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
+import type Transport from '@ledgerhq/hw-transport'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
@@ -10,8 +11,8 @@ import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { ledgerActions } from '.'
 import { selectChainContext } from '../network/selectors'
 import { getBalance } from '../wallet/saga'
+import { selectDerivationPathType } from './selectors'
 import { LedgerAccount, LedgerStep } from './types'
-import type Transport from '@ledgerhq/hw-transport'
 
 function* setStep(step: LedgerStep) {
   yield* put(ledgerActions.setStep(step))
@@ -41,7 +42,14 @@ function* enumerateAccounts() {
     transport = yield* getUSBTransport()
 
     yield* setStep(LedgerStep.LoadingAccounts)
-    const accounts = yield* call(Ledger.enumerateAccounts, transport)
+    const derivationPathType = yield* select(selectDerivationPathType)
+    if (!derivationPathType) {
+      throw new WalletError(
+        WalletErrors.LedgerNoDerivationPathTypeProvided,
+        'No derivation path type provided',
+      )
+    }
+    const accounts = yield* call(Ledger.enumerateAccounts, transport, derivationPathType)
 
     const balances = yield* all(accounts.map(a => call(getBalance, a.publicKey)))
     const addresses = yield* all(accounts.map(a => call(publicKeyToAddress, a.publicKey)))

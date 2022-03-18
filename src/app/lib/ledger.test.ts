@@ -1,4 +1,4 @@
-import { Ledger, LedgerSigner } from './ledger'
+import { DerivationPathTypeLegacy, DerivationPathTypeAdr8, Ledger, LedgerSigner } from './ledger'
 import OasisApp from '@oasisprotocol/ledger'
 import { WalletError, WalletErrors } from 'types/errors'
 import { Wallet, WalletType } from 'app/state/wallet/types'
@@ -18,29 +18,46 @@ describe('Ledger Library', () => {
   describe('Ledger', () => {
     it('enumerateAccounts should pass when Oasis App is open', async () => {
       mockAppIsOpen('Oasis')
-      const accounts = Ledger.enumerateAccounts({} as any, 0)
+      const accounts = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy, 0)
+      await expect(accounts).resolves.toEqual([])
+    })
+    it('enumerateAccounts should pass when Oasis App is open', async () => {
+      mockAppIsOpen('Oasis')
+      const accounts = Ledger.enumerateAccounts({} as any, DerivationPathTypeAdr8, 0)
       await expect(accounts).resolves.toEqual([])
     })
 
     it('Should catch "Oasis App is not open"', async () => {
       mockAppIsOpen('BOLOS')
-      const accountsMainMenu = Ledger.enumerateAccounts({} as any, 0)
+      const accountsMainMenu = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy, 0)
       await expect(accountsMainMenu).rejects.toThrowError(WalletError)
       await expect(accountsMainMenu).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
 
       mockAppIsOpen('Ethereum')
-      const accountsEth = Ledger.enumerateAccounts({} as any, 0)
+      const accountsEth = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy, 0)
       await expect(accountsEth).rejects.toThrowError(WalletError)
       await expect(accountsEth).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
     })
 
-    it('Should enumerate and return the accounts', async () => {
+    it('Should enumerate and return adr8 accounts', async () => {
       mockAppIsOpen('Oasis')
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([1, 2, 3])) })
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([4, 5, 6])) })
 
-      const accounts = await Ledger.enumerateAccounts({} as any, 2)
+      const accounts = await Ledger.enumerateAccounts({} as any, DerivationPathTypeAdr8, 2)
+      expect(accounts).toHaveLength(2)
+      expect(accounts).toContainEqual({ path: [44, 474, 0], publicKey: new Uint8Array([1, 2, 3]) })
+      expect(accounts).toContainEqual({ path: [44, 474, 1], publicKey: new Uint8Array([4, 5, 6]) })
+    })
+
+    it('Should enumerate and return legacy accounts', async () => {
+      mockAppIsOpen('Oasis')
+      const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
+      pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([1, 2, 3])) })
+      pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([4, 5, 6])) })
+
+      const accounts = await Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy, 2)
       expect(accounts).toHaveLength(2)
       expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 0], publicKey: new Uint8Array([1, 2, 3]) })
       expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 1], publicKey: new Uint8Array([4, 5, 6]) })
@@ -51,7 +68,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x6804 })
 
-      const accounts = Ledger.enumerateAccounts({} as any)
+      const accounts = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerCannotOpenOasisApp)
     })
@@ -61,7 +78,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x6400 })
 
-      const accounts = Ledger.enumerateAccounts({} as any)
+      const accounts = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerAppVersionNotSupported)
     })
@@ -71,7 +88,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: -1, error_message: 'unknown dummy error' })
 
-      const accounts = Ledger.enumerateAccounts({} as any)
+      const accounts = Ledger.enumerateAccounts({} as any, DerivationPathTypeLegacy)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toThrow(/unknown dummy error/)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerUnknownError)
@@ -96,7 +113,7 @@ describe('Ledger Library', () => {
     it('Should fail without USB transport', () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
-        path: [44, 474, 0, 0, 0],
+        path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
         publicKey: '00',
       } as Wallet)
 
@@ -111,7 +128,7 @@ describe('Ledger Library', () => {
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
-        path: [44, 474, 0, 0, 0],
+        path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
         publicKey: 'aabbcc',
       } as Wallet)
 
@@ -124,7 +141,7 @@ describe('Ledger Library', () => {
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
-        path: [44, 474, 0, 0, 0],
+        path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
         publicKey: '00',
       } as Wallet)
 
@@ -140,7 +157,7 @@ describe('Ledger Library', () => {
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
-        path: [44, 474, 0, 0, 0],
+        path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
         publicKey: '00',
       } as Wallet)
 

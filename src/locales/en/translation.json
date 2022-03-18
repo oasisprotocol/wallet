@@ -43,7 +43,9 @@
       "header": "Open from Ledger device",
       "selectWallets": "Select the wallets to open",
       "cancel": "Cancel",
-      "openWallets": "Open"
+      "openWallets": "Open",
+      "derivationPathInfo": "<0>Learn more</0>",
+      "derivationPath": "Derivation path"
     },
     "bitpie": {
       "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
@@ -188,6 +190,10 @@
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
       "done": "Done"
+    },
+    "derivationPathType": {
+      "legacy": "Legacy (backward compatible)",
+      "adr8": "ADR 0008 (recommended for new wallets)"
     }
   },
   "transaction": {
