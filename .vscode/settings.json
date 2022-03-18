@@ -37,6 +37,7 @@
     "src/vendors/oasisscan/index.ts": true
   },
   "yaml.schemas": {
-    "https://json.schemastore.org/swagger-2.0.json": "swagger.yml"
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json": "swagger3.yml",
+    "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v2.0/schema.json": "swagger.yml"
   }
 }

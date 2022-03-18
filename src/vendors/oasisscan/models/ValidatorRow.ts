@@ -33,6 +33,18 @@ export interface ValidatorRow {
     balance: string;
     /**
      * 
+     * @type {object}
+     * @memberof ValidatorRow
+     */
+    bound: object | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof ValidatorRow
+     */
+    bounds: object | null;
+    /**
+     * 
      * @type {number}
      * @memberof ValidatorRow
      */
@@ -48,7 +60,13 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    email: string;
+    description: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidatorRow
+     */
+    email: string | null;
     /**
      * 
      * @type {string}
@@ -69,6 +87,12 @@ export interface ValidatorRow {
     escrow: string;
     /**
      * 
+     * @type {object}
+     * @memberof ValidatorRow
+     */
+    escrow_amount_status: object | null;
+    /**
+     * 
      * @type {string}
      * @memberof ValidatorRow
      */
@@ -81,22 +105,28 @@ export interface ValidatorRow {
     escrow_percent: number;
     /**
      * 
-     * @type {string}
+     * @type {object}
      * @memberof ValidatorRow
      */
-    icon: string;
+    escrow_shares_status: object | null;
     /**
      * 
      * @type {string}
      * @memberof ValidatorRow
      */
-    keybase: string;
+    icon: string | null;
     /**
      * 
      * @type {string}
      * @memberof ValidatorRow
      */
-    name: string;
+    keybase: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ValidatorRow
+     */
+    name: string | null;
     /**
      * 
      * @type {string}
@@ -109,6 +139,12 @@ export interface ValidatorRow {
      * @memberof ValidatorRow
      */
     node_id: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof ValidatorRow
+     */
+    nodes: object | null;
     /**
      * 
      * @type {number}
@@ -127,6 +163,12 @@ export interface ValidatorRow {
      * @memberof ValidatorRow
      */
     rank: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof ValidatorRow
+     */
+    rates: object | null;
     /**
      * 
      * @type {number}
@@ -156,7 +198,7 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    twitter: string;
+    twitter: string | null;
     /**
      * 
      * @type {string}
@@ -168,7 +210,7 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    website: string;
+    website: string | null;
 }
 
 export function ValidatorRowFromJSON(json: any): ValidatorRow {
@@ -183,22 +225,29 @@ export function ValidatorRowFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'active': json['active'],
         'balance': json['balance'],
+        'bound': json['bound'],
+        'bounds': json['bounds'],
         'commission': json['commission'],
         'delegators': json['delegators'],
+        'description': json['description'],
         'email': json['email'],
         'entity_address': json['entityAddress'],
         'entity_id': json['entityId'],
         'escrow': json['escrow'],
+        'escrow_amount_status': json['escrowAmountStatus'],
         'escrow_change24': json['escrowChange24'],
         'escrow_percent': json['escrowPercent'],
+        'escrow_shares_status': json['escrowSharesStatus'],
         'icon': json['icon'],
         'keybase': json['keybase'],
         'name': json['name'],
         'node_address': json['nodeAddress'],
         'node_id': json['nodeId'],
+        'nodes': json['nodes'],
         'nonce': json['nonce'],
         'proposals': json['proposals'],
         'rank': json['rank'],
+        'rates': json['rates'],
         'score': json['score'],
         'signs': json['signs'],
         'status': json['status'],
@@ -220,22 +269,29 @@ export function ValidatorRowToJSON(value?: ValidatorRow | null): any {
         
         'active': value.active,
         'balance': value.balance,
+        'bound': value.bound,
+        'bounds': value.bounds,
         'commission': value.commission,
         'delegators': value.delegators,
+        'description': value.description,
         'email': value.email,
         'entityAddress': value.entity_address,
         'entityId': value.entity_id,
         'escrow': value.escrow,
+        'escrowAmountStatus': value.escrow_amount_status,
         'escrowChange24': value.escrow_change24,
         'escrowPercent': value.escrow_percent,
+        'escrowSharesStatus': value.escrow_shares_status,
         'icon': value.icon,
         'keybase': value.keybase,
         'name': value.name,
         'nodeAddress': value.node_address,
         'nodeId': value.node_id,
+        'nodes': value.nodes,
         'nonce': value.nonce,
         'proposals': value.proposals,
         'rank': value.rank,
+        'rates': value.rates,
         'score': value.score,
         'signs': value.signs,
         'status': value.status,

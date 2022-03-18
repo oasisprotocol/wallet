@@ -48,13 +48,13 @@ export interface DebondingDelegationRow {
      * @type {string}
      * @memberof DebondingDelegationRow
      */
-    validator_name?: string;
+    validator_name: string | null;
     /**
      * 
      * @type {string}
      * @memberof DebondingDelegationRow
      */
-    icon?: string;
+    icon: string | null;
 }
 
 export function DebondingDelegationRowFromJSON(json: any): DebondingDelegationRow {
@@ -71,8 +71,8 @@ export function DebondingDelegationRowFromJSONTyped(json: any, ignoreDiscriminat
         'shares': json['shares'],
         'debond_end': json['debondEnd'],
         'epoch_left': json['epochLeft'],
-        'validator_name': !exists(json, 'validatorName') ? undefined : json['validatorName'],
-        'icon': !exists(json, 'icon') ? undefined : json['icon'],
+        'validator_name': json['validatorName'],
+        'icon': json['icon'],
     };
 }
 

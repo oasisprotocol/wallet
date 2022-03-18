@@ -30,37 +30,37 @@ export interface OperationsRow {
      * @type {number}
      * @memberof OperationsRow
      */
-    height?: number;
+    height: number;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    method?: OperationsRowMethodEnum;
+    method: OperationsRowMethodEnum;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    fee?: string;
+    fee: string;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    amount?: string;
+    amount: string | null;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    shares?: string;
+    shares?: string | null;
     /**
      * 
      * @type {boolean}
      * @memberof OperationsRow
      */
-    add?: boolean;
+    add: boolean;
     /**
      * 
      * @type {number}
@@ -72,25 +72,25 @@ export interface OperationsRow {
      * @type {number}
      * @memberof OperationsRow
      */
-    time?: number;
+    time: number;
     /**
      * 
      * @type {boolean}
      * @memberof OperationsRow
      */
-    status?: boolean;
+    status: boolean;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    from?: string;
+    from: string;
     /**
      * 
      * @type {string}
      * @memberof OperationsRow
      */
-    to?: string;
+    to: string | null;
     /**
      * 
      * @type {number}
@@ -154,17 +154,17 @@ export function OperationsRowFromJSONTyped(json: any, ignoreDiscriminator: boole
     return {
         
         'tx_hash': json['txHash'],
-        'height': !exists(json, 'height') ? undefined : json['height'],
-        'method': !exists(json, 'method') ? undefined : json['method'],
-        'fee': !exists(json, 'fee') ? undefined : json['fee'],
-        'amount': !exists(json, 'amount') ? undefined : json['amount'],
+        'height': json['height'],
+        'method': json['method'],
+        'fee': json['fee'],
+        'amount': json['amount'],
         'shares': !exists(json, 'shares') ? undefined : json['shares'],
-        'add': !exists(json, 'add') ? undefined : json['add'],
+        'add': json['add'],
         'timestamp': json['timestamp'],
-        'time': !exists(json, 'time') ? undefined : json['time'],
-        'status': !exists(json, 'status') ? undefined : json['status'],
-        'from': !exists(json, 'from') ? undefined : json['from'],
-        'to': !exists(json, 'to') ? undefined : json['to'],
+        'time': json['time'],
+        'status': json['status'],
+        'from': json['from'],
+        'to': json['to'],
         'round': !exists(json, 'round') ? undefined : json['round'],
         'runtime_id': !exists(json, 'runtimeId') ? undefined : json['runtimeId'],
         'runtime_name': !exists(json, 'runtimeName') ? undefined : json['runtimeName'],

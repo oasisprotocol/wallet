@@ -96,14 +96,14 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
   return transactionsList.map(t => {
     const parsed: Transaction = {
       amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
-      fee: t.fee == null ? undefined : parseStringValueToInt(t.fee),
-      from: t.from == null ? undefined : t.from,
-      hash: t.tx_hash!,
-      level: t.height == null ? undefined : t.height,
-      status: t.status == null ? undefined : t.status,
-      timestamp: t.timestamp == null ? undefined : t.timestamp,
-      to: t.to == null ? undefined : t.to,
-      type: transactionMethodMap[t.method!],
+      fee: parseStringValueToInt(t.fee),
+      from: t.from,
+      hash: t.tx_hash,
+      level: t.height,
+      status: t.status,
+      timestamp: t.timestamp,
+      to: t.to ?? undefined,
+      type: transactionMethodMap[t.method],
     }
     return parsed
   })
