@@ -12,6 +12,8 @@ import {
   OperationsRowMethodEnum,
 } from 'vendors/oasisscan/index'
 
+import { sortByStatus } from './helpers'
+
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet/') {
   const explorerConfig = new Configuration({
     basePath: url,
@@ -53,23 +55,25 @@ export function parseAccount(account: AccountsRow): Account {
 }
 
 export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
-  return validators.map(v => {
-    const parsed: Validator = {
-      address: v.entity_address,
-      name: v.name ?? undefined,
-      escrow: parseStringValueToInt(v.escrow),
-      current_rate: v.commission,
-      status: v.status ? 'active' : 'inactive',
-      media: {
-        email_address: v.email ?? undefined,
-        logotype: v.icon ?? undefined,
-        twitter_acc: v.twitter ?? undefined,
-        website_link: v.website ?? undefined,
-      },
-      rank: v.rank,
-    }
-    return parsed
-  })
+  return validators
+    .map(v => {
+      const parsed: Validator = {
+        address: v.entity_address,
+        name: v.name ?? undefined,
+        escrow: parseStringValueToInt(v.escrow),
+        current_rate: v.commission,
+        status: v.status ? 'active' : 'inactive',
+        media: {
+          email_address: v.email ?? undefined,
+          logotype: v.icon ?? undefined,
+          twitter_acc: v.twitter ?? undefined,
+          website_link: v.website ?? undefined,
+        },
+        rank: v.rank,
+      }
+      return parsed
+    })
+    .sort(sortByStatus)
 }
 
 export const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
