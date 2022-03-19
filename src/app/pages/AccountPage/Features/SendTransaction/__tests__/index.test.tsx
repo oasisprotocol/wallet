@@ -4,6 +4,7 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { SendTransaction } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -12,11 +13,11 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <SendTransaction />

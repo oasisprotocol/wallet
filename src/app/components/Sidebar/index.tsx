@@ -77,12 +77,14 @@ export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarBu
   return component
 }
 
+type Size = 'small' | 'medium' | 'large'
+
 interface SidebarHeaderProps {
-  size: string
+  size: Size
 }
 
 interface SidebarFooterProps {
-  size: string
+  size: Size
 }
 
 const SidebarHeader = (props: SidebarHeaderProps) => {
@@ -196,7 +198,7 @@ function SidebarMenuItems() {
 }
 
 export function Sidebar() {
-  const size = useContext(ResponsiveContext)
+  const size = useContext(ResponsiveContext) as Size
 
   return (
     <GSidebar

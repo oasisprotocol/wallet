@@ -1,12 +1,12 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Layer, LayerExtendedProps } from 'grommet'
-import { useCallback, useRef } from 'react'
+import { RefCallback, useCallback, useRef } from 'react'
 
-function useRefWithCallback(onMount, onUnmount) {
-  const nodeRef = useRef(null)
+function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => void): RefCallback<T> {
+  const nodeRef = useRef<T | null>(null)
 
   const setRef = useCallback(
-    node => {
+    (node: T) => {
       if (nodeRef.current) {
         onUnmount(nodeRef.current)
       }
@@ -26,7 +26,7 @@ function useRefWithCallback(onMount, onUnmount) {
  * @param props Grommet Layer props
  */
 export function ResponsiveLayer(props: LayerExtendedProps) {
-  const layerRef = useRefWithCallback(
+  const layerRef = useRefWithCallback<HTMLDivElement>(
     node => disableBodyScroll(node),
     node => enableBodyScroll(node),
   )

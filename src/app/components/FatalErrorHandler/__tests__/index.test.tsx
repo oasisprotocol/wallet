@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FatalErrorHandler } from '..'
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>

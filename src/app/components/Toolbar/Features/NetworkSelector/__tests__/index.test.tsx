@@ -10,7 +10,7 @@ import { NetworkSelector } from '..'
 
 jest.mock('@oasisprotocol/client')
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <NetworkSelector />

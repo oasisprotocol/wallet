@@ -25,7 +25,7 @@ export const NetworkSelector = memo((props: Props) => {
     dispatch(actions.selectNetwork(network))
   }
 
-  const networkLabels: { [code in NetworkType]: string } = {
+  const networkLabels = {
     local: t('toolbar.networks.local', 'Local'),
     mainnet: t('toolbar.networks.mainnet', 'Mainnet'),
     testnet: t('toolbar.networks.testnet', 'Testnet'),

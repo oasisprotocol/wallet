@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>

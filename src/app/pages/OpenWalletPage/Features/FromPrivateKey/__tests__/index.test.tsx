@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FromPrivateKey } from '..'
 
-const renderPage = store =>
+const renderPage = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>

@@ -6,8 +6,9 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { AccountSelector } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
@@ -23,7 +24,7 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 

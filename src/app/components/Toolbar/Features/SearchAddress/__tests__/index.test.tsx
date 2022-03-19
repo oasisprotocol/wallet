@@ -5,6 +5,7 @@ import { SearchAddress } from '..'
 import userEvent from '@testing-library/user-event'
 import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -13,7 +14,7 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
