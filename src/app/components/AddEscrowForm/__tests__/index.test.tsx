@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { ModalProvider } from 'app/components/Modal'
+import { Validator } from 'app/state/staking/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
@@ -18,10 +20,12 @@ jest.mock('react-i18next', () => ({
   },
 }))
 
-const renderComponent = (store: any, address: string) =>
+const renderComponent = (store: any, address: string, validatorStatus: Validator['status']) =>
   render(
     <Provider store={store}>
-      <AddEscrowForm validatorAddress={address} validatorStatus="active" />
+      <ModalProvider>
+        <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} />
+      </ModalProvider>
     </Provider>,
   )
 
@@ -33,16 +37,25 @@ describe('<AddEscrowForm />', () => {
   })
 
   it('should match snapshot', () => {
-    const component = renderComponent(store, 'dummy-address')
+    const component = renderComponent(store, 'dummy-address', 'active')
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
   it('should dispatch an addEscrow transaction', () => {
-    renderComponent(store, 'dummy-address')
+    renderComponent(store, 'dummy-address', 'active')
 
     userEvent.type(screen.getByTestId('amount'), '1000')
     userEvent.click(screen.getByRole('button'))
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()
+  })
+
+  it('should warn before addEscrow to inactive validator', () => {
+    renderComponent(store, 'dummy-address', 'inactive')
+
+    userEvent.type(screen.getByTestId('amount'), '1000')
+    userEvent.click(screen.getByRole('button'))
+
+    expect(screen.getByText('account.addEscrow.confirmDelegatingToInactive.title')).toBeInTheDocument()
   })
 })
