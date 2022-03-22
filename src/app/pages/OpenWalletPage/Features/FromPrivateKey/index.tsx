@@ -33,7 +33,7 @@ export function FromPrivateKey(props: Props) {
   const [privateKeyIsValid, setPrivateKeyIsValid] = React.useState(true)
   const [privateKeyIsVisible, setPrivateKeyIsVisible] = React.useState(false)
 
-  const onChange = event => setPrivateKey(event.target.value)
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => setPrivateKey(event.target.value)
   const onSubmit = () => {
     try {
       const secret = parseKey(privateKey)

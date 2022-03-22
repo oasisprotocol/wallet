@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "noImplicitAny": false,
     "target": "es2020",
     "lib": ["dom", "esnext.bigint", "dom.iterable", "ES2020", "esnext"],
     "allowJs": true,

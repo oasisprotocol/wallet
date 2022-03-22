@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
 import { AddEscrowForm } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -13,11 +14,11 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
-const renderComponent = (store, address) =>
+const renderComponent = (store: any, address: string) =>
   render(
     <Provider store={store}>
       <AddEscrowForm validatorAddress={address} />

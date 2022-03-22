@@ -9,6 +9,7 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FromLedgerModal } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -18,12 +19,12 @@ jest.mock('react-redux', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
   useDispatch: jest.fn(),
 }))
 
-const renderComponent = (store, abortFunction = () => {}) =>
+const renderComponent = (store: any, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>

@@ -8,7 +8,7 @@ import { configureAppStore } from 'store/configureStore'
 
 import { CommissionBounds } from '..'
 
-const renderComponent = (store, bounds?: ICommissionBounds[]) =>
+const renderComponent = (store: any, bounds?: ICommissionBounds[]) =>
   render(
     <Provider store={store}>
       <CommissionBounds bounds={bounds} />

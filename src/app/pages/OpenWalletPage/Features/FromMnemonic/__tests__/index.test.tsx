@@ -6,6 +6,7 @@ import { configureAppStore } from 'store/configureStore'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { FromMnemonic } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -14,11 +15,11 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
-const renderPage = store =>
+const renderPage = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
@@ -42,7 +43,7 @@ describe('<FromMnemonic/>', () => {
 
   it('should display an error on invalid mnemonic', () => {
     renderPage(store)
-    const textbox = screen.getByRole('textbox')
+    const textbox = screen.getByRole('textbox') as HTMLInputElement
     const button = screen.getByRole('button')
     userEvent.type(textbox, 'hello')
     userEvent.click(button)

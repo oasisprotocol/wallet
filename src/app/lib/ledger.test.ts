@@ -5,7 +5,7 @@ import { Wallet, WalletType } from 'app/state/wallet/types'
 
 jest.mock('@oasisprotocol/ledger')
 
-function mockAppIsOpen(appName) {
+function mockAppIsOpen(appName: string) {
   const appInfo: jest.Mock<any> = OasisApp.prototype.appInfo
   appInfo.mockResolvedValueOnce({ appName: appName, return_code: 0x9000 })
 }
@@ -18,18 +18,18 @@ describe('Ledger Library', () => {
   describe('Ledger', () => {
     it('enumerateAccounts should pass when Oasis App is open', async () => {
       mockAppIsOpen('Oasis')
-      const accounts = Ledger.enumerateAccounts({}, 0)
+      const accounts = Ledger.enumerateAccounts({} as any, 0)
       await expect(accounts).resolves.toEqual([])
     })
 
     it('Should catch "Oasis App is not open"', async () => {
       mockAppIsOpen('BOLOS')
-      const accountsMainMenu = Ledger.enumerateAccounts({}, 0)
+      const accountsMainMenu = Ledger.enumerateAccounts({} as any, 0)
       await expect(accountsMainMenu).rejects.toThrowError(WalletError)
       await expect(accountsMainMenu).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
 
       mockAppIsOpen('Ethereum')
-      const accountsEth = Ledger.enumerateAccounts({}, 0)
+      const accountsEth = Ledger.enumerateAccounts({} as any, 0)
       await expect(accountsEth).rejects.toThrowError(WalletError)
       await expect(accountsEth).rejects.toHaveProperty('type', WalletErrors.LedgerOasisAppIsNotOpen)
     })
@@ -40,7 +40,7 @@ describe('Ledger Library', () => {
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([1, 2, 3])) })
       pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([4, 5, 6])) })
 
-      const accounts = await Ledger.enumerateAccounts({}, 2)
+      const accounts = await Ledger.enumerateAccounts({} as any, 2)
       expect(accounts).toHaveLength(2)
       expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 0], publicKey: new Uint8Array([1, 2, 3]) })
       expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 1], publicKey: new Uint8Array([4, 5, 6]) })
@@ -51,7 +51,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x6804 })
 
-      const accounts = Ledger.enumerateAccounts({})
+      const accounts = Ledger.enumerateAccounts({} as any)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerCannotOpenOasisApp)
     })
@@ -61,7 +61,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: 0x6400 })
 
-      const accounts = Ledger.enumerateAccounts({})
+      const accounts = Ledger.enumerateAccounts({} as any)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerAppVersionNotSupported)
     })
@@ -71,7 +71,7 @@ describe('Ledger Library', () => {
       const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
       pubKey.mockResolvedValueOnce({ return_code: -1, error_message: 'unknown dummy error' })
 
-      const accounts = Ledger.enumerateAccounts({})
+      const accounts = Ledger.enumerateAccounts({} as any)
       await expect(accounts).rejects.toThrowError(WalletError)
       await expect(accounts).rejects.toThrow(/unknown dummy error/)
       await expect(accounts).rejects.toHaveProperty('type', WalletErrors.LedgerUnknownError)
@@ -128,7 +128,7 @@ describe('Ledger Library', () => {
         publicKey: '00',
       } as Wallet)
 
-      signer.setTransport({})
+      signer.setTransport({} as any)
       const result = signer.sign('', new Uint8Array())
       await expect(result).rejects.toThrowError(WalletError)
       await expect(result).rejects.toHaveProperty('type', WalletErrors.LedgerTransactionRejected)
@@ -144,7 +144,7 @@ describe('Ledger Library', () => {
         publicKey: '00',
       } as Wallet)
 
-      signer.setTransport({})
+      signer.setTransport({} as any)
       await expect(signer.sign('', new Uint8Array())).resolves.toEqual(new Uint8Array([1, 2, 3]))
     })
   })

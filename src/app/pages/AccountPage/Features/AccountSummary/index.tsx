@@ -1,7 +1,7 @@
 import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { Anchor, Box, Grid, ResponsiveContext, Text } from 'grommet'
-import * as QRCode from 'qrcode.react'
+import QRCode from 'qrcode.react'
 import * as React from 'react'
 import { useContext } from 'react'
 import { Trans, useTranslation } from 'react-i18next'

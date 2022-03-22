@@ -2,6 +2,7 @@ import * as React from 'react'
 import { render } from '@testing-library/react'
 
 import { TransactionModal } from '..'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -10,7 +11,7 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 

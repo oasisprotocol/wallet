@@ -7,22 +7,24 @@ import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { Provider } from 'react-redux'
 import { hdkey } from '@oasisprotocol/client'
 import * as bip39 from 'bip39'
+import type { UseTranslationResponse, Trans } from 'react-i18next'
 
 const HDKey = hdkey.HDKey
 
+type TransType = typeof Trans
 jest.mock('react-i18next', () => ({
-  Trans: ({ i18nKey }) => <>{i18nKey}</>,
+  Trans: (({ i18nKey }) => <>{i18nKey}</>) as TransType,
   useTranslation: () => {
     return {
       t: str => str,
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
-const renderPage = store =>
+const renderPage = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>

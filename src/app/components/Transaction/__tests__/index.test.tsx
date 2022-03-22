@@ -12,16 +12,19 @@ import { BackendAPIs, backend } from 'vendors/backend'
 
 import { Transaction } from '..'
 import * as transactionTypes from 'app/state/transaction/types'
+import { NetworkType } from 'app/state/network/types'
+import type { UseTranslationResponse, Trans } from 'react-i18next'
 
+type TransType = typeof Trans
 jest.mock('react-i18next', () => ({
-  Trans: ({ i18nKey }) => <>{i18nKey}</>,
+  Trans: (({ i18nKey }) => <>{i18nKey}</>) as TransType,
   useTranslation: () => {
     return {
       t: str => str,
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
@@ -33,7 +36,12 @@ jest.mock('react-redux', () => ({
 
 const history = createMemoryHistory()
 const pushSpy = jest.spyOn(history, 'push')
-const renderComponent = (store, ref, transaction, network) =>
+const renderComponent = (
+  store: any,
+  ref: any,
+  transaction: transactionTypes.Transaction,
+  network: NetworkType,
+) =>
   render(
     <Router history={history}>
       <Provider store={store}>
@@ -45,14 +53,14 @@ const renderComponent = (store, ref, transaction, network) =>
 describe('<Transaction  />', () => {
   let store: ReturnType<typeof configureAppStore>
   const ref = 'sourceAddr'
-  const transaction: Partial<transactionTypes.Transaction> = {
+  const transaction = {
     amount: 1000000,
     timestamp: 1618018255,
     from: 'source',
     to: 'destination',
     type: transactionTypes.TransactionType.StakingTransfer,
     hash: 'ff1234',
-  }
+  } as transactionTypes.Transaction
   const network = 'mainnet'
 
   beforeEach(() => {
@@ -97,8 +105,11 @@ describe('<Transaction  />', () => {
         timestamp: 1618018255,
         from: 'source',
         to: 'destination',
-        type: 'turboencabulate',
+        type: 'turboencabulate' as transactionTypes.TransactionType,
         hash: 'ff1234',
+        fee: undefined,
+        level: undefined,
+        status: true,
       },
       network,
     )
@@ -114,8 +125,11 @@ describe('<Transaction  />', () => {
         timestamp: 1618018255,
         from: 'sourceAddr',
         to: undefined,
-        type: 'anyType',
+        type: 'anyType' as transactionTypes.TransactionType,
         hash: 'ff1234',
+        fee: undefined,
+        level: undefined,
+        status: true,
       },
       network,
     )

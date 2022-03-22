@@ -19,6 +19,10 @@ interface ModalContextProps {
   closeModal: () => void
 }
 
+interface ModalProviderProps {
+  children: React.ReactNode
+}
+
 const ModalContext = createContext<ModalContextProps>({} as ModalContextProps)
 
 const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
@@ -47,14 +51,14 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
   )
 }
 
-const ModalProvider = props => {
+const ModalProvider = (props: ModalProviderProps) => {
   const [modal, setModal] = useState<Modal | null>(null)
   const closeModal = useCallback(() => {
     setModal(null)
   }, [])
 
   return (
-    <ModalContext.Provider value={{ closeModal, launchModal: setModal }} {...props}>
+    <ModalContext.Provider value={{ closeModal, launchModal: setModal }}>
       {props.children}
       {modal && <ModalContainer modal={modal} closeModal={closeModal} />}
     </ModalContext.Provider>

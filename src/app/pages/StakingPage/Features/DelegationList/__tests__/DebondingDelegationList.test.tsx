@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { DebondingDelegationList } from '../DebondingDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
+import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -15,11 +16,11 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    }
+    } as UseTranslationResponse<'translation'>
   },
 }))
 
-const renderComponent = store =>
+const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <DebondingDelegationList />
@@ -43,7 +44,7 @@ describe('<DebondingDelegationList  />', () => {
           shares: '100',
           validatorAddress: 'test-validator',
           validator: {
-            fee: 0.1,
+            current_rate: 0.1,
             address: 'test-validator',
             rank: 1,
             status: 'active',
@@ -67,7 +68,7 @@ describe('<DebondingDelegationList  />', () => {
           validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
           validator: {
             address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-            fee: 0,
+            current_rate: 0,
             rank: 1,
             status: 'active',
             name: 'test-validator1',

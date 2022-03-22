@@ -8,7 +8,7 @@ import { configureAppStore } from 'store/configureStore'
 import { AccountPage } from '..'
 import { ConnectedRouter } from 'connected-react-router'
 
-const renderPage = (store, history) =>
+const renderPage = (store: any, history: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
