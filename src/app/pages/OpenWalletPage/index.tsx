@@ -4,9 +4,9 @@
  *
  */
 import { TransitionRoute } from 'app/components/TransitionRoute'
-import { Anchor, Box, Button, Heading } from 'grommet'
+import { Box, Button, Heading } from 'grommet'
 import * as React from 'react'
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { Switch } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { TransitionGroup } from 'react-transition-group'
@@ -55,6 +55,8 @@ export function SelectOpenMethod() {
         </NavLink>
       </Box>
 
+      {/* TODO: Reenable when bitpie private key actually works to make transactions.
+
       <Box
         direction="row-responsive"
         justify="start"
@@ -69,6 +71,7 @@ export function SelectOpenMethod() {
           components={[<Anchor href="https://docs.oasis.dev/general/manage-tokens/faq" />]}
         />
       </Box>
+      */}
     </Box>
   )
 }
