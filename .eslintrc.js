@@ -1,9 +1,11 @@
+// @ts-check
 const fs = require('fs')
 const path = require('path')
 
 const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'))
 
-module.exports = {
+/** @type { import('eslint').Linter.Config } */
+const config = {
   extends: ['react-app', 'prettier'],
   plugins: ['prettier'],
   settings: {
@@ -22,3 +24,5 @@ module.exports = {
     }
   ]
 }
+
+module.exports = config
