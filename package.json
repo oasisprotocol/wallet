@@ -13,18 +13,25 @@
     "start": "node ./internals/dev-scripts.js",
     "start:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn start",
     "start:oasisscan": "REACT_APP_BACKEND=oasisscan yarn start",
+    "clean:ext": "rm -rf build-ext/ .parcel-cache",
+    "start:ext": "EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json",
+    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json && node ./internals/scripts/validate-ext-manifest.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "yarn clean && node ./internals/prod-scripts.js",
     "build:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn build",
     "build:oasisscan": "REACT_APP_BACKEND=oasisscan yarn build",
     "test": "jest --color",
+    "test:web": "jest --projects internals/jest/jest.web-config.js --color",
+    "test:ext": "jest --projects internals/jest/jest.ext-config.js --color",
     "test:watch": "jest --watch --color",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/generators/test-generators.ts",
     "start:prod": "yarn run build:oasisscan && nodemon --watch ./build ./internals/scripts/serve-prod.js",
     "checkTs": "tsc --noEmit",
     "eslint": "eslint --ext js,ts,tsx",
-    "lint": "yarn run eslint src",
+    "lint": "yarn lint:web && yarn lint:ext",
+    "lint:web": "yarn run eslint src",
+    "lint:ext": "yarn run eslint extension/src",
     "lint:fix": "yarn run eslint --fix src",
     "lint:css": "stylelint src/**/*.css",
     "generate": "cross-env TS_NODE_PROJECT='./internals/ts-node.tsconfig.json' plop --plopfile internals/generators/plopfile.ts",
@@ -33,6 +40,7 @@
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "semantic-release": "semantic-release",
     "print-csp": "node ./internals/scripts/print-csp.js",
+    "print-extension-csp": "node ./internals/scripts/print-extension-csp.js",
     "dump-validators": "CI=1 jest --roots ./internals --testMatch '<rootDir>/internals/scripts/dump_validators.ts'"
   },
   "lint-staged": {
@@ -69,6 +77,7 @@
     "@ledgerhq/hw-transport-webusb": "6.20.0",
     "@oasisprotocol/client": "0.1.0-alpha8",
     "@oasisprotocol/ledger": "0.2.3",
+    "@parcel/config-webextension": "2.5.0",
     "@reduxjs/toolkit": "1.7.1",
     "babel-jest": "27.5.1",
     "babel-plugin-istanbul": "6.1.1",
@@ -85,6 +94,7 @@
     "husky": "7.0.4",
     "i18next": "20.6.1",
     "i18next-browser-languagedetector": "6.1.2",
+    "parcel-transformer-env-variables-injection": "0.1.0",
     "portable-fetch": "3.0.0",
     "prettier": "2.5.1",
     "qrcode.react": "1.0.1",
@@ -169,10 +179,6 @@
     "stylelint-processor-styled-components": "1.10.0",
     "ts-node": "10.4.0"
   },
-  "engines": {
-    "node": ">=10.13.0",
-    "npm": ">=6.4.1"
-  },
   "husky(remove-everything-in-these-parentheses.See-the-issue-#29)": {
     "hooks": {
       "pre-commit": "yarn run checkTs && lint-staged"
@@ -193,6 +199,18 @@
     "web": {
       "context": "browser",
       "distDir": "./build",
+      "scopeHoist": false
+    },
+    "ext-dev": {
+      "distDir": "./build-ext",
+      "scopeHoist": false,
+      "sourceMap": {
+        "inline": true,
+        "inlineSources": true
+      }
+    },
+    "ext-prod": {
+      "distDir": "./build-ext",
       "scopeHoist": false
     }
   }

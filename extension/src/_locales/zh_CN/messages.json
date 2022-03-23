@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Oasis钱包",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Oasis官方非托管浏览器插件钱包",
+    "description": "The description of the application"
+  }
+}

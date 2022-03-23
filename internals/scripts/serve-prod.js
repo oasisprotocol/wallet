@@ -2,7 +2,8 @@
 const path = require('path')
 const http = require('http')
 const serveHandler = require('serve-handler')
-const { csp } = require('../getCsp.js')
+const { csp: getCsp } = require('../getCsp.js')
+const csp = getCsp()
 console.log(`Content-Security-Policy: ${csp}\n`)
 
 const root = path.resolve(__dirname, '../..')
