@@ -39,7 +39,7 @@ export const Footer = memo(() => {
           defaults="<0>Terms and Conditions</0>"
         />
       </Text>
-      {process.env.REACT_APP_BUILD_TIME && process.env.REACT_APP_BUILD_VERSION && (
+      {process.env.REACT_APP_BUILD_DATETIME && process.env.REACT_APP_BUILD_VERSION && (
         <Text size="small" margin={{ top: 'medium' }}>
           <Trans
             i18nKey="footer.version"
@@ -52,7 +52,7 @@ export const Footer = memo(() => {
             ]}
             defaults="Version: <0>{{commit}}</0> built at {{buildTime}}"
             values={{
-              buildTime: dateFormat.format(Number(process.env.REACT_APP_BUILD_TIME)),
+              buildTime: dateFormat.format(Number(process.env.REACT_APP_BUILD_DATETIME)),
               commit: process.env.REACT_APP_WALLET_VERSION,
             }}
           />

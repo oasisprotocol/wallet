@@ -1,6 +1,6 @@
 # Don't check auto-generated stuff into git
+.parcel-cache
 .husky
-.nyc_output
 cypress-coverage
 coverage
 build
@@ -33,6 +33,8 @@ debug*.c
 # Cypress
 cypress/screenshots
 cypress/videos
+.nyc_output
+instrumented
 
 # Megalinter
 report

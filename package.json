@@ -7,18 +7,21 @@
     "url": "https://github.com/Esya/oasis-wallet.git"
   },
   "scripts": {
-    "start": "react-scripts -r ./internals/scripts/set-app-version-env.js -r @cypress/instrument-cra start",
+    "clean": "rm -rf build/ .parcel-cache",
+    "parcel:dev": "parcel --port 3000 --target web --dist-dir build src/index.html",
+    "parcel:prod": "parcel build --target web --dist-dir build src/index.html",
+    "start": "node ./internals/dev-scripts.js",
     "start:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn start",
     "start:oasisscan": "REACT_APP_BACKEND=oasisscan yarn start",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build": "INLINE_RUNTIME_CHUNK=false react-scripts -r ./internals/scripts/set-app-version-env.js -r ./internals/scripts/set-csp-env.js -r ./internals/scripts/build-without-minify.js build",
+    "build": "yarn clean && node ./internals/prod-scripts.js",
     "build:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn build",
     "build:oasisscan": "REACT_APP_BACKEND=oasisscan yarn build",
-    "test": "TZ=UTC react-scripts test --silent",
-    "eject": "react-scripts eject",
+    "test": "jest --color --silent",
+    "test:watch": "jest --watch --color --silent",
     "test:generators": "ts-node --project=./internals/ts-node.tsconfig.json ./internals/testing/generators/test-generators.ts",
-    "start:prod": "yarn run build && nodemon --watch ./build ./internals/scripts/serve-prod.js",
+    "start:prod": "yarn run build:oasisscan && nodemon --watch ./build ./internals/scripts/serve-prod.js",
     "checkTs": "tsc --noEmit",
     "eslint": "eslint --ext js,ts,tsx",
     "lint": "yarn run eslint src",
@@ -43,26 +46,18 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "not ios_saf < 13"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "not ios_saf < 13"
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/vendors/**/*",
-      "!src/**/*/*.d.ts",
-      "!src/**/*/Loadable.{js,jsx,ts,tsx}",
-      "!src/**/*/types.ts",
-      "!src/index.tsx"
-    ]
   },
   "nyc": {
     "exclude": [
@@ -77,6 +72,8 @@
     "@oasisprotocol/client": "0.1.0-alpha8",
     "@oasisprotocol/ledger": "0.2.1",
     "@reduxjs/toolkit": "1.7.1",
+    "babel-jest": "27.5.1",
+    "babel-plugin-istanbul": "6.1.1",
     "base64-arraybuffer": "1.0.1",
     "bech32": "2.0.0",
     "bip39": "3.0.4",
@@ -102,7 +99,6 @@
     "react-i18next": "11.15.3",
     "react-redux": "7.2.6",
     "react-router-dom": "5.3.0",
-    "react-scripts": "4.0.3",
     "react-test-renderer": "17.0.2",
     "react-transition-group": "4.4.2",
     "redux-injectors": "1.3.0",
@@ -119,7 +115,8 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.12",
-    "@cypress/instrument-cra": "1.4.0",
+    "@parcel/packager-raw-url": "2.3.2",
+    "@parcel/transformer-webmanifest": "2.3.2",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@testing-library/cypress": "8.0.2",
@@ -144,23 +141,28 @@
     "@types/styled-components": "5.1.15",
     "@types/testing-library__jest-dom": "5.14.2",
     "@types/valid-url": "1.0.3",
-    "@types/webpack": "5.28.0",
-    "@types/webpack-env": "1.16.3",
+    "babel-preset-react-app": "10.0.1",
     "cypress": "9.3.1",
+    "eslint": "8.10.0",
     "eslint-config-prettier": "8.3.0",
+    "eslint-config-react-app": "7.0.0",
     "eslint-plugin-prettier": "3.4.1",
     "eslint-plugin-react-hooks": "4.3.0",
     "i18next-scanner": "3.1.0",
     "i18next-scanner-typescript": "1.0.6",
     "inquirer": "8.2.0",
     "inquirer-directory": "2.2.0",
+    "jest": "27.5.1",
     "jest-styled-components": "7.0.5",
+    "jest-watch-typeahead": "1.0.0",
     "jest-when": "3.5.0",
     "lint-staged": "12.1.7",
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
+    "parcel": "2.3.2",
+    "parcel-namer-rewrite": "2.0.0-rc.2",
     "plop": "2.7.6",
-    "postinstall-postinstall": "2.1.0",
+    "posthtml-expressions": "1.9.0",
     "redux-saga-test-plan": "4.0.4",
     "sanitize.css": "13.0.0",
     "semantic-release": "18.0.1",
@@ -180,5 +182,27 @@
     "hooks": {
       "pre-commit": "yarn run checkTs && lint-staged"
     }
+  },
+  "alias": {
+    "utils": "./src/utils",
+    "app": "./src/app",
+    "types": "./src/types",
+    "styles": "./src/styles",
+    "config": "./src/config",
+    "store": "./src/store",
+    "reportWebVitals": "./src/reportWebVitals.ts",
+    "vendors": "./src/vendors"
+  },
+  "targets": {
+    "web": {
+      "context": "browser"
+    }
+  },
+  "parcel-namer-rewrite": {
+    "developmentHashing": true,
+    "rules": {
+      "(.*).png": "$1.png"
+    },
+    "silent": true
   }
 }
