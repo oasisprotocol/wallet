@@ -85,7 +85,7 @@ function* loadDebondingDelegations(publicKey: Uint8Array) {
   return debondingDelegations
 }
 
-function* refreshValidators() {
+export function* refreshValidators() {
   const existingValidators = yield* select(selectValidators)
   const existingValidatorsNetwork = yield* select(selectValidatorsNetwork)
   const network = yield* select(selectSelectedNetwork)
@@ -98,7 +98,7 @@ function* refreshValidators() {
     const validators = yield* call(getAllValidators)
     yield* put(
       stakingActions.updateValidators({
-        timestamp: Date.now(),
+        timestamp: yield* call(now),
         network: network,
         list: validators,
       }),
@@ -118,7 +118,7 @@ function* refreshValidators() {
 
 function* getFallbackValidators(network: NetworkType, errorApi: string) {
   let fallbackValidators: Validators = {
-    timestamp: Date.now(),
+    timestamp: yield* call(now),
     network: network,
     list: [],
   }
@@ -186,7 +186,11 @@ function* getFallbackValidators(network: NetworkType, errorApi: string) {
   }
 }
 
-async function getMainnetDumpValidators() {
+export function now() {
+  return Date.now()
+}
+
+export async function getMainnetDumpValidators() {
   return await import('vendors/oasisscan/dump_validators.json')
 }
 

@@ -4,11 +4,12 @@ import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { select } from 'redux-saga/effects'
+import { RootState } from 'types'
 
 import { initialState, stakingActions, stakingReducer } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch } from '../network/selectors'
-import { fetchAccount, stakingSaga } from './saga'
+import { fetchAccount, getMainnetDumpValidators, refreshValidators, now, stakingSaga } from './saga'
 import { StakingState, Validator } from './types'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
@@ -29,11 +30,13 @@ describe('Staking Sagas', () => {
     stakingAccount: jest.fn(),
     stakingDebondingDelegationInfosFor: jest.fn(),
     stakingDelegationInfosFor: jest.fn(),
+    schedulerGetValidators: jest.fn(),
   }
 
   const providers: (EffectProviders | StaticProvider)[] = [
     [matchers.call.fn(getExplorerAPIs), { getAllValidators }],
     [matchers.call.fn(getOasisNic), nic],
+    [matchers.call.fn(now), new Date('2022').getTime()],
   ]
   const validAddress = 'oasis1qqty93azxp4qeft3krvv23ljyj57g3tzk56tqhqe'
 
@@ -116,6 +119,79 @@ describe('Staking Sagas', () => {
         { epochEnd: 499, epochStart: 200, lower: 0.01, upper: 0.02 },
         { epochEnd: undefined, epochStart: 500, lower: 0.01, upper: 0.02 },
       ])
+    })
+  })
+
+  describe('Fetch validators fallbacks', () => {
+    it('should load validators when switching network', () => {
+      getAllValidators.mockResolvedValue([{ address: 'fromApi' }] as Validator[])
+      return expectSaga(refreshValidators)
+        .withState({
+          network: { selectedNetwork: 'testnet' },
+          staking: { validators: { network: 'mainnet', list: [{ address: 'existing' }] } },
+        } as RootState)
+        .provide(providers)
+        .put(
+          stakingActions.updateValidators({
+            timestamp: new Date('2022').getTime(),
+            network: 'testnet',
+            list: [{ address: 'fromApi' }] as Validator[],
+          }),
+        )
+        .run()
+    })
+
+    it('should use fallback on mainnet', () => {
+      getAllValidators.mockRejectedValue('apiFailed')
+      const getMainnetDumpValidatorsMock = {
+        dump_timestamp: 1647996761337,
+        dump_timestamp_iso: '2022-03-23T00:52:41.337Z',
+        list: [
+          {
+            rank: 1,
+            address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+            name: 'stakefish',
+            nodeAddress: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
+            status: 'active',
+            _expectedStatus: 'active' as const,
+          },
+          {
+            rank: 2,
+            address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+            name: 'BinanceStaking',
+            nodeAddress: 'oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k',
+            status: 'active',
+            _expectedStatus: 'inactive' as const,
+          },
+        ],
+      }
+      nic.schedulerGetValidators.mockResolvedValue([
+        {
+          // oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar
+          id: oasis.misc.fromHex('91e7768ae47cd1641d6f883b97e3ea6d0286240bc3e3e2953c5c2e0dce6753a3'),
+          voting_power: 1,
+        },
+      ] as oasis.types.SchedulerValidator[])
+
+      return expectSaga(refreshValidators)
+        .withState({
+          network: { selectedNetwork: 'mainnet' },
+        } as RootState)
+        .provide([...providers, [matchers.call.fn(getMainnetDumpValidators), getMainnetDumpValidatorsMock]])
+        .put(
+          stakingActions.updateValidatorsError({
+            error: 'apiFailed',
+            validators: {
+              timestamp: getMainnetDumpValidatorsMock.dump_timestamp,
+              network: 'mainnet',
+              list: getMainnetDumpValidatorsMock.list.map((v, ix) => ({
+                ...v,
+                status: v._expectedStatus,
+              })),
+            },
+          }),
+        )
+        .run()
     })
   })
 })
