@@ -1,6 +1,20 @@
 import { hex2uint, uint2hex } from './helpers'
 import { OasisTransaction, signerFromPrivateKey } from './transaction'
 import { NodeInternal } from '@oasisprotocol/client/dist/client'
+import { RpcError, StatusCode } from 'grpc-web'
+
+function wrapRpcError(method: string, grpcMessage: string) {
+  const e = new RpcError(StatusCode.FAILED_PRECONDITION, 'RpcError: ..', {
+    'grpc-message': grpcMessage,
+  })
+
+  // See https://github.com/oasisprotocol/oasis-sdk/blob/96d3997/client-sdk/ts-web/core/src/client.ts#L616-L620
+  const innerMessage = e instanceof Error ? e.toString() : JSON.stringify(e)
+  const message = `callUnary method ${method}: ${innerMessage}`
+  // @ts-expect-error options and cause not modeled
+  const wrapped = new Error(message, { cause: e })
+  return wrapped
+}
 
 jest.mock('@oasisprotocol/client/dist/client')
 
@@ -107,10 +121,9 @@ describe('OasisTransaction', () => {
       await OasisTransaction.sign('', testSigner, tw)
 
       const spy = jest.spyOn(tw, 'submit')
-      spy.mockRejectedValueOnce({ metadata: { 'grpc-message': 'transaction: invalid nonce' } })
+      spy.mockRejectedValueOnce(wrapRpcError('submit', 'transaction: invalid nonce'))
+      await expect(OasisTransaction.submit(nic, tw)).rejects.toThrow(/Invalid nonce/)
 
-      const call = OasisTransaction.submit(nic, tw)
-      await expect(call).rejects.toThrow(/Invalid nonce/)
     })
   })
 })

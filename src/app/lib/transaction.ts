@@ -98,7 +98,7 @@ export class OasisTransaction {
     try {
       await tw.submit(nic)
     } catch (e: any) {
-      const grpcError = e?.metadata?.['grpc-message']
+      const grpcError = e?.cause?.metadata?.['grpc-message']
 
       if (!grpcError) {
         throw new WalletError(WalletErrors.UnknownError, 'Unknown error', e)
