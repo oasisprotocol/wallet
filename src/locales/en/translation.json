@@ -134,6 +134,7 @@
   },
   "errors": {
     "unknown": "Unknown error: {{message}}",
+    "unknownGrpc": "Unknown gRPC error: {{message}}",
     "invalidPrivateKey": "Invalid private key",
     "cannotSendToSelf": "Cannot send to yourself",
     "invalidNonce": "Invalid nonce (transaction number)",

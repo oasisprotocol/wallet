@@ -124,6 +124,8 @@ describe('OasisTransaction', () => {
       spy.mockRejectedValueOnce(wrapRpcError('submit', 'transaction: invalid nonce'))
       await expect(OasisTransaction.submit(nic, tw)).rejects.toThrow(/Invalid nonce/)
 
+      spy.mockRejectedValueOnce(wrapRpcError('submit', 'unhandled err'))
+      await expect(OasisTransaction.submit(nic, tw)).rejects.toThrow(/unhandled err/)
     })
   })
 })
