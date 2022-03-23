@@ -104,7 +104,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
     >
       <Link to="/">
         <Box align="center" direction="row" gap="small">
-          <Avatar src={process.env.PUBLIC_URL + '/logo192.png'} size={sizeLogo[size]} />
+          <Avatar src="/logo192.png" size={sizeLogo[size]} />
           {size !== 'medium' && <Text>Oasis Wallet</Text>}
         </Box>
       </Link>

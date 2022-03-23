@@ -19,7 +19,7 @@ describe('<Footer />', () => {
     jest.resetModules()
     process.env = {
       ...originalEnvs,
-      REACT_APP_BUILD_TIME: '1645464110349',
+      REACT_APP_BUILD_DATETIME: '1645464110349',
       REACT_APP_BUILD_VERSION: 'versionNumber',
       REACT_APP_BACKEND: 'oasisscan',
     }

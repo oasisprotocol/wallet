@@ -1,4 +1,4 @@
 const sha = require('child_process').execSync('git rev-parse HEAD').toString().trim()
-const buildTime = Date.now()
+const buildDatetime = Date.now()
 
-module.exports = { buildTime, sha }
+module.exports = { buildDatetime, sha }
