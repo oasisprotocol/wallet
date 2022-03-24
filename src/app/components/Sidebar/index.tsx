@@ -13,7 +13,16 @@ import {
   Text,
   Tip,
 } from 'grommet'
-import { FormDown, Home, Language, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons/icons'
+import {
+  Github,
+  FormDown,
+  Home,
+  Language,
+  LineChart,
+  Logout,
+  Menu as MenuIcon,
+  Money,
+} from 'grommet-icons/icons'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -131,7 +140,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
     <Nav gap="small">
       <ThemeSwitcher />
       <SidebarButton icon={<Logout />} label={t('menu.closeWallet')} secure={true} onClick={() => logout()} />
-      <Box pad={{ horizontal: 'small', top: 'small' }} align="center">
+      <Box pad="small" align="center">
         <Menu
           hoverIndicator={false}
           dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
@@ -156,6 +165,11 @@ const SidebarFooter = (props: SidebarFooterProps) => {
             )}
           </Box>
         </Menu>
+      </Box>
+      <Box align="center" pad="small">
+        <a href="https://github.com/oasisprotocol/oasis-wallet-web" target="_blank" rel="noopener">
+          <Github />
+        </a>
       </Box>
     </Nav>
   )
