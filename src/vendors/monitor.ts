@@ -110,6 +110,7 @@ const transactionMethodMap: { [k in OperationsRowTypeEnum]: TransactionType } = 
   [OperationsRowTypeEnum.Registernode]: TransactionType.RegistryRegisterNode,
   [OperationsRowTypeEnum.Registerruntime]: TransactionType.RegistryRegisterRuntime,
   [OperationsRowTypeEnum.Castvote]: TransactionType.GovernanceCastVote,
+  [OperationsRowTypeEnum.Submitproposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowTypeEnum.Pvsscommit]: TransactionType.BeaconPvssCommit,
   [OperationsRowTypeEnum.Pvssreveal]: TransactionType.BeaconPvssReveal,
 }

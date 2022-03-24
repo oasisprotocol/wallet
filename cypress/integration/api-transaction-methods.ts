@@ -19,6 +19,7 @@ describe('check all transaction methods are handled', () => {
     cy.request({
       url: 'https://monitor.oasis.dev/data/transactions?limit=2000',
       retryOnNetworkFailure: false,
+      failOnStatusCode: false,
       timeout: 5000,
     }).should(response => {
       if (!response.isOkStatusCode) return // Ignore if API is broken
@@ -36,6 +37,7 @@ describe('check all transaction methods are handled', () => {
     cy.request({
       url: 'https://api.oasisscan.com/mainnet/chain/methods',
       retryOnNetworkFailure: false,
+      failOnStatusCode: false,
       timeout: 5000,
     }).should(response => {
       if (!response.isOkStatusCode) return // Ignore if API is broken

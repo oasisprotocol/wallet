@@ -16,6 +16,7 @@ export enum TransactionType {
   RegistryRegisterNode = 'registernode',
   RegistryRegisterRuntime = 'registerruntime',
   GovernanceCastVote = 'castvote',
+  GovernanceSubmitProposal = 'submitproposal',
   BeaconPvssCommit = 'pvsscommit',
   BeaconPvssReveal = 'pvssreveal',
 }
