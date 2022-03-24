@@ -3,8 +3,15 @@
 // - remove 'unsafe-inline' style by precomputing theme hash
 // - add report-uri to gather errors if anything was missed
 
+const cspEnhancement = `
+  frame-ancestors 
+    'self' 
+    https: http://localhost:* http://127.0.0.1:*;
+  `
+
 // Keep synced with deployment
-const csp = `
+const csp = ({ extension } = {}) =>
+  `
     default-src 'none';
     script-src
       'self'
@@ -27,10 +34,11 @@ const csp = `
     prefetch-src 'self';
     base-uri 'self';
     manifest-src 'self';
+    ${extension ? cspEnhancement : ''}
   `
-  .trim()
-  .split('\n')
-  .map(line => line.trim())
-  .join(' ')
+    .trim()
+    .split('\n')
+    .map(line => line.trim())
+    .join(' ')
 
 module.exports = { csp }

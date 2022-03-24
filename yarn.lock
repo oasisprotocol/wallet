@@ -2850,6 +2850,16 @@
     "@parcel/transformer-react-refresh-wrap" "2.3.2"
     "@parcel/transformer-svg" "2.3.2"
 
+"@parcel/config-webextension@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@parcel/config-webextension/-/config-webextension-2.3.2.tgz#29dc3dbab518462bf61ac3494eac0e17324c3566"
+  integrity sha512-J/gnysUHJ4OQ8YhUBN24mTbb9roJhDjuaz1tDwwrzWoT9YbwS1PwaCrENF2PiyhFkabuxt38QK53kFmBc90ijg==
+  dependencies:
+    "@parcel/config-default" "2.3.2"
+    "@parcel/packager-raw-url" "2.3.2"
+    "@parcel/transformer-raw" "2.3.2"
+    "@parcel/transformer-webextension" "2.3.2"
+
 "@parcel/core@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/core/-/core-2.3.2.tgz#1b9a79c1ff96dba5e0f53d4277bed4e7ab4590d0"
@@ -3292,6 +3302,17 @@
     posthtml-parser "^0.10.1"
     posthtml-render "^3.0.0"
     semver "^5.7.1"
+
+"@parcel/transformer-webextension@2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-webextension/-/transformer-webextension-2.3.2.tgz#f67eccca3b580b18f2a702cf9a7c94a5c8df0ce8"
+  integrity sha512-ubufLxQR+Yc+tYGtQydQZl2faTqkLKwZsZ1be677h8LQ137CvuZvfL2/04qzO/fFlCobmYv3GAf/EHT/h+s0UQ==
+  dependencies:
+    "@parcel/diagnostic" "2.3.2"
+    "@parcel/plugin" "2.3.2"
+    "@parcel/utils" "2.3.2"
+    content-security-policy-parser "^0.3.0"
+    json-source-map "^0.6.1"
 
 "@parcel/transformer-webmanifest@2.3.2":
   version "2.3.2"
@@ -6099,6 +6120,11 @@ content-disposition@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.2.tgz#0cf68bb9ddf5f2be7961c3a85178cb85dba78cb4"
   integrity sha1-DPaLud318r55YcOoUXjLhdunjLQ=
+
+content-security-policy-parser@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/content-security-policy-parser/-/content-security-policy-parser-0.3.0.tgz#a14d4ed54c8d098621ba46cabcd20a78be0c691e"
+  integrity sha512-ub90B4t9EfDPv3DCH7vEwGe4tVMkSm4Ow1HsmvmEQwinDfpTEDmkuJVa5WpzHDTt2bUirNRZuzL6S0msASlJhg==
 
 conventional-changelog-angular@^5.0.0:
   version "5.0.12"
@@ -12013,6 +12039,11 @@ parcel-namer-rewrite@2.0.0-rc.2:
     "@parcel/plugin" "^2.0.0-rc.0"
     "@parcel/types" "^2.0.0-rc.0"
     assert "^2.0.0"
+
+parcel-transformer-env-variables-injection@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/parcel-transformer-env-variables-injection/-/parcel-transformer-env-variables-injection-0.1.0.tgz#34ffe1e2b51dcf801e625178252fdb66fb747b60"
+  integrity sha512-8z+eeeSa9VfqSwZJAjEsvJNi1LDirwtUVtYMZt6Ae/mWeCljT0IV5qRZCnPGAE6JeDmGMiuLMUP35iq5IwEOeA==
 
 parcel@2.3.2:
   version "2.3.2"
