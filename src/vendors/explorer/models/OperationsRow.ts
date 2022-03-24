@@ -127,6 +127,7 @@ export enum OperationsRowTypeEnum {
     Registernode = 'registernode',
     Registerruntime = 'registerruntime',
     Castvote = 'castvote',
+    Submitproposal = 'submitproposal',
     Pvsscommit = 'pvsscommit',
     Pvssreveal = 'pvssreveal'
 }

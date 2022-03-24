@@ -1134,6 +1134,7 @@ definitions:
           - registernode
           - registerruntime
           - castvote
+          - submitproposal
           - pvsscommit
           - pvssreveal
       from:
