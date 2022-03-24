@@ -57,9 +57,6 @@
       "not ios_saf < 13"
     ]
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "nyc": {
     "exclude": [
       "src/vendors",
