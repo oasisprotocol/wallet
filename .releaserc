@@ -1,10 +1,10 @@
 {
   "branches": [
     {
-      "name": "master"
+      "name": "stable"
     },
     {
-      "name": "develop",
+      "name": "master",
       "prerelease": "dev"
     }
   ],
