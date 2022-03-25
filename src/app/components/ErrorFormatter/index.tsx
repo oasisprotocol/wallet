@@ -18,9 +18,8 @@ export function ErrorFormatter(props: Props) {
   const message = props.message
 
   const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {
-    [WalletErrors.UnknownError]: t('errors.unknown', {
-      message,
-    }),
+    [WalletErrors.UnknownError]: t('errors.unknown', { message }),
+    [WalletErrors.UnknownGrpcError]: t('errors.unknownGrpc', { message }),
     [WalletErrors.InvalidAddress]: t('errors.invalidAddress'),
     [WalletErrors.InvalidPrivateKey]: t('errors.invalidPrivateKey'),
     [WalletErrors.InsufficientBalance]: t('errors.insufficientBalance'),

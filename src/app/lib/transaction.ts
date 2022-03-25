@@ -98,10 +98,10 @@ export class OasisTransaction {
     try {
       await tw.submit(nic)
     } catch (e: any) {
-      const grpcError = e?.metadata?.['grpc-message']
+      const grpcError = e?.cause?.metadata?.['grpc-message'] || e.message
 
       if (!grpcError) {
-        throw new WalletError(WalletErrors.UnknownError, 'Unknown error', e)
+        throw new WalletError(WalletErrors.UnknownError, grpcError, e)
       }
 
       switch (grpcError) {
@@ -110,7 +110,7 @@ export class OasisTransaction {
         case 'consensus: duplicate transaction':
           throw new WalletError(WalletErrors.DuplicateTransaction, 'Duplicate transaction')
         default:
-          throw new WalletError(WalletErrors.UnknownError, 'Unknown gRPC Error', e)
+          throw new WalletError(WalletErrors.UnknownGrpcError, grpcError, e)
       }
     }
   }

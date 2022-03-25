@@ -6,6 +6,7 @@ export class WalletError extends Error {
 
 export enum WalletErrors {
   UnknownError = 'unknown',
+  UnknownGrpcError = 'unknown_grpc',
   InvalidAddress = 'invalid_address',
   InvalidPrivateKey = 'invalid_private_key',
   InsufficientBalance = 'insufficient_balance',
