@@ -139,6 +139,7 @@ export enum OperationsRowMethodEnum {
     RegistryRegisterNode = 'registry.RegisterNode',
     RegistryRegisterRuntime = 'registry.RegisterRuntime',
     GovernanceCastVote = 'governance.CastVote',
+    GovernanceSubmitProposal = 'governance.SubmitProposal',
     BeaconPvssCommit = 'beacon.PVSSCommit',
     BeaconPvssReveal = 'beacon.PVSSReveal'
 }

@@ -89,6 +89,7 @@ export const transactionMethodMap: { [k in OperationsRowMethodEnum]: Transaction
   [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
   [OperationsRowMethodEnum.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
   [OperationsRowMethodEnum.GovernanceCastVote]: TransactionType.GovernanceCastVote,
+  [OperationsRowMethodEnum.GovernanceSubmitProposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
   [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
 }
