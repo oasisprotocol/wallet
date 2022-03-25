@@ -1,12 +1,46 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { stakingActions } from 'app/state/staking'
+import { Validator } from 'app/state/staking/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import type { UseTranslationResponse } from 'react-i18next'
 
 import { ValidatorList } from '..'
+
+const activeValidator: Validator = {
+  address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
+  current_rate: 0.1,
+  rank: 0,
+  status: 'active',
+  escrow: 1000,
+  name: 'test-validator1',
+  media: {
+    email_address: 'test@test.com',
+    tg_chat: 'telegram',
+    twitter_acc: 'https://twitter.com/my_twitter',
+    website_link: 'https://test.com',
+  },
+}
+const inactiveValidator: Validator = {
+  address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
+  current_rate: 0.2,
+  rank: 1,
+  status: 'inactive',
+  escrow: 1000,
+  name: 'test-validator2',
+  media: activeValidator.media,
+}
+const unknownValidator: Validator = {
+  address: 'oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7',
+  current_rate: 0.2,
+  rank: 2,
+  status: 'unknown',
+  escrow: 1000,
+  name: 'test-validator3',
+  media: activeValidator.media,
+}
 
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -33,32 +67,21 @@ describe('<ValidatorList  />', () => {
     store = configureAppStore()
   })
 
-  it('should match snapshot', () => {
+  it('empty should match snapshot', () => {
     const component = renderComponent(store)
     store.dispatch(stakingActions.updateValidators([]))
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
+  it('list should match snapshot', () => {
+    const component = renderComponent(store)
+    store.dispatch(stakingActions.updateValidators([activeValidator, inactiveValidator, unknownValidator]))
+    expect(component.container.firstChild).toMatchSnapshot()
+  })
+
   it('should display validator details on click', async () => {
     renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators([
-        {
-          address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
-          current_rate: 0.1,
-          rank: 0,
-          status: 'active',
-          escrow: 1000,
-          name: 'test-validator',
-          media: {
-            email_address: 'test@test.com',
-            tg_chat: 'telegram',
-            twitter_acc: 'https://twitter.com/my_twitter',
-            website_link: 'https://test.com',
-          },
-        },
-      ]),
-    )
+    store.dispatch(stakingActions.updateValidators([activeValidator]))
 
     let row = screen.getByText(/test-validator/)
     expect(row).toBeVisible()
@@ -74,38 +97,7 @@ describe('<ValidatorList  />', () => {
 
   it('should only display the details of a single validator', async () => {
     renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators([
-        {
-          address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
-          current_rate: 0.1,
-          rank: 0,
-          status: 'active',
-          escrow: 1000,
-          name: 'test-validator1',
-          media: {
-            email_address: 'test@test.com',
-            tg_chat: 'telegram',
-            twitter_acc: 'https://twitter.com/my_twitter',
-            website_link: 'https://test.com',
-          },
-        },
-        {
-          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          current_rate: 0.2,
-          rank: 1,
-          status: 'inactive',
-          escrow: 1000,
-          name: 'test-validator2',
-          media: {
-            email_address: 'test@test.com',
-            tg_chat: 'telegram',
-            twitter_acc: 'https://twitter.com/my_twitter',
-            website_link: 'https://test.com',
-          },
-        },
-      ]),
-    )
+    store.dispatch(stakingActions.updateValidators([activeValidator, inactiveValidator]))
 
     let row = screen.getByText(/test-validator1/)
     expect(row).toBeVisible()

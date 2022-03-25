@@ -6,7 +6,8 @@ import { initialState } from '.'
 const selectSlice = (state: RootState) => state.staking || initialState
 
 export const selectStaking = createSelector([selectSlice], state => state)
-export const selectValidators = createSelector([selectStaking], state => state.validators)
+export const selectValidators = createSelector([selectStaking], state => state.validators.list)
+export const selectValidatorsTimestamp = createSelector([selectStaking], state => state.validators.timestamp)
 export const selectUpdateValidatorsError = createSelector(
   [selectStaking],
   state => state.updateValidatorsError,

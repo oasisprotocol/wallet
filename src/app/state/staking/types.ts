@@ -4,11 +4,16 @@ export interface Validator {
   name?: string
   address: string
   escrow?: number
-  status: 'active' | 'inactive'
+  status: 'active' | 'inactive' | 'unknown'
   rank: number
   media?: ValidatorMediaInfo
   current_rate?: number
   current_commission_bound?: CommissionBound
+}
+
+export interface Validators {
+  timestamp: number
+  list: Validator[]
 }
 
 export interface CommissionBound {
@@ -47,7 +52,7 @@ export interface DebondingDelegation extends Delegation {
 
 export interface StakingState {
   /** List of all the validators */
-  validators: Validator[]
+  validators: Validators
 
   /** Error from last attempt to update our list of validators */
   updateValidatorsError: string | null

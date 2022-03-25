@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ValidatorList  /> should match snapshot 1`] = `
+exports[`<ValidatorList  /> empty should match snapshot 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -76,6 +76,14 @@ exports[`<ValidatorList  /> should match snapshot 1`] = `
   }
 }
 
+@media screen and (max-width:599px) {
+
+}
+
+@media screen and (max-width:599px) {
+
+}
+
 <div
   class="c0"
 >
@@ -97,6 +105,722 @@ exports[`<ValidatorList  /> should match snapshot 1`] = `
             style="padding: 24px;"
           >
             There are no records to display
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<ValidatorList  /> list should match snapshot 1`] = `
+.c10 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c10 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c10 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c10 *[stroke*="#"],
+.c10 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c10 *[fill-rule],
+.c10 *[FILL-RULE],
+.c10 *[fill*="#"],
+.c10 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c18 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #FF4040;
+  stroke: #FF4040;
+}
+
+.c18 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c18 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c18 *[stroke*="#"],
+.c18 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c18 *[fill-rule],
+.c18 *[FILL-RULE],
+.c18 *[fill*="#"],
+.c18 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c17 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #00C781;
+  stroke: #00C781;
+}
+
+.c17 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c17 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c17 *[stroke*="#"],
+.c17 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c17 *[fill-rule],
+.c17 *[FILL-RULE],
+.c17 *[fill*="#"],
+.c17 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.c3 {
+  position: relative;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  color: false;
+  background-color: false;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+  background-color: false;
+  min-height: 56px;
+  border-bottom-width: 1px;
+  border-bottom-color: #AAAAAAaa;
+  border-bottom-style: solid;
+}
+
+.c6 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: 500;
+  color: false;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.c15 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  line-height: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  word-break: break-word;
+}
+
+.c7 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+  min-width: 34px;
+  max-width: 34px;
+}
+
+.c8 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+}
+
+.c11 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+}
+
+.c12 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+  min-width: 110px;
+  max-width: 110px;
+}
+
+.c16 {
+  font-weight: 400;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16x;
+  color: false;
+  background-color: false;
+  min-height: 48px;
+}
+
+.c14:not(:last-of-type) {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #AAAAAAaa;
+}
+
+.c14:hover {
+  color: false;
+  background-color: #88888833;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  border-bottom-color: false;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: false;
+}
+
+.c14:hover {
+  cursor: pointer;
+}
+
+.c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100%;
+  line-height: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c9:focus {
+  outline: none;
+  color: false;
+}
+
+.c9:hover {
+  color: false;
+}
+
+.c9 span.__rdt_custom_sort_icon__ i,
+.c9 span.__rdt_custom_sort_icon__ svg {
+  opacity: 0;
+  color: inherit;
+  font-size: 18px !important;
+  height: 18px !important;
+  width: 18px !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition-duration: 125ms;
+  transition-duration: 125ms;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.c9 span.__rdt_custom_sort_icon__.asc i,
+.c9 span.__rdt_custom_sort_icon__.asc svg {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.c9:hover {
+  cursor: pointer;
+}
+
+.c9:hover span,
+.c9:hover span.__rdt_custom_sort_icon__ * {
+  opacity: 1;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  position: relative;
+  width: 100%;
+  border-radius: inherit;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-height: 0;
+}
+
+.c2 {
+  position: relative;
+  width: 100%;
+  display: table;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .c11 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .c12 {
+    display: none;
+  }
+}
+
+<div
+  class="c0"
+>
+  common.validators
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    >
+      <div
+        class="c3 rdt_Table"
+        role="table"
+      >
+        <div
+          class="c4 rdt_TableHead"
+          role="rowgroup"
+        >
+          <div
+            class="c5 rdt_TableHeadRow"
+            role="row"
+          >
+            <div
+              class="c6 c7 rdt_TableCol"
+            />
+            <div
+              class="c6 c7 rdt_TableCol"
+            />
+            <div
+              class="c6 c8 rdt_TableCol"
+            >
+              <div
+                class="c9 rdt_TableCol_Sortable"
+                id="column-name"
+                role="columnheader"
+                tabindex="0"
+              >
+                <div>
+                  validator.name
+                </div>
+                <span
+                  class="asc __rdt_custom_sort_icon__"
+                >
+                  <svg
+                    aria-label="Down"
+                    class="c10"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m2 8.35 10.173 9.823L21.997 8"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="c6 c11 rdt_TableCol"
+            >
+              <div
+                class="c9 rdt_TableCol_Sortable"
+                id="column-escrow"
+                role="columnheader"
+                tabindex="0"
+              >
+                <div>
+                  validator.escrow
+                </div>
+                <span
+                  class="asc __rdt_custom_sort_icon__"
+                >
+                  <svg
+                    aria-label="Down"
+                    class="c10"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m2 8.35 10.173 9.823L21.997 8"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+            <div
+              class="c6 c12 rdt_TableCol"
+            >
+              <div
+                class="c9 rdt_TableCol_Sortable"
+                id="column-fee"
+                role="columnheader"
+                tabindex="0"
+              >
+                <div>
+                  validator.fee
+                </div>
+                <span
+                  class="asc __rdt_custom_sort_icon__"
+                >
+                  <svg
+                    aria-label="Down"
+                    class="c10"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="m2 8.35 10.173 9.823L21.997 8"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="c13 rdt_TableBody"
+          offset="250px"
+          role="rowgroup"
+        >
+          <div
+            class="c14 rdt_TableRow"
+            id="row-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+            role="row"
+          >
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-icon-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+              role="gridcell"
+            />
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-status-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+              role="gridcell"
+            >
+              <svg
+                aria-label="Status is okay"
+                class="c17"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="c15 c8 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-name-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+              role="gridcell"
+            >
+              test-validator1
+            </div>
+            <div
+              class="c15 c11 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-escrow-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+              role="gridcell"
+            >
+              0
+               
+              
+            </div>
+            <div
+              class="c15 c12 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-fee-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
+              role="gridcell"
+            >
+              10%
+            </div>
+          </div>
+          <div
+            class="c14 rdt_TableRow"
+            id="row-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+            role="row"
+          >
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-icon-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="gridcell"
+            />
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-status-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="gridcell"
+            >
+              <svg
+                aria-label="Status is critical"
+                class="c18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="c15 c8 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-name-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="gridcell"
+            >
+              test-validator2
+            </div>
+            <div
+              class="c15 c11 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="gridcell"
+            >
+              0
+               
+              
+            </div>
+            <div
+              class="c15 c12 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-fee-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="gridcell"
+            >
+              20%
+            </div>
+          </div>
+          <div
+            class="c14 rdt_TableRow"
+            id="row-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+            role="row"
+          >
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-icon-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+              role="gridcell"
+            />
+            <div
+              class="c15 c7 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-status-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+              role="gridcell"
+            >
+              <svg
+                aria-label="Status is unknown"
+                class="c18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M2 3.99C2 2.892 2.898 2 3.99 2h16.02C21.108 2 22 2.898 22 3.99v16.02c0 1.099-.898 1.99-1.99 1.99H3.99A1.995 1.995 0 0 1 2 20.01V3.99zM12 15v-1c0-1 0-1.5 1-2s2-1 2-2.5c0-1-1-2.5-3-2.5s-3 1.264-3 3m3 6v2"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="c15 c8 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-name-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+              role="gridcell"
+            >
+              test-validator3
+            </div>
+            <div
+              class="c15 c11 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-escrow-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+              role="gridcell"
+            >
+              0
+               
+              
+            </div>
+            <div
+              class="c15 c12 c16 rdt_TableCell"
+              data-tag="allowRowEvents"
+              id="cell-fee-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+              role="gridcell"
+            >
+              20%
+            </div>
           </div>
         </div>
       </div>

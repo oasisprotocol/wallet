@@ -104,6 +104,10 @@
     "loading": "Loading account",
     "loadingError": "Couldn't load account. Information may be missing or out of date.",
     "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
+        "title": "Are you sure you want to continue?"
+      },
       "delegate": "Delegate"
     },
     "subnavigation": {
@@ -117,7 +121,7 @@
       "reclaim": "Reclaim"
     },
     "validator": {
-      "loadingError": "Couldn't load validators. List may be empty or out of date."
+      "loadingError": "Couldn't load validators. Showing validator list as of {{staleTimestamp}}."
     }
   },
   "common": {
@@ -223,6 +227,7 @@
     "status": "Status",
     "statusActive": "Active",
     "statusInactive": "Inactive",
+    "statusUnknown": "Unknown",
     "name": "Name",
     "fee": "Fee",
     "commissionBounds": {

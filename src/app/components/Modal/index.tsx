@@ -42,6 +42,7 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
         <Button label={t('common.cancel')} onClick={closeModal} />
         <Button
           label={t('common.confirm')}
+          disabled={modal.isDangerous}
           onClick={confirm}
           primary={modal.isDangerous}
           color={modal.isDangerous ? 'status-error' : ''}

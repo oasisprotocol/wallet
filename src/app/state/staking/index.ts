@@ -4,11 +4,20 @@ import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 
 import { stakingSaga } from './saga'
 import { DebondingDelegation, Delegation, StakingState, Validator, ValidatorDetails } from './types'
+import * as dump_validators from 'vendors/oasisscan/dump_validators.json'
 
 export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
-  validators: [],
+  validators: {
+    timestamp: dump_validators.dump_timestamp,
+    list: dump_validators.list.map(v => {
+      return {
+        ...v,
+        status: 'unknown',
+      }
+    }),
+  },
   updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,
@@ -25,7 +34,10 @@ const slice = createSlice({
     fetchAccount(state, action: PayloadAction<string>) {},
     updateValidators(state, action: PayloadAction<Validator[]>) {
       state.updateValidatorsError = null
-      state.validators = action.payload
+      state.validators = {
+        timestamp: Date.now(),
+        list: action.payload,
+      }
     },
     updateValidatorsError(state, action: PayloadAction<string>) {
       state.updateValidatorsError = action.payload

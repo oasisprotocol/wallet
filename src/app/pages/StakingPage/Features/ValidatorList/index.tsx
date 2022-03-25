@@ -12,6 +12,7 @@ import {
   selectUpdateValidatorsError,
   selectValidatorDetails,
   selectValidators,
+  selectValidatorsTimestamp,
 } from 'app/state/staking/selectors'
 import { Validator } from 'app/state/staking/types'
 import { useWalletSlice } from 'app/state/wallet'
@@ -37,6 +38,7 @@ export const ValidatorList = memo((props: Props) => {
   useWalletSlice()
 
   const validators = useSelector(selectValidators)
+  const validatorsTimestamp = useSelector(selectValidatorsTimestamp)
   const updateValidatorsError = useSelector(selectUpdateValidatorsError)
   const walletIsOpen = useSelector(selectStatus)
   const selectedAddress = useSelector(selectSelectedAddress)
@@ -109,7 +111,14 @@ export const ValidatorList = memo((props: Props) => {
       {t('common.validators', 'Validators')}
       {updateValidatorsError && (
         <p>
-          {t('account.validator.loadingError', "Couldn't load validators. List may be empty or out of date.")}{' '}
+          {t(
+            'account.validator.loadingError',
+            "Couldn't load validators. Showing validator list as of {{staleTimestamp}}.",
+            {
+              staleTimestamp: new Date(validatorsTimestamp).toLocaleString(),
+            },
+          )}
+          <br />
           {updateValidatorsError}
         </p>
       )}
