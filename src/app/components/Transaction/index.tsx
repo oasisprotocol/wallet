@@ -192,6 +192,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },
+    [transactionTypes.TransactionType.GovernanceSubmitProposal]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
     [transactionTypes.TransactionType.BeaconPvssCommit]: {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
