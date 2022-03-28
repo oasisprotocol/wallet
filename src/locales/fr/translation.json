@@ -111,7 +111,8 @@
     },
     "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
     "validator": {
-      "loadingError": "Impossible de charger les validateurs. La liste peut être vide ou obsolète {{staleTimestamp}}."
+      "loadingError": "Impossible de charger les validateurs.",
+      "showingStale": "La liste peut être vide ou obsolète {{staleTimestamp}}."
     }
   },
   "common": {
