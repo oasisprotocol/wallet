@@ -121,7 +121,8 @@
       "reclaim": "Reclaim"
     },
     "validator": {
-      "loadingError": "Couldn't load validators. Showing validator list as of {{staleTimestamp}}."
+      "loadingError": "Couldn't load validators.",
+      "showingStale": "Showing validator list as of {{staleTimestamp}}."
     }
   },
   "common": {

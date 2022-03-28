@@ -60,6 +60,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
       const parsed: Validator = {
         address: v.entity_address,
         name: v.name ?? undefined,
+        nodeAddress: v.node_address,
         escrow: parseStringValueToInt(v.escrow),
         current_rate: v.commission,
         status: v.status ? 'active' : 'inactive',
@@ -88,6 +89,7 @@ export const transactionMethodMap: { [k in OperationsRowMethodEnum]: Transaction
   [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
   [OperationsRowMethodEnum.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
   [OperationsRowMethodEnum.GovernanceCastVote]: TransactionType.GovernanceCastVote,
+  [OperationsRowMethodEnum.GovernanceSubmitProposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
   [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
 }

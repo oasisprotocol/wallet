@@ -111,13 +111,11 @@ export const ValidatorList = memo((props: Props) => {
       {t('common.validators', 'Validators')}
       {updateValidatorsError && (
         <p>
-          {t(
-            'account.validator.loadingError',
-            "Couldn't load validators. Showing validator list as of {{staleTimestamp}}.",
-            {
-              staleTimestamp: new Date(validatorsTimestamp).toLocaleString(),
-            },
-          )}
+          {t('account.validator.loadingError', "Couldn't load validators.")}{' '}
+          {validators.length > 0 &&
+            t('account.validator.showingStale', 'Showing validator list as of {{staleTimestamp}}.', {
+              staleTimestamp: new Date(validatorsTimestamp!).toLocaleString(),
+            })}
           <br />
           {updateValidatorsError}
         </p>

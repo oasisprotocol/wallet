@@ -3,21 +3,12 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 
 import { stakingSaga } from './saga'
-import { DebondingDelegation, Delegation, StakingState, Validator, ValidatorDetails } from './types'
-import * as dump_validators from 'vendors/oasisscan/dump_validators.json'
+import { DebondingDelegation, Delegation, StakingState, Validators, ValidatorDetails } from './types'
 
 export const initialState: StakingState = {
   debondingDelegations: [],
   delegations: [],
-  validators: {
-    timestamp: dump_validators.dump_timestamp,
-    list: dump_validators.list.map(v => {
-      return {
-        ...v,
-        status: 'unknown',
-      }
-    }),
-  },
+  validators: null,
   updateValidatorsError: null,
   selectedValidatorDetails: null,
   selectedValidator: null,
@@ -32,15 +23,13 @@ const slice = createSlice({
       state.loading = action.payload
     },
     fetchAccount(state, action: PayloadAction<string>) {},
-    updateValidators(state, action: PayloadAction<Validator[]>) {
+    updateValidators(state, action: PayloadAction<Validators>) {
       state.updateValidatorsError = null
-      state.validators = {
-        timestamp: Date.now(),
-        list: action.payload,
-      }
+      state.validators = action.payload
     },
-    updateValidatorsError(state, action: PayloadAction<string>) {
-      state.updateValidatorsError = action.payload
+    updateValidatorsError(state, action: PayloadAction<{ error: string; validators: Validators }>) {
+      state.updateValidatorsError = action.payload.error
+      state.validators = action.payload.validators
     },
     updateDelegations(state, action: PayloadAction<Delegation[]>) {
       state.delegations = action.payload

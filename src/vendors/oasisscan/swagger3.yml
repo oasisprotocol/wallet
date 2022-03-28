@@ -401,6 +401,7 @@ components:
             - registry.RegisterNode
             - registry.RegisterRuntime
             - governance.CastVote
+            - governance.SubmitProposal
             - beacon.PVSSCommit
             - beacon.PVSSReveal
         fee:

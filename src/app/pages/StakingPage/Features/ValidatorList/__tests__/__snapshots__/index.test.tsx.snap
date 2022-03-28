@@ -76,14 +76,6 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   }
 }
 
-@media screen and (max-width:599px) {
-
-}
-
-@media screen and (max-width:599px) {
-
-}
-
 <div
   class="c0"
 >
@@ -148,40 +140,6 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: none;
 }
 
-.c18 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
-  fill: #FF4040;
-  stroke: #FF4040;
-}
-
-.c18 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c18 *:not([stroke])[fill="none"] {
-  stroke-width: 0;
-}
-
-.c18 *[stroke*="#"],
-.c18 *[STROKE*="#"] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c18 *[fill-rule],
-.c18 *[FILL-RULE],
-.c18 *[fill*="#"],
-.c18 *[FILL*="#"] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c17 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
@@ -212,6 +170,40 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 .c17 *[FILL-RULE],
 .c17 *[fill*="#"],
 .c17 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c18 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #FF4040;
+  stroke: #FF4040;
+}
+
+.c18 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c18 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c18 *[stroke*="#"],
+.c18 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c18 *[fill-rule],
+.c18 *[FILL-RULE],
+.c18 *[fill*="#"],
+.c18 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
