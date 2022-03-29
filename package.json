@@ -194,8 +194,11 @@
     "vendors": "./src/vendors"
   },
   "targets": {
+    "// see also .terserrc": {},
     "web": {
-      "context": "browser"
+      "context": "browser",
+      "distDir": "./build",
+      "scopeHoist": false
     }
   },
   "parcel-namer-rewrite": {

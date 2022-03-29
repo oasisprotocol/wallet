@@ -1,0 +1,8 @@
+{
+  "mangle": {
+    "keep_fnames": true
+  },
+  "format": {
+    "beautify": true
+  }
+}
