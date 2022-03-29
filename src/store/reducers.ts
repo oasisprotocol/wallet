@@ -4,10 +4,10 @@
 
 import { combineReducers } from '@reduxjs/toolkit'
 import { InjectedReducersType } from 'utils/types/injector-typings'
-import { createBrowserHistory } from 'history'
+import { createHashHistory, createBrowserHistory } from 'history'
 import { connectRouter } from 'connected-react-router'
 
-export const history = createBrowserHistory()
+export const history = process.env.EXTENSION ? createHashHistory() : createBrowserHistory()
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers

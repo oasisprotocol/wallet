@@ -14,8 +14,8 @@
     "start:oasismonitor": "REACT_APP_BACKEND=oasismonitor yarn start",
     "start:oasisscan": "REACT_APP_BACKEND=oasisscan yarn start",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
-    "start:ext": "EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json",
-    "build:ext": "yarn clean:ext && yarn clean && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json && node ./extension/internals/validate-ext-manifest.js",
+    "start:ext": "HMR_PORT=2222 EXTENSION=true EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json",
+    "build:ext": "yarn clean:ext && yarn clean && EXTENSION=true EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json && node ./extension/internals/validate-ext-manifest.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "yarn clean && node ./internals/prod-scripts.js",
@@ -187,6 +187,7 @@
     }
   },
   "alias": {
+    "locales": "./src/locales",
     "utils": "./src/utils",
     "app": "./src/app",
     "types": "./src/types",
