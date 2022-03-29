@@ -127,7 +127,7 @@
     "@types/fontfaceobserver": "2.1.0",
     "@types/jest": "27.4.1",
     "@types/jest-when": "3.5.0",
-    "@types/node": "16.11.21",
+    "@types/node": "16.11.26",
     "@types/node-fetch": "3.0.3",
     "@types/qrcode.react": "1.0.2",
     "@types/react": "17.0.43",
