@@ -17,5 +17,5 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
-  "include": ["src", "vendors", "internals/startingTemplate/**/*"]
+  "include": ["src", "extension/src", "vendors", "internals/startingTemplate/**/*"]
 }
