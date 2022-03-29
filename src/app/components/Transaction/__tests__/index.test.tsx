@@ -6,7 +6,6 @@ import * as React from 'react'
 import { Router } from 'react-router'
 import { createMemoryHistory } from 'history'
 import { Provider, useSelector } from 'react-redux'
-import { mocked } from 'ts-jest/utils'
 import { configureAppStore } from 'store/configureStore'
 import { BackendAPIs, backend } from 'vendors/backend'
 
@@ -64,7 +63,7 @@ describe('<Transaction  />', () => {
   const network = 'mainnet'
 
   beforeEach(() => {
-    mocked(backend).mockImplementation(() => BackendAPIs.OasisScan)
+    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisScan)
     store = configureAppStore()
 
     when(useSelector as any)
@@ -147,7 +146,7 @@ describe('<Transaction  />', () => {
   })
 
   it('should render monitor link', () => {
-    mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
+    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
     renderComponent(store, ref, transaction, network)
     expect(screen.getByTestId('explorer-link')).toHaveAttribute(
       'href',
@@ -156,7 +155,7 @@ describe('<Transaction  />', () => {
   })
 
   it('should render testnet monitor link', () => {
-    mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
+    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
     renderComponent(store, ref, transaction, 'testnet')
     expect(screen.getByTestId('explorer-link')).toHaveAttribute(
       'href',
