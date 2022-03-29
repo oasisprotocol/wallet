@@ -20,6 +20,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 import { ThemeSwitcher } from '../ThemeSwitcher'
+import logotype from '../../../logo192.png'
 
 interface SidebarButtonProps extends ButtonExtendedProps {
   secure?: boolean
@@ -104,7 +105,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
     >
       <Link to="/">
         <Box align="center" direction="row" gap="small">
-          <Avatar src="/logo192.png" size={sizeLogo[size]} />
+          <Avatar src={logotype} size={sizeLogo[size]} />
           {size !== 'medium' && <Text>Oasis Wallet</Text>}
         </Box>
       </Link>
