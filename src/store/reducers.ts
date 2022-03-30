@@ -3,19 +3,42 @@
  */
 
 import { combineReducers } from '@reduxjs/toolkit'
-import { InjectedReducersType } from 'utils/types/injector-typings'
+// import { InjectedReducersType } from 'utils/types/injector-typings'
 import { createHashHistory, createBrowserHistory } from 'history'
 import { connectRouter } from 'connected-react-router'
+
+import createWalletReducer from 'app/pages/CreateWalletPage/slice'
+import openWalletReducer from 'app/pages/OpenWalletPage/slice'
+import accountReducer from 'app/state/account'
+import fatalErrorReducer from 'app/state/fatalerror'
+import ledgerReducer from 'app/state/ledger'
+import networkReducer from 'app/state/network'
+import stakingReducer from 'app/state/staking'
+import transactionReducer from 'app/state/transaction'
+import walletReducer from 'app/state/wallet'
+import themeReducer from 'styles/theme/slice'
 
 export const history = process.env.EXTENSION ? createHashHistory() : createBrowserHistory()
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
-export function createReducer(injectedReducers: InjectedReducersType = {}) {
+export function createReducer(injectedReducers = {}) {
   // Initially we don't have any injectedReducers, so returning identity function to avoid the error
-  return combineReducers({
+  const rootReducer = combineReducers({
     ...injectedReducers,
+    account: accountReducer,
+    createWallet: createWalletReducer,
+    fatalError: fatalErrorReducer,
+    ledger: ledgerReducer,
+    network: networkReducer,
+    openWallet: openWalletReducer,
+    staking: stakingReducer,
+    theme: themeReducer,
+    transaction: transactionReducer,
+    wallet: walletReducer,
     router: connectRouter(history),
   })
+
+  return rootReducer
 }

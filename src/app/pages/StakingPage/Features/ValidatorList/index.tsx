@@ -6,7 +6,7 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
-import { useStakingSlice } from 'app/state/staking'
+import { stakingActions } from 'app/state/staking'
 import {
   selectSelectedAddress,
   selectUpdateValidatorsError,
@@ -15,7 +15,6 @@ import {
   selectValidatorsTimestamp,
 } from 'app/state/staking/selectors'
 import { Validator } from 'app/state/staking/types'
-import { useWalletSlice } from 'app/state/wallet'
 import { selectStatus } from 'app/state/wallet/selectors'
 import { Box, Text } from 'grommet'
 import { Down } from 'grommet-icons/icons'
@@ -33,10 +32,6 @@ interface Props {}
 export const ValidatorList = memo((props: Props) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-
-  const actions = useStakingSlice().actions
-  useWalletSlice()
-
   const validators = useSelector(selectValidators)
   const validatorsTimestamp = useSelector(selectValidatorsTimestamp)
   const updateValidatorsError = useSelector(selectUpdateValidatorsError)
@@ -46,9 +41,9 @@ export const ValidatorList = memo((props: Props) => {
 
   const rowClicked = (row: Validator) => {
     if (selectedAddress === row.address) {
-      dispatch(actions.validatorDeselected())
+      dispatch(stakingActions.validatorDeselected())
     } else {
-      dispatch(actions.validatorSelected(row.address))
+      dispatch(stakingActions.validatorSelected(row.address))
     }
   }
 

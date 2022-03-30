@@ -1,4 +1,4 @@
-import { useWalletSlice } from 'app/state/wallet'
+import { walletActions } from 'app/state/wallet'
 import { Box, Form, Heading, Paragraph, FormField, Button, TextInput, Tip } from 'grommet'
 import { View, Hide } from 'grommet-icons/icons'
 import * as React from 'react'
@@ -26,7 +26,6 @@ const parseKey = (key: string) => {
 
 export function FromPrivateKey(props: Props) {
   const { t } = useTranslation()
-  const walletActions = useWalletSlice().actions
   const dispatch = useDispatch()
 
   const [privateKey, setPrivateKey] = React.useState('')

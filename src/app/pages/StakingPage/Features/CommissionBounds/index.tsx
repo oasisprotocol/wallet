@@ -3,7 +3,6 @@
  * CommisssionBounds
  *
  */
-import { useNetworkSlice } from 'app/state/network'
 import { selectEpoch } from 'app/state/network/selectors'
 import { CommissionBound as ICommissionBounds } from 'app/state/staking/types'
 import { Box, Text } from 'grommet'
@@ -16,7 +15,6 @@ interface CommissionBoundProps {
 }
 
 const CommissionBound = memo((props: CommissionBoundProps) => {
-  useNetworkSlice()
   const { t } = useTranslation()
   const epoch = useSelector(selectEpoch)
 

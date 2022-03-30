@@ -3,7 +3,7 @@
  * NetworkSelector
  *
  */
-import { useNetworkSlice } from 'app/state/network'
+import { networkActions } from 'app/state/network'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { NetworkType } from 'app/state/network/types'
 import { Menu, Box, Text, ResponsiveContext } from 'grommet'
@@ -17,12 +17,11 @@ interface Props {}
 export const NetworkSelector = memo((props: Props) => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
-  const actions = useNetworkSlice().actions
   const selectedNetworkType = useSelector(selectSelectedNetwork)
   const dispatch = useDispatch()
 
   const switchNetwork = (network: NetworkType) => {
-    dispatch(actions.selectNetwork(network))
+    dispatch(networkActions.selectNetwork(network))
   }
 
   const networkLabels = {
