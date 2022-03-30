@@ -83,7 +83,6 @@
     "connected-react-router": "6.9.2",
     "copy-to-clipboard": "3.3.1",
     "cross-env": "7.0.3",
-    "fontfaceobserver": "2.1.0",
     "grommet": "2.21.0",
     "grommet-icons": "4.7.0",
     "husky": "7.0.4",
@@ -124,7 +123,6 @@
     "@testing-library/react": "12.1.4",
     "@testing-library/user-event": "13.5.0",
     "@types/body-scroll-lock": "3.1.0",
-    "@types/fontfaceobserver": "2.1.0",
     "@types/jest": "27.4.1",
     "@types/jest-when": "3.5.0",
     "@types/node": "16.11.26",
@@ -160,7 +158,6 @@
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
     "parcel": "2.3.2",
-    "parcel-namer-rewrite": "2.0.0-rc.2",
     "plop": "2.7.6",
     "posthtml-expressions": "1.9.0",
     "redux-saga-test-plan": "4.0.4",
@@ -200,12 +197,5 @@
       "distDir": "./build",
       "scopeHoist": false
     }
-  },
-  "parcel-namer-rewrite": {
-    "developmentHashing": true,
-    "rules": {
-      "(.*).png": "$1.png"
-    },
-    "silent": true
   }
 }

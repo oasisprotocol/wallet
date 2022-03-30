@@ -1,5 +1,4 @@
 // @TODO: Future improvements:
-// - remove google exceptions by downloading fonts
 // - remove 'unsafe-inline' style by precomputing theme hash
 // - add report-uri to gather errors if anything was missed
 
@@ -11,12 +10,10 @@ const csp = `
       'report-sample';
     style-src
       'self'
-      fonts.googleapis.com
       'unsafe-inline'
       'report-sample';
     font-src
-      'self'
-      fonts.gstatic.com;
+      'self';
     connect-src
       'self'
       grpc.oasis.dev

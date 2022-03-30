@@ -11,11 +11,12 @@ const config = {
     '!src/**/*/Loadable.{js,jsx,ts,tsx}',
     '!src/**/*/messages.ts',
     '!src/**/*/types.ts',
-    '!src/index.tsx'
+    '!src/index.tsx',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    '.*\\.(css|scss|sass)$': '<rootDir>internals/mocks/cssModule.js'
+    '.*\\.(css|scss|sass)$': '<rootDir>internals/jest/mocks/cssModule.js',
+    '.*\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>internals/jest/mocks/image.js',
   },
   modulePaths: ['<rootDir>/src'],
   resetMocks: true,
@@ -24,13 +25,13 @@ const config = {
   testEnvironment: 'jsdom',
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
-    '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}'
+    '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
   ],
   transform: {
-    '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/internals/jest/babelTransform.js'
+    '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/internals/jest/babelTransform.js',
   },
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$'],
-  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname']
+  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 }
 
 module.exports = config

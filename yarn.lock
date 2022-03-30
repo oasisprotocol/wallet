@@ -2927,7 +2927,7 @@
     detect-libc "^1.0.3"
     xxhash-wasm "^0.4.2"
 
-"@parcel/logger@2.3.2", "@parcel/logger@^2.0.0-rc.0":
+"@parcel/logger@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/logger/-/logger-2.3.2.tgz#b5fc7a9c1664ee0286d0f67641c7c81c8fec1561"
   integrity sha512-jIWd8TXDQf+EnNWSa7Q10lSQ6C1LSH8OZkTlaINrfVIw7s+3tVxO3I4pjp7/ARw7RX2gdNPlw6fH4Gn/HvvYbw==
@@ -2942,7 +2942,7 @@
   dependencies:
     chalk "^4.1.0"
 
-"@parcel/namer-default@2.3.2", "@parcel/namer-default@^2.0.0-rc.0":
+"@parcel/namer-default@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/namer-default/-/namer-default-2.3.2.tgz#84e17abfc84fd293b23b3f405280ed2e279c75d8"
   integrity sha512-3QUMC0+5+3KMKfoAxYAbpZtuRqTgyZKsGDWzOpuqwemqp6P8ahAvNPwSCi6QSkGcTmvtYwBu9/NHPSONxIFOfg==
@@ -3014,7 +3014,7 @@
     nullthrows "^1.1.1"
     terser "^5.2.0"
 
-"@parcel/package-manager@2.3.2", "@parcel/package-manager@^2.0.0-rc.0":
+"@parcel/package-manager@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/package-manager/-/package-manager-2.3.2.tgz#380f0741c9d0c79c170c437efae02506484df315"
   integrity sha512-pAQfywKVORY8Ee+NHAyKzzQrKbnz8otWRejps7urwhDaTVLfAd5C/1ZV64ATZ9ALYP9jyoQ8bTaxVd4opcSuwg==
@@ -3086,7 +3086,7 @@
     "@parcel/utils" "2.3.2"
     posthtml "^0.16.4"
 
-"@parcel/plugin@2.3.2", "@parcel/plugin@^2.0.0-rc.0":
+"@parcel/plugin@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/plugin/-/plugin-2.3.2.tgz#7701c40567d2eddd5d5b2b6298949cd03a2a22fa"
   integrity sha512-SaLZAJX4KH+mrAmqmcy9KJN+V7L+6YNTlgyqYmfKlNiHu7aIjLL+3prX8QRcgGtjAYziCxvPj0cl1CCJssaiGg==
@@ -3303,7 +3303,7 @@
     "@parcel/utils" "2.3.2"
     json-source-map "^0.6.1"
 
-"@parcel/types@2.3.2", "@parcel/types@^2.0.0-rc.0":
+"@parcel/types@2.3.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.3.2.tgz#7eb6925bc852a518dd75b742419e51292418769f"
   integrity sha512-C77Ct1xNM7LWjPTfe/dQ/9rq1efdsX5VJu2o8/TVi6qoFh64Wp/c5/vCHwKInOTBZUTchVO6z4PGJNIZoUVJuA==
@@ -3745,11 +3745,6 @@
   version "1.1.2"
   resolved "https://registry.npmjs.org/@types/fined/-/fined-1.1.2.tgz"
   integrity sha512-hzzTS+X9EqDhx4vwdch/DOZci/bfh5J6Nyz8lqvyfBg2ROx2fPafX+LpDfpVgSvQKj0EYkwTYpBO3z2etwbkOw==
-
-"@types/fontfaceobserver@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@types/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz#9ec2eabadfcaaf8c68c5e1254d19f5a293d132b4"
-  integrity sha512-Vqf183RAiFdIjUi4asKqogf2HIfLDnxn+dQo9GCpnsU5QrrsLMA2bkJU1dHRudQlizLybWD61Csd1zAgUQ3JKQ==
 
 "@types/glob@*", "@types/glob@^7.1.1":
   version "7.1.3"
@@ -4649,16 +4644,6 @@ assert@^1.4.0:
   dependencies:
     object-assign "^4.1.1"
     util "0.10.3"
-
-assert@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/assert/-/assert-2.0.0.tgz#95fc1c616d48713510680f2eaf2d10dd22e02d32"
-  integrity sha512-se5Cd+js9dXJnu6Ag2JFc00t+HmHOen+8Q+L7O9zI0PqQXr20uk2J0XQqMxZEeo5U50o8Nvmmx7dZrl+Ufr35A==
-  dependencies:
-    es6-object-assign "^1.1.0"
-    is-nan "^1.2.1"
-    object-is "^1.0.1"
-    util "^0.12.0"
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -7109,11 +7094,6 @@ es6-error@^4.0.1:
   resolved "https://registry.npmjs.org/es6-error/-/es6-error-4.1.1.tgz"
   integrity sha512-Um/+FxMr9CISWh0bi5Zv0iOD+4cFh5qLeks1qhAopKVAJw3drgKbKySikp7wGhDL0HPeaja0P5ULZrxLkniUVg==
 
-es6-object-assign@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
-  integrity sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
-
 escalade@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
@@ -7811,11 +7791,6 @@ flush-write-stream@^1.0.2:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
-
-fontfaceobserver@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/fontfaceobserver/-/fontfaceobserver-2.1.0.tgz"
-  integrity sha512-ReOsO2F66jUa0jmv2nlM/s1MiutJx/srhAe2+TE8dJCMi02ZZOcCTxTCQFr3Yet+uODUtnr4Mewg+tNQ+4V1Ng==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -9175,14 +9150,6 @@ is-lower-case@^1.1.0:
   integrity sha1-fhR75HaNxGbbO/shzGCzHmrWk5M=
   dependencies:
     lower-case "^1.1.0"
-
-is-nan@^1.2.1:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/is-nan/-/is-nan-1.3.2.tgz#043a54adea31748b55b6cd4e09aadafa69bd9e1d"
-  integrity sha512-E+zBKpQ2t6MEo1VsonYmluk9NxGrbzpeeLC2xIViuO2EjU2xsXsBPwTr3Ykv9l08UYEVEdWeRZNouaZqF6RN0w==
-  dependencies:
-    call-bind "^1.0.0"
-    define-properties "^1.1.3"
 
 is-negated-glob@^1.0.0:
   version "1.0.0"
@@ -11616,14 +11583,6 @@ object-inspect@^1.9.0:
   resolved "https://registry.npmjs.org/object-inspect/-/object-inspect-1.10.2.tgz"
   integrity sha512-gz58rdPpadwztRrPjZE9DZLOABUpTGdcANUgOwBFO1C+HZZhePoP83M65WGDmbpwFYJSWqavbl4SgDn4k8RYTA==
 
-object-is@^1.0.1:
-  version "1.1.5"
-  resolved "https://registry.npmjs.org/object-is/-/object-is-1.1.5.tgz"
-  integrity sha512-3cyDsyHgtmi7I7DfSSI2LDp6SK2lwvtbg0p0R1e0RvTqF5ceGx+K2dfSjm1bKDMVCFEDAQvy+o8c6a7VujOddw==
-  dependencies:
-    call-bind "^1.0.2"
-    define-properties "^1.1.3"
-
 object-keys@^1.0.12, object-keys@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/object-keys/-/object-keys-1.1.1.tgz"
@@ -11975,18 +11934,6 @@ param-case@^2.1.0:
   integrity sha1-35T9jPZTHs915r75oIWPvHK+Ikc=
   dependencies:
     no-case "^2.2.0"
-
-parcel-namer-rewrite@2.0.0-rc.2:
-  version "2.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/parcel-namer-rewrite/-/parcel-namer-rewrite-2.0.0-rc.2.tgz#d6d0738ee5f8cc6a675ce99ca8bf1f62f948250e"
-  integrity sha512-yGLCrZOoR26zPidaXEv+q+mqy5sMKPCA5nPTxqBKdeoF8CntRUwPgK261Gc9a0TzfJWsfeiGgiogL7HTZUa2Gg==
-  dependencies:
-    "@parcel/logger" "^2.0.0-rc.0"
-    "@parcel/namer-default" "^2.0.0-rc.0"
-    "@parcel/package-manager" "^2.0.0-rc.0"
-    "@parcel/plugin" "^2.0.0-rc.0"
-    "@parcel/types" "^2.0.0-rc.0"
-    assert "^2.0.0"
 
 parcel@2.3.2:
   version "2.3.2"
@@ -15301,7 +15248,7 @@ util@^0.10.3, util@~0.10.1:
   dependencies:
     inherits "2.0.3"
 
-util@^0.12.0, util@~0.12.0:
+util@~0.12.0:
   version "0.12.4"
   resolved "https://registry.yarnpkg.com/util/-/util-0.12.4.tgz#66121a31420df8f01ca0c464be15dfa1d1850253"
   integrity sha512-bxZ9qtSlGUWSOy9Qa9Xgk11kSslpuZwaxCg4sNIDj6FLucDab2JxnHwyNTCpHMtK1MjoQiWQ6DiUMZYbSrO+Sw==
