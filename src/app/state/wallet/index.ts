@@ -1,9 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
 import { LedgerAccount } from '../ledger/types'
 
-import { rootWalletSaga } from './saga'
 import { AddWalletPayload, BalanceUpdatePayload, Wallet, WalletBalance, WalletState } from './types'
 
 export const initialState: WalletState = {
@@ -47,8 +45,4 @@ const slice = createSlice({
 
 export const { actions: walletActions } = slice
 
-export const useWalletSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  useInjectSaga({ key: slice.name, saga: rootWalletSaga })
-  return { actions: slice.actions }
-}
+export default slice.reducer

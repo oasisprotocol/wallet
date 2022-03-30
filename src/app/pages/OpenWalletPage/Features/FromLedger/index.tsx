@@ -7,10 +7,10 @@ import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { LedgerStepFormatter } from 'app/components/LedgerStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { Account } from 'app/components/Toolbar/Features/AccountSelector'
-import { ledgerActions, useLedgerSlice } from 'app/state/ledger'
+import { ledgerActions } from 'app/state/ledger'
 import { selectLedger, selectSelectedLedgerAccounts } from 'app/state/ledger/selectors'
 import { LedgerAccount, LedgerStep } from 'app/state/ledger/types'
-import { useWalletSlice } from 'app/state/wallet'
+import { walletActions } from 'app/state/wallet'
 import { WalletType } from 'app/state/wallet/types'
 import { Box, Button, Heading, Spinner, Text } from 'grommet'
 import * as React from 'react'
@@ -98,8 +98,6 @@ interface FromLedgerModalProps {
 }
 export function FromLedgerModal(props: FromLedgerModalProps) {
   const { t } = useTranslation()
-  const ledgerActions = useLedgerSlice().actions
-  const walletActions = useWalletSlice().actions
   const ledger = useSelector(selectLedger)
   const error = ledger.error
   const selectedAccounts = useSelector(selectSelectedLedgerAccounts)

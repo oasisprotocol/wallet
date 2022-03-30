@@ -1,7 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { hdkey } from '@oasisprotocol/client'
-import { useInjectReducer } from 'utils/redux-injectors'
 import { validateMnemonic } from 'bip39'
 import { CreateWalletState } from './types'
 
@@ -38,19 +37,4 @@ const slice = createSlice({
 
 export const { actions: createWalletActions } = slice
 
-export const useCreateWalletSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  return { actions: slice.actions }
-}
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useCreateWalletSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */
+export default slice.reducer
