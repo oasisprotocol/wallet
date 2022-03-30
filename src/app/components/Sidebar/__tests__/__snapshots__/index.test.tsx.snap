@@ -109,7 +109,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url(/logo192.png) no-repeat center center;
+  background: url(IMAGE_MOCK) no-repeat center center;
   background-size: cover;
   min-width: 0;
   min-height: 0;

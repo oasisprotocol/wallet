@@ -1,4 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Rubik:wght@300&display=swap");
+/* rubik-300 - latin */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./../fonts/rubik-v19-latin-300.woff2') format('woff2'),
+    url('./../fonts/rubik-v19-latin-300.woff') format('woff');
+}
+
+/* roboto-mono-300 - latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./../fonts/roboto-mono-v13-latin-300.woff2') format('woff2'),
+    url('./../fonts/roboto-mono-v13-latin-300.woff') format('woff');
+}
 
 a {
   color: inherit; /* blue colors for links too */
