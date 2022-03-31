@@ -1,4 +1,10 @@
-import { parseValidatorsList, parseAccount, parseTransactionsList } from '../oasisscan'
+import {
+  parseValidatorsList,
+  parseAccount,
+  parseTransactionsList,
+  parseDelegations,
+  parseDebonding,
+} from '../oasisscan'
 
 describe('oasisscan', () => {
   test('parse account', () => {
@@ -339,5 +345,33 @@ describe('oasisscan', () => {
         },
       ]),
     ).toMatchSnapshot()
+  })
+
+  test('parse delegations', () => {
+    expect({
+      // https://api.oasisscan.com/mainnet/chain/account/delegations?address=oasis1..&size=500
+      delegations: parseDelegations([
+        {
+          validator_address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+          validator_name: 'BinanceStaking',
+          icon: null,
+          entity_address: null,
+          shares: '0.000080078',
+          amount: '0.000089387',
+          active: true,
+        },
+      ]),
+      // https://api.oasisscan.com/mainnet/chain/account/debonding?address=oasis1..&size=500
+      debonding: parseDebonding([
+        {
+          validator_address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+          validator_name: 'BinanceStaking',
+          icon: null,
+          shares: '363.94',
+          debond_end: 12626,
+          epoch_left: 283,
+        },
+      ]),
+    }).toMatchSnapshot()
   })
 })

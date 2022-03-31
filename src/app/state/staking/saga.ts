@@ -1,16 +1,11 @@
 // import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 // import { stakingActions as actions } from '.';
-import { address as oasisAddress, consensus, quantity } from '@oasisprotocol/client'
-import {
-  SchedulerValidator,
-  StakingDebondingDelegationInfo,
-  StakingDelegationInfo,
-  StakingSharePool,
-} from '@oasisprotocol/client/dist/types'
+import { consensus, quantity } from '@oasisprotocol/client'
+import { SchedulerValidator } from '@oasisprotocol/client/dist/types'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
-import { all, call, put, select, takeEvery } from 'typed-redux-saga'
+import { call, put, select, takeEvery } from 'typed-redux-saga'
 import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
@@ -19,70 +14,34 @@ import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
 
-function getSharePrice(pool: StakingSharePool) {
-  const balance = Number(quantity.toBigInt(pool.balance!)) / 10 ** 9
-  const share = Number(quantity.toBigInt(pool.total_shares!)) / 10 ** 9
-  return balance / share
-}
-
 function* getValidatorByAddress(address: string) {
   const validators = yield* select(selectValidators)
   return validators.find(v => v.address === address)
 }
 
-function* makeDelegation(
-  bytesAddress: Uint8Array,
-  delegation: StakingDelegationInfo | StakingDebondingDelegationInfo,
-) {
-  const address = oasisAddress.toBech32('oasis', bytesAddress)
-  const sharePrice = getSharePrice(delegation.pool)
-  const shares = quantity.toBigInt(delegation.shares)
-
-  const amount = BigInt(Math.round(Number(shares) * sharePrice))
-
-  return {
-    validator: yield* getValidatorByAddress(address),
-    validatorAddress: address,
-    amount: amount.toString(),
-    shares: quantity.toBigInt(delegation.shares).toString(),
-  } as Delegation
-}
-
-function* loadDelegations(publicKey: Uint8Array) {
+function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
-  const response = yield* call([nic, nic.stakingDelegationInfosFor], { owner: publicKey, height: 0 })
+  const { getDelegations } = yield* call(getExplorerAPIs)
+
+  const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
+
   const delegations: Delegation[] = []
-
-  for (let [validatorPublicKey, rawDelegation] of response) {
-    const delegation = yield* call(makeDelegation, validatorPublicKey, rawDelegation)
-    delegations.push(delegation)
+  for (let delegation of delegationsResponse.delegations) {
+    delegations.push({
+      ...delegation,
+      validator: yield* getValidatorByAddress(delegation.validatorAddress),
+    })
   }
-
-  return delegations
-}
-
-function* loadDebondingDelegations(publicKey: Uint8Array) {
-  const nic = yield* call(getOasisNic)
-  const response = yield* call([nic, nic.stakingDebondingDelegationInfosFor], {
-    owner: publicKey,
-    height: 0,
-  })
 
   const debondingDelegations: DebondingDelegation[] = []
-
-  // For each escrow account...
-  for (let [publicKey, rawDebondingDelegations] of response) {
-    // And then for each debonding delegation for this account
-    for (let rawDebondingDelegation of rawDebondingDelegations) {
-      const delegation = yield* call(makeDelegation, publicKey, rawDebondingDelegation)
-      debondingDelegations.push({
-        ...delegation,
-        epoch: Number(rawDebondingDelegation.debond_end),
-      })
-    }
+  for (let debondingDelegation of delegationsResponse.debonding) {
+    debondingDelegations.push({
+      ...debondingDelegation,
+      validator: yield* getValidatorByAddress(debondingDelegation.validatorAddress),
+    })
   }
 
-  return debondingDelegations
+  return { delegations, debondingDelegations }
 }
 
 export function* refreshValidators() {
@@ -231,14 +190,9 @@ function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
 
 export function* fetchAccount({ payload: address }: PayloadAction<string>) {
   yield* put(stakingActions.setLoading(true))
-  const publicKey = yield* call(addressToPublicKey, address)
   yield* call(refreshValidators)
 
-  const { delegations, debondingDelegations } = yield* all({
-    delegations: call(loadDelegations, publicKey),
-    debondingDelegations: call(loadDebondingDelegations, publicKey),
-  })
-
+  const { delegations, debondingDelegations } = yield* call(loadDelegations, address)
   yield* put(stakingActions.updateDelegations(delegations))
   yield* put(stakingActions.updateDebondingDelegations(debondingDelegations))
 

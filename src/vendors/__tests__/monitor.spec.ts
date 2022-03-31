@@ -1,4 +1,10 @@
-import { parseValidatorsList, parseAccount, parseTransactionsList } from '../monitor'
+import {
+  parseValidatorsList,
+  parseAccount,
+  parseTransactionsList,
+  parseDelegations,
+  parseDebonding,
+} from '../monitor'
 
 describe('monitor', () => {
   test('parse account', () => {
@@ -342,5 +348,44 @@ describe('monitor', () => {
         },
       ]),
     ).toMatchSnapshot()
+  })
+
+  test('parse delegations', () => {
+    const delegations = new Map([
+      [
+        new Uint8Array([
+          0, 51, 102, 40, 155, 64, 182, 211, 201, 80, 87, 60, 135, 222, 248, 246, 125, 236, 234, 149, 179,
+        ]),
+        {
+          pool: {
+            balance: new Uint8Array([4, 131, 71, 26, 123, 91, 53, 58]),
+            total_shares: new Uint8Array([4, 10, 245, 241, 35, 248, 110, 211]),
+          },
+          shares: new Uint8Array([1, 56, 206]),
+        },
+      ],
+    ])
+    const debondingDelegations = new Map([
+      [
+        new Uint8Array([
+          0, 51, 102, 40, 155, 64, 182, 211, 201, 80, 87, 60, 135, 222, 248, 246, 125, 236, 234, 149, 179,
+        ]),
+        [
+          {
+            pool: {
+              balance: new Uint8Array([17, 229, 254, 62, 101, 60, 93]),
+              total_shares: new Uint8Array([17, 229, 254, 62, 101, 60, 93]),
+            },
+            shares: new Uint8Array([84, 188, 145, 201, 176]),
+            debond_end: 12626,
+          },
+        ],
+      ],
+    ])
+
+    expect({
+      delegations: parseDelegations(delegations),
+      debonding: parseDebonding(debondingDelegations),
+    }).toMatchSnapshot()
   })
 })
