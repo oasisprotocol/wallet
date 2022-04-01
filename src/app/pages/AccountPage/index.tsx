@@ -94,7 +94,7 @@ export function AccountPage(props: Props) {
     return () => {
       dispatch(accountActions.clearAccount())
     }
-  }, [dispatch, accountActions, stakingActions, address, selectedNetwork])
+  }, [dispatch, address, selectedNetwork])
 
   // Reload wallet balances if network changes
   useEffect(() => {

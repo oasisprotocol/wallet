@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react'
-import { ConnectedRouter } from 'connected-react-router'
-import { createBrowserHistory } from 'history'
+import { MemoryRouter } from 'react-router-dom'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
@@ -20,12 +19,11 @@ jest.mock('react-i18next', () => ({
 }))
 
 const renderComponent = (store: any) => {
-  const history = createBrowserHistory()
   return render(
     <Provider store={store}>
-      <ConnectedRouter history={history}>
+      <MemoryRouter>
         <Navigation />
-      </ConnectedRouter>
+      </MemoryRouter>
     </Provider>,
   )
 }

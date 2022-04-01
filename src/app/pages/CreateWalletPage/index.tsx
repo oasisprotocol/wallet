@@ -51,7 +51,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
     return () => {
       dispatch(createWalletActions.clear())
     }
-  }, [createWalletActions, dispatch])
+  }, [dispatch])
 
   //@TODO Remove when firefox supports backdropFilter (used inside MnemonicValidation)
   // https://github.com/oasisprotocol/oasis-wallet-web/issues/287

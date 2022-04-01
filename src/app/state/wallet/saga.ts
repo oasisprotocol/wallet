@@ -1,15 +1,14 @@
 import { hdkey } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
-import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
 
-import { walletActions } from '.'
+import { walletActions, initialState } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
-import { selectActiveWallet, selectAddress, selectWallets } from './selectors'
+import { selectAddress, selectWallets } from './selectors'
 import { AddWalletPayload, Wallet, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
@@ -128,6 +127,7 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
  * If it has "selectImmediately", we select it immediately
  */
 export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
+  yield* put(walletActions.walletSelected(initialState.selectedWallet))
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
     yield* put(walletActions.walletOpened(newWallet))
@@ -146,8 +146,6 @@ export function* closeWallet() {
 
 export function* selectWallet({ payload: index }: PayloadAction<number>) {
   yield* put(walletActions.walletSelected(index))
-  const newWallet = yield* select(selectActiveWallet)
-  yield* put(push(`/account/${newWallet?.address}`))
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {

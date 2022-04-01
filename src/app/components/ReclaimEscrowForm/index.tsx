@@ -36,7 +36,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
     return () => {
       dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch, transactionActions])
+  }, [dispatch])
 
   const amountChanged = (amount: string) => {
     const shares = Number(amount) / Number(rate)

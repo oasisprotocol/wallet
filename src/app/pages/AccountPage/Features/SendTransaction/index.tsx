@@ -51,7 +51,7 @@ export function SendTransaction() {
     return function cleanup() {
       dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch, transactionActions])
+  }, [dispatch])
 
   return (
     <Box border={{ color: 'background-front-border', size: '1px' }} round="5px" background="background-front">

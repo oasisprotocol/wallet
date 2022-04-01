@@ -1,4 +1,3 @@
-import * as oasis from '@oasisprotocol/client'
 import { screen, waitFor } from '@testing-library/dom'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -7,8 +6,6 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
 import { NetworkSelector } from '..'
-
-jest.mock('@oasisprotocol/client')
 
 const renderComponent = (store: any) =>
   render(
@@ -19,14 +16,9 @@ const renderComponent = (store: any) =>
 
 describe('<NetworkSelector  />', () => {
   let store: ReturnType<typeof configureAppStore>
-  let NodeInternal = oasis.client.NodeInternal as jest.Mock<oasis.client.NodeInternal>
 
   beforeEach(() => {
     store = configureAppStore()
-    ;(oasis.quantity.toBigInt as jest.Mock).mockReturnValue(0n)
-    NodeInternal.prototype.beaconGetEpoch.mockResolvedValue(1)
-    NodeInternal.prototype.stakingTokenSymbol.mockResolvedValue('')
-    NodeInternal.prototype.stakingConsensusParameters.mockResolvedValue(new Uint8Array([0]))
   })
 
   it('should match snapshot', () => {
@@ -35,12 +27,17 @@ describe('<NetworkSelector  />', () => {
   })
 
   it('should allow switching network', async () => {
+    const spy = jest.spyOn(store, 'dispatch')
     const component = renderComponent(store)
     expect(component.queryByTestId('active-network')).toContainHTML('Local')
     userEvent.click(screen.getByTestId('network-selector'))
 
     await waitFor(() => expect(screen.getByText('Testnet')))
     screen.getByText('Testnet').click()
-    await waitFor(() => expect(component.queryByTestId('active-network')).toContainHTML('Testnet'))
+
+    expect(spy).toHaveBeenCalledWith({
+      payload: 'testnet',
+      type: 'network/selectNetwork',
+    })
   })
 })
