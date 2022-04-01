@@ -50,6 +50,18 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
 <div
   class="c0"
   style="min-height: 100vh;"

@@ -3,10 +3,6 @@
  */
 
 import { combineReducers } from '@reduxjs/toolkit'
-// import { InjectedReducersType } from 'utils/types/injector-typings'
-import { createHashHistory, createBrowserHistory } from 'history'
-import { connectRouter } from 'connected-react-router'
-
 import createWalletReducer from 'app/pages/CreateWalletPage/slice'
 import openWalletReducer from 'app/pages/OpenWalletPage/slice'
 import accountReducer from 'app/state/account'
@@ -17,8 +13,6 @@ import stakingReducer from 'app/state/staking'
 import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
 import themeReducer from 'styles/theme/slice'
-
-export const history = process.env.EXTENSION ? createHashHistory() : createBrowserHistory()
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
@@ -37,7 +31,6 @@ export function createReducer(injectedReducers = {}) {
     theme: themeReducer,
     transaction: transactionReducer,
     wallet: walletReducer,
-    router: connectRouter(history),
   })
 
   return rootReducer

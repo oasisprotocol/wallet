@@ -112,7 +112,7 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
     return () => {
       dispatch(ledgerActions.clear())
     }
-  }, [dispatch, ledgerActions])
+  }, [dispatch])
 
   const cancelDisabled = ledger.step === LedgerStep.Done || error ? false : true
   const confirmDisabled = ledger.step !== LedgerStep.Done || selectedAccounts.length === 0

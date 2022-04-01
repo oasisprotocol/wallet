@@ -9,10 +9,19 @@ describe('reducer', () => {
     expect(state.test).toBe('dummyResult')
   })
 
-  it('should only contain the router state initially', () => {
+  it('should define app reducers', () => {
     const reducer = createReducer() as Reducer<any, any>
     const state = { a: 1 }
     const newState = reducer(state, '')
-    expect(newState).toHaveProperty('router')
+    expect(newState).toHaveProperty('account')
+    expect(newState).toHaveProperty('createWallet')
+    expect(newState).toHaveProperty('fatalError')
+    expect(newState).toHaveProperty('ledger')
+    expect(newState).toHaveProperty('network')
+    expect(newState).toHaveProperty('openWallet')
+    expect(newState).toHaveProperty('staking')
+    expect(newState).toHaveProperty('theme')
+    expect(newState).toHaveProperty('transaction')
+    expect(newState).toHaveProperty('wallet')
   })
 })

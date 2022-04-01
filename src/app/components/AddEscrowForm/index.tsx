@@ -58,7 +58,7 @@ export const AddEscrowForm = memo((props: Props) => {
     return () => {
       dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch, transactionActions])
+  }, [dispatch])
 
   return (
     <Form onSubmit={submit}>

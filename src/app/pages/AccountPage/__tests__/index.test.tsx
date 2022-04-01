@@ -1,20 +1,20 @@
 import { render } from '@testing-library/react'
 import * as React from 'react'
 import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { createMemoryHistory } from 'history'
 import { configureAppStore } from 'store/configureStore'
 
 import { AccountPage } from '..'
-import { ConnectedRouter } from 'connected-react-router'
 
 const renderPage = (store: any, history: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ConnectedRouter history={history}>
+        <MemoryRouter>
           <AccountPage />
-        </ConnectedRouter>
+        </MemoryRouter>
       </ThemeProvider>
     </Provider>,
   )

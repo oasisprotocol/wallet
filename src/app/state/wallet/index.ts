@@ -23,7 +23,7 @@ const slice = createSlice({
     updateBalance(state, action: PayloadAction<BalanceUpdatePayload>) {
       Object.assign(state.wallets[action.payload.walletId].balance, action.payload.balance)
     },
-    walletSelected(state, action: PayloadAction<number>) {
+    walletSelected(state, action: PayloadAction<number | undefined>) {
       state.selectedWallet = action.payload
     },
     addWallet(state, action: PayloadAction<AddWalletPayload>) {},

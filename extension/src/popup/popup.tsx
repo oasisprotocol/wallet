@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HelmetProvider } from 'react-helmet-async'
 import { Store } from 'webext-redux'
+import { HashRouter } from 'react-router-dom'
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { App } from 'app'
@@ -19,9 +20,11 @@ store.ready().then(() => {
     <Provider store={store}>
       <ThemeProvider>
         <HelmetProvider>
-          <React.StrictMode>
-            <App />
-          </React.StrictMode>
+          <HashRouter>
+            <React.StrictMode>
+              <App />
+            </React.StrictMode>
+          </HashRouter>
         </HelmetProvider>
       </ThemeProvider>
     </Provider>,

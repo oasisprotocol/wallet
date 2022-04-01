@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css'
+import { BrowserRouter } from 'react-router-dom'
 
 import { App } from 'app'
 
@@ -38,9 +39,11 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider>
       <HelmetProvider>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
+        <BrowserRouter>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </BrowserRouter>
       </HelmetProvider>
     </ThemeProvider>
   </Provider>,
