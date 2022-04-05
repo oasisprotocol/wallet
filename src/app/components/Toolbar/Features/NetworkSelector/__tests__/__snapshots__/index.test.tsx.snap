@@ -157,7 +157,7 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
       class="c4"
       data-testid="active-network"
     >
-      Local
+      toolbar.networks.local
     </span>
   </div>
 </button>

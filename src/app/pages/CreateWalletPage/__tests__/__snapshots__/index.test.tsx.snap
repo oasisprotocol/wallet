@@ -1457,7 +1457,11 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
         <span
           class="c17"
         >
-          createWallet.instruction
+          Save your keyphrase 
+          <strong>
+            in the right order
+          </strong>
+           in a secure location, you will need it to open your wallet.
         </span>
       </div>
       <div

@@ -8,6 +8,8 @@ import { configureAppStore } from 'store/configureStore'
 
 import { CommissionBounds } from '..'
 
+jest.unmock('react-i18next')
+
 const renderComponent = (store: any, bounds?: ICommissionBounds[]) =>
   render(
     <Provider store={store}>

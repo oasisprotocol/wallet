@@ -6,18 +6,6 @@ import { configureAppStore } from 'store/configureStore'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { FromMnemonic } from '..'
-import type { UseTranslationResponse } from 'react-i18next'
-
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: str => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    } as UseTranslationResponse<'translation'>
-  },
-}))
 
 const renderPage = (store: any) =>
   render(

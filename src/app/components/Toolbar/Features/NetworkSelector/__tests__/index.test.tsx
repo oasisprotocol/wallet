@@ -36,11 +36,13 @@ describe('<NetworkSelector  />', () => {
 
   it('should allow switching network', async () => {
     const component = renderComponent(store)
-    expect(component.queryByTestId('active-network')).toContainHTML('Local')
+    expect(component.queryByTestId('active-network')).toContainHTML('toolbar.networks.local')
     userEvent.click(screen.getByTestId('network-selector'))
 
-    await waitFor(() => expect(screen.getByText('Testnet')))
-    screen.getByText('Testnet').click()
-    await waitFor(() => expect(component.queryByTestId('active-network')).toContainHTML('Testnet'))
+    await waitFor(() => expect(screen.getByText('toolbar.networks.testnet')))
+    screen.getByText('toolbar.networks.testnet').click()
+    await waitFor(() =>
+      expect(component.queryByTestId('active-network')).toContainHTML('toolbar.networks.testnet'),
+    )
   })
 })

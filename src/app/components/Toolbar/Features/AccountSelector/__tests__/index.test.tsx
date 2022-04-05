@@ -6,7 +6,6 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { AccountSelector } from '..'
-import type { UseTranslationResponse } from 'react-i18next'
 
 const renderComponent = (store: any) =>
   render(
@@ -16,17 +15,6 @@ const renderComponent = (store: any) =>
       </ThemeProvider>
     </Provider>,
   )
-
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: str => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    } as UseTranslationResponse<'translation'>
-  },
-}))
 
 describe('<AccountSelector  />', () => {
   let store: ReturnType<typeof configureAppStore>
