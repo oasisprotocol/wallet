@@ -376,7 +376,7 @@ Object {
                   class="c6"
                   size="1"
                 >
-                  Select the wallets to open
+                  openWallet.ledger.selectWallets
                 </h1>
                 <div
                   class="c7"
@@ -387,7 +387,7 @@ Object {
                     style="border-radius: 4px;"
                     type="button"
                   >
-                    Cancel
+                    openWallet.ledger.cancel
                   </button>
                   <div
                     class="c9"
@@ -399,7 +399,7 @@ Object {
                     style="border-radius: 4px;"
                     type="button"
                   >
-                    Open
+                    openWallet.ledger.openWallets
                   </button>
                 </div>
               </div>

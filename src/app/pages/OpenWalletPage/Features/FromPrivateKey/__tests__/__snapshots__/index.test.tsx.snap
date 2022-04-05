@@ -443,7 +443,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
       <h1
         class="c2"
       >
-        Enter your private key
+        openWallet.privateKey.header
       </h1>
       <p
         class="c3"
@@ -451,7 +451,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
         <label
           for="privatekey"
         >
-          Enter your private key in Base64 format.
+          openWallet.privateKey.instruction
         </label>
       </p>
       <div
@@ -471,7 +471,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
                 class="c8"
                 data-testid="privatekey"
                 id="privatekey"
-                placeholder="Enter your private key here"
+                placeholder="openWallet.privateKey.enterPrivateKeyHere"
                 type="password"
                 value=""
               />
@@ -507,7 +507,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
             style="border-radius: 4px;"
             type="submit"
           >
-            Open my wallet
+            openWallet.mnemonic.open
           </button>
         </div>
       </div>

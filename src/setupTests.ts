@@ -18,3 +18,5 @@ window.TextEncoder = global.TextEncoder
 
 global.fetch = require('portable-fetch')
 window.fetch = require('portable-fetch')
+
+global.window.scrollTo = () => {}

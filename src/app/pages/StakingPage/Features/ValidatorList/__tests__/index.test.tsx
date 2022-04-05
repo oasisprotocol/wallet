@@ -5,7 +5,6 @@ import { Validator } from 'app/state/staking/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
-import type { UseTranslationResponse } from 'react-i18next'
 
 import { ValidatorList } from '..'
 
@@ -44,17 +43,6 @@ const unknownValidator: Validator = {
   name: 'test-validator3',
   media: activeValidator.media,
 }
-
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: str => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    } as UseTranslationResponse<'translation'>
-  },
-}))
 
 const renderComponent = (store: any) =>
   render(

@@ -7,18 +7,6 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
 import { AddEscrowForm } from '..'
-import type { UseTranslationResponse } from 'react-i18next'
-
-jest.mock('react-i18next', () => ({
-  useTranslation: () => {
-    return {
-      t: str => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    } as UseTranslationResponse<'translation'>
-  },
-}))
 
 const renderComponent = (store: any, address: string, validatorStatus: Validator['status']) =>
   render(

@@ -9,18 +9,9 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 import { FromLedgerModal } from '..'
-import type { UseTranslationResponse } from 'react-i18next'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
-  useTranslation: () => {
-    return {
-      t: str => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    } as UseTranslationResponse<'translation'>
-  },
   useDispatch: jest.fn(),
 }))
 
