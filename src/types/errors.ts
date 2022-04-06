@@ -22,6 +22,7 @@ export enum WalletErrors {
   LedgerNoDeviceSelected = 'no_device_selected',
   LedgerTransactionRejected = 'transaction_rejected',
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
+  LedgerNoDerivationPathTypeProvided = 'no_derivation_path_type_provided',
 }
 
 export interface ErrorPayload {

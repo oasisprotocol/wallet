@@ -42,7 +42,10 @@
     "ledger": {
       "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
       "cancel": "Annuler",
-      "openWallets": "Ouvrir"
+      "openWallets": "Ouvrir",
+      "derivationPathInfo": "<0>Learn more</0>",
+      "header": "Open from Ledger device",
+      "derivationPath": "Derivation path"
     },
     "bitpie": {
       "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
@@ -66,7 +69,8 @@
         "debonding": "Debonding",
         "delegations": "Délégué (stake)"
       },
-      "noTransactionFound": "Aucune transaction trouvée"
+      "noTransactionFound": "Aucune transaction trouvée",
+      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
     },
     "transaction": {
       "transfer": {
@@ -89,11 +93,19 @@
       "recipient": "Destinataire",
       "enterAddress": "Entrez une adresse",
       "success": "Transaction effectuée. La transaction peut mettre une minute avant d'apparaître sur votre compte.",
-      "send": "Envoyer"
+      "send": "Envoyer",
+      "confirmSendingToValidator": {
+        "title": "",
+        "description": ""
+      }
     },
     "loading": "Chargement du compte",
     "addEscrow": {
-      "delegate": "Déléguer"
+      "delegate": "Déléguer",
+      "confirmDelegatingToInactive": {
+        "title": "Are you sure you want to continue?",
+        "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards."
+      }
     },
     "subnavigation": {
       "transactions": "Transactions",
@@ -123,7 +135,9 @@
     "delegator": "Délégateur",
     "validator": "Validateur",
     "cancel": "Cancel",
-    "validators": "Validateurs"
+    "validators": "Validateurs",
+    "confirm": "",
+    "unavailable": "Unavailable"
   },
   "errors": {
     "unknown": "Erreur inconnue : {{message}}",
@@ -139,7 +153,10 @@
     "ledgerTransactionRejected": "Transaction rejetée sur le Ledger.",
     "ledgerNoDeviceSelected": "Pas de Ledger sélectionné. Si vous voulez réessayer, fermez cette fenêtre et tentez à nouveau.",
     "ledgerCannotOpenOasisApp": "Impossible d'accéder à l'application Oasis sur le Ledger. Assurez vous qu'il est dévérouillé et que l'application Oasis est ouverte.",
-    "unknownLedgerError": "Erreur Ledger inconnue : {{message}}"
+    "unknownLedgerError": "Erreur Ledger inconnue : {{message}}",
+    "unknownGrpc": "",
+    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.",
+    "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed."
   },
   "toolbar": {
     "search": {
@@ -166,6 +183,17 @@
       "loadingAccounts": "Chargement des adresses",
       "loadingBalances": "Chargement du solde des adresses",
       "done": "Fin"
+    },
+    "instructionSteps": {
+      "header": "Steps:",
+      "connectLedger": "Connect your Ledger device to the computer",
+      "closeLedgerLive": "Close Ledger Live app on the computer",
+      "openOasisApp": "Open the Oasis App on your Ledger device",
+      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
+    },
+    "derivationPathType": {
+      "legacy": "Legacy (backward compatible)",
+      "adr8": "ADR 0008 (recommended for new wallets)"
     }
   },
   "transaction": {
@@ -215,7 +243,8 @@
     },
     "boundsNotSet": "Pas de bornes définies (0% - 0%)",
     "totalEscrow": "Escrow total",
-    "unknownValidator": "Unknown validator"
+    "unknownValidator": "Unknown validator",
+    "statusUnknown": "Unknown"
   },
   "delegations": {
     "delegatedAmount": "Montant délégué",

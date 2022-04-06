@@ -3,19 +3,20 @@ import { expectSaga } from 'redux-saga-test-plan'
 import { ledgerActions } from '.'
 import { ledgerSaga, sign } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
-import { Ledger, LedgerSigner } from 'app/lib/ledger'
+import { DerivationPathTypeAdr8, DerivationPathTypeLegacy, Ledger, LedgerSigner } from 'app/lib/ledger'
 import { getBalance } from '../wallet/saga'
 import { addressToPublicKey } from 'app/lib/helpers'
 import { LedgerStep } from './types'
 import { WalletErrors } from 'types/errors'
 import { OasisTransaction } from 'app/lib/transaction'
+import { selectDerivationPathType } from './selectors'
 
 describe('Ledger Sagas', () => {
   describe('enumerateAccounts', () => {
-    it('should list accounts', async () => {
+    it('should list ADR 0008 accounts', async () => {
       const validAccount = {
         publicKey: await addressToPublicKey('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'),
-        path: [44, 474, 0, 0, 0],
+        path: Ledger.mustGetPath(DerivationPathTypeAdr8, 0),
       }
 
       return expectSaga(ledgerSaga)
@@ -24,8 +25,29 @@ describe('Ledger Sagas', () => {
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
           [matchers.call.fn(Ledger.enumerateAccounts), [validAccount]],
           [matchers.call.fn(getBalance), {}],
+          [matchers.select.selector(selectDerivationPathType), DerivationPathTypeAdr8],
         ])
-        .dispatch(ledgerActions.enumerateAccounts())
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeAdr8))
+        .put(ledgerActions.setStep(LedgerStep.Done))
+        .put.actionType(ledgerActions.accountsListed.type)
+        .run(50)
+    })
+
+    it('should list legacy accounts', async () => {
+      const validAccount = {
+        publicKey: await addressToPublicKey('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'),
+        path: Ledger.mustGetPath(DerivationPathTypeLegacy, 0),
+      }
+
+      return expectSaga(ledgerSaga)
+        .provide([
+          [matchers.call.fn(TransportWebUSB.isSupported), true],
+          [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
+          [matchers.call.fn(Ledger.enumerateAccounts), [validAccount]],
+          [matchers.call.fn(getBalance), {}],
+          [matchers.select.selector(selectDerivationPathType), DerivationPathTypeAdr8],
+        ])
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeLegacy))
         .put(ledgerActions.setStep(LedgerStep.Done))
         .put.actionType(ledgerActions.accountsListed.type)
         .run(50)
@@ -37,7 +59,7 @@ describe('Ledger Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), false],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
         ])
-        .dispatch(ledgerActions.enumerateAccounts())
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeAdr8))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
         .run(50)
     })
@@ -48,7 +70,7 @@ describe('Ledger Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
-        .dispatch(ledgerActions.enumerateAccounts())
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeAdr8))
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
         .run(50)
     })
@@ -59,7 +81,7 @@ describe('Ledger Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
         ])
-        .dispatch(ledgerActions.enumerateAccounts())
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeAdr8))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
         .run(50)
     })
@@ -70,8 +92,9 @@ describe('Ledger Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
           [matchers.call.fn(Ledger.enumerateAccounts), Promise.reject(new Error('Dummy error'))],
+          [matchers.select.selector(selectDerivationPathType), DerivationPathTypeAdr8],
         ])
-        .dispatch(ledgerActions.enumerateAccounts())
+        .dispatch(ledgerActions.enumerateAccounts(DerivationPathTypeAdr8))
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })
         .run(50)
     })

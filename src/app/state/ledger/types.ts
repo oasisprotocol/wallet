@@ -19,6 +19,7 @@ export enum LedgerStep {
 
 export interface LedgerState {
   accounts: LedgerAccount[]
+  derivationPathType?: string
   step?: LedgerStep
   error?: ErrorPayload
 }
