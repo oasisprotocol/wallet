@@ -261,5 +261,6 @@
     },
     "terms": "<0>Terms and Conditions</0>",
     "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
-  }
+  },
+  "downtimeNotification": "NOTICE: Oasis Network will be down between {{downtimeStartDate}} - {{downtimeEndDate}} for the <0>Damask Upgrade</0>."
 }
