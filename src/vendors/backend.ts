@@ -6,5 +6,10 @@ export enum BackendAPIs {
   OasisScan = 'oasisscan',
 }
 
+const backendNameToApi = {
+  [BackendAPIs.OasisMonitor]: getMonitorAPIs,
+  [BackendAPIs.OasisScan]: getOasisscanAPIs,
+}
+
 export const backend = () => process.env.REACT_APP_BACKEND || BackendAPIs.OasisMonitor
-export const backendApi = backend() === BackendAPIs.OasisScan ? getOasisscanAPIs : getMonitorAPIs
+export const backendApi = backendNameToApi[backend()]
