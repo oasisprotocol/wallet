@@ -13,7 +13,7 @@ export interface LedgerAccount {
 export enum LedgerStep {
   OpeningUSB = 'opening_usb',
   LoadingAccounts = 'loading_accounts',
-  LoaddingBalances = 'loading_balances',
+  LoadingBalances = 'loading_balances',
   Done = 'done',
 }
 
