@@ -23,6 +23,11 @@
     - [Internationalization](#internationalization)
   - [License](#license)
 
+## Environments
+
+- Production: https://wallet.oasisprotocol.org
+- Staging: https://wallet.stg.oasisprotocol.org
+
 ## Features
 
 - Opening wallets through private key or mnemonic
@@ -31,14 +36,7 @@
 - Submitting transactions
 - [Ledger](http://ledger.com/) support
 - Multiple accounts open in parallel
-
-### Additional features coming soon
-
 - Staking (Adding / reclaiming escrow)
-- Staking rewards and history
-- Debonding status
-- Various account & network stats
-- OETH Support
 
 ## Getting started
 
@@ -75,17 +73,21 @@ abuse gown claw final toddler wedding sister parade useful typical spatial skate
 oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 ```
 
-
 ## Architecture
 
 Oasis-wallet needs multiple components to run, all provided in the [docker-compose file](docker-compose.yml) for local development.
 
-<img src="docs/images/architecture.jpg" width="600">
+<img src="docs/images/architecture.svg">
 
 - [envoy-proxy](https://www.envoyproxy.io/), used as a gRPC gateway for live access to the oasis-node, to fetch live balance, information about the current state of the network, and to submit transasctions.
-- [oasis-explorer](https://github.com/everstake/oasis-explorer), a block indexer to store historical data about transactions, accounts, validators, rewards, blocks and mores. It exposes an [OpenAPI](https://github.com/everstake/oasis-explorer/blob/master/swagger/swagger.yml). `oasis-explorer` requires two databases :
+- [oasis-monitor](https://github.com/everstake/oasis-explorer), a block indexer to store historical data about transactions, accounts, validators, rewards, blocks and more. It exposes an [OpenAPI](https://github.com/everstake/oasis-explorer/blob/master/swagger/swagger.yml). Oasis Monitor dashboard is available at [https://oasismonitor.com](https://oasismonitor.com). `oasis-monitor` requires two databases:
+
   - A PostgreSQL instance to keep track of it's import batches
   - A [Clickhouse](https://github.com/ClickHouse/ClickHouse) server to store the indexed data
+
+- [oasis-scan](https://github.com/bitcat365/oasisscan-backend), oasis blockchain explorer that enables view of historical data about transactions, accounts, validators, paratimes, blocks, proposals and more. It exposes an [API](https://github.com/bitcat365/oasisscan-backend#oasisscan-api). Oasis scan dashboard is available at [https://www.oasisscan.com](https://www.oasisscan.com).
+
+API that web wallet is using is determined during a build time.
 
 ## Contributing & development
 
@@ -130,17 +132,16 @@ yarn lint:fix
 
 A quick summary:
 
-* Separate subject from body with a blank line.
-* Limit the subject line to 72 characters.
-* Capitalize the subject line.
-* Do not end the subject line with a period.
-* Use the present tense ("Add feature" not "Added feature").
-* Use the imperative mood ("Move component to..." not "Moves component to...").
-* Wrap the body at 80 characters.
-* Use the body to explain _what_ and _why_ vs. _how_.
+- Separate subject from body with a blank line.
+- Limit the subject line to 72 characters.
+- Capitalize the subject line.
+- Do not end the subject line with a period.
+- Use the present tense ("Add feature" not "Added feature").
+- Use the imperative mood ("Move component to..." not "Moves component to...").
+- Wrap the body at 80 characters.
+- Use the body to explain _what_ and _why_ vs. _how_.
 
-A detailed post on Git commit messages: [How To Write a Git Commit Message](
-https://chris.beams.io/posts/git-commit/).
+A detailed post on Git commit messages: [How To Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
 
 ### Internationalization
 
@@ -153,4 +154,5 @@ yarn run extract-messages
 To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18next-scanner.config.js](internals/extractMessages/i18next-scanner.config.js), then run the command above once more.
 
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_large)
