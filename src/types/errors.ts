@@ -28,3 +28,19 @@ export interface ErrorPayload {
   code: WalletErrors
   message: string
 }
+
+// Adds strict type-check that a type was exhausted
+// https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-checking
+// https://stackoverflow.com/questions/41102060/typescript-extending-error-class
+export class ExhaustedTypeError extends Error {
+  constructor(
+    messagePrefix: string,
+    exhaustedType: 'Expected type to be exhausted, but this type was not handled',
+  ) {
+    super(
+      `${messagePrefix}: Expected type to be exhausted, but this type was not handled: ${JSON.stringify(
+        exhaustedType,
+      )}`,
+    )
+  }
+}

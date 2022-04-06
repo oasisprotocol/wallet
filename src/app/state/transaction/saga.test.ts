@@ -130,6 +130,7 @@ describe('Transaction Sagas', () => {
     it('Should error with invalid private key', () => {
       const wallet = {
         balance: { available: '100000000000' },
+        type: 'private_key',
         privateKey: '00',
       } as Partial<Wallet>
 
@@ -140,8 +141,8 @@ describe('Transaction Sagas', () => {
         .withState(makeState(wallet))
         .put(
           actions.transactionFailed({
-            code: WalletErrors.InvalidPrivateKey,
-            message: 'Invalid private key',
+            code: WalletErrors.UnknownError,
+            message: 'bad secret key size',
           }),
         )
         .run()
