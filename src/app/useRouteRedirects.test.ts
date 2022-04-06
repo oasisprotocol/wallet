@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => ({
   }),
 }))
 
-describe('useStartTrial', () => {
+describe('useRouteRedirects', () => {
   beforeEach(() => {})
 
   it('should redirects to account page', () => {

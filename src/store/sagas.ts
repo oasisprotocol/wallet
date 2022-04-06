@@ -1,4 +1,4 @@
-import { all } from 'redux-saga/effects'
+import { all } from 'typed-redux-saga'
 
 import { accountSaga } from 'app/state/account/saga'
 import { networkSaga } from 'app/state/network/saga'

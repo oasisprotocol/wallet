@@ -27,7 +27,7 @@ describe('<NetworkSelector  />', () => {
   })
 
   it('should allow switching network', async () => {
-    const spy = jest.spyOn(store, 'dispatch')
+    const dispatchSpy = jest.spyOn(store, 'dispatch')
     const component = renderComponent(store)
     expect(component.queryByTestId('active-network')).toContainHTML('toolbar.networks.local')
     userEvent.click(screen.getByTestId('network-selector'))
@@ -35,7 +35,7 @@ describe('<NetworkSelector  />', () => {
     await waitFor(() => expect(screen.getByText('toolbar.networks.testnet')))
     screen.getByText('toolbar.networks.testnet').click()
 
-    expect(spy).toHaveBeenCalledWith({
+    expect(dispatchSpy).toHaveBeenCalledWith({
       payload: 'testnet',
       type: 'network/selectNetwork',
     })
