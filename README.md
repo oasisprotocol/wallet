@@ -23,10 +23,10 @@
     - [Internationalization](#internationalization)
   - [License](#license)
 
-## Environments
+## Deploys
 
-- Production: https://wallet.oasisprotocol.org
-- Staging: https://wallet.stg.oasisprotocol.org
+- Production: <https://wallet.oasisprotocol.org>
+- Staging: <https://wallet.stg.oasisprotocol.org>
 
 ## Features
 
