@@ -97,15 +97,24 @@ describe('Ledger Sagas', () => {
       const mockSigner = { setTransport: jest.fn(), sign: jest.fn().mockResolvedValue(null) }
       const mockTransport = { close: jest.fn() }
 
-      return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
+      return expectSaga(function* () {
+        try {
+          yield* sign(mockSigner as unknown as LedgerSigner, {} as any)
+        } catch (err) {
+          expect(err).toEqual(new Error('Dummy error'))
+        }
+      })
         .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
-          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject()],
+          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject(new Error('Dummy error'))],
         ])
         .call([mockTransport, mockTransport.close])
         .run(50)
+        .catch(e => {
+          expect(e).toEqual(new Error('Dummy error'))
+        })
     })
   })
 })

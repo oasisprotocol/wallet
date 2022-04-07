@@ -175,6 +175,9 @@ describe('Staking Sagas', () => {
           voting_power: 1,
         },
       ] as oasis.types.SchedulerValidator[])
+      jest
+        .spyOn(console, 'error')
+        .mockImplementationOnce(message => expect(message).toBe('get validators list failed'))
 
       return expectSaga(refreshValidators)
         .withState({
