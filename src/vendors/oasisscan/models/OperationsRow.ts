@@ -24,7 +24,7 @@ export interface OperationsRow {
      * @type {string}
      * @memberof OperationsRow
      */
-    tx_hash: string;
+    txHash: string;
     /**
      * 
      * @type {number}
@@ -102,13 +102,13 @@ export interface OperationsRow {
      * @type {string}
      * @memberof OperationsRow
      */
-    runtime_id?: string;
+    runtimeId?: string;
     /**
      * ParaTime only
      * @type {string}
      * @memberof OperationsRow
      */
-    runtime_name?: string;
+    runtimeName?: string;
     /**
      * ParaTime only
      * @type {boolean}
@@ -154,7 +154,7 @@ export function OperationsRowFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'tx_hash': json['txHash'],
+        'txHash': json['txHash'],
         'height': json['height'],
         'method': json['method'],
         'fee': json['fee'],
@@ -167,8 +167,8 @@ export function OperationsRowFromJSONTyped(json: any, ignoreDiscriminator: boole
         'from': json['from'],
         'to': json['to'],
         'round': !exists(json, 'round') ? undefined : json['round'],
-        'runtime_id': !exists(json, 'runtimeId') ? undefined : json['runtimeId'],
-        'runtime_name': !exists(json, 'runtimeName') ? undefined : json['runtimeName'],
+        'runtimeId': !exists(json, 'runtimeId') ? undefined : json['runtimeId'],
+        'runtimeName': !exists(json, 'runtimeName') ? undefined : json['runtimeName'],
         'result': !exists(json, 'result') ? undefined : json['result'],
         'type': !exists(json, 'type') ? undefined : json['type'],
     };
@@ -183,7 +183,7 @@ export function OperationsRowToJSON(value?: OperationsRow | null): any {
     }
     return {
         
-        'txHash': value.tx_hash,
+        'txHash': value.txHash,
         'height': value.height,
         'method': value.method,
         'fee': value.fee,
@@ -196,8 +196,8 @@ export function OperationsRowToJSON(value?: OperationsRow | null): any {
         'from': value.from,
         'to': value.to,
         'round': value.round,
-        'runtimeId': value.runtime_id,
-        'runtimeName': value.runtime_name,
+        'runtimeId': value.runtimeId,
+        'runtimeName': value.runtimeName,
         'result': value.result,
         'type': value.type,
     };

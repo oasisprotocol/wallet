@@ -76,9 +76,9 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
   return validators
     .map(v => {
       const parsed: Validator = {
-        address: v.entity_address,
+        address: v.entityAddress,
         name: v.name ?? undefined,
-        nodeAddress: v.node_address,
+        nodeAddress: v.nodeAddress,
         escrow: parseStringValueToInt(v.escrow),
         current_rate: v.commission,
         status: v.status ? 'active' : 'inactive',
@@ -118,7 +118,7 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
       amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
       fee: parseStringValueToInt(t.fee),
       from: t.from,
-      hash: t.tx_hash,
+      hash: t.txHash,
       level: t.height,
       status: t.status,
       timestamp: t.timestamp,
@@ -134,7 +134,7 @@ export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
     const parsed: Delegation = {
       amount: parseStringValueToInt(delegation.amount).toString(),
       shares: parseStringValueToInt(delegation.shares).toString(),
-      validatorAddress: delegation.validator_address,
+      validatorAddress: delegation.validatorAddress,
     }
     return parsed
   })
@@ -147,8 +147,8 @@ export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDe
     const parsed: DebondingDelegation = {
       amount: (parseStringValueToInt(debonding.shares) * sharePrice).toString(),
       shares: parseStringValueToInt(debonding.shares).toString(),
-      validatorAddress: debonding.validator_address,
-      epoch: debonding.debond_end,
+      validatorAddress: debonding.validatorAddress,
+      epoch: debonding.debondEnd,
     }
     return parsed
   })

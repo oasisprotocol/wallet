@@ -24,7 +24,7 @@ export interface DebondingDelegationRow {
      * @type {string}
      * @memberof DebondingDelegationRow
      */
-    validator_address: string;
+    validatorAddress: string;
     /**
      * 
      * @type {string}
@@ -36,19 +36,19 @@ export interface DebondingDelegationRow {
      * @type {number}
      * @memberof DebondingDelegationRow
      */
-    debond_end: number;
+    debondEnd: number;
     /**
      * 
      * @type {number}
      * @memberof DebondingDelegationRow
      */
-    epoch_left: number;
+    epochLeft: number;
     /**
      * 
      * @type {string}
      * @memberof DebondingDelegationRow
      */
-    validator_name: string | null;
+    validatorName: string | null;
     /**
      * 
      * @type {string}
@@ -67,11 +67,11 @@ export function DebondingDelegationRowFromJSONTyped(json: any, ignoreDiscriminat
     }
     return {
         
-        'validator_address': json['validatorAddress'],
+        'validatorAddress': json['validatorAddress'],
         'shares': json['shares'],
-        'debond_end': json['debondEnd'],
-        'epoch_left': json['epochLeft'],
-        'validator_name': json['validatorName'],
+        'debondEnd': json['debondEnd'],
+        'epochLeft': json['epochLeft'],
+        'validatorName': json['validatorName'],
         'icon': json['icon'],
     };
 }
@@ -85,11 +85,11 @@ export function DebondingDelegationRowToJSON(value?: DebondingDelegationRow | nu
     }
     return {
         
-        'validatorAddress': value.validator_address,
+        'validatorAddress': value.validatorAddress,
         'shares': value.shares,
-        'debondEnd': value.debond_end,
-        'epochLeft': value.epoch_left,
-        'validatorName': value.validator_name,
+        'debondEnd': value.debondEnd,
+        'epochLeft': value.epochLeft,
+        'validatorName': value.validatorName,
         'icon': value.icon,
     };
 }

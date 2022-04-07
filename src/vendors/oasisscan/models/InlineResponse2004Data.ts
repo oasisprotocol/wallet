@@ -49,13 +49,13 @@ export interface InlineResponse2004Data {
      * @type {number}
      * @memberof InlineResponse2004Data
      */
-    max_page: number;
+    maxPage: number;
     /**
      * 
      * @type {number}
      * @memberof InlineResponse2004Data
      */
-    total_size: number;
+    totalSize: number;
 }
 
 export function InlineResponse2004DataFromJSON(json: any): InlineResponse2004Data {
@@ -71,8 +71,8 @@ export function InlineResponse2004DataFromJSONTyped(json: any, ignoreDiscriminat
         'list': ((json['list'] as Array<any>).map(DebondingDelegationRowFromJSON)),
         'page': json['page'],
         'size': json['size'],
-        'max_page': json['maxPage'],
-        'total_size': json['totalSize'],
+        'maxPage': json['maxPage'],
+        'totalSize': json['totalSize'],
     };
 }
 
@@ -88,8 +88,8 @@ export function InlineResponse2004DataToJSON(value?: InlineResponse2004Data | nu
         'list': ((value.list as Array<any>).map(DebondingDelegationRowToJSON)),
         'page': value.page,
         'size': value.size,
-        'maxPage': value.max_page,
-        'totalSize': value.total_size,
+        'maxPage': value.maxPage,
+        'totalSize': value.totalSize,
     };
 }
 

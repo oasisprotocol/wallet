@@ -72,13 +72,13 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    entity_address: string;
+    entityAddress: string;
     /**
      * 
      * @type {string}
      * @memberof ValidatorRow
      */
-    entity_id: string;
+    entityId: string;
     /**
      * 
      * @type {string}
@@ -90,25 +90,25 @@ export interface ValidatorRow {
      * @type {object}
      * @memberof ValidatorRow
      */
-    escrow_amount_status: object | null;
+    escrowAmountStatus: object | null;
     /**
      * 
      * @type {string}
      * @memberof ValidatorRow
      */
-    escrow_change24: string;
+    escrowChange24: string;
     /**
      * 
      * @type {number}
      * @memberof ValidatorRow
      */
-    escrow_percent: number;
+    escrowPercent: number;
     /**
      * 
      * @type {object}
      * @memberof ValidatorRow
      */
-    escrow_shares_status: object | null;
+    escrowSharesStatus: object | null;
     /**
      * 
      * @type {string}
@@ -132,13 +132,13 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    node_address: string;
+    nodeAddress: string;
     /**
      * 
      * @type {string}
      * @memberof ValidatorRow
      */
-    node_id: string;
+    nodeId: string;
     /**
      * 
      * @type {object}
@@ -192,7 +192,7 @@ export interface ValidatorRow {
      * @type {string}
      * @memberof ValidatorRow
      */
-    total_shares: string;
+    totalShares: string;
     /**
      * 
      * @type {string}
@@ -231,18 +231,18 @@ export function ValidatorRowFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'delegators': json['delegators'],
         'description': json['description'],
         'email': json['email'],
-        'entity_address': json['entityAddress'],
-        'entity_id': json['entityId'],
+        'entityAddress': json['entityAddress'],
+        'entityId': json['entityId'],
         'escrow': json['escrow'],
-        'escrow_amount_status': json['escrowAmountStatus'],
-        'escrow_change24': json['escrowChange24'],
-        'escrow_percent': json['escrowPercent'],
-        'escrow_shares_status': json['escrowSharesStatus'],
+        'escrowAmountStatus': json['escrowAmountStatus'],
+        'escrowChange24': json['escrowChange24'],
+        'escrowPercent': json['escrowPercent'],
+        'escrowSharesStatus': json['escrowSharesStatus'],
         'icon': json['icon'],
         'keybase': json['keybase'],
         'name': json['name'],
-        'node_address': json['nodeAddress'],
-        'node_id': json['nodeId'],
+        'nodeAddress': json['nodeAddress'],
+        'nodeId': json['nodeId'],
         'nodes': json['nodes'],
         'nonce': json['nonce'],
         'proposals': json['proposals'],
@@ -251,7 +251,7 @@ export function ValidatorRowFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'score': json['score'],
         'signs': json['signs'],
         'status': json['status'],
-        'total_shares': json['totalShares'],
+        'totalShares': json['totalShares'],
         'twitter': json['twitter'],
         'uptime': json['uptime'],
         'website': json['website'],
@@ -275,18 +275,18 @@ export function ValidatorRowToJSON(value?: ValidatorRow | null): any {
         'delegators': value.delegators,
         'description': value.description,
         'email': value.email,
-        'entityAddress': value.entity_address,
-        'entityId': value.entity_id,
+        'entityAddress': value.entityAddress,
+        'entityId': value.entityId,
         'escrow': value.escrow,
-        'escrowAmountStatus': value.escrow_amount_status,
-        'escrowChange24': value.escrow_change24,
-        'escrowPercent': value.escrow_percent,
-        'escrowSharesStatus': value.escrow_shares_status,
+        'escrowAmountStatus': value.escrowAmountStatus,
+        'escrowChange24': value.escrowChange24,
+        'escrowPercent': value.escrowPercent,
+        'escrowSharesStatus': value.escrowSharesStatus,
         'icon': value.icon,
         'keybase': value.keybase,
         'name': value.name,
-        'nodeAddress': value.node_address,
-        'nodeId': value.node_id,
+        'nodeAddress': value.nodeAddress,
+        'nodeId': value.nodeId,
         'nodes': value.nodes,
         'nonce': value.nonce,
         'proposals': value.proposals,
@@ -295,7 +295,7 @@ export function ValidatorRowToJSON(value?: ValidatorRow | null): any {
         'score': value.score,
         'signs': value.signs,
         'status': value.status,
-        'totalShares': value.total_shares,
+        'totalShares': value.totalShares,
         'twitter': value.twitter,
         'uptime': value.uptime,
         'website': value.website,

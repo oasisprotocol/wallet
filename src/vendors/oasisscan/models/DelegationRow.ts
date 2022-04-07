@@ -24,7 +24,7 @@ export interface DelegationRow {
      * @type {string}
      * @memberof DelegationRow
      */
-    validator_address: string;
+    validatorAddress: string;
     /**
      * 
      * @type {string}
@@ -48,7 +48,7 @@ export interface DelegationRow {
      * @type {string}
      * @memberof DelegationRow
      */
-    validator_name: string | null;
+    validatorName: string | null;
     /**
      * 
      * @type {string}
@@ -60,7 +60,7 @@ export interface DelegationRow {
      * @type {object}
      * @memberof DelegationRow
      */
-    entity_address: object | null;
+    entityAddress: object | null;
 }
 
 export function DelegationRowFromJSON(json: any): DelegationRow {
@@ -73,13 +73,13 @@ export function DelegationRowFromJSONTyped(json: any, ignoreDiscriminator: boole
     }
     return {
         
-        'validator_address': json['validatorAddress'],
+        'validatorAddress': json['validatorAddress'],
         'shares': json['shares'],
         'amount': json['amount'],
         'active': json['active'],
-        'validator_name': json['validatorName'],
+        'validatorName': json['validatorName'],
         'icon': json['icon'],
-        'entity_address': json['entityAddress'],
+        'entityAddress': json['entityAddress'],
     };
 }
 
@@ -92,13 +92,13 @@ export function DelegationRowToJSON(value?: DelegationRow | null): any {
     }
     return {
         
-        'validatorAddress': value.validator_address,
+        'validatorAddress': value.validatorAddress,
         'shares': value.shares,
         'amount': value.amount,
         'active': value.active,
-        'validatorName': value.validator_name,
+        'validatorName': value.validatorName,
         'icon': value.icon,
-        'entityAddress': value.entity_address,
+        'entityAddress': value.entityAddress,
     };
 }
 
