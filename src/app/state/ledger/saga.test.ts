@@ -28,7 +28,7 @@ describe('Ledger Sagas', () => {
         .dispatch(ledgerActions.enumerateAccounts())
         .put(ledgerActions.setStep(LedgerStep.Done))
         .put.actionType(ledgerActions.accountsListed.type)
-        .run(50)
+        .silentRun(50)
     })
 
     it('should handle unsupported browsers', async () => {
@@ -39,7 +39,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should handle transport errors', async () => {
@@ -50,7 +50,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should bubble-up USB unknown errors', async () => {
@@ -61,7 +61,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should bubble-up other unknown errors', async () => {
@@ -73,7 +73,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })
-        .run(50)
+        .silentRun(50)
     })
   })
 

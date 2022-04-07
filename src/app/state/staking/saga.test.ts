@@ -77,7 +77,7 @@ describe('Staking Sagas', () => {
         .provide(providers)
         .dispatch(stakingActions.validatorSelected('oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7'))
         .put.actionType(stakingActions.updateValidatorDetails.type)
-        .run()
+        .silentRun()
     })
 
     it('Should keep and augment relevant bounds', async () => {
@@ -111,7 +111,7 @@ describe('Staking Sagas', () => {
         .provide([...providers, [select(selectEpoch), 300]])
         .dispatch(stakingActions.validatorSelected('oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7'))
         .put.actionType(stakingActions.updateValidatorDetails.type)
-        .run()
+        .silentRun()
 
       const finalState: StakingState = result.storeState
       const bounds = finalState.selectedValidatorDetails!.scheduledCommissionBounds
