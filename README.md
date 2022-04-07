@@ -145,6 +145,8 @@ A detailed post on Git commit messages: [How To Write a Git Commit Message](http
 
 ### Internationalization
 
+We have [Transifex](https://www.transifex.com/oasisprotocol/oasis-wallet-web/) to easily contribute translations.
+
 Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running
 
 ```shell
