@@ -37,6 +37,7 @@ describe('<DebondingDelegationList  />', () => {
             rank: 1,
             status: 'active',
             name: 'test-validator',
+            nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
           },
         },
       ]),
@@ -60,6 +61,7 @@ describe('<DebondingDelegationList  />', () => {
             rank: 1,
             status: 'active',
             name: 'test-validator1',
+            nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
           },
         },
         {
