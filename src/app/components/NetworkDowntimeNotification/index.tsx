@@ -7,8 +7,8 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Anchor, Box, Text } from 'grommet'
 import { dateFormat } from 'app/components/DateFormatter'
 
-const downtimeStartDate = dateFormat.format(new Date(Date.UTC(2022, 3, 11, 9, 0, 0, 0)))
-const downtimeEndDate = dateFormat.format(new Date(Date.UTC(2022, 3, 11, 13, 0, 0, 0)))
+const downtimeStartDate = dateFormat.format(new Date(Date.UTC(2022, 3, 11, 8, 30, 0, 0)))
+const downtimeEndDate = dateFormat.format(new Date(Date.UTC(2022, 3, 11, 12, 30, 0, 0)))
 
 export function NetworkDowntimeNotification() {
   const { t } = useTranslation()
