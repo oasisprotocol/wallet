@@ -1,3 +1,4 @@
+import { OperationsRowTypeEnum, ValidatorRowStatusEnum } from 'vendors/explorer/index'
 import {
   parseValidatorsList,
   parseAccount,
@@ -77,7 +78,7 @@ describe('monitor', () => {
             ],
           },
           current_epoch: 12271,
-          status: 'active',
+          status: 'active' as ValidatorRowStatusEnum,
           depositors_count: 9682,
           blocks_count: 284050,
           signatures_count: 8385752,
@@ -115,7 +116,7 @@ describe('monitor', () => {
             ],
           },
           current_epoch: 12271,
-          status: 'inactive',
+          status: 'inactive' as ValidatorRowStatusEnum,
           depositors_count: 12687,
           blocks_count: 488714,
           signatures_count: 8382100,
@@ -148,7 +149,7 @@ describe('monitor', () => {
             ],
           },
           current_epoch: 12796,
-          status: 'active',
+          status: 'active' as ValidatorRowStatusEnum,
           depositors_count: 2002,
           blocks_count: 442124,
           signatures_count: 8738373,
@@ -171,7 +172,7 @@ describe('monitor', () => {
           nonce: 1,
           timestamp: 1645644903,
           to: 'oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm',
-          type: 'transfer',
+          type: 'transfer' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -186,7 +187,7 @@ describe('monitor', () => {
           nonce: 6,
           timestamp: 1645645107,
           to: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
-          type: 'addescrow',
+          type: 'addescrow' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -201,7 +202,7 @@ describe('monitor', () => {
           nonce: 3,
           timestamp: 1645644147,
           to: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
-          type: 'reclaimescrow',
+          type: 'reclaimescrow' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -215,7 +216,7 @@ describe('monitor', () => {
           nonce: 2,
           timestamp: 1645645260,
           to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
-          type: 'allow',
+          type: 'allow' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -230,7 +231,7 @@ describe('monitor', () => {
           nonce: 17,
           timestamp: 1645526644,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'amendcommissionschedule',
+          type: 'amendcommissionschedule' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -244,7 +245,7 @@ describe('monitor', () => {
           nonce: 96832,
           timestamp: 1645645506,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'executorcommit',
+          type: 'executorcommit' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -258,7 +259,7 @@ describe('monitor', () => {
           nonce: 111031,
           timestamp: 1645644585,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'executorproposertimeout',
+          type: 'executorproposertimeout' as OperationsRowTypeEnum,
           status: false,
           error: 'roothash: proposer timeout not allowed',
         },
@@ -274,7 +275,7 @@ describe('monitor', () => {
           nonce: 7,
           timestamp: 1645567265,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'registerentity',
+          type: 'registerentity' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -288,7 +289,7 @@ describe('monitor', () => {
           nonce: 5542,
           timestamp: 1645645670,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'registernode',
+          type: 'registernode' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -302,7 +303,7 @@ describe('monitor', () => {
           nonce: 4,
           timestamp: 1638867315,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'registerruntime',
+          type: 'registerruntime' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -318,7 +319,7 @@ describe('monitor', () => {
           nonce: 5,
           timestamp: 1629793437,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'castvote',
+          type: 'castvote' as OperationsRowTypeEnum,
           status: true,
         },
         // https://monitor.oasis.dev/data/transactions?limit=200&operation_kind=pvsscommit&account_id=oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t
@@ -330,7 +331,7 @@ describe('monitor', () => {
           nonce: 12295,
           timestamp: 1645642579,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'pvsscommit',
+          type: 'pvsscommit' as OperationsRowTypeEnum,
           status: true,
         },
 
@@ -343,7 +344,7 @@ describe('monitor', () => {
           nonce: 2406,
           timestamp: 1645644962,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
-          type: 'pvssreveal',
+          type: 'pvssreveal' as OperationsRowTypeEnum,
           status: true,
         },
       ]),

@@ -4,7 +4,7 @@ import { hex2uint, isValidAddress, parseNumberToBigInt, uint2bigintString } from
 import { LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction, signerFromPrivateKey, TW } from 'app/lib/transaction'
 import { call, put, race, select, take, takeEvery } from 'typed-redux-saga'
-import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
+import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 
 import { transactionActions } from '.'
 import { sign } from '../ledger/saga'
@@ -59,7 +59,7 @@ function* getSigner() {
   } else if (wallet.type === WalletType.Ledger) {
     signer = new LedgerSigner(wallet)
   } else {
-    throw new WalletError(WalletErrors.InvalidPrivateKey, 'Invalid private key')
+    throw new ExhaustedTypeError('Invalid wallet type', wallet.type)
   }
 
   return signer
@@ -143,7 +143,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
         break
 
       default:
-        throw new Error('Unsupported transaction type')
+        throw new ExhaustedTypeError('Unsupported transaction type', action.payload)
     }
 
     yield* put(
