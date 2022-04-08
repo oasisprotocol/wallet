@@ -239,5 +239,5 @@
     "terms": "<0>Termes et Conditions</0>",
     "version": "Version: <0>{{commit}}</0> construit à {{buildTime}}"
   },
-  "downtimeNotification": "AVIS: Oasis Network sera en panne entre {{downtimeStartDate}} - {{downtimeEndDate}} (2022-04-08 8:30 - 12:30 UTC) pour le <0>Damask Upgrade</0>."
+  "downtimeNotification": "AVIS: Oasis Network sera en panne entre {{downtimeStartDate}} - {{downtimeEndDate}} (2022-04-11 8:30 - 12:30 UTC) pour le <0>Damask Upgrade</0>."
 }
