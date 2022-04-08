@@ -14,10 +14,12 @@ DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   - SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
 ADDITIONAL_EXCLUDED_DIRECTORIES:
-  - misc
   - .husky
   - build
+  - build-ext
   - cypress-coverage
+  - .nyc_output
+  - .parcel-cache
 FILTER_REGEX_EXCLUDE: (LICENCE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*|src/vendors/oasisscan/*)
 SHOW_ELAPSED_TIME: true
 PRE_COMMANDS:
