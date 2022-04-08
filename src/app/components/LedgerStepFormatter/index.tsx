@@ -18,7 +18,7 @@ export const LedgerStepFormatter = memo((props: Props) => {
   const stepMap: { [code in Step]: string } = {
     [Step.OpeningUSB]: t('ledger.steps.openingUsb', 'Opening Ledger through USB'),
     [Step.LoadingAccounts]: t('ledger.steps.loadingAccounts', 'Loading account details'),
-    [Step.LoaddingBalances]: t('ledger.steps.loadingBalances', 'Loading balance details'),
+    [Step.LoadingBalances]: t('ledger.steps.loadingBalances', 'Loading balance details'),
     [Step.Done]: t('ledger.steps.done', 'Done'),
   }
 

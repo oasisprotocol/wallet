@@ -18,7 +18,7 @@ let walletId = 0
 
 /**
  * Opened wallet saga
- * Will later be used to sign arbitrary messagegs
+ * Will later be used to sign arbitrary messages
  */
 export function* walletSaga() {}
 

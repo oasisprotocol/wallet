@@ -46,7 +46,7 @@ export function MnemonicValidation(props: Props) {
             <Paragraph>
               {t(
                 'openWallet.mnemonic.instruction',
-                'Enter your 12, 18 or 24 words keyphrase below, each words separated by spaces.',
+                'Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.',
               )}
             </Paragraph>
             <Box border={false}>
