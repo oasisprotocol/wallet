@@ -1,16 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import * as React from 'react'
 
 import { Footer } from '..'
-import type { UseTranslationResponse } from 'react-i18next'
 
-jest.mock('react-i18next', () => ({
-  useTranslation: () =>
-    ({
-      t: key => key,
-    } as UseTranslationResponse<'translation'>),
-  Trans: ({ components }: { components: React.ReactNode }) => components,
-}))
+jest.unmock('react-i18next')
 
 describe('<Footer />', () => {
   const originalEnvs = process.env
@@ -41,6 +33,6 @@ describe('<Footer />', () => {
   it('should render backend label', () => {
     render(<Footer />)
 
-    expect(screen.getByText('footer.poweredBy.oasisscan')).toBeInTheDocument()
+    expect(screen.getByText(/Powered by Oasis Scan API.*/)).toBeInTheDocument()
   })
 })

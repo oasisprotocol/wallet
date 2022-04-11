@@ -1,3 +1,4 @@
+import { NodeInternal } from '@oasisprotocol/client/dist/client'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { stakingActions } from 'app/state/staking'
@@ -7,6 +8,8 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
 import { ValidatorList } from '..'
+
+jest.mock('@oasisprotocol/client/dist/client')
 
 const activeValidator: Validator = {
   address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
@@ -56,6 +59,18 @@ describe('<ValidatorList  />', () => {
 
   beforeEach(() => {
     store = configureAppStore()
+
+    jest.mocked(NodeInternal).mockReturnValue({
+      async stakingAccount(query: any) {
+        return {
+          escrow: {
+            commission_schedule: {
+              bounds: [{ start: 0, rate_max: new Uint8Array([5]) }],
+            },
+          },
+        }
+      },
+    } as NodeInternal)
   })
 
   it('empty should match snapshot', () => {

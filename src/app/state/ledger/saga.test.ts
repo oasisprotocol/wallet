@@ -28,7 +28,7 @@ describe('Ledger Sagas', () => {
         .dispatch(ledgerActions.enumerateAccounts())
         .put(ledgerActions.setStep(LedgerStep.Done))
         .put.actionType(ledgerActions.accountsListed.type)
-        .run(50)
+        .silentRun(50)
     })
 
     it('should handle unsupported browsers', async () => {
@@ -39,7 +39,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should handle transport errors', async () => {
@@ -50,7 +50,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should bubble-up USB unknown errors', async () => {
@@ -61,7 +61,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
-        .run(50)
+        .silentRun(50)
     })
 
     it('should bubble-up other unknown errors', async () => {
@@ -73,7 +73,7 @@ describe('Ledger Sagas', () => {
         ])
         .dispatch(ledgerActions.enumerateAccounts())
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })
-        .run(50)
+        .silentRun(50)
     })
   })
 
@@ -97,15 +97,24 @@ describe('Ledger Sagas', () => {
       const mockSigner = { setTransport: jest.fn(), sign: jest.fn().mockResolvedValue(null) }
       const mockTransport = { close: jest.fn() }
 
-      return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
+      return expectSaga(function* () {
+        try {
+          yield* sign(mockSigner as unknown as LedgerSigner, {} as any)
+        } catch (err) {
+          expect(err).toEqual(new Error('Dummy error'))
+        }
+      })
         .withState({ network: {} })
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
-          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject()],
+          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject(new Error('Dummy error'))],
         ])
         .call([mockTransport, mockTransport.close])
         .run(50)
+        .catch(e => {
+          expect(e).toEqual(new Error('Dummy error'))
+        })
     })
   })
 })

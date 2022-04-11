@@ -19,6 +19,7 @@ export enum TransactionType {
   GovernanceSubmitProposal = 'submitproposal',
   BeaconPvssCommit = 'pvsscommit',
   BeaconPvssReveal = 'pvssreveal',
+  BeaconVrfProve = 'vrfprove',
 }
 
 export interface Transaction {

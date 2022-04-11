@@ -135,6 +135,7 @@ const transactionMethodMap: { [k in OperationsRowTypeEnum]: TransactionType } = 
   [OperationsRowTypeEnum.Submitproposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowTypeEnum.Pvsscommit]: TransactionType.BeaconPvssCommit,
   [OperationsRowTypeEnum.Pvssreveal]: TransactionType.BeaconPvssReveal,
+  [OperationsRowTypeEnum.Vrfprove]: TransactionType.BeaconVrfProve,
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
