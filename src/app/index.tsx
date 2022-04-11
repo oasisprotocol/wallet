@@ -26,7 +26,6 @@ import { CreateWalletPage } from './pages/CreateWalletPage'
 import { HomePage } from './pages/HomePage'
 import { OpenWalletPage } from './pages/OpenWalletPage'
 import { ModalProvider } from './components/Modal'
-import { NetworkDowntimeNotification } from './components/NetworkDowntimeNotification'
 
 const AppMain = styled(Main)`
   /* position: relative; */
@@ -51,7 +50,6 @@ export function App() {
             <AppMain>
               <FatalErrorHandler />
               <Toolbar />
-              <NetworkDowntimeNotification />
               <TransitionGroup>
                 <Switch>
                   <TransitionRoute exact path="/" component={HomePage} />
