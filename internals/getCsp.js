@@ -3,8 +3,8 @@
 // - add report-uri to gather errors if anything was missed
 
 const extensionFrame = `
-  frame-ancestors 
-    'self' 
+  frame-ancestors
+    'self'
     https: http://localhost:* http://127.0.0.1:*;
   `
 const extensionWebsocket = `
