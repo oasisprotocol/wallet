@@ -204,6 +204,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },
+    [transactionTypes.TransactionType.BeaconVrfProve]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
   }
 
   const isTypeRecognized = (type: string | undefined): type is transactionTypes.TransactionType =>

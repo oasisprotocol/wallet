@@ -404,6 +404,7 @@ components:
             - governance.SubmitProposal
             - beacon.PVSSCommit
             - beacon.PVSSReveal
+            - beacon.VRFProve
         fee:
           type: string
         amount:

@@ -1137,6 +1137,7 @@ definitions:
           - submitproposal
           - pvsscommit
           - pvssreveal
+          - vrfprove
       from:
         type: string
       to:

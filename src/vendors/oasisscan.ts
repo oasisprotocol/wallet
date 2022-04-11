@@ -110,6 +110,7 @@ export const transactionMethodMap: { [k in OperationsRowMethodEnum]: Transaction
   [OperationsRowMethodEnum.GovernanceSubmitProposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
   [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
+  [OperationsRowMethodEnum.BeaconVrfProve]: TransactionType.BeaconVrfProve,
 }
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {

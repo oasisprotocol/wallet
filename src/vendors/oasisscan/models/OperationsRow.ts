@@ -141,7 +141,8 @@ export enum OperationsRowMethodEnum {
     GovernanceCastVote = 'governance.CastVote',
     GovernanceSubmitProposal = 'governance.SubmitProposal',
     BeaconPvssCommit = 'beacon.PVSSCommit',
-    BeaconPvssReveal = 'beacon.PVSSReveal'
+    BeaconPvssReveal = 'beacon.PVSSReveal',
+    BeaconVrfProve = 'beacon.VRFProve'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {

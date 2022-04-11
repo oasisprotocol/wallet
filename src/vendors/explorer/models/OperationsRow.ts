@@ -129,7 +129,8 @@ export enum OperationsRowTypeEnum {
     Castvote = 'castvote',
     Submitproposal = 'submitproposal',
     Pvsscommit = 'pvsscommit',
-    Pvssreveal = 'pvssreveal'
+    Pvssreveal = 'pvssreveal',
+    Vrfprove = 'vrfprove'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {
