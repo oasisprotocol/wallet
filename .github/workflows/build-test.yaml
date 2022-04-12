@@ -57,10 +57,10 @@ jobs:
         continue-on-error: true
       - run: yarn start &
       - run: docker-compose up --build -d
-      - uses: nev7n/wait_for_response@v1
+      - uses: emilioschepis/wait-for-endpoint@v1.0.2
         with:
           url: 'http://localhost:3000/'
-          responseCode: 200
+          expected-status: 200
           timeout: 2000
           interval: 500
       - run: yarn cypress:run
