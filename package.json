@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Esya/oasis-wallet.git"
+    "url": "https://github.com/oasisprotocol/oasis-wallet-web.git"
   },
   "scripts": {
     "clean": "rm -rf build/ .parcel-cache",
