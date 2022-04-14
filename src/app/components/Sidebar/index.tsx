@@ -149,6 +149,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
             { label: 'English', onClick: () => setLanguage('en') },
             { label: 'Français', onClick: () => setLanguage('fr') },
             { label: 'Slovenščina', onClick: () => setLanguage('sl') },
+            { label: 'Türkçe', onClick: () => setLanguage('tr') },
           ]}
         >
           <Box direction="row" round="4px" border={{ size: '1px' }}>

@@ -6,6 +6,7 @@ import './type-only-test-translation-keys'
 import en from './en/translation.json'
 import fr from './fr/translation.json'
 import sl from './sl/translation.json'
+import tr from './tr/translation.json'
 
 export const translationsJson = {
   en: {
@@ -16,6 +17,9 @@ export const translationsJson = {
   },
   sl: {
     translation: sl,
+  },
+  tr: {
+    translation: tr,
   },
 }
 
