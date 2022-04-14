@@ -146,8 +146,9 @@ const SidebarFooter = (props: SidebarFooterProps) => {
           hoverIndicator={false}
           dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
           items={[
-            { label: 'Français', onClick: () => setLanguage('fr') },
             { label: 'English', onClick: () => setLanguage('en') },
+            { label: 'Français', onClick: () => setLanguage('fr') },
+            { label: 'Slovenščina', onClick: () => setLanguage('sl') },
           ]}
         >
           <Box direction="row" round="4px" border={{ size: '1px' }}>
