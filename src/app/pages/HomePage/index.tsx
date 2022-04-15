@@ -16,13 +16,18 @@ export function HomePage() {
           background="background-front"
           pad="large"
         >
-          <Heading size="1">{t('home.existing.header')}</Heading>
-          <Paragraph>{t('home.existing.description')}</Paragraph>
+          <Heading size="1">{t('home.existing.header', 'Access existing wallet')}</Heading>
+          <Paragraph>
+            {t(
+              'home.existing.description',
+              'Open your existing wallet using Ledger, a private key, or your mnemonic phrase.',
+            )}
+          </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <NavLink to="/open-wallet">
               <Button
                 type="submit"
-                label={t('home.existing.button')}
+                label={t('home.existing.button', 'Open wallet')}
                 style={{ borderRadius: '4px' }}
                 primary
                 icon={<Unlock />}
@@ -36,13 +41,18 @@ export function HomePage() {
           background="background-front"
           pad="large"
         >
-          <Heading size="1">{t('home.create.header')}</Heading>
-          <Paragraph>{t('home.create.description')}</Paragraph>
+          <Heading size="1">{t('home.create.header', 'Create new wallet')}</Heading>
+          <Paragraph>
+            {t(
+              'home.create.description',
+              'Create a brand new wallet to send, receive, stake and swap ROSE tokens.',
+            )}
+          </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <NavLink to="/create-wallet">
               <Button
                 type="submit"
-                label={t('home.create.button')}
+                label={t('home.create.button', 'Create wallet')}
                 style={{ borderRadius: '4px' }}
                 primary
                 icon={<Add />}

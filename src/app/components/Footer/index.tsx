@@ -10,8 +10,11 @@ export const Footer = memo(() => {
   const { t } = useTranslation()
 
   const backendToLabel = {
-    [BackendAPIs.OasisMonitor]: t('footer.poweredBy.oasismonitor'),
-    [BackendAPIs.OasisScan]: t('footer.poweredBy.oasisscan'),
+    [BackendAPIs.OasisMonitor]: t(
+      'footer.poweredBy.oasismonitor',
+      'Powered by Oasis Monitor API & Oasis gRPC',
+    ),
+    [BackendAPIs.OasisScan]: t('footer.poweredBy.oasisscan', 'Powered by Oasis Scan API & Oasis gRPC'),
   }
   const poweredByLabel = backendToLabel[backend()]
 

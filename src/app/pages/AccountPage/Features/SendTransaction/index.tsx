@@ -29,8 +29,14 @@ export function SendTransaction() {
   const onSubmit = () => {
     if (validators?.some(validator => validator.address === recipient)) {
       launchModal({
-        title: t('account.sendTransaction.confirmSendingToValidator.title'),
-        description: t('account.sendTransaction.confirmSendingToValidator.description'),
+        title: t(
+          'account.sendTransaction.confirmSendingToValidator.title',
+          'This is a validator wallet address. Transfers to this address do not stake your funds with the validator.',
+        ),
+        description: t(
+          'account.sendTransaction.confirmSendingToValidator.description',
+          'Are you sure you want to continue?',
+        ),
         handleConfirm: sendTransaction,
         isDangerous: true,
       })
@@ -88,7 +94,7 @@ export function SendTransaction() {
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <Button
               type="submit"
-              label={t('account.sendTransaction.send')}
+              label={t('account.sendTransaction.send', 'Send')}
               style={{ borderRadius: '4px' }}
               onClick={onSubmit}
               primary

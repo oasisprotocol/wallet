@@ -1,108 +1,5 @@
 {
-  "menu": {
-    "closeWallet": "Close wallet",
-    "home": "Home",
-    "wallet": "Wallet",
-    "stake": "Stake"
-  },
-  "home": {
-    "existing": {
-      "header": "Access existing wallet",
-      "description": "Open your existing wallet using Ledger, a private key, or your mnemonic phrase.",
-      "button": "Open wallet"
-    },
-    "create": {
-      "header": "Create new wallet",
-      "description": "Create a brand new wallet to send, receive, stake and swap ROSE tokens.",
-      "button": "Create wallet"
-    }
-  },
-  "openWallet": {
-    "header": "How do you want to open your wallet?",
-    "method": {
-      "mnemonic": "Mnemonic",
-      "privateKey": "Private key",
-      "ledger": "Ledger"
-    },
-    "mnemonic": {
-      "header": "Enter your keyphrase",
-      "instruction": "Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.",
-      "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
-      "enterPhraseHere": "Enter your keyphrase here",
-      "open": "Open my wallet"
-    },
-    "privateKey": {
-      "header": "Enter your private key",
-      "instruction": "Enter your private key in Base64 format.",
-      "error": "Invalid private key",
-      "enterPrivateKeyHere": "Enter your private key here",
-      "hidePrivateKey": "Hide private key",
-      "showPrivateKey": "Show private key"
-    },
-    "ledger": {
-      "header": "Open from Ledger device",
-      "selectWallets": "Select the wallets to open",
-      "cancel": "Cancel",
-      "openWallets": "Open"
-    },
-    "bitpie": {
-      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
-    }
-  },
-  "createWallet": {
-    "newMnemonic": "Generate a new mnemonic",
-    "thisIsYourPhrase": "This is your mnemonic",
-    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
-    "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
-    "confirmSaved": "I saved my keyphrase",
-    "mnemonicMismatch": "Entered mnemonic does not match."
-  },
   "account": {
-    "summary": {
-      "yourAccount": "This is your account.",
-      "notYourAccount": "This is not your account.",
-      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
-      "balance": {
-        "total": "Total balance",
-        "available": "Available",
-        "debonding": "Debonding",
-        "delegations": "Staked"
-      },
-      "noTransactionFound": "No transactions found."
-    },
-    "transaction": {
-      "transfer": {
-        "received": "Received <0></0>",
-        "sent": {
-          "header": "Sent <0></0>"
-        }
-      },
-      "addEscrow": {
-        "received": "Received <0></0> delegation in escrow",
-        "sent": "Delegated <0></0> to validator"
-      },
-      "reclaimEscrow": {
-        "received": "<0></0> reclaimed by delegator",
-        "sent": "Reclaimed <0></0> from validator"
-      },
-      "loadingError": "Couldn't load transactions. List may be empty or out of date."
-    },
-    "otherTransaction": {
-      "header": "Unrecognized transaction, method '{{method}}'",
-      "designation": "Other address"
-    },
-    "sendTransaction": {
-      "confirmSendingToValidator": {
-        "description": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
-        "title": "Are you sure you want to continue?"
-      },
-      "recipient": "Recipient",
-      "enterAddress": "Enter an address",
-      "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account.",
-      "send": "Send"
-    },
-    "loading": "Loading account",
-    "loadingError": "Couldn't load account. Information may be missing or out of date.",
     "addEscrow": {
       "confirmDelegatingToInactive": {
         "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
@@ -110,15 +7,60 @@
       },
       "delegate": "Delegate"
     },
-    "subnavigation": {
-      "transactions": "Transactions",
-      "activeDelegations": "Active delegations ({{count}})",
-      "activeDelegations_plural": "Active delegations ({{count}})",
-      "debondingDelegations": "Debonding delegations ({{count}})",
-      "debondingDelegations_plural": "Debonding delegations ({{count}})"
+    "loading": "Loading account",
+    "loadingError": "Couldn't load account. Information may be missing or out of date.",
+    "otherTransaction": {
+      "designation": "Other address",
+      "header": "Unrecognized transaction, method '{{method}}'"
     },
     "reclaimEscrow": {
       "reclaim": "Reclaim"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "Are you sure you want to continue?",
+        "title": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator."
+      },
+      "enterAddress": "Enter an address",
+      "recipient": "Recipient",
+      "send": "Send",
+      "success": "Transaction successfully sent"
+    },
+    "subnavigation": {
+      "activeDelegations": "Active delegations ({{count}})",
+      "activeDelegations_plural": "Active delegations ({{count}})",
+      "debondingDelegations": "Debonding delegations ({{count}})",
+      "debondingDelegations_plural": "Debonding delegations ({{count}})",
+      "transactions": "Transactions"
+    },
+    "summary": {
+      "balance": {
+        "available": "Available",
+        "debonding": "Debonding",
+        "delegations": "Staked",
+        "total": "Total balance"
+      },
+      "noTransactionFound": "No transactions found.",
+      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
+      "notYourAccount": "This is not your account. Click here to go to your open wallet.",
+      "yourAccount": "This is your account."
+    },
+    "transaction": {
+      "addEscrow": {
+        "received": "Received <0></0> delegation in escrow",
+        "sent": "Delegated <0></0> to validator"
+      },
+      "loadingError": "Couldn't load transactions. List may be empty or out of date.",
+      "reclaimEscrow": {
+        "received": "<0></0> reclaimed by delegator",
+        "sent": "Reclaimed <0></0> from validator"
+      },
+      "transfer": {
+        "received": "Received <0></0>",
+        "sent": {
+          "header": "Sent <0></0>"
+        }
+      }
     },
     "validator": {
       "loadingError": "Couldn't load validators.",
@@ -128,88 +70,172 @@
   "common": {
     "amount": "Amount",
     "block": "Block",
-    "from": "From",
-    "to": "To",
-    "delegator": "Delegator",
-    "validator": "Validator",
     "cancel": "Cancel",
     "confirm": "Confirm",
+    "delegator": "Delegator",
+    "from": "From",
+    "to": "To",
     "unavailable": "Unavailable",
+    "validator": "Validator",
     "validators": "Validators"
   },
+  "createWallet": {
+    "confirmSaved": "I saved my keyphrase",
+    "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
+    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
+    "mnemonicMismatch": "Entered mnemonic does not match.",
+    "newMnemonic": "Generate a new mnemonic",
+    "thisIsYourPhrase": "This is your mnemonic"
+  },
+  "delegations": {
+    "activeDelegations": "Active delegations",
+    "debondingDelegations": "Debonding delegations",
+    "debondingEpoch": "Debonding Epoch",
+    "delegatedAmount": "Delegated amount",
+    "reclaimedAmount": "Amount to reclaim"
+  },
   "errors": {
+    "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
+    "cannotSendToSelf": "Cannot send to yourself",
+    "duplicateTransaction": "Duplicate transaction",
+    "insufficientBalance": "Insufficient balance",
+    "invalidAddress": "Invalid address",
+    "invalidNonce": "Invalid nonce (transaction number)",
+    "invalidPrivateKey": "Invalid private key",
+    "ledgerAppVersionNotSupported": "Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.",
+    "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.",
+    "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected, <0>check common USB connection issues with Ledger</0>, and <1>check site permissions don't block USB devices</1>.",
+    "ledgerTransactionRejected": "Transaction rejected on Ledger.",
+    "noOpenWallet": "No wallet opened",
     "unknown": "Unknown error: {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
-    "invalidPrivateKey": "Invalid private key",
-    "cannotSendToSelf": "Cannot send to yourself",
-    "invalidNonce": "Invalid nonce (transaction number)",
-    "duplicateTransaction": "Duplicate transaction",
-    "invalidAddress": "Invalid address",
-    "insufficientBalance": "Insufficient balance",
-    "noOpenWallet": "",
-    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.",
+    "unknownLedgerError": "Unknown ledger error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
-    "ledgerAppVersionNotSupported": "Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.",
-    "ledgerTransactionRejected": "Transaction rejected on Ledger.",
-    "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected, <0>check common USB connection issues with Ledger</0>, and <1>check site permissions don't block USB devices</1>.",
-    "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.",
-    "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
-    "unknownLedgerError": "Unknown ledger error: {{message}}"
+    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome."
   },
-  "toolbar": {
-    "search": {
-      "placeholder": "Search for an address"
+  "fatalError": {
+    "copied": "Error copied to clipboard",
+    "copy": "Copy error to clipboard",
+    "heading": "A fatal error occurred",
+    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet."
+  },
+  "footer": {
+    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!",
+    "poweredBy": {
+      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
+      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
-    "wallets": {
-      "type": {
-        "ledger": "Ledger",
-        "mnemonic": "Mnemonic",
-        "privateKey": "Private key"
-      },
-      "switchOtherWallet": "Switch to another wallet",
-      "close": "Close"
+    "terms": "<0>Terms and Conditions</0>",
+    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
+  },
+  "home": {
+    "create": {
+      "button": "Create wallet",
+      "description": "Create a brand new wallet to send, receive, stake and swap ROSE tokens.",
+      "header": "Create new wallet"
     },
-    "networks": {
-      "local": "Local",
-      "mainnet": "Mainnet",
-      "testnet": "Testnet"
+    "existing": {
+      "button": "Open wallet",
+      "description": "Open your existing wallet using Ledger, a private key, or your mnemonic phrase.",
+      "header": "Access existing wallet"
     }
   },
   "ledger": {
     "instructionSteps": {
-      "header": "Steps:",
-      "connectLedger": "Connect your Ledger device to the computer",
       "closeLedgerLive": "Close Ledger Live app on the computer",
-      "openOasisApp": "Open the Oasis App on your Ledger device",
-      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
+      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`",
+      "connectLedger": "Connect your Ledger device to the computer",
+      "header": "Steps:",
+      "openOasisApp": "Open the Oasis App on your Ledger device"
     },
     "steps": {
-      "openingUsb": "Opening Ledger through USB",
+      "done": "Done",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
-      "done": "Done"
+      "openingUsb": "Opening Ledger through USB"
+    }
+  },
+  "menu": {
+    "closeWallet": "Close wallet",
+    "home": "Home",
+    "stake": "Stake",
+    "wallet": "Wallet"
+  },
+  "openWallet": {
+    "bitpie": {
+      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
+    },
+    "header": "How do you want to open your wallet?",
+    "ledger": {
+      "cancel": "Cancel",
+      "header": "Open from Ledger device",
+      "openWallets": "Open",
+      "selectWallets": "Select the wallets to open"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "Mnemonic",
+      "privateKey": "Private key"
+    },
+    "mnemonic": {
+      "enterPhraseHere": "Enter your keyphrase here",
+      "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
+      "header": "Enter your keyphrase",
+      "instruction": "Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.",
+      "open": "Open my wallet"
+    },
+    "privateKey": {
+      "enterPrivateKeyHere": "Enter your private key here",
+      "error": "Invalid private key",
+      "header": "Enter your private key",
+      "hidePrivateKey": "Hide private key",
+      "instruction": "Enter your private key in Base64 format.",
+      "showPrivateKey": "Show private key"
+    }
+  },
+  "theme": {
+    "darkMode": "Dark mode",
+    "ligthMode": "Light mode"
+  },
+  "toolbar": {
+    "networks": {
+      "local": "Local",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
+    },
+    "search": {
+      "placeholder": "Search for an address"
+    },
+    "wallets": {
+      "close": "Close",
+      "switchOtherWallet": "Switch to another wallet",
+      "type": {
+        "ledger": "Ledger",
+        "mnemonic": "Mnemonic",
+        "privateKey": "Private Key"
+      }
     }
   },
   "transaction": {
-    "step": {
-      "preview": "Preview transaction",
-      "signing": "Signing transaction",
-      "submitting": "Submitting transaction",
-      "building": "Building transaction"
-    },
     "abort": "Abort",
     "confirm": "Confirm",
     "preview": {
-      "warning": "Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.",
-      "type": "Type",
-      "from": "From",
-      "to": "To",
       "amount": "Amount",
       "fee": "Fee",
+      "from": "From",
       "gas": "Gas",
       "genesisHash": "Genesis hash",
+      "shares": "Shares",
+      "to": "To",
+      "type": "Type",
       "validator": "Validator",
-      "shares": "Shares"
+      "warning": "Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it."
+    },
+    "step": {
+      "building": "Building transaction",
+      "preview": "Preview transaction",
+      "signing": "Signing transaction",
+      "submitting": "Submitting transaction"
     },
     "types": {
       "addEscrow": "Delegating your tokens to a validator and generate rewards",
@@ -217,49 +243,23 @@
       "transfer": "Transferring tokens from your account to another"
     }
   },
-  "theme": {
-    "darkMode": "Dark mode",
-    "ligthMode": "Light mode"
-  },
   "validator": {
-    "rank": "Rank",
-    "escrow": "Escrow",
+    "boundsNotSet": "No bounds set (0% - 0%)",
     "commission": "Commission",
-    "status": "Status",
-    "statusActive": "Active",
-    "statusInactive": "Inactive",
-    "statusUnknown": "Unknown",
-    "name": "Name",
-    "fee": "Fee",
     "commissionBounds": {
       "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}% starting from Epoch {{epoch}}",
       "label": "Commission bounds"
     },
-    "boundsNotSet": "No bounds set (0% - 0%)",
+    "escrow": "Escrow",
+    "fee": "Fee",
+    "name": "Name",
+    "rank": "Rank:",
+    "status": "Status:",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "statusUnknown": "Unknown",
     "totalEscrow": "Total escrow",
     "unknownValidator": "Unknown validator"
-  },
-  "delegations": {
-    "delegatedAmount": "Delegated amount",
-    "activeDelegations": "Active delegations",
-    "debondingDelegations": "Debonding delegations",
-    "reclaimedAmount": "Amount to reclaim",
-    "debondingEpoch": "Debonding epoch"
-  },
-  "fatalError": {
-    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below.",
-    "heading": "A fatal error occurred",
-    "copy": "Copy error to clipboard",
-    "copied": "Error copied to clipboard"
-  },
-  "footer": {
-    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!",
-    "poweredBy": {
-      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC",
-      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC"
-    },
-    "terms": "<0>Terms and Conditions</0>",
-    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
   }
 }
