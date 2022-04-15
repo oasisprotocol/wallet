@@ -1,61 +1,4 @@
 {
-  "menu": {
-    "home": "Accueil",
-    "wallet": "Portefeuille",
-    "stake": "Staking",
-    "closeWallet": "Refermer le portefeuille"
-  },
-  "home": {
-    "existing": {
-      "header": "Ouvrir un portefeuille existant",
-      "description": "Ouvrez votre portefeuille en utilisant un Ledger, votre clé privée, ou votre phrase secrète.",
-      "button": "Ouvrir mon portefeuille"
-    },
-    "create": {
-      "header": "Créer un nouveau portefeuille",
-      "description": "Créez un tout nouveau portefeuille pour envoyer, reçevoir, stake et échanger des tokens ROSE.",
-      "button": "Créer un portefeuille"
-    }
-  },
-  "openWallet": {
-    "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
-    "method": {
-      "mnemonic": "Phrase secrète",
-      "privateKey": "Clé privée",
-      "ledger": "Ledger"
-    },
-    "mnemonic": {
-      "header": "Entrez votre phrase secrète",
-      "instruction": "Entrez ci-dessous tous les mots qui composent votre phrase secrète (séparés par des espaces). La plupart des phrases secrètes sont composées de 24 ou 12 mots.",
-      "error": "Phrase secrète invalide. Entrez chaque mot séparé d'un espace et dans le bon ordre.",
-      "enterPhraseHere": "Entrez votre phrase secrète ici",
-      "open": "Ouvrir mon portefeuille"
-    },
-    "privateKey": {
-      "header": "Entrez votre clé privée",
-      "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
-      "error": "Clé privée invalide",
-      "enterPrivateKeyHere": "Entrez votre clé privée ici",
-      "hidePrivateKey": "Masquer la clé privée",
-      "showPrivateKey": "Montrer la clé privée"
-    },
-    "ledger": {
-      "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
-      "cancel": "Annuler",
-      "openWallets": "Ouvrir"
-    },
-    "bitpie": {
-      "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
-    }
-  },
-  "createWallet": {
-    "newMnemonic": "Générer une nouvelle phrase secrète",
-    "thisIsYourPhrase": "Voici votre phrase secrète",
-    "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
-    "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
-    "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
-    "mnemonicMismatch": "La phrase mnémonique saisie ne correspond pas."
-  },
   "account": {
     "summary": {
       "yourAccount": "Ce compte est le vôtre.",
@@ -125,6 +68,21 @@
     "cancel": "Cancel",
     "validators": "Validateurs"
   },
+  "createWallet": {
+    "newMnemonic": "Générer une nouvelle phrase secrète",
+    "thisIsYourPhrase": "Voici votre phrase secrète",
+    "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
+    "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
+    "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
+    "mnemonicMismatch": "La phrase mnémonique saisie ne correspond pas."
+  },
+  "delegations": {
+    "delegatedAmount": "Montant délégué",
+    "activeDelegations": "Délégations actives",
+    "debondingDelegations": "Délégations réclamées",
+    "reclaimedAmount": "Montant réclamé",
+    "debondingEpoch": "Epoch de récupération"
+  },
   "errors": {
     "unknown": "Erreur inconnue : {{message}}",
     "invalidPrivateKey": "Clé privée invalide",
@@ -140,6 +98,82 @@
     "ledgerNoDeviceSelected": "Pas de Ledger sélectionné. Si vous voulez réessayer, fermez cette fenêtre et tentez à nouveau.",
     "ledgerCannotOpenOasisApp": "Impossible d'accéder à l'application Oasis sur le Ledger. Assurez vous qu'il est dévérouillé et que l'application Oasis est ouverte.",
     "unknownLedgerError": "Erreur Ledger inconnue : {{message}}"
+  },
+  "fatalError": {
+    "instruction": "Une erreur fatale s'est produite et le portefeuille Oasis a dû être arrêté. Merci de copier l'erreur et de la soumettre en tant qu'Issue sur notre via <0>wallet@oasisprotocol.org</0> email. Vous pouvez également rafraîchir la page pour voir si le problème persiste. Une fois que vous quittez cette page votre portefeuille sera refermé.",
+    "heading": "Une erreur fatale s'est produite",
+    "copy": "Copier l'erreur",
+    "copied": "Erreur copiée"
+  },
+  "footer": {
+    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !",
+    "poweredBy": {
+      "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC",
+      "oasismonitor": "Alimenté par Oasis Monitor API & Oasis gRPC"
+    },
+    "terms": "<0>Termes et Conditions</0>",
+    "version": "Version: <0>{{commit}}</0> construit à {{buildTime}}"
+  },
+  "home": {
+    "existing": {
+      "header": "Ouvrir un portefeuille existant",
+      "description": "Ouvrez votre portefeuille en utilisant un Ledger, votre clé privée, ou votre phrase secrète.",
+      "button": "Ouvrir mon portefeuille"
+    },
+    "create": {
+      "header": "Créer un nouveau portefeuille",
+      "description": "Créez un tout nouveau portefeuille pour envoyer, reçevoir, stake et échanger des tokens ROSE.",
+      "button": "Créer un portefeuille"
+    }
+  },
+  "ledger": {
+    "steps": {
+      "openingUsb": "Ouverture du Ledger via USB",
+      "loadingAccounts": "Chargement des adresses",
+      "loadingBalances": "Chargement du solde des adresses",
+      "done": "Fin"
+    }
+  },
+  "menu": {
+    "home": "Accueil",
+    "wallet": "Portefeuille",
+    "stake": "Staking",
+    "closeWallet": "Refermer le portefeuille"
+  },
+  "openWallet": {
+    "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
+    "method": {
+      "mnemonic": "Phrase secrète",
+      "privateKey": "Clé privée",
+      "ledger": "Ledger"
+    },
+    "mnemonic": {
+      "header": "Entrez votre phrase secrète",
+      "instruction": "Entrez ci-dessous tous les mots qui composent votre phrase secrète (séparés par des espaces). La plupart des phrases secrètes sont composées de 24 ou 12 mots.",
+      "error": "Phrase secrète invalide. Entrez chaque mot séparé d'un espace et dans le bon ordre.",
+      "enterPhraseHere": "Entrez votre phrase secrète ici",
+      "open": "Ouvrir mon portefeuille"
+    },
+    "privateKey": {
+      "header": "Entrez votre clé privée",
+      "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
+      "error": "Clé privée invalide",
+      "enterPrivateKeyHere": "Entrez votre clé privée ici",
+      "hidePrivateKey": "Masquer la clé privée",
+      "showPrivateKey": "Montrer la clé privée"
+    },
+    "ledger": {
+      "selectWallets": "Sélectionnez les portefeuilles à ouvrir",
+      "cancel": "Annuler",
+      "openWallets": "Ouvrir"
+    },
+    "bitpie": {
+      "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
+    }
+  },
+  "theme": {
+    "darkMode": "Thème nuit",
+    "ligthMode": "Thème clair"
   },
   "toolbar": {
     "search": {
@@ -158,14 +192,6 @@
       "local": "Local",
       "mainnet": "Mainnet",
       "testnet": "Testnet"
-    }
-  },
-  "ledger": {
-    "steps": {
-      "openingUsb": "Ouverture du Ledger via USB",
-      "loadingAccounts": "Chargement des adresses",
-      "loadingBalances": "Chargement du solde des adresses",
-      "done": "Fin"
     }
   },
   "transaction": {
@@ -195,10 +221,6 @@
       "transfer": "Transfert de tokens de votre compte à un autre"
     }
   },
-  "theme": {
-    "darkMode": "Thème nuit",
-    "ligthMode": "Thème clair"
-  },
   "validator": {
     "rank": "Rang",
     "escrow": "Escrow",
@@ -216,27 +238,5 @@
     "boundsNotSet": "Pas de bornes définies (0% - 0%)",
     "totalEscrow": "Escrow total",
     "unknownValidator": "Unknown validator"
-  },
-  "delegations": {
-    "delegatedAmount": "Montant délégué",
-    "activeDelegations": "Délégations actives",
-    "debondingDelegations": "Délégations réclamées",
-    "reclaimedAmount": "Montant réclamé",
-    "debondingEpoch": "Epoch de récupération"
-  },
-  "fatalError": {
-    "instruction": "Une erreur fatale s'est produite et le portefeuille Oasis a dû être arrêté. Merci de copier l'erreur et de la soumettre en tant qu'Issue sur notre via <0>wallet@oasisprotocol.org</0> email. Vous pouvez également rafraîchir la page pour voir si le problème persiste. Une fois que vous quittez cette page votre portefeuille sera refermé.",
-    "heading": "Une erreur fatale s'est produite",
-    "copy": "Copier l'erreur",
-    "copied": "Erreur copiée"
-  },
-  "footer": {
-    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !",
-    "poweredBy": {
-      "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC",
-      "oasismonitor": "Alimenté par Oasis Monitor API & Oasis gRPC"
-    },
-    "terms": "<0>Termes et Conditions</0>",
-    "version": "Version: <0>{{commit}}</0> construit à {{buildTime}}"
   }
 }

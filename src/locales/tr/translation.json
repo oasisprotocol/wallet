@@ -1,62 +1,4 @@
 {
-  "menu": {
-    "closeWallet": "Cüzdanı kapat",
-    "home": "Ana Sayfa",
-    "wallet": "Cüzdan",
-    "stake": "Stake"
-  },
-  "home": {
-    "existing": {
-      "header": "Mevcut cüzdana giriş yap",
-      "description": "Mevcut cüzdanınıza Ledger kullanarak, bir özel anahtar, ya da mnemonic kelimeleriniz ile giriş yapın.",
-      "button": "Cüzdan aç"
-    },
-    "create": {
-      "header": "Yeni cüzdan oluştur",
-      "description": "ROSE tokenlarınızı göndermek, almak, stake etmek ve swap yapmak için yepyeni bir cüzdan oluşturun",
-      "button": "Cüzdan oluştur"
-    }
-  },
-  "openWallet": {
-    "header": "Cüzdanınızı nasıl açmak istersiniz?",
-    "method": {
-      "mnemonic": "Mnemonic",
-      "privateKey": "Özel anahtar",
-      "ledger": "Ledger"
-    },
-    "mnemonic": {
-      "header": "Anahtar kelimelerinizi girin",
-      "instruction": "12, 18 veya 24 kelimelik anahtar kelimenizi aşağıya girin, her kelime boşlukla ayrılmıştır.",
-      "error": "Geçersiz anahtar kelime. Lütfen kelimeleri doğru sırayla girdiğinizden emin olun, hepsi küçük harf olmalı.",
-      "enterPhraseHere": "Anahtar kelimelerinizi buraya girin",
-      "open": "Cüzdanımı aç"
-    },
-    "privateKey": {
-      "header": "Özel anahtarınızı girin",
-      "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin",
-      "error": "Geçersiz özel anahtar",
-      "enterPrivateKeyHere": "Özel anahtarınızı buraya girin",
-      "hidePrivateKey": "Hide private key",
-      "showPrivateKey": "Show private key"
-    },
-    "ledger": {
-      "header": "Open from Ledger device",
-      "selectWallets": "Açılacak cüzdanları seçin",
-      "cancel": "İptal et",
-      "openWallets": "Aç"
-    },
-    "bitpie": {
-      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
-    }
-  },
-  "createWallet": {
-    "newMnemonic": "Yeni bir mnemonic oluştur",
-    "thisIsYourPhrase": "Size ait olan mnemonic",
-    "instruction": "Anahtar kelimelerinizi <1>doğru sırada</1> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
-    "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
-    "confirmSaved": "Anahtar kelimelerimi kaydettim",
-    "mnemonicMismatch": "Entered mnemonic does not match."
-  },
   "account": {
     "summary": {
       "yourAccount": "Bu sizin hesabınız",
@@ -137,6 +79,21 @@
     "unavailable": "Unavailable",
     "validators": "Validators"
   },
+  "createWallet": {
+    "newMnemonic": "Yeni bir mnemonic oluştur",
+    "thisIsYourPhrase": "Size ait olan mnemonic",
+    "instruction": "Anahtar kelimelerinizi <1>doğru sırada</1> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
+    "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
+    "confirmSaved": "Anahtar kelimelerimi kaydettim",
+    "mnemonicMismatch": "Entered mnemonic does not match."
+  },
+  "delegations": {
+    "delegatedAmount": "Devredilen miktar",
+    "activeDelegations": "Aktif delegasyonlar",
+    "debondingDelegations": "Ayrılan delegasyonlar",
+    "reclaimedAmount": "Alınan miktar",
+    "debondingEpoch": "Ayrılma Dönemi"
+  },
   "errors": {
     "unknown": "Bilinmeyen hata : {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
@@ -156,6 +113,90 @@
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "unknownLedgerError": "Bilinmeyen ledger hatası : {{message}}"
   },
+  "fatalError": {
+    "instruction": "Beklenmeyen önemli bir hata oluştu ve Oasis cüzdan durdurulmalı. Lütfen bu sorunu aşağıdaki <0>GitHub hesabımıza</0> kopyalayın. Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi de deneyebilirsiniz. Bu sayfadan ayrıldığınızda, tüm cüzdanlarınız kapatılacaktır.",
+    "heading": "Önemli bir hata oluştu",
+    "copy": "Hatayı panoya kopyala",
+    "copied": "Hata panoya kopyalandı"
+  },
+  "footer": {
+    "github": "Oasis Cüzdan tamamen <0>açık kaynaktır</0> - Geri bildirim ve sorunlar için teşekkür ederiz!",
+    "poweredBy": {
+      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC",
+      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC"
+    },
+    "terms": "<0>Şartlar ve Koşullar</0>",
+    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
+  },
+  "home": {
+    "existing": {
+      "header": "Mevcut cüzdana giriş yap",
+      "description": "Mevcut cüzdanınıza Ledger kullanarak, bir özel anahtar, ya da mnemonic kelimeleriniz ile giriş yapın.",
+      "button": "Cüzdan aç"
+    },
+    "create": {
+      "header": "Yeni cüzdan oluştur",
+      "description": "ROSE tokenlarınızı göndermek, almak, stake etmek ve swap yapmak için yepyeni bir cüzdan oluşturun",
+      "button": "Cüzdan oluştur"
+    }
+  },
+  "ledger": {
+    "instructionSteps": {
+      "header": "Steps:",
+      "connectLedger": "Connect your Ledger device to the computer",
+      "closeLedgerLive": "Close Ledger Live app on the computer",
+      "openOasisApp": "Open the Oasis App on your Ledger device",
+      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
+    },
+    "steps": {
+      "openingUsb": "Ledger USB Üzerinden Açılıyor",
+      "loadingAccounts": "Hesap detayları yükleniyor",
+      "loadingBalances": "Bakiye detayları yükleniyor",
+      "done": "Tamam"
+    }
+  },
+  "menu": {
+    "closeWallet": "Cüzdanı kapat",
+    "home": "Ana Sayfa",
+    "wallet": "Cüzdan",
+    "stake": "Stake"
+  },
+  "openWallet": {
+    "header": "Cüzdanınızı nasıl açmak istersiniz?",
+    "method": {
+      "mnemonic": "Mnemonic",
+      "privateKey": "Özel anahtar",
+      "ledger": "Ledger"
+    },
+    "mnemonic": {
+      "header": "Anahtar kelimelerinizi girin",
+      "instruction": "12, 18 veya 24 kelimelik anahtar kelimenizi aşağıya girin, her kelime boşlukla ayrılmıştır.",
+      "error": "Geçersiz anahtar kelime. Lütfen kelimeleri doğru sırayla girdiğinizden emin olun, hepsi küçük harf olmalı.",
+      "enterPhraseHere": "Anahtar kelimelerinizi buraya girin",
+      "open": "Cüzdanımı aç"
+    },
+    "privateKey": {
+      "header": "Özel anahtarınızı girin",
+      "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin",
+      "error": "Geçersiz özel anahtar",
+      "enterPrivateKeyHere": "Özel anahtarınızı buraya girin",
+      "hidePrivateKey": "Hide private key",
+      "showPrivateKey": "Show private key"
+    },
+    "ledger": {
+      "header": "Open from Ledger device",
+      "selectWallets": "Açılacak cüzdanları seçin",
+      "cancel": "İptal et",
+      "openWallets": "Aç"
+    },
+    "bitpie": {
+      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
+    }
+  },
+  "theme": {
+    "darkMode": "Gece modu",
+    "ligthMode": "Gündüz modu"
+  },
   "toolbar": {
     "search": {
       "placeholder": "Bir adres arayın"
@@ -173,21 +214,6 @@
       "local": "Yerel",
       "mainnet": "Mainnet",
       "testnet": "Testnet"
-    }
-  },
-  "ledger": {
-    "instructionSteps": {
-      "header": "Steps:",
-      "connectLedger": "Connect your Ledger device to the computer",
-      "closeLedgerLive": "Close Ledger Live app on the computer",
-      "openOasisApp": "Open the Oasis App on your Ledger device",
-      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
-    },
-    "steps": {
-      "openingUsb": "Ledger USB Üzerinden Açılıyor",
-      "loadingAccounts": "Hesap detayları yükleniyor",
-      "loadingBalances": "Bakiye detayları yükleniyor",
-      "done": "Tamam"
     }
   },
   "transaction": {
@@ -217,10 +243,6 @@
       "transfer": "Tokenları bir hesabınızdan diğerine aktarma"
     }
   },
-  "theme": {
-    "darkMode": "Gece modu",
-    "ligthMode": "Gündüz modu"
-  },
   "validator": {
     "rank": "Seviye",
     "escrow": "Escrow",
@@ -239,27 +261,5 @@
     "boundsNotSet": "Sınır ayarlanmadı (0% - 0%)",
     "totalEscrow": "Toplam Escrow",
     "unknownValidator": "Bilinmeyen doğrulayıcı"
-  },
-  "delegations": {
-    "delegatedAmount": "Devredilen miktar",
-    "activeDelegations": "Aktif delegasyonlar",
-    "debondingDelegations": "Ayrılan delegasyonlar",
-    "reclaimedAmount": "Alınan miktar",
-    "debondingEpoch": "Ayrılma Dönemi"
-  },
-  "fatalError": {
-    "instruction": "Beklenmeyen önemli bir hata oluştu ve Oasis cüzdan durdurulmalı. Lütfen bu sorunu aşağıdaki <0>GitHub hesabımıza</0> kopyalayın. Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi de deneyebilirsiniz. Bu sayfadan ayrıldığınızda, tüm cüzdanlarınız kapatılacaktır.",
-    "heading": "Önemli bir hata oluştu",
-    "copy": "Hatayı panoya kopyala",
-    "copied": "Hata panoya kopyalandı"
-  },
-  "footer": {
-    "github": "Oasis Cüzdan tamamen <0>açık kaynaktır</0> - Geri bildirim ve sorunlar için teşekkür ederiz!",
-    "poweredBy": {
-      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC",
-      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC"
-    },
-    "terms": "<0>Şartlar ve Koşullar</0>",
-    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
   }
 }
