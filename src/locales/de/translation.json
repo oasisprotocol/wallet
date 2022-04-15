@@ -1,5 +1,4 @@
 {
-  "Hello world": "",
   "feedbackFeature": {
     "title": "Sofortiges Feedback",
     "description": "Genießen Sie die beste Entwicklungserfahrung und programmieren Sie Ihre App so schnell wie noch nie! Ihre Änderungen an dem CSS und JavaScript sind sofort reflektiert, ohne die Seite aktualisieren zu müssen."
@@ -16,8 +15,5 @@
   "scaffoldingFeature": {
     "title": "Schnelles Scaffolding",
     "description": "Automatisieren Sie die Kreation von Komponenten, Containern, Routen, Selektoren und Sagas – und ihre Tests – direkt von dem Terminal!"
-  },
-  "translations": {
-    "someThing": "default value"
   }
 }

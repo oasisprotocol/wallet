@@ -3,7 +3,6 @@
     "summary": {
       "yourAccount": "Bu sizin hesabınız",
       "notYourAccount": "Bu sizin hesabınız değil.",
-      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
       "balance": {
         "total": "Toplam bakiye",
         "available": "Uygun",
@@ -26,32 +25,15 @@
       "reclaimEscrow": {
         "received": "<0></0> delegator tarafından alındı",
         "sent": "Doğrulayıcıdan <0></0> alındı"
-      },
-      "loadingError": "Couldn't load transactions. List may be empty or out of date."
-    },
-    "otherTransaction": {
-      "header": "Unrecognized transaction, method '{{method}}'",
-      "designation": "Other address"
+      }
     },
     "sendTransaction": {
-      "confirmSendingToValidator": {
-        "description": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
-        "title": "Are you sure you want to continue?"
-      },
       "recipient": "Alıcı",
       "enterAddress": "Bir adres girin",
       "success": "İşlem başarıyla gönderildi. İşlemin hesabınıza yansıması birkaç dakika sürebilir.",
       "send": "Gönder"
     },
     "loading": "Hesap yükleniyor",
-    "loadingError": "Couldn't load account. Information may be missing or out of date.",
-    "addEscrow": {
-      "confirmDelegatingToInactive": {
-        "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
-        "title": "Are you sure you want to continue?"
-      },
-      "delegate": "Delegate"
-    },
     "subnavigation": {
       "transactions": "İşlemler",
       "activeDelegations": "Aktif delegasyon ({{count}})",
@@ -61,10 +43,6 @@
     },
     "reclaimEscrow": {
       "reclaim": "Al"
-    },
-    "validator": {
-      "loadingError": "Couldn't load validators.",
-      "showingStale": "Showing validator list as of {{staleTimestamp}}."
     }
   },
   "common": {
@@ -74,18 +52,14 @@
     "to": "Kime",
     "delegator": "Delegatör",
     "validator": "Doğrulayıcı",
-    "cancel": "İptal et",
-    "confirm": "Confirm",
-    "unavailable": "Unavailable",
-    "validators": "Validators"
+    "cancel": "İptal et"
   },
   "createWallet": {
     "newMnemonic": "Yeni bir mnemonic oluştur",
     "thisIsYourPhrase": "Size ait olan mnemonic",
     "instruction": "Anahtar kelimelerinizi <1>doğru sırada</1> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
     "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
-    "confirmSaved": "Anahtar kelimelerimi kaydettim",
-    "mnemonicMismatch": "Entered mnemonic does not match."
+    "confirmSaved": "Anahtar kelimelerimi kaydettim"
   },
   "delegations": {
     "delegatedAmount": "Devredilen miktar",
@@ -96,21 +70,17 @@
   },
   "errors": {
     "unknown": "Bilinmeyen hata : {{message}}",
-    "unknownGrpc": "Unknown gRPC error: {{message}}",
     "invalidPrivateKey": "Geçersiz anahtar kelime",
     "cannotSendToSelf": "Kendinize gönderemezsiniz",
     "invalidNonce": "Geçersiz Nonce (transaction number)",
     "duplicateTransaction": "Tekrarlayan işlem",
     "invalidAddress": "Geçersiz adres",
     "insufficientBalance": "Yetersiz bakiye",
-    "noOpenWallet": "",
-    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.",
     "usbTransportError": "USB hatası : {{message}}",
     "ledgerAppVersionNotSupported": "Alındı : \"Ledger uygulama versiyonu desteklenmiyor\", bu yanlış bir işlem olabilir, işlemi tekrar edin, eğer hata devam ederse Ledger'ınızdaki Oasis uygulamasını güncelleyin.",
     "ledgerTransactionRejected": "İşlem, Ledger tarafından reddedildi",
     "ledgerNoDeviceSelected": "Ledger seçilmedi. eğer Ledger'ınızı açmak isterseniz, bu mesajı yok sayın ve tekrar deneyin.",
     "ledgerCannotOpenOasisApp": "Oasis uygulamasını Ledger üzerinde açamadı, kilidin açık olduğundan ve Oasis uygulamasının açık olduğundan emin olun.",
-    "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "unknownLedgerError": "Bilinmeyen ledger hatası : {{message}}"
   },
   "fatalError": {
@@ -121,12 +91,7 @@
   },
   "footer": {
     "github": "Oasis Cüzdan tamamen <0>açık kaynaktır</0> - Geri bildirim ve sorunlar için teşekkür ederiz!",
-    "poweredBy": {
-      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC",
-      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC"
-    },
-    "terms": "<0>Şartlar ve Koşullar</0>",
-    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
+    "terms": "<0>Şartlar ve Koşullar</0>"
   },
   "home": {
     "existing": {
@@ -141,13 +106,6 @@
     }
   },
   "ledger": {
-    "instructionSteps": {
-      "header": "Steps:",
-      "connectLedger": "Connect your Ledger device to the computer",
-      "closeLedgerLive": "Close Ledger Live app on the computer",
-      "openOasisApp": "Open the Oasis App on your Ledger device",
-      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`"
-    },
     "steps": {
       "openingUsb": "Ledger USB Üzerinden Açılıyor",
       "loadingAccounts": "Hesap detayları yükleniyor",
@@ -179,18 +137,13 @@
       "header": "Özel anahtarınızı girin",
       "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin",
       "error": "Geçersiz özel anahtar",
-      "enterPrivateKeyHere": "Özel anahtarınızı buraya girin",
-      "hidePrivateKey": "Hide private key",
-      "showPrivateKey": "Show private key"
+      "enterPrivateKeyHere": "Özel anahtarınızı buraya girin"
     },
     "ledger": {
       "header": "Open from Ledger device",
       "selectWallets": "Açılacak cüzdanları seçin",
       "cancel": "İptal et",
       "openWallets": "Aç"
-    },
-    "bitpie": {
-      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
     }
   },
   "theme": {

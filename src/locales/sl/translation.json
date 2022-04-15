@@ -103,7 +103,6 @@
     "duplicateTransaction": "Podvojena transakcija",
     "invalidAddress": "Neveljaven naslov",
     "insufficientBalance": "Stanje na računu prenizko",
-    "noOpenWallet": "",
     "usbTransportNotSupported": "Vaš brskalnik ne podpira WebUSB (npr. Firefox). Poskusite z uporabo Chroma.",
     "usbTransportError": "Napaka na prenosu prek USB: {{message}}",
     "ledgerAppVersionNotSupported": "Aplikacija Oasis na Ledgerju je zaprta ali zastarela. Poskrbite, da je Ledger odklenjen in da je zadnja različica aplikacije Oasis zagnana.",
