@@ -18,15 +18,15 @@ export function ErrorFormatter(props: Props) {
   const message = props.message
 
   const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {
-    [WalletErrors.UnknownError]: t('errors.unknown', { message }),
-    [WalletErrors.UnknownGrpcError]: t('errors.unknownGrpc', { message }),
-    [WalletErrors.InvalidAddress]: t('errors.invalidAddress'),
-    [WalletErrors.InvalidPrivateKey]: t('errors.invalidPrivateKey'),
-    [WalletErrors.InsufficientBalance]: t('errors.insufficientBalance'),
-    [WalletErrors.CannotSendToSelf]: t('errors.cannotSendToSelf'),
-    [WalletErrors.InvalidNonce]: t('errors.invalidNonce'),
-    [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction'),
-    [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet'),
+    [WalletErrors.UnknownError]: t('errors.unknown', 'Unknown error: {{message}}', { message }),
+    [WalletErrors.UnknownGrpcError]: t('errors.unknownGrpc', 'Unknown gRPC error: {{message}}', { message }),
+    [WalletErrors.InvalidAddress]: t('errors.invalidAddress', 'Invalid address'),
+    [WalletErrors.InvalidPrivateKey]: t('errors.invalidPrivateKey', 'Invalid private key'),
+    [WalletErrors.InsufficientBalance]: t('errors.insufficientBalance', 'Insufficient balance'),
+    [WalletErrors.CannotSendToSelf]: t('errors.cannotSendToSelf', 'Cannot send to yourself'),
+    [WalletErrors.InvalidNonce]: t('errors.invalidNonce', 'Invalid nonce (transaction number)'),
+    [WalletErrors.DuplicateTransaction]: t('errors.duplicateTransaction', 'Duplicate transaction'),
+    [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet', 'No wallet opened'),
     [WalletErrors.USBTransportNotSupported]: t(
       'errors.usbTransportNotSupported',
       'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',

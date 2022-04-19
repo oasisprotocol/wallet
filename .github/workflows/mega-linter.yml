@@ -44,6 +44,15 @@ jobs:
           node-version: 14.x
       - run: yarn install --frozen-lockfile
 
+      # Check if all i18n terms in code are synced with source (English) translation file.
+      - name: Check English translation is synced
+        run: |
+          rm src/locales/en/translation.json
+          yarn extract-messages
+          git diff --exit-code src/locales/en/translation.json
+          # Check passed, revert changes to any other translation so it doesn't get applied by mega-linter.
+          git restore .
+
       # Mega-Linter
       - name: Mega-Linter
         id: ml

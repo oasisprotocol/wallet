@@ -140,7 +140,12 @@ const SidebarFooter = (props: SidebarFooterProps) => {
   return (
     <Nav gap="small">
       <ThemeSwitcher />
-      <SidebarButton icon={<Logout />} label={t('menu.closeWallet')} secure={true} onClick={() => logout()} />
+      <SidebarButton
+        icon={<Logout />}
+        label={t('menu.closeWallet', 'Close wallet')}
+        secure={true}
+        onClick={() => logout()}
+      />
       <Box pad="small" align="center">
         <Menu
           hoverIndicator={false}
@@ -183,11 +188,11 @@ function SidebarMenuItems() {
   const { t } = useTranslation()
 
   const menu = {
-    home: <SidebarButton icon={<Home />} label={t('menu.home')} route="/" data-testid="nav-home" />,
+    home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
     wallet: (
       <SidebarButton
         icon={<Money />}
-        label={t('menu.wallet')}
+        label={t('menu.wallet', 'Wallet')}
         secure={true}
         route={`/account/${address}`}
         data-testid="nav-myaccount"
@@ -196,7 +201,7 @@ function SidebarMenuItems() {
     stake: (
       <SidebarButton
         icon={<LineChart />}
-        label={t('menu.stake')}
+        label={t('menu.stake', 'Stake')}
         secure={true}
         route={`/account/${address}/stake`}
         data-testid="nav-stake"

@@ -41,7 +41,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           >
             <Box pad={{ bottom: 'small' }}>
               <Text weight="bold" size="xlarge">
-                {t('account.summary.balance.total')}
+                {t('account.summary.balance.total', 'Total balance')}
               </Text>
             </Box>
             <Box justify="center" pad={{ bottom: 'small' }}>
@@ -50,21 +50,21 @@ export function AccountSummary(props: AccountSummaryProps) {
               </Text>
             </Box>
 
-            <Box>{t('account.summary.balance.available')}</Box>
+            <Box>{t('account.summary.balance.available', 'Available')}</Box>
             <Box>
               <Text>
                 <AmountFormatter amount={balance.available} />
               </Text>
             </Box>
 
-            <Box>{t('account.summary.balance.delegations')}</Box>
+            <Box>{t('account.summary.balance.delegations', 'Staked')}</Box>
             <Box>
               <Text>
                 <AmountFormatter amount={balance.delegations} />
               </Text>
             </Box>
 
-            <Box>{t('account.summary.balance.debonding')}</Box>
+            <Box>{t('account.summary.balance.debonding', 'Debonding')}</Box>
             <Box>
               <Text>
                 <AmountFormatter amount={balance.debonding} />

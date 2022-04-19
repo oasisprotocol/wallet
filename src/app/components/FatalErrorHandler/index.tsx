@@ -45,6 +45,7 @@ export function FatalErrorHandler(props: Props) {
           <Text>
             <Trans
               i18nKey="fatalError.instruction"
+              defaults="Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet."
               t={t}
               components={[<Anchor href="mailto:wallet@oasisprotocol.org" />]}
             />
