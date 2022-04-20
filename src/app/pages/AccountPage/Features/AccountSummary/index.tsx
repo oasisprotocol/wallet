@@ -107,12 +107,7 @@ export function AccountSummary(props: AccountSummaryProps) {
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
-          <Text weight="bold">
-            {t(
-              'account.summary.notYourAccount',
-              'This is not your account. Click here to go to your open wallet.',
-            )}
-          </Text>
+          <Text weight="bold">{t('account.summary.notYourAccount', 'This is not your account.')}</Text>
         </Box>
       )}
       {!walletIsOpen && (
