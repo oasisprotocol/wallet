@@ -507,7 +507,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
             style="border-radius: 4px;"
             type="submit"
           >
-            openWallet.mnemonic.open
+            openWallet.mnemonic.import
           </button>
         </div>
       </div>

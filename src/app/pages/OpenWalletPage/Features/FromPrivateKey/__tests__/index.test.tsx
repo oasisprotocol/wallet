@@ -31,7 +31,7 @@ describe('<FromPrivateKey  />', () => {
   it('should display an error on invalid private key', () => {
     renderPage(store)
     const textbox = screen.getByPlaceholderText('openWallet.privateKey.enterPrivateKeyHere')
-    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.open' })
+    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
     userEvent.type(textbox, 'hello')
     userEvent.click(button)
     const errorElem = screen.getByText('openWallet.privateKey.error')
@@ -50,7 +50,7 @@ describe('<FromPrivateKey  />', () => {
   it('should allow multiline private keys with envelope', async () => {
     renderPage(store)
     const textbox = screen.getByPlaceholderText('openWallet.privateKey.enterPrivateKeyHere')
-    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.open' })
+    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
     userEvent.type(
       textbox,
       `

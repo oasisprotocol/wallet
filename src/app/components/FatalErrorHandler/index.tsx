@@ -45,7 +45,7 @@ export function FatalErrorHandler(props: Props) {
           <Text>
             <Trans
               i18nKey="fatalError.instruction"
-              defaults="A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below."
+              defaults="A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallet to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below."
               t={t}
               components={[<Anchor href="mailto:wallet@oasisprotocol.org" />]}
             />

@@ -157,7 +157,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
             <Box direction="row" justify="between" margin={{ top: 'medium' }}>
               <Button
                 type="submit"
-                label={t('openWallet.mnemonic.open', 'Open my wallet')}
+                label={t('openWallet.mnemonic.import', 'Import my wallet')}
                 style={{ borderRadius: '4px' }}
                 primary
                 disabled={!checked}

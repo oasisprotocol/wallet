@@ -20,7 +20,7 @@ export function HomePage() {
           <Paragraph>
             {t(
               'home.existing.description',
-              'Open your existing wallet using Ledger, a private key, or your mnemonic phrase.',
+              'Open your existing wallet stored on Ledger, import a private key or a mnemonic phrase.',
             )}
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
