@@ -51,7 +51,12 @@ export const TransactionStatus = memo((props: Props) => {
           }}
           pad={{ horizontal: 'small', vertical: 'xsmall' }}
         >
-          <Text weight="bold">{t('account.sendTransaction.success', 'Transaction successfully sent')}</Text>
+          <Text weight="bold">
+            {t(
+              'account.sendTransaction.success',
+              'Transaction successfully sent. The transaction might take up to a minute to appear on your account.',
+            )}
+          </Text>
         </Box>
       )}
     </>

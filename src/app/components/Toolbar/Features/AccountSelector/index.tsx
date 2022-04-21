@@ -46,7 +46,7 @@ export const Account = memo((props: AccountProps) => {
   const walletTypes: { [type in WalletType]: string } = {
     [WalletType.Ledger]: t('toolbar.wallets.type.ledger', 'Ledger'),
     [WalletType.Mnemonic]: t('toolbar.wallets.type.mnemonic', 'Mnemonic'),
-    [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private Key'),
+    [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private key'),
   }
 
   return (

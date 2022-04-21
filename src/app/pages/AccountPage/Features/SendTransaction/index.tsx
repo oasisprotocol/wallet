@@ -31,11 +31,11 @@ export function SendTransaction() {
       launchModal({
         title: t(
           'account.sendTransaction.confirmSendingToValidator.title',
-          'This is a validator wallet address. Transfers to this address do not stake your funds with the validator.',
+          'Are you sure you want to continue?',
         ),
         description: t(
           'account.sendTransaction.confirmSendingToValidator.description',
-          'Are you sure you want to continue?',
+          'This is a validator wallet address. Transfers to this address do not stake your funds with the validator.',
         ),
         handleConfirm: sendTransaction,
         isDangerous: true,

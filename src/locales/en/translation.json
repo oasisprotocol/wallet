@@ -18,13 +18,13 @@
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
-        "description": "Are you sure you want to continue?",
-        "title": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator."
+        "description": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
+        "title": "Are you sure you want to continue?"
       },
       "enterAddress": "Enter an address",
       "recipient": "Recipient",
       "send": "Send",
-      "success": "Transaction successfully sent"
+      "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account."
     },
     "subnavigation": {
       "activeDelegations": "Active delegations ({{count}})",
@@ -42,7 +42,7 @@
       },
       "noTransactionFound": "No transactions found.",
       "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
-      "notYourAccount": "This is not your account. Click here to go to your open wallet.",
+      "notYourAccount": "This is not your account.",
       "yourAccount": "This is your account."
     },
     "transaction": {
@@ -90,7 +90,7 @@
   "delegations": {
     "activeDelegations": "Active delegations",
     "debondingDelegations": "Debonding delegations",
-    "debondingEpoch": "Debonding Epoch",
+    "debondingEpoch": "Debonding epoch",
     "delegatedAmount": "Delegated amount",
     "reclaimedAmount": "Amount to reclaim"
   },
@@ -117,7 +117,7 @@
     "copied": "Error copied to clipboard",
     "copy": "Copy error to clipboard",
     "heading": "A fatal error occurred",
-    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet."
+    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallets to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below."
   },
   "footer": {
     "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!",
@@ -212,7 +212,7 @@
       "type": {
         "ledger": "Ledger",
         "mnemonic": "Mnemonic",
-        "privateKey": "Private Key"
+        "privateKey": "Private key"
       }
     }
   },
@@ -254,8 +254,8 @@
     "escrow": "Escrow",
     "fee": "Fee",
     "name": "Name",
-    "rank": "Rank:",
-    "status": "Status:",
+    "rank": "Rank",
+    "status": "Status",
     "statusActive": "Active",
     "statusInactive": "Inactive",
     "statusUnknown": "Unknown",

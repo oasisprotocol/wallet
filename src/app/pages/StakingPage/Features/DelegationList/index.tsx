@@ -118,7 +118,7 @@ export const DelegationList = memo((props: Props) => {
       sortFunction: (row1, row2) => (row1.validator?.current_rate ?? 0) - (row2.validator?.current_rate ?? 0),
     },
     epoch: {
-      name: t('delegations.debondingEpoch', 'Debonding Epoch'),
+      name: t('delegations.debondingEpoch', 'Debonding epoch'),
       id: 'epoch',
       selector: 'epoch',
       sortable: true,
