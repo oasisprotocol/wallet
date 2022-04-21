@@ -35,7 +35,7 @@ export function SendTransaction() {
         ),
         description: t(
           'account.sendTransaction.confirmSendingToValidator.description',
-          'This is a validator wallet address. Transfers to this address do not stake your funds with the validator.',
+          'This is a validator address. Transfers to this address do not stake your funds with the validator.',
         ),
         handleConfirm: sendTransaction,
         isDangerous: true,

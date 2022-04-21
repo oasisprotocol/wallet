@@ -120,7 +120,7 @@ export const AccountSelector = memo((props: Props) => {
     >
       <Box pad={{ vertical: 'small' }} margin="medium" width={size === 'small' ? 'auto' : '700px'}>
         <Heading size="1" margin={{ vertical: 'small' }}>
-          {t('toolbar.wallets.switchOtherWallet', 'Switch to another wallet')}
+          {t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}
         </Heading>
         <Box
           gap="small"

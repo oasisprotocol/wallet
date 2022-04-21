@@ -95,7 +95,7 @@ export function FromPrivateKey(props: Props) {
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <Button
               type="submit"
-              label={t('openWallet.mnemonic.open', 'Open my wallet')}
+              label={t('openWallet.mnemonic.import', 'Import my account')}
               style={{ borderRadius: '4px' }}
               primary
               onClick={onSubmit}

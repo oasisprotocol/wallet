@@ -74,7 +74,7 @@ export function FromLedger(props: FromLedgerProps) {
       <Box direction="row" margin={{ top: 'medium' }}>
         <Button
           type="submit"
-          label={t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
+          label={t('openWallet.ledger.selectWallets', 'Select accounts to open')}
           style={{ borderRadius: '4px' }}
           onClick={() => {
             showLedgerModal(true)
@@ -123,7 +123,7 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
     <ResponsiveLayer position="center" modal>
       <Box width="750px" pad="medium" background="background-front">
         <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
-          {t('openWallet.ledger.selectWallets', 'Select the wallets to open')}
+          {t('openWallet.ledger.selectWallets', 'Select accounts to open')}
         </Heading>
         {ledger.step && ledger.step !== LedgerStep.Done && (
           <Box direction="row" gap="medium" alignContent="center">
