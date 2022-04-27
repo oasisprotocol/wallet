@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/chrome-manifest",
   "name": "__MSG_appName__",
   "short_name": "__MSG_appName__",
   "description": "__MSG_appDescription__",

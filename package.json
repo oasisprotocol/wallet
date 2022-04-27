@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/lukaw3d/parcel-bundler-json-schemas/main/package_schema.json",
   "name": "oasis-wallet",
   "version": "0.0.0-development",
   "private": true,
