@@ -62,6 +62,6 @@ export const CommissionBounds = memo((props: Props) => {
       .map((b, i) => <CommissionBound bound={b} key={i} />)
     return <>{items}</>
   } else {
-    return <>{t('validator.boundsNotSet', 'No bounds set (0% - 0%)')}</>
+    return <>{t('validator.boundsNotSet', 'No bounds set (0% - 100%)')}</>
   }
 })

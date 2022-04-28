@@ -244,7 +244,7 @@
     }
   },
   "validator": {
-    "boundsNotSet": "No bounds set (0% - 0%)",
+    "boundsNotSet": "No bounds set (0% - 100%)",
     "commission": "Commission",
     "commissionBounds": {
       "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}",
