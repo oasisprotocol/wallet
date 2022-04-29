@@ -1,10 +1,9 @@
 import { walletActions } from 'app/state/wallet'
-import { selectAddress, selectStatus } from 'app/state/wallet/selectors'
+import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
 import {
   Avatar,
   Box,
   Button,
-  ButtonExtendedProps,
   Layer,
   Menu,
   Nav,
@@ -32,20 +31,36 @@ import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 
-interface SidebarButtonProps extends ButtonExtendedProps {
-  secure?: boolean
-  route?: string
+interface SidebarButtonBaseProps {
+  needsWalletOpen?: boolean
+  icon: JSX.Element
   label: string
 }
 
-export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonProps) => {
-  const status = useSelector(selectStatus)
+type SidebarButtonProps = SidebarButtonBaseProps &
+  (
+    | { route: string; onClick?: undefined }
+    | {
+        route?: undefined
+        onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLAnchorElement>
+      }
+  )
+
+export const SidebarButton = ({
+  needsWalletOpen,
+  icon,
+  label,
+  route,
+  onClick,
+  ...rest
+}: SidebarButtonProps) => {
+  const isWalletOpen = useSelector(selectIsOpen)
   const size = useContext(ResponsiveContext)
   const location = useLocation()
-  const isActive = route && route === location.pathname
+  const isActive = route ? route === location.pathname : false
   const isMediumSize = size === 'medium'
 
-  if (!status && secure) {
+  if (!isWalletOpen && needsWalletOpen) {
     return null
   }
 
@@ -75,6 +90,7 @@ export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarBu
           plain
           icon={icon}
           label={!isMediumSize ? label : undefined}
+          onClick={onClick}
           {...rest}
         />
       </Box>
@@ -144,7 +160,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       <SidebarButton
         icon={<Logout />}
         label={t('menu.closeWallet', 'Close wallet')}
-        secure={true}
+        needsWalletOpen={true}
         onClick={() => logout()}
       />
       <Box pad="small" align="center">
@@ -189,7 +205,7 @@ function SidebarMenuItems() {
       <SidebarButton
         icon={<Money />}
         label={t('menu.wallet', 'Wallet')}
-        secure={true}
+        needsWalletOpen={true}
         route={`/account/${address}`}
         data-testid="nav-myaccount"
       />
@@ -198,7 +214,7 @@ function SidebarMenuItems() {
       <SidebarButton
         icon={<LineChart />}
         label={t('menu.stake', 'Stake')}
-        secure={true}
+        needsWalletOpen={true}
         route={`/account/${address}/stake`}
         data-testid="nav-stake"
       />

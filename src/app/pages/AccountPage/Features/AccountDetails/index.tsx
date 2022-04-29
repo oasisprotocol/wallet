@@ -3,7 +3,7 @@
  * AccountDetails
  *
  */
-import { selectStatus } from 'app/state/wallet/selectors'
+import { selectIsOpen } from 'app/state/wallet/selectors'
 import { Box } from 'grommet'
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ import { TransactionHistory } from '../TransactionHistory'
 interface Props {}
 
 export const AccountDetails = memo((props: Props) => {
-  const walletIsOpen = useSelector(selectStatus)
+  const walletIsOpen = useSelector(selectIsOpen)
 
   return (
     <Box direction="row-responsive" gap="small">
