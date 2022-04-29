@@ -393,8 +393,9 @@ components:
             - staking.Transfer
             - staking.AddEscrow
             - staking.ReclaimEscrow
-            - staking.Allow
             - staking.AmendCommissionSchedule
+            - staking.Allow
+            - staking.Withdraw
             - roothash.ExecutorCommit
             - roothash.ExecutorProposerTimeout
             - registry.RegisterEntity

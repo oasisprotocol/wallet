@@ -206,20 +206,6 @@ describe('monitor', () => {
           status: true,
         },
 
-        //https://monitor.oasis.dev/data/transactions?limit=200&operation_kind=allow&account_id=oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj
-        {
-          amount: 1714900000000,
-          from: 'oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj',
-          gas_price: 1289,
-          hash: '8894b8e9866f66efe291155646f1c09d69d7221449a8d9f758ad1d31f504df03',
-          level: 7381163,
-          nonce: 2,
-          timestamp: 1645645260,
-          to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
-          type: 'allow' as OperationsRowTypeEnum,
-          status: true,
-        },
-
         //https://monitor.oasis.dev/data/transactions?limit=200&operation_kind=amendcommissionschedule&account_id=oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6
         {
           amount: 0,
@@ -232,6 +218,20 @@ describe('monitor', () => {
           timestamp: 1645526644,
           to: 'oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5',
           type: 'amendcommissionschedule' as OperationsRowTypeEnum,
+          status: true,
+        },
+
+        //https://monitor.oasis.dev/data/transactions?limit=200&operation_kind=allow&account_id=oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj
+        {
+          amount: 1714900000000,
+          from: 'oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj',
+          gas_price: 1289,
+          hash: '8894b8e9866f66efe291155646f1c09d69d7221449a8d9f758ad1d31f504df03',
+          level: 7381163,
+          nonce: 2,
+          timestamp: 1645645260,
+          to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
+          type: 'allow' as OperationsRowTypeEnum,
           status: true,
         },
 
