@@ -75,33 +75,43 @@ export const SidebarButton = ({
     </Box>
   )
 
-  const component = (
+  const SidebarTooltip = (props: { children: React.ReactNode }) => (
     <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
-      <Box
-        pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
-        background={isActive ? 'background-oasis-blue' : undefined}
-        responsive={false}
-      >
-        <Button
-          a11yTitle={label}
-          gap="medium"
-          alignSelf={isMediumSize ? 'center' : 'start'}
-          focusIndicator={false}
-          plain
-          icon={icon}
-          label={!isMediumSize ? label : undefined}
-          onClick={onClick}
-          {...rest}
-        />
-      </Box>
+      {props.children}
     </Tip>
   )
 
-  if (route) {
-    return <NavLink to={route}>{component}</NavLink>
-  }
+  const component = (
+    <Box
+      pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
+      background={isActive ? 'background-oasis-blue' : undefined}
+      responsive={false}
+      direction="row"
+      gap="medium"
+      justify={isMediumSize ? 'center' : 'start'}
+    >
+      {icon}
+      {!isMediumSize && <Text>{label}</Text>}
+    </Box>
+  )
 
-  return component
+  if (route) {
+    return (
+      <SidebarTooltip>
+        <NavLink aria-label={label} to={route} {...rest}>
+          {component}
+        </NavLink>
+      </SidebarTooltip>
+    )
+  } else {
+    return (
+      <SidebarTooltip>
+        <Button a11yTitle={label} fill="horizontal" onClick={onClick} {...rest}>
+          {component}
+        </Button>
+      </SidebarTooltip>
+    )
+  }
 }
 
 type Size = 'small' | 'medium' | 'large'
