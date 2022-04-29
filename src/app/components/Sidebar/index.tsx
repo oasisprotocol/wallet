@@ -31,6 +31,26 @@ import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 
+const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
+  const size = useContext(ResponsiveContext)
+  const isMediumSize = size === 'medium'
+  const tooltip = (
+    <Box
+      pad={{ vertical: 'small', right: 'medium' }}
+      margin="none"
+      background={props.isActive ? 'background-oasis-blue' : 'component-sidebar'}
+      round={{ size: 'medium', corner: 'right' }}
+    >
+      {props.label}
+    </Box>
+  )
+  return (
+    <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
+      {props.children}
+    </Tip>
+  )
+}
+
 interface SidebarButtonBaseProps {
   needsWalletOpen?: boolean
   icon: JSX.Element
@@ -39,9 +59,10 @@ interface SidebarButtonBaseProps {
 
 type SidebarButtonProps = SidebarButtonBaseProps &
   (
-    | { route: string; onClick?: undefined }
+    | { route: string; newTab?: boolean; onClick?: undefined }
     | {
         route?: undefined
+        newTab?: undefined
         onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLAnchorElement>
       }
   )
@@ -51,6 +72,7 @@ export const SidebarButton = ({
   icon,
   label,
   route,
+  newTab,
   onClick,
   ...rest
 }: SidebarButtonProps) => {
@@ -63,23 +85,6 @@ export const SidebarButton = ({
   if (!isWalletOpen && needsWalletOpen) {
     return null
   }
-
-  const tooltip = (
-    <Box
-      pad={{ vertical: 'small', right: 'medium' }}
-      margin="none"
-      background={isActive ? 'background-oasis-blue' : 'component-sidebar'}
-      round={{ size: 'medium', corner: 'right' }}
-    >
-      {label}
-    </Box>
-  )
-
-  const SidebarTooltip = (props: { children: React.ReactNode }) => (
-    <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
-      {props.children}
-    </Tip>
-  )
 
   const component = (
     <Box
@@ -97,15 +102,20 @@ export const SidebarButton = ({
 
   if (route) {
     return (
-      <SidebarTooltip>
-        <NavLink aria-label={label} to={route} {...rest}>
+      <SidebarTooltip label={label} isActive={isActive}>
+        <NavLink
+          aria-label={label}
+          to={route}
+          {...(newTab ? { target: '_blank', rel: 'noopener' } : {})}
+          {...rest}
+        >
           {component}
         </NavLink>
       </SidebarTooltip>
     )
   } else {
     return (
-      <SidebarTooltip>
+      <SidebarTooltip label={label} isActive={isActive}>
         <Button a11yTitle={label} fill="horizontal" onClick={onClick} {...rest}>
           {component}
         </Button>
@@ -173,34 +183,38 @@ const SidebarFooter = (props: SidebarFooterProps) => {
         needsWalletOpen={true}
         onClick={() => logout()}
       />
-      <Box pad="small" align="center">
-        <Menu
-          hoverIndicator={false}
-          dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
-          items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
-        >
-          <Box direction="row" round="4px" border={{ size: '1px' }}>
-            <Box pad="small">
-              <Language />
+
+      <SidebarTooltip label="Language" isActive={false}>
+        <Box pad="small" align="center">
+          <Menu
+            hoverIndicator={false}
+            dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
+            items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
+          >
+            <Box direction="row" round="4px" border={{ size: '1px' }}>
+              <Box pad="small">
+                <Language />
+              </Box>
+              {size !== 'medium' && (
+                <>
+                  <Box pad="small" flex="grow">
+                    <Text>Language</Text>
+                  </Box>
+                  <Box pad="small">
+                    <FormDown />
+                  </Box>
+                </>
+              )}
             </Box>
-            {size !== 'medium' && (
-              <>
-                <Box pad="small" flex="grow">
-                  <Text>Language</Text>
-                </Box>
-                <Box pad="small">
-                  <FormDown />
-                </Box>
-              </>
-            )}
-          </Box>
-        </Menu>
-      </Box>
-      <Box align="center" pad="small">
-        <a href="https://github.com/oasisprotocol/oasis-wallet-web" target="_blank" rel="noopener">
-          <Github />
-        </a>
-      </Box>
+          </Menu>
+        </Box>
+      </SidebarTooltip>
+      <SidebarButton
+        icon={<Github />}
+        label="GitHub"
+        route="https://github.com/oasisprotocol/oasis-wallet-web"
+        newTab
+      ></SidebarButton>
     </Nav>
   )
 }

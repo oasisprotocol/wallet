@@ -695,13 +695,14 @@ exports[`<Navigation /> should match snapshot 1`] = `
     <div
       class="c6"
     />
-    <div
-      class="c15"
+    <a
+      aria-label="GitHub"
+      href="/https://github.com/oasisprotocol/oasis-wallet-web"
+      rel="noopener"
+      target="_blank"
     >
-      <a
-        href="https://github.com/oasisprotocol/oasis-wallet-web"
-        rel="noopener"
-        target="_blank"
+      <div
+        class="c14"
       >
         <svg
           aria-label="Github"
@@ -714,8 +715,16 @@ exports[`<Navigation /> should match snapshot 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </a>
-    </div>
+        <div
+          class="c11"
+        />
+        <span
+          class="c5"
+        >
+          GitHub
+        </span>
+      </div>
+    </a>
   </nav>
 </div>
 `;
