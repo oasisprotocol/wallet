@@ -185,22 +185,6 @@ describe('oasisscan', () => {
           to: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
         },
 
-        // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.Allow&address=oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj
-        {
-          txHash: '8894b8e9866f66efe291155646f1c09d69d7221449a8d9f758ad1d31f504df03',
-          height: 7381163,
-          method: 'staking.Allow' as OperationsRowMethodEnum,
-          fee: '0',
-          amount: '1714.90',
-          shares: null,
-          add: true,
-          timestamp: 1645645260,
-          time: 96865,
-          status: true,
-          from: 'oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj',
-          to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
-        },
-
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.AmendCommissionSchedule&address=oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6
         {
           txHash: 'ba8e25c66ae31fa0a0837a414359bc2318c6c849515ca3dc1ffa9eb0a1ab92b3',
@@ -215,6 +199,22 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6',
           to: null,
+        },
+
+        // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.Allow&address=oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj
+        {
+          txHash: '8894b8e9866f66efe291155646f1c09d69d7221449a8d9f758ad1d31f504df03',
+          height: 7381163,
+          method: 'staking.Allow' as OperationsRowMethodEnum,
+          fee: '0',
+          amount: '1714.90',
+          shares: null,
+          add: true,
+          timestamp: 1645645260,
+          time: 96865,
+          status: true,
+          from: 'oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj',
+          to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=roothash.ExecutorCommit&address=oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg
