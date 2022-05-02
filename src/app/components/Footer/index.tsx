@@ -44,15 +44,15 @@ export const Footer = memo(() => {
           defaults="<0>Terms and Conditions</0>"
         />
       </Text>
-      {process.env.REACT_APP_BUILD_DATETIME && process.env.REACT_APP_BUILD_VERSION && (
+      {process.env.REACT_APP_BUILD_DATETIME && process.env.REACT_APP_BUILD_SHA && (
         <Text size="small" margin={{ top: 'medium' }}>
           <Trans
             i18nKey="footer.version"
             t={t}
             components={[
               <Anchor
-                href={`${githubLink}commit/${process.env.REACT_APP_BUILD_VERSION}`}
-                label={process.env.REACT_APP_BUILD_VERSION.substring(0, 7)}
+                href={`${githubLink}commit/${process.env.REACT_APP_BUILD_SHA}`}
+                label={process.env.REACT_APP_BUILD_SHA.substring(0, 7)}
               />,
             ]}
             defaults="Version: <0></0> built at {{buildTime}}"
