@@ -5,11 +5,11 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      No bounds set (0% - 0%)
+      No bounds set (0% - 100%)
     </div>
   </body>,
   "container": <div>
-    No bounds set (0% - 0%)
+    No bounds set (0% - 100%)
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

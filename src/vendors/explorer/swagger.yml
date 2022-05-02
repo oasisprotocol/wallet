@@ -1126,8 +1126,9 @@ definitions:
           - transfer
           - addescrow
           - reclaimescrow
-          - allow
           - amendcommissionschedule
+          - allow
+          - withdraw
           - executorcommit
           - executorproposertimeout
           - registerentity

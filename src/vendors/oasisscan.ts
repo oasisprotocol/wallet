@@ -97,10 +97,12 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
 
 export const transactionMethodMap: { [k in OperationsRowMethodEnum]: TransactionType } = {
   [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
+  [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
   [OperationsRowMethodEnum.StakingAddEscrow]: TransactionType.StakingAddEscrow,
   [OperationsRowMethodEnum.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
-  [OperationsRowMethodEnum.StakingAllow]: TransactionType.StakingAllow,
   [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
+  [OperationsRowMethodEnum.StakingAllow]: TransactionType.StakingAllow,
+  [OperationsRowMethodEnum.StakingWithdraw]: TransactionType.StakingWithdraw,
   [OperationsRowMethodEnum.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
   [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
   [OperationsRowMethodEnum.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
