@@ -38,7 +38,7 @@ Array [
     "status": true,
     "timestamp": 1645644903,
     "to": "oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm",
-    "type": "transfer",
+    "type": "staking.Transfer",
   },
   Object {
     "amount": 500100000000,
@@ -49,7 +49,7 @@ Array [
     "status": true,
     "timestamp": 1645645107,
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
-    "type": "addescrow",
+    "type": "staking.AddEscrow",
   },
   Object {
     "amount": 363940923824,
@@ -60,7 +60,7 @@ Array [
     "status": true,
     "timestamp": 1645644147,
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
-    "type": "reclaimescrow",
+    "type": "staking.ReclaimEscrow",
   },
   Object {
     "amount": 0,
@@ -71,7 +71,7 @@ Array [
     "status": true,
     "timestamp": 1645526644,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "amendcommissionschedule",
+    "type": "staking.AmendCommissionSchedule",
   },
   Object {
     "amount": 1714900000000,
@@ -82,7 +82,7 @@ Array [
     "status": true,
     "timestamp": 1645645260,
     "to": "oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte",
-    "type": "allow",
+    "type": "staking.Allow",
   },
   Object {
     "amount": 0,
@@ -93,7 +93,7 @@ Array [
     "status": true,
     "timestamp": 1645645506,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "executorcommit",
+    "type": "roothash.ExecutorCommit",
   },
   Object {
     "amount": 0,
@@ -104,7 +104,7 @@ Array [
     "status": false,
     "timestamp": 1645644585,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "executorproposertimeout",
+    "type": "roothash.ExecutorProposerTimeout",
   },
   Object {
     "amount": 0,
@@ -115,7 +115,7 @@ Array [
     "status": true,
     "timestamp": 1645567265,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "registerentity",
+    "type": "registry.RegisterEntity",
   },
   Object {
     "amount": 0,
@@ -126,7 +126,7 @@ Array [
     "status": true,
     "timestamp": 1645645670,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "registernode",
+    "type": "registry.RegisterNode",
   },
   Object {
     "amount": 0,
@@ -137,7 +137,7 @@ Array [
     "status": true,
     "timestamp": 1638867315,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "registerruntime",
+    "type": "registry.RegisterRuntime",
   },
   Object {
     "amount": 0,
@@ -148,7 +148,7 @@ Array [
     "status": true,
     "timestamp": 1629793437,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "castvote",
+    "type": "governance.CastVote",
   },
   Object {
     "amount": 0,
@@ -159,7 +159,7 @@ Array [
     "status": true,
     "timestamp": 1645642579,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "pvsscommit",
+    "type": "beacon.PVSSCommit",
   },
   Object {
     "amount": 0,
@@ -170,7 +170,7 @@ Array [
     "status": true,
     "timestamp": 1645644962,
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
-    "type": "pvssreveal",
+    "type": "beacon.PVSSReveal",
   },
 ]
 `;

@@ -38,7 +38,7 @@ Array [
     "status": true,
     "timestamp": 1645644903,
     "to": "oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm",
-    "type": "transfer",
+    "type": "staking.Transfer",
   },
   Object {
     "amount": 500100000000,
@@ -49,7 +49,7 @@ Array [
     "status": true,
     "timestamp": 1645645107,
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
-    "type": "addescrow",
+    "type": "staking.AddEscrow",
   },
   Object {
     "amount": 363940000000,
@@ -60,7 +60,7 @@ Array [
     "status": true,
     "timestamp": 1645644147,
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
-    "type": "reclaimescrow",
+    "type": "staking.ReclaimEscrow",
   },
   Object {
     "amount": undefined,
@@ -71,7 +71,7 @@ Array [
     "status": true,
     "timestamp": 1645526644,
     "to": undefined,
-    "type": "amendcommissionschedule",
+    "type": "staking.AmendCommissionSchedule",
   },
   Object {
     "amount": 1714900000000,
@@ -82,7 +82,7 @@ Array [
     "status": true,
     "timestamp": 1645645260,
     "to": "oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte",
-    "type": "allow",
+    "type": "staking.Allow",
   },
   Object {
     "amount": undefined,
@@ -93,7 +93,7 @@ Array [
     "status": true,
     "timestamp": 1645645506,
     "to": undefined,
-    "type": "executorcommit",
+    "type": "roothash.ExecutorCommit",
   },
   Object {
     "amount": undefined,
@@ -104,7 +104,7 @@ Array [
     "status": false,
     "timestamp": 1645644585,
     "to": undefined,
-    "type": "executorproposertimeout",
+    "type": "roothash.ExecutorProposerTimeout",
   },
   Object {
     "amount": undefined,
@@ -115,7 +115,7 @@ Array [
     "status": true,
     "timestamp": 1645567265,
     "to": undefined,
-    "type": "registerentity",
+    "type": "registry.RegisterEntity",
   },
   Object {
     "amount": undefined,
@@ -126,7 +126,7 @@ Array [
     "status": true,
     "timestamp": 1645645670,
     "to": undefined,
-    "type": "registernode",
+    "type": "registry.RegisterNode",
   },
   Object {
     "amount": undefined,
@@ -137,7 +137,7 @@ Array [
     "status": true,
     "timestamp": 1638867315,
     "to": undefined,
-    "type": "registerruntime",
+    "type": "registry.RegisterRuntime",
   },
   Object {
     "amount": undefined,
@@ -148,7 +148,7 @@ Array [
     "status": true,
     "timestamp": 1629793437,
     "to": undefined,
-    "type": "castvote",
+    "type": "governance.CastVote",
   },
   Object {
     "amount": undefined,
@@ -159,7 +159,7 @@ Array [
     "status": true,
     "timestamp": 1645740165,
     "to": undefined,
-    "type": "pvsscommit",
+    "type": "beacon.PVSSCommit",
   },
   Object {
     "amount": undefined,
@@ -170,7 +170,7 @@ Array [
     "status": true,
     "timestamp": 1645644962,
     "to": undefined,
-    "type": "pvssreveal",
+    "type": "beacon.PVSSReveal",
   },
 ]
 `;

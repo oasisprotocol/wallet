@@ -1,26 +1,22 @@
 import { ErrorPayload } from 'types/errors'
 
-/**
- * These are manually copied from Oasis-explorer. Later, oasis-explorer should
- * make those an enum so that we maintain strong typing across projects.
- */
 export enum TransactionType {
-  StakingTransfer = 'transfer',
-  StakingAddEscrow = 'addescrow',
-  StakingReclaimEscrow = 'reclaimescrow',
-  StakingAmendCommissionSchedule = 'amendcommissionschedule',
-  StakingAllow = 'allow',
-  StakingWithdraw = 'withdraw',
-  RoothashExecutorCommit = 'executorcommit',
-  RoothashExecutorProposerTimeout = 'executorproposertimeout',
-  RegistryRegisterEntity = 'registerentity',
-  RegistryRegisterNode = 'registernode',
-  RegistryRegisterRuntime = 'registerruntime',
-  GovernanceCastVote = 'castvote',
-  GovernanceSubmitProposal = 'submitproposal',
-  BeaconPvssCommit = 'pvsscommit',
-  BeaconPvssReveal = 'pvssreveal',
-  BeaconVrfProve = 'vrfprove',
+  StakingTransfer = 'staking.Transfer',
+  StakingAddEscrow = 'staking.AddEscrow',
+  StakingReclaimEscrow = 'staking.ReclaimEscrow',
+  StakingAmendCommissionSchedule = 'staking.AmendCommissionSchedule',
+  StakingAllow = 'staking.Allow',
+  StakingWithdraw = 'staking.Withdraw',
+  RoothashExecutorCommit = 'roothash.ExecutorCommit',
+  RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
+  RegistryRegisterEntity = 'registry.RegisterEntity',
+  RegistryRegisterNode = 'registry.RegisterNode',
+  RegistryRegisterRuntime = 'registry.RegisterRuntime',
+  GovernanceCastVote = 'governance.CastVote',
+  GovernanceSubmitProposal = 'governance.SubmitProposal',
+  BeaconPvssCommit = 'beacon.PVSSCommit',
+  BeaconPvssReveal = 'beacon.PVSSReveal',
+  BeaconVrfProve = 'beacon.VRFProve',
 }
 
 export interface Transaction {
