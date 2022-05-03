@@ -130,7 +130,7 @@
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
     "terms": "<0>Terms and Conditions</0>",
-    "version": "Version: <0>{{commit}}</0> built at {{buildTime}}"
+    "version": "Version: <0></0> built at {{buildTime}}"
   },
   "home": {
     "create": {

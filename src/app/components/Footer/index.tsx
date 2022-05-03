@@ -55,10 +55,9 @@ export const Footer = memo(() => {
                 label={process.env.REACT_APP_BUILD_VERSION.substring(0, 7)}
               />,
             ]}
-            defaults="Version: <0>{{commit}}</0> built at {{buildTime}}"
+            defaults="Version: <0></0> built at {{buildTime}}"
             values={{
               buildTime: dateFormat.format(Number(process.env.REACT_APP_BUILD_DATETIME)),
-              commit: process.env.REACT_APP_WALLET_VERSION,
             }}
           />
           {poweredByLabel && <Box align="center">{poweredByLabel}</Box>}
