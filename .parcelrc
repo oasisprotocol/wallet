@@ -1,3 +1,4 @@
+// Used for both: web and ext
 {
   "extends": "@parcel/config-webextension",
   "transformers": {
