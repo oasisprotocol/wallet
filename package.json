@@ -8,11 +8,11 @@
   },
   "scripts": {
     "clean": "rm -rf build/ .parcel-cache",
-    "start": "REACT_APP_META_CSP= parcel --port 3000 --target web --dist-dir build src/index.html",
-    "parcel:prod": "parcel build --target web --dist-dir build src/index.html",
+    "start": "REACT_APP_META_CSP= parcel --port 3000 --target web --dist-dir build",
+    "parcel:prod": "parcel build --target web --dist-dir build",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
-    "start:ext": "HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json",
-    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json && node ./internals/scripts/validate-ext-manifest.js",
+    "start:ext": "HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext",
+    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext && node ./internals/scripts/validate-ext-manifest.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "yarn clean && node ./internals/prod-scripts.js",
@@ -175,11 +175,14 @@
   "targets": {
     "// see also .terserrc": {},
     "web": {
-      "context": "browser",
+      "source": "src/index.html",
       "distDir": "./build",
+      "context": "browser",
       "scopeHoist": false
     },
+    "// https://parceljs.org/recipes/web-extension/#hmr": {},
     "ext-dev": {
+      "source": "extension/src/manifest.json",
       "distDir": "./build-ext",
       "scopeHoist": false,
       "sourceMap": {
@@ -188,6 +191,7 @@
       }
     },
     "ext-prod": {
+      "source": "extension/src/manifest.json",
       "distDir": "./build-ext",
       "scopeHoist": false
     }
