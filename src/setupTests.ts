@@ -11,6 +11,8 @@ import 'jest-styled-components'
 // Init i18n for the tests needing it
 import 'locales/i18n'
 
+require('dotenv').config()
+
 global.TextEncoder = require('util').TextEncoder
 global.TextDecoder = require('util').TextDecoder
 window.TextDecoder = global.TextDecoder

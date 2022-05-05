@@ -5,20 +5,8 @@ import { Footer } from '..'
 jest.unmock('react-i18next')
 
 describe('<Footer />', () => {
-  const originalEnvs = process.env
-
   beforeEach(() => {
     jest.resetModules()
-    process.env = {
-      ...originalEnvs,
-      REACT_APP_BUILD_DATETIME: '1645464110349',
-      REACT_APP_BUILD_SHA: 'sha0000000000000000000000000000000000000',
-      REACT_APP_BACKEND: 'oasisscan',
-    }
-  })
-
-  afterAll(() => {
-    process.env = originalEnvs
   })
 
   it('should render a link with version number', () => {
