@@ -102,8 +102,8 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.12",
-    "@parcel/packager-raw-url": "2.3.2",
-    "@parcel/transformer-webmanifest": "2.3.2",
+    "@parcel/packager-raw-url": "2.5.0",
+    "@parcel/transformer-webmanifest": "2.5.0",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@testing-library/cypress": "8.0.2",
@@ -147,7 +147,7 @@
     "lint-staged": "12.1.7",
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
-    "parcel": "2.3.2",
+    "parcel": "2.5.0",
     "plop": "2.7.6",
     "posthtml-expressions": "1.9.0",
     "redux-saga-test-plan": "4.0.4",
@@ -184,11 +184,7 @@
     "ext-dev": {
       "source": "extension/src/manifest.json",
       "distDir": "./build-ext",
-      "scopeHoist": false,
-      "sourceMap": {
-        "inline": true,
-        "inlineSources": true
-      }
+      "scopeHoist": false
     },
     "ext-prod": {
       "source": "extension/src/manifest.json",
