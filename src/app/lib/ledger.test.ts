@@ -3,7 +3,10 @@ import OasisApp from '@oasisprotocol/ledger'
 import { WalletError, WalletErrors } from 'types/errors'
 import { Wallet, WalletType } from 'app/state/wallet/types'
 
-jest.mock('@oasisprotocol/ledger')
+jest.mock('@oasisprotocol/ledger', () => ({
+  ...(jest.createMockFromModule('@oasisprotocol/ledger') as any),
+  successOrThrow: jest.requireActual('@oasisprotocol/ledger').successOrThrow,
+}))
 
 function mockAppIsOpen(appName: string) {
   const appInfo = jest.mocked(OasisApp.prototype.appInfo)
