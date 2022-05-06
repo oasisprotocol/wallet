@@ -38,7 +38,7 @@ describe('Wallet Sagas', () => {
         .fork(walletSaga)
         .put.actionType(walletActions.walletOpened.type)
         .put.actionType(walletActions.selectWallet.type)
-        .silentRun(50)
+        .silentRun(200)
     })
 
     it('Should open from private key', () => {
