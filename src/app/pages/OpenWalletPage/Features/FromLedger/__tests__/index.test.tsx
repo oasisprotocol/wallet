@@ -26,11 +26,10 @@ const renderComponent = (store: any, abortFunction = () => {}) =>
 
 describe('<FromLedgerModal  />', () => {
   let store: ReturnType<typeof configureAppStore>
-  let mockDispatch = useDispatch as jest.Mock<typeof useDispatch>
 
   beforeEach(() => {
     store = configureAppStore()
-    mockDispatch.mockImplementation(() => jest.fn())
+    jest.mocked(useDispatch).mockImplementation(() => jest.fn())
   })
 
   afterEach(() => {
@@ -66,7 +65,7 @@ describe('<FromLedgerModal  />', () => {
 
   it('should open the selected accounts', () => {
     const dispatchFn = jest.fn()
-    mockDispatch.mockImplementation(() => dispatchFn)
+    jest.mocked(useDispatch).mockImplementation(() => dispatchFn)
 
     renderComponent(store)
     store.dispatch(
