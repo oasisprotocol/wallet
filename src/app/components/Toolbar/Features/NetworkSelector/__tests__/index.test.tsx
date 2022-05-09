@@ -19,14 +19,14 @@ const renderComponent = (store: any) =>
 
 describe('<NetworkSelector  />', () => {
   let store: ReturnType<typeof configureAppStore>
-  let NodeInternal = oasis.client.NodeInternal as jest.Mock<oasis.client.NodeInternal>
+  let NodeInternalPrototype = jest.mocked(oasis.client.NodeInternal.prototype)
 
   beforeEach(() => {
     store = configureAppStore()
-    ;(oasis.quantity.toBigInt as jest.Mock).mockReturnValue(0n)
-    NodeInternal.prototype.beaconGetEpoch.mockResolvedValue(1)
-    NodeInternal.prototype.stakingTokenSymbol.mockResolvedValue('')
-    NodeInternal.prototype.stakingConsensusParameters.mockResolvedValue(new Uint8Array([0]))
+    jest.mocked(oasis.quantity.toBigInt).mockReturnValue(0n)
+    NodeInternalPrototype.beaconGetEpoch.mockResolvedValue(1)
+    NodeInternalPrototype.stakingTokenSymbol.mockResolvedValue('')
+    NodeInternalPrototype.stakingConsensusParameters.mockResolvedValue({} as any)
   })
 
   it('should match snapshot', () => {

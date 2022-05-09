@@ -6,8 +6,8 @@ import { Wallet, WalletType } from 'app/state/wallet/types'
 jest.mock('@oasisprotocol/ledger')
 
 function mockAppIsOpen(appName: string) {
-  const appInfo: jest.Mock<any> = OasisApp.prototype.appInfo
-  appInfo.mockResolvedValueOnce({ appName: appName, return_code: 0x9000 })
+  const appInfo = jest.mocked(OasisApp.prototype.appInfo)
+  appInfo.mockResolvedValueOnce({ appName: appName, return_code: 0x9000, error_message: '' })
 }
 
 describe('Ledger Library', () => {
@@ -36,9 +36,17 @@ describe('Ledger Library', () => {
 
     it('Should enumerate and return the accounts', async () => {
       mockAppIsOpen('Oasis')
-      const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([1, 2, 3])) })
-      pubKey.mockResolvedValueOnce({ return_code: 0x9000, pk: Buffer.from(new Uint8Array([4, 5, 6])) })
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
+      pubKey.mockResolvedValueOnce({
+        return_code: 0x9000,
+        pk: Buffer.from(new Uint8Array([1, 2, 3])),
+        error_message: '',
+      })
+      pubKey.mockResolvedValueOnce({
+        return_code: 0x9000,
+        pk: Buffer.from(new Uint8Array([4, 5, 6])),
+        error_message: '',
+      })
 
       const accounts = await Ledger.enumerateAccounts({} as any, 2)
       expect(accounts).toHaveLength(2)
@@ -48,8 +56,8 @@ describe('Ledger Library', () => {
 
     it('Should catch Cannot open Oasis app', async () => {
       mockAppIsOpen('Oasis')
-      const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 0x6804 })
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
+      pubKey.mockResolvedValueOnce({ return_code: 0x6804, error_message: '' })
 
       const accounts = Ledger.enumerateAccounts({} as any)
       await expect(accounts).rejects.toThrowError(WalletError)
@@ -58,8 +66,8 @@ describe('Ledger Library', () => {
 
     it('Should catch App version not supported', async () => {
       mockAppIsOpen('Oasis')
-      const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
-      pubKey.mockResolvedValueOnce({ return_code: 0x6400 })
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
+      pubKey.mockResolvedValueOnce({ return_code: 0x6400, error_message: '' })
 
       const accounts = Ledger.enumerateAccounts({} as any)
       await expect(accounts).rejects.toThrowError(WalletError)
@@ -68,7 +76,7 @@ describe('Ledger Library', () => {
 
     it('Should catch ledger unknown errors', async () => {
       mockAppIsOpen('Oasis')
-      const pubKey: jest.Mock<any> = OasisApp.prototype.publicKey
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
       pubKey.mockResolvedValueOnce({ return_code: -1, error_message: 'unknown dummy error' })
 
       const accounts = Ledger.enumerateAccounts({} as any)
@@ -106,8 +114,12 @@ describe('Ledger Library', () => {
     })
 
     it('Should return the public key', () => {
-      const sign: jest.Mock<any> = OasisApp.prototype.sign
-      sign.mockResolvedValueOnce({ return_code: 0x9000, signature: Buffer.from(new Uint8Array([1, 2, 3])) })
+      const sign = jest.mocked(OasisApp.prototype.sign)
+      sign.mockResolvedValueOnce({
+        return_code: 0x9000,
+        signature: Buffer.from(new Uint8Array([1, 2, 3])),
+        error_message: '',
+      })
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
@@ -119,8 +131,8 @@ describe('Ledger Library', () => {
     })
 
     it('Should throw if the transaction was rejected', async () => {
-      const sign: jest.Mock<any> = OasisApp.prototype.sign
-      sign.mockResolvedValueOnce({ return_code: 0x6986 })
+      const sign = jest.mocked(OasisApp.prototype.sign)
+      sign.mockResolvedValueOnce({ return_code: 0x6986, error_message: '' })
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
@@ -135,8 +147,12 @@ describe('Ledger Library', () => {
     })
 
     it('Should return the signature', async () => {
-      const sign: jest.Mock<any> = OasisApp.prototype.sign
-      sign.mockResolvedValueOnce({ return_code: 0x9000, signature: Buffer.from(new Uint8Array([1, 2, 3])) })
+      const sign = jest.mocked(OasisApp.prototype.sign)
+      sign.mockResolvedValueOnce({
+        return_code: 0x9000,
+        signature: Buffer.from(new Uint8Array([1, 2, 3])),
+        error_message: '',
+      })
 
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
