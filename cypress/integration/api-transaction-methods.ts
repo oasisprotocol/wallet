@@ -12,7 +12,7 @@ function ignoreTimeoutError() {
   })
 }
 
-describe('check all transaction methods are handled', () => {
+describe('check all transaction methods from API are mapped in transactionMethodMap', () => {
   it('by parsing latest transactions on oasismonitor', () => {
     ignoreTimeoutError() // Ignore if API is not responding
 
