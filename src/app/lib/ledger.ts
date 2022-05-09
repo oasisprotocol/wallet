@@ -1,36 +1,33 @@
 import { ContextSigner } from '@oasisprotocol/client/dist/signature'
-import OasisApp from '@oasisprotocol/ledger'
+import OasisApp, { successOrThrow } from '@oasisprotocol/ledger'
+import { Response } from '@oasisprotocol/ledger/dist/types'
 import { Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
-
-interface Response {
-  return_code: number
-  error_message: string
-  [index: string]: unknown
-}
 
 interface LedgerAccount {
   publicKey: Uint8Array
   path: number[]
 }
 
-const successOrThrow = (response: Response, message: string) => {
-  if (response.return_code !== 0x9000) {
-    switch (response.return_code) {
+function successOrThrowWalletError<T>(response: Response<T>, message: string) {
+  try {
+    return successOrThrow(response)
+  } catch (err) {
+    const errResponse = err as Response<T>
+    switch (errResponse.return_code) {
       case 0x6400:
-        throw new WalletError(WalletErrors.LedgerAppVersionNotSupported, response.error_message)
+        throw new WalletError(WalletErrors.LedgerAppVersionNotSupported, errResponse.error_message)
       case 0x6986:
-        throw new WalletError(WalletErrors.LedgerTransactionRejected, response.error_message)
+        throw new WalletError(WalletErrors.LedgerTransactionRejected, errResponse.error_message)
       case 0x6804:
-        throw new WalletError(WalletErrors.LedgerCannotOpenOasisApp, response.error_message)
+        throw new WalletError(WalletErrors.LedgerCannotOpenOasisApp, errResponse.error_message)
 
       default:
-        throw new WalletError(WalletErrors.LedgerUnknownError, response.error_message)
+        throw new WalletError(WalletErrors.LedgerUnknownError, errResponse.error_message)
     }
   }
-  return response
 }
 
 export class Ledger {
@@ -39,14 +36,14 @@ export class Ledger {
 
     try {
       const app = new OasisApp(transport)
-      const appInfo = successOrThrow(await app.appInfo(), 'ledger app info')
+      const appInfo = successOrThrowWalletError(await app.appInfo(), 'ledger app info')
       if (appInfo.appName !== 'Oasis') {
         throw new WalletError(WalletErrors.LedgerOasisAppIsNotOpen, 'Oasis App is not open')
       }
       for (let i = 0; i < count; i++) {
         const path = [44, 474, 0, 0, i]
-        const publicKeyResponse = successOrThrow(await app.publicKey(path), 'ledger public key')
-        accounts.push({ path, publicKey: new Uint8Array(publicKeyResponse.pk as Buffer) })
+        const publicKeyResponse = successOrThrowWalletError(await app.publicKey(path), 'ledger public key')
+        accounts.push({ path, publicKey: new Uint8Array(publicKeyResponse.pk) })
       }
     } catch (e) {
       throw e
@@ -84,7 +81,10 @@ export class LedgerSigner implements ContextSigner {
     }
 
     const app = new OasisApp(this.transport)
-    const response = successOrThrow(await app.sign(this.path, context, Buffer.from(message)), 'ledger sign')
-    return new Uint8Array(response.signature as Buffer)
+    const response = successOrThrowWalletError(
+      await app.sign(this.path, context, Buffer.from(message)),
+      'ledger sign',
+    )
+    return new Uint8Array(response.signature!)
   }
 }

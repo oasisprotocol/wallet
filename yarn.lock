@@ -2669,10 +2669,10 @@
     protobufjs "~6.11.2"
     tweetnacl "^1.0.3"
 
-"@oasisprotocol/ledger@0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/ledger/-/ledger-0.2.2.tgz#89e28c70699ecbf73b9eddef2c821ce176b7c6b8"
-  integrity sha512-148FL15ywRwDnZm2XOy8CnHpYQ5LVnmzhHNekTD3sy6Kc2b8bOx8UHJU+w9qh//gJq48oRnEXdZAyy+QwmVPxA==
+"@oasisprotocol/ledger@0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/ledger/-/ledger-0.2.3.tgz#23be11b738c6d7a50feb126e7b575c0564fa9ae2"
+  integrity sha512-OxPhwnz0SP8tU9zeRzrppfOxgvylOGllY0+Sj229WZbuLQeFPxgnAra0llW3u8lPT5FcoaMLLsgqRVI2QL9MRw==
   dependencies:
     "@babel/eslint-parser" "^7.17.0"
     "@babel/runtime" "^7.9.2"
