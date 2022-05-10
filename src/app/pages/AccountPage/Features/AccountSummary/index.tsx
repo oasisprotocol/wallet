@@ -34,7 +34,7 @@ export function AccountSummary(props: AccountSummaryProps) {
         <Box>
           <AddressBox address={address} />
           <Grid
-            columns={['auto', 'auto']}
+            columns={['max-content', 'auto']}
             gap={{ column: 'medium' }}
             pad={{ top: 'small' }}
             responsive={false}
