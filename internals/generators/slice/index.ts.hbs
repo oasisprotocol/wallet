@@ -1,10 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
 {{#if wantSaga}}
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { {{ camelCase sliceName }}Saga } from './saga';
-{{else}}
-import { useInjectReducer } from 'utils/redux-injectors';
 {{/if}}
 import { {{ properCase sliceName }}State } from './types';
 
@@ -20,19 +17,24 @@ const slice = createSlice({
 
 export const { actions: {{ camelCase sliceName }}Actions } = slice;
 
-export const use{{ properCase sliceName }}Slice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer });
-  {{#if wantSaga}}
-  useInjectSaga({ key: slice.name, saga: {{ camelCase sliceName }}Saga });
-  {{/if}}
-  return { actions: slice.actions };
-};
+export default slice.reducer;
 
 /**
  * Example Usage:
  *
+  * combineReducers({
+ *   ...
+ *   {{ camelCase sliceName }}: {{ camelCase sliceName }}Reducer,
+ * })
+ * rootSagas() {
+ *   yield all([
+ *     ...
+ *     {{ camelCase sliceName }}Saga
+ *   ])
+ * }
+ *
  * export function MyComponentNeedingThisSlice() {
- *  const { actions } = use{{ properCase sliceName }}Slice();
+ *  const actions = {{ camelCase sliceName }}Actions;
  *
  *  const onButtonClick = (evt) => {
  *    dispatch(actions.someAction());

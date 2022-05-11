@@ -14,13 +14,8 @@ import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
 import themeReducer from 'styles/theme/slice'
 
-/**
- * Merges the main reducer with the router state and dynamically injected reducers
- */
-export function createReducer(injectedReducers = {}) {
-  // Initially we don't have any injectedReducers, so returning identity function to avoid the error
+export function createReducer() {
   const rootReducer = combineReducers({
-    ...injectedReducers,
     account: accountReducer,
     createWallet: createWalletReducer,
     fatalError: fatalErrorReducer,
