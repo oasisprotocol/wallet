@@ -3,7 +3,7 @@
  * ReclaimEscrowForm
  *
  */
-import { useTransactionSlice } from 'app/state/transaction'
+import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { Box, Button, Form, TextInput, Text } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
@@ -24,7 +24,6 @@ interface Props {
 
 export const ReclaimEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
-  const actions = useTransactionSlice().actions
   const { error, success } = useSelector(selectTransaction)
   const [amount, setAmount] = useState('')
   const [shares, setShares] = useState(0)
@@ -35,9 +34,9 @@ export const ReclaimEscrowForm = memo((props: Props) => {
 
   useEffect(() => {
     return () => {
-      dispatch(actions.clearTransaction())
+      dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch, actions])
+  }, [dispatch])
 
   const amountChanged = (amount: string) => {
     const shares = Number(amount) / Number(rate)
@@ -47,7 +46,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
 
   const submit = () => {
     dispatch(
-      actions.reclaimEscrow({
+      transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
         amount: Number(amount),
         validator: props.address,

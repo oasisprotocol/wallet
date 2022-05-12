@@ -1,8 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
-import { transactionSaga } from './saga'
 import {
   AddEscrowPayload,
   TransferPayload,
@@ -66,8 +64,4 @@ const slice = createSlice({
 
 export const { actions: transactionActions } = slice
 
-export const useTransactionSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  useInjectSaga({ key: slice.name, saga: transactionSaga })
-  return { actions: slice.actions }
-}
+export default slice.reducer

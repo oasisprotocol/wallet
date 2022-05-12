@@ -7,7 +7,7 @@ import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectAccountAddress } from 'app/state/account/selectors'
-import { useStakingSlice } from 'app/state/staking'
+import { stakingActions } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
 import { Delegation } from 'app/state/staking/types'
 import { selectActiveWallet } from 'app/state/wallet/selectors'
@@ -36,7 +36,6 @@ export const DelegationList = memo((props: Props) => {
 
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const actions = useStakingSlice().actions
 
   const validatorDetails = useSelector(selectValidatorDetails)
   const selectedAddress = useSelector(selectSelectedAddress)
@@ -47,9 +46,9 @@ export const DelegationList = memo((props: Props) => {
 
   const rowClicked = (row: Delegation) => {
     if (selectedAddress === row.validatorAddress) {
-      dispatch(actions.validatorDeselected())
+      dispatch(stakingActions.validatorDeselected())
     } else {
-      dispatch(actions.validatorSelected(row.validatorAddress))
+      dispatch(stakingActions.validatorSelected(row.validatorAddress))
     }
   }
 

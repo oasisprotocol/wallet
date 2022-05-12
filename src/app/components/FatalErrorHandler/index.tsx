@@ -3,7 +3,6 @@
  * FatalError
  *
  */
-import { useFatalErrorSlice } from 'app/state/fatalerror'
 import { selectFatalError } from 'app/state/fatalerror/selectors'
 import copy from 'copy-to-clipboard'
 import { Anchor, Box, Button, Heading, Text } from 'grommet'
@@ -19,7 +18,6 @@ interface Props {}
 
 export function FatalErrorHandler(props: Props) {
   const { t } = useTranslation()
-  useFatalErrorSlice()
   const fatalError = useSelector(selectFatalError)
   const [copied, setCopied] = useState(false)
 

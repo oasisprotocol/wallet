@@ -1,9 +1,8 @@
-import { routerMiddleware } from 'connected-react-router'
 import { configureStore } from '@reduxjs/toolkit'
-import { createInjectorsEnhancer } from 'redux-injectors'
 import createSagaMiddleware from 'redux-saga'
 
-import { createReducer, history } from './reducers'
+import { createReducer } from './reducers'
+import rootSagas from './sagas'
 import { RootState } from 'types'
 import { fatalErrorActions } from 'app/state/fatalerror'
 
@@ -19,17 +18,9 @@ export function configureAppStore(state?: Partial<RootState>) {
       )
     },
   })
-  const { run: runSaga } = sagaMiddleware
 
   // Create the store with saga middleware
-  const middlewares = [sagaMiddleware, routerMiddleware(history)]
-
-  const enhancers = [
-    createInjectorsEnhancer({
-      createReducer,
-      runSaga,
-    }),
-  ]
+  const middlewares = [sagaMiddleware]
 
   const store = configureStore({
     reducer: createReducer(),
@@ -37,11 +28,10 @@ export function configureAppStore(state?: Partial<RootState>) {
     devTools:
       /* istanbul ignore next line */
       process.env.NODE_ENV !== 'production',
-    // A bit dirty because of https://github.com/react-boilerplate/redux-injectors/issues/27
-    // Waiting on redux-injectors to fix their typings for recent reduxjs/toolkit
-    enhancers: enhancers as any,
     preloadedState: state,
   })
+
+  sagaMiddleware.run(rootSagas)
 
   return store
 }

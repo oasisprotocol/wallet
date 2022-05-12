@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Oasis Wallet",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "The official non-custodial browser extension wallet for the Oasis Network.",
+    "description": "The description of the application"
+  }
+}

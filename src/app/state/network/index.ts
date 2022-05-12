@@ -1,16 +1,11 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
-import { networkSaga } from './saga'
 import { NetworkState, NetworkType } from './types'
 
 export const initialState: NetworkState = {
   ticker: '',
   chainContext: '',
-  selectedNetwork:
-    process.env.NODE_ENV && process.env.NODE_ENV !== 'production' && !process.env.REACT_APP_BYPASS_LOCAL
-      ? 'local'
-      : 'mainnet',
+  selectedNetwork: !process.env.REACT_APP_BYPASS_LOCAL ? 'local' : 'mainnet',
   epoch: 0,
   minimumStakingAmount: 0,
 }
@@ -28,8 +23,4 @@ const slice = createSlice({
 
 export const { actions: networkActions } = slice
 
-export const useNetworkSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  useInjectSaga({ key: slice.name, saga: networkSaga })
-  return { actions: slice.actions }
-}
+export default slice.reducer

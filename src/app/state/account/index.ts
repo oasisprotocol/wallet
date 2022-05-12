@@ -1,8 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { Transaction } from 'app/state/transaction/types'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors'
-import { accountSaga } from './saga'
 import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
@@ -45,8 +43,4 @@ const slice = createSlice({
 
 export const { actions: accountActions } = slice
 
-export const useAccountSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  useInjectSaga({ key: slice.name, saga: accountSaga })
-  return { actions: slice.actions }
-}
+export default slice.reducer

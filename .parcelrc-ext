@@ -1,0 +1,9 @@
+{
+  "extends": "@parcel/config-webextension",
+  "transformers": {
+    "manifest.json": [
+      "parcel-transformer-env-variables-injection",
+      "..."
+    ]
+  }
+}

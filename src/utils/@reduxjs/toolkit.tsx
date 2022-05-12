@@ -1,5 +1,7 @@
-import { RootStateKeyType } from '../types/injector-typings'
 import { createSlice as createSliceOriginal, SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit'
+import { RootState } from 'types'
+
+type RootStateKeyType = keyof RootState
 
 /* Wrap createSlice with stricter Name options */
 

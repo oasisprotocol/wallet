@@ -1,6 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { useInjectReducer } from 'utils/redux-injectors'
 
 import { getThemeFromStorage, saveTheme } from '../utils'
 import { ThemeState } from './types'
@@ -20,9 +19,6 @@ const slice = createSlice({
   },
 })
 
-export const { actions: themeActions, reducer } = slice
+export const { actions: themeActions } = slice
 
-export const useThemeSlice = () => {
-  useInjectReducer({ key: slice.name, reducer: slice.reducer })
-  return { actions: slice.actions }
-}
+export default slice.reducer

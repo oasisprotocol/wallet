@@ -6,7 +6,7 @@
 import { TransactionModal } from 'app/components/TransactionModal'
 import { TransitionRoute } from 'app/components/TransitionRoute'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
-import { useStakingSlice } from 'app/state/staking'
+import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { walletActions } from 'app/state/wallet'
@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Switch, useLocation, useParams } from 'react-router-dom'
 import { TransitionGroup } from 'react-transition-group'
 
-import { useAccountSlice } from '../../state/account'
+import { accountActions } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
 import { BalanceDetails } from '../../state/account/types'
 import { selectAddress, selectStatus, selectWallets } from '../../state/wallet/selectors'
@@ -65,8 +65,6 @@ interface AccountPageParams {
 
 export function AccountPage(props: Props) {
   const { t } = useTranslation()
-  const accountActions = useAccountSlice().actions
-  const stakeActions = useStakingSlice().actions
 
   const { address } = useParams<AccountPageParams>()
   const dispatch = useDispatch()
@@ -92,11 +90,11 @@ export function AccountPage(props: Props) {
   // Reload account balances if address or network changes
   useEffect(() => {
     dispatch(accountActions.fetchAccount(address))
-    dispatch(stakeActions.fetchAccount(address))
+    dispatch(stakingActions.fetchAccount(address))
     return () => {
       dispatch(accountActions.clearAccount())
     }
-  }, [dispatch, accountActions, stakeActions, address, selectedNetwork])
+  }, [dispatch, address, selectedNetwork])
 
   // Reload wallet balances if network changes
   useEffect(() => {

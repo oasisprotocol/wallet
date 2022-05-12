@@ -7,7 +7,7 @@ import { Moon, Sun } from 'grommet-icons/icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { useThemeSlice } from 'styles/theme/slice'
+import { themeActions } from 'styles/theme/slice'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { SidebarButton } from '../Sidebar'
@@ -16,7 +16,6 @@ interface Props {}
 
 export const ThemeSwitcher = memo((props: Props) => {
   const { t } = useTranslation()
-  const themeActions = useThemeSlice().actions
   const theme = useSelector(selectTheme)
   const dispatch = useDispatch()
 

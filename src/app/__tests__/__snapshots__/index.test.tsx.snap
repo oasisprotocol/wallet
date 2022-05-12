@@ -2,101 +2,78 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <ModalProvider>
-  <Memo(Connect(ConnectedRouterWithContext))
-    history={
+  <Helmet
+    defaultTitle="Oasis Wallet"
+    defer={true}
+    encodeSpecialCharacters={true}
+    htmlAttributes={
       Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "length": 1,
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
+        "lang": "en-US",
+      }
+    }
+    prioritizeSeoTags={false}
+    titleTemplate="%s - Oasis Wallet"
+  >
+    <meta
+      content="A wallet for Oasis"
+      name="description"
+    />
+  </Helmet>
+  <Box
+    background="background-back"
+    direction="row-responsive"
+    fill={true}
+    style={
+      Object {
+        "minHeight": "100vh",
       }
     }
   >
-    <Helmet
-      defaultTitle="Oasis Wallet"
-      defer={true}
-      encodeSpecialCharacters={true}
-      htmlAttributes={
-        Object {
-          "lang": "en-US",
-        }
-      }
-      prioritizeSeoTags={false}
-      titleTemplate="%s - Oasis Wallet"
-    >
-      <meta
-        content="A wallet for Oasis"
-        name="description"
-      />
-    </Helmet>
+    <Navigation />
     <Box
-      background="background-back"
-      direction="row-responsive"
-      fill={true}
-      style={
+      flex={true}
+      pad={
         Object {
-          "minHeight": "100vh",
+          "top": undefined,
         }
       }
     >
-      <Navigation />
-      <Box
-        flex={true}
-        pad={
-          Object {
-            "top": undefined,
-          }
-        }
-      >
-        <Styled(Main)>
-          <FatalErrorHandler />
-          <Toolbar />
-          <TransitionGroup
-            childFactory={[Function]}
-            component="div"
-          >
-            <Switch>
-              <TransitionRoute
-                component={[Function]}
-                exact={true}
-                path="/"
-              />
-              <TransitionRoute
-                component={[Function]}
-                exact={true}
-                path="/create-wallet"
-              />
-              <TransitionRoute
-                component={[Function]}
-                path="/open-wallet"
-              />
-              <TransitionRoute
-                component={[Function]}
-                exact={true}
-                path="/account/:address/stake"
-              />
-              <TransitionRoute
-                component={[Function]}
-                path="/account/:address"
-              />
-            </Switch>
-          </TransitionGroup>
-          <Memo />
-        </Styled(Main)>
-      </Box>
+      <Styled(Main)>
+        <FatalErrorHandler />
+        <Toolbar />
+        <TransitionGroup
+          childFactory={[Function]}
+          component="div"
+        >
+          <Switch>
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/create-wallet"
+            />
+            <TransitionRoute
+              component={[Function]}
+              path="/open-wallet"
+            />
+            <TransitionRoute
+              component={[Function]}
+              exact={true}
+              path="/account/:address/stake"
+            />
+            <TransitionRoute
+              component={[Function]}
+              path="/account/:address"
+            />
+          </Switch>
+        </TransitionGroup>
+        <Memo />
+      </Styled(Main)>
     </Box>
-  </Memo(Connect(ConnectedRouterWithContext))>
+  </Box>
 </ModalProvider>
 `;

@@ -1,15 +1,14 @@
 import { hdkey } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
-import { push } from 'connected-react-router'
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
 
-import { walletActions as actions, walletActions } from '.'
+import { walletActions, initialState } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
-import { selectActiveWallet, selectAddress, selectWallets } from './selectors'
+import { selectAddress, selectWallets } from './selectors'
 import { AddWalletPayload, Wallet, WalletType } from './types'
 
 // Ensure a unique walletId per opened wallet
@@ -40,7 +39,7 @@ export function* rootWalletSaga() {
   yield* fork(walletSaga)
 
   // Listen to closeWallet
-  yield* takeEvery(actions.closeWallet, closeWallet)
+  yield* takeEvery(walletActions.closeWallet, closeWallet)
 }
 
 export function* getBalance(publicKey: Uint8Array) {
@@ -66,7 +65,7 @@ function* getWalletByAddress(address: string) {
 export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<LedgerAccount[]>) {
   for (const [index, account] of accounts.entries()) {
     yield* put(
-      actions.addWallet({
+      walletActions.addWallet({
         id: walletId++,
         address: account.address,
         publicKey: account.publicKey,
@@ -87,7 +86,7 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
   const balance = yield* call(getBalance, publicKeyBytes)
 
   yield* put(
-    actions.addWallet({
+    walletActions.addWallet({
       id: walletId++,
       address: walletAddress,
       publicKey,
@@ -110,7 +109,7 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
   const balance = yield* call(getBalance, publicKeyBytes)
 
   yield* put(
-    actions.addWallet({
+    walletActions.addWallet({
       id: walletId++,
       address: walletAddress,
       publicKey,
@@ -128,9 +127,10 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
  * If it has "selectImmediately", we select it immediately
  */
 export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
+  yield* put(walletActions.walletSelected(initialState.selectedWallet))
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
-    yield* put(actions.walletOpened(newWallet))
+    yield* put(walletActions.walletOpened(newWallet))
   }
 
   const walletId = existingWallet ? existingWallet.id : newWallet.id
@@ -141,13 +141,11 @@ export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayloa
 }
 
 export function* closeWallet() {
-  yield* put(actions.walletClosed())
+  yield* put(walletActions.walletClosed())
 }
 
 export function* selectWallet({ payload: index }: PayloadAction<number>) {
   yield* put(walletActions.walletSelected(index))
-  const newWallet = yield* select(selectActiveWallet)
-  yield* put(push(`/account/${newWallet?.address}`))
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {

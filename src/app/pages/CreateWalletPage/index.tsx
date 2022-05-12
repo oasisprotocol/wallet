@@ -7,7 +7,7 @@ import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { NoTranslate } from 'app/components/NoTranslate'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
-import { useWalletSlice } from 'app/state/wallet'
+import { walletActions } from 'app/state/wallet'
 import { Box, Button, CheckBox, Grid, Heading, Layer, ResponsiveContext, Text } from 'grommet'
 import { Refresh } from 'grommet-icons/icons'
 import * as React from 'react'
@@ -15,7 +15,7 @@ import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { useCreateWalletSlice } from './slice'
+import { createWalletActions } from './slice'
 import { selectCheckbox, selectMnemonic } from './slice/selectors'
 
 export interface CreateWalletProps {}
@@ -25,8 +25,6 @@ export function CreateWalletPage(props: CreateWalletProps) {
   const [showConfirmation, setConfirmation] = useState(false)
   const [showMnemonicMismatch, setMnemonicMismatch] = useState(false)
   const size = React.useContext(ResponsiveContext)
-  const createWalletActions = useCreateWalletSlice().actions
-  const walletActions = useWalletSlice().actions
 
   const dispatch = useDispatch()
 
@@ -53,7 +51,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
     return () => {
       dispatch(createWalletActions.clear())
     }
-  }, [createWalletActions, dispatch])
+  }, [dispatch])
 
   //@TODO Remove when firefox supports backdropFilter (used inside MnemonicValidation)
   // https://github.com/oasisprotocol/oasis-wallet-web/issues/287

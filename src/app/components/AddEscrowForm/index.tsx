@@ -6,7 +6,7 @@
 import { useModal } from 'app/components/Modal'
 import { selectMinStaking } from 'app/state/network/selectors'
 import { Validator } from 'app/state/staking/types'
-import { useTransactionSlice } from 'app/state/transaction'
+import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { Box, Button, Form, TextInput } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
@@ -23,7 +23,6 @@ interface Props {
 export const AddEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
   const { launchModal } = useModal()
-  const actions = useTransactionSlice().actions
   const { error, success } = useSelector(selectTransaction)
   const [amount, setAmount] = useState('')
   const dispatch = useDispatch()
@@ -31,7 +30,7 @@ export const AddEscrowForm = memo((props: Props) => {
 
   const delegate = () => {
     dispatch(
-      actions.addEscrow({
+      transactionActions.addEscrow({
         type: 'addEscrow',
         amount: Number(amount),
         validator: props.validatorAddress,
@@ -57,9 +56,9 @@ export const AddEscrowForm = memo((props: Props) => {
 
   useEffect(() => {
     return () => {
-      dispatch(actions.clearTransaction())
+      dispatch(transactionActions.clearTransaction())
     }
-  }, [dispatch, actions])
+  }, [dispatch])
 
   return (
     <Form onSubmit={submit}>
