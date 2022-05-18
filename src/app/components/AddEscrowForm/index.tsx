@@ -8,7 +8,7 @@ import { selectMinStaking } from 'app/state/network/selectors'
 import { Validator } from 'app/state/staking/types'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { Box, Button, Form, TextInput } from 'grommet'
+import { Box, Button, CheckBox, Form, TextInput } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -18,12 +18,15 @@ import { TransactionStatus } from '../TransactionStatus'
 interface Props {
   validatorAddress: string
   validatorStatus: Validator['status']
+  validatorRank: number
 }
 
 export const AddEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
   const { launchModal } = useModal()
   const { error, success } = useSelector(selectTransaction)
+  const isTop20 = props.validatorRank <= 20
+  const [showNotice, setShowNotice] = useState(isTop20)
   const [amount, setAmount] = useState('')
   const dispatch = useDispatch()
   const minStaking = useSelector(selectMinStaking)
@@ -61,30 +64,47 @@ export const AddEscrowForm = memo((props: Props) => {
   }, [dispatch])
 
   return (
-    <Form onSubmit={submit}>
-      <Box direction="row" gap="small" pad={{ top: 'small' }}>
-        <Box background="background-front">
-          <TextInput
-            data-testid="amount"
-            id="amount-id"
-            name="amount"
-            placeholder={t('common.amount')}
-            type="number"
-            step="any"
-            min={minStaking}
-            value={amount}
-            onChange={event => setAmount(event.target.value)}
-            required
+    <>
+      {showNotice && (
+        <p>
+          {t(
+            'account.addEscrow.confirmDelegatingToTop.description',
+            'This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization.',
+          )}
+          <CheckBox
+            label={t('account.addEscrow.confirmDelegatingToTop.acknowledge', 'Delegate anyway')}
+            checked={!showNotice}
+            onChange={event => setShowNotice(!event.target.checked)}
           />
-        </Box>
-        <Button
-          label={t('account.addEscrow.delegate', 'Delegate')}
-          type="submit"
-          primary
-          style={{ borderRadius: '4px' }}
-        />
-      </Box>
-      <TransactionStatus error={error} success={success} />
-    </Form>
+        </p>
+      )}
+      {!showNotice && (
+        <Form onSubmit={submit}>
+          <Box direction="row" gap="small" pad={{ top: 'small' }}>
+            <Box background="background-front">
+              <TextInput
+                data-testid="amount"
+                id="amount-id"
+                name="amount"
+                placeholder={t('common.amount')}
+                type="number"
+                step="any"
+                min={minStaking}
+                value={amount}
+                onChange={event => setAmount(event.target.value)}
+                required
+              />
+            </Box>
+            <Button
+              label={t('account.addEscrow.delegate', 'Delegate')}
+              type="submit"
+              primary
+              style={{ borderRadius: '4px' }}
+            />
+          </Box>
+          <TransactionStatus error={error} success={success} />
+        </Form>
+      )}
+    </>
   )
 })

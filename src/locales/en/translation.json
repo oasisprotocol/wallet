@@ -5,6 +5,10 @@
         "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
         "title": "Are you sure you want to continue?"
       },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Delegate anyway",
+        "description": "This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization."
+      },
       "delegate": "Delegate"
     },
     "loading": "Loading account",
