@@ -4,8 +4,7 @@ import { Reducer } from '@reduxjs/toolkit'
 describe('reducer', () => {
   it('should define app reducers', () => {
     const reducer = createReducer() as Reducer<any, any>
-    const state = { a: 1 }
-    const newState = reducer(state, '')
+    const newState = reducer({ theme: { selected: 'dark' } }, '')
     expect(newState).toHaveProperty('account')
     expect(newState).toHaveProperty('createWallet')
     expect(newState).toHaveProperty('fatalError')
