@@ -11,7 +11,6 @@ function wrapRpcError(method: string, grpcMessage: string) {
   // See https://github.com/oasisprotocol/oasis-sdk/blob/96d3997/client-sdk/ts-web/core/src/client.ts#L616-L620
   const innerMessage = e instanceof Error ? e.toString() : JSON.stringify(e)
   const message = `callUnary method ${method}: ${innerMessage}`
-  // @ts-expect-error options and cause not modeled
   const wrapped = new Error(message, { cause: e })
   return wrapped
 }
