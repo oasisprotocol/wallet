@@ -185,13 +185,13 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       />
 
       <SidebarTooltip label="Language" isActive={false}>
-        <Box pad="small" align="center">
+        <Box pad="small" align={size === 'medium' ? 'center' : 'start'}>
           <Menu
             hoverIndicator={false}
             dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
             items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
           >
-            <Box direction="row" round="4px" border={{ size: '1px' }}>
+            <Box direction="row">
               <Box pad="small">
                 <Language />
               </Box>
