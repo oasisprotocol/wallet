@@ -1,9 +1,10 @@
 name: dump-validators
 
 on:
-  workflow_dispatch: # Manually
+  # Triggered monthly or manually in https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/dump-validators.yml
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 1 * *' # Monthly
+    - cron: '0 0 1 * *'
 
 jobs:
   dump-validators:
