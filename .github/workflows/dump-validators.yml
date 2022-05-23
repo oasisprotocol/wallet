@@ -1,0 +1,26 @@
+name: dump-validators
+
+on:
+  workflow_dispatch: # Manually
+  schedule:
+    - cron: '0 0 1 * *' # Monthly
+
+jobs:
+  dump-validators:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - run: yarn install --frozen-lockfile
+      - run: yarn dump-validators
+      - name: Create Pull Request with updated dumped validators
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          commit-message: 'Update dumped validators'
+          title: 'Update dumped validators'
+          labels: bot
