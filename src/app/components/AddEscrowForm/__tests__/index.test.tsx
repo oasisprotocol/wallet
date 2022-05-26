@@ -12,7 +12,7 @@ const renderComponent = (store: any, address: string, validatorStatus: Validator
   render(
     <Provider store={store}>
       <ModalProvider>
-        <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} />
+        <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} validatorRank={21} />
       </ModalProvider>
     </Provider>,
   )

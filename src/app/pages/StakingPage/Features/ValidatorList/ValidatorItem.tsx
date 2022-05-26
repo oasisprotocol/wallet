@@ -19,7 +19,11 @@ export const ValidatorItem = (props: ValidatorProps) => {
     <Box pad="medium" background="background-contrast" data-testid="validator-item">
       <ValidatorInformations validator={validator} details={details} />
       {isWalletOpen && (
-        <AddEscrowForm validatorAddress={validator.address} validatorStatus={validator.status} />
+        <AddEscrowForm
+          validatorAddress={validator.address}
+          validatorStatus={validator.status}
+          validatorRank={validator.rank}
+        />
       )}
     </Box>
   )
