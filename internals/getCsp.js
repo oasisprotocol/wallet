@@ -47,6 +47,8 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
     .trim()
     .split('\n')
     .map(line => line.trim())
+    .filter(line => !!line)
     .join(' ')
+    .replace(/ ;/g, ';')
 
 module.exports = { getCsp }
