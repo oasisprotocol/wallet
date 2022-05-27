@@ -25,8 +25,8 @@
 
 ## Deploys
 
-- Production: <https://wallet.oasisprotocol.org>
-- Staging: <https://wallet.stg.oasisprotocol.org>
+- `stable` branch: <https://wallet.oasisprotocol.org>
+- `master` branch: <https://wallet.stg.oasisprotocol.org>
 
 ## Features
 
@@ -101,6 +101,9 @@ The repository has two different test strategies:
 To run all tests:
 
 ```bash
+# Check typescript errors
+yarn checkTs
+
 # Run jest tests
 yarn test
 
@@ -113,7 +116,7 @@ yarn cypress:run
 yarn --silent print-csp
 yarn start:prod
 # Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake and switch to testnet.
-# This exercises at least: fonts, grpc, testnet grpc, monitor, and validator logos
+# This exercises at least: fonts, grpc, testnet grpc, API, and validator logos
 ```
 
 ### Code style
