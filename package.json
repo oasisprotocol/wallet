@@ -8,12 +8,11 @@
   },
   "scripts": {
     "clean": "rm -rf build/ .parcel-cache",
-    "parcel:dev": "parcel --port 3000 --target web --dist-dir build src/index.html",
-    "parcel:prod": "parcel build --target web --dist-dir build src/index.html",
-    "start": "node ./internals/dev-scripts.js",
+    "start": "REACT_APP_META_CSP= parcel --port 3000 --target web --dist-dir build",
+    "parcel:prod": "parcel build --target web --dist-dir build",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
-    "start:ext": "HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext-dev --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json",
-    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext-prod --dist-dir build-ext --config .parcelrc-ext extension/src/manifest.json && node ./internals/scripts/validate-ext-manifest.js",
+    "start:ext": "HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --target ext --dist-dir build-ext",
+    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext --dist-dir build-ext && node ./internals/scripts/validate-ext-manifest.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "yarn clean && node ./internals/prod-scripts.js",
@@ -103,8 +102,8 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.9.12",
-    "@parcel/packager-raw-url": "2.3.2",
-    "@parcel/transformer-webmanifest": "2.3.2",
+    "@parcel/packager-raw-url": "2.5.0",
+    "@parcel/transformer-webmanifest": "2.5.0",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@testing-library/cypress": "8.0.2",
@@ -148,7 +147,7 @@
     "lint-staged": "12.1.7",
     "node-plop": "0.26.3",
     "nodemon": "2.0.15",
-    "parcel": "2.3.2",
+    "parcel": "2.5.0",
     "plop": "2.7.6",
     "posthtml-expressions": "1.9.0",
     "redux-saga-test-plan": "4.0.4",
@@ -174,21 +173,16 @@
     "vendors": "./src/vendors"
   },
   "targets": {
-    "// see also .terserrc": {},
+    "// see also .parcelrc and .terserrc": {},
     "web": {
-      "context": "browser",
+      "source": "src/index.html",
       "distDir": "./build",
+      "context": "browser",
       "scopeHoist": false
     },
-    "ext-dev": {
-      "distDir": "./build-ext",
-      "scopeHoist": false,
-      "sourceMap": {
-        "inline": true,
-        "inlineSources": true
-      }
-    },
-    "ext-prod": {
+    "// https://parceljs.org/recipes/web-extension/#hmr": {},
+    "ext": {
+      "source": "extension/src/manifest.json",
       "distDir": "./build-ext",
       "scopeHoist": false
     }

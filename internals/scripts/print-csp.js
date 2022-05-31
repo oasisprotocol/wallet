@@ -1,3 +1,3 @@
 // @ts-check
-const { csp } = require('../getCsp.js')
-console.log(csp())
+const { getCsp } = require('../getCsp.js')
+console.log(getCsp())

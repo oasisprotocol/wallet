@@ -1,18 +1,24 @@
+// @ts-check
+
 // @TODO: Future improvements:
 // - remove 'unsafe-inline' style by precomputing theme hash
 // - add report-uri to gather errors if anything was missed
 
-const extensionFrame = `
-  frame-ancestors
-    'self'
-    https: http://localhost:* http://127.0.0.1:*;
+const extensionCsp = {
+  dappFrameAncestors: `
+    frame-ancestors
+      'self'
+      https:
+      http://localhost:*
+      http://127.0.0.1:*;
+  `,
+  hmrWebsocket: `
+    ws://localhost:2222
   `
-const extensionWebsocket = `
-  ws://localhost:2222
-`
+}
 
 // Keep synced with deployment
-const csp = ({ extension } = {}) =>
+const getCsp = ({ isExtension } = { isExtension: false }) =>
   `
     default-src 'none';
     script-src
@@ -30,17 +36,17 @@ const csp = ({ extension } = {}) =>
       https://testnet.grpc.oasis.dev
       https://api.oasisscan.com
       https://monitor.oasis.dev
-      ${extension ? extensionWebsocket : ''}
+      ${isExtension ? extensionCsp.hmrWebsocket : ''}
       ;
+    ${isExtension ? extensionCsp.dappFrameAncestors : ''}
     img-src 'self' data: https:;
     prefetch-src 'self';
     base-uri 'self';
     manifest-src 'self';
-    ${extension ? extensionFrame : ''}
   `
     .trim()
     .split('\n')
     .map(line => line.trim())
     .join(' ')
 
-module.exports = { csp }
+module.exports = { getCsp }

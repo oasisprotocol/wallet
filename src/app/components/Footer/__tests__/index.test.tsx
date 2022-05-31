@@ -5,28 +5,16 @@ import { Footer } from '..'
 jest.unmock('react-i18next')
 
 describe('<Footer />', () => {
-  const originalEnvs = process.env
-
   beforeEach(() => {
     jest.resetModules()
-    process.env = {
-      ...originalEnvs,
-      REACT_APP_BUILD_DATETIME: '1645464110349',
-      REACT_APP_BUILD_VERSION: 'versionNumber',
-      REACT_APP_BACKEND: 'oasisscan',
-    }
-  })
-
-  afterAll(() => {
-    process.env = originalEnvs
   })
 
   it('should render a link with version number', () => {
     render(<Footer />)
 
-    expect(screen.getByRole('link', { name: 'version' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'sha0000' })).toHaveAttribute(
       'href',
-      'https://github.com/oasisprotocol/oasis-wallet-web/commit/versionNumber',
+      'https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000',
     )
   })
 
