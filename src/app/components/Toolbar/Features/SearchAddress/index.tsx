@@ -52,6 +52,7 @@ export const SearchAddress = memo((props: Props) => {
         ref={errorRef}
       >
         <TextInput
+          style={{ borderRadius: '30px' }}
           plain
           icon={<Search />}
           data-testid="searchaddress"
@@ -70,7 +71,13 @@ export const SearchAddress = memo((props: Props) => {
             </Box>
           }
         />
-        {searchPayload && <Button icon={<FormClose />} onClick={() => updatePayload('')} />}
+        {searchPayload && (
+          <Button
+            style={{ marginLeft: '-48px', zIndex: 1, marginTop: '-2px', marginBottom: '-2px' }}
+            icon={<FormClose />}
+            onClick={() => updatePayload('')}
+          />
+        )}
       </Box>
       {errorRef.current && invalidPayload && (
         <Drop

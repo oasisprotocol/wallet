@@ -234,6 +234,7 @@ exports[`<SearchAddress  /> should match snapshot 1`] = `
         autocomplete="off"
         class="c6"
         data-testid="searchaddress"
+        style="border-radius: 30px;"
         value=""
       />
     </div>

@@ -417,6 +417,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
             autocomplete="off"
             class="c8"
             data-testid="searchaddress"
+            style="border-radius: 30px;"
             value=""
           />
         </div>
