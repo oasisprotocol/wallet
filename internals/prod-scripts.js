@@ -9,4 +9,4 @@ process.env.REACT_APP_META_CSP = getCsp()
 console.log(`Content-Security-Policy: ${process.env.REACT_APP_META_CSP}\n`)
 
 execSync('yarn parcel:prod', { stdio: 'inherit' })
-execSync('cp src/robots.txt build/robots.txt', { encoding: 'utf8' })
+execSync('cp public/robots.txt build/robots.txt', { encoding: 'utf8' })

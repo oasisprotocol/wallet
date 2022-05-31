@@ -175,14 +175,14 @@
   "targets": {
     "// see also .parcelrc and .terserrc": {},
     "web": {
-      "source": "src/index.html",
+      "source": "public/index.html",
       "distDir": "./build",
       "context": "browser",
       "scopeHoist": false
     },
     "// https://parceljs.org/recipes/web-extension/#hmr": {},
     "ext": {
-      "source": "extension/src/manifest.json",
+      "source": "public/manifest.json",
       "distDir": "./build-ext",
       "scopeHoist": false
     }
