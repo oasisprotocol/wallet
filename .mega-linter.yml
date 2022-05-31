@@ -17,6 +17,7 @@ ADDITIONAL_EXCLUDED_DIRECTORIES:
   - .husky
   - build
   - build-ext
+  - build-dev
   - cypress-coverage
   - .nyc_output
   - .parcel-cache
