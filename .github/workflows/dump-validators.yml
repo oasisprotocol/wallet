@@ -19,9 +19,15 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn dump-validators
       - name: Create Pull Request with updated dumped validators
+        # https://github.com/peter-evans/create-pull-request
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           commit-message: 'Update dumped validators'
           title: 'Update dumped validators'
+          body: |
+            Created by https://github.com/oasisprotocol/oasis-wallet-web/blob/master/.github/workflows/dump-validators.yml
+
+            If CI actions and checks don't run in this PR: close it and reopen.
+            https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
           labels: bot
