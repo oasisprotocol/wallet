@@ -95,8 +95,8 @@ API that web wallet is using is determined during a build time.
 
 The repository has two different test strategies:
 
-- E2E (End-to-end) tests, ran with [Cypress](https://www.cypress.io/), located in [cypress/](/cypress). These tests require the react app to be started on accessible on port `3000` and the docker-compose stack to be up.
-- Unit & functional tests, ran with [Jest](https://github.com/facebook/jest), located throughout the codebase
+- E2E (End-to-end) tests, run with [Cypress](https://www.cypress.io/), located in [cypress/](/cypress). These tests require the react app to be started on accessible on port `3000` and the docker-compose stack to be up.
+- Unit & functional tests, run with [Jest](https://github.com/facebook/jest), located throughout the codebase
 
 To run all tests:
 
