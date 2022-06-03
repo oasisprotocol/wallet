@@ -54,7 +54,7 @@ Alternatively, to get started with a local network:
 ```shell
 docker-compose up --build -d
 yarn install
-REACT_APP_BYPASS_LOCAL= yarn start
+REACT_APP_LOCALNET=1 yarn start
 ```
 
 Then go to [http://localhost:3000](http://localhost:3000) to access the wallet.
@@ -109,7 +109,7 @@ yarn test
 
 # Run cypress tests
 docker-compose up -d
-REACT_APP_BYPASS_LOCAL= REACT_APP_BACKEND=oasismonitor yarn start # Run this in another terminal to keep it open
+REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start # Run this in another terminal to keep it open
 yarn cypress:run
 
 # Manually check that content-security-policy in ./internals/getCsp.js doesn't break any functionality

@@ -15,7 +15,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "build": "yarn clean && node ./internals/prod-scripts.js",
-    "test": "REACT_APP_BYPASS_LOCAL= jest --color",
+    "test": "REACT_APP_LOCALNET=1 jest --color",
     "test:web": "yarn run test --projects internals/jest/jest.web-config.js",
     "test:ext": "yarn run test --projects internals/jest/jest.ext-config.js",
     "test:watch": "yarn run test --watch",

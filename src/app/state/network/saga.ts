@@ -52,7 +52,7 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
 export function* networkSaga() {
   yield* takeEvery(networkActions.selectNetwork, selectNetwork)
 
-  if (!process.env.REACT_APP_BYPASS_LOCAL) {
+  if (process.env.REACT_APP_LOCALNET) {
     yield* put(networkActions.selectNetwork('local'))
   } else {
     yield* put(networkActions.selectNetwork('mainnet'))
