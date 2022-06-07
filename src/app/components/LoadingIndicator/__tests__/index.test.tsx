@@ -3,9 +3,9 @@ import { render } from '@testing-library/react'
 
 import { LoadingIndicator } from '../index'
 import { themes } from 'styles/theme/themes'
-import { DefaultTheme, ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
-const renderWithTheme = (props: Parameters<typeof LoadingIndicator>[number] = {}, theme?: DefaultTheme) =>
+const renderWithTheme = (props: Parameters<typeof LoadingIndicator>[number] = {}, theme?: any) =>
   render(
     <ThemeProvider theme={theme || themes.light}>
       <LoadingIndicator {...props} />
