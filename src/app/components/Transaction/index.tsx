@@ -9,6 +9,7 @@ import {
   ContactInfo,
   Cube,
   Money,
+  Inherit,
   LineChart,
   New,
   LinkPrevious,
@@ -72,7 +73,7 @@ export function Transaction(props: TransactionProps) {
       <Trans
         i18nKey="account.otherTransaction.header"
         t={t}
-        values={{ method: transaction.type }}
+        values={{ method: transaction.method }}
         defaults="Unrecognized transaction, method '{{method}}'"
       />
     ),
@@ -160,6 +161,21 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.ConsensusDeposit]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: {
+        designation: t('common.to', 'To'),
+        icon: () => <Inherit />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensusDeposit.sent"
+            t={t}
+            components={[transaction.runtimeName]}
+            defaults={`<0></0> deposit`}
+          />
+        ),
+      },
+    },
     [transactionTypes.TransactionType.StakingAllow]: {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
@@ -221,10 +237,15 @@ export function Transaction(props: TransactionProps) {
   const header = matchingConfiguration.header()
   const designation = matchingConfiguration.designation
   const blockExplorerLink = config[props.network][backend()]?.blockExplorer
-
+  const blockExplorerParatimesLink = config[props.network][backend()]?.blockExplorerParatimes
   return (
     <Card round="small" background="background-front" gap="none" elevation="xsmall">
-      <CardHeader pad={{ horizontal: 'medium', vertical: 'small' }} gap="none" background="brand" wrap={true}>
+      <CardHeader
+        pad={{ horizontal: 'medium', vertical: 'small' }}
+        gap="none"
+        background={transaction.runtimeName ? 'accent-4' : 'brand'}
+        wrap={true}
+      >
         <Box direction="row" gap="small">
           {icon}
           <Text>{header}</Text>
@@ -249,11 +270,15 @@ export function Transaction(props: TransactionProps) {
               value={t('common.unavailable', 'Unavailable')}
             />
           )}
-          <InfoBox
-            icon={<Cube color="brand" />}
-            label={t('common.block', 'Block')}
-            value={transaction.level}
-          />
+          {transaction.runtimeName ? (
+            <InfoBox label="Round" value={transaction.round} />
+          ) : (
+            <InfoBox
+              icon={<Cube color="brand" />}
+              label={t('common.block', 'Block')}
+              value={transaction.level}
+            />
+          )}
         </Grid>
       </CardBody>
       <CardFooter background="background-contrast" pad={{ horizontal: 'medium' }}>
@@ -264,7 +289,13 @@ export function Transaction(props: TransactionProps) {
           <Button
             icon={<CircleInformation color="dark-3" />}
             hoverIndicator
-            href={blockExplorerLink.replace('{{txHash}}', encodeURIComponent(transaction.hash))}
+            href={
+              transaction.runtimeId
+                ? blockExplorerParatimesLink
+                    .replace('{{txHash}}', encodeURIComponent(transaction.hash))
+                    .replace('{{runtimeId}}', encodeURIComponent(transaction.runtimeId))
+                : blockExplorerLink.replace('{{txHash}}', encodeURIComponent(transaction.hash))
+            }
             target="_blank"
             rel="noopener"
             data-testid="explorer-link"
