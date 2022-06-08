@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "short_name": "Oasis Wallet",
   "name": "The official non-custodial web wallet for the Oasis Network.",
   "icons": [
