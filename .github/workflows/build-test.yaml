@@ -55,7 +55,7 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         # Ignore the failure of a step and avoid terminating the job.
         continue-on-error: true
-      - run: REACT_APP_BACKEND=oasismonitor yarn start &
+      - run: REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start &
       - run: docker-compose up --build -d
       - uses: emilioschepis/wait-for-endpoint@v1.0.2
         with:

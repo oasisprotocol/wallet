@@ -29,7 +29,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 import { ThemeSwitcher } from '../ThemeSwitcher'
-import logotype from '../../../logo192.png'
+import logotype from '../../../../public/logo192.png'
 
 interface SidebarButtonProps extends ButtonExtendedProps {
   secure?: boolean

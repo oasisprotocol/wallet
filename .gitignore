@@ -5,6 +5,7 @@ cypress-coverage
 coverage
 build
 build-ext
+build-dev
 node_modules
 stats.json
 .pnp
