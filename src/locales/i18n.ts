@@ -23,6 +23,13 @@ export const translationsJson = {
   },
 }
 
+export const languageLabels: [keyof typeof translationsJson, string][] = [
+  ['en', 'English'],
+  ['fr', 'Français'],
+  ['sl', 'Slovenščina'],
+  ['tr', 'Türkçe'],
+]
+
 export const i18n = i18next
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)

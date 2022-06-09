@@ -30,6 +30,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
+import { languageLabels } from '../../../locales/i18n'
 
 interface SidebarButtonProps extends ButtonExtendedProps {
   secure?: boolean
@@ -150,12 +151,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
         <Menu
           hoverIndicator={false}
           dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
-          items={[
-            { label: 'English', onClick: () => setLanguage('en') },
-            { label: 'Français', onClick: () => setLanguage('fr') },
-            { label: 'Slovenščina', onClick: () => setLanguage('sl') },
-            { label: 'Türkçe', onClick: () => setLanguage('tr') },
-          ]}
+          items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
         >
           <Box direction="row" round="4px" border={{ size: '1px' }}>
             <Box pad="small">

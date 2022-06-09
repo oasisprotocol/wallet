@@ -31,7 +31,7 @@
 ## Features
 
 - Opening wallets through private key or mnemonic
-- Transaction history, currently all transactions are listed. We need to submit a pull-request to [oasis-explorer](https://github.com/everstake/oasis-explorer) to support pagination
+- Transaction history, currently all transactions are listed
 - Multiple languages (English and French currently supported)
 - Submitting transactions
 - [Ledger](http://ledger.com/) support
@@ -57,11 +57,12 @@ yarn install
 REACT_APP_LOCALNET=1 yarn start
 ```
 
-Then go to [http://localhost:3000](http://localhost:3000) to access the wallet.
+Then go to <http://localhost:3000> to access the wallet.
 
 ### Test accounts
 
-The local single-node network used for development comes built-in with two accounts already having tokens.
+The local single-node network used for development comes built-in with two
+accounts already having tokens.
 
 ```none
 Using a private key:
@@ -69,23 +70,31 @@ X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoF
 oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk
 
 Using a mnemonic:
-abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger
+abuse gown claw final toddler wedding sister parade useful typical spatial skate
+decrease bulk student manual cloth shove fat car little swamp tag ginger
 oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 ```
 
 ## Architecture
 
-Oasis-wallet needs multiple components to run, all provided in the [docker-compose file](docker-compose.yml) for local development.
+Oasis-wallet needs multiple components to run, all provided in the
+[docker-compose.yml] for local development.
 
-<img src="docs/images/architecture.svg">
+![Architecture diagram](docs/images/architecture.svg)
 
-- [envoy-proxy](https://www.envoyproxy.io/), used as a gRPC gateway for live access to the oasis-node, to fetch live balance, information about the current state of the network, and to submit transasctions.
-- [oasis-monitor](https://github.com/everstake/oasis-explorer), a block indexer to store historical data about transactions, accounts, validators, rewards, blocks and more. It exposes an [OpenAPI](https://github.com/everstake/oasis-explorer/blob/master/swagger/swagger.yml). Oasis Monitor dashboard is available at [https://oasismonitor.com](https://oasismonitor.com). `oasis-monitor` requires two databases:
+- [envoy-proxy], used as a gRPC gateway for live access to the oasis-node, to
+  fetch live balance, information about the current state of the network, and to
+  submit transactions.
+- [oasis-monitor], a block indexer to store historical data about transactions,
+  accounts, validators, rewards, blocks and more. It exposes an
+  [OpenAPI][monitor-swagger]. `oasis-monitor` requires two databases:
 
   - A PostgreSQL instance to keep track of it's import batches
-  - A [Clickhouse](https://github.com/ClickHouse/ClickHouse) server to store the indexed data
+  - A [Clickhouse] server to store the indexed data
 
-- [oasis-scan](https://github.com/bitcat365/oasisscan-backend), oasis blockchain explorer that enables view of historical data about transactions, accounts, validators, paratimes, blocks, proposals and more. It exposes an [API](https://github.com/bitcat365/oasisscan-backend#oasisscan-api). Oasis scan dashboard is available at [https://www.oasisscan.com](https://www.oasisscan.com).
+- [oasis-scan], oasis blockchain explorer that enables view of historical data
+  about transactions, accounts, validators, paratimes, blocks, proposals and
+  more. It exposes an [API](scan-api-repo).
 
 API that web wallet is using is determined during a build time.
 
@@ -95,8 +104,10 @@ API that web wallet is using is determined during a build time.
 
 The repository has two different test strategies:
 
-- E2E (End-to-end) tests, run with [Cypress](https://www.cypress.io/), located in [cypress/](/cypress). These tests require the react app to be started to be accessible on port `3000` and the docker-compose stack to be up.
-- Unit & functional tests, run with [Jest](https://github.com/facebook/jest), located throughout the codebase
+- E2E (End-to-end) tests, run with [Cypress], located in [cypress/](/cypress).
+  These tests require the react app to be accessible on port `3000` and the
+  docker-compose stack to be up.
+- Unit & functional tests, run with [Jest], located throughout the codebase
 
 To run all tests:
 
@@ -109,19 +120,23 @@ yarn test
 
 # Run cypress tests
 docker-compose up -d
-REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start # Run this in another terminal to keep it open
+# Run this in another terminal to keep it open
+REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start
 yarn cypress:run
 
-# Manually check that content-security-policy in ./internals/getCsp.js doesn't break any functionality
+# Manually check that content-security-policy in ./internals/getCsp.js doesn't
+# break any functionality
 yarn --silent print-csp
 yarn start:prod
-# Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake and switch to testnet.
-# This exercises at least: fonts, grpc, testnet grpc, API, and validator logos
+# Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake
+# and switch to testnet. This exercises at least: fonts, grpc, testnet grpc, API,
+# and validator logos.
 ```
 
 ### Code style
 
-This repository uses [prettier](https://prettier.io/) as a code formatter and [eslint](https://github.com/eslint/eslint) as it's linter. You can use the following commands:
+This repository uses [prettier] as a code formatter and [eslint] as it's linter.
+You can use the following commands:
 
 ```bash
 # Lint the whole repository
@@ -144,19 +159,28 @@ A quick summary:
 - Wrap the body at 80 characters.
 - Use the body to explain _what_ and _why_ vs. _how_.
 
-A detailed post on Git commit messages: [How To Write a Git Commit Message](https://chris.beams.io/posts/git-commit/).
+A detailed post on Git commit messages: [How To Write a Git Commit Message].
 
 ### Internationalization
 
-We have [Transifex](https://www.transifex.com/oasisprotocol/oasis-wallet-web/) to easily contribute translations.
+Translating: We have [Transifex] to easily contribute translations.
 
-Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running
+Development: Oasis Wallet uses [react-i18next] for internationalization. You can
+simply use the [useTranslation hook] inside your components to add additional
+translation-ready strings. You can then export the new keys to the
+[English translation.json] by running `yarn run extract-messages`.
 
-```shell
-yarn run extract-messages
-```
+Updating from [Transifex]: [English translation.json] is set as an automatically
+updating resource in Transifex, so the new translation strings will appear in
+Transifex a few hours after changes are merged. After they are translated, click
+"Download for use" on each language, and create a new pull request with title
+_"i18n: Update translations from Transifex"_.
 
-To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18next-scanner.config.js](internals/extractMessages/i18next-scanner.config.js), then run the command above once more.
+Adding a new language:
+1. first add it to Transifex and translate the strings,
+2. create a folder with the new language code in `src/locales` and download the
+  translation file there,
+3. add the new language to the [list of resources][i18n.ts]
 
 ## Preparing a Release
 
@@ -165,3 +189,22 @@ To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18n
 ## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_large)
+
+
+[docker-compose.yml]: docker-compose.yml
+[envoy-proxy]: https://www.envoyproxy.io
+[oasis-monitor]: https://oasismonitor.com
+[monitor-swagger]: https://github.com/everstake/oasis-explorer/blob/master/swagger/swagger.yml
+[Clickhouse]: https://github.com/ClickHouse/ClickHouse
+[oasis-scan]: https://www.oasisscan.com
+[scan-api-repo]: https://github.com/bitcat365/oasisscan-backend#oasisscan-api
+[Cypress]: https://www.cypress.io/
+[Jest]: https://github.com/facebook/jest
+[prettier]: https://prettier.io/
+[eslint]: https://github.com/eslint/eslint
+[How To Write a Git Commit Message]: https://chris.beams.io/posts/git-commit/
+[Transifex]: https://www.transifex.com/oasisprotocol/oasis-wallet-web/
+[react-i18next]: https://react.i18next.com/
+[useTranslation hook]: https://react.i18next.com/latest/usetranslation-hook
+[English translation.json]: src/locales/en/translation.json
+[i18n.ts]: src/locales/i18n.ts
