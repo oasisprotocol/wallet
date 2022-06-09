@@ -199,3 +199,9 @@ Procfile          text
 
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
+
+
+# Auto-generated files
+src/vendors/explorer/*/** linguist-generated=true
+src/vendors/oasisscan/*/** linguist-generated=true
+src/vendors/oasisscan/dump_validators.json linguist-generated=true
