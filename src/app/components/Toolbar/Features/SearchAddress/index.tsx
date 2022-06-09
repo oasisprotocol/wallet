@@ -3,9 +3,10 @@
  * SearchAddress
  *
  */
+import { SearchBox } from 'app/components/Toolbar/Features/SearchAddress/SearchBox'
 import { isValidAddress } from 'app/lib/helpers'
-import { Box, Button, Drop, Form, Text, TextInput } from 'grommet'
-import { Alert, FormClose, Search } from 'grommet-icons/icons'
+import { Box, Drop, Form, Text } from 'grommet'
+import { Alert } from 'grommet-icons/icons'
 import React, { memo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router'
@@ -14,7 +15,7 @@ interface Props {}
 
 export const SearchAddress = memo((props: Props) => {
   const { t } = useTranslation()
-  const [searchPayload, setSearchPayload] = useState<string | undefined>('')
+  const [searchPayload, setSearchPayload] = useState<string>('')
   const [invalidPayload, showInvalidPayload] = useState(false)
 
   const history = useHistory()
@@ -41,37 +42,14 @@ export const SearchAddress = memo((props: Props) => {
 
   return (
     <Form onSubmit={() => goToAddress()}>
-      <Box
-        round="30px"
-        border={{ size: '1px' }}
-        fill="vertical"
-        justify="center"
-        align="center"
-        width={{ max: '600px' }}
-        direction="row"
+      <SearchBox
+        data-testid="searchaddress"
         ref={errorRef}
-      >
-        <TextInput
-          plain
-          icon={<Search />}
-          data-testid="searchaddress"
-          value={searchPayload}
-          onChange={e => {
-            updatePayload(e.target.value)
-          }}
-          placeholder={
-            <Box
-              margin={{ left: '36px' }}
-              max-height="30px"
-              style={{ textOverflow: 'ellipsis' }}
-              flex="shrink"
-            >
-              {t('toolbar.search.placeholder', 'Search for an address')}
-            </Box>
-          }
-        />
-        {searchPayload && <Button icon={<FormClose />} onClick={() => updatePayload('')} />}
-      </Box>
+        value={searchPayload}
+        onChange={value => updatePayload(value)}
+        onClear={() => updatePayload('')}
+        placeholder={t('toolbar.search.placeholder', 'Search for an address')}
+      ></SearchBox>
       {errorRef.current && invalidPayload && (
         <Drop
           align={{ top: 'bottom', left: 'left' }}
