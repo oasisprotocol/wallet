@@ -20,7 +20,7 @@ module.exports = {
       },
       extensions: ['js', 'jsx']
     },
-    lngs: ['en', 'fr', 'sl', 'tr'],
+    lngs: ['en'],
     defaultLng: 'en',
     defaultNs: 'translation',
     resource: {

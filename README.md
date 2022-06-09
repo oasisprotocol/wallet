@@ -148,15 +148,24 @@ A detailed post on Git commit messages: [How To Write a Git Commit Message](http
 
 ### Internationalization
 
-We have [Transifex](https://www.transifex.com/oasisprotocol/oasis-wallet-web/) to easily contribute translations.
+Translating: We have [Transifex] to easily contribute translations.
 
-Oasis-wallet uses [react-i18next](https://react.i18next.com/) for I18n. You can simply use the [useTranslation hook](https://react.i18next.com/latest/usetranslation-hook) inside your components to add additional i18n-ready strings. You can then export the new keys to the translation files by running
+Development: Oasis Wallet uses [react-i18next] for internationalization. You can
+simply use the [useTranslation hook] inside your components to add additional
+translation-ready strings. You can then export the new keys to the
+[English translation.json] by running `yarn run extract-messages`.
 
-```shell
-yarn run extract-messages
-```
+Updating from [Transifex]: [English translation.json] is set as an automatically
+updating resource in Transifex, so the new translation strings will appear in
+Transifex a few hours after changes are merged. After they are translated, click
+"Download for use" on each language, and create a new pull request with title
+_"i18n: Update translations from Transifex"_.
 
-To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18next-scanner.config.js](internals/extractMessages/i18next-scanner.config.js), then run the command above once more.
+Adding a new language:
+1. first add it to Transifex and translate the strings,
+2. create a folder with the new language code in `src/locales` and download the
+  translation file there,
+3. add the new language to the [list of resources][i18n.ts]
 
 ## Preparing a Release
 
@@ -165,3 +174,10 @@ To add a new language, edit [src/locales/i18n.ts](src/locales/i18n.ts) and [i18n
 ## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_large)
+
+
+[Transifex]: https://www.transifex.com/oasisprotocol/oasis-wallet-web/
+[react-i18next]: https://react.i18next.com/
+[useTranslation hook]: https://react.i18next.com/latest/usetranslation-hook
+[English translation.json]: src/locales/en/translation.json
+[i18n.ts]: src/locales/i18n.ts
