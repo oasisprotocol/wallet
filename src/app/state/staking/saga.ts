@@ -26,7 +26,7 @@ function* loadDelegations(address: string) {
   const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
 
   const delegations: Delegation[] = []
-  for (let delegation of delegationsResponse.delegations) {
+  for (const delegation of delegationsResponse.delegations) {
     delegations.push({
       ...delegation,
       validator: yield* getValidatorByAddress(delegation.validatorAddress),
@@ -34,7 +34,7 @@ function* loadDelegations(address: string) {
   }
 
   const debondingDelegations: DebondingDelegation[] = []
-  for (let debondingDelegation of delegationsResponse.debonding) {
+  for (const debondingDelegation of delegationsResponse.debonding) {
     debondingDelegations.push({
       ...debondingDelegation,
       validator: yield* getValidatorByAddress(debondingDelegation.validatorAddress),

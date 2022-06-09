@@ -13,10 +13,10 @@ import { NetworkType } from './types'
  * or by default, for the currently selected network
  */
 export function* getOasisNic(network?: NetworkType) {
-  let selectedNetwork = network ? network : yield* select(selectSelectedNetwork)
+  const selectedNetwork = network ? network : yield* select(selectSelectedNetwork)
   const url = config[selectedNetwork].grpc
 
-  let nic = new oasis.client.NodeInternal(url)
+  const nic = new oasis.client.NodeInternal(url)
   return nic
 }
 

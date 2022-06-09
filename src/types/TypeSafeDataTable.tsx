@@ -13,6 +13,6 @@ export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'ke
  * - `keyField` on rows is not missing and is valid
  * - `id` on cols is not missing
  */
-export function TypeSafeDataTable<T = any>(props: ITypeSafeDataTableProps<T>): React.ReactElement {
+export function TypeSafeDataTable<T>(props: ITypeSafeDataTableProps<T>): React.ReactElement {
   return <DataTable {...(props as IDataTableProps<T>)} />
 }

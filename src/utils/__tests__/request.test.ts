@@ -27,7 +27,7 @@ describe('request', () => {
     })
 
     it('should format the response correctly', done => {
-      request('/thisurliscorrect')
+      request<any>('/thisurliscorrect')
         .catch(done)
         .then(json => {
           expect(json.hello).toBe('world')

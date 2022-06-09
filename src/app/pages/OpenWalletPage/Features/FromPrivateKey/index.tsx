@@ -10,18 +10,14 @@ import { useTranslation } from 'react-i18next'
 interface Props {}
 
 const parseKey = (key: string) => {
-  try {
-    const keyWithoutEnvelope = key
-      .replace(/\n/gm, '')
-      .replace(/ /g, '')
-      .replace(/^-----.*?-----/, '')
-      .replace(/-----.*?-----$/, '')
+  const keyWithoutEnvelope = key
+    .replace(/\n/gm, '')
+    .replace(/ /g, '')
+    .replace(/^-----.*?-----/, '')
+    .replace(/-----.*?-----$/, '')
 
-    const key_bytes = base64ToUint(keyWithoutEnvelope)
-    return OasisKey.fromPrivateKey(key_bytes)
-  } catch (e) {
-    throw e
-  }
+  const key_bytes = base64ToUint(keyWithoutEnvelope)
+  return OasisKey.fromPrivateKey(key_bytes)
 }
 
 export function FromPrivateKey(props: Props) {

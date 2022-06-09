@@ -15,7 +15,7 @@ interface WordProp {
   higlighted?: boolean
 }
 
-let noSelect: React.CSSProperties = {
+const noSelect: React.CSSProperties = {
   WebkitUserSelect: 'none',
   MozUserSelect: 'none',
   msUserSelect: 'none',
@@ -23,7 +23,7 @@ let noSelect: React.CSSProperties = {
 }
 
 // Make typos obvious e.g. if user has pasted mnemonic containing a newline
-let keepWhitespace: React.CSSProperties = {
+const keepWhitespace: React.CSSProperties = {
   whiteSpace: 'pre',
 }
 

@@ -45,7 +45,7 @@ export function TransitionRoute(props: Props) {
   const fullPath = props.path
   const Component = props.component as any
   const nodeRef = useRef(null)
-  let match = useRouteMatch(fullPath)
+  const match = useRouteMatch(fullPath)
 
   return (
     <Route exact={props.exact} path={fullPath} key={props.path}>

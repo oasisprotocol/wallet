@@ -44,7 +44,7 @@ function checkStatus(response: Response) {
  *
  * @return {object}           The response data
  */
-export async function request(url: string, options?: RequestInit): Promise<{} | { err: ResponseError }> {
+export async function request<T>(url: string, options?: RequestInit): Promise<T | { err: ResponseError }> {
   const fetchResponse = await fetch(url, options)
   const response = checkStatus(fetchResponse)
   return parseJSON(response)
