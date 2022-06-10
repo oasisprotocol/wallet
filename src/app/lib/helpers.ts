@@ -40,7 +40,7 @@ export function concat(...parts: Uint8Array[]) {
   for (const part of parts) {
     length += part.length
   }
-  let result = new Uint8Array(length)
+  const result = new Uint8Array(length)
   let pos = 0
   for (const part of parts) {
     result.set(part, pos)

@@ -14,6 +14,7 @@ describe('monitor', () => {
       parseAccount({
         address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
         liquid_balance: 756455428396,
+        /* eslint-disable @typescript-eslint/no-loss-of-precision */
         escrow_balance: 336982978187110627,
         escrow_debonding_balance: 11942413553858170,
         delegations_balance: 1460535533308247,
@@ -157,6 +158,7 @@ describe('monitor', () => {
       ]),
     ).toMatchSnapshot()
   })
+  /* eslint-enable @typescript-eslint/no-loss-of-precision */
 
   test('parse transaction list', () => {
     expect(

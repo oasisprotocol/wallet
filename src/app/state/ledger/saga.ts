@@ -83,8 +83,6 @@ export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWr
   signer.setTransport(transport)
   try {
     yield* call([OasisTransaction, OasisTransaction.signUsingLedger], chainContext, signer, tw)
-  } catch (e) {
-    throw e
   } finally {
     yield* call([transport, transport.close])
   }
