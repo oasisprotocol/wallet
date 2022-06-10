@@ -21,3 +21,4 @@ export const selectAddress = createSelector([selectActiveWallet], wallet => wall
 export const selectPublicKey = createSelector([selectActiveWallet], wallet => wallet?.publicKey ?? '')
 export const selectBalance = createSelector([selectActiveWallet], wallet => wallet?.balance)
 export const selectIsOpen = createSelector([selectSlice], wallet => wallet.isOpen)
+export const selectType = createSelector([selectActiveWallet], wallet => wallet?.type)
