@@ -1,5 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
+import * as oasisRT from '@oasisprotocol/client-rt'
+import BigNumber from "bignumber.js"
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { addressToPublicKey, shortPublicKey } from './helpers'
@@ -13,6 +15,24 @@ export const signerFromPrivateKey = (privateKey: Uint8Array) => {
 /** Transaction Wrapper */
 export type TW<T> = oasis.consensus.TransactionWrapper<T>
 
+// h/t extension wallet
+async function getEvmBech32Address(evmAddress: any) {
+  if (!evmAddress) {
+    return ''
+  }
+  let newEvmAddress = evmAddress
+  if (newEvmAddress.indexOf('0x') === 0) {
+    newEvmAddress = newEvmAddress.substr(2)
+  }
+  const evmBytes = oasis.misc.fromHex(newEvmAddress)
+  let address = await oasis.address.fromData(
+    oasisRT.address.V0_SECP256K1ETH_CONTEXT_IDENTIFIER,
+    oasisRT.address.V0_SECP256K1ETH_CONTEXT_VERSION,
+    evmBytes,
+  )
+  const bech32Address = oasisRT.address.toBech32(address)
+  return bech32Address
+}
 export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
 
@@ -79,6 +99,49 @@ export class OasisTransaction {
     return tw
   }
 
+  public static async buildToParatime(
+    nic: OasisClient,
+    signer: Signer,
+    targetAddress: string /* staking.Allow */,
+    fromAddress: string,
+    amountArg: bigint,
+  ) /*: Promise<TW<oasis.types.StakingTransfer>> */ {
+    const runtimeId = '00000000000000000000000000000000000000000000000072c8215e60d5bca7'
+
+    const CONSENSUS_RT_ID = oasis.misc.fromHex(runtimeId)
+    const consensusWrapper = new oasisRT.consensusAccounts.Wrapper(CONSENSUS_RT_ID)
+    const txWrapper = consensusWrapper.callDeposit()
+
+    const accountsWrapper = new oasisRT.accounts.Wrapper(CONSENSUS_RT_ID)
+    const bech32Address = await oasis.staking.addressFromBech32(fromAddress)
+    const nonce = await accountsWrapper.queryNonce().setArgs({ address: bech32Address }).query(nic)
+
+    const decimal = new BigNumber(10).pow(18) /* Emerald */
+    const amount = BigInt(new BigNumber(amountArg).multipliedBy(decimal).toFixed())
+    const DEPOSIT_AMOUNT = [oasis.quantity.fromBigInt(amount), oasisRT.token.NATIVE_DENOMINATION]
+
+    const realAddress = await getEvmBech32Address(targetAddress)
+    let uint8ArrayAddress = await oasis.staking.addressFromBech32(realAddress)
+    txWrapper.setBody({
+      amount: DEPOSIT_AMOUNT,
+      to: uint8ArrayAddress,
+    })
+    const feeAmount = 0n
+    const feeGas = BigInt(15000)
+    txWrapper
+      .setFeeAmount([oasis.quantity.fromBigInt(feeAmount), oasisRT.token.NATIVE_DENOMINATION])
+      .setFeeGas(feeGas)
+      .setFeeConsensusMessages(1)
+
+    const signerInfo = ({
+        address_spec: {signature: {ed25519: signer.public()}},
+        nonce,
+    });
+    txWrapper.setSignerInfo([signerInfo]);
+
+    return txWrapper
+  }
+
   public static async signUsingLedger<T>(
     chainContext: string,
     signer: ContextSigner,
@@ -91,7 +154,8 @@ export class OasisTransaction {
   }
 
   public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T>): Promise<void> {
-    return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
+    const theSigner = new oasis.signature.BlindContextSigner(signer)
+    return tw.sign([theSigner], chainContext)
   }
 
   public static async submit<T>(nic: OasisClient, tw: TW<T>): Promise<void> {

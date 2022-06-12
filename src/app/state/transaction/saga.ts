@@ -12,6 +12,7 @@ import { getOasisNic } from '../network/saga'
 import { selectChainContext } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
+import { selectAccount } from '../account/selectors'
 import { TransactionPayload, TransactionStep } from './types'
 
 export function* transactionSaga() {
@@ -76,6 +77,17 @@ function* prepareTransfer(signer: Signer, amount: bigint, to: string) {
   return yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, to, amount)
 }
 
+function* prepareToParatime(signer: Signer, amount: bigint, to: string, from: string) {
+  const nic = yield* call(getOasisNic)
+
+  yield* call(assertWalletIsOpen)
+  //yield* call(assertValidAddress, to) // TODO: validate 0x address
+  yield* call(assertSufficientBalance, amount)
+  yield* call(assertRecipientNotSelf, to)
+
+  return yield* call(OasisTransaction.buildToParatime, nic, signer as Signer, to, from, amount)
+}
+
 function* prepareAddEscrow(signer: Signer, amount: bigint, validator: string) {
   const nic = yield* call(getOasisNic)
 
@@ -95,6 +107,11 @@ function* prepareReclaimEscrow(signer: Signer, shares: bigint, validator: string
   return yield* call(OasisTransaction.buildReclaimEscrow, nic, signer as Signer, validator, shares)
 }
 
+const getChainContext = async (nic:any) => {
+  const chainContext = await nic.consensusGetChainContext()
+  return chainContext
+}
+
 /**
  * Generate transaction, sign, push to node
  *
@@ -105,6 +122,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
   const wallet = yield* select(selectActiveWallet)
   const nic = yield* call(getOasisNic)
   const chainContext = yield* select(selectChainContext)
+  const account = yield* select(selectAccount)
 
   try {
     yield* setStep(TransactionStep.Building)
@@ -142,15 +160,35 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
         )
         break
 
+      case 'toParatime':
+        const getAllowance = account.allowances.find(a => a.address === action.payload.to)
+        tw = yield* call(
+          prepareToParatime,
+          signer as Signer,
+          parseNumberToBigInt(action.payload.amount),
+          action.payload.to,
+          action.payload.from,
+        )
+        break
+
       default:
         throw new ExhaustedTypeError('Unsupported transaction type', action.payload)
     }
 
+    let fee
+    let gas
+    if (action.payload.type === 'toParatime') {
+      fee = uint2bigintString(tw.transaction.ai.fee?.amount!)
+      gas = BigInt(tw.transaction.ai.fee?.gas!).toString()
+    } else {
+      fee = uint2bigintString(tw.transaction.fee?.amount!)
+      gas = BigInt(tw.transaction.fee?.gas!).toString()
+    }
     yield* put(
       transactionActions.updateTransactionPreview({
         transaction: action.payload,
-        fee: uint2bigintString(tw.transaction.fee?.amount!),
-        gas: BigInt(tw.transaction.fee?.gas!).toString(),
+        fee,
+        gas,
       }),
     )
 
@@ -166,7 +204,9 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
     if (activeWallet.type === WalletType.Ledger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
-      yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
+      /* if ParaTime */
+      const consensusChainContext = yield* call(getChainContext, nic)
+      const signResult = yield* call(OasisTransaction.sign, /*chainContext*/consensusChainContext, signer as Signer, tw)
     }
 
     yield* setStep(TransactionStep.Submitting)

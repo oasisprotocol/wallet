@@ -23,7 +23,6 @@ export const TransactionPreview = memo((props: Props) => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
   const { preview, walletAddress, chainContext } = props
-
   return (
     <Grid columns={size !== 'small' ? ['auto', 'auto'] : ['auto']} gap={{ column: 'small', row: 'xsmall' }}>
       <ResponsiveGridRow
@@ -38,6 +37,12 @@ export const TransactionPreview = memo((props: Props) => {
           </Text>
         }
       />
+      {preview.transaction.type === 'toParatime' && (
+        <ResponsiveGridRow
+          label={t('transaction.preview.to', 'To')}
+          value={<Text style={{ fontFamily: 'Roboto mono' }}>{preview.transaction.to}</Text>}
+        />
+      )}
       {preview.transaction.type === 'transfer' && (
         <ResponsiveGridRow
           label={t('transaction.preview.to', 'To')}

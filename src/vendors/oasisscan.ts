@@ -99,6 +99,7 @@ export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
     liquid_balance: parseStringValueToInt(account.available),
+    allowances: account.allowances,
   }
 }
 

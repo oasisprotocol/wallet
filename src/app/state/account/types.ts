@@ -7,9 +7,14 @@ export interface BalanceDetails {
   delegations: number
 }
 
+export interface Allowance {
+  address: string
+  amount: number
+}
 export interface Account {
   address: string
   liquid_balance: number
+  allowances: Allowance[]
 }
 
 /* --- STATE --- */
