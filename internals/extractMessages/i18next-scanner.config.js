@@ -9,7 +9,7 @@ module.exports = {
     sort: true,
     func: {
       list: ['t'],
-      extensions: ['js', 'jsx'] // We dont want this extension because we manually check on transform function below
+      extensions: ['js', 'jsx'], // We dont want this extension because we manually check on transform function below
     },
     trans: {
       component: 'Trans',
@@ -18,7 +18,7 @@ module.exports = {
       fallbackKey: (ns, value) => {
         return value
       },
-      extensions: ['js', 'jsx']
+      extensions: ['js', 'jsx'],
     },
     lngs: ['en'],
     defaultLng: 'en',
@@ -27,17 +27,17 @@ module.exports = {
       loadPath: 'src/locales/{{lng}}/{{ns}}.json',
       savePath: 'src/locales/{{lng}}/{{ns}}.json',
       jsonIndent: 2,
-      lineEnding: '\n'
+      lineEnding: '\n',
     },
     keySeparator: '.', // char to separate keys
     nsSeparator: ':', // char to split namespace from key
     interpolation: {
       prefix: '{{',
-      suffix: '}}'
-    }
+      suffix: '}}',
+    },
   },
   transform: typescriptTransform({
     extensions: ['.ts', '.tsx'],
-    tsOptions: { jsx: 'preserve', target: 'esnext' }
-  })
+    tsOptions: { jsx: 'preserve', target: 'esnext' },
+  }),
 }

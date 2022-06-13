@@ -33,6 +33,14 @@ const config = {
       files: ['**/*.ts?(x)'],
       rules: { 'prettier/prettier': 'warn' },
     },
+    {
+      files: ['internals/**'],
+      rules: { '@typescript-eslint/no-var-requires': 'off' },
+    },
+    {
+      files: ['**/*.js'],
+      rules: { '@typescript-eslint/no-var-requires': 'off' },
+    },
   ],
 }
 

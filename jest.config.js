@@ -10,9 +10,9 @@ const config = {
     '!src/**/*/Loadable.{js,jsx,ts,tsx}',
     '!src/**/*/messages.ts',
     '!src/**/*/types.ts',
-    '!src/index.tsx'
+    '!src/index.tsx',
   ],
-  projects: ['<rootDir>/internals/jest/jest.web-config.js', '<rootDir>/internals/jest/jest.ext-config.js']
+  projects: ['<rootDir>/internals/jest/jest.web-config.js', '<rootDir>/internals/jest/jest.ext-config.js'],
 }
 
 module.exports = config

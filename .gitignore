@@ -1,12 +1,12 @@
 # Don't check auto-generated stuff into git
-.parcel-cache
-.husky
-cypress-coverage
-coverage
-build
-build-ext
-build-dev
-node_modules
+.parcel-cache/
+.husky/
+cypress-coverage/
+coverage/
+build/
+build-ext/
+build-dev/
+node_modules/
 stats.json
 .pnp
 .pnp.js
@@ -17,26 +17,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.env.development.local
-.env.test.local
-.env.production.local
-
-# boilerplate internals
-generated-cra-app
-.cra-template-rb
-template
-
 # Docker
-node
+/node
+/docker/oasis-node/node
 
 # Local debug
 debug*.c
 
 # Cypress
-cypress/screenshots
-cypress/videos
-.nyc_output
-instrumented
+/cypress/screenshots/
+/cypress/videos/
+/.nyc_output/
+/instrumented/
 
 # Megalinter
-report
+/report/

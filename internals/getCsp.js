@@ -14,7 +14,7 @@ const extensionCsp = {
   `,
   hmrWebsocket: `
     ws://localhost:2222
-  `
+  `,
 }
 
 // Keep synced with deployment
