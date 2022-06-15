@@ -21,7 +21,7 @@ import { TransitionGroup } from 'react-transition-group'
 import { accountActions } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
 import { BalanceDetails } from '../../state/account/types'
-import { selectAddress, selectStatus, selectWallets } from '../../state/wallet/selectors'
+import { selectAddress, selectIsOpen, selectWallets } from '../../state/wallet/selectors'
 import { ActiveDelegationList } from '../StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from '../StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
@@ -72,7 +72,7 @@ export function AccountPage(props: Props) {
   const account = useSelector(selectAccount)
   const stake = useSelector(selectStaking)
 
-  const walletIsOpen = useSelector(selectStatus)
+  const walletIsOpen = useSelector(selectIsOpen)
   const walletAddress = useSelector(selectAddress)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)

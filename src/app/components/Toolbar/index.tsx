@@ -3,7 +3,7 @@
  * Toolbar
  *
  */
-import { selectStatus } from 'app/state/wallet/selectors'
+import { selectIsOpen } from 'app/state/wallet/selectors'
 import { Box } from 'grommet'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
@@ -15,7 +15,7 @@ import { SearchAddress } from './Features/SearchAddress'
 interface Props {}
 
 export function Toolbar(props: Props) {
-  const isOpen = useSelector(selectStatus)
+  const isOpen = useSelector(selectIsOpen)
 
   return (
     <Box

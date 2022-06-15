@@ -15,7 +15,7 @@ import {
   selectValidatorsTimestamp,
 } from 'app/state/staking/selectors'
 import { Validator } from 'app/state/staking/types'
-import { selectStatus } from 'app/state/wallet/selectors'
+import { selectIsOpen } from 'app/state/wallet/selectors'
 import { Box, Text } from 'grommet'
 import { Down } from 'grommet-icons/icons'
 import React, { memo } from 'react'
@@ -35,7 +35,7 @@ export const ValidatorList = memo((props: Props) => {
   const validators = useSelector(selectValidators)
   const validatorsTimestamp = useSelector(selectValidatorsTimestamp)
   const updateValidatorsError = useSelector(selectUpdateValidatorsError)
-  const walletIsOpen = useSelector(selectStatus)
+  const walletIsOpen = useSelector(selectIsOpen)
   const selectedAddress = useSelector(selectSelectedAddress)
   const validatorDetails = useSelector(selectValidatorDetails)
 

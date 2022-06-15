@@ -1,10 +1,9 @@
 import { walletActions } from 'app/state/wallet'
-import { selectAddress, selectStatus } from 'app/state/wallet/selectors'
+import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
 import {
   Avatar,
   Box,
   Button,
-  ButtonExtendedProps,
   Layer,
   Menu,
   Nav,
@@ -32,60 +31,97 @@ import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 
-interface SidebarButtonProps extends ButtonExtendedProps {
-  secure?: boolean
-  route?: string
-  label: string
-}
-
-export const SidebarButton = ({ secure, icon, label, route, ...rest }: SidebarButtonProps) => {
-  const status = useSelector(selectStatus)
+const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
   const size = useContext(ResponsiveContext)
-  const location = useLocation()
-  const isActive = route && route === location.pathname
   const isMediumSize = size === 'medium'
-
-  if (!status && secure) {
-    return null
-  }
-
   const tooltip = (
     <Box
       pad={{ vertical: 'small', right: 'medium' }}
       margin="none"
-      background={isActive ? 'background-oasis-blue' : 'component-sidebar'}
+      background={props.isActive ? 'background-oasis-blue' : 'component-sidebar'}
       round={{ size: 'medium', corner: 'right' }}
     >
-      {label}
+      {props.label}
+    </Box>
+  )
+  return (
+    <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
+      {props.children}
+    </Tip>
+  )
+}
+
+interface SidebarButtonBaseProps {
+  needsWalletOpen?: boolean
+  icon: JSX.Element
+  label: string
+}
+
+type SidebarButtonProps = SidebarButtonBaseProps &
+  (
+    | { route: string; newTab?: boolean; onClick?: undefined }
+    | {
+        route?: undefined
+        newTab?: undefined
+        onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLAnchorElement>
+      }
+  )
+
+export const SidebarButton = ({
+  needsWalletOpen,
+  icon,
+  label,
+  route,
+  newTab,
+  onClick,
+  ...rest
+}: SidebarButtonProps) => {
+  const isWalletOpen = useSelector(selectIsOpen)
+  const size = useContext(ResponsiveContext)
+  const location = useLocation()
+  const isActive = route ? route === location.pathname : false
+  const isMediumSize = size === 'medium'
+
+  if (!isWalletOpen && needsWalletOpen) {
+    return null
+  }
+
+  const component = (
+    <Box
+      pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
+      background={isActive ? 'background-oasis-blue' : undefined}
+      responsive={false}
+      direction="row"
+      gap="medium"
+      justify={isMediumSize ? 'center' : 'start'}
+    >
+      {icon}
+      {!isMediumSize && <Text>{label}</Text>}
     </Box>
   )
 
-  const component = (
-    <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
-      <Box
-        pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
-        background={isActive ? 'background-oasis-blue' : undefined}
-        responsive={false}
-      >
-        <Button
-          a11yTitle={label}
-          gap="medium"
-          alignSelf={isMediumSize ? 'center' : 'start'}
-          focusIndicator={false}
-          plain
-          icon={icon}
-          label={!isMediumSize ? label : undefined}
-          {...rest}
-        />
-      </Box>
-    </Tip>
-  )
-
   if (route) {
-    return <NavLink to={route}>{component}</NavLink>
+    return (
+      <SidebarTooltip label={label} isActive={isActive}>
+        <NavLink
+          aria-label={label}
+          to={route}
+          {...(newTab ? { target: '_blank', rel: 'noopener' } : {})}
+          {...rest}
+        >
+          {component}
+        </NavLink>
+      </SidebarTooltip>
+    )
+  } else {
+    return (
+      <SidebarTooltip label={label} isActive={isActive}>
+        <Button a11yTitle={label} fill="horizontal" onClick={onClick} {...rest}>
+          {component}
+        </Button>
+      </SidebarTooltip>
+    )
   }
-
-  return component
 }
 
 type Size = 'small' | 'medium' | 'large'
@@ -144,37 +180,41 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       <SidebarButton
         icon={<Logout />}
         label={t('menu.closeWallet', 'Close wallet')}
-        secure={true}
+        needsWalletOpen={true}
         onClick={() => logout()}
       />
-      <Box pad="small" align="center">
-        <Menu
-          hoverIndicator={false}
-          dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
-          items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
-        >
-          <Box direction="row" round="4px" border={{ size: '1px' }}>
-            <Box pad="small">
-              <Language />
+
+      <SidebarTooltip label="Language" isActive={false}>
+        <Box pad="small" align={size === 'medium' ? 'center' : 'start'}>
+          <Menu
+            hoverIndicator={false}
+            dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
+            items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
+          >
+            <Box direction="row">
+              <Box pad="small">
+                <Language />
+              </Box>
+              {size !== 'medium' && (
+                <>
+                  <Box pad="small" flex="grow">
+                    <Text>Language</Text>
+                  </Box>
+                  <Box pad="small">
+                    <FormDown />
+                  </Box>
+                </>
+              )}
             </Box>
-            {size !== 'medium' && (
-              <>
-                <Box pad="small" flex="grow">
-                  <Text>Language</Text>
-                </Box>
-                <Box pad="small">
-                  <FormDown />
-                </Box>
-              </>
-            )}
-          </Box>
-        </Menu>
-      </Box>
-      <Box align="center" pad="small">
-        <a href="https://github.com/oasisprotocol/oasis-wallet-web" target="_blank" rel="noopener">
-          <Github />
-        </a>
-      </Box>
+          </Menu>
+        </Box>
+      </SidebarTooltip>
+      <SidebarButton
+        icon={<Github />}
+        label="GitHub"
+        route="https://github.com/oasisprotocol/oasis-wallet-web"
+        newTab
+      ></SidebarButton>
     </Nav>
   )
 }
@@ -189,7 +229,7 @@ function SidebarMenuItems() {
       <SidebarButton
         icon={<Money />}
         label={t('menu.wallet', 'Wallet')}
-        secure={true}
+        needsWalletOpen={true}
         route={`/account/${address}`}
         data-testid="nav-myaccount"
       />
@@ -198,7 +238,7 @@ function SidebarMenuItems() {
       <SidebarButton
         icon={<LineChart />}
         label={t('menu.stake', 'Stake')}
-        secure={true}
+        needsWalletOpen={true}
         route={`/account/${address}/stake`}
         data-testid="nav-stake"
       />
