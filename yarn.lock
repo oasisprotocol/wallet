@@ -7869,11 +7869,6 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "2.1.1"
 
-fclone@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/fclone/-/fclone-1.0.11.tgz#10e85da38bfea7fc599341c296ee1d77266ee640"
-  integrity sha1-EOhdo4v+p/xZk0HClu4ddyZu5kA=
-
 fd-slicer@~1.1.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/fd-slicer/-/fd-slicer-1.1.0.tgz"
@@ -12239,10 +12234,10 @@ param-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
 
-parcel-transformer-env-variables-injection@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/parcel-transformer-env-variables-injection/-/parcel-transformer-env-variables-injection-0.1.0.tgz#34ffe1e2b51dcf801e625178252fdb66fb747b60"
-  integrity sha512-8z+eeeSa9VfqSwZJAjEsvJNi1LDirwtUVtYMZt6Ae/mWeCljT0IV5qRZCnPGAE6JeDmGMiuLMUP35iq5IwEOeA==
+parcel-transformer-env-variables-injection@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/parcel-transformer-env-variables-injection/-/parcel-transformer-env-variables-injection-0.1.1.tgz#5c87e94f8d4fec4037e2e70dd619072c975dcffc"
+  integrity sha512-RrsFssa4m4/jpuAabtNvYR+tKq5nA/3tS570/2qDq0mOUknxZzbFQEvgUm94nacWhNqEN2pjmkVjLz8Eejb7qA==
 
 parcel@2.6.0:
   version "2.6.0"
@@ -12590,22 +12585,7 @@ postcss@^8.3.11:
     picocolors "^1.0.0"
     source-map-js "^0.6.2"
 
-posthtml-expressions@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/posthtml-expressions/-/posthtml-expressions-1.9.0.tgz#0b00e0e557392f66eb6b88d89cd090789eadd78c"
-  integrity sha512-jf4BsY2Pw6AoBFQTklOkf+dDhq+kO+R80Dj/plPY/IpZ6sXondzp1O55wJiQK2vIUL4XSAqKdG97wE/j8EH2og==
-  dependencies:
-    fclone "^1.0.11"
-    posthtml-match-helper "^1.0.1"
-    posthtml-parser "^0.10.0"
-    posthtml-render "^3.0.0"
-
-posthtml-match-helper@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/posthtml-match-helper/-/posthtml-match-helper-1.0.1.tgz#451253de8e5844a348e963ad5edd7769eb129513"
-  integrity sha1-RRJT3o5YRKNI6WOtXt13aesSlRM=
-
-posthtml-parser@^0.10.0, posthtml-parser@^0.10.1:
+posthtml-parser@^0.10.1:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/posthtml-parser/-/posthtml-parser-0.10.2.tgz#df364d7b179f2a6bf0466b56be7b98fd4e97c573"
   integrity sha512-PId6zZ/2lyJi9LiKfe+i2xv57oEjJgWbsHGGANwos5AvdQp98i6AtamAl8gzSVFGfQ43Glb5D614cvZf012VKg==
