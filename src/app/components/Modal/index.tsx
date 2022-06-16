@@ -34,7 +34,7 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
   }, [closeModal, modal])
 
   return (
-    <Layer onEsc={closeModal} onClickOutside={closeModal} background="background-front">
+    <Layer modal onEsc={closeModal} onClickOutside={closeModal} background="background-front">
       <Box margin="medium">
         <Heading size="small">{modal.title}</Heading>
         <Paragraph fill>{modal.description}</Paragraph>

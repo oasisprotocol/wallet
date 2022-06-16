@@ -89,7 +89,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
               width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
             }}
             background="background-front"
+            onEsc={() => setConfirmation(false)}
             onClickOutside={() => setConfirmation(false)}
+            modal
           >
             <MnemonicValidation
               successHandler={openWallet}

@@ -118,8 +118,8 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
   const confirmDisabled = ledger.step !== LedgerStep.Done || selectedAccounts.length === 0
 
   return (
-    <ResponsiveLayer position="center" modal>
-      <Box width="750px" pad="medium" background="background-front">
+    <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
+      <Box width="750px" pad="medium">
         <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
           {t('openWallet.ledger.selectWallets', 'Select accounts to open')}
         </Heading>
