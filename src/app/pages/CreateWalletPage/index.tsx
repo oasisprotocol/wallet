@@ -76,7 +76,14 @@ export function CreateWalletPage(props: CreateWalletProps) {
         </Box>
       )}
       {showConfirmation && (
-        <Layer plain full data-testid="mnemonic-validation">
+        <Layer
+          plain
+          full
+          data-testid="mnemonic-validation"
+          // Needed to prevent keyboard accessibility issues with layer inside
+          // layer: https://github.com/oasisprotocol/oasis-wallet-web/issues/863
+          modal={false}
+        >
           <Box fill style={{ backdropFilter: 'blur(5px)' }}>
             <ResponsiveLayer
               style={{
