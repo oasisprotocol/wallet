@@ -10,8 +10,6 @@ Object {
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #FFFFFF;
-  color: #444444;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;

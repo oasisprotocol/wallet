@@ -33,7 +33,7 @@ export function FatalErrorHandler(props: Props) {
   }
 
   return (
-    <ResponsiveLayer background="background-front" full>
+    <ResponsiveLayer modal background="background-front" full>
       <Box pad="large">
         <Box direction="row" align="center" gap="small" pad={{ vertical: 'small' }}>
           <StatusWarning size="large" />

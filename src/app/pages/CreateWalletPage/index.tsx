@@ -76,21 +76,28 @@ export function CreateWalletPage(props: CreateWalletProps) {
         </Box>
       )}
       {showConfirmation && (
-        <Layer plain full data-testid="mnemonic-validation">
-          <Box fill style={{ backdropFilter: 'blur(5px)' }}>
-            <ResponsiveLayer
-              style={{
-                width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
-              }}
-              background="background-front"
-              onClickOutside={() => setConfirmation(false)}
-            >
-              <MnemonicValidation
-                successHandler={openWallet}
-                abortHandler={() => setConfirmation(false)}
-              ></MnemonicValidation>
-            </ResponsiveLayer>
-          </Box>
+        <Layer
+          plain
+          full
+          style={{ backdropFilter: 'blur(5px)' }}
+          // Needed to prevent keyboard accessibility issues with layer inside
+          // layer: https://github.com/oasisprotocol/oasis-wallet-web/issues/863
+          modal={false}
+        >
+          <ResponsiveLayer
+            style={{
+              width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
+            }}
+            background="background-front"
+            onEsc={() => setConfirmation(false)}
+            onClickOutside={() => setConfirmation(false)}
+            modal
+          >
+            <MnemonicValidation
+              successHandler={openWallet}
+              abortHandler={() => setConfirmation(false)}
+            ></MnemonicValidation>
+          </ResponsiveLayer>
         </Layer>
       )}
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>

@@ -107,8 +107,8 @@ export function AccountPage(props: Props) {
     <Box pad="small">
       {active && <TransactionModal />}
       {(stake.loading || account.loading) && (
-        <Layer position="center" responsive={false}>
-          <Box pad="medium" gap="medium" direction="row" align="center" background="background-front">
+        <Layer modal background="background-front" responsive={false}>
+          <Box pad="medium" gap="medium" direction="row" align="center">
             <Spinner size="medium" />
             <Text size="large">{t('account.loading', 'Loading account')}</Text>
           </Box>

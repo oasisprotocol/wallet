@@ -45,8 +45,8 @@ export function TransactionModal() {
   }
 
   return (
-    <ResponsiveLayer position="center">
-      <Box pad="medium" gap="medium" width="800px" background="background-front">
+    <ResponsiveLayer modal position="center" background="background-front">
+      <Box pad="medium" gap="medium" width="800px">
         <Box>
           <Heading level="2" margin="none">
             {t('transaction.step.preview', 'Preview transaction')}
