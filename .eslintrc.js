@@ -14,7 +14,7 @@ const config = {
   settings: {
     // Warn about <a target="_blank" rel="noopener"> in components other than "a"
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md#custom-link-components
-    linkComponents: ['Button', 'MediaButton', 'SidebarButton', 'Anchor'],
+    linkComponents: ['Button', 'MediaButton', 'SidebarButton', 'Anchor', 'Link', 'AnchorLink'],
   },
   rules: {
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],

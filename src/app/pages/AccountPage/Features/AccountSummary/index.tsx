@@ -1,12 +1,12 @@
 import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
-import { Anchor, Box, Grid, ResponsiveContext, Text } from 'grommet'
+import { AnchorLink } from 'app/components/AnchorLink'
+import { Box, Grid, ResponsiveContext, Text } from 'grommet'
 import QRCode from 'qrcode.react'
 import * as React from 'react'
 import { useContext } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'
@@ -127,7 +127,7 @@ export function AccountSummary(props: AccountSummaryProps) {
             <Trans
               i18nKey="account.summary.noWalletIsOpen"
               t={t}
-              components={[<Link to="/" component={Anchor} />]}
+              components={[<AnchorLink to="/" />]}
               defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
             />
           </Text>
