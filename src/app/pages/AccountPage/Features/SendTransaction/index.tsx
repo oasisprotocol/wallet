@@ -9,7 +9,15 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-export function SendTransaction() {
+export interface SendTransactionProps {
+  isAddressInWallet: boolean
+}
+
+export function SendTransaction(props: SendTransactionProps) {
+  if (!props.isAddressInWallet) {
+    throw new Error('SendTransaction component should only appear on your accounts')
+  }
+
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const { launchModal } = useModal()

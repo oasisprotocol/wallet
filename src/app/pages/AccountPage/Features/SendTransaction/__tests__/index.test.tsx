@@ -8,7 +8,7 @@ import { SendTransaction } from '..'
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <SendTransaction />
+      <SendTransaction isAddressInWallet />
     </Provider>,
   )
 
