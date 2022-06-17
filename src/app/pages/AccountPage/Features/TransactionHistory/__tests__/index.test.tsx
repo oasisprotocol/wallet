@@ -5,7 +5,7 @@ import { TransactionHistory } from '..'
 
 describe('<TransactionHistory  />', () => {
   it.skip('should match snapshot', () => {
-    const loadingIndicator = render(<TransactionHistory />)
-    expect(loadingIndicator.container.firstChild).toMatchSnapshot()
+    const component = render(<TransactionHistory />)
+    expect(component.container.firstChild).toMatchSnapshot()
   })
 })

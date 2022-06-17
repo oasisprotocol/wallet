@@ -5,7 +5,7 @@ import { AccountSelectorButton } from '..'
 
 describe('<AccountSelectorButton  />', () => {
   it.skip('should match snapshot', () => {
-    const loadingIndicator = render(<AccountSelectorButton />)
-    expect(loadingIndicator.container.firstChild).toMatchSnapshot()
+    const component = render(<AccountSelectorButton />)
+    expect(component.container.firstChild).toMatchSnapshot()
   })
 })

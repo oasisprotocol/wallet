@@ -2,7 +2,6 @@
 import { ThemeState } from 'styles/theme/slice/types'
 import { WalletState } from 'app/state/wallet/types'
 import { CreateWalletState } from 'app/pages/CreateWalletPage/slice/types'
-import { OpenWalletState } from 'app/pages/OpenWalletPage/slice/types'
 import { AccountState } from 'app/state/account/types'
 import { NetworkState } from 'app/state/network/types'
 import { TransactionState } from 'app/state/transaction/types'
@@ -15,7 +14,6 @@ export interface RootState {
   theme: ThemeState
   wallet: WalletState
   createWallet: CreateWalletState
-  openWallet: OpenWalletState
   account: AccountState
   network: NetworkState
   transaction: TransactionState

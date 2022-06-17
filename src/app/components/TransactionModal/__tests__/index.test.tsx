@@ -5,7 +5,7 @@ import { TransactionModal } from '..'
 
 describe('<TransactionModal  />', () => {
   it.skip('should match snapshot', () => {
-    const loadingIndicator = render(<TransactionModal />)
-    expect(loadingIndicator.container.firstChild).toMatchSnapshot()
+    const component = render(<TransactionModal />)
+    expect(component.container.firstChild).toMatchSnapshot()
   })
 })
