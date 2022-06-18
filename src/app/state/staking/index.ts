@@ -29,11 +29,12 @@ const slice = createSlice({
       state.updateValidatorsError = action.payload.error
       state.validators = action.payload.validators
     },
-    updateDelegations(state, action: PayloadAction<Delegation[]>) {
-      state.delegations = action.payload
-    },
-    updateDebondingDelegations(state, action: PayloadAction<DebondingDelegation[]>) {
-      state.debondingDelegations = action.payload
+    updateDelegations(
+      state,
+      action: PayloadAction<{ delegations: Delegation[]; debondingDelegations: DebondingDelegation[] }>,
+    ) {
+      state.delegations = action.payload.delegations
+      state.debondingDelegations = action.payload.debondingDelegations
     },
     validatorSelected(state, action: PayloadAction<string>) {
       state.selectedValidator = action.payload

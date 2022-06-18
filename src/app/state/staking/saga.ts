@@ -14,34 +14,23 @@ import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
 
-function* getValidatorByAddress(address: string) {
-  const validators = yield* select(selectValidators)
-  return validators.find(v => v.address === address)
-}
-
 function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
   const { getDelegations } = yield* call(getExplorerAPIs)
+  const validators = yield* select(selectValidators)
 
   const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
 
-  const delegations: Delegation[] = []
-  for (const delegation of delegationsResponse.delegations) {
-    delegations.push({
-      ...delegation,
-      validator: yield* getValidatorByAddress(delegation.validatorAddress),
-    })
-  }
+  const delegations: Delegation[] = delegationsResponse.delegations.map(delegation => ({
+    ...delegation,
+    validator: validators.find(v => v.address === delegation.validatorAddress),
+  }))
+  const debondingDelegations: DebondingDelegation[] = delegationsResponse.debonding.map(delegation => ({
+    ...delegation,
+    validator: validators.find(v => v.address === delegation.validatorAddress),
+  }))
 
-  const debondingDelegations: DebondingDelegation[] = []
-  for (const debondingDelegation of delegationsResponse.debonding) {
-    debondingDelegations.push({
-      ...debondingDelegation,
-      validator: yield* getValidatorByAddress(debondingDelegation.validatorAddress),
-    })
-  }
-
-  return { delegations, debondingDelegations }
+  yield* put(stakingActions.updateDelegations({ delegations, debondingDelegations }))
 }
 
 export function* refreshValidators() {
@@ -192,9 +181,7 @@ export function* fetchAccount({ payload: address }: PayloadAction<string>) {
   yield* put(stakingActions.setLoading(true))
   yield* call(refreshValidators)
 
-  const { delegations, debondingDelegations } = yield* call(loadDelegations, address)
-  yield* put(stakingActions.updateDelegations(delegations))
-  yield* put(stakingActions.updateDebondingDelegations(debondingDelegations))
+  yield* call(loadDelegations, address)
 
   yield* put(stakingActions.setLoading(false))
 }

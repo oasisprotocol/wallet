@@ -1,5 +1,4 @@
 import * as oasis from '@oasisprotocol/client'
-import { StakingDebondingDelegationInfo, StakingDelegationInfo } from '@oasisprotocol/client/dist/types'
 import { expectSaga, testSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
@@ -17,19 +16,9 @@ import {
   now,
   stakingSaga,
 } from './saga'
-import { StakingState, Validator } from './types'
+import { DebondingDelegation, Delegation, StakingState, Validator } from './types'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
-const fixtureDebondingDelegation = new Map<Uint8Array, StakingDebondingDelegationInfo[]>([
-  [
-    new Uint8Array(),
-    [{ debond_end: 1234, pool: { balance: qty(1000), total_shares: qty(1000) }, shares: qty(100) }],
-  ],
-])
-
-const fixtureDelegation = new Map<Uint8Array, StakingDelegationInfo>([
-  [new Uint8Array(), { pool: { balance: qty(1000), total_shares: qty(1000) }, shares: qty(100) }],
-])
 
 describe('Staking Sagas', () => {
   const getAllValidators = jest.fn()
@@ -60,8 +49,11 @@ describe('Staking Sagas', () => {
       ] as Validator[])
 
       getDelegations.mockResolvedValue({
-        delegations: fixtureDelegation,
-        debonding: fixtureDebondingDelegation,
+        delegations: [{ validatorAddress: 'dummy', amount: '100', shares: '100' }],
+        debonding: [{ validatorAddress: 'dummy', amount: '100', shares: '100', epoch: 1234 }],
+      } as {
+        delegations: Delegation[]
+        debonding: DebondingDelegation[]
       })
 
       return (
