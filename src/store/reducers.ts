@@ -4,7 +4,6 @@
 
 import { combineReducers } from '@reduxjs/toolkit'
 import createWalletReducer from 'app/pages/CreateWalletPage/slice'
-import openWalletReducer from 'app/pages/OpenWalletPage/slice'
 import accountReducer from 'app/state/account'
 import fatalErrorReducer from 'app/state/fatalerror'
 import ledgerReducer from 'app/state/ledger'
@@ -21,7 +20,6 @@ export function createReducer() {
     fatalError: fatalErrorReducer,
     ledger: ledgerReducer,
     network: networkReducer,
-    openWallet: openWalletReducer,
     staking: stakingReducer,
     theme: themeReducer,
     transaction: transactionReducer,
