@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
-import { all, call, fork, join, put, select, take, takeEvery } from 'typed-redux-saga'
+import { all, call, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
 
 import { accountActions as actions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -13,7 +13,7 @@ import { selectAccountAddress } from './selectors'
  * Waits for a LoadAccount action with a specific address,
  * and hydrate the state accordingly
  */
-function* loadAccount(action: PayloadAction<string>) {
+export function* loadAccount(action: PayloadAction<string>) {
   const address = action.payload
 
   yield* put(actions.setLoading(true))
@@ -65,7 +65,7 @@ function* loadAccount(action: PayloadAction<string>) {
  * When a transaction is done, and it is related to the account we currently have in state
  * refresh the data.
  */
-function* refreshAccountOnTransaction() {
+export function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
     const from = yield* select(selectAddress)
@@ -88,5 +88,5 @@ function* refreshAccountOnTransaction() {
 
 export function* accountSaga() {
   yield* fork(refreshAccountOnTransaction)
-  yield* takeEvery(actions.fetchAccount, loadAccount)
+  yield* takeLatest(actions.fetchAccount, loadAccount)
 }

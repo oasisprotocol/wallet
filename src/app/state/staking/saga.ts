@@ -5,7 +5,7 @@ import { SchedulerValidator } from '@oasisprotocol/client/dist/types'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
-import { call, put, select, takeEvery } from 'typed-redux-saga'
+import { call, put, select, takeEvery, takeLatest } from 'typed-redux-saga'
 import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
@@ -153,7 +153,7 @@ export async function getMainnetDumpValidators() {
   return await import('vendors/oasisscan/dump_validators.json')
 }
 
-function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
+export function* getValidatorDetails({ payload: address }: PayloadAction<string>) {
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
   const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
@@ -200,6 +200,6 @@ export function* fetchAccount({ payload: address }: PayloadAction<string>) {
 }
 
 export function* stakingSaga() {
-  yield* takeEvery(stakingActions.fetchAccount, fetchAccount)
+  yield* takeLatest(stakingActions.fetchAccount, fetchAccount)
   yield* takeEvery(stakingActions.validatorSelected, getValidatorDetails)
 }

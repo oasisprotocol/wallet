@@ -1,6 +1,6 @@
 import * as oasis from '@oasisprotocol/client'
 import { StakingDebondingDelegationInfo, StakingDelegationInfo } from '@oasisprotocol/client/dist/types'
-import { expectSaga } from 'redux-saga-test-plan'
+import { expectSaga, testSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { select } from 'redux-saga/effects'
@@ -9,7 +9,14 @@ import { RootState } from 'types'
 import { initialState, stakingActions, stakingReducer } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch } from '../network/selectors'
-import { fetchAccount, getMainnetDumpValidators, refreshValidators, now, stakingSaga } from './saga'
+import {
+  fetchAccount,
+  getMainnetDumpValidators,
+  getValidatorDetails,
+  refreshValidators,
+  now,
+  stakingSaga,
+} from './saga'
 import { StakingState, Validator } from './types'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
@@ -199,5 +206,15 @@ describe('Staking Sagas', () => {
         )
         .run()
     })
+  })
+
+  test('stakingSaga', () => {
+    testSaga(stakingSaga)
+      .next()
+      .takeLatest(stakingActions.fetchAccount, fetchAccount)
+      .next()
+      .takeEvery(stakingActions.validatorSelected, getValidatorDetails)
+      .next()
+      .isDone()
   })
 })
