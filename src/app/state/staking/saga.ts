@@ -5,7 +5,7 @@ import { SchedulerValidator } from '@oasisprotocol/client/dist/types'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
-import { call, put, select, takeEvery, takeLatest } from 'typed-redux-saga'
+import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
@@ -201,5 +201,5 @@ export function* fetchAccount({ payload: address }: PayloadAction<string>) {
 
 export function* stakingSaga() {
   yield* takeLatest(stakingActions.fetchAccount, fetchAccount)
-  yield* takeEvery(stakingActions.validatorSelected, getValidatorDetails)
+  yield* takeLatest(stakingActions.validatorSelected, getValidatorDetails)
 }

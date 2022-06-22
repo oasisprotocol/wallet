@@ -213,7 +213,7 @@ describe('Staking Sagas', () => {
       .next()
       .takeLatest(stakingActions.fetchAccount, fetchAccount)
       .next()
-      .takeEvery(stakingActions.validatorSelected, getValidatorDetails)
+      .takeLatest(stakingActions.validatorSelected, getValidatorDetails)
       .next()
       .isDone()
   })
