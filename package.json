@@ -111,7 +111,7 @@
     "@types/react-dom": "17.0.14",
     "@types/react-redux": "7.1.24",
     "@types/react-router-dom": "5.3.3",
-    "@types/react-test-renderer": "17.0.1",
+    "@types/react-test-renderer": "17.0.2",
     "@types/react-transition-group": "4.4.4",
     "@types/rimraf": "3.0.2",
     "@types/shelljs": "0.8.11",
