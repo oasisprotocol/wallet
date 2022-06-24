@@ -12241,10 +12241,10 @@ param-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
 
-parcel-transformer-env-variables-injection@0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/parcel-transformer-env-variables-injection/-/parcel-transformer-env-variables-injection-0.1.1.tgz#5c87e94f8d4fec4037e2e70dd619072c975dcffc"
-  integrity sha512-RrsFssa4m4/jpuAabtNvYR+tKq5nA/3tS570/2qDq0mOUknxZzbFQEvgUm94nacWhNqEN2pjmkVjLz8Eejb7qA==
+parcel-transformer-env-variables-injection@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/parcel-transformer-env-variables-injection/-/parcel-transformer-env-variables-injection-0.1.2.tgz#82b305e0ad80f656c0cd390db975ffc2ec47bcfd"
+  integrity sha512-B8SkRY2gVje3Y3m/Vx4d9Z0Y7cRzDbC7S86bOu/nikwTamuaOHo34EEftABhBkHz4wVQP8ul/ccR3u384oD6AA==
 
 parcel@2.6.2:
   version "2.6.2"
