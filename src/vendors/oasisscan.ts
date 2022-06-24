@@ -15,11 +15,12 @@ import {
   OperationsRowMethodEnum,
 } from 'vendors/oasisscan/index'
 
-import { sortByStatus } from './helpers'
+import { throwAPIErrors, sortByStatus } from './helpers'
 
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet/') {
   const explorerConfig = new Configuration({
     basePath: url,
+    ...throwAPIErrors,
   })
 
   const accounts = new AccountsApi(explorerConfig)
