@@ -15,7 +15,6 @@ DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   - SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
 ADDITIONAL_EXCLUDED_DIRECTORIES:
-  - .husky
   - build
   - build-ext
   - build-dev
