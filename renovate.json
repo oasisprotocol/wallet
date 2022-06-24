@@ -1,4 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "groupName": "eslint",
+      "matchPackagePatterns": ["eslint", "prettier", "stylelint"]
+    },
+    {
+      "groupName": "tests",
+      "matchPackagePatterns": ["jest", "cypress", "testing-library", "istanbul"]
+    },
+    {
+      "groupName": "react",
+      "matchPackagePatterns": ["react"]
+    },
+    {
+      "groupName": "redux",
+      "matchPackagePatterns": ["redux"]
+    },
+    {
+      "groupName": "i18n",
+      "matchPackagePatterns": ["i18n"]
+    }
+  ]
 }
