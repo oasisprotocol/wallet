@@ -71,6 +71,10 @@
       "showingStale": "Showing validator list as of {{staleTimestamp}}."
     }
   },
+  "backends": {
+    "oasismonitor": "Oasis Monitor API",
+    "oasisscan": "Oasis Scan API"
+  },
   "common": {
     "amount": "Amount",
     "block": "Block",
@@ -96,12 +100,14 @@
     "debondingDelegations": "Debonding delegations",
     "debondingEpoch": "Debonding epoch",
     "delegatedAmount": "Delegated amount",
+    "loadingError": "Couldn't load delegations.",
     "reclaimedAmount": "Amount to reclaim"
   },
   "errors": {
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "cannotSendToSelf": "Cannot send to yourself",
     "duplicateTransaction": "Duplicate transaction",
+    "indexerAPIError": "{{indexerName}} appears to be down, some information may be missing or out of date. Please, come back later.",
     "insufficientBalance": "Insufficient balance",
     "invalidAddress": "Invalid address",
     "invalidNonce": "Invalid nonce (transaction number)",

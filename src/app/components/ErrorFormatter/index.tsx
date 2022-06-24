@@ -7,6 +7,7 @@ import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Anchor } from 'grommet'
 import { WalletErrors } from 'types/errors'
+import { backend, BackendAPIs } from 'vendors/backend'
 
 interface Props {
   code: WalletErrors
@@ -16,6 +17,11 @@ interface Props {
 export function ErrorFormatter(props: Props) {
   const { t } = useTranslation()
   const message = props.message
+
+  const backendToLabel = {
+    [BackendAPIs.OasisMonitor]: t('backends.oasismonitor', 'Oasis Monitor API'),
+    [BackendAPIs.OasisScan]: t('backends.oasisscan', 'Oasis Scan API'),
+  }
 
   const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {
     [WalletErrors.UnknownError]: t('errors.unknown', 'Unknown error: {{message}}', { message }),
@@ -68,6 +74,13 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error: {{message}}', {
       message,
     }),
+    [WalletErrors.IndexerAPIError]: t(
+      'errors.indexerAPIError',
+      '{{indexerName}} appears to be down, some information may be missing or out of date. Please, come back later.',
+      {
+        indexerName: backendToLabel[backend()],
+      },
+    ),
   }
 
   const error = errorMap[props.code]

@@ -3,6 +3,7 @@
  * AccountPage
  *
  */
+import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { TransactionModal } from 'app/components/TransactionModal'
 import { TransitionRoute } from 'app/components/TransitionRoute'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
@@ -118,6 +119,15 @@ export function AccountPage(props: Props) {
         <p>
           {t('account.loadingError', "Couldn't load account. Information may be missing or out of date.")}{' '}
           {account.accountError}
+        </p>
+      )}
+      {stake.updateDelegationsError && (
+        <p>
+          {t('delegations.loadingError', "Couldn't load delegations.")}{' '}
+          <ErrorFormatter
+            code={stake.updateDelegationsError.code}
+            message={stake.updateDelegationsError.message}
+          />
         </p>
       )}
       {address && address !== '' && (

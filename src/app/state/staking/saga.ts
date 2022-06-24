@@ -6,6 +6,7 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
+import { WalletError, WalletErrors } from 'types/errors'
 import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
@@ -19,18 +20,28 @@ function* loadDelegations(address: string) {
   const { getDelegations } = yield* call(getExplorerAPIs)
   const validators = yield* select(selectValidators)
 
-  const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
+  try {
+    const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
+    const delegations: Delegation[] = delegationsResponse.delegations.map(delegation => ({
+      ...delegation,
+      validator: validators.find(v => v.address === delegation.validatorAddress),
+    }))
+    const debondingDelegations: DebondingDelegation[] = delegationsResponse.debonding.map(delegation => ({
+      ...delegation,
+      validator: validators.find(v => v.address === delegation.validatorAddress),
+    }))
 
-  const delegations: Delegation[] = delegationsResponse.delegations.map(delegation => ({
-    ...delegation,
-    validator: validators.find(v => v.address === delegation.validatorAddress),
-  }))
-  const debondingDelegations: DebondingDelegation[] = delegationsResponse.debonding.map(delegation => ({
-    ...delegation,
-    validator: validators.find(v => v.address === delegation.validatorAddress),
-  }))
-
-  yield* put(stakingActions.updateDelegations({ delegations, debondingDelegations }))
+    yield* put(stakingActions.updateDelegations({ delegations, debondingDelegations }))
+  } catch (e: any) {
+    console.error('get delegations failed, continuing without updated list.', e)
+    if (e instanceof WalletError) {
+      yield* put(stakingActions.updateDelegationsError({ code: e.type, message: e.message }))
+    } else {
+      yield* put(
+        stakingActions.updateDelegationsError({ code: WalletErrors.UnknownError, message: e.message }),
+      )
+    }
+  }
 }
 
 export function* refreshValidators() {

@@ -1,6 +1,7 @@
 /* --- STATE --- */
 
 import { NetworkType } from 'app/state/network/types'
+import { ErrorPayload } from 'types/errors'
 
 export interface Validator {
   address: string
@@ -66,6 +67,9 @@ export interface StakingState {
 
   /** List of debonding delegations for the selected account */
   debondingDelegations: DebondingDelegation[]
+
+  /** Error from fetching delegations */
+  updateDelegationsError?: ErrorPayload
 
   /** Addresss of the selected validator */
   selectedValidator?: string | null
