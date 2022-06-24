@@ -1,5 +1,5 @@
 export class WalletError extends Error {
-  constructor(public readonly type: WalletErrors, message: string, originalError?: Error) {
+  constructor(public readonly type: WalletErrors, message: string, public readonly originalError?: Error) {
     super(message)
   }
 }
