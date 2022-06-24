@@ -62,20 +62,23 @@ export function* refreshValidators() {
         list: validators,
       }),
     )
-  } catch (errorApi) {
+  } catch (errorApi: any) {
     console.error('get validators list failed', errorApi)
 
-    const fallback = yield* call(getFallbackValidators, network, '' + errorApi)
+    const fallback = yield* call(getFallbackValidators, network, errorApi)
     yield* put(
       stakingActions.updateValidatorsError({
-        error: fallback.error,
+        error: {
+          code: fallback.error instanceof WalletError ? fallback.error.type : WalletErrors.UnknownError,
+          message: fallback.error.message,
+        },
         validators: fallback.validators,
       }),
     )
   }
 }
 
-function* getFallbackValidators(network: NetworkType, errorApi: string) {
+function* getFallbackValidators(network: NetworkType, errorApi: Error) {
   let fallbackValidators: Validators = {
     timestamp: yield* call(now),
     network: network,
@@ -104,7 +107,7 @@ function* getFallbackValidators(network: NetworkType, errorApi: string) {
   } catch (errorDumpValidators) {
     // If fetching dump_validators fails, fall back to empty list
     return {
-      error: 'Lost connection',
+      error: new WalletError(WalletErrors.DisconnectedError, 'Lost connection'),
       validators: fallbackValidators,
     }
   }

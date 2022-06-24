@@ -4,6 +4,7 @@ import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { select } from 'redux-saga/effects'
 import { RootState } from 'types'
+import { WalletError, WalletErrors } from 'types/errors'
 
 import { initialState, stakingActions, stakingReducer } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -144,7 +145,7 @@ describe('Staking Sagas', () => {
     })
 
     it('should use fallback on mainnet', () => {
-      getAllValidators.mockRejectedValue('apiFailed')
+      getAllValidators.mockRejectedValue(new WalletError(WalletErrors.IndexerAPIError, 'Request failed'))
       const getMainnetDumpValidatorsMock = {
         dump_timestamp: 1647996761337,
         dump_timestamp_iso: '2022-03-23T00:52:41.337Z',
@@ -185,7 +186,10 @@ describe('Staking Sagas', () => {
         .provide([...providers, [matchers.call.fn(getMainnetDumpValidators), getMainnetDumpValidatorsMock]])
         .put(
           stakingActions.updateValidatorsError({
-            error: 'apiFailed',
+            error: {
+              code: WalletErrors.IndexerAPIError,
+              message: 'Request failed',
+            },
             validators: {
               timestamp: getMainnetDumpValidatorsMock.dump_timestamp,
               network: 'mainnet',

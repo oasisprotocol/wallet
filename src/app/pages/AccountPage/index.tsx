@@ -3,6 +3,7 @@
  * AccountPage
  *
  */
+import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { TransactionModal } from 'app/components/TransactionModal'
 import { TransitionRoute } from 'app/components/TransitionRoute'
@@ -116,19 +117,19 @@ export function AccountPage(props: Props) {
         </Layer>
       )}
       {account.accountError && (
-        <p>
-          {t('account.loadingError', "Couldn't load account. Information may be missing or out of date.")}{' '}
-          {account.accountError}
-        </p>
+        <AlertBox color="status-error">
+          {t('account.loadingError', "Couldn't load account.")}{' '}
+          <ErrorFormatter code={account.accountError.code} message={account.accountError.message} />
+        </AlertBox>
       )}
       {stake.updateDelegationsError && (
-        <p>
+        <AlertBox color="status-error">
           {t('delegations.loadingError', "Couldn't load delegations.")}{' '}
           <ErrorFormatter
             code={stake.updateDelegationsError.code}
             message={stake.updateDelegationsError.message}
           />
-        </p>
+        </AlertBox>
       )}
       {address && address !== '' && (
         <>

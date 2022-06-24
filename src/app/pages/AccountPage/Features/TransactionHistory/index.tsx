@@ -15,6 +15,7 @@ import {
   selectTransactionsError,
 } from '../../../../state/account/selectors'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
+import { ErrorFormatter } from 'app/components/ErrorFormatter'
 
 interface Props {}
 
@@ -35,11 +36,8 @@ export function TransactionHistory(props: Props) {
     <Box gap="small" margin="none">
       {transactionsError && (
         <p>
-          {t(
-            'account.transaction.loadingError',
-            "Couldn't load transactions. List may be empty or out of date.",
-          )}{' '}
-          {transactionsError}
+          {t('account.transaction.loadingError', "Couldn't load transactions.")}{' '}
+          <ErrorFormatter code={transactionsError.code} message={transactionsError.message} />
         </p>
       )}
       {allTransactions.length ? (

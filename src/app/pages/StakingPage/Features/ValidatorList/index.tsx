@@ -4,6 +4,7 @@
  *
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
+import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { stakingActions } from 'app/state/staking'
@@ -112,7 +113,9 @@ export const ValidatorList = memo((props: Props) => {
               staleTimestamp: new Date(validatorsTimestamp!).toLocaleString(),
             })}
           <br />
-          {updateValidatorsError}
+          {validators.length <= 0 && (
+            <ErrorFormatter code={updateValidatorsError.code} message={updateValidatorsError.message} />
+          )}
         </p>
       )}
       <TypeSafeDataTable

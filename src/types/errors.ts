@@ -23,6 +23,7 @@ export enum WalletErrors {
   LedgerTransactionRejected = 'transaction_rejected',
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
   IndexerAPIError = 'indexer_api_error',
+  DisconnectedError = 'disconnected_error',
 }
 
 export interface ErrorPayload {

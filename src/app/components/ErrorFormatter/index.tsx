@@ -81,6 +81,7 @@ export function ErrorFormatter(props: Props) {
         indexerName: backendToLabel[backend()],
       },
     ),
+    [WalletErrors.DisconnectedError]: t('errors.disconnectedError', 'Lost connection.'),
   }
 
   const error = errorMap[props.code]

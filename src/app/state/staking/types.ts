@@ -60,7 +60,7 @@ export interface StakingState {
   validators: Validators | null
 
   /** Error from last attempt to update our list of validators */
-  updateValidatorsError: string | null
+  updateValidatorsError?: ErrorPayload
 
   /** List of active delegations for the selected account */
   delegations: Delegation[]

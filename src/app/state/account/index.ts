@@ -1,5 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { Transaction } from 'app/state/transaction/types'
+import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { AccountState, Account } from './types'
 
@@ -7,9 +8,9 @@ export const initialState: AccountState = {
   address: '',
   liquid_balance: 0,
 
-  accountError: null,
+  accountError: undefined,
   transactions: [],
-  transactionsError: null,
+  transactionsError: undefined,
   loading: true,
 }
 
@@ -22,17 +23,17 @@ const slice = createSlice({
     },
     fetchAccount(state, action: PayloadAction<string>) {},
     accountLoaded(state, action: PayloadAction<Account>) {
-      state.accountError = null
+      state.accountError = undefined
       Object.assign(state, action.payload)
     },
-    accountError(state, action: PayloadAction<string>) {
+    accountError(state, action: PayloadAction<ErrorPayload>) {
       state.accountError = action.payload
     },
     transactionsLoaded(state, action: PayloadAction<Transaction[]>) {
-      state.transactionsError = null
+      state.transactionsError = undefined
       state.transactions = action.payload
     },
-    transactionsError(state, action: PayloadAction<string>) {
+    transactionsError(state, action: PayloadAction<ErrorPayload>) {
       state.transactionsError = action.payload
     },
     setLoading(state, action: PayloadAction<boolean>) {
