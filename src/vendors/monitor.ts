@@ -70,7 +70,7 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    liquid_balance: account.liquid_balance,
+    available: account.liquid_balance,
   }
 }
 

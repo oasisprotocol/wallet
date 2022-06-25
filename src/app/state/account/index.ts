@@ -6,7 +6,7 @@ import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
   address: '',
-  liquid_balance: 0,
+  available: 0,
 
   accountError: undefined,
   transactions: [],
