@@ -162,6 +162,9 @@
     "ts-node": "10.4.0",
     "typescript": "4.6.4"
   },
+  "resolutions": {
+    "eslint-plugin-react": "7.30.1"
+  },
   "alias": {
     "locales": "./src/locales",
     "utils": "./src/utils",
