@@ -119,7 +119,7 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
     .filter(b => !b.epochEnd || b.epochEnd > currentEpoch)
 
   if (!rates.length) {
-    return undefined
+    return 0
   }
   return rates[rates.length - 1].rate
 }
