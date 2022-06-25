@@ -41,6 +41,9 @@ const slice = createSlice({
     },
     updateDelegationsError(state, action: PayloadAction<ErrorPayload>) {
       state.updateDelegationsError = action.payload
+      // TODO: keep old state if loading the same account
+      state.delegations = []
+      state.debondingDelegations = []
     },
     validatorSelected(state, action: PayloadAction<string>) {
       state.selectedValidator = action.payload
