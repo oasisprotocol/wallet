@@ -9,7 +9,7 @@ import { memo } from 'react'
 import { useSelector } from 'react-redux'
 
 interface Props {
-  amount: string | number
+  amount: string | number | null
   minimumFractionDigits?: number
   maximumFractionDigits?: number
   hideTicker?: boolean

@@ -71,6 +71,9 @@ export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
     available: account.liquid_balance,
+    delegations: null,
+    debonding: null,
+    total: null,
   }
 }
 

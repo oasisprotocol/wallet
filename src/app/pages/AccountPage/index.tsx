@@ -89,10 +89,11 @@ export function AccountPage(props: Props) {
   const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balance: BalanceDetails = {
-    available: account.available ?? 0,
+    available: account.available,
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
     debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
-    total: (account.available ?? 0) + balanceDelegations + balanceDebondingDelegations,
+    total:
+      account.available == null ? null : account.available + balanceDelegations + balanceDebondingDelegations,
   }
 
   // Reload account balances if address or network changes

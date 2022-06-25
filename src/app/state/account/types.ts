@@ -2,15 +2,14 @@ import { Transaction } from 'app/state/transaction/types'
 import { ErrorPayload } from 'types/errors'
 
 export interface BalanceDetails {
-  total: number
-  debonding: number
-  available: number
-  delegations: number
+  available: number | null
+  debonding: number | null
+  delegations: number | null
+  total: number | null
 }
 
-export interface Account {
+export interface Account extends BalanceDetails {
   address: string
-  available: number
 }
 
 /* --- STATE --- */

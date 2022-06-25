@@ -6,7 +6,10 @@ import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
   address: '',
-  available: 0,
+  available: null,
+  debonding: null,
+  delegations: null,
+  total: null,
 
   accountError: undefined,
   transactions: [],
