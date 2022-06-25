@@ -5,8 +5,8 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 import { DebondingDelegation, Delegation, StakingState, Validators, ValidatorDetails } from './types'
 
 export const initialState: StakingState = {
-  debondingDelegations: [],
-  delegations: [],
+  debondingDelegations: null,
+  delegations: null,
   updateDelegationsError: undefined,
   validators: null,
   updateValidatorsError: undefined,
@@ -42,8 +42,8 @@ const slice = createSlice({
     updateDelegationsError(state, action: PayloadAction<ErrorPayload>) {
       state.updateDelegationsError = action.payload
       // TODO: keep old state if loading the same account
-      state.delegations = []
-      state.debondingDelegations = []
+      state.delegations = null
+      state.debondingDelegations = null
     },
     validatorSelected(state, action: PayloadAction<string>) {
       state.selectedValidator = action.payload

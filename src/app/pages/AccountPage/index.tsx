@@ -86,14 +86,17 @@ export function AccountPage(props: Props) {
   const wallets = useSelector(selectWallets)
   const walletsPublicKeys = useSelector(selectWalletsPublicKeys)
 
-  const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
-  const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
+  const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + Number(v.amount), 0) ?? null
+  const balanceDebondingDelegations =
+    stake.debondingDelegations?.reduce((acc, v) => acc + Number(v.amount), 0) ?? null
   const balance: BalanceDetails = {
     available: account.available,
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
     debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
     total:
-      account.available == null ? null : account.available + balanceDelegations + balanceDebondingDelegations,
+      account.available == null || balanceDelegations == null || balanceDebondingDelegations == null
+        ? null
+        : account.available + balanceDelegations + balanceDebondingDelegations,
   }
 
   // Reload account balances if address or network changes
@@ -156,13 +159,13 @@ export function AccountPage(props: Props) {
             <NavItem
               route={`/account/${address}/active-delegations`}
               label={t('account.subnavigation.activeDelegations', 'Active delegations ({{count}})', {
-                count: stake.delegations.length,
+                count: stake.delegations?.length ?? null!,
               })}
             />
             <NavItem
               route={`/account/${address}/debonding-delegations`}
               label={t('account.subnavigation.debondingDelegations', 'Debonding delegations ({{count}})', {
-                count: stake.debondingDelegations.length,
+                count: stake.debondingDelegations?.length ?? null!,
               })}
             />
           </Box>
