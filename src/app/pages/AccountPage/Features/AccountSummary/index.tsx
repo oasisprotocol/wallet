@@ -1,4 +1,5 @@
 import { AddressBox } from 'app/components/AddressBox'
+import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { AnchorLink } from 'app/components/AnchorLink'
 import { Box, Grid, ResponsiveContext, Text } from 'grommet'
@@ -79,59 +80,22 @@ export function AccountSummary(props: AccountSummaryProps) {
         )}
       </Box>
       {walletIsOpen && walletAddress === address && (
-        <Box
-          border={{
-            color: 'status-ok',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-ok',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">{t('account.summary.yourAccount', 'This is your account.')}</Text>
-        </Box>
+        <AlertBox color="status-ok">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
       )}
       {walletIsOpen && walletAddress !== address && (
-        <Box
-          border={{
-            color: 'status-warning',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-warning',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">{t('account.summary.notYourAccount', 'This is not your account.')}</Text>
-        </Box>
+        <AlertBox color="status-warning">
+          {t('account.summary.notYourAccount', 'This is not your account.')}
+        </AlertBox>
       )}
       {!walletIsOpen && (
-        <Box
-          border={{
-            color: 'status-warning',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-warning',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">
-            <Trans
-              i18nKey="account.summary.noWalletIsOpen"
-              t={t}
-              components={[<AnchorLink to="/" />]}
-              defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
-            />
-          </Text>
-        </Box>
+        <AlertBox color="status-warning">
+          <Trans
+            i18nKey="account.summary.noWalletIsOpen"
+            t={t}
+            components={[<AnchorLink to="/" />]}
+            defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
+          />
+        </AlertBox>
       )}
     </Box>
   )

@@ -3,6 +3,7 @@
  * CreateWalletPage
  *
  */
+import { AlertBox } from 'app/components/AlertBox'
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { NoTranslate } from 'app/components/NoTranslate'
@@ -60,20 +61,9 @@ export function CreateWalletPage(props: CreateWalletProps) {
   return (
     <>
       {showMnemonicMismatch && (
-        <Box
-          pad="small"
-          border={{
-            color: 'status-error',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-error',
-            opacity: 'weak',
-          }}
-        >
-          <Text weight="bold">{t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}</Text>
-        </Box>
+        <AlertBox color="status-error">
+          {t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}
+        </AlertBox>
       )}
       {showConfirmation && (
         <Layer
@@ -134,25 +124,12 @@ export function CreateWalletPage(props: CreateWalletProps) {
               </Trans>
             </Text>
           </Box>
-          <Box
-            pad="xsmall"
-            border={{
-              color: 'status-warning',
-              side: 'left',
-              size: '3px',
-            }}
-            background={{
-              color: 'status-warning',
-              opacity: 'weak',
-            }}
-          >
-            <Text weight="bold">
-              {t(
-                'createWallet.doNotShare',
-                'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
-              )}
-            </Text>
-          </Box>
+          <AlertBox color="status-warning">
+            {t(
+              'createWallet.doNotShare',
+              'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
+            )}
+          </AlertBox>
           <Box pad={{ vertical: 'medium' }}>
             <CheckBox
               label={t('createWallet.confirmSaved', 'I saved my keyphrase')}

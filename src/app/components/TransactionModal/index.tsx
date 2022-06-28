@@ -1,3 +1,4 @@
+import { AlertBox } from 'app/components/AlertBox'
 import { selectChainContext } from 'app/state/network/selectors'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
@@ -51,25 +52,13 @@ export function TransactionModal() {
           <Heading level="2" margin="none">
             {t('transaction.step.preview', 'Preview transaction')}
           </Heading>
-          <Box
-            border={{
-              color: 'status-warning',
-              side: 'left',
-              size: '3px',
-            }}
-            background={{
-              color: 'status-warning',
-              opacity: 'weak',
-            }}
-            margin={{ vertical: 'small' }}
-            pad="xsmall"
-          >
-            <Text>
+          <Box margin={{ vertical: 'small' }}>
+            <AlertBox color="status-warning">
               {t(
                 'transaction.preview.warning',
                 'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
               )}
-            </Text>
+            </AlertBox>
           </Box>
           {preview && (
             <TransactionPreview chainContext={chainContext} preview={preview} walletAddress={walletAddress} />
