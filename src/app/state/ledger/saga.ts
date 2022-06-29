@@ -43,10 +43,10 @@ function* enumerateAccounts() {
     yield* setStep(LedgerStep.LoadingAccounts)
     const accounts = yield* call(Ledger.enumerateAccounts, transport)
 
+    yield* setStep(LedgerStep.LoadingBalances)
     const balances = yield* all(accounts.map(a => call(getBalance, a.publicKey)))
     const addresses = yield* all(accounts.map(a => call(publicKeyToAddress, a.publicKey)))
 
-    yield* setStep(LedgerStep.LoadingBalances)
     const wallets = accounts.map((a, index) => {
       return {
         publicKey: uint2hex(a.publicKey),
