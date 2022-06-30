@@ -32,7 +32,7 @@ function LedgerAccountSelector(props: LedgerAccountSelectorProps) {
     <Account
       index={index}
       address={a.address}
-      balance={a.balance.total}
+      balance={a.balance.available} // TODO: get total balance
       type={WalletType.Ledger}
       onClick={toggleAccount}
       isActive={a.selected}
