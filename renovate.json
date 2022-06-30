@@ -21,6 +21,10 @@
     {
       "groupName": "i18n",
       "matchPackagePatterns": ["i18n"]
+    },
+    {
+      "groupName": "docker",
+      "matchPackagePatterns": ["docker", "envoy", "golang", "postgres", "clickhouse"]
     }
   ]
 }
