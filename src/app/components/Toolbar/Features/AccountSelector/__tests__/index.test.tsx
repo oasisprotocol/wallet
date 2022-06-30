@@ -26,7 +26,7 @@ describe('<AccountSelector  />', () => {
         wallets: {
           1: {
             address: 'dummy',
-            balance: { available: '100', debonding: '300', escrow: '5000', total: '5400' },
+            balance: { available: '100', validator: { escrow: '5000', escrow_debonding: '300' } },
             id: 1,
             publicKey: '00',
             type: WalletType.Ledger,

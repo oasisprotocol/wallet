@@ -51,7 +51,7 @@ describe('<FromLedgerModal  />', () => {
       ledgerActions.accountsListed([
         {
           address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
+          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
           path: [44, 474, 0],
           publicKey: '00',
           selected: false,
@@ -72,14 +72,14 @@ describe('<FromLedgerModal  />', () => {
       ledgerActions.accountsListed([
         {
           address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
+          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
           path: [44, 474, 0],
           publicKey: '00',
           selected: false,
         },
         {
           address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-          balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
+          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
           path: [44, 474, 1],
           publicKey: '00',
           selected: false,

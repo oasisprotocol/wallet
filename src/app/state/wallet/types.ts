@@ -13,9 +13,10 @@ export enum WalletType {
  */
 export interface WalletBalance {
   available: string
-  escrow: string
-  debonding: string
-  total: string
+  validator: {
+    escrow: string
+    escrow_debonding: string
+  }
 }
 
 export interface BalanceUpdatePayload {
