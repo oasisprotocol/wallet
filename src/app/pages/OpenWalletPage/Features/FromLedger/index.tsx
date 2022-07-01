@@ -3,6 +3,7 @@
  * FromLedger
  *
  */
+import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { LedgerStepFormatter } from 'app/components/LedgerStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
@@ -139,22 +140,9 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
           </Box>
         )}
         {error && (
-          <Box
-            border={{
-              color: 'status-error',
-              side: 'left',
-              size: '3px',
-            }}
-            background={{
-              color: 'status-error',
-              opacity: 'weak',
-            }}
-            pad={{ horizontal: 'small', vertical: 'xsmall' }}
-          >
-            <Text weight="bold">
-              <ErrorFormatter code={error.code} message={error.message} />
-            </Text>
-          </Box>
+          <AlertBox color="status-error">
+            <ErrorFormatter code={error.code} message={error.message} />
+          </AlertBox>
         )}
         <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
           <Button

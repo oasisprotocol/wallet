@@ -1,6 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
 import { all, call, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
+import { WalletError, WalletErrors } from 'types/errors'
 
 import { accountActions as actions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -27,7 +28,7 @@ export function* loadAccount(action: PayloadAction<string>) {
         try {
           const account = yield* call(getAccount, address)
           yield put(actions.accountLoaded(account))
-        } catch (apiError) {
+        } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
@@ -35,8 +36,16 @@ export function* loadAccount(action: PayloadAction<string>) {
             yield put(actions.accountLoaded({ address, liquid_balance: parseFloat(balance.available) }))
           } catch (rpcError) {
             console.error('get account with RPC failed, continuing without updated account.', rpcError)
-            yield put(actions.accountError('' + apiError))
-            return
+            if (apiError instanceof WalletError) {
+              yield* put(actions.accountError({ code: apiError.type, message: apiError.message }))
+            } else {
+              yield* put(
+                actions.accountError({
+                  code: WalletErrors.UnknownError,
+                  message: apiError.message,
+                }),
+              )
+            }
           }
         }
       }),
@@ -49,10 +58,13 @@ export function* loadAccount(action: PayloadAction<string>) {
             limit: 20,
           })
           yield put(actions.transactionsLoaded(transactions))
-        } catch (e) {
+        } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
-          yield put(actions.transactionsError('' + e))
-          return
+          if (e instanceof WalletError) {
+            yield* put(actions.transactionsError({ code: e.type, message: e.message }))
+          } else {
+            yield* put(actions.transactionsError({ code: WalletErrors.UnknownError, message: e.message }))
+          }
         }
       }),
     ),

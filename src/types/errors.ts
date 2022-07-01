@@ -1,5 +1,5 @@
 export class WalletError extends Error {
-  constructor(public readonly type: WalletErrors, message: string, originalError?: Error) {
+  constructor(public readonly type: WalletErrors, message: string, public readonly originalError?: Error) {
     super(message)
   }
 }
@@ -22,6 +22,8 @@ export enum WalletErrors {
   LedgerNoDeviceSelected = 'no_device_selected',
   LedgerTransactionRejected = 'transaction_rejected',
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
+  IndexerAPIError = 'indexer_api_error',
+  DisconnectedError = 'disconnected_error',
 }
 
 export interface ErrorPayload {

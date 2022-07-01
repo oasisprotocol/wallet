@@ -1,4 +1,5 @@
 import { Transaction } from 'app/state/transaction/types'
+import { ErrorPayload } from 'types/errors'
 
 export interface BalanceDetails {
   total: number
@@ -15,7 +16,7 @@ export interface Account {
 /* --- STATE --- */
 export interface AccountState extends Account {
   loading: boolean
-  accountError: string | null
+  accountError?: ErrorPayload
   transactions: Transaction[]
-  transactionsError: string | null
+  transactionsError?: ErrorPayload
 }

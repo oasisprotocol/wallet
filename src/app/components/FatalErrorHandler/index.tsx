@@ -3,6 +3,7 @@
  * FatalError
  *
  */
+import { AlertBox } from 'app/components/AlertBox'
 import { selectFatalError } from 'app/state/fatalerror/selectors'
 import copy from 'copy-to-clipboard'
 import { Anchor, Box, Button, Heading, Text } from 'grommet'
@@ -49,20 +50,11 @@ export function FatalErrorHandler(props: Props) {
             />
           </Text>
         </Box>
-        <Box
-          border={{
-            color: 'status-error',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-error',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <pre data-testid="fatalerror-stacktrace">{combinedStacktrace}</pre>
-        </Box>
+        <AlertBox color="status-error">
+          <Text weight="normal">
+            <pre data-testid="fatalerror-stacktrace">{combinedStacktrace}</pre>
+          </Text>
+        </AlertBox>
         <Box align="end" pad={{ vertical: 'medium' }}>
           <Button
             onClick={() => copyError()}

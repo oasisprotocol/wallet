@@ -12,7 +12,7 @@
       "delegate": "Delegate"
     },
     "loading": "Loading account",
-    "loadingError": "Couldn't load account. Information may be missing or out of date.",
+    "loadingError": "Couldn't load account.",
     "otherTransaction": {
       "designation": "Other address",
       "header": "Unrecognized transaction, method '{{method}}'"
@@ -54,7 +54,7 @@
         "received": "Received <0></0> delegation in escrow",
         "sent": "Delegated <0></0> to validator"
       },
-      "loadingError": "Couldn't load transactions. List may be empty or out of date.",
+      "loadingError": "Couldn't load transactions.",
       "reclaimEscrow": {
         "received": "<0></0> reclaimed by delegator",
         "sent": "Reclaimed <0></0> from validator"
@@ -70,6 +70,10 @@
       "loadingError": "Couldn't load validators.",
       "showingStale": "Showing validator list as of {{staleTimestamp}}."
     }
+  },
+  "backends": {
+    "oasismonitor": "Oasis Monitor API",
+    "oasisscan": "Oasis Scan API"
   },
   "common": {
     "amount": "Amount",
@@ -96,12 +100,15 @@
     "debondingDelegations": "Debonding delegations",
     "debondingEpoch": "Debonding epoch",
     "delegatedAmount": "Delegated amount",
+    "loadingError": "Couldn't load delegations.",
     "reclaimedAmount": "Amount to reclaim"
   },
   "errors": {
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "cannotSendToSelf": "Cannot send to yourself",
+    "disconnectedError": "Lost connection.",
     "duplicateTransaction": "Duplicate transaction",
+    "indexerAPIError": "{{indexerName}} appears to be down, some information may be missing or out of date. Please, come back later.",
     "insufficientBalance": "Insufficient balance",
     "invalidAddress": "Invalid address",
     "invalidNonce": "Invalid nonce (transaction number)",

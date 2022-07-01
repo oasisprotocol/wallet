@@ -3,7 +3,7 @@
  * TransactionStatus
  *
  */
-import { Box, Text } from 'grommet'
+import { AlertBox } from 'app/components/AlertBox'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ErrorPayload } from 'types/errors'
@@ -21,43 +21,17 @@ export const TransactionStatus = memo((props: Props) => {
   return (
     <>
       {error && (
-        <Box
-          border={{
-            color: 'status-error',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-error',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">
-            <ErrorFormatter code={error.code} message={error.message} />
-          </Text>
-        </Box>
+        <AlertBox color="status-error">
+          <ErrorFormatter code={error.code} message={error.message} />
+        </AlertBox>
       )}
       {success && (
-        <Box
-          border={{
-            color: 'status-ok',
-            side: 'left',
-            size: '3px',
-          }}
-          background={{
-            color: 'status-ok',
-            opacity: 'weak',
-          }}
-          pad={{ horizontal: 'small', vertical: 'xsmall' }}
-        >
-          <Text weight="bold">
-            {t(
-              'account.sendTransaction.success',
-              'Transaction successfully sent. The transaction might take up to a minute to appear on your account.',
-            )}
-          </Text>
-        </Box>
+        <AlertBox color="status-ok">
+          {t(
+            'account.sendTransaction.success',
+            'Transaction successfully sent. The transaction might take up to a minute to appear on your account.',
+          )}
+        </AlertBox>
       )}
     </>
   )

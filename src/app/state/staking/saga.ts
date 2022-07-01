@@ -6,6 +6,7 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
+import { WalletError, WalletErrors } from 'types/errors'
 import { sortByStatus } from 'vendors/helpers'
 
 import { stakingActions } from '.'
@@ -14,34 +15,33 @@ import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
 
-function* getValidatorByAddress(address: string) {
-  const validators = yield* select(selectValidators)
-  return validators.find(v => v.address === address)
-}
-
 function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
   const { getDelegations } = yield* call(getExplorerAPIs)
+  const validators = yield* select(selectValidators)
 
-  const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
-
-  const delegations: Delegation[] = []
-  for (const delegation of delegationsResponse.delegations) {
-    delegations.push({
+  try {
+    const delegationsResponse = yield* call(getDelegations, { accountId: address, nic: nic })
+    const delegations: Delegation[] = delegationsResponse.delegations.map(delegation => ({
       ...delegation,
-      validator: yield* getValidatorByAddress(delegation.validatorAddress),
-    })
-  }
+      validator: validators.find(v => v.address === delegation.validatorAddress),
+    }))
+    const debondingDelegations: DebondingDelegation[] = delegationsResponse.debonding.map(delegation => ({
+      ...delegation,
+      validator: validators.find(v => v.address === delegation.validatorAddress),
+    }))
 
-  const debondingDelegations: DebondingDelegation[] = []
-  for (const debondingDelegation of delegationsResponse.debonding) {
-    debondingDelegations.push({
-      ...debondingDelegation,
-      validator: yield* getValidatorByAddress(debondingDelegation.validatorAddress),
-    })
+    yield* put(stakingActions.updateDelegations({ delegations, debondingDelegations }))
+  } catch (e: any) {
+    console.error('get delegations failed, continuing without updated list.', e)
+    if (e instanceof WalletError) {
+      yield* put(stakingActions.updateDelegationsError({ code: e.type, message: e.message }))
+    } else {
+      yield* put(
+        stakingActions.updateDelegationsError({ code: WalletErrors.UnknownError, message: e.message }),
+      )
+    }
   }
-
-  return { delegations, debondingDelegations }
 }
 
 export function* refreshValidators() {
@@ -62,20 +62,23 @@ export function* refreshValidators() {
         list: validators,
       }),
     )
-  } catch (errorApi) {
+  } catch (errorApi: any) {
     console.error('get validators list failed', errorApi)
 
-    const fallback = yield* call(getFallbackValidators, network, '' + errorApi)
+    const fallback = yield* call(getFallbackValidators, network, errorApi)
     yield* put(
       stakingActions.updateValidatorsError({
-        error: fallback.error,
+        error: {
+          code: fallback.error instanceof WalletError ? fallback.error.type : WalletErrors.UnknownError,
+          message: fallback.error.message,
+        },
         validators: fallback.validators,
       }),
     )
   }
 }
 
-function* getFallbackValidators(network: NetworkType, errorApi: string) {
+function* getFallbackValidators(network: NetworkType, errorApi: Error) {
   let fallbackValidators: Validators = {
     timestamp: yield* call(now),
     network: network,
@@ -104,7 +107,7 @@ function* getFallbackValidators(network: NetworkType, errorApi: string) {
   } catch (errorDumpValidators) {
     // If fetching dump_validators fails, fall back to empty list
     return {
-      error: 'Lost connection',
+      error: new WalletError(WalletErrors.DisconnectedError, 'Lost connection'),
       validators: fallbackValidators,
     }
   }
@@ -192,9 +195,7 @@ export function* fetchAccount({ payload: address }: PayloadAction<string>) {
   yield* put(stakingActions.setLoading(true))
   yield* call(refreshValidators)
 
-  const { delegations, debondingDelegations } = yield* call(loadDelegations, address)
-  yield* put(stakingActions.updateDelegations(delegations))
-  yield* put(stakingActions.updateDebondingDelegations(debondingDelegations))
+  yield* call(loadDelegations, address)
 
   yield* put(stakingActions.setLoading(false))
 }
