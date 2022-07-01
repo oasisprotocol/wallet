@@ -1,7 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { config } from 'config'
-import { call, put, select, takeEvery } from 'typed-redux-saga'
+import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { backend, backendApi } from 'vendors/backend'
 
 import { networkActions } from '.'
@@ -50,7 +50,7 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
 }
 
 export function* networkSaga() {
-  yield* takeEvery(networkActions.selectNetwork, selectNetwork)
+  yield* takeLatest(networkActions.selectNetwork, selectNetwork)
 
   if (process.env.REACT_APP_LOCALNET) {
     yield* put(networkActions.selectNetwork('local'))
