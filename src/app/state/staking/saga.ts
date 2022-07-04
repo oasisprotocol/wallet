@@ -1,5 +1,3 @@
-// import { take, call, put, select, takeLatest } from 'redux-saga/effects';
-// import { stakingActions as actions } from '.';
 import { consensus, quantity } from '@oasisprotocol/client'
 import { SchedulerValidator } from '@oasisprotocol/client/dist/types'
 import { PayloadAction } from '@reduxjs/toolkit'

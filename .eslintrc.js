@@ -17,6 +17,14 @@ const config = {
     linkComponents: ['Button', 'MediaButton', 'SidebarButton', 'Anchor', 'Link', 'AnchorLink'],
   },
   rules: {
+    'no-restricted-imports': [
+      'error',
+      {
+        name: 'redux-saga/effects',
+        message: "Use 'typed-redux-saga' instead (or matchers.select in tests).",
+      },
+    ],
+
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17
     'react/display-name': 'off', // TODO: Maybe enable

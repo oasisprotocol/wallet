@@ -2,7 +2,6 @@ import * as oasis from '@oasisprotocol/client'
 import { expectSaga, testSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
-import { select } from 'redux-saga/effects'
 import { RootState } from 'types'
 import { WalletError, WalletErrors } from 'types/errors'
 
@@ -108,7 +107,7 @@ describe('Staking Sagas', () => {
       const result = await expectSaga(stakingSaga)
         .withState(initialState)
         .withReducer(stakingReducer)
-        .provide([...providers, [select(selectEpoch), 300]])
+        .provide([...providers, [matchers.select.selector(selectEpoch), 300]])
         .dispatch(stakingActions.validatorSelected('oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7'))
         .put.actionType(stakingActions.updateValidatorDetails.type)
         .silentRun()
