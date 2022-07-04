@@ -514,6 +514,8 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
     class="c12"
   >
     <button
+      aria-expanded="false"
+      aria-haspopup="menu"
       aria-label="Open Menu"
       class="c13"
       type="button"
