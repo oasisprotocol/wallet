@@ -28,6 +28,11 @@ const config = {
         importNames: ['createSlice'],
         message: "Use 'utils/@reduxjs/toolkit'",
       },
+      {
+        name: 'react-data-table-component',
+        importNames: ['default', 'DataTable', 'IDataTableColumn', 'IDataTableProps'],
+        message: "Use 'TypeSafeDataTable'",
+      },
     ],
 
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
