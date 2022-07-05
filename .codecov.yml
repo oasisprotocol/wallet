@@ -2,7 +2,8 @@
 comment:
   layout: "reach, diff, flags, files"
   behavior: default
-  require_changes: false
+  # Only post codecov comments when coverage changes
+  require_changes: true
   require_base: true
   require_head: true
   branches: null
