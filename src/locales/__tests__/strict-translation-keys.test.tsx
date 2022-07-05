@@ -5,7 +5,7 @@ import { Trans, useTranslation } from 'react-i18next'
  * checks that CustomTypeOptions in react-i18next.d.ts add type-safety to
  * string-based translation keys.
  */
-export function TypeOnlyTestTranslationKeys() {
+function TypeOnlyTestTranslationKeys() {
   const { t } = useTranslation()
 
   return (
@@ -26,3 +26,7 @@ export function TypeOnlyTestTranslationKeys() {
     </div>
   )
 }
+
+test('type-only test checking translation keys are strictly typed using CustomTypeOptions', () => {
+  expect(<TypeOnlyTestTranslationKeys />).toBeDefined()
+})
