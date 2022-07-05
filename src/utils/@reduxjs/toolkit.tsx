@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-restricted-imports
 import { createSlice as createSliceOriginal, SliceCaseReducers, CreateSliceOptions } from '@reduxjs/toolkit'
 import { RootState } from 'types'
 

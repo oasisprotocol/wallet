@@ -23,6 +23,11 @@ const config = {
         name: 'redux-saga/effects',
         message: "Use 'typed-redux-saga' instead (or matchers.select in tests).",
       },
+      {
+        name: '@reduxjs/toolkit',
+        importNames: ['createSlice'],
+        message: "Use 'utils/@reduxjs/toolkit'",
+      },
     ],
 
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
