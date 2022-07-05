@@ -7,3 +7,10 @@ comment:
   require_base: true
   require_head: true
   branches: null
+
+coverage:
+  status:
+    project:
+      default:
+        # Allow the coverage to drop by 0.5%
+        threshold: 0.5%
