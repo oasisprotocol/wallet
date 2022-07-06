@@ -1,6 +1,7 @@
 import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
 import {
+  Anchor,
   Avatar,
   Box,
   Button,
@@ -101,16 +102,23 @@ export const SidebarButton = ({
   )
 
   if (route) {
+    const isAbsoluteUrl =
+      route.startsWith('https://') || route.startsWith('http://') || route.startsWith('//')
+    if (!newTab && isAbsoluteUrl) {
+      throw new Error('Absolute url cannot be used with react router Link component')
+    }
+
     return (
       <SidebarTooltip label={label} isActive={isActive}>
-        <NavLink
-          aria-label={label}
-          to={route}
-          {...(newTab ? { target: '_blank', rel: 'noopener' } : {})}
-          {...rest}
-        >
-          {component}
-        </NavLink>
+        {newTab ? (
+          <Anchor aria-label={label} href={route} target="_blank" rel="noopener" {...rest}>
+            {component}
+          </Anchor>
+        ) : (
+          <NavLink aria-label={label} to={route} {...rest}>
+            {component}
+          </NavLink>
+        )}
       </SidebarTooltip>
     )
   } else {
