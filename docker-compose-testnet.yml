@@ -20,7 +20,7 @@ services:
       - ./docker/genesis-testnet.json:/genesis.json:z
       - ./docker/oasis-explorer/config-testnet.json:/.secrets/config.json:z
   envoy:
-    image: docker.io/envoyproxy/envoy:v1.21.3
+    image: docker.io/envoyproxy/envoy:v1.22.2
     ports:
       - '127.0.0.1:42280:42280'
       - '127.0.0.1:42281:42281'
@@ -43,7 +43,7 @@ services:
       POSTGRES_USER: oasis
       POSTGRES_DATABASE: oasis
   explorer-clickhouse:
-    image: docker.io/yandex/clickhouse-server:21.3.20-alpine
+    image: docker.io/yandex/clickhouse-server:21.12.4-alpine
     restart: always
     volumes:
       - explorer-clickhouse-data:/var/lib/clickhouse:z
