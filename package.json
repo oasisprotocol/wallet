@@ -8,14 +8,13 @@
     "url": "https://github.com/oasisprotocol/oasis-wallet-web.git"
   },
   "scripts": {
+    "build": "node ./internals/prod-web.js",
+    "build:ext": "node ./internals/prod-ext.js",
     "clean": "rm -rf build/ .parcel-cache",
-    "parcel:prod": "parcel build --target web --dist-dir build",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
     "start": "REACT_APP_META_CSP= HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --port 3000 --dist-dir build-dev",
-    "build:ext": "yarn clean:ext && EXTENSION_CSP=`yarn --silent print-extension-csp` parcel build --target ext --dist-dir build-ext && node ./internals/scripts/validate-ext-manifest.js",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "build": "yarn clean && node ./internals/prod-scripts.js",
     "test": "REACT_APP_LOCALNET=1 jest --color",
     "test:web": "yarn run test --projects internals/jest/jest.web-config.js",
     "test:ext": "yarn run test --projects internals/jest/jest.ext-config.js",

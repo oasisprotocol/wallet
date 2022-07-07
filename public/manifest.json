@@ -30,6 +30,9 @@
   },
   "permissions": ["storage", "notifications", "activeTab"],
   "content_security_policy": "{{{ EXTENSION_CSP }}}",
-  "background": { "scripts": ["../extension/src/background.ts"], "persistent": true },
+  "background": {
+    "page": "../extension/src/background.html",
+    "persistent": true
+  },
   "web_accessible_resources": ["./oasis-xu-frame.html"]
 }
