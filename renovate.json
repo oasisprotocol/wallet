@@ -24,7 +24,11 @@
     },
     {
       "groupName": "docker",
-      "matchPackagePatterns": ["docker", "envoy", "golang", "postgres", "clickhouse"]
+      "matchManagers": ["docker-compose", "dockerfile"]
+    },
+    {
+      "groupName": "CI github-actions",
+      "matchManagers": ["github-actions"]
     }
   ]
 }
