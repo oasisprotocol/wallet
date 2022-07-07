@@ -66,7 +66,7 @@ export const AddEscrowForm = memo((props: Props) => {
   return (
     <>
       {showNotice && (
-        <p>
+        <Box pad={{ vertical: 'medium' }} gap="xsmall">
           {t(
             'account.addEscrow.confirmDelegatingToTop.description',
             'This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization.',
@@ -76,7 +76,7 @@ export const AddEscrowForm = memo((props: Props) => {
             checked={!showNotice}
             onChange={event => setShowNotice(!event.target.checked)}
           />
-        </p>
+        </Box>
       )}
       {!showNotice && (
         <Form onSubmit={submit}>
