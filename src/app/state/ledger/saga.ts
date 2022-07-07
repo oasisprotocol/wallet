@@ -1,4 +1,3 @@
-// import { take, call, put, select, takeLatest } from 'redux-saga/effects';
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'

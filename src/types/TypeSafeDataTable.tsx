@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-restricted-imports
 import DataTable, { IDataTableColumn, IDataTableProps } from 'react-data-table-component'
 
 export interface ITypeSafeDataTableColumn<T> extends IDataTableColumn<T> {

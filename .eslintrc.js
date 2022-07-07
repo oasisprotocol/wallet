@@ -17,6 +17,24 @@ const config = {
     linkComponents: ['Button', 'MediaButton', 'SidebarButton', 'Anchor', 'Link', 'AnchorLink'],
   },
   rules: {
+    'no-restricted-imports': [
+      'error',
+      {
+        name: 'redux-saga/effects',
+        message: "Use 'typed-redux-saga' instead (or matchers.select in tests).",
+      },
+      {
+        name: '@reduxjs/toolkit',
+        importNames: ['createSlice'],
+        message: "Use 'utils/@reduxjs/toolkit'",
+      },
+      {
+        name: 'react-data-table-component',
+        importNames: ['default', 'DataTable', 'IDataTableColumn', 'IDataTableProps'],
+        message: "Use 'TypeSafeDataTable'",
+      },
+    ],
+
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17
     'react/display-name': 'off', // TODO: Maybe enable
