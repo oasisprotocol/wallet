@@ -18,7 +18,7 @@ import { addressToPublicKey } from 'app/lib/helpers'
 
 import { sortByStatus, throwAPIErrors } from './helpers'
 
-export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev/') {
+export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
   const explorerConfig = new Configuration({
     basePath: url,
     ...throwAPIErrors,
