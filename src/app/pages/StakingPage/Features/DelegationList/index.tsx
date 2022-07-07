@@ -6,11 +6,10 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
-import { selectAccountAddress } from 'app/state/account/selectors'
+import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { stakingActions } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
 import { Delegation } from 'app/state/staking/types'
-import { selectActiveWallet } from 'app/state/wallet/selectors'
 import { Text } from 'grommet'
 import { Down } from 'grommet-icons/icons'
 import React, { memo } from 'react'
@@ -40,9 +39,8 @@ export const DelegationList = memo((props: Props) => {
   const validatorDetails = useSelector(selectValidatorDetails)
   const selectedAddress = useSelector(selectSelectedAddress)
 
-  const accountAddress = useSelector(selectAccountAddress)
-  const activeWallet = useSelector(selectActiveWallet)
-  const canReclaim = type === 'active' && activeWallet?.address === accountAddress
+  const isAddressInWallet = useSelector(selectIsAddressInWallet)
+  const canReclaim = type === 'active' && isAddressInWallet
 
   const rowClicked = (row: Delegation) => {
     if (selectedAddress === row.validatorAddress) {
