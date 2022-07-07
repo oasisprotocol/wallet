@@ -11,14 +11,14 @@ interface ValidatorProps {
   walletIsOpen: boolean
 }
 export const ValidatorItem = (props: ValidatorProps) => {
-  const isWalletOpen = props.walletIsOpen
+  const walletIsOpen = props.walletIsOpen
   const validator = props.data
   const details = props.details
 
   return (
     <Box pad="medium" background="background-contrast" data-testid="validator-item">
       <ValidatorInformations validator={validator} details={details} />
-      {isWalletOpen && (
+      {walletIsOpen && (
         <AddEscrowForm
           validatorAddress={validator.address}
           validatorStatus={validator.status}
