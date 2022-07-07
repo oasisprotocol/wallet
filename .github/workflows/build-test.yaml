@@ -91,7 +91,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Download coverage reports
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
       - uses: codecov/codecov-action@v2
         with:
           files: ./jest-coverage/coverage-final.json
