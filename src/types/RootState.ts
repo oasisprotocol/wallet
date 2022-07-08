@@ -22,3 +22,10 @@ export interface RootState {
   fatalError: FatalErrorState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
+
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>
+    }
+  : T
+export type DeepPartialRootState = DeepPartial<RootState>
