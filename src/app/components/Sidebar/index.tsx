@@ -77,13 +77,13 @@ export const SidebarButton = ({
   onClick,
   ...rest
 }: SidebarButtonProps) => {
-  const isWalletOpen = useSelector(selectIsOpen)
+  const walletIsOpen = useSelector(selectIsOpen)
   const size = useContext(ResponsiveContext)
   const location = useLocation()
   const isActive = route ? route === location.pathname : false
   const isMediumSize = size === 'medium'
 
-  if (!isWalletOpen && needsWalletOpen) {
+  if (!walletIsOpen && needsWalletOpen) {
     return null
   }
 
