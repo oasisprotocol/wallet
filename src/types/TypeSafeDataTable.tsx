@@ -2,6 +2,7 @@
 import DataTable, { IDataTableColumn, IDataTableProps } from 'react-data-table-component'
 
 export interface ITypeSafeDataTableColumn<T> extends IDataTableColumn<T> {
+  /** Must be unique, but doesn't need to be a field in data objects. */
   id: string
 }
 export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'keyField'> {
