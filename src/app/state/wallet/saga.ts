@@ -29,7 +29,7 @@ export function* rootWalletSaga() {
   yield* takeEvery(walletActions.addWallet, addWallet)
 
   // Reload balance of matching wallets when a transaction occurs
-  yield* fork(reloadBalanceOnTransaction)
+  yield* fork(refreshAccountOnTransaction)
   yield* takeEvery(walletActions.fetchWallet, loadWallet)
 
   // Allow switching between wallets
@@ -163,7 +163,7 @@ function* loadWallet(action: PayloadAction<Wallet>) {
  * When a transaction is done, and it is related to the account we currently have in state
  * refresh the data.
  */
-function* reloadBalanceOnTransaction() {
+function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
     if (payload.type !== 'transfer') {

@@ -11,10 +11,10 @@ import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress } from './selectors'
 
 /**
- * Waits for a LoadAccount action with a specific address,
+ * Waits for a fetchAccount action with a specific address,
  * and hydrate the state accordingly
  */
-export function* loadAccount(action: PayloadAction<string>) {
+export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
   yield* put(actions.setLoading(true))
@@ -100,5 +100,5 @@ export function* refreshAccountOnTransaction() {
 
 export function* accountSaga() {
   yield* fork(refreshAccountOnTransaction)
-  yield* takeLatest(actions.fetchAccount, loadAccount)
+  yield* takeLatest(actions.fetchAccount, fetchAccount)
 }
