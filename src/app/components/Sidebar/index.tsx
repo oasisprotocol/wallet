@@ -104,7 +104,7 @@ export const SidebarButton = ({
     const isAbsoluteUrl =
       route.startsWith('https://') || route.startsWith('http://') || route.startsWith('//')
     if (!newTab && isAbsoluteUrl) {
-      throw new Error('Absolute url cannot be used with react router Link component')
+      throw new Error('Must use newTab with absolute URLs. React-router Link component uses relative routes.')
     }
 
     return (
