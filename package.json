@@ -15,7 +15,7 @@
     "start": "REACT_APP_META_CSP= HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --port 3000 --dist-dir build-dev",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "test": "REACT_APP_LOCALNET=1 jest --color",
+    "test": "jest --color",
     "test:web": "yarn run test --projects internals/jest/jest.web-config.js",
     "test:ext": "yarn run test --projects internals/jest/jest.ext-config.js",
     "test:watch": "yarn run test --watch",

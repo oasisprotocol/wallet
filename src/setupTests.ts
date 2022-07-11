@@ -13,6 +13,7 @@ import 'jest-styled-components'
 import 'locales/i18n'
 
 require('dotenv').config()
+process.env.REACT_APP_LOCALNET = '1'
 
 global.TextEncoder = require('util').TextEncoder
 global.TextDecoder = require('util').TextDecoder
