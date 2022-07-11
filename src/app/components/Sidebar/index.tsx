@@ -1,7 +1,6 @@
 import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
 import {
-  Anchor,
   Avatar,
   Box,
   Button,
@@ -111,9 +110,9 @@ export const SidebarButton = ({
     return (
       <SidebarTooltip label={label} isActive={isActive}>
         {newTab ? (
-          <Anchor aria-label={label} href={route} target="_blank" rel="noopener" {...rest}>
+          <a aria-label={label} href={route} target="_blank" rel="noopener" {...rest}>
             {component}
-          </Anchor>
+          </a>
         ) : (
           <NavLink aria-label={label} to={route} {...rest}>
             {component}
