@@ -22,6 +22,7 @@
     "**/__snapshots__/": true,
     ".nyc_output/": true,
     "cypress-coverage/": true,
+    "coverage/": true,
     ".parcel-cache/": true,
     "build/": true,
     "build-ext/": true,
