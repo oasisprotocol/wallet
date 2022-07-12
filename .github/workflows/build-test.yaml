@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: 14.x
       - run: yarn install --frozen-lockfile
-      - run: yarn lint
+      - run: yarn lint --max-warnings 0
       - run: yarn checkTs
       - run: yarn build
 
