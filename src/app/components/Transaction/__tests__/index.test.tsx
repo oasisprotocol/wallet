@@ -59,6 +59,7 @@ describe('<Transaction  />', () => {
     to: 'destination',
     type: transactionTypes.TransactionType.StakingTransfer,
     hash: 'ff1234',
+    status: true,
   } as transactionTypes.Transaction
   const network = 'mainnet'
 
@@ -93,6 +94,11 @@ describe('<Transaction  />', () => {
     userEvent.click(screen.getByLabelText('Money'))
     userEvent.click(screen.getByLabelText('Cube'))
     expect(pushSpy).not.toHaveBeenCalled()
+  })
+
+  it('should mark failed transactions', () => {
+    renderComponent(store, ref, { ...transaction, status: false }, network)
+    expect(screen.getByText('account.transaction.transactionFailed')).toBeInTheDocument()
   })
 
   it('should handle unknown transaction types gracefully', () => {

@@ -228,11 +228,19 @@ export function Transaction(props: TransactionProps) {
 
   return (
     <Card round="small" background="background-front" gap="none" elevation="xsmall">
-      <CardHeader pad={{ horizontal: 'medium', vertical: 'small' }} gap="none" background="brand" wrap={true}>
+      <CardHeader
+        pad={{ horizontal: 'medium', vertical: 'small' }}
+        gap="none"
+        background={transaction.status ? 'brand' : 'status-error'}
+        wrap={true}
+      >
         <Box direction="row" gap="small">
           {icon}
           <Text>{header}</Text>
         </Box>
+        {!transaction.status && (
+          <Text weight="bold">{t('account.transaction.transactionFailed', 'Failed')}</Text>
+        )}
       </CardHeader>
       <CardBody pad={{ horizontal: 'none', vertical: 'none' }}>
         <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
