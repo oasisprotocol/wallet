@@ -12,7 +12,7 @@ import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { walletActions } from 'app/state/wallet'
-import { Box, Layer, Spinner, Text } from 'grommet'
+import { Box, Layer, Nav, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -151,7 +151,7 @@ export function AccountPage(props: Props) {
             walletAddress={walletAddress}
             walletIsOpen={walletIsOpen}
           />
-          <Box background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
+          <Nav background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
             <NavItem
               route={`/account/${address}`}
               label={t('account.subnavigation.transactions', 'Transactions')}
@@ -168,7 +168,7 @@ export function AccountPage(props: Props) {
                 count: stake.debondingDelegations?.length ?? null!,
               })}
             />
-          </Box>
+          </Nav>
           <TransitionGroup>
             <Switch>
               <TransitionRoute exact path="/account/:address" component={AccountDetails} />

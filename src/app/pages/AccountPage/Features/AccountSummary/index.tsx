@@ -39,6 +39,7 @@ export function AccountSummary(props: AccountSummaryProps) {
             gap={{ column: 'medium' }}
             pad={{ top: 'small' }}
             responsive={false}
+            data-testid="account-balance-summary"
           >
             <Box pad={{ bottom: 'small' }}>
               <Text weight="bold" size="xlarge">

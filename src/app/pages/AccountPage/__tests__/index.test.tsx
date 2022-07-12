@@ -81,8 +81,12 @@ describe('<AccountPage  />', () => {
       }),
     )
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
+    expect(page.container).toHaveTextContent('Oasis Scan API appears to be down')
     const balance = await screen.findByTestId('account-balance-total')
     expect(balance).toHaveTextContent('-')
-    expect(page.container.firstChild).toMatchSnapshot()
+    const balanceSummary = await screen.findByTestId('account-balance-summary')
+    expect(balanceSummary.textContent).toMatchSnapshot()
+    const tabs = await screen.findByRole('navigation')
+    expect(tabs.textContent).toMatchSnapshot()
   })
 })
