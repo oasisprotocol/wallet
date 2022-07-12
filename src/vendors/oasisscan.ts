@@ -17,7 +17,7 @@ import {
 
 import { throwAPIErrors, sortByStatus } from './helpers'
 
-export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet/') {
+export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
   const explorerConfig = new Configuration({
     basePath: url,
     ...throwAPIErrors,

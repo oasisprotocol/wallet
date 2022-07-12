@@ -1,6 +1,6 @@
 import { testSaga } from 'redux-saga-test-plan'
 import { accountActions } from '.'
-import { accountSaga, loadAccount, refreshAccountOnTransaction } from './saga'
+import { accountSaga, fetchAccount, refreshAccountOnTransaction } from './saga'
 
 describe('Account Sagas', () => {
   test('accountSaga', () => {
@@ -8,7 +8,7 @@ describe('Account Sagas', () => {
       .next()
       .fork(refreshAccountOnTransaction)
       .next()
-      .takeLatest(accountActions.fetchAccount, loadAccount)
+      .takeLatest(accountActions.fetchAccount, fetchAccount)
       .next()
       .isDone()
   })
