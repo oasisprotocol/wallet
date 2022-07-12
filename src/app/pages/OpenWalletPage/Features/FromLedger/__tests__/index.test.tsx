@@ -41,7 +41,7 @@ describe('<FromLedgerModal  />', () => {
 
   it('should match snapshot', () => {
     const component = renderComponent(store)
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
     screen.getByTestId('ledger-open-accounts')
   })
 

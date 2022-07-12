@@ -43,7 +43,7 @@ describe('<ActiveDelegationList  />', () => {
       }),
     )
 
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
 
     // @TODO expect no rounding issues
     expect(screen.queryByText('7.000000000000001%')).toBeTruthy()

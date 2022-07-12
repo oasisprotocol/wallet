@@ -46,7 +46,7 @@ describe('<DebondingDelegationList  />', () => {
       }),
     )
 
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 
   it('should expand and display the delegation on click', async () => {

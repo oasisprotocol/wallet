@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": .c11 {
+.c11 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -377,238 +375,44 @@ Object {
 }
 
 <body>
-    <div>
-      <div
-        class="c0"
-      >
-        <h1
-          class="c1"
-        >
-          delegations.activeDelegations
-        </h1>
-        <div
-          class="c2"
-        >
-          <div
-            class="c3"
-          >
-            <div
-              class="c4 rdt_Table"
-              role="table"
-            >
-              <div
-                class="c5 rdt_TableHead"
-                role="rowgroup"
-              >
-                <div
-                  class="c6 rdt_TableHeadRow"
-                  role="row"
-                >
-                  <div
-                    class="c7 c8 rdt_TableCol"
-                  />
-                  <div
-                    class="c7 c8 rdt_TableCol"
-                  />
-                  <div
-                    class="c7 c9 rdt_TableCol"
-                  >
-                    <div
-                      class="c10 rdt_TableCol_Sortable"
-                      id="column-name"
-                      role="columnheader"
-                      tabindex="0"
-                    >
-                      <div>
-                        validator.name
-                      </div>
-                      <span
-                        class="asc __rdt_custom_sort_icon__"
-                      >
-                        <svg
-                          aria-label="Down"
-                          class="c11"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="m2 8.35 10.173 9.823L21.997 8"
-                            fill="none"
-                            stroke="#000"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="c7 c9 rdt_TableCol"
-                  >
-                    <div
-                      class="c10 rdt_TableCol_Sortable"
-                      id="column-amount"
-                      role="columnheader"
-                      tabindex="0"
-                    >
-                      <div>
-                        delegations.delegatedAmount
-                      </div>
-                      <span
-                        class="asc __rdt_custom_sort_icon__"
-                      >
-                        <svg
-                          aria-label="Down"
-                          class="c11"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="m2 8.35 10.173 9.823L21.997 8"
-                            fill="none"
-                            stroke="#000"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                  <div
-                    class="c7 c12 rdt_TableCol"
-                  >
-                    <div
-                      class="c10 rdt_TableCol_Sortable"
-                      id="column-fee"
-                      role="columnheader"
-                      tabindex="0"
-                    >
-                      <div>
-                        validator.fee
-                      </div>
-                      <span
-                        class="asc __rdt_custom_sort_icon__"
-                      >
-                        <svg
-                          aria-label="Down"
-                          class="c11"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="m2 8.35 10.173 9.823L21.997 8"
-                            fill="none"
-                            stroke="#000"
-                            stroke-width="2"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="c13 rdt_TableBody"
-                offset="250px"
-                role="rowgroup"
-              >
-                <div
-                  class="c14 rdt_TableRow"
-                  id="row-test-validator"
-                  role="row"
-                >
-                  <div
-                    class="c15 c8 c16 rdt_TableCell"
-                    data-tag="allowRowEvents"
-                    id="cell-icon-test-validator"
-                    role="gridcell"
-                  />
-                  <div
-                    class="c15 c8 c16 rdt_TableCell"
-                    data-tag="allowRowEvents"
-                    id="cell-status-test-validator"
-                    role="gridcell"
-                  >
-                    <svg
-                      aria-label="Status is okay"
-                      class="c17"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
-                        fill="none"
-                        stroke="#000"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="c15 c9 c16 rdt_TableCell"
-                    data-tag="allowRowEvents"
-                    id="cell-name-test-validator"
-                    role="gridcell"
-                  >
-                    test-validator
-                  </div>
-                  <div
-                    class="c15 c9 c16 rdt_TableCell"
-                    data-tag="allowRowEvents"
-                    id="cell-amount-test-validator"
-                    role="gridcell"
-                  >
-                    0.0
-                     
-                    
-                  </div>
-                  <div
-                    class="c15 c12 c16 rdt_TableCell"
-                    data-tag="allowRowEvents"
-                    id="cell-fee-test-validator"
-                    role="gridcell"
-                  >
-                    7.000000000000001%
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+  <div>
     <div
-      class="StyledBox-sc-13pk1d4-0 exzbBx"
+      class="c0"
     >
       <h1
-        class="StyledHeading-sc-1rdh4aw-0 ghJfNG"
+        class="c1"
       >
         delegations.activeDelegations
       </h1>
       <div
-        class="sc-hHfuMS eHijxz"
+        class="c2"
       >
         <div
-          class="sc-kfzBvY gVVUtR"
+          class="c3"
         >
           <div
-            class="sc-bdfBQB dVIjvR rdt_Table"
+            class="c4 rdt_Table"
             role="table"
           >
             <div
-              class="sc-gsTEea hbMOSD rdt_TableHead"
+              class="c5 rdt_TableHead"
               role="rowgroup"
             >
               <div
-                class="sc-dlfnuX krZTYY rdt_TableHeadRow"
+                class="c6 rdt_TableHeadRow"
                 role="row"
               >
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz eceSDa fTUNZi rdt_TableCol"
+                  class="c7 c8 rdt_TableCol"
                 />
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz eceSDa fTUNZi rdt_TableCol"
+                  class="c7 c8 rdt_TableCol"
                 />
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
+                  class="c7 c9 rdt_TableCol"
                 >
                   <div
-                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
+                    class="c10 rdt_TableCol_Sortable"
                     id="column-name"
                     role="columnheader"
                     tabindex="0"
@@ -621,7 +425,7 @@ Object {
                     >
                       <svg
                         aria-label="Down"
-                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
+                        class="c11"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -635,10 +439,10 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz iurrS fTUNZi rdt_TableCol"
+                  class="c7 c9 rdt_TableCol"
                 >
                   <div
-                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
+                    class="c10 rdt_TableCol_Sortable"
                     id="column-amount"
                     role="columnheader"
                     tabindex="0"
@@ -651,7 +455,7 @@ Object {
                     >
                       <svg
                         aria-label="Down"
-                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
+                        class="c11"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -665,10 +469,10 @@ Object {
                   </div>
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-iqHYmW eDBJAz hSZcZi fTUNZi rdt_TableCol"
+                  class="c7 c12 rdt_TableCol"
                 >
                   <div
-                    class="sc-crrszt eGSUoe rdt_TableCol_Sortable"
+                    class="c10 rdt_TableCol_Sortable"
                     id="column-fee"
                     role="columnheader"
                     tabindex="0"
@@ -681,7 +485,7 @@ Object {
                     >
                       <svg
                         aria-label="Down"
-                        class="StyledIcon-sc-ofa7kd-0 jjvRzN"
+                        class="c11"
                         viewBox="0 0 24 24"
                       >
                         <path
@@ -697,30 +501,30 @@ Object {
               </div>
             </div>
             <div
-              class="sc-dIUeWJ gUlcRh rdt_TableBody"
+              class="c13 rdt_TableBody"
               offset="250px"
               role="rowgroup"
             >
               <div
-                class="sc-jrAFXE XoGWB rdt_TableRow"
+                class="c14 rdt_TableRow"
                 id="row-test-validator"
                 role="row"
               >
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
+                  class="c15 c8 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-icon-test-validator"
                   role="gridcell"
                 />
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi eceSDa gSqEps rdt_TableCell"
+                  class="c15 c8 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-status-test-validator"
                   role="gridcell"
                 >
                   <svg
                     aria-label="Status is okay"
-                    class="StyledIcon-sc-ofa7kd-0 hfdlHh"
+                    class="c17"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -732,7 +536,7 @@ Object {
                   </svg>
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
+                  class="c15 c9 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-name-test-validator"
                   role="gridcell"
@@ -740,7 +544,7 @@ Object {
                   test-validator
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi iurrS gSqEps rdt_TableCell"
+                  class="c15 c9 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-amount-test-validator"
                   role="gridcell"
@@ -750,7 +554,7 @@ Object {
                   
                 </div>
                 <div
-                  class="sc-hKgJUU sc-eCstlR sc-jSgvzq iFEPIi hSZcZi gSqEps rdt_TableCell"
+                  class="c15 c12 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-fee-test-validator"
                   role="gridcell"
@@ -763,57 +567,6 @@ Object {
         </div>
       </div>
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</body>
 `;
