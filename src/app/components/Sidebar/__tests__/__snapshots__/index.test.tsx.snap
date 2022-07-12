@@ -439,22 +439,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c20 {
-  box-sizing: border-box;
-  font-size: inherit;
-  line-height: inherit;
-  color: #7D4CDB;
-  font-weight: 600;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.c20:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 @media only screen and (max-width:768px) {
   .c0 {
     border-inline-end: solid 1px rgba(0,0,0,0.33);
@@ -707,7 +691,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
     />
     <a
       aria-label="GitHub"
-      class="c20"
       href="https://github.com/oasisprotocol/oasis-wallet-web"
       rel="noopener"
       target="_blank"
