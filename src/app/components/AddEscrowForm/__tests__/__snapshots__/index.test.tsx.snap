@@ -223,7 +223,6 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
     />
     <button
       class="c5"
-      style="border-radius: 4px;"
       type="submit"
     >
       account.addEscrow.delegate

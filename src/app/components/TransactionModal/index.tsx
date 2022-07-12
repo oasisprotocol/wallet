@@ -68,7 +68,6 @@ export function TransactionModal() {
               <Button
                 secondary
                 label={t('transaction.abort', 'Abort')}
-                style={{ borderRadius: '4px' }}
                 icon={<Close size="18px" />}
                 onClick={abortTransaction}
               />
@@ -77,7 +76,6 @@ export function TransactionModal() {
                 label={t('transaction.confirm', 'Confirm')}
                 onClick={confirmTransaction}
                 icon={<Checkmark size="18px" />}
-                style={{ borderRadius: '4px' }}
                 alignSelf="end"
               />
             </Box>

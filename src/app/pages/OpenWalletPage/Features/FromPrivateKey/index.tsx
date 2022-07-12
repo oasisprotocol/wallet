@@ -91,7 +91,6 @@ export function FromPrivateKey(props: Props) {
             <Button
               type="submit"
               label={t('openWallet.mnemonic.import', 'Import my account')}
-              style={{ borderRadius: '4px' }}
               primary
               onClick={onSubmit}
             />

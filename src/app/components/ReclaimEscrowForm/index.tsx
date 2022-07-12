@@ -87,17 +87,8 @@ export const ReclaimEscrowForm = memo((props: Props) => {
             />
           </Box>
         </Box>
-        <Button
-          label={t('account.reclaimEscrow.reclaim', 'Reclaim')}
-          type="submit"
-          primary
-          style={{ borderRadius: '4px' }}
-        />
-        <Button
-          label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')}
-          onClick={reclaimAll}
-          style={{ borderRadius: '4px' }}
-        />
+        <Button label={t('account.reclaimEscrow.reclaim', 'Reclaim')} type="submit" primary />
+        <Button label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')} onClick={reclaimAll} />
       </Box>
       {shares > 0 && (
         <Text size="small" data-testid="numberOfShares">

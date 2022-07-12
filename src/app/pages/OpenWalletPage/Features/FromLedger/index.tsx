@@ -76,7 +76,6 @@ export function FromLedger(props: FromLedgerProps) {
         <Button
           type="submit"
           label={t('openWallet.ledger.selectWallets', 'Select accounts to open')}
-          style={{ borderRadius: '4px' }}
           onClick={() => {
             showLedgerModal(true)
           }}
@@ -148,7 +147,6 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
           <Button
             secondary
             label={t('openWallet.ledger.cancel', 'Cancel')}
-            style={{ borderRadius: '4px' }}
             onClick={props.abort}
             disabled={cancelDisabled}
           />
@@ -157,7 +155,6 @@ export function FromLedgerModal(props: FromLedgerModalProps) {
             data-testid="ledger-open-accounts"
             label={t('openWallet.ledger.openWallets', 'Open')}
             onClick={openAccounts}
-            style={{ borderRadius: '4px' }}
             alignSelf="end"
             disabled={confirmDisabled}
           />

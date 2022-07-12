@@ -314,7 +314,6 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
     />
     <button
       class="c6"
-      style="border-radius: 4px;"
       type="submit"
     >
       account.reclaimEscrow.reclaim
@@ -324,7 +323,6 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
     />
     <button
       class="c7"
-      style="border-radius: 4px;"
       type="button"
     >
       account.reclaimEscrow.reclaimAll
