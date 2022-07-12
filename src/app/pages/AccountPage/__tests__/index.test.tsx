@@ -68,7 +68,7 @@ describe('<AccountPage  />', () => {
 
   it('should match snapshot', async () => {
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
-    const balance = await screen.findByTestId('account-balance')
+    const balance = await screen.findByTestId('account-balance-total')
     expect(balance).toHaveTextContent('100.00000111130001') // TODO: inaccurate
     expect(page.container.firstChild).toMatchSnapshot()
   })
@@ -81,7 +81,7 @@ describe('<AccountPage  />', () => {
       }),
     )
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
-    const balance = await screen.findByTestId('account-balance')
+    const balance = await screen.findByTestId('account-balance-total')
     expect(balance).toHaveTextContent('-')
     expect(page.container.firstChild).toMatchSnapshot()
   })

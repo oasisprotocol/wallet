@@ -46,7 +46,7 @@ export function AccountSummary(props: AccountSummaryProps) {
               </Text>
             </Box>
             <Box justify="center" pad={{ bottom: 'small' }}>
-              <Text weight="bold" size="xlarge" data-testid="account-balance">
+              <Text weight="bold" size="xlarge" data-testid="account-balance-total">
                 <AmountFormatter amount={balance.total} />
               </Text>
             </Box>

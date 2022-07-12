@@ -977,7 +977,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c11"
-                data-testid="account-balance"
+                data-testid="account-balance-total"
               >
                 100.00000111130001
                  
@@ -2246,7 +2246,7 @@ exports[`<AccountPage  /> with missing delegations 1`] = `
             >
               <span
                 class="c13"
-                data-testid="account-balance"
+                data-testid="account-balance-total"
               >
                 -
               </span>
