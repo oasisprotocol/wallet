@@ -38,6 +38,6 @@ describe('<AccountSelector  />', () => {
 
   it('should match snapshot', () => {
     const component = renderComponent(store)
-    expect(component.container.firstChild).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 })
