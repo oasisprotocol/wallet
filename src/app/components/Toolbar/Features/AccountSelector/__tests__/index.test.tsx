@@ -26,7 +26,7 @@ describe('<AccountSelector  />', () => {
         wallets: {
           1: {
             address: 'dummy',
-            balance: { available: '100', debonding: '0', escrow: '0', total: '100' },
+            balance: { available: '100', validator: { escrow: '5000', escrow_debonding: '300' } },
             id: 1,
             publicKey: '00',
             type: WalletType.Ledger,
@@ -38,6 +38,6 @@ describe('<AccountSelector  />', () => {
 
   it('should match snapshot', () => {
     const component = renderComponent(store)
-    expect(component.container.firstChild).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 })

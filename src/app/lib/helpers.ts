@@ -55,13 +55,11 @@ export const parseStringValueToInt = (value: string) => parseFloat(value) * 10 *
 export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
   const zero = stringBigint2uint('0')
 
-  const balance = {
+  return {
     available: uint2bigintString(account.general?.balance || zero),
-    debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
-    escrow: uint2bigintString(account.escrow?.active?.balance || zero),
+    validator: {
+      escrow: uint2bigintString(account.escrow?.active?.balance || zero),
+      escrow_debonding: uint2bigintString(account.escrow?.debonding?.balance || zero),
+    },
   }
-
-  const total = BigInt(balance.available) + BigInt(balance.debonding) + BigInt(balance.escrow)
-
-  return { ...balance, total: total.toString() }
 }

@@ -23,7 +23,12 @@ import { TransitionGroup } from 'react-transition-group'
 import { accountActions } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
 import { BalanceDetails } from '../../state/account/types'
-import { selectAddress, selectIsOpen, selectWallets } from '../../state/wallet/selectors'
+import {
+  selectAddress,
+  selectIsOpen,
+  selectWallets,
+  selectWalletsPublicKeys,
+} from '../../state/wallet/selectors'
 import { ActiveDelegationList } from '../StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from '../StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
@@ -79,6 +84,7 @@ export function AccountPage(props: Props) {
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
   const wallets = useSelector(selectWallets)
+  const walletsPublicKeys = useSelector(selectWalletsPublicKeys)
 
   const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
   const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
@@ -103,7 +109,9 @@ export function AccountPage(props: Props) {
     for (const wallet of Object.values(wallets)) {
       dispatch(walletActions.fetchWallet(wallet))
     }
-  }, [dispatch, wallets, selectedNetwork])
+    // Using `walletsPublicKeys` dependency instead of `wallets` to avoid infinite loop
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, walletsPublicKeys.join(','), selectedNetwork])
 
   return (
     <Box pad="small">

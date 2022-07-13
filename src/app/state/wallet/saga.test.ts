@@ -58,7 +58,7 @@ describe('Wallet Sagas', () => {
           walletActions.openWalletsFromLedger([
             {
               address: addressHex,
-              balance: { available: '0', debonding: '0', escrow: '0', total: '0' },
+              balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
               path: [44, 474, 0, 0, 0],
               publicKey: '00',
               selected: true,

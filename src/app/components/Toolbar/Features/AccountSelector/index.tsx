@@ -103,7 +103,7 @@ export const AccountSelector = memo((props: Props) => {
       key={index}
       index={wallet.id}
       address={wallet.address}
-      balance={wallet.balance.total}
+      balance={wallet.balance.available} // TODO: get total balance
       type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.id === activeWalletIndex}

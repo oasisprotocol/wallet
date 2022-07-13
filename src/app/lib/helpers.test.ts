@@ -73,9 +73,10 @@ describe('parseRpcBalance', () => {
       }),
     ).toEqual({
       available: '19799999999',
-      debonding: '0',
-      escrow: '0',
-      total: '19799999999',
+      validator: {
+        escrow: '0',
+        escrow_debonding: '0',
+      },
     })
   })
 
@@ -101,9 +102,10 @@ describe('parseRpcBalance', () => {
       }),
     ).toEqual({
       available: '11475573433450',
-      debonding: '131199903851726',
-      escrow: '239806259647933506',
-      total: '239948935125218682',
+      validator: {
+        escrow: '239806259647933506',
+        escrow_debonding: '131199903851726',
+      },
     })
   })
 })
