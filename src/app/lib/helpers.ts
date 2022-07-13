@@ -2,6 +2,7 @@ import { bech32 } from 'bech32'
 import { quantity, staking, types } from '@oasisprotocol/client'
 import { WalletBalance } from 'app/state/wallet/types'
 import { decode as base64decode } from 'base64-arraybuffer'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
@@ -20,8 +21,8 @@ export const addressToPublicKey = async (addr: string) => {
   return staking.addressFromBech32(addr)
 }
 
-export const uint2bigintString = (uint: Uint8Array) => quantity.toBigInt(uint).toString()
-export const stringBigint2uint = (number: string) => quantity.fromBigInt(BigInt(number))
+export const uint2bigintString = (uint: Uint8Array): StringifiedBigInt => quantity.toBigInt(uint).toString()
+export const stringBigint2uint = (number: StringifiedBigInt) => quantity.fromBigInt(BigInt(number))
 
 export const isValidAddress = (addr: string) => {
   if (!addr.match(/^oasis1/)) {

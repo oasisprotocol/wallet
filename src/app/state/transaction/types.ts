@@ -56,8 +56,8 @@ export type TransactionPayload = TransferPayload | AddEscrowPayload | ReclaimEsc
 
 export interface TransactionPreview {
   transaction: TransactionPayload
-  fee?: string
-  gas?: string
+  fee?: StringifiedBigInt
+  gas?: StringifiedBigInt
 }
 
 /**
