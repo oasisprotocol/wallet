@@ -26,18 +26,18 @@ describe('<CommissionBounds  />', () => {
 
   it('should match snapshot when empty', () => {
     const component = renderComponent(store)
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 
   it('should match snapshot with provided bounds', () => {
     const component = renderComponent(store, [{ epochStart: 0, lower: 0.1, upper: 0.2, epochEnd: 100 }])
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 
   it('should match snapshot with active bounds', () => {
     store = configureAppStore()
     const component = renderComponent(store, [{ epochStart: 0, lower: 0.1, upper: 0.2, epochEnd: 100 }])
     store.dispatch(networkActions.networkSelected({ epoch: 50 } as NetworkState))
-    expect(component).toMatchSnapshot()
+    expect(component.baseElement).toMatchSnapshot()
   })
 })
