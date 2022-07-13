@@ -59,6 +59,7 @@
         "received": "<0></0> reclaimed by delegator",
         "sent": "Reclaimed <0></0> from validator"
       },
+      "transactionFailed": "Failed",
       "transfer": {
         "received": "Received <0></0>",
         "sent": {
