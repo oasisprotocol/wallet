@@ -141,9 +141,7 @@ describe('<ValidatorList  />', () => {
     userEvent.click(row)
 
     details = screen.getByTestId('validator-item')
-    await waitFor(() =>
-      expect(screen.getByTestId('validator-item-name').textContent).toEqual('test-validator2'),
-    )
+    expect(await screen.findByTestId('validator-item-name')).toHaveTextContent('test-validator2')
     expect(details).toBeVisible()
   })
 })

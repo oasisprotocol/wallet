@@ -1,4 +1,4 @@
-import { screen, waitFor } from '@testing-library/dom'
+import { screen } from '@testing-library/dom'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import * as React from 'react'
@@ -32,7 +32,7 @@ describe('<NetworkSelector  />', () => {
     expect(component.queryByTestId('active-network')).toContainHTML('toolbar.networks.local')
     userEvent.click(screen.getByTestId('network-selector'))
 
-    await waitFor(() => expect(screen.getByText('toolbar.networks.testnet')))
+    expect(await screen.findByText('toolbar.networks.testnet')).toBeInTheDocument()
     screen.getByText('toolbar.networks.testnet').click()
 
     expect(dispatchSpy).toHaveBeenCalledWith({
