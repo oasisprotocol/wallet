@@ -46,8 +46,8 @@ describe('<ActiveDelegationList  />', () => {
     expect(component.baseElement).toMatchSnapshot()
 
     // @TODO expect no rounding issues
-    expect(screen.queryByText('7.000000000000001%')).toBeTruthy()
-    expect(screen.queryByText('7%')).toBeFalsy()
+    expect(screen.getByText('7.000000000000001%')).toBeInTheDocument()
+    expect(screen.queryByText('7%')).not.toBeInTheDocument()
   })
 
   it('should expand and display the delegation on click', async () => {

@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { fatalErrorActions } from 'app/state/fatalerror'
 import * as React from 'react'
 import { Provider } from 'react-redux'
@@ -33,6 +33,6 @@ describe('<FatalErrorHandler />', () => {
     renderComponent(store)
     store.dispatch(fatalErrorActions.setError({ message: 'dummy-message' }))
 
-    await waitFor(() => expect(screen.queryByTestId('fatalerror-stacktrace')).toContainHTML('dummy-message'))
+    expect(await screen.findByTestId('fatalerror-stacktrace')).toHaveTextContent('dummy-message')
   })
 })
