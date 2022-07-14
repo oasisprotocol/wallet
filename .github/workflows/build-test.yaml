@@ -75,7 +75,7 @@ jobs:
         with:
           url: 'http://localhost:3000/'
           expected-status: 200
-          timeout: 2000
+          timeout: 20000
           interval: 500
       - run: yarn cypress:run
       - name: 'Upload coverage report'
