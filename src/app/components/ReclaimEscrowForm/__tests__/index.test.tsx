@@ -78,15 +78,15 @@ describe('<ReclaimEscrowForm />', () => {
     } as ReturnType<typeof transactionActions.reclaimEscrow>)
   })
 
-  it('reclaim all should not lose precision', () => {
+  it('reclaim all should work without losing precision', () => {
     const spy = jest.spyOn(store, 'dispatch')
-    renderComponent(store, 'dummy-address', '20000000000000002', '10000000000000001')
+    renderComponent(store, 'dummy-address', '1655615038322038833148', '1563114365108133939632')
     userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaimAll' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {
-        amount: '20000000000000002',
-        shares: '10000000000000001',
+        amount: '1655615038322038833148',
+        shares: '1563114365108133939632',
         type: 'reclaimEscrow',
         validator: 'dummy-address',
       },

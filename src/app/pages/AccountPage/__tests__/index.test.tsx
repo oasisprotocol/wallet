@@ -91,4 +91,18 @@ describe('<AccountPage  />', () => {
     const tabs = await screen.findByRole('navigation')
     expect(tabs.textContent).toMatchSnapshot()
   })
+
+  it('should sum total balance without losing precision', async () => {
+    store = configureAppStore({
+      ...store.getState(),
+      account: {
+        ...store.getState().account,
+        // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
+        available: 1655615038322038833148,
+      },
+    })
+    renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
+    const balance = await screen.findByTestId('account-balance-total')
+    expect(balance).toHaveTextContent('1,655,615,038,322.038834259')
+  })
 })

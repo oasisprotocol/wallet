@@ -22,6 +22,11 @@ describe('parseStringValueToInt', () => {
     expect(parseStringValueToInt('9143.65')).toEqual(9143_650_000_000)
     expect(parseStringValueToInt('5')).toEqual(5_000_000_000)
   })
+
+  it('should parse without losing precision', () => {
+    // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
+    expect(parseStringValueToInt('1563114365108.133939632')).toEqual(1563114365108133939632)
+  })
 })
 
 describe('parsing public key', () => {

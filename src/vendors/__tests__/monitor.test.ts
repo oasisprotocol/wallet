@@ -391,4 +391,26 @@ describe('monitor', () => {
       debonding: parseDebonding(debondingDelegations),
     }).toMatchSnapshot()
   })
+
+  test('parse delegations without losing precision', () => {
+    const delegations = new Map([
+      [
+        new Uint8Array([
+          0, 51, 102, 40, 155, 64, 182, 211, 201, 80, 87, 60, 135, 222, 248, 246, 125, 236, 234, 149, 179,
+        ]),
+        {
+          pool: {
+            balance: new Uint8Array([17, 229, 254, 62, 17, 229, 254, 62, 101, 60, 93]),
+            total_shares: new Uint8Array([16, 229, 254, 62, 19, 229, 254, 62, 101, 60, 93]),
+          },
+          shares: new Uint8Array([84, 188, 145, 201, 84, 188, 145, 201, 176]),
+        },
+      ],
+    ])
+    expect(parseDelegations(delegations)[0]).toEqual({
+      validatorAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+      amount: '1655615038322038833148',
+      shares: '1563114365108133939632',
+    })
+  })
 })
