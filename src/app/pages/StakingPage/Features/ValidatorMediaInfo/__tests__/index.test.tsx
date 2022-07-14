@@ -5,8 +5,17 @@ import { ValidatorMediaInfo } from '..'
 
 describe('<ValidatorMediaInfo />', () => {
   it('should match snapshot', () => {
-    const component = render(<ValidatorMediaInfo mediaInfo={{}} />)
-    expect(component.container.firstChild).toMatchSnapshot()
+    const component = render(
+      <ValidatorMediaInfo
+        mediaInfo={{
+          logotype: 'https://s3.amazonaws.com/s.jpg',
+          website_link: 'https://s.f',
+          twitter_acc: 'https://twitter.com/s',
+          email_address: 's@s.f',
+        }}
+      />,
+    )
+    expect(component.baseElement).toMatchSnapshot()
   })
 
   it('should display a link if the address is valid', () => {
