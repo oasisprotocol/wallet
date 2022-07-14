@@ -163,26 +163,21 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
   })
 }
 
-function getSharePrice(pool: oasis.types.StakingSharePool) {
-  const balance = Number(oasis.quantity.toBigInt(pool.balance!)) / 10 ** 9
-  const share = Number(oasis.quantity.toBigInt(pool.total_shares!)) / 10 ** 9
-  return balance / share
-}
-
 function parseDelegation(
   bytesAddress: Uint8Array,
   delegation: StakingDelegationInfo | StakingDebondingDelegationInfo,
-) {
+): Delegation {
   const address = oasis.address.toBech32('oasis', bytesAddress)
-  const sharePrice = getSharePrice(delegation.pool)
-  const shares = oasis.quantity.toBigInt(delegation.shares)
 
-  const amount = BigInt(Math.round(Number(shares) * sharePrice))
+  const poolAmount = oasis.quantity.toBigInt(delegation.pool.balance!)
+  const poolShares = oasis.quantity.toBigInt(delegation.pool.total_shares!)
+  const shares = oasis.quantity.toBigInt(delegation.shares)
+  const amount = (shares * poolAmount) / poolShares
 
   return {
     validatorAddress: address,
     amount: amount.toString(),
-    shares: oasis.quantity.toBigInt(delegation.shares).toString(),
+    shares: shares.toString(),
   }
 }
 
