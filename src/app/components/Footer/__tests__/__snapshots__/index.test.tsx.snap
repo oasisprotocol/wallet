@@ -1,0 +1,327 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer /> should render mobile version of footer 1`] = `
+.c8 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c8 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c8 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c8 *[stroke*="#"],
+.c8 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c8 *[fill-rule],
+.c8 *[FILL-RULE],
+.c8 *[fill*="#"],
+.c8 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-bottom: 48px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  border-radius: 5px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 6px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.c3 {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.c9 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: inherit;
+  color: #0092f6;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c2:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c5 {
+  background-color: #FFFFFF;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  box-shadow: 0px 0px 1px #EDEDED;
+  border-top: solid 1px #11111108;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-top: 1rem;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c6 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c7 {
+    margin: 3px;
+  }
+}
+
+<footer
+  class="c0"
+>
+  <span
+    class="c1"
+  >
+    Oasis Wallet is fully 
+    <a
+      class="c2"
+      href="https://github.com/oasisprotocol/oasis-wallet-web/"
+    >
+      open source
+    </a>
+     - Feedback and issues are appreciated!
+  </span>
+  <span
+    class="c1"
+  >
+    <a
+      class="c2"
+      href="https://wallet.oasisprotocol.org/t-c"
+    >
+      Terms and Conditions
+    </a>
+  </span>
+  <span
+    class="c3"
+  >
+    Version: 
+    <a
+      class="c2"
+      href="https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000"
+    >
+      sha0000
+    </a>
+     built at 1/1/1970, 12:00:00 AM
+    <div
+      class="c4"
+    >
+      Powered by Oasis Scan API & Oasis gRPC
+    </div>
+  </span>
+  <nav
+    class="c5"
+    data-testid="mobile-footer-navigation"
+  >
+    <a
+      href="/account/dummy"
+    >
+      <span
+        class="c6"
+      >
+        <span
+          class="c7"
+        >
+          <svg
+            aria-label="Money"
+            class="c8"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 16c0-1.105-3.134-2-7-2s-7 .895-7 2 3.134 2 7 2 7-.895 7-2zM2 16v4.937C2 22.077 5.134 23 9 23s7-.924 7-2.063V16M9 5c-4.418 0-8 .895-8 2s3.582 2 8 2M1 7v5c0 1.013 3.582 2 8 2M23 4c0-1.105-3.1-2-6.923-2-3.824 0-6.923.895-6.923 2s3.1 2 6.923 2S23 5.105 23 4zm-7 12c3.824 0 7-.987 7-2V4M9.154 4v10.166M9 9c0 1.013 3.253 2 7.077 2C19.9 11 23 10.013 23 9"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </span>
+        <span
+          class="c9"
+        >
+          Wallet
+        </span>
+      </span>
+    </a>
+    <a
+      href="/account/dummy/stake"
+    >
+      <span
+        class="c6"
+      >
+        <span
+          class="c7"
+        >
+          <svg
+            aria-label="LineChart"
+            class="c8"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m1 16 7-7 5 5L23 4M0 22h23.999M16 4h7v7"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </span>
+        <span
+          class="c9"
+        >
+          Stake
+        </span>
+      </span>
+    </a>
+  </nav>
+</footer>
+`;
