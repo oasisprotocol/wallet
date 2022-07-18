@@ -9,13 +9,13 @@ describe('Scenario : from mnemonic', () => {
   before(function () {
     cy.visit('/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance').then($div => {
+    cy.findByTestId('account-balance-total').then($div => {
       senderBalanceBefore = parseBalance($div.text())
     })
 
     cy.visit('/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance').then($div => {
+    cy.findByTestId('account-balance-total').then($div => {
       recipientBalanceBefore = parseBalance($div.text())
     })
   })
@@ -41,14 +41,14 @@ describe('Scenario : from mnemonic', () => {
   })
 
   it('Should have updated balances', function () {
-    cy.findByTestId('account-balance')
+    cy.findByTestId('account-balance-total')
       .invoke('text')
       .then(parseBalance)
       .should('be.eq', senderBalanceBefore - 10)
 
     cy.visit('/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance')
+    cy.findByTestId('account-balance-total')
       .invoke('text')
       .then(parseBalance)
       .should('be.eq', recipientBalanceBefore + 10)
@@ -62,13 +62,13 @@ describe('Scenario : from private key', () => {
   before(function () {
     cy.visit('/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance').then($div => {
+    cy.findByTestId('account-balance-total').then($div => {
       senderBalanceBefore = parseBalance($div.text())
     })
 
     cy.visit('/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance').then($div => {
+    cy.findByTestId('account-balance-total').then($div => {
       recipientBalanceBefore = parseBalance($div.text())
     })
   })
@@ -93,14 +93,14 @@ describe('Scenario : from private key', () => {
   })
 
   it('Should have updated balances', function () {
-    cy.findByTestId('account-balance')
+    cy.findByTestId('account-balance-total')
       .invoke('text')
       .then(parseBalance)
       .should('be.eq', senderBalanceBefore - 10)
 
     cy.visit('/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
     cy.contains('Loading account').should('not.exist')
-    cy.findByTestId('account-balance')
+    cy.findByTestId('account-balance-total')
       .invoke('text')
       .then(parseBalance)
       .should('be.eq', recipientBalanceBefore + 10)

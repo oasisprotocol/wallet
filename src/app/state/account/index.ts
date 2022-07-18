@@ -6,7 +6,10 @@ import { AccountState, Account } from './types'
 
 export const initialState: AccountState = {
   address: '',
-  liquid_balance: 0,
+  available: null,
+  debonding: null,
+  delegations: null,
+  total: null,
 
   accountError: undefined,
   transactions: [],
@@ -35,6 +38,8 @@ const slice = createSlice({
     },
     transactionsError(state, action: PayloadAction<ErrorPayload>) {
       state.transactionsError = action.payload
+      // TODO: keep old state if loading the same account
+      state.transactions = []
     },
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload

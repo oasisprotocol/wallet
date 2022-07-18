@@ -3,7 +3,10 @@
 exports[`oasisscan parse account 1`] = `
 Object {
   "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
-  "liquid_balance": 756455428396,
+  "available": 756455428396,
+  "debonding": null,
+  "delegations": null,
+  "total": null,
 }
 `;
 

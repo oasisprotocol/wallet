@@ -14,7 +14,7 @@ export const ActiveDelegationList = () => {
       <Heading margin="none" size="small">
         {t('delegations.activeDelegations', 'Active delegations')}
       </Heading>
-      <DelegationList type="active" delegations={delegations} />
+      <DelegationList type="active" delegations={delegations ?? []} />
     </Box>
   )
 }

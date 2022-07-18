@@ -69,7 +69,10 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    liquid_balance: parseStringValueToInt(account.available),
+    available: parseStringValueToInt(account.available),
+    delegations: null,
+    debonding: null,
+    total: null,
   }
 }
 

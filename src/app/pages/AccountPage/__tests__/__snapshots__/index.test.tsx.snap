@@ -1,6 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AccountPage  /> should match snapshot 1`] = `
+.c7 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c7 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c7 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c7 *[stroke*="#"],
+.c7 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c7 *[fill-rule],
+.c7 *[FILL-RULE],
+.c7 *[fill*="#"],
+.c7 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,9 +47,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  padding: 12px;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -27,10 +62,28 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: solid 1px #EDEDED;
   min-width: 0;
   min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  border-radius: 5px;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 12px;
 }
 
 .c4 {
@@ -45,63 +98,196 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  padding: 12px;
 }
 
-.c7 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: solid 1px #0092f6;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin: 0px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  background-color: #FFFFFF;
-  color: #444444;
-  border: solid 1px #EDEDED;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 12px;
   border-radius: 5px;
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-bottom: 12px;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: rgba(76,212,169,0.25);
+  border-left: solid 3px #4cd4a9;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background-color: #FFFFFF;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 6px;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  border-bottom: solid 2px #4db3f9;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  border-bottom: solid 2px #11111133;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+}
+
+.c22 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 300px;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  -webkit-flex-basis: 25%;
+  -ms-flex-preferred-size: 25%;
+  flex-basis: 25%;
+}
+
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,7 +304,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c11 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -133,7 +319,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c13 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -148,7 +334,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c17 {
+.c31 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -167,7 +353,70 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c16 {
+.c34 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  -webkit-flex-basis: 75%;
+  -ms-flex-preferred-size: 75%;
+  flex-basis: 75%;
+}
+
+.c35 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 0px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c36 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  color: #444444;
+  border: solid 1px #EDEDED;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 48px;
+  border-radius: 5px;
+}
+
+.c19 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c30 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -177,7 +426,50 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c18 {
+.c33 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c8 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.c11 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: bold;
+}
+
+.c13 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c15 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c26 {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c6 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -188,13 +480,73 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #7D4CDB;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+  line-height: 0;
+  padding: 12px;
+}
+
+.c6:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c6:focus > circle,
+.c6:focus > ellipse,
+.c6:focus > line,
+.c6:focus > path,
+.c6:focus > polygon,
+.c6:focus > polyline,
+.c6:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c6:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c6:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c6:focus:not(:focus-visible) > circle,
+.c6:focus:not(:focus-visible) > ellipse,
+.c6:focus:not(:focus-visible) > line,
+.c6:focus:not(:focus-visible) > path,
+.c6:focus:not(:focus-visible) > polygon,
+.c6:focus:not(:focus-visible) > polyline,
+.c6:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c6:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c32 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
   border-radius: 18px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #7D4CDB;
+  background-color: #0092f6;
   color: #f8f8f8;
   border-radius: 18px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -203,66 +555,69 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
-.c18:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
+.c32:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c18:focus {
+.c32:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c18:focus > circle,
-.c18:focus > ellipse,
-.c18:focus > line,
-.c18:focus > path,
-.c18:focus > polygon,
-.c18:focus > polyline,
-.c18:focus > rect {
+.c32:focus > circle,
+.c32:focus > ellipse,
+.c32:focus > line,
+.c32:focus > path,
+.c32:focus > polygon,
+.c32:focus > polyline,
+.c32:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c18:focus::-moz-focus-inner {
+.c32:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c5 {
-  margin: 0px;
-  font-size: 18px;
-  line-height: 24px;
-  max-width: 432px;
+.c32:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c32:focus:not(:focus-visible) > circle,
+.c32:focus:not(:focus-visible) > ellipse,
+.c32:focus:not(:focus-visible) > line,
+.c32:focus:not(:focus-visible) > path,
+.c32:focus:not(:focus-visible) > polygon,
+.c32:focus:not(:focus-visible) > polyline,
+.c32:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c32:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c37 {
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
   font-weight: 600;
 }
 
-.c6 {
-  margin: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
-  font-weight: 600;
-}
-
-.c12 {
-  margin-left: 12px;
-  margin-right: 12px;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c2 {
+.c9 {
   display: grid;
   box-sizing: border-box;
-  grid-template-columns: 3fr 2fr;
-  grid-gap: 12px 12px;
-  padding: 12px;
+  grid-template-columns: max-content auto;
+  grid-column-gap: 24px;
+  padding-top: 12px;
 }
 
-.c15 {
+.c29 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -280,33 +635,33 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: none;
 }
 
-.c15::-webkit-input-placeholder {
+.c29::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c15::-moz-placeholder {
+.c29::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c15:-ms-input-placeholder {
+.c29:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c15::-webkit-search-decoration {
+.c29::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c15::-moz-focus-inner {
+.c29::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c15:-moz-placeholder,
-.c15::-moz-placeholder {
+.c29:-moz-placeholder,
+.c29::-moz-placeholder {
   opacity: 1;
 }
 
-.c14 {
+.c28 {
   position: relative;
   width: 100%;
 }
@@ -315,106 +670,260 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-family: Rubik;
   font-size: 18px;
   line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
+}
+
+.c21 {
+  position: relative;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c21.fade-enter {
+  opacity: 0;
+}
+
+.c21.fade-enter-active {
+  opacity: 1;
+}
+
+.c21.fade-exit {
+  opacity: 1;
+}
+
+.c21.fade-exit-active {
+  opacity: 0;
 }
 
 @media only screen and (max-width:768px) {
-  .c3 {
-    border: solid 1px #EDEDED;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c4 {
+  .c1 {
     padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c8 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c9 {
-    border: solid 1px #EDEDED;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    padding: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c11 {
-    margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c13 {
-    border-bottom: solid 1px rgba(0,0,0,0.33);
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c17 {
-    margin-top: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c16 {
-    height: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    font-size: 16px;
-    line-height: 22px;
-    max-width: 384px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c6 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c6 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c2 {
+    border: solid 1px #EDEDED;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
     padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    border: solid 1px #0092f6;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
+    padding-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c12 {
+    padding-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
+    border-left: solid 3px #4cd4a9;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    border-bottom: solid 2px #4db3f9;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    padding-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c20 {
+    border-bottom: solid 2px #11111133;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c20 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c20 {
+    padding-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c22 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c24 {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c25 {
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c27 {
+    border-bottom: solid 1px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c31 {
+    margin-top: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c35 {
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c36 {
+    border: solid 1px #EDEDED;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c36 {
+    padding: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c19 {
+    width: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c30 {
+    height: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c33 {
+    width: auto;
+    height: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c37 {
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 432px;
   }
 }
 
 <div
   class="c0"
+  style="min-height: 100vh;"
 >
   <div
     class="c1"
@@ -428,117 +937,291 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         <div
           class="c4"
         >
-          <h4
-            class="c5"
-          />
-          <h2
-            class="c6"
-          >
-            <span>
-              0
-            </span>
-            ROSE
-          </h2>
-          <h4
-            class="c5"
-          >
-            1 ROSE = $0.1358
-          </h4>
-        </div>
-        <div
-          class="c7"
-        />
-      </div>
-      <div
-        class="c1"
-      />
-      <div
-        class="c8"
-      />
-      <div
-        class="c9"
-      >
-        <form>
           <div
-            class="c10"
+            class="c5"
+          >
+            <button
+              class="c6"
+              type="button"
+            >
+              <svg
+                aria-label="Copy"
+                class="c7"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 15h8-8zm0-4h10H9zm0-4h4-4zm7-6v6h6M6 5H2v18h16v-4m4 0H6V1h11l5 5v13z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+            <span
+              class="c8"
+            >
+              oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
+            </span>
+          </div>
+          <div
+            class="c9"
+            data-testid="account-balance-summary"
           >
             <div
-              class="c11 "
+              class="c10"
             >
-              <label
-                class="c12"
-                for="recipient-id"
+              <span
+                class="c11"
               >
-                Recipient
-              </label>
-              <div
-                class="c13 "
-              >
-                <div
-                  class="c14"
-                >
-                  <input
-                    autocomplete="off"
-                    class="c15"
-                    id="recipient-id"
-                    name="recipient"
-                    placeholder="Enter an address"
-                    required=""
-                    value=""
-                  />
-                </div>
-              </div>
+                Total balance
+              </span>
             </div>
             <div
-              class="c16"
-            />
-            <div
-              class="c11 "
+              class="c12"
             >
-              <label
-                class="c12"
-                for="amount-id"
+              <span
+                class="c11"
+                data-testid="account-balance-total"
               >
-                Amount
-              </label>
-              <div
-                class="c13 "
-              >
-                <div
-                  class="c14"
-                >
-                  <input
-                    autocomplete="off"
-                    class="c15"
-                    id="amount-id"
-                    min="0"
-                    name="amount"
-                    placeholder="0"
-                    required=""
-                    type="float"
-                    value=""
-                  />
-                </div>
-              </div>
+                100.00000111130001
+                 
+                
+              </span>
             </div>
             <div
-              class="c16"
-            />
-            <div
-              class="c17"
+              class="c4"
             >
-              <button
-                class="c18"
-                style="border-radius: 4px;"
-                type="submit"
+              Available
+            </div>
+            <div
+              class="c4"
+            >
+              <span
+                class="c13"
               >
-                Send
-              </button>
+                100.0
+                 
+                
+              </span>
+            </div>
+            <div
+              class="c4"
+            >
+              Staked
+            </div>
+            <div
+              class="c4"
+            >
+              <span
+                class="c13"
+              >
+                0.0000011113
+                 
+                
+              </span>
+            </div>
+            <div
+              class="c4"
+            >
+              Debonding
+            </div>
+            <div
+              class="c4"
+            >
+              <span
+                class="c13"
+              >
+                0.0
+                 
+                
+              </span>
             </div>
           </div>
-        </form>
+        </div>
+      </div>
+      <div
+        class="c14"
+      >
+        <span
+          class="c15"
+        >
+          This is your account.
+        </span>
+      </div>
+    </div>
+    <nav
+      class="c16"
+    >
+      <a
+        aria-current="page"
+        class="active"
+        href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk"
+      >
+        <div
+          class="c17"
+        >
+          <div
+            class="c18"
+          >
+            Transactions
+          </div>
+        </div>
+      </a>
+      <div
+        class="c19"
+      />
+      <a
+        href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/active-delegations"
+      >
+        <div
+          class="c17"
+        >
+          <div
+            class="c20"
+          >
+            Active delegations (1)
+          </div>
+        </div>
+      </a>
+      <div
+        class="c19"
+      />
+      <a
+        href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/debonding-delegations"
+      >
+        <div
+          class="c17"
+        >
+          <div
+            class="c20"
+          >
+            Debonding delegations (0)
+          </div>
+        </div>
+      </a>
+    </nav>
+    <div>
+      <div
+        class="c21"
+      >
+        <div
+          class="c22"
+        >
+          <div
+            class="c23"
+          >
+            <div
+              class="c2"
+            >
+              <form>
+                <div
+                  class="c24"
+                >
+                  <div
+                    class="c25 "
+                  >
+                    <label
+                      class="c26"
+                      for="recipient-id"
+                    >
+                      Recipient
+                    </label>
+                    <div
+                      class="c27 FormField__FormFieldContentBox-sc-m9hood-1"
+                    >
+                      <div
+                        class="c28"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="c29"
+                          id="recipient-id"
+                          name="recipient"
+                          placeholder="Enter an address"
+                          required=""
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c30"
+                  />
+                  <div
+                    class="c25 "
+                  >
+                    <label
+                      class="c26"
+                      for="amount-id"
+                    >
+                      Amount
+                    </label>
+                    <div
+                      class="c27 FormField__FormFieldContentBox-sc-m9hood-1"
+                    >
+                      <div
+                        class="c28"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="c29"
+                          id="amount-id"
+                          min="0"
+                          name="amount"
+                          placeholder="0"
+                          required=""
+                          step="any"
+                          type="number"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="c30"
+                  />
+                  <div
+                    class="c31"
+                  >
+                    <button
+                      class="c32"
+                      style="border-radius: 4px;"
+                      type="submit"
+                    >
+                      Send
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div
+            class="c33"
+          />
+          <div
+            class="c34"
+          >
+            <div
+              class="c35"
+            >
+              <div
+                class="c36"
+              >
+                <h3
+                  class="c37"
+                >
+                  No transactions found.
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 `;
+
+exports[`<AccountPage  /> with missing delegations 1`] = `"Total balance-Available100.0 Staked-Debonding-"`;
+
+exports[`<AccountPage  /> with missing delegations 2`] = `"TransactionsActive delegations ()Debonding delegations ()"`;

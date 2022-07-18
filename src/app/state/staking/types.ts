@@ -63,10 +63,10 @@ export interface StakingState {
   updateValidatorsError?: ErrorPayload
 
   /** List of active delegations for the selected account */
-  delegations: Delegation[]
+  delegations: Delegation[] | null
 
   /** List of debonding delegations for the selected account */
-  debondingDelegations: DebondingDelegation[]
+  debondingDelegations: DebondingDelegation[] | null
 
   /** Error from fetching delegations */
   updateDelegationsError?: ErrorPayload

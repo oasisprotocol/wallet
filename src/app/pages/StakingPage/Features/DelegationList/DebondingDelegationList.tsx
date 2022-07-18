@@ -14,7 +14,7 @@ export const DebondingDelegationList = () => {
       <Heading margin="none" size="small">
         {t('delegations.debondingDelegations', 'Debonding delegations')}
       </Heading>
-      <DelegationList type="debonding" delegations={delegations} />
+      <DelegationList type="debonding" delegations={delegations ?? []} />
     </Box>
   )
 }

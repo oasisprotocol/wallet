@@ -12,7 +12,7 @@ import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { walletActions } from 'app/state/wallet'
-import { Box, Layer, Spinner, Text } from 'grommet'
+import { Box, Layer, Nav, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -86,13 +86,17 @@ export function AccountPage(props: Props) {
   const wallets = useSelector(selectWallets)
   const walletsPublicKeys = useSelector(selectWalletsPublicKeys)
 
-  const balanceDelegations = stake.delegations.reduce((acc, v) => acc + Number(v.amount), 0)
-  const balanceDebondingDelegations = stake.debondingDelegations.reduce((acc, v) => acc + Number(v.amount), 0)
+  const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + Number(v.amount), 0) ?? null
+  const balanceDebondingDelegations =
+    stake.debondingDelegations?.reduce((acc, v) => acc + Number(v.amount), 0) ?? null
   const balance: BalanceDetails = {
-    available: account.liquid_balance ?? 0,
+    available: account.available,
     delegations: balanceDelegations, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
     debonding: balanceDebondingDelegations, //@TODO oasis-explorer : account.delegations_balance ?? 0,
-    total: (account.liquid_balance ?? 0) + balanceDelegations + balanceDebondingDelegations,
+    total:
+      account.available == null || balanceDelegations == null || balanceDebondingDelegations == null
+        ? null
+        : account.available + balanceDelegations + balanceDebondingDelegations,
   }
 
   // Reload account balances if address or network changes
@@ -147,7 +151,7 @@ export function AccountPage(props: Props) {
             walletAddress={walletAddress}
             walletIsOpen={walletIsOpen}
           />
-          <Box background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
+          <Nav background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
             <NavItem
               route={`/account/${address}`}
               label={t('account.subnavigation.transactions', 'Transactions')}
@@ -155,16 +159,16 @@ export function AccountPage(props: Props) {
             <NavItem
               route={`/account/${address}/active-delegations`}
               label={t('account.subnavigation.activeDelegations', 'Active delegations ({{count}})', {
-                count: stake.delegations.length,
+                count: stake.delegations?.length ?? null!,
               })}
             />
             <NavItem
               route={`/account/${address}/debonding-delegations`}
               label={t('account.subnavigation.debondingDelegations', 'Debonding delegations ({{count}})', {
-                count: stake.debondingDelegations.length,
+                count: stake.debondingDelegations?.length ?? null!,
               })}
             />
-          </Box>
+          </Nav>
           <TransitionGroup>
             <Switch>
               <TransitionRoute exact path="/account/:address" component={AccountDetails} />

@@ -70,7 +70,10 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    liquid_balance: account.liquid_balance,
+    available: account.liquid_balance,
+    delegations: null,
+    debonding: null,
+    total: null,
   }
 }
 
@@ -116,7 +119,7 @@ function computeCurrentRate(currentEpoch: number, rawRates: ValidatorCommissionS
     .filter(b => !b.epochEnd || b.epochEnd > currentEpoch)
 
   if (!rates.length) {
-    return undefined
+    return 0
   }
   return rates[rates.length - 1].rate
 }

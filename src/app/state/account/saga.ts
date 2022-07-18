@@ -33,7 +33,15 @@ export function* fetchAccount(action: PayloadAction<string>) {
           try {
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
             const balance = parseRpcBalance(account)
-            yield put(actions.accountLoaded({ address, liquid_balance: parseFloat(balance.available) }))
+            yield put(
+              actions.accountLoaded({
+                address,
+                available: parseFloat(balance.available),
+                delegations: null,
+                debonding: null,
+                total: null,
+              }),
+            )
           } catch (rpcError) {
             console.error('get account with RPC failed, continuing without updated account.', rpcError)
             if (apiError instanceof WalletError) {
