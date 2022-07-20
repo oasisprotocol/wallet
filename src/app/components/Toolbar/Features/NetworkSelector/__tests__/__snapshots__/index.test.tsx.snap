@@ -134,6 +134,7 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
   aria-haspopup="menu"
   aria-label="Open Menu"
   class="c0"
+  style="border: 0px;"
   type="button"
 >
   <div

@@ -141,11 +141,14 @@ interface SidebarFooterProps {
   size: Size
 }
 
+export const smallSizeLogo = 30
+export const mediumSizeLogo = 40
+
 const SidebarHeader = (props: SidebarHeaderProps) => {
   const size = props.size
   const sizeLogo = {
-    small: '30px',
-    medium: '40px',
+    small: `${smallSizeLogo}px`,
+    medium: `${mediumSizeLogo}px`,
     large: 'medium',
   }
 
@@ -273,9 +276,6 @@ export function Sidebar() {
       pad={{ left: 'none', right: 'none', vertical: 'medium' }}
       gap="small"
       width={size === 'medium' ? undefined : '220px'}
-      border={{ side: 'end' }}
-      // direction={size === 'small' ? 'row' : undefined}
-      // height={size === 'small' ? '64px' : undefined}
     >
       <SidebarMenuItems />
     </GSidebar>
@@ -299,7 +299,8 @@ export function Navigation() {
     <>
       {size === 'small' && (
         <Box
-          background="component-sidebar"
+          background="background-front"
+          border={{ color: 'background-contrast', side: 'bottom' }}
           height="64px"
           fill="horizontal"
           direction="row"

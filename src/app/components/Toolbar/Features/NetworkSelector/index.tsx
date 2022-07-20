@@ -57,6 +57,8 @@ export const NetworkSelector = memo((props: Props) => {
 
   return (
     <Menu
+      size="small"
+      style={{ border: 0 }}
       dropProps={{
         align: { top: 'bottom', left: 'left' },
         elevation: 'xlarge',

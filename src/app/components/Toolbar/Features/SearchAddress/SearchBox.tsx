@@ -23,11 +23,12 @@ const RightIconButton = styled(Button)`
  */
 export const SearchBox = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
   const { placeholder, value, onChange, onClear, ...rest } = props
-  const borderRadius = '30px'
+  const borderRadius = '5px'
   return (
     <Box
+      background={{ color: 'background-front' }}
       round={borderRadius}
-      border={{ size: '1px' }}
+      border={{ color: 'background-front-border', size: 'xsmall' }}
       fill="vertical"
       justify="center"
       align="center"

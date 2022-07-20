@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import * as React from 'react'
 import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { configureAppStore } from 'store/configureStore'
 
 import { Toolbar } from '..'
@@ -13,7 +14,9 @@ jest.mock('react-redux', () => ({
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <Toolbar />
+      <ThemeProvider>
+        <Toolbar />
+      </ThemeProvider>
     </Provider>,
   )
 

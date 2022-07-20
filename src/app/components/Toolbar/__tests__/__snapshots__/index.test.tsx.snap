@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Toolbar  /> should match snapshot 1`] = `
-.c7 {
+.c6 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,45 +12,27 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   stroke: #666666;
 }
 
-.c7 g {
+.c6 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c7 *:not([stroke])[fill="none"] {
+.c6 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c7 *[stroke*="#"],
-.c7 *[STROKE*="#"] {
+.c6 *[stroke*="#"],
+.c6 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c7 *[fill-rule],
-.c7 *[FILL-RULE],
-.c7 *[fill*="#"],
-.c7 *[FILL*="#"] {
+.c6 *[fill-rule],
+.c6 *[FILL-RULE],
+.c6 *[fill*="#"],
+.c6 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  background: component-toolbar;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  min-height: auto;
-  width: 100%;
-  padding: 12px;
 }
 
 .c1 {
@@ -62,38 +44,9 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   max-width: 100%;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border: solid 1px rgba(0,0,0,0.33);
-  min-width: 0;
-  min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  max-width: 600px;
-  height: 100%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border-radius: 30px;
 }
 
 .c5 {
@@ -103,25 +56,24 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-left: 36px;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 12px;
 }
 
-.c12 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  border: solid 1px rgba(0,0,0,0.33);
+  background-color: transparent;
+  color: #444444;
+  border: solid none #EDEDED;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -131,110 +83,10 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
-.c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 12px;
-}
-
-.c11 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  width: 12px;
-}
-
-.c15 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  width: 12px;
-}
-
-.c16 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c9 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  color: inherit;
-  outline: none;
-  border: none;
-  padding: 0;
-  text-align: inherit;
-  line-height: 0;
-  padding: 12px;
-}
-
-.c9:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c9:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c13 {
+.c4 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -258,293 +110,134 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c13:focus {
+.c4:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus > circle,
-.c13:focus > ellipse,
-.c13:focus > line,
-.c13:focus > path,
-.c13:focus > polygon,
-.c13:focus > polyline,
-.c13:focus > rect {
+.c4:focus > circle,
+.c4:focus > ellipse,
+.c4:focus > line,
+.c4:focus > path,
+.c4:focus > polygon,
+.c4:focus > polyline,
+.c4:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus::-moz-focus-inner {
+.c4:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c13:focus:not(:focus-visible) {
+.c4:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,
-.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,
-.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,
-.c13:focus:not(:focus-visible) > polyline,
-.c13:focus:not(:focus-visible) > rect {
+.c4:focus:not(:focus-visible) > circle,
+.c4:focus:not(:focus-visible) > ellipse,
+.c4:focus:not(:focus-visible) > line,
+.c4:focus:not(:focus-visible) > path,
+.c4:focus:not(:focus-visible) > polygon,
+.c4:focus:not(:focus-visible) > polyline,
+.c4:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible)::-moz-focus-inner {
+.c4:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c8 {
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
   box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  border: none;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
-  width: 100%;
-  padding: 11px;
-  font-weight: 600;
-  margin: 0;
-  border: 1px solid rgba(0,0,0,0.33);
-  border-radius: 4px;
-  outline: none;
-  border: none;
-  padding-left: 48px;
-}
-
-.c8:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c8:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c8::-webkit-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c8::-moz-placeholder {
-  color: #AAAAAA;
-}
-
-.c8:-ms-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c8::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-.c8::-moz-focus-inner {
-  border: none;
-  outline: none;
-}
-
-.c8:-moz-placeholder,
-.c8::-moz-placeholder {
-  opacity: 1;
-}
-
-.c3 {
-  position: relative;
-  width: 100%;
-}
-
-.c4 {
-  position: absolute;
-  left: 11px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.c6 {
-  position: absolute;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-packjustify: center;
-  -webkit-justify: center;
-  -ms-flex-packjustify: center;
-  justify: center;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  pointer-events: none;
-  left: 12px;
-}
-
-.c10 {
-  margin-left: calc(-12px - 24px - 12px);
-  z-index: 1;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media only screen and (max-width:768px) {
-  .c0 {
-    padding: 6px;
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    border: solid none #EDEDED;
+  }
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (min-width:768px) {
+  .c2 {
+    padding: 12px 12px 0;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c2 {
-    border: solid 1px rgba(0,0,0,0.33);
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    margin-left: 36px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c12 {
-    border: solid 1px rgba(0,0,0,0.33);
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c11 {
-    width: 6px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: 6px;
   }
 }
 
 <div
   class="c0"
+  style="min-height: 100vh;"
 >
   <div
-    class="c1"
+    class="c1 c2"
   >
-    <form>
-      <div
-        class="c2"
+    <div
+      class="c3"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        aria-label="Open Menu"
+        class="c4"
+        style="border: 0px;"
+        type="button"
       >
         <div
-          class="c3"
-        >
-          <div
-            class="c4"
-          >
-            <div
-              class="c5"
-              style="text-overflow: ellipsis;"
-            >
-              toolbar.search.placeholder
-            </div>
-          </div>
-          <div
-            class="c6"
-          >
-            <svg
-              aria-label="Search"
-              class="c7"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="m15 15 7 7-7-7zm-5.5 2a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15z"
-                fill="none"
-                stroke="#000"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
-          <input
-            autocomplete="off"
-            class="c8"
-            data-testid="searchaddress"
-            style="border-radius: 30px;"
-            value=""
-          />
-        </div>
-        <button
-          class="c9 c10"
-          style="visibility: hidden;"
-          type="button"
+          class="c5"
+          data-testid="network-selector"
         >
           <svg
-            aria-label="FormClose"
-            class="c7"
+            aria-label="Network"
+            class="c6"
             viewBox="0 0 24 24"
           >
             <path
-              d="m7 7 10 10M7 17 17 7"
+              d="M7.5 7v8.514c0 4.243 5.5 2.829 5.5 6.6V24m-2-14L7.5 7 4 10m12.5-8v8.44c0 4.068-3.5 2.712-3.5 6.328V24m0-19 3.5-3L20 5"
               fill="none"
               stroke="#000"
               stroke-width="2"
             />
           </svg>
-        </button>
-      </div>
-    </form>
-  </div>
-  <div
-    class="c11"
-  />
-  <div
-    class="c12"
-  >
-    <button
-      aria-expanded="false"
-      aria-haspopup="menu"
-      aria-label="Open Menu"
-      class="c13"
-      type="button"
-    >
-      <div
-        class="c14"
-        data-testid="network-selector"
-      >
-        <svg
-          aria-label="Network"
-          class="c7"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M7.5 7v8.514c0 4.243 5.5 2.829 5.5 6.6V24m-2-14L7.5 7 4 10m12.5-8v8.44c0 4.068-3.5 2.712-3.5 6.328V24m0-19 3.5-3L20 5"
-            fill="none"
-            stroke="#000"
-            stroke-width="2"
-          />
-        </svg>
-        <div
-          class="c15"
-        />
-        <span
-          class="c16"
-          data-testid="active-network"
-        />
-      </div>
-    </button>
+        </div>
+      </button>
+    </div>
   </div>
 </div>
 `;
