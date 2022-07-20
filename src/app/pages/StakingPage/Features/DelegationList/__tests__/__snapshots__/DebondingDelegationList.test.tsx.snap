@@ -52,6 +52,12 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
+.c16 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c1 {
   margin: 0px;
   font-size: 34px;
@@ -174,11 +180,11 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c16 {
+.c17 {
   font-weight: 400;
 }
 
-.c16 div:first-child {
+.c17 div:first-child {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -487,11 +493,12 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                   role="gridcell"
                 >
                   0.0
-                   
-                  
+                  <span
+                    class="c16"
+                  />
                 </div>
                 <div
-                  class="c14 c9 c16 rdt_TableCell"
+                  class="c14 c9 c17 rdt_TableCell"
                   data-tag="allowRowEvents"
                   id="cell-epoch-test-validator"
                   role="gridcell"

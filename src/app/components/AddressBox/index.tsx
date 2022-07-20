@@ -22,14 +22,7 @@ export const AddressBox = memo((props: Props) => {
   }
 
   return (
-    <Box
-      direction="row"
-      align="center"
-      round="5px"
-      border={{ color: 'brand' }}
-      pad={{ right: 'small' }}
-      width="fit-content"
-    >
+    <Box direction="row" align="center" round="5px" pad={{ right: 'small' }} width="fit-content">
       <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} />
       <Text weight="bold" size="medium" wordBreak="break-word">
         <PrettyAddress address={address} />

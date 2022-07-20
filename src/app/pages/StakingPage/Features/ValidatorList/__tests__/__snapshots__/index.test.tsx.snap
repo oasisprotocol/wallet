@@ -174,7 +174,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: none;
 }
 
-.c18 {
+.c19 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -185,25 +185,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #FF4040;
 }
 
-.c18 g {
+.c19 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c18 *:not([stroke])[fill="none"] {
+.c19 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c18 *[stroke*="#"],
-.c18 *[STROKE*="#"] {
+.c19 *[stroke*="#"],
+.c19 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c18 *[fill-rule],
-.c18 *[FILL-RULE],
-.c18 *[fill*="#"],
-.c18 *[FILL*="#"] {
+.c19 *[fill-rule],
+.c19 *[FILL-RULE],
+.c19 *[fill*="#"],
+.c19 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -223,6 +223,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 24px;
+}
+
+.c18 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c3 {
@@ -688,8 +694,9 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               0
-               
-              
+              <span
+                class="c18"
+              />
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"
@@ -719,7 +726,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
             >
               <svg
                 aria-label="Status is critical"
-                class="c18"
+                class="c19"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -745,8 +752,9 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               0
-               
-              
+              <span
+                class="c18"
+              />
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"
@@ -776,7 +784,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
             >
               <svg
                 aria-label="Status is unknown"
-                class="c18"
+                class="c19"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -802,8 +810,9 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               0
-               
-              
+              <span
+                class="c18"
+              />
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"

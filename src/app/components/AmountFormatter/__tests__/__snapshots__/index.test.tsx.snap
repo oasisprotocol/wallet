@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AmountFormatter /> should render component 1`] = `
+.c0 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+<div>
+  456.542341274
+  <span
+    class="c0"
+  >
+    ROSE
+  </span>
+</div>
+`;
+
+exports[`<AmountFormatter /> should render component with small ticker 1`] = `
+.c0 {
+  margin-left: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #a3a3a3;
+  font-weight: 600;
+}
+
+<div>
+  456.542341274
+  <span
+    class="c0"
+  >
+    ROSE
+  </span>
+</div>
+`;

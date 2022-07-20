@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AccountPage  /> should match snapshot 1`] = `
-.c7 {
+.c10 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,25 +12,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   stroke: #666666;
 }
 
-.c7 g {
+.c10 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c7 *:not([stroke])[fill="none"] {
+.c10 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c7 *[stroke*="#"],
-.c7 *[STROKE*="#"] {
+.c10 *[stroke*="#"],
+.c10 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c7 *[fill-rule],
-.c7 *[FILL-RULE],
-.c7 *[fill*="#"],
-.c7 *[FILL*="#"] {
+.c10 *[fill-rule],
+.c10 *[FILL-RULE],
+.c10 *[fill*="#"],
+.c10 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -57,108 +57,15 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: #FFFFFF;
-  color: #444444;
-  border: solid 1px #EDEDED;
+  margin-bottom: 12px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  border-radius: 5px;
 }
 
 .c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-  padding: 12px;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border: solid 1px #0092f6;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding-right: 12px;
-  border-radius: 5px;
-}
-
-.c10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-bottom: 12px;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding-bottom: 12px;
-}
-
-.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -178,7 +85,66 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-bottom: 6px;
 }
 
-.c16 {
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  color: #444444;
+  border: solid 1px #EDEDED;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 12px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-right: 12px;
+  border-radius: 5px;
+}
+
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -202,7 +168,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-.c17 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,7 +183,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 6px;
 }
 
-.c18 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -235,7 +201,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-bottom: 3px;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -253,7 +219,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-bottom: 3px;
 }
 
-.c22 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -267,7 +233,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c23 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -287,7 +253,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 25%;
 }
 
-.c24 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -311,21 +277,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 12px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c27 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
   border-bottom: solid 1px rgba(0,0,0,0.33);
   min-width: 0;
   min-height: 0;
@@ -334,7 +285,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c31 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -353,7 +304,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c34 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -372,7 +323,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 75%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -387,7 +338,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c36 {
+.c34 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -406,7 +357,22 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border-radius: 5px;
 }
 
-.c19 {
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.c18 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -416,7 +382,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c30 {
+.c28 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -426,7 +392,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c33 {
+.c31 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -436,31 +402,28 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c8 {
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c11 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
   word-break: break-word;
 }
 
-.c11 {
-  font-size: 26px;
-  line-height: 32px;
-  font-weight: bold;
+.c14 {
+  margin-left: 3px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #a3a3a3;
+  font-weight: 600;
 }
 
-.c13 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c15 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.c26 {
+.c24 {
   margin-left: 12px;
   margin-right: 12px;
   margin-top: 6px;
@@ -469,7 +432,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c6 {
+.c13 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c9 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -489,47 +457,47 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c6:focus {
+.c9:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c6:focus > circle,
-.c6:focus > ellipse,
-.c6:focus > line,
-.c6:focus > path,
-.c6:focus > polygon,
-.c6:focus > polyline,
-.c6:focus > rect {
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c6:focus::-moz-focus-inner {
+.c9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c6:focus:not(:focus-visible) {
+.c9:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c6:focus:not(:focus-visible) > circle,
-.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,
-.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,
-.c6:focus:not(:focus-visible) > polyline,
-.c6:focus:not(:focus-visible) > rect {
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c6:focus:not(:focus-visible)::-moz-focus-inner {
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c32 {
+.c30 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -558,66 +526,58 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c32:hover {
+.c30:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c32:focus {
+.c30:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c32:focus > circle,
-.c32:focus > ellipse,
-.c32:focus > line,
-.c32:focus > path,
-.c32:focus > polygon,
-.c32:focus > polyline,
-.c32:focus > rect {
+.c30:focus > circle,
+.c30:focus > ellipse,
+.c30:focus > line,
+.c30:focus > path,
+.c30:focus > polygon,
+.c30:focus > polyline,
+.c30:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c32:focus::-moz-focus-inner {
+.c30:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c32:focus:not(:focus-visible) {
+.c30:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c32:focus:not(:focus-visible) > circle,
-.c32:focus:not(:focus-visible) > ellipse,
-.c32:focus:not(:focus-visible) > line,
-.c32:focus:not(:focus-visible) > path,
-.c32:focus:not(:focus-visible) > polygon,
-.c32:focus:not(:focus-visible) > polyline,
-.c32:focus:not(:focus-visible) > rect {
+.c30:focus:not(:focus-visible) > circle,
+.c30:focus:not(:focus-visible) > ellipse,
+.c30:focus:not(:focus-visible) > line,
+.c30:focus:not(:focus-visible) > path,
+.c30:focus:not(:focus-visible) > polygon,
+.c30:focus:not(:focus-visible) > polyline,
+.c30:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c32:focus:not(:focus-visible)::-moz-focus-inner {
+.c30:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c37 {
+.c35 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
 }
 
-.c9 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: max-content auto;
-  grid-column-gap: 24px;
-  padding-top: 12px;
-}
-
-.c29 {
+.c27 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -635,33 +595,33 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: none;
 }
 
-.c29::-webkit-input-placeholder {
+.c27::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c29::-moz-placeholder {
+.c27::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c29:-ms-input-placeholder {
+.c27:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c29::-webkit-search-decoration {
+.c27::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c29::-moz-focus-inner {
+.c27::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c29:-moz-placeholder,
-.c29::-moz-placeholder {
+.c27:-moz-placeholder,
+.c27::-moz-placeholder {
   opacity: 1;
 }
 
-.c28 {
+.c26 {
   position: relative;
   width: 100%;
 }
@@ -679,26 +639,52 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c21 {
+.c20 {
   position: relative;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
-.c21.fade-enter {
+.c20.fade-enter {
   opacity: 0;
 }
 
-.c21.fade-enter-active {
+.c20.fade-enter-active {
   opacity: 1;
 }
 
-.c21.fade-exit {
+.c20.fade-exit {
   opacity: 1;
 }
 
-.c21.fade-exit-active {
+.c20.fade-exit-active {
   opacity: 0;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-top: solid 1px #EDEDED;
+  margin: 6px 0 0;
+  padding: 12px 12px 6px;
+}
+
+.c12 dt,
+.c12 dd {
+  margin: 0;
+}
+
+.c12 dt:first-of-type,
+.c12 dd:first-of-type {
+  font-weight: bold;
 }
 
 @media only screen and (max-width:768px) {
@@ -709,132 +695,38 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c2 {
-    border: solid 1px #EDEDED;
+    margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c3 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c3 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    border: solid 1px #0092f6;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    padding-right: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    padding-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c12 {
-    padding-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c14 {
     border-left: solid 3px #4cd4a9;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c3 {
     padding-left: 6px;
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c3 {
     padding-top: 3px;
     padding-bottom: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
-    margin-top: 6px;
-    margin-bottom: 6px;
+  .c5 {
+    border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
-    padding: 3px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c18 {
-    border-bottom: solid 2px #4db3f9;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c18 {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c18 {
-    padding-bottom: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c20 {
-    border-bottom: solid 2px #11111133;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c20 {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c20 {
-    padding-bottom: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c22 {
+  .c6 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -853,71 +745,197 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c24 {
+  .c6 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
+    border-bottom: solid 2px #4db3f9;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
+    padding-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c19 {
+    border-bottom: solid 2px #11111133;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c19 {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c19 {
+    padding-bottom: 2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c21 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c23 {
     padding: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c25 {
-    margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c27 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c31 {
+  .c29 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c35 {
+  .c33 {
     margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c36 {
+  .c34 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c36 {
+  .c34 {
     padding: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c19 {
+  .c18 {
     width: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c30 {
+  .c28 {
     height: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c33 {
+  .c31 {
     width: auto;
     height: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c37 {
+  .c35 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .c12 dt {
+    width: 40%;
+  }
+
+  .c12 dd {
+    width: 60%;
+  }
+
+  .c12 dt:not(:last-of-type),
+  .c12 dd:not(:last-of-type) {
+    margin-bottom: 6px;
+  }
+
+  .c12 dt:first-of-type,
+  .c12 dd:first-of-type {
+    font-size: 22px;
+    line-height: 28px;
+    margin-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c12 dt {
+    width: 30%;
+  }
+
+  .c12 dd {
+    width: 70%;
+    text-align: right;
+  }
+
+  .c12 dt,
+  .c12 dd {
+    font-size: 16px;
+  }
+
+  .c12 dt:not(:last-of-type),
+  .c12 dd:not(:last-of-type) {
+    margin-bottom: 3px;
+  }
+
+  .c12 dt:first-of-type,
+  .c12 dd:first-of-type {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 6px;
   }
 }
 
@@ -934,19 +952,32 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
       <div
         class="c3"
       >
-        <div
+        <span
           class="c4"
         >
+          This is your account.
+        </span>
+      </div>
+    </div>
+    <div
+      class="c5"
+    >
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
           <div
-            class="c5"
+            class="c8"
           >
             <button
-              class="c6"
+              class="c9"
               type="button"
             >
               <svg
                 aria-label="Copy"
-                class="c7"
+                class="c10"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -958,99 +989,64 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               </svg>
             </button>
             <span
-              class="c8"
+              class="c11"
             >
               oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
             </span>
           </div>
-          <div
-            class="c9"
+          <dl
+            class="c12"
             data-testid="account-balance-summary"
           >
-            <div
-              class="c10"
-            >
+            <dt>
               <span
-                class="c11"
+                class="c13"
               >
-                Total balance
+                Total
               </span>
-            </div>
-            <div
-              class="c12"
+            </dt>
+            <dd
+              data-testid="account-balance-total"
             >
+              100.00000111130001
               <span
-                class="c11"
-                data-testid="account-balance-total"
-              >
-                100.00000111130001
-                 
-                
-              </span>
-            </div>
-            <div
-              class="c4"
-            >
+                class="c14"
+              />
+            </dd>
+            <dt>
               Available
-            </div>
-            <div
-              class="c4"
-            >
+            </dt>
+            <dd>
+              100.0
               <span
-                class="c13"
-              >
-                100.0
-                 
-                
-              </span>
-            </div>
-            <div
-              class="c4"
-            >
+                class="c14"
+              />
+            </dd>
+            <dt>
+               
               Staked
-            </div>
-            <div
-              class="c4"
-            >
+            </dt>
+            <dd>
+              0.0000011113
               <span
-                class="c13"
-              >
-                0.0000011113
-                 
-                
-              </span>
-            </div>
-            <div
-              class="c4"
-            >
+                class="c14"
+              />
+            </dd>
+            <dt>
               Debonding
-            </div>
-            <div
-              class="c4"
-            >
+            </dt>
+            <dd>
+              0.0
               <span
-                class="c13"
-              >
-                0.0
-                 
-                
-              </span>
-            </div>
-          </div>
+                class="c14"
+              />
+            </dd>
+          </dl>
         </div>
-      </div>
-      <div
-        class="c14"
-      >
-        <span
-          class="c15"
-        >
-          This is your account.
-        </span>
       </div>
     </div>
     <nav
-      class="c16"
+      class="c15"
     >
       <a
         aria-current="page"
@@ -1058,42 +1054,42 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk"
       >
         <div
-          class="c17"
+          class="c16"
         >
           <div
-            class="c18"
+            class="c17"
           >
             Transactions
           </div>
         </div>
       </a>
       <div
-        class="c19"
+        class="c18"
       />
       <a
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/active-delegations"
       >
         <div
-          class="c17"
+          class="c16"
         >
           <div
-            class="c20"
+            class="c19"
           >
             Active delegations (1)
           </div>
         </div>
       </a>
       <div
-        class="c19"
+        class="c18"
       />
       <a
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/debonding-delegations"
       >
         <div
-          class="c17"
+          class="c16"
         >
           <div
-            class="c20"
+            class="c19"
           >
             Debonding delegations (0)
           </div>
@@ -1102,39 +1098,39 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     </nav>
     <div>
       <div
-        class="c21"
+        class="c20"
       >
         <div
-          class="c22"
+          class="c21"
         >
           <div
-            class="c23"
+            class="c22"
           >
             <div
-              class="c2"
+              class="c5"
             >
               <form>
                 <div
-                  class="c24"
+                  class="c23"
                 >
                   <div
-                    class="c25 "
+                    class="c2 "
                   >
                     <label
-                      class="c26"
+                      class="c24"
                       for="recipient-id"
                     >
                       Recipient
                     </label>
                     <div
-                      class="c27 FormField__FormFieldContentBox-sc-m9hood-1"
+                      class="c25 FormField__FormFieldContentBox-sc-m9hood-1"
                     >
                       <div
-                        class="c28"
+                        class="c26"
                       >
                         <input
                           autocomplete="off"
-                          class="c29"
+                          class="c27"
                           id="recipient-id"
                           name="recipient"
                           placeholder="Enter an address"
@@ -1145,26 +1141,26 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="c30"
+                    class="c28"
                   />
                   <div
-                    class="c25 "
+                    class="c2 "
                   >
                     <label
-                      class="c26"
+                      class="c24"
                       for="amount-id"
                     >
                       Amount
                     </label>
                     <div
-                      class="c27 FormField__FormFieldContentBox-sc-m9hood-1"
+                      class="c25 FormField__FormFieldContentBox-sc-m9hood-1"
                     >
                       <div
-                        class="c28"
+                        class="c26"
                       >
                         <input
                           autocomplete="off"
-                          class="c29"
+                          class="c27"
                           id="amount-id"
                           min="0"
                           name="amount"
@@ -1178,13 +1174,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="c30"
+                    class="c28"
                   />
                   <div
-                    class="c31"
+                    class="c29"
                   >
                     <button
-                      class="c32"
+                      class="c30"
                       style="border-radius: 4px;"
                       type="submit"
                     >
@@ -1196,19 +1192,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c33"
+            class="c31"
           />
           <div
-            class="c34"
+            class="c32"
           >
             <div
-              class="c35"
+              class="c33"
             >
               <div
-                class="c36"
+                class="c34"
               >
                 <h3
-                  class="c37"
+                  class="c35"
                 >
                   No transactions found.
                 </h3>
@@ -1222,6 +1218,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 </div>
 `;
 
-exports[`<AccountPage  /> with missing delegations 1`] = `"Total balance-Available100.0 Staked-Debonding-"`;
+exports[`<AccountPage  /> with missing delegations 1`] = `"Total-Available100.0 Staked-Debonding-"`;
 
 exports[`<AccountPage  /> with missing delegations 2`] = `"TransactionsActive delegations ()Debonding delegations ()"`;

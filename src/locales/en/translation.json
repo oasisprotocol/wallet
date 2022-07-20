@@ -42,7 +42,7 @@
         "available": "Available",
         "debonding": "Debonding",
         "delegations": "Staked",
-        "total": "Total balance"
+        "total": "Total"
       },
       "noTransactionFound": "No transactions found.",
       "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",

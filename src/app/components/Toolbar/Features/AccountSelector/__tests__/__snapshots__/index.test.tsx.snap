@@ -131,7 +131,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -156,7 +156,13 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c15 {
+.c14 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c16 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -185,47 +191,47 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c15:hover {
+.c16:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c15:focus {
+.c16:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c15:focus > circle,
-.c15:focus > ellipse,
-.c15:focus > line,
-.c15:focus > path,
-.c15:focus > polygon,
-.c15:focus > polyline,
-.c15:focus > rect {
+.c16:focus > circle,
+.c16:focus > ellipse,
+.c16:focus > line,
+.c16:focus > path,
+.c16:focus > polygon,
+.c16:focus > polyline,
+.c16:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c15:focus::-moz-focus-inner {
+.c16:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c15:focus:not(:focus-visible) {
+.c16:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c15:focus:not(:focus-visible) > circle,
-.c15:focus:not(:focus-visible) > ellipse,
-.c15:focus:not(:focus-visible) > line,
-.c15:focus:not(:focus-visible) > path,
-.c15:focus:not(:focus-visible) > polygon,
-.c15:focus:not(:focus-visible) > polyline,
-.c15:focus:not(:focus-visible) > rect {
+.c16:focus:not(:focus-visible) > circle,
+.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,
+.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,
+.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c15:focus:not(:focus-visible)::-moz-focus-inner {
+.c16:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -378,7 +384,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c15 {
     padding-top: 12px;
   }
 }
@@ -489,18 +495,19 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                         class="c10"
                       >
                         0.0000001
-                         
-                        
+                        <span
+                          class="c14"
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div
-                class="c14"
+                class="c15"
               >
                 <button
-                  class="c15"
+                  class="c16"
                   style="border-radius: 4px;"
                   type="button"
                 >
