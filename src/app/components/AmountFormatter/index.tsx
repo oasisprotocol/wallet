@@ -7,15 +7,17 @@ import { selectTicker } from 'app/state/network/selectors'
 import * as React from 'react'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
+import { Text } from 'grommet'
 
-interface Props {
+export interface AmountFormatterProps {
   amount: string | number | null
   minimumFractionDigits?: number
   maximumFractionDigits?: number
   hideTicker?: boolean
+  smallTicker?: boolean
 }
 
-export const AmountFormatter = memo((props: Props) => {
+export const AmountFormatter = memo((props: AmountFormatterProps) => {
   const amount = Number(props.amount) / 10 ** 9
   const amountString = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: props.minimumFractionDigits ?? 1,
@@ -23,11 +25,23 @@ export const AmountFormatter = memo((props: Props) => {
   }).format(amount)
 
   const ticker = useSelector(selectTicker)
-
+  const tickerProps = props.smallTicker
+    ? {
+        size: 'xsmall',
+        weight: 600,
+        color: '#a3a3a3',
+      }
+    : {}
   if (props.amount == null) return <>-</>
+
   return (
     <>
-      {amountString} {!props.hideTicker && <>{ticker}</>}
+      {amountString}
+      {!props.hideTicker && (
+        <Text margin={{ left: 'xxsmall' }} {...tickerProps}>
+          {ticker}
+        </Text>
+      )}
     </>
   )
 })

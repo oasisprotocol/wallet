@@ -69,7 +69,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   stroke: none;
 }
 
-.c17 {
+.c18 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -80,25 +80,25 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   stroke: #777777;
 }
 
-.c17 g {
+.c18 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c17 *:not([stroke])[fill="none"] {
+.c18 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c17 *[stroke*="#"],
-.c17 *[STROKE*="#"] {
+.c18 *[stroke*="#"],
+.c18 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c17 *[fill-rule],
-.c17 *[FILL-RULE],
-.c17 *[fill*="#"],
-.c17 *[FILL*="#"] {
+.c18 *[fill-rule],
+.c18 *[FILL-RULE],
+.c18 *[fill*="#"],
+.c18 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -248,7 +248,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   justify-content: center;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -286,7 +286,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   width: 12px;
 }
 
-.c15 {
+.c16 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -307,12 +307,18 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   font-weight: bold;
 }
 
-.c14 {
+.c13 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c15 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -332,48 +338,48 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   padding: 12px;
 }
 
-.c16:hover {
+.c17:hover {
   background-color: rgba(221,221,221,0.4);
   color: #000000;
 }
 
-.c16:focus {
+.c17:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c17:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c17:focus:not(:focus-visible) > circle,
+.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,
+.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,
+.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -423,7 +429,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -436,7 +442,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     width: 12px;
   }
 }
@@ -512,8 +518,11 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
             class="c5"
           >
             0.001
-             
-            TEST
+            <span
+              class="c13"
+            >
+              TEST
+            </span>
           </span>
         </div>
       </div>
@@ -597,21 +606,21 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     </div>
   </div>
   <footer
-    class="c13"
+    class="c14"
   >
     <span
-      class="c14"
+      class="c15"
     >
       4/10/2021, 1:30:55 AM
     </span>
     <div
-      class="c15"
+      class="c16"
     />
     <div
       class="c2"
     >
       <a
-        class="c16"
+        class="c17"
         data-testid="explorer-link"
         href="https://oasisscan.com/transactions/ff1234"
         rel="noopener"
@@ -619,7 +628,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
       >
         <svg
           aria-label="CircleInformation"
-          class="c17"
+          class="c18"
           viewBox="0 0 24 24"
         >
           <path
@@ -704,7 +713,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   stroke: none;
 }
 
-.c17 {
+.c18 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -715,25 +724,25 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   stroke: #777777;
 }
 
-.c17 g {
+.c18 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c17 *:not([stroke])[fill="none"] {
+.c18 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c17 *[stroke*="#"],
-.c17 *[STROKE*="#"] {
+.c18 *[stroke*="#"],
+.c18 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c17 *[fill-rule],
-.c17 *[FILL-RULE],
-.c17 *[fill*="#"],
-.c17 *[FILL*="#"] {
+.c18 *[fill-rule],
+.c18 *[FILL-RULE],
+.c18 *[fill*="#"],
+.c18 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -883,7 +892,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -921,7 +930,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c15 {
+.c16 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -942,12 +951,18 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c14 {
+.c13 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c15 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -967,48 +982,48 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c16:hover {
+.c17:hover {
   background-color: rgba(221,221,221,0.4);
   color: #000000;
 }
 
-.c16:focus {
+.c17:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c17:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c17:focus:not(:focus-visible) > circle,
+.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,
+.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,
+.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -1058,7 +1073,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -1071,7 +1086,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     width: 12px;
   }
 }
@@ -1147,8 +1162,11 @@ exports[`<Transaction  /> should match snapshot 1`] = `
             class="c5"
           >
             0.001
-             
-            TEST
+            <span
+              class="c13"
+            >
+              TEST
+            </span>
           </span>
         </div>
       </div>
@@ -1232,21 +1250,21 @@ exports[`<Transaction  /> should match snapshot 1`] = `
     </div>
   </div>
   <footer
-    class="c13"
+    class="c14"
   >
     <span
-      class="c14"
+      class="c15"
     >
       4/10/2021, 1:30:55 AM
     </span>
     <div
-      class="c15"
+      class="c16"
     />
     <div
       class="c2"
     >
       <a
-        class="c16"
+        class="c17"
         data-testid="explorer-link"
         href="https://oasisscan.com/transactions/ff1234"
         rel="noopener"
@@ -1254,7 +1272,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
       >
         <svg
           aria-label="CircleInformation"
-          class="c17"
+          class="c18"
           viewBox="0 0 24 24"
         >
           <path

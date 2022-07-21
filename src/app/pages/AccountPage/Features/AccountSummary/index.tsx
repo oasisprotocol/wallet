@@ -1,103 +1,168 @@
+import styled from 'styled-components'
 import { AddressBox } from 'app/components/AddressBox'
 import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { AnchorLink } from 'app/components/AnchorLink'
-import { Box, Grid, ResponsiveContext, Text } from 'grommet'
+import { Box, ResponsiveContext, Text } from 'grommet'
 import QRCode from 'qrcode.react'
 import * as React from 'react'
-import { useContext } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { normalizeColor } from 'grommet/utils'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'
 
+const StyledDescriptionList = styled.dl`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-top: solid
+    ${({ theme }) => `${theme.global?.edgeSize?.hair} ${normalizeColor('background-front-border', theme)}`};
+  margin: ${({ theme }) => theme.global?.edgeSize?.xsmall} 0 0;
+  padding: ${({ theme }) =>
+    `${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.xsmall}`};
+
+  dt,
+  dd {
+    margin: 0;
+
+    :first-of-type {
+      font-weight: bold;
+    }
+  }
+
+  @media only screen and (min-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
+    dt {
+      width: 40%;
+    }
+
+    dd {
+      width: 60%;
+    }
+
+    dt,
+    dd {
+      :not(:last-of-type) {
+        margin-bottom: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+      }
+
+      :first-of-type {
+        font-size: ${({ theme }) => theme.text?.large?.size};
+        line-height: ${({ theme }) => theme.text?.large?.height};
+        margin-bottom: ${({ theme }) => theme.global?.edgeSize?.small};
+      }
+    }
+  }
+
+  @media only screen and (max-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
+    dt {
+      width: 30%;
+    }
+
+    dd {
+      width: 70%;
+      text-align: right;
+    }
+
+    dt,
+    dd {
+      font-size: 16px;
+
+      :not(:last-of-type) {
+        margin-bottom: ${({ theme }) => theme.global?.edgeSize?.xxsmall};
+      }
+
+      :first-of-type {
+        font-size: ${({ theme }) => theme.text?.medium?.size};
+        line-height: ${({ theme }) => theme.text?.medium?.height};
+        margin-bottom: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+      }
+    }
+  }
+`
+
 export interface AccountSummaryProps {
   address: string
-
   balance: BalanceDetails
   walletIsOpen?: boolean
   walletAddress?: string
 }
 
-export function AccountSummary(props: AccountSummaryProps) {
+export function AccountSummary({ address, balance, walletAddress, walletIsOpen }: AccountSummaryProps) {
   const { t } = useTranslation()
   const theme = useSelector(selectTheme)
-  const balance = props.balance
-  const address = props.address
-  const walletIsOpen = props.walletIsOpen
-  const walletAddress = props.walletAddress
-  const size = useContext(ResponsiveContext)
+  const isMobile = React.useContext(ResponsiveContext) === 'small'
 
   return (
-    <Box round="5px" border={{ color: 'background-front-border', size: '1px' }} background="background-front">
-      <Box pad="small" direction="row-responsive" flex>
-        <Box>
-          <AddressBox address={address} />
-          <Grid
-            columns={['max-content', 'auto']}
-            gap={{ column: 'medium' }}
-            pad={{ top: 'small' }}
-            responsive={false}
-            data-testid="account-balance-summary"
-          >
-            <Box pad={{ bottom: 'small' }}>
-              <Text weight="bold" size="xlarge">
-                {t('account.summary.balance.total', 'Total balance')}
-              </Text>
-            </Box>
-            <Box justify="center" pad={{ bottom: 'small' }}>
-              <Text weight="bold" size="xlarge" data-testid="account-balance-total">
-                <AmountFormatter amount={balance.total} />
-              </Text>
-            </Box>
-
-            <Box>{t('account.summary.balance.available', 'Available')}</Box>
-            <Box>
-              <Text>
-                <AmountFormatter amount={balance.available} />
-              </Text>
-            </Box>
-
-            <Box>{t('account.summary.balance.delegations', 'Staked')}</Box>
-            <Box>
-              <Text>
-                <AmountFormatter amount={balance.delegations} />
-              </Text>
-            </Box>
-
-            <Box>{t('account.summary.balance.debonding', 'Debonding')}</Box>
-            <Box>
-              <Text>
-                <AmountFormatter amount={balance.debonding} />
-              </Text>
-            </Box>
-          </Grid>
-        </Box>
-        {size !== 'small' && (
-          <Box align="end" flex>
-            <QRCode value={address} fgColor={theme === 'light' ? '#333333' : '#e8e8e8'} bgColor="#00000000" />
-          </Box>
+    <>
+      <Box margin={{ bottom: 'small' }}>
+        {walletIsOpen && walletAddress === address && (
+          <AlertBox color="status-ok">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
+        )}
+        {walletIsOpen && walletAddress !== address && (
+          <AlertBox color="status-warning">
+            {t('account.summary.notYourAccount', 'This is not your account.')}
+          </AlertBox>
+        )}
+        {!walletIsOpen && (
+          <AlertBox color="status-warning">
+            <Trans
+              i18nKey="account.summary.noWalletIsOpen"
+              t={t}
+              components={[<AnchorLink to="/" />]}
+              defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
+            />
+          </AlertBox>
         )}
       </Box>
-      {walletIsOpen && walletAddress === address && (
-        <AlertBox color="status-ok">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
-      )}
-      {walletIsOpen && walletAddress !== address && (
-        <AlertBox color="status-warning">
-          {t('account.summary.notYourAccount', 'This is not your account.')}
-        </AlertBox>
-      )}
-      {!walletIsOpen && (
-        <AlertBox color="status-warning">
-          <Trans
-            i18nKey="account.summary.noWalletIsOpen"
-            t={t}
-            components={[<AnchorLink to="/" />]}
-            defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
-          />
-        </AlertBox>
-      )}
-    </Box>
+      <Box
+        round="5px"
+        border={{ color: 'background-front-border', size: '1px' }}
+        background="background-front"
+      >
+        <Box pad="small" direction="row-responsive" flex>
+          <Box width={{ max: isMobile ? '100%' : '75%' }}>
+            <AddressBox address={address} />
+
+            <StyledDescriptionList data-testid="account-balance-summary">
+              <dt>
+                <Text size={isMobile ? 'medium' : 'large'}>
+                  {t('account.summary.balance.total', 'Total')}
+                </Text>
+              </dt>
+              <dd data-testid="account-balance-total">
+                <AmountFormatter amount={balance.total} smallTicker={true} />
+              </dd>
+
+              <dt>{t('account.summary.balance.available', 'Available')}</dt>
+              <dd>
+                <AmountFormatter amount={balance.available} smallTicker={true} />
+              </dd>
+
+              <dt> {t('account.summary.balance.delegations', 'Staked')}</dt>
+              <dd>
+                <AmountFormatter amount={balance.delegations} smallTicker={true} />
+              </dd>
+
+              <dt>{t('account.summary.balance.debonding', 'Debonding')}</dt>
+              <dd>
+                <AmountFormatter amount={balance.debonding} smallTicker={true} />
+              </dd>
+            </StyledDescriptionList>
+          </Box>
+
+          {!isMobile && (
+            <Box align="end" flex>
+              <QRCode
+                value={address}
+                fgColor={theme === 'light' ? '#333333' : '#e8e8e8'}
+                bgColor="#00000000"
+              />
+            </Box>
+          )}
+        </Box>
+      </Box>
+    </>
   )
 }

@@ -86,6 +86,12 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
+.c18 {
+  margin-left: 3px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c1 {
   margin: 0px;
   font-size: 34px;
@@ -550,8 +556,9 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                   role="gridcell"
                 >
                   0.0
-                   
-                  
+                  <span
+                    class="c18"
+                  />
                 </div>
                 <div
                   class="c15 c12 c16 rdt_TableCell"
