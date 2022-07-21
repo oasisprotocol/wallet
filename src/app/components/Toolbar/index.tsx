@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux'
 
 import { AccountSelectorButton } from './Features/AccountSelectorButton'
 import { NetworkSelector } from './Features/NetworkSelector'
-import { SearchAddress } from './Features/SearchAddress'
 
 const StyledToolbar = styled(Box)`
   @media only screen and (min-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
@@ -32,13 +31,7 @@ export function Toolbar() {
   const isMobile = React.useContext(ResponsiveContext) === 'small'
 
   return (
-    <StyledToolbar direction="row" gap="small">
-      {!isMobile && (
-        <Box gap="medium" flex>
-          <SearchAddress />
-        </Box>
-      )}
-
+    <StyledToolbar direction="row" gap="small" justify="end">
       <Box
         background={isMobile ? 'transparent' : 'background-front'}
         justify="end"

@@ -47,6 +47,10 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c5 {
@@ -168,21 +172,9 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
   .c3 {
     border: solid none #EDEDED;
   }
-}
-
-@media only screen and (max-width:768px) {
-
 }
 
 @media only screen and (min-width:768px) {

@@ -215,9 +215,6 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
-    "search": {
-      "placeholder": "Search for an address"
-    },
     "wallets": {
       "close": "Close",
       "switchOtherWallet": "Switch to another account",
