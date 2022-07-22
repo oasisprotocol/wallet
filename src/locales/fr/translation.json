@@ -203,9 +203,6 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
-    "search": {
-      "placeholder": "Cherchez un compte ou un validateur"
-    },
     "wallets": {
       "close": "Fermer",
       "switchOtherWallet": "Passer à un autre compte",

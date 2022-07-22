@@ -3,33 +3,37 @@
  * AccountSelectorButton
  *
  */
-import { ShortAddress } from 'app/components/ShortAddress'
-import { selectAddress } from 'app/state/wallet/selectors'
-import { Box, Button, ResponsiveContext, Text } from 'grommet'
-import { List } from 'grommet-icons/icons'
-import React, { memo, useContext, useState } from 'react'
+import { Button, ResponsiveContext } from 'grommet'
+import React, { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { staking } from '@oasisprotocol/client'
+import { selectAddress } from 'app/state/wallet/selectors'
 
 import { AccountSelector } from '../AccountSelector'
+import { JazzIcon } from '../../../JazzIcon'
+import { smallSizeLogo, mediumSizeLogo } from '../../../Sidebar'
 
-interface Props {}
+const addressToNumber = (address: string) => {
+  // https://github.com/oasisprotocol/oasis-wallet-ext/blob/da7ad67/src/popup/component/AccountIcon/index.js#L26
+  const addressU8 = staking.addressFromBech32(address)
+  const seed = addressU8[20] | (addressU8[19] << 8) | (addressU8[18] << 16) | (addressU8[17] << 24)
 
-export const AccountSelectorButton = memo((props: Props) => {
-  const size = useContext(ResponsiveContext)
-  const [layerVisibility, setLayerVisibility] = useState(false)
+  return seed
+}
+
+export const AccountSelectorButton = memo(() => {
   const address = useSelector(selectAddress)
+  const [layerVisibility, setLayerVisibility] = useState(false)
+  const isMobile = React.useContext(ResponsiveContext) === 'small'
+
+  if (!address) {
+    return null
+  }
 
   return (
     <>
       <Button onClick={() => setLayerVisibility(true)}>
-        <Box direction="row" gap="small" pad="small" responsive={false}>
-          <List />
-          {size !== 'small' && (
-            <Text>
-              <ShortAddress address={address} />
-            </Text>
-          )}
-        </Box>
+        <JazzIcon diameter={isMobile ? smallSizeLogo : mediumSizeLogo} seed={addressToNumber(address)} />
       </Button>
       {layerVisibility && <AccountSelector closeHandler={() => setLayerVisibility(false)} />}
     </>

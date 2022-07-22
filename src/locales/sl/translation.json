@@ -203,9 +203,6 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
-    "search": {
-      "placeholder": "Poišči naslov"
-    },
     "wallets": {
       "close": "Zapri",
       "switchOtherWallet": "Izberite račun",

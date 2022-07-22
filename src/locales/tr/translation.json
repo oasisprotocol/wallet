@@ -203,9 +203,6 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
-    "search": {
-      "placeholder": "Bir adres arayın"
-    },
     "wallets": {
       "close": "Kapat",
       "switchOtherWallet": "Başka hesaba geç",
