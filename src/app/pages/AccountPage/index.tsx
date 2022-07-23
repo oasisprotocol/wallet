@@ -12,13 +12,15 @@ import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { walletActions } from 'app/state/wallet'
-import { Box, Layer, Nav, Spinner, Text } from 'grommet'
+import { Box, Layer, Nav, ResponsiveContext, Spinner, Text } from 'grommet'
 import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Switch, useLocation, useParams } from 'react-router-dom'
+import { NavLink, Switch, useParams } from 'react-router-dom'
 import { TransitionGroup } from 'react-transition-group'
+import styled from 'styled-components'
+import { normalizeColor } from 'grommet/utils'
 
 import { accountActions } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'
@@ -35,32 +37,44 @@ import { ValidatorList } from '../StakingPage/Features/ValidatorList'
 import { AccountDetails } from './Features/AccountDetails'
 import { AccountSummary } from './Features/AccountSummary'
 
+const StyledNavItem = styled(NavLink)`
+  display: flex;
+  position: relative;
+  padding: ${({ theme }) => theme.global?.edgeSize?.small};
+
+  :hover {
+    background-color: ${({ theme }) => `${normalizeColor('background-contrast', theme)}`};
+  }
+
+  &.active {
+    background-color: ${({ theme }) => `${normalizeColor('background-back', theme)}`};
+  }
+`
+
 interface NavItemProps {
+  counter?: number
   label: string
   route: string
 }
 
-const NavItem = (props: NavItemProps) => {
-  const route = props.route
-  const label = props.label
-
-  const location = useLocation()
-  const isActive = route && route === location.pathname
-
+const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
-    <NavLink to={route}>
-      <Box
-        pad="xsmall"
-        // onClick={() => {}} hoverIndicator={{ color: 'background-oasis-blue' }}
-      >
+    <StyledNavItem exact to={route}>
+      <Text>{label}</Text>
+      {!!counter && (
         <Box
-          border={{ side: 'bottom', color: isActive ? 'oasisBlue2' : 'background-contrast-2', size: '2px' }}
-          pad={{ bottom: 'xxsmall', horizontal: 'xxsmall' }}
+          style={{ position: 'absolute', top: '-3px', right: '-5px' }}
+          responsive={false}
+          background="brand"
+          pad={{ horizontal: 'xsmall' }}
+          round
         >
-          {label}
+          <Text size="small" weight="bold">
+            {counter}
+          </Text>
         </Box>
-      </Box>
-    </NavLink>
+      )}
+    </StyledNavItem>
   )
 }
 
@@ -72,7 +86,7 @@ interface AccountPageParams {
 
 export function AccountPage(props: Props) {
   const { t } = useTranslation()
-
+  const isMobile = React.useContext(ResponsiveContext) === 'small'
   const { address } = useParams<AccountPageParams>()
   const dispatch = useDispatch()
 
@@ -151,22 +165,37 @@ export function AccountPage(props: Props) {
             walletAddress={walletAddress}
             walletIsOpen={walletIsOpen}
           />
-          <Nav background="background-front" margin={{ vertical: 'small' }} direction="row" gap="small" wrap>
+          <Nav
+            background="background-front"
+            justify={isMobile ? 'evenly' : 'start'}
+            margin={{ vertical: 'small' }}
+            direction="row"
+            gap="none"
+            wrap
+          >
             <NavItem
-              route={`/account/${address}`}
               label={t('account.subnavigation.transactions', 'Transactions')}
+              route={`/account/${address}`}
             />
+
             <NavItem
+              counter={stake.delegations?.length}
+              label={
+                isMobile
+                  ? t('account.subnavigation.mobileActiveDelegations', 'Delegations')
+                  : t('account.subnavigation.activeDelegations', 'Active delegations')
+              }
               route={`/account/${address}/active-delegations`}
-              label={t('account.subnavigation.activeDelegations', 'Active delegations ({{count}})', {
-                count: stake.delegations?.length ?? null!,
-              })}
             />
+
             <NavItem
+              counter={stake.debondingDelegations?.length}
+              label={
+                isMobile
+                  ? t('account.subnavigation.mobileDebondingDelegations', 'Debonding')
+                  : t('account.subnavigation.debondingDelegations', 'Debonding delegations')
+              }
               route={`/account/${address}/debonding-delegations`}
-              label={t('account.subnavigation.debondingDelegations', 'Debonding delegations ({{count}})', {
-                count: stake.debondingDelegations?.length ?? null!,
-              })}
             />
           </Nav>
           <TransitionGroup>

@@ -31,10 +31,10 @@
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account."
     },
     "subnavigation": {
-      "activeDelegations": "Active delegations ({{count}})",
-      "activeDelegations_plural": "Active delegations ({{count}})",
-      "debondingDelegations": "Debonding delegations ({{count}})",
-      "debondingDelegations_plural": "Debonding delegations ({{count}})",
+      "activeDelegations": "Active delegations",
+      "debondingDelegations": "Debonding delegations",
+      "mobileActiveDelegations": "Delegations",
+      "mobileDebondingDelegations": "Debonding",
       "transactions": "Transactions"
     },
     "summary": {

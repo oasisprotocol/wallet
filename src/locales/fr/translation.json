@@ -27,10 +27,8 @@
       "success": "Transaction effectuée. La transaction peut mettre une minute avant d'apparaître sur votre compte."
     },
     "subnavigation": {
-      "activeDelegations": "Délégation active ({{count}})",
-      "activeDelegations_plural": "Délégations actives ({{count}})",
-      "debondingDelegations": "Délégations réclamées ({{count}})",
-      "debondingDelegations_plural": "Délégations réclamées ({{count}})",
+      "activeDelegations": "Délégation active",
+      "debondingDelegations": "Délégations réclamées",
       "transactions": "Transactions"
     },
     "summary": {

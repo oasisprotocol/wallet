@@ -144,45 +144,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border-radius: 5px;
 }
 
-.c15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  background-color: #FFFFFF;
-  color: #444444;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 6px;
-}
-
 .c17 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -190,36 +151,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  border-bottom: solid 2px #4db3f9;
+  background-color: #0092f6;
+  color: #f8f8f8;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-left: 3px;
-  padding-right: 3px;
-  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 24px;
 }
 
-.c19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  border-bottom: solid 2px #11111133;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-left: 3px;
-  padding-right: 3px;
-  padding-bottom: 3px;
-}
-
-.c21 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -233,7 +177,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c22 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -253,7 +197,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 25%;
 }
 
-.c23 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -270,7 +214,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c25 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -285,7 +229,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c29 {
+.c28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -304,7 +248,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c32 {
+.c31 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -323,7 +267,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 75%;
 }
 
-.c33 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -338,7 +282,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c34 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -372,17 +316,35 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c18 {
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background-color: #FFFFFF;
+  color: #444444;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  width: 12px;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c28 {
+.c27 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -392,7 +354,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -423,16 +385,22 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c24 {
-  margin-left: 12px;
-  margin-right: 12px;
-  margin-top: 6px;
-  margin-bottom: 6px;
+.c13 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c13 {
+.c18 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.c23 {
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   font-size: 18px;
   line-height: 24px;
 }
@@ -497,7 +465,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c30 {
+.c29 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -526,58 +494,58 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c30:hover {
+.c29:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c30:focus {
+.c29:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c30:focus > circle,
-.c30:focus > ellipse,
-.c30:focus > line,
-.c30:focus > path,
-.c30:focus > polygon,
-.c30:focus > polyline,
-.c30:focus > rect {
+.c29:focus > circle,
+.c29:focus > ellipse,
+.c29:focus > line,
+.c29:focus > path,
+.c29:focus > polygon,
+.c29:focus > polyline,
+.c29:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c30:focus::-moz-focus-inner {
+.c29:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c30:focus:not(:focus-visible) {
+.c29:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c30:focus:not(:focus-visible) > circle,
-.c30:focus:not(:focus-visible) > ellipse,
-.c30:focus:not(:focus-visible) > line,
-.c30:focus:not(:focus-visible) > path,
-.c30:focus:not(:focus-visible) > polygon,
-.c30:focus:not(:focus-visible) > polyline,
-.c30:focus:not(:focus-visible) > rect {
+.c29:focus:not(:focus-visible) > circle,
+.c29:focus:not(:focus-visible) > ellipse,
+.c29:focus:not(:focus-visible) > line,
+.c29:focus:not(:focus-visible) > path,
+.c29:focus:not(:focus-visible) > polygon,
+.c29:focus:not(:focus-visible) > polyline,
+.c29:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c30:focus:not(:focus-visible)::-moz-focus-inner {
+.c29:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c35 {
+.c34 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
 }
 
-.c27 {
+.c26 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -595,33 +563,33 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: none;
 }
 
-.c27::-webkit-input-placeholder {
+.c26::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c27::-moz-placeholder {
+.c26::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c27:-ms-input-placeholder {
+.c26:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c27::-webkit-search-decoration {
+.c26::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c27::-moz-focus-inner {
+.c26::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c27:-moz-placeholder,
-.c27::-moz-placeholder {
+.c26:-moz-placeholder,
+.c26::-moz-placeholder {
   opacity: 1;
 }
 
-.c26 {
+.c25 {
   position: relative;
   width: 100%;
 }
@@ -639,25 +607,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c20 {
+.c19 {
   position: relative;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
-.c20.fade-enter {
+.c19.fade-enter {
   opacity: 0;
 }
 
-.c20.fade-enter-active {
+.c19.fade-enter-active {
   opacity: 1;
 }
 
-.c20.fade-exit {
+.c19.fade-exit {
   opacity: 1;
 }
 
-.c20.fade-exit-active {
+.c19.fade-exit-active {
   opacity: 0;
 }
 
@@ -685,6 +653,23 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 .c12 dt:first-of-type,
 .c12 dd:first-of-type {
   font-weight: bold;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding: 12px;
+}
+
+.c16:hover {
+  background-color: #11111108;
+}
+
+.c16.active {
+  background-color: #EFEFEF;
 }
 
 @media only screen and (max-width:768px) {
@@ -757,58 +742,17 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-}
 
-@media only screen and (max-width:768px) {
-  .c16 {
-    padding: 3px;
-  }
 }
 
 @media only screen and (max-width:768px) {
   .c17 {
-    border-bottom: solid 2px #4db3f9;
+    border-radius: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c17 {
-    padding-bottom: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c19 {
-    border-bottom: solid 2px #11111133;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c19 {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c19 {
-    padding-bottom: 2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c21 {
+  .c20 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -827,62 +771,63 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c23 {
+  .c22 {
     padding: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c25 {
+  .c24 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c29 {
+  .c28 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c33 {
+  .c32 {
     margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c34 {
+  .c33 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c34 {
+  .c33 {
     padding: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c18 {
-    width: 6px;
+  .c15 {
+    margin-top: 6px;
+    margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c28 {
+  .c27 {
     height: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c31 {
+  .c30 {
     width: auto;
     height: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c35 {
+  .c34 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1050,87 +995,81 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     >
       <a
         aria-current="page"
-        class="active"
+        class="c16 active"
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk"
       >
-        <div
-          class="c16"
+        <span
+          class="c13"
         >
-          <div
-            class="c17"
-          >
-            Transactions
-          </div>
-        </div>
+          Transactions
+        </span>
       </a>
-      <div
-        class="c18"
-      />
       <a
+        class="c16"
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/active-delegations"
       >
-        <div
-          class="c16"
+        <span
+          class="c13"
         >
-          <div
-            class="c19"
+          Delegations
+        </span>
+        <div
+          class="c17"
+          style="position: absolute; top: -3px; right: -5px;"
+        >
+          <span
+            class="c18"
           >
-            Active delegations (1)
-          </div>
+            1
+          </span>
         </div>
       </a>
-      <div
-        class="c18"
-      />
       <a
+        class="c16"
         href="/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk/debonding-delegations"
       >
-        <div
-          class="c16"
+        <span
+          class="c13"
         >
-          <div
-            class="c19"
-          >
-            Debonding delegations (0)
-          </div>
-        </div>
+          Debonding
+        </span>
       </a>
     </nav>
     <div>
       <div
-        class="c20"
+        class="c19"
       >
         <div
-          class="c21"
+          class="c20"
         >
           <div
-            class="c22"
+            class="c21"
           >
             <div
               class="c5"
             >
               <form>
                 <div
-                  class="c23"
+                  class="c22"
                 >
                   <div
                     class="c2 "
                   >
                     <label
-                      class="c24"
+                      class="c23"
                       for="recipient-id"
                     >
                       Recipient
                     </label>
                     <div
-                      class="c25 FormField__FormFieldContentBox-sc-m9hood-1"
+                      class="c24 FormField__FormFieldContentBox-sc-m9hood-1"
                     >
                       <div
-                        class="c26"
+                        class="c25"
                       >
                         <input
                           autocomplete="off"
-                          class="c27"
+                          class="c26"
                           id="recipient-id"
                           name="recipient"
                           placeholder="Enter an address"
@@ -1141,26 +1080,26 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="c28"
+                    class="c27"
                   />
                   <div
                     class="c2 "
                   >
                     <label
-                      class="c24"
+                      class="c23"
                       for="amount-id"
                     >
                       Amount
                     </label>
                     <div
-                      class="c25 FormField__FormFieldContentBox-sc-m9hood-1"
+                      class="c24 FormField__FormFieldContentBox-sc-m9hood-1"
                     >
                       <div
-                        class="c26"
+                        class="c25"
                       >
                         <input
                           autocomplete="off"
-                          class="c27"
+                          class="c26"
                           id="amount-id"
                           min="0"
                           name="amount"
@@ -1174,13 +1113,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                     </div>
                   </div>
                   <div
-                    class="c28"
+                    class="c27"
                   />
                   <div
-                    class="c29"
+                    class="c28"
                   >
                     <button
-                      class="c30"
+                      class="c29"
                       style="border-radius: 4px;"
                       type="submit"
                     >
@@ -1192,19 +1131,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c31"
+            class="c30"
           />
           <div
-            class="c32"
+            class="c31"
           >
             <div
-              class="c33"
+              class="c32"
             >
               <div
-                class="c34"
+                class="c33"
               >
                 <h3
-                  class="c35"
+                  class="c34"
                 >
                   No transactions found.
                 </h3>
@@ -1220,4 +1159,4 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 exports[`<AccountPage  /> with missing delegations 1`] = `"Total-Available100.0 Staked-Debonding-"`;
 
-exports[`<AccountPage  /> with missing delegations 2`] = `"TransactionsActive delegations ()Debonding delegations ()"`;
+exports[`<AccountPage  /> with missing delegations 2`] = `"TransactionsDelegationsDebonding"`;
