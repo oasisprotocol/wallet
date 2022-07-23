@@ -27,10 +27,8 @@
       "success": "Transakcija uspešno izvršena. Novo stanje na vašem računu bo prikazano v kratkem."
     },
     "subnavigation": {
-      "activeDelegations": "Aktivne delegacije ({{count}})",
-      "activeDelegations_plural": "Aktivne delegacije ({{count}})",
-      "debondingDelegations": "Delegacije v razvezi ({{count}})",
-      "debondingDelegations_plural": "Delegacije v razvezi ({{count}})",
+      "activeDelegations": "Aktivne delegacije",
+      "debondingDelegations": "Delegacije v razvezi",
       "transactions": "Transakcije"
     },
     "summary": {

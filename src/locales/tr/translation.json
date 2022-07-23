@@ -27,10 +27,8 @@
       "success": "İşleminiz başarıyla gönderildi. İşlemin hesabınıza geçmesi bir dakikaya yakın sürebilmektedir."
     },
     "subnavigation": {
-      "activeDelegations": "Aktif delegasyon ({{count}})",
-      "activeDelegations_plural": "Aktif delegasyon ({{count}})",
-      "debondingDelegations": "Ayrılmış delegasyon ({{count}})",
-      "debondingDelegations_plural": "Ayrılmış delegasyon ({{count}})",
+      "activeDelegations": "Aktif delegasyon",
+      "debondingDelegations": "Ayrılmış delegasyon",
       "transactions": "İşlemler"
     },
     "summary": {
