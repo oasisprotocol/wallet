@@ -71,7 +71,7 @@ describe('<AccountPage  />', () => {
   it('should match snapshot', async () => {
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
     const balance = await screen.findByTestId('account-balance-total')
-    expect(balance).toHaveTextContent('100.00000111130001') // TODO: inaccurate
+    expect(balance).toHaveTextContent('100.0000011113')
     expect(page.container.firstChild).toMatchSnapshot()
   })
 
