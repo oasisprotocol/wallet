@@ -40,7 +40,7 @@ type TransactionDictionary = {
     [side in TransactionSide]: {
       icon: Icon
       header: () => React.ReactNode
-      designation: string
+      destination: string
     }
   }
 }
@@ -85,7 +85,7 @@ export function Transaction(props: TransactionProps) {
   }
 
   const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
-    designation: t('account.otherTransaction.designation', 'Other address'),
+    destination: t('account.otherTransaction.destination', 'Other address'),
     icon: New,
     header: () => (
       <Trans
@@ -103,7 +103,7 @@ export function Transaction(props: TransactionProps) {
   const transactionDictionary: TransactionDictionary = {
     [transactionTypes.TransactionType.StakingTransfer]: {
       [TransactionSide.Received]: {
-        designation: t('common.from', 'From'),
+        destination: t('common.from', 'From'),
         icon: LinkPrevious,
         header: () => (
           <Trans
@@ -115,7 +115,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
       [TransactionSide.Sent]: {
-        designation: t('common.to', 'To'),
+        destination: t('common.to', 'To'),
         icon: LinkNext,
         header: () => (
           <Trans
@@ -129,7 +129,7 @@ export function Transaction(props: TransactionProps) {
     },
     [transactionTypes.TransactionType.StakingAddEscrow]: {
       [TransactionSide.Received]: {
-        designation: t('common.delegator', 'Delegator'),
+        destination: t('common.delegator', 'Delegator'),
         icon: LineChart,
         header: () => (
           <Trans
@@ -141,7 +141,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
       [TransactionSide.Sent]: {
-        designation: t('common.validator', 'Validator'),
+        destination: t('common.validator', 'Validator'),
         icon: LineChart,
         header: () => (
           <Trans
@@ -155,7 +155,7 @@ export function Transaction(props: TransactionProps) {
     },
     [transactionTypes.TransactionType.StakingReclaimEscrow]: {
       [TransactionSide.Received]: {
-        designation: t('common.delegator', 'Delegator'),
+        destination: t('common.delegator', 'Delegator'),
         icon: Money,
         header: () => (
           <Trans
@@ -167,7 +167,7 @@ export function Transaction(props: TransactionProps) {
         ),
       },
       [TransactionSide.Sent]: {
-        designation: t('common.validator', 'Validator'),
+        destination: t('common.validator', 'Validator'),
         icon: Money,
         header: () => (
           <Trans
@@ -242,7 +242,7 @@ export function Transaction(props: TransactionProps) {
 
   const Icon = matchingConfiguration.icon
   const header = matchingConfiguration.header()
-  const designation = matchingConfiguration.designation
+  const destination = matchingConfiguration.destination
   const blockExplorerLink = config[props.network][backend()]?.blockExplorer
 
   return (
@@ -283,7 +283,7 @@ export function Transaction(props: TransactionProps) {
                 <InfoBox
                   copyToClipboard={!!otherAddress}
                   icon={ContactInfo}
-                  label={designation}
+                  label={destination}
                   trimValue={!!otherAddress}
                   value={otherAddress || t('common.unavailable', 'Unavailable')}
                 />

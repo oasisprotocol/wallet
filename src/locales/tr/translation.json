@@ -10,7 +10,7 @@
     "loading": "Hesap yükleniyor",
     "loadingError": "Hesap yüklenmedi. Bilgiler tam ya da güncel olmayabilir.",
     "otherTransaction": {
-      "designation": "Diğer adres",
+      "destination": "Diğer adres",
       "header": "Tanınmayan işlem yöntemi '{{method}}'"
     },
     "reclaimEscrow": {

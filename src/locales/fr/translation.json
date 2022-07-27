@@ -10,7 +10,7 @@
     "loading": "Chargement du compte",
     "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
     "otherTransaction": {
-      "designation": "Autre adresse",
+      "destination": "Autre adresse",
       "header": "Transaction non reconnue, le type '{{method}}'"
     },
     "reclaimEscrow": {
