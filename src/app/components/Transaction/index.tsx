@@ -18,13 +18,12 @@ import {
 } from 'grommet-icons/icons'
 import type { Icon } from 'grommet-icons/icons'
 import * as React from 'react'
-import { NavLink } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 import { AmountFormatter } from '../AmountFormatter'
-import { DateFormatter } from '../DateFormatter'
-import { ShortAddress } from '../ShortAddress'
+import { intlDateTimeFormat } from '../DateFormatter'
+import { trimLongString } from '../ShortAddress'
 import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
@@ -254,7 +253,7 @@ export function Transaction(props: TransactionProps) {
       background="background-front"
     >
       <CardHeader
-        margin={{ bottom: 'medium' }}
+        margin={{ bottom: 'small' }}
         pad={{ bottom: isMobile ? 'medium' : 'small' }}
         border={{ color: 'background-front-border', side: 'bottom' }}
         direction="row"
@@ -272,41 +271,28 @@ export function Transaction(props: TransactionProps) {
           {isMobile && (
             <Box pad={{ left: 'small' }}>
               <Text size="16px" margin={{ bottom: 'xsmall' }}>
-                {otherAddress ? (
-                  <ShortAddress address={otherAddress} />
-                ) : (
-                  t('common.unavailable', 'Unavailable')
-                )}
+                {otherAddress ? trimLongString(otherAddress) : t('common.unavailable', 'Unavailable')}
               </Text>
-              <Text size="small">
-                <DateFormatter date={transaction.timestamp!} />
-              </Text>
+              <Text size="small">{intlDateTimeFormat(transaction.timestamp!)}</Text>
             </Box>
           )}
 
           {!isMobile && (
             <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
               <Box pad="none">
-                {otherAddress && (
-                  <NavLink data-testid="external-wallet-address" to={`/account/${otherAddress}`}>
-                    <InfoBox
-                      icon={ContactInfo}
-                      label={designation}
-                      value={<ShortAddress address={otherAddress} />}
-                    />
-                  </NavLink>
-                )}
-                {!otherAddress && (
-                  <InfoBox
-                    icon={ContactInfo}
-                    label={designation}
-                    value={t('common.unavailable', 'Unavailable')}
-                  />
-                )}
                 <InfoBox
+                  copyToClipboard={!!otherAddress}
+                  icon={ContactInfo}
+                  label={designation}
+                  trimValue={!!otherAddress}
+                  value={otherAddress || t('common.unavailable', 'Unavailable')}
+                />
+                <InfoBox
+                  copyToClipboard={true}
                   icon={Package}
                   label={t('common.hash', 'Tx Hash')}
-                  value={<ShortAddress address={transaction.hash} />}
+                  trimValue={true}
+                  value={transaction.hash}
                 />
               </Box>
 
@@ -314,15 +300,21 @@ export function Transaction(props: TransactionProps) {
                 <InfoBox
                   icon={Clock}
                   label={t('common.time', 'Time')}
-                  value={<DateFormatter date={transaction.timestamp!} />}
+                  value={intlDateTimeFormat(transaction.timestamp!)}
                 />
 
-                <InfoBox icon={Cube} label={t('common.block', 'Block')} value={transaction.level} />
+                {transaction.level && (
+                  <InfoBox
+                    icon={Cube}
+                    label={t('common.block', 'Block')}
+                    value={transaction.level.toString()}
+                  />
+                )}
               </Box>
             </Grid>
           )}
         </Box>
-        <Box width="25%" align="end" pad={{ right: 'small' }}>
+        <Box width="25%" align="end" pad={{ right: 'small' }} margin={{ top: 'xsmall' }}>
           <Text weight="bold" size={isMobile ? 'medium' : 'xlarge'}>
             <AmountFormatter amount={transaction.amount!} smallTicker />
           </Text>

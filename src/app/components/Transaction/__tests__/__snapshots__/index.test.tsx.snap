@@ -96,7 +96,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -177,9 +177,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.c10:hover {
+  background-color: rgba(51,51,51,0.06274509803921569);
+  color: #000000;
 }
 
 .c11 {
@@ -234,6 +238,22 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 6px;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
@@ -247,7 +267,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   padding-right: 12px;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -294,13 +314,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   line-height: 24px;
 }
 
-.c16 {
+.c17 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c17 {
+.c18 {
   margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
@@ -308,19 +328,19 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   font-weight: 600;
 }
 
-.c18 {
+.c19 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c21 {
+.c22 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c20 {
+.c21 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -331,7 +351,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   cursor: pointer;
 }
 
-.c20:hover {
+.c21:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -363,7 +383,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 
 @media only screen and (max-width:768px) {
   .c1 {
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 }
 
@@ -393,14 +413,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 
 @media only screen and (max-width:768px) {
   .c10 {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    padding-bottom: 6px;
+    padding: 6px;
   }
 }
 
@@ -412,6 +425,18 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 
 @media only screen and (max-width:768px) {
   .c15 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
     padding-right: 6px;
   }
 }
@@ -477,50 +502,49 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         <div
           class="c9"
         >
-          <a
-            data-testid="external-wallet-address"
-            href="/account/source"
-          >
-            <div
-              class="c10"
-            >
-              <div
-                class="c11"
-              >
-                <svg
-                  aria-label="ContactInfo"
-                  class="c12"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M5 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4 6v-2c0-2.25-1.787-4-4.036-4h.054C2.768 12 1 13.75 1 16v2M12 7h12M12 17h10m-10-5h7"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div
-                class="c3"
-              />
-              <div
-                class="c13"
-              >
-                <span
-                  class="c4"
-                >
-                  account.otherTransaction.designation
-                </span>
-                <span
-                  class="c14"
-                >
-                  source...source
-                </span>
-              </div>
-            </div>
-          </a>
           <div
             class="c10"
+            style="box-shadow: none;"
+            tabindex="0"
+          >
+            <div
+              class="c11"
+            >
+              <svg
+                aria-label="ContactInfo"
+                class="c12"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M5 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4 6v-2c0-2.25-1.787-4-4.036-4h.054C2.768 12 1 13.75 1 16v2M12 7h12M12 17h10m-10-5h7"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="c3"
+            />
+            <div
+              class="c13"
+            >
+              <span
+                class="c4"
+              >
+                account.otherTransaction.designation
+              </span>
+              <span
+                class="c14"
+              >
+                source
+              </span>
+            </div>
+          </div>
+          <div
+            class="c10"
+            style="box-shadow: none;"
+            tabindex="0"
           >
             <div
               class="c11"
@@ -552,7 +576,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               <span
                 class="c14"
               >
-                ff1234...ff1234
+                ff1234
               </span>
             </div>
           </div>
@@ -561,7 +585,8 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
           class="c9"
         >
           <div
-            class="c10"
+            class="c15"
+            style="box-shadow: none;"
           >
             <div
               class="c11"
@@ -601,76 +626,41 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               </span>
             </div>
           </div>
-          <div
-            class="c10"
-          >
-            <div
-              class="c11"
-            >
-              <svg
-                aria-label="Cube"
-                class="c12"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="m12 2 10 5v10l-10 5-10-5V7l10-5zM2 7l10 5 10-5m-10 5v10-10z"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                />
-              </svg>
-            </div>
-            <div
-              class="c3"
-            />
-            <div
-              class="c13"
-            >
-              <span
-                class="c4"
-              >
-                common.block
-              </span>
-              <span
-                class="c14"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <div
-      class="c15"
+      class="c16"
     >
       <span
-        class="c16"
+        class="c17"
       >
         0.001
         <span
-          class="c17"
+          class="c18"
         >
           TEST
         </span>
       </span>
       <span
-        class="c18"
+        class="c19"
       >
         account.transaction.successful
       </span>
     </div>
   </div>
   <footer
-    class="c19"
+    class="c20"
   >
     <a
-      class="c20"
+      class="c21"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c21"
+        class="c22"
       >
         account.transaction.explorerLink
       </span>
@@ -787,7 +777,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -868,9 +858,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.c10:hover {
+  background-color: rgba(51,51,51,0.06274509803921569);
+  color: #000000;
 }
 
 .c11 {
@@ -925,6 +919,22 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 12px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 6px;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;
   -ms-flex-align: flex-end;
@@ -938,7 +948,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -985,13 +995,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c16 {
+.c17 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c17 {
+.c18 {
   margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
@@ -999,19 +1009,19 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c18 {
+.c19 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c21 {
+.c22 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c20 {
+.c21 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -1022,7 +1032,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c20:hover {
+.c21:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -1054,7 +1064,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 }
 
@@ -1084,14 +1094,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c10 {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    padding-bottom: 6px;
+    padding: 6px;
   }
 }
 
@@ -1103,6 +1106,18 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c16 {
     padding-right: 6px;
   }
 }
@@ -1168,50 +1183,49 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         <div
           class="c9"
         >
-          <a
-            data-testid="external-wallet-address"
-            href="/account/source"
-          >
-            <div
-              class="c10"
-            >
-              <div
-                class="c11"
-              >
-                <svg
-                  aria-label="ContactInfo"
-                  class="c12"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M5 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4 6v-2c0-2.25-1.787-4-4.036-4h.054C2.768 12 1 13.75 1 16v2M12 7h12M12 17h10m-10-5h7"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div
-                class="c3"
-              />
-              <div
-                class="c13"
-              >
-                <span
-                  class="c4"
-                >
-                  common.from
-                </span>
-                <span
-                  class="c14"
-                >
-                  source...source
-                </span>
-              </div>
-            </div>
-          </a>
           <div
             class="c10"
+            style="box-shadow: none;"
+            tabindex="0"
+          >
+            <div
+              class="c11"
+            >
+              <svg
+                aria-label="ContactInfo"
+                class="c12"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M5 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4 6v-2c0-2.25-1.787-4-4.036-4h.054C2.768 12 1 13.75 1 16v2M12 7h12M12 17h10m-10-5h7"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="c3"
+            />
+            <div
+              class="c13"
+            >
+              <span
+                class="c4"
+              >
+                common.from
+              </span>
+              <span
+                class="c14"
+              >
+                source
+              </span>
+            </div>
+          </div>
+          <div
+            class="c10"
+            style="box-shadow: none;"
+            tabindex="0"
           >
             <div
               class="c11"
@@ -1243,7 +1257,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               <span
                 class="c14"
               >
-                ff1234...ff1234
+                ff1234
               </span>
             </div>
           </div>
@@ -1252,7 +1266,8 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           class="c9"
         >
           <div
-            class="c10"
+            class="c15"
+            style="box-shadow: none;"
           >
             <div
               class="c11"
@@ -1292,76 +1307,41 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               </span>
             </div>
           </div>
-          <div
-            class="c10"
-          >
-            <div
-              class="c11"
-            >
-              <svg
-                aria-label="Cube"
-                class="c12"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="m12 2 10 5v10l-10 5-10-5V7l10-5zM2 7l10 5 10-5m-10 5v10-10z"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                />
-              </svg>
-            </div>
-            <div
-              class="c3"
-            />
-            <div
-              class="c13"
-            >
-              <span
-                class="c4"
-              >
-                common.block
-              </span>
-              <span
-                class="c14"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <div
-      class="c15"
+      class="c16"
     >
       <span
-        class="c16"
+        class="c17"
       >
         0.001
         <span
-          class="c17"
+          class="c18"
         >
           TEST
         </span>
       </span>
       <span
-        class="c18"
+        class="c19"
       >
         account.transaction.successful
       </span>
     </div>
   </div>
   <footer
-    class="c19"
+    class="c20"
   >
     <a
-      class="c20"
+      class="c21"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c21"
+        class="c22"
       >
         account.transaction.explorerLink
       </span>
