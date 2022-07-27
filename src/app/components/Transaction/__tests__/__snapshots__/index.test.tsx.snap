@@ -532,7 +532,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               <span
                 class="c4"
               >
-                account.otherTransaction.designation
+                account.otherTransaction.destination
               </span>
               <span
                 class="c14"

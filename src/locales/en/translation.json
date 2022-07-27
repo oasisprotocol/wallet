@@ -14,7 +14,7 @@
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "otherTransaction": {
-      "designation": "Other address",
+      "destination": "Other address",
       "header": "Unrecognized transaction, method '{{method}}'"
     },
     "reclaimEscrow": {
