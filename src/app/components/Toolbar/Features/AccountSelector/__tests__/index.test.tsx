@@ -25,7 +25,7 @@ describe('<AccountSelector  />', () => {
         isOpen: true,
         wallets: {
           1: {
-            address: 'dummy',
+            address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
             balance: { available: '100', validator: { escrow: '5000', escrow_debonding: '300' } },
             id: 1,
             publicKey: '00',

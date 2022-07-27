@@ -3,16 +3,17 @@ import userEvent from '@testing-library/user-event'
 import { selectTicker } from 'app/state/network/selectors'
 import { when } from 'jest-when'
 import * as React from 'react'
-import { Router } from 'react-router'
-import { createMemoryHistory } from 'history'
 import { Provider, useSelector } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { BackendAPIs, backend } from 'vendors/backend'
+import copy from 'copy-to-clipboard'
 
 import { Transaction } from '..'
 import * as transactionTypes from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
 import type { UseTranslationResponse, Trans } from 'react-i18next'
+
+jest.mock('copy-to-clipboard')
 
 type TransType = typeof Trans
 jest.mock('react-i18next', () => ({
@@ -33,8 +34,6 @@ jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
 }))
 
-const history = createMemoryHistory()
-const pushSpy = jest.spyOn(history, 'push')
 const renderComponent = (
   store: any,
   ref: any,
@@ -42,11 +41,9 @@ const renderComponent = (
   network: NetworkType,
 ) =>
   render(
-    <Router history={history}>
-      <Provider store={store}>
-        <Transaction referenceAddress={ref} transaction={transaction} network={network} />
-      </Provider>
-    </Router>,
+    <Provider store={store}>
+      <Transaction referenceAddress={ref} transaction={transaction} network={network} />
+    </Provider>,
   )
 
 describe('<Transaction  />', () => {
@@ -77,28 +74,19 @@ describe('<Transaction  />', () => {
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
-  it('should redirect user when clicking on address section', () => {
+  it('should copy an address and tx hash value to clipboard', () => {
     renderComponent(store, ref, transaction, network)
 
     userEvent.click(screen.getByLabelText('ContactInfo'))
-    expect(pushSpy).toHaveBeenCalledWith(
-      expect.objectContaining({
-        pathname: `/account/${transaction.from}`,
-      }),
-    )
-  })
+    expect(copy).toHaveBeenNthCalledWith(1, 'source')
 
-  it('should not redirect user when clicking on amount or block section', () => {
-    renderComponent(store, ref, transaction, network)
-
-    userEvent.click(screen.getByLabelText('Money'))
-    userEvent.click(screen.getByLabelText('Cube'))
-    expect(pushSpy).not.toHaveBeenCalled()
+    userEvent.click(screen.getByLabelText('Package'))
+    expect(copy).toHaveBeenNthCalledWith(2, 'ff1234')
   })
 
   it('should mark failed transactions', () => {
     renderComponent(store, ref, { ...transaction, status: false }, network)
-    expect(screen.getByText('account.transaction.transactionFailed')).toBeInTheDocument()
+    expect(screen.getByText('account.transaction.failed')).toBeInTheDocument()
   })
 
   it('should handle unknown transaction types gracefully', () => {
