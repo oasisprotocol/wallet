@@ -20,7 +20,6 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
       hoverIndicator={{ color: 'background-contrast' }}
       pad={{ horizontal: 'small', vertical: 'small' }}
       onClick={copyToClipboard ? () => copy(value) : undefined}
-      style={{ boxShadow: 'none' }}
     >
       <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
         <IconComponent color="brand" size="20px" />

@@ -504,7 +504,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         >
           <div
             class="c10"
-            style="box-shadow: none;"
             tabindex="0"
           >
             <div
@@ -543,7 +542,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
           </div>
           <div
             class="c10"
-            style="box-shadow: none;"
             tabindex="0"
           >
             <div
@@ -586,7 +584,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         >
           <div
             class="c15"
-            style="box-shadow: none;"
           >
             <div
               class="c11"
@@ -1185,7 +1182,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         >
           <div
             class="c10"
-            style="box-shadow: none;"
             tabindex="0"
           >
             <div
@@ -1224,7 +1220,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           </div>
           <div
             class="c10"
-            style="box-shadow: none;"
             tabindex="0"
           >
             <div
@@ -1267,7 +1262,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         >
           <div
             class="c15"
-            style="box-shadow: none;"
           >
             <div
               class="c11"
