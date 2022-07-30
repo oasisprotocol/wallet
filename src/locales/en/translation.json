@@ -18,7 +18,9 @@
       "header": "Unrecognized transaction, method '{{method}}'"
     },
     "reclaimEscrow": {
-      "reclaim": "Reclaim"
+      "convertedToShares": "Corresponding number of gigashares: {{shares}}",
+      "reclaim": "Reclaim",
+      "reclaimAll": "Reclaim all"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {

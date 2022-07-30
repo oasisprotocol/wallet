@@ -49,8 +49,19 @@ export const ReclaimEscrowForm = memo((props: Props) => {
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
         amount: Number(amount),
-        validator: props.address,
         shares: shares,
+        validator: props.address,
+      }),
+    )
+  }
+
+  const reclaimAll = () => {
+    dispatch(
+      transactionActions.reclaimEscrow({
+        type: 'reclaimEscrow',
+        amount: Number(props.maxAmount) / 10 ** 9,
+        shares: Number(props.shares) / 10 ** 9,
+        validator: props.address,
       }),
     )
   }
@@ -82,10 +93,17 @@ export const ReclaimEscrowForm = memo((props: Props) => {
           primary
           style={{ borderRadius: '4px' }}
         />
+        <Button
+          label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')}
+          onClick={reclaimAll}
+          style={{ borderRadius: '4px' }}
+        />
       </Box>
       {shares > 0 && (
         <Text size="small" data-testid="numberOfShares">
-          Corresponding number of shares: {shares}
+          {t('account.reclaimEscrow.convertedToShares', 'Corresponding number of gigashares: {{shares}}', {
+            shares,
+          })}
         </Text>
       )}
       <TransactionStatus error={error} success={success} />
