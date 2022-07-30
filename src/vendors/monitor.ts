@@ -145,9 +145,10 @@ const transactionMethodMap: { [k in OperationsRowTypeEnum]: TransactionType } = 
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
+    const amount = t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount
     const parsed: Transaction = {
-      amount: t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount,
-      fee: t.fee,
+      amount: amount == null ? undefined : BigInt(amount).toString(),
+      fee: t.fee == null ? undefined : BigInt(t.fee).toString(),
       from: t.from,
       hash: t.hash!,
       level: t.level,

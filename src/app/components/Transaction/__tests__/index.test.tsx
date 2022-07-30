@@ -50,7 +50,7 @@ describe('<Transaction  />', () => {
   let store: ReturnType<typeof configureAppStore>
   const ref = 'sourceAddr'
   const transaction = {
-    amount: 1000000,
+    amount: 1000000n.toString(),
     timestamp: 1618018255,
     from: 'source',
     to: 'destination',
@@ -94,7 +94,7 @@ describe('<Transaction  />', () => {
       store,
       'sourceAddr',
       {
-        amount: 1000000,
+        amount: 1000000n.toString(),
         timestamp: 1618018255,
         from: 'source',
         to: 'destination',
@@ -117,7 +117,7 @@ describe('<Transaction  />', () => {
       store,
       'sourceAddr',
       {
-        amount: 1000000,
+        amount: 1000000n.toString(),
         timestamp: 1618018255,
         from: 'sourceAddr',
         to: undefined,

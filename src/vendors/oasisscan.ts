@@ -147,7 +147,7 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
   return list.map(t => {
     if ('ctx' in t) {
       const parsed: Transaction = {
-        amount: t.ctx.amount == null ? undefined : parseStringValueToInt(t.ctx.amount),
+        amount: t.ctx.amount == null ? undefined : parseRoseStringToBaseUnitString(t.ctx.amount),
         fee: undefined,
         from: t.ctx.from,
         hash: t.txHash,
@@ -163,8 +163,8 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
       return parsed
     } else {
       const parsed: Transaction = {
-        amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
-        fee: t.fee ? parseStringValueToInt(t.fee) : undefined,
+        amount: t.amount == null ? undefined : parseRoseStringToBaseUnitString(t.amount),
+        fee: t.fee ? parseRoseStringToBaseUnitString(t.fee) : undefined,
         from: t.from,
         hash: t.txHash,
         level: t.height,

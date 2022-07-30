@@ -26,8 +26,8 @@ export enum TransactionType {
 }
 
 export interface Transaction {
-  amount: number | undefined
-  fee: number | undefined
+  amount: StringifiedBigInt | undefined
+  fee: StringifiedBigInt | undefined
   from: string | undefined
   hash: string
   level: number | undefined
