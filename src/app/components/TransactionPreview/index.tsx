@@ -64,7 +64,7 @@ export const TransactionPreview = memo((props: Props) => {
       />
       {preview.transaction.type === 'reclaimEscrow' && (
         <ResponsiveGridRow
-          label={t('transaction.preview.shares', 'Shares')}
+          label={t('transaction.preview.shares', 'Gigashares')}
           value={<AmountFormatter amount={preview.transaction.shares} hideTicker />}
         />
       )}

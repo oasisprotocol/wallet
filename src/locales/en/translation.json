@@ -245,7 +245,7 @@
       "from": "From",
       "gas": "Gas",
       "genesisHash": "Genesis hash",
-      "shares": "Shares",
+      "shares": "Gigashares",
       "to": "To",
       "type": "Type",
       "validator": "Validator",
