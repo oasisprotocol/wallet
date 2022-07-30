@@ -16,11 +16,11 @@ interface Props {
   /** Currently delegated amount */
   maxAmount: string
 
+  /** Current shares corresponding to maxAmount */
+  maxShares: string
+
   /** Target validator address */
   address: string
-
-  /** Current shares corresponding to maxAmount */
-  shares: string
 }
 
 export const ReclaimEscrowForm = memo((props: Props) => {
@@ -31,7 +31,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   const dispatch = useDispatch()
 
   // Escrow tokens to shares conversion rate
-  const rate = Number(props.maxAmount) / Number(props.shares)
+  const rate = Number(props.maxAmount) / Number(props.maxShares)
 
   useEffect(() => {
     return () => {
@@ -61,7 +61,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
         amount: props.maxAmount,
-        shares: props.shares,
+        shares: props.maxShares,
         validator: props.address,
       }),
     )

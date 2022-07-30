@@ -27,7 +27,7 @@ export const DelegationItem = memo((props: DelegationProps) => {
         <ReclaimEscrowForm
           address={delegation.validatorAddress}
           maxAmount={delegation.amount}
-          shares={delegation.shares}
+          maxShares={delegation.shares}
         />
       )}
     </Box>

@@ -7,10 +7,10 @@ import { configureAppStore } from 'store/configureStore'
 
 import { ReclaimEscrowForm } from '..'
 
-const renderComponent = (store: any, address: string, maxAmount: string, shares: string) =>
+const renderComponent = (store: any, address: string, maxAmount: string, maxShares: string) =>
   render(
     <Provider store={store}>
-      <ReclaimEscrowForm address={address} maxAmount={maxAmount} shares={shares} />
+      <ReclaimEscrowForm address={address} maxAmount={maxAmount} maxShares={maxShares} />
     </Provider>,
   )
 
