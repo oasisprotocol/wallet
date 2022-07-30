@@ -30,9 +30,6 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   const [shares, setShares] = useState(0)
   const dispatch = useDispatch()
 
-  // Escrow tokens to shares conversion rate
-  const rate = Number(props.maxAmount) / Number(props.maxShares)
-
   useEffect(() => {
     return () => {
       dispatch(transactionActions.clearTransaction())
@@ -40,7 +37,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   }, [dispatch])
 
   const amountChanged = (amount: string) => {
-    const shares = Number(amount) / Number(rate)
+    const shares = (Number(amount) * Number(props.maxShares)) / Number(props.maxAmount)
     setAmount(amount)
     setShares(shares)
   }
