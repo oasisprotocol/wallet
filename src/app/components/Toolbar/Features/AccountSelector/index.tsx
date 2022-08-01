@@ -131,12 +131,7 @@ export const AccountSelector = memo((props: Props) => {
           {accounts}
         </Box>
         <Box align="end" pad={{ top: 'medium' }}>
-          <Button
-            primary
-            style={{ borderRadius: '4px' }}
-            label={t('toolbar.wallets.close', 'Close')}
-            onClick={props.closeHandler}
-          />
+          <Button primary label={t('toolbar.wallets.close', 'Close')} onClick={props.closeHandler} />
         </Box>
       </Box>
     </ResponsiveLayer>

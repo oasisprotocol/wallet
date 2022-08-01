@@ -57,7 +57,7 @@ exports[`<FromLedgerModal  /> should match snapshot 1`] = `
   overflow: visible;
   text-transform: none;
   border: 2px solid #0092f6;
-  border-radius: 18px;
+  border-radius: 4px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
@@ -128,14 +128,14 @@ exports[`<FromLedgerModal  /> should match snapshot 1`] = `
   -ms-flex-item-align: end;
   align-self: flex-end;
   border: 2px solid #0092f6;
-  border-radius: 18px;
+  border-radius: 4px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
   background-color: #0092f6;
   color: #f8f8f8;
-  border-radius: 18px;
+  border-radius: 4px;
   opacity: 0.3;
   cursor: default;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -380,7 +380,6 @@ exports[`<FromLedgerModal  /> should match snapshot 1`] = `
                 <button
                   class="c8"
                   disabled=""
-                  style="border-radius: 4px;"
                   type="button"
                 >
                   openWallet.ledger.cancel
@@ -392,7 +391,6 @@ exports[`<FromLedgerModal  /> should match snapshot 1`] = `
                   class="c10"
                   data-testid="ledger-open-accounts"
                   disabled=""
-                  style="border-radius: 4px;"
                   type="button"
                 >
                   openWallet.ledger.openWallets

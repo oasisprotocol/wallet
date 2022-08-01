@@ -43,7 +43,6 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
             label={t('common.cancel', 'Cancel')}
             onClick={closeModal}
             secondary
-            style={{ borderRadius: '4px' }}
             icon={<Close size="18px" />}
           />
           <Button
@@ -52,7 +51,6 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
             disabled={modal.isDangerous}
             primary={modal.isDangerous}
             color={modal.isDangerous ? 'status-error' : ''}
-            style={{ borderRadius: '4px' }}
             icon={modal.isDangerous ? <Alert size="18px" /> : <Checkmark size="18px" />}
           />
         </Box>

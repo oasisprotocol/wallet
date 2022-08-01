@@ -102,7 +102,6 @@ export function SendTransaction(props: SendTransactionProps) {
             <Button
               type="submit"
               label={t('account.sendTransaction.send', 'Send')}
-              style={{ borderRadius: '4px' }}
               onClick={onSubmit}
               primary
             />

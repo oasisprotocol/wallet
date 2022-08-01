@@ -95,12 +95,7 @@ export const AddEscrowForm = memo((props: Props) => {
                 required
               />
             </Box>
-            <Button
-              label={t('account.addEscrow.delegate', 'Delegate')}
-              type="submit"
-              primary
-              style={{ borderRadius: '4px' }}
-            />
+            <Button label={t('account.addEscrow.delegate', 'Delegate')} type="submit" primary />
           </Box>
           <TransactionStatus error={error} success={success} />
         </Form>

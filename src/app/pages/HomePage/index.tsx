@@ -28,7 +28,6 @@ export function HomePage() {
               <Button
                 type="submit"
                 label={t('home.existing.button', 'Open wallet')}
-                style={{ borderRadius: '4px' }}
                 primary
                 icon={<Unlock />}
               />
@@ -50,13 +49,7 @@ export function HomePage() {
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <NavLink to="/create-wallet">
-              <Button
-                type="submit"
-                label={t('home.create.button', 'Create wallet')}
-                style={{ borderRadius: '4px' }}
-                primary
-                icon={<Add />}
-              />
+              <Button type="submit" label={t('home.create.button', 'Create wallet')} primary icon={<Add />} />
             </NavLink>
           </Box>
         </Box>

@@ -30,28 +30,13 @@ export function SelectOpenMethod() {
 
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <NavLink to="/open-wallet/mnemonic">
-          <Button
-            type="submit"
-            label={t('openWallet.method.mnemonic', 'Mnemonic')}
-            style={{ borderRadius: '4px' }}
-            primary
-          />
+          <Button type="submit" label={t('openWallet.method.mnemonic', 'Mnemonic')} primary />
         </NavLink>
         <NavLink to="/open-wallet/private-key">
-          <Button
-            type="submit"
-            label={t('openWallet.method.privateKey', 'Private key')}
-            style={{ borderRadius: '4px' }}
-            primary
-          />
+          <Button type="submit" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </NavLink>
         <NavLink to="/open-wallet/ledger">
-          <Button
-            type="submit"
-            label={t('openWallet.method.ledger', 'Ledger')}
-            style={{ borderRadius: '4px' }}
-            primary
-          />
+          <Button type="submit" label={t('openWallet.method.ledger', 'Ledger')} primary />
         </NavLink>
       </Box>
 

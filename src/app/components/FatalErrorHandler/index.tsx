@@ -64,7 +64,6 @@ export function FatalErrorHandler(props: Props) {
                 ? t('fatalError.copy', 'Copy error to clipboard')
                 : t('fatalError.copied', 'Error copied to clipboard')
             }
-            style={{ borderRadius: '4px' }}
           />
         </Box>
       </Box>

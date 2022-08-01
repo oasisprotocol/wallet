@@ -48,12 +48,9 @@ const grommetCustomTheme: ThemeType = {
         light: 'green',
       },
     },
-    // default: {
-    //   background: {
-    //     dark: '#7D4CDB',
-    //     light: '#7D4CDB',
-    //   },
-    // },
+    border: {
+      radius: '4px',
+    },
   },
   global: {
     colors: {

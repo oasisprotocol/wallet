@@ -101,7 +101,6 @@ export function CreateWalletPage(props: CreateWalletProps) {
               <Button
                 icon={<Refresh />}
                 label={t('createWallet.newMnemonic', 'Generate a new mnemonic')}
-                style={{ borderRadius: '4px' }}
                 primary
                 onClick={regenerateMnemonic}
               />
@@ -140,7 +139,6 @@ export function CreateWalletPage(props: CreateWalletProps) {
               <Button
                 type="submit"
                 label={t('openWallet.mnemonic.import', 'Import my wallet')}
-                style={{ borderRadius: '4px' }}
                 primary
                 disabled={!checked}
                 onClick={() => {
