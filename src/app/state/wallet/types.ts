@@ -2,7 +2,7 @@ export enum WalletType {
   Ledger = 'ledger',
   PrivateKey = 'private_key',
   Mnemonic = 'mnemonic',
-  ParaTime = 'paratime',
+  EthereumPrivateKey = 'ethereum_private_key',
 }
 
 /**

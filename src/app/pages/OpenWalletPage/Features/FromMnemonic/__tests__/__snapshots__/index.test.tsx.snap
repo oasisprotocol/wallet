@@ -488,7 +488,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
               style="border-radius: 4px;"
               type="submit"
             >
-              openWallet.mnemonic.import
+              openWallet.import
             </button>
           </div>
         </form>

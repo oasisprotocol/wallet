@@ -28,6 +28,13 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.UnknownGrpcError]: t('errors.unknownGrpc', 'Unknown gRPC error: {{message}}', { message }),
     [WalletErrors.InvalidAddress]: t('errors.invalidAddress', 'Invalid address'),
     [WalletErrors.InvalidPrivateKey]: t('errors.invalidPrivateKey', 'Invalid private key'),
+    [WalletErrors.EthereumPrivateKeyUnknownError]: t(
+      'errors.unknownEthereumPrivateKeyError',
+      'Unknown Ethereum private key error: {{message}}',
+      {
+        message,
+      },
+    ),
     [WalletErrors.InsufficientBalance]: t('errors.insufficientBalance', 'Insufficient balance'),
     [WalletErrors.CannotSendToSelf]: t('errors.cannotSendToSelf', 'Cannot send to yourself'),
     [WalletErrors.InvalidNonce]: t('errors.invalidNonce', 'Invalid nonce (transaction number)'),

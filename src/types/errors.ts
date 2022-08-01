@@ -24,6 +24,7 @@ export enum WalletErrors {
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
   IndexerAPIError = 'indexer_api_error',
   DisconnectedError = 'disconnected_error',
+  EthereumPrivateKeyUnknownError = 'unknown_ethereum_private_key_error',
 }
 
 export interface ErrorPayload {

@@ -3,7 +3,6 @@ import { Transaction } from 'app/state/transaction/types'
 import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { AccountState, Account } from './types'
-import { WalletType } from 'app/state/wallet/types'
 
 export const initialState: AccountState = {
   address: '',
@@ -25,7 +24,7 @@ const slice = createSlice({
     clearAccount(state, action: PayloadAction<void>) {
       Object.assign(state, initialState)
     },
-    fetchAccount(state, action: PayloadAction<{ address: string; type: WalletType }>) {},
+    fetchAccount(state, action: PayloadAction<string>) {},
     accountLoaded(state, action: PayloadAction<Account>) {
       state.accountError = undefined
       Object.assign(state, action.payload)

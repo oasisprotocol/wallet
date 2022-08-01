@@ -78,7 +78,7 @@ export function MnemonicValidation(props: Props) {
             <Box direction="row" gap="small" margin={{ top: 'medium' }}>
               <Button
                 type="submit"
-                label={t('openWallet.mnemonic.import', 'Import my wallet')}
+                label={t('openWallet.import', 'Import my wallet')}
                 style={{ borderRadius: '4px' }}
                 primary
                 onClick={onSubmit}

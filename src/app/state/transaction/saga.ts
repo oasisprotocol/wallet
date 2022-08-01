@@ -53,7 +53,11 @@ function* getSigner() {
   const privateKey = wallet.privateKey!
 
   let signer: Signer | LedgerSigner
-  if (wallet.type === WalletType.PrivateKey || wallet.type === WalletType.Mnemonic) {
+  if (
+    wallet.type === WalletType.PrivateKey ||
+    wallet.type === WalletType.Mnemonic ||
+    wallet.type === WalletType.EthereumPrivateKey
+  ) {
     const bytes = hex2uint(privateKey!)
     signer = yield* call(signerFromPrivateKey, bytes)
   } else if (wallet.type === WalletType.Ledger) {

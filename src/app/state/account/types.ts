@@ -10,6 +10,7 @@ export interface BalanceDetails {
 
 export interface Account extends BalanceDetails {
   address: string
+  liquid_balance?: number
 }
 
 /* --- STATE --- */

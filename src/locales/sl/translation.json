@@ -164,6 +164,7 @@
       "warning": "❗ Uporabniki denarnice BitPie: Uvoz vašega BitPie mnemonika neposredno v Oasis denarnico ni mogoča. <0>Za več informacij preverite dokumentacijo.</0>"
     },
     "header": "Kako želite odpreti denarnico?",
+    "import": "Uvozi denarnico",
     "ledger": {
       "cancel": "Prekliči",
       "header": "Odpri z Ledgerjem",
@@ -179,15 +180,16 @@
       "enterPhraseHere": "Sem vnesite ključne besede",
       "error": "Neveljavne ključne besede. Preverite, ali so besede v pravem zaporedju in z malo začetnico.",
       "header": "Vnesite ključne besede",
-      "import": "Uvozi denarnico",
       "instruction": "Vnesite vse besede vašega mnemonika, ločene s presledkom. Običajno jih je 12 ali 24."
     },
     "privateKey": {
+      "header": "Vnesite zasebni ključ",
+      "instruction": "Vnesite vaš zasebni ključ v zapisu Base64."
+    },
+    "privateKeyForm": {
       "enterPrivateKeyHere": "Sem vnesite zasebni ključ",
       "error": "Neveljaven zasebni ključ",
-      "header": "Vnesite zasebni ključ",
       "hidePrivateKey": "Skrij zasebni ključ",
-      "instruction": "Vnesite vaš zasebni ključ v zapisu Base64.",
       "showPrivateKey": "Pokaži zasebni ključ"
     }
   },

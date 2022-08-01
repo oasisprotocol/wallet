@@ -30,7 +30,6 @@ import {
   selectIsOpen,
   selectWallets,
   selectWalletsPublicKeys,
-  selectType,
 } from '../../state/wallet/selectors'
 import { ActiveDelegationList } from '../StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from '../StakingPage/Features/DelegationList/DebondingDelegationList'
@@ -100,7 +99,6 @@ export function AccountPage(props: Props) {
 
   const walletIsOpen = useSelector(selectIsOpen)
   const walletAddress = useSelector(selectAddress)
-  const walletType = useSelector(selectType)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
   const wallets = useSelector(selectWallets)
@@ -121,7 +119,7 @@ export function AccountPage(props: Props) {
 
   // Reload account balances if address or network changes
   useEffect(() => {
-    dispatch(accountActions.fetchAccount({ address, type: walletType }))
+    dispatch(accountActions.fetchAccount(address))
     dispatch(stakingActions.fetchAccount(address))
     return () => {
       dispatch(accountActions.clearAccount())

@@ -164,6 +164,7 @@
       "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
     },
     "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
+    "import": "Importer mon portefeuille",
     "ledger": {
       "cancel": "Annuler",
       "header": "Ouvrir à partir d'un matériel Ledger",
@@ -179,15 +180,16 @@
       "enterPhraseHere": "Entrez votre phrase secrète ici",
       "error": "Phrase secrète invalide. Entrez chaque mot séparé d'un espace et dans le bon ordre.",
       "header": "Entrez votre phrase secrète",
-      "import": "Importer mon portefeuille",
       "instruction": "Entrez ci-dessous tous les mots qui composent votre phrase secrète (séparés par des espaces). La plupart des phrases secrètes sont composées de 24 ou 12 mots."
     },
     "privateKey": {
+      "header": "Entrez votre clé privée",
+      "instruction": "Entrez votre clé privée au format base64 ci-dessous."
+    },
+    "privateKeyForm": {
       "enterPrivateKeyHere": "Entrez votre clé privée ici",
       "error": "Clé privée invalide",
-      "header": "Entrez votre clé privée",
       "hidePrivateKey": "Masquer la clé privée",
-      "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
       "showPrivateKey": "Montrer la clé privée"
     }
   },

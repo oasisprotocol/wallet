@@ -2,7 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
 import { all, call, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
 import * as oasis from '@oasisprotocol/client'
-import * as oasisRT from '@oasisprotocol/client-rt'
+import { accounts, token } from '@oasisprotocol/client-rt'
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { accountActions as actions } from '.'
@@ -12,67 +12,78 @@ import { transactionActions } from '../transaction'
 import { selectAddress, selectType } from '../wallet/selectors'
 import { selectAccountAddress } from './selectors'
 import { WalletType } from '../wallet/types'
-import { Account } from '../account/types'
+import { Account } from './types'
+import { selectSelectedNetwork } from '../network/selectors'
+import { emeraldConfig } from '../../../config'
+
+export async function getRuntimeBalance(
+  address: string,
+  runtimeId: string,
+  oasisClient: oasis.client.NodeInternal,
+) {
+  const CONSENSUS_RT_ID = oasis.misc.fromHex(runtimeId)
+  const accountsWrapper = new accounts.Wrapper(CONSENSUS_RT_ID)
+  const accountBalances = await accountsWrapper
+    .queryBalances()
+    .setArgs({
+      address: await oasis.staking.addressFromBech32(address),
+    })
+    .query(oasisClient)
+    .catch(error => {
+      throw new WalletError(WalletErrors.UnknownGrpcError, error)
+    })
+  let nativeDenominationBalanceBI = 0n
+  if (accountBalances.balances) {
+    const nativeDenominationHex = oasis.misc.toHex(token.NATIVE_DENOMINATION)
+    for (const [denomination, amount] of accountBalances.balances) {
+      const denominationHex = oasis.misc.toHex(denomination)
+      if (denominationHex === nativeDenominationHex) {
+        nativeDenominationBalanceBI = oasis.quantity.toBigInt(amount)
+        break
+      }
+    }
+  }
+  return nativeDenominationBalanceBI
+}
 
 /**
  * Waits for a fetchAccount action with a specific address,
  * and hydrate the state accordingly
  */
-function* loadAccount(action: PayloadAction<{ address: string; type: WalletType }>) {
-  const address = action.payload.address
-  const walletType = action.payload.type
+export function* fetchAccount(action: PayloadAction<string>) {
+  const address = action.payload
 
   yield* put(actions.setLoading(true))
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
   const { getAccount, getTransactionsList } = yield* call(getExplorerAPIs)
-
   yield* all([
     join(
       yield* fork(function* () {
+        const account: Account = yield* call(getAccount, address)
+        const walletType = yield* select(selectType)
         try {
-          if (walletType === WalletType.ParaTime) {
-            const paratimeAddress = address
-            const runtimeId = '00000000000000000000000000000000000000000000000072c8215e60d5bca7' // Emerald
-            const CONSENSUS_RT_ID = oasis.misc.fromHex(runtimeId)
-            const accountsWrapper = new oasisRT.accounts.Wrapper(CONSENSUS_RT_ID)
-            const newAddress = yield* call(oasis.staking.addressFromBech32, paratimeAddress)
-
-            const balancesResult = yield* call(
-              nicArg =>
-                accountsWrapper
-                  .queryBalances()
-                  .setArgs({
-                    address: newAddress,
-                  })
-                  .query(nic)
-                  .catch((err: any) => {
-                    return err
-                  }),
+          if (walletType === WalletType.EthereumPrivateKey) {
+            const selectedNetwork = yield* select(selectSelectedNetwork)
+            const balance: any = yield* call(
+              getRuntimeBalance,
+              address,
+              emeraldConfig[selectedNetwork].runtimeId,
               nic,
             )
-
-            let nativeDenominationBalanceBI = 0n
-            if (balancesResult.balances) {
-              const nativeDenominationHex = oasis.misc.toHex(oasisRT.token.NATIVE_DENOMINATION)
-              for (const [denomination, amount] of balancesResult.balances) {
-                const denominationHex = oasis.misc.toHex(denomination)
-                if (denominationHex === nativeDenominationHex) {
-                  nativeDenominationBalanceBI = oasis.quantity.toBigInt(amount)
-                  break
-                }
-              }
-            }
-            yield put(actions.accountLoaded({ address, liquid_balance: Number(nativeDenominationBalanceBI) }))
+            yield put(
+              actions.accountLoaded({
+                ...account,
+                liquid_balance: Number(balance),
+              }),
+            )
           } else {
-            const account = yield* call(getAccount, address)
             yield put(actions.accountLoaded(account))
           }
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
-            // console.log({ loadAccount: account })
             const balance = parseRpcBalance(account)
             yield put(
               actions.accountLoaded({
@@ -130,6 +141,7 @@ export function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
     const from = yield* select(selectAddress)
+    const currentAccount = yield* select(selectAccountAddress)
     let otherAddress: string
 
     if (payload.type === 'transfer') {
@@ -138,11 +150,9 @@ export function* refreshAccountOnTransaction() {
       otherAddress = payload.validator
     }
 
-    const currentAccount = yield* select(selectAccountAddress)
-    const walletType = yield* select(selectType)
     if (currentAccount === from || currentAccount === otherAddress) {
       // Refresh current account
-      yield* put(actions.fetchAccount({ address: currentAccount, type: walletType }))
+      yield* put(actions.fetchAccount(currentAccount))
       yield* put(stakingActions.fetchAccount(currentAccount))
     }
   }

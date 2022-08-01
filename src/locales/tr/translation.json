@@ -164,6 +164,7 @@
       "warning": "BitPie cüzdan kullanıcıları: Anımsatıcı kelimelerinizi direkt olarak BitPie cüzdanınızda içeriye aktaramazsınız. <0>Detaylar için dökümana göz atınız. </0>"
     },
     "header": "Cüzdanınızı nasıl açmak istersiniz?",
+    "import": "Cüzdanımı içe aktar",
     "ledger": {
       "cancel": "İptal et",
       "header": "Ledger cihazınızdan açınız",
@@ -179,15 +180,16 @@
       "enterPhraseHere": "Anahtar kelimelerinizi buraya girin",
       "error": "Geçersiz anahtar kelime. Lütfen kelimeleri doğru sırayla girdiğinizden emin olun, hepsi küçük harf olmalı.",
       "header": "Anahtar kelimelerinizi girin",
-      "import": "Cüzdanımı içe aktar",
       "instruction": "12, 18 veya 24 kelimelik anahtar kelimenizi aşağıya girin, her kelime boşlukla ayrılmıştır."
     },
     "privateKey": {
+      "header": "Özel anahtarınızı girin",
+      "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin"
+    },
+    "privateKeyForm": {
       "enterPrivateKeyHere": "Özel anahtarınızı buraya girin",
       "error": "Geçersiz özel anahtar",
-      "header": "Özel anahtarınızı girin",
       "hidePrivateKey": "Özel anahtarı gizle",
-      "instruction": "Base-64 ile şifrelenmiş özel anahtarınızı girin",
       "showPrivateKey": "Özel anahtarı göster"
     }
   },

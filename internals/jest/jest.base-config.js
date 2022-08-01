@@ -14,7 +14,7 @@ const config = {
   resetMocks: true,
   setupFiles: ['react-app-polyfill/jsdom'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  testEnvironment: 'jsdom',
+  testEnvironment: '<rootDir>internals/jest/jest-environment-jsdom.js',
   transform: {
     '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/internals/jest/babelTransform.js',
   },

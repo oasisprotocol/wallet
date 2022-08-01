@@ -57,3 +57,14 @@ export const config: BackendConfig = {
     },
   },
 }
+
+type ParaTime = { runtimeId: string }
+type ParaTimeConfig = {
+  [key in NetworkType]: ParaTime
+}
+
+export const emeraldConfig: ParaTimeConfig = {
+  mainnet: { runtimeId: '000000000000000000000000000000000000000000000000e2eaa99fc008f87f' },
+  testnet: { runtimeId: '00000000000000000000000000000000000000000000000072c8215e60d5bca7' },
+  local: { runtimeId: '' },
+}

@@ -131,6 +131,7 @@
     "ledgerTransactionRejected": "Transaction rejected on Ledger.",
     "noOpenWallet": "No wallet opened",
     "unknown": "Unknown error: {{message}}",
+    "unknownEthereumPrivateKeyError": "Unknown Ethereum private key error: {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
     "unknownLedgerError": "Unknown ledger error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
@@ -188,7 +189,12 @@
     "bitpie": {
       "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
     },
+    "ethereumPrivateKey": {
+      "header": "Enter your Ethereum-compatible private key",
+      "instruction": "Enter your Ethereum-compatible private key."
+    },
     "header": "How do you want to open your wallet?",
+    "import": "Import my wallet",
     "ledger": {
       "cancel": "Cancel",
       "header": "Open from Ledger device",
@@ -196,6 +202,7 @@
       "selectWallets": "Select accounts to open"
     },
     "method": {
+      "ethereumPrivateKey": "Ethereum Private key",
       "ledger": "Ledger",
       "mnemonic": "Mnemonic",
       "privateKey": "Private key"
@@ -204,15 +211,16 @@
       "enterPhraseHere": "Enter your keyphrase here",
       "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
       "header": "Enter your keyphrase",
-      "import": "Import my wallet",
       "instruction": "Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words."
     },
     "privateKey": {
+      "header": "Enter your private key",
+      "instruction": "Enter your private key in Base64 format."
+    },
+    "privateKeyForm": {
       "enterPrivateKeyHere": "Enter your private key here",
       "error": "Invalid private key",
-      "header": "Enter your private key",
       "hidePrivateKey": "Hide private key",
-      "instruction": "Enter your private key in Base64 format.",
       "showPrivateKey": "Show private key"
     }
   },
@@ -230,6 +238,7 @@
       "close": "Close",
       "switchOtherWallet": "Switch to another account",
       "type": {
+        "ethereumPrivateKey": "Ethereum Private key",
         "ledger": "Ledger",
         "mnemonic": "Mnemonic",
         "privateKey": "Private key"
