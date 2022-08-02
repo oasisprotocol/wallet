@@ -83,12 +83,11 @@ export const ValidatorList = memo((props: Props) => {
       id: 'escrow',
       selector: 'escrow',
       hide: 'sm',
-      cell: datum =>
-        datum.escrow && (
-          <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
-        ),
+      cell: datum => (
+        <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
+      ),
       sortable: true,
-      sortFunction: (row1, row2) => (row1.escrow ?? 0) - (row2.escrow ?? 0),
+      sortFunction: (row1, row2) => Number(BigInt(row1.escrow ?? 0) - BigInt(row2.escrow ?? 0)),
     },
     {
       name: t('validator.fee', 'Fee'),

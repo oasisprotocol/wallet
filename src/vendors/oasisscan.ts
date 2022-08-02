@@ -100,7 +100,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
         address: v.entityAddress,
         name: v.name ?? undefined,
         nodeAddress: v.nodeAddress,
-        escrow: parseStringValueToInt(v.escrow),
+        escrow: parseRoseStringToBaseUnitString(v.escrow),
         current_rate: v.commission,
         status: v.status ? 'active' : 'inactive',
         media: {

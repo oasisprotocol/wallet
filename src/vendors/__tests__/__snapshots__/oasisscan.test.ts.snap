@@ -236,7 +236,7 @@ Array [
   Object {
     "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
     "current_rate": 0.05,
-    "escrow": 336904789680000000,
+    "escrow": "336904789680000000",
     "media": Object {
       "email_address": "s@s.f",
       "logotype": "https://s3.amazonaws.com/s.jpg",
@@ -251,7 +251,7 @@ Array [
   Object {
     "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
     "current_rate": 0.15,
-    "escrow": 261889743040000000,
+    "escrow": "261889743040000000",
     "media": Object {
       "email_address": "go@staking.fund",
       "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d48739023a250815c4ac564c9870ec05_360_360.jpg",
@@ -266,7 +266,7 @@ Array [
   Object {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
-    "escrow": 326477290610000000,
+    "escrow": "326477290610000000",
     "media": Object {
       "email_address": undefined,
       "logotype": undefined,

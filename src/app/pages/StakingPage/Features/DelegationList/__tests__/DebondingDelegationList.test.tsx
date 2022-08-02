@@ -40,6 +40,7 @@ describe('<DebondingDelegationList  />', () => {
               status: 'active',
               name: 'test-validator',
               nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+              escrow: 1000n.toString(),
             },
           },
         ],
@@ -67,6 +68,7 @@ describe('<DebondingDelegationList  />', () => {
               status: 'active',
               name: 'test-validator1',
               nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+              escrow: 1000n.toString(),
             },
           },
           {

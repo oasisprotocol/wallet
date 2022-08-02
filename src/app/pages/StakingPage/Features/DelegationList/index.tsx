@@ -99,7 +99,7 @@ export const DelegationList = memo((props: Props) => {
       selector: 'amount',
       cell: datum => datum.amount && <AmountFormatter amount={datum.amount} />,
       sortable: true,
-      sortFunction: (row1, row2) => Number(row1.amount) - Number(row2.amount),
+      sortFunction: (row1, row2) => Number(BigInt(row1.amount) - BigInt(row2.amount)),
     },
     fee: {
       name: t('validator.fee', 'Fee'),

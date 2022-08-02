@@ -45,7 +45,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         <ResponsiveGridRow label={t('validator.rank', 'Rank')} value={`#${validator.rank}`} />
         <ResponsiveGridRow
           label={t('validator.totalEscrow', 'Total escrow')}
-          value={<AmountFormatter amount={validator.escrow ?? 0} />}
+          value={<AmountFormatter amount={validator.escrow} />}
         />
         <ResponsiveGridRow
           label={t('validator.commission', 'Commission')}

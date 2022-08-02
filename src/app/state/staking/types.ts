@@ -8,7 +8,7 @@ export interface Validator {
   address: string
   name?: string
   nodeAddress: string
-  escrow?: number
+  escrow: StringifiedBigInt
   status: 'active' | 'inactive' | 'unknown'
   rank: number
   media?: ValidatorMediaInfo

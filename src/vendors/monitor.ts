@@ -88,7 +88,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
           address: v.account_id,
           name: v.account_name,
           nodeAddress: v.node_id,
-          escrow: v.escrow_balance,
+          escrow: BigInt(v.escrow_balance).toString(),
           current_rate: computeCurrentRate(v.current_epoch!, v.commission_schedule?.rates ?? []),
           status: v.status,
           media: v.media_info,

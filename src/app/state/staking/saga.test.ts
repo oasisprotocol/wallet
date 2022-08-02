@@ -44,8 +44,8 @@ describe('Staking Sagas', () => {
   describe('Fetch Account', () => {
     it('Should load the delegations and validators', () => {
       getAllValidators.mockResolvedValue([
-        { address: 'oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7', escrow: 1000 },
-        { address: 'dummy', escrow: 2000 },
+        { address: 'oasis1qqzz2le7nua2hvrkjrc9kc6n08ycs9a80chejmr7', escrow: 1000n.toString() },
+        { address: 'dummy', escrow: 2000n.toString() },
       ] as Validator[])
 
       getDelegations.mockResolvedValue({
