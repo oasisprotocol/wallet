@@ -11,6 +11,7 @@ import {
   Cube,
   FormNext,
   Money,
+  Inherit,
   LineChart,
   New,
   LinkPrevious,
@@ -72,7 +73,6 @@ export function Transaction(props: TransactionProps) {
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
   const amount = <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} />
-
   let side: TransactionSide
   let otherAddress = ''
 
@@ -183,6 +183,32 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },
+    [transactionTypes.TransactionType.ConsensusDeposit]: {
+      [TransactionSide.Received]: {
+        destination: t('common.from', 'From'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensus.received"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            defaults="{{runtimeName}} ParaTime transfer"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        destination: t('common.to', 'To'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensus.sent"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            defaults="{{runtimeName}} ParaTime deposit"
+          />
+        ),
+      },
+    },
     [transactionTypes.TransactionType.StakingAllow]: {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
@@ -231,6 +257,22 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },
+    [transactionTypes.TransactionType.ConsensusWithdraw]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.ConsensusAccountsParameters]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.ConsensusBalance]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
+    [transactionTypes.TransactionType.ConsensusAccount]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
+    },
   }
 
   const isTypeRecognized = (type: string | undefined): type is transactionTypes.TransactionType =>
@@ -243,7 +285,12 @@ export function Transaction(props: TransactionProps) {
   const Icon = matchingConfiguration.icon
   const header = matchingConfiguration.header()
   const destination = matchingConfiguration.destination
-  const blockExplorerLink = config[props.network][backend()]?.blockExplorer
+  const backendLinks = config[props.network][backend()]
+  const externalExplorerLink = transaction.runtimeId
+    ? backendLinks.blockExplorerParatimes
+        ?.replace('{{txHash}}', encodeURIComponent(transaction.hash))
+        .replace('{{runtimeId}}', encodeURIComponent(transaction.runtimeId))
+    : backendLinks.blockExplorer.replace('{{txHash}}', encodeURIComponent(transaction.hash))
 
   return (
     <Card
@@ -303,11 +350,19 @@ export function Transaction(props: TransactionProps) {
                   value={intlDateTimeFormat(transaction.timestamp!)}
                 />
 
-                {transaction.level && (
+                {!transaction.runtimeId && transaction.level && (
                   <InfoBox
                     icon={Cube}
                     label={t('common.block', 'Block')}
                     value={transaction.level.toString()}
+                  />
+                )}
+
+                {transaction.runtimeId && transaction.round && (
+                  <InfoBox
+                    icon={Cube}
+                    label={t('common.round', 'Round')}
+                    value={transaction.round.toString()}
                   />
                 )}
               </Box>
@@ -331,7 +386,7 @@ export function Transaction(props: TransactionProps) {
       </StyledCardBody>
       <CardFooter justify="center" fill="horizontal">
         <Anchor
-          href={blockExplorerLink.replace('{{txHash}}', encodeURIComponent(transaction.hash))}
+          href={externalExplorerLink}
           target="_blank"
           rel="noopener"
           data-testid="explorer-link"

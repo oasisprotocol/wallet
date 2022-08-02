@@ -56,6 +56,10 @@
         "received": "Received <0></0> delegation in escrow",
         "sent": "Delegated <0></0> to validator"
       },
+      "consensus": {
+        "received": "{{runtimeName}} ParaTime transfer",
+        "sent": "{{runtimeName}} ParaTime deposit"
+      },
       "explorerLink": "View transaction records through explorer",
       "failed": "Failed",
       "loadingError": "Couldn't load transactions.",
@@ -88,6 +92,7 @@
     "delegator": "Delegator",
     "from": "From",
     "hash": "Tx Hash",
+    "round": "Round",
     "time": "Time",
     "to": "To",
     "unavailable": "Unavailable",
