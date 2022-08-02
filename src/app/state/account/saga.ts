@@ -36,7 +36,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
             yield put(
               actions.accountLoaded({
                 address,
-                available: parseFloat(balance.available),
+                available: balance.available,
                 delegations: null,
                 debonding: null,
                 total: null,

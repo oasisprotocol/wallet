@@ -42,7 +42,7 @@ describe('<AccountPage  />', () => {
       account: {
         loading: false,
         address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
-        available: 100000000000,
+        available: 100000000000n.toString(),
         delegations: null,
         debonding: null,
         total: null,
@@ -97,8 +97,7 @@ describe('<AccountPage  />', () => {
       ...store.getState(),
       account: {
         ...store.getState().account,
-        // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
-        available: 1655615038322038833148,
+        available: 1655615038322038833148n.toString(),
       },
     })
     renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])

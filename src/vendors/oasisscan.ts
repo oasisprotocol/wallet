@@ -2,7 +2,7 @@ import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { Transaction, TransactionType } from 'app/state/transaction/types'
-import { parseRoseStringToBaseUnitString, parseStringValueToInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import {
   AccountsApi,
   AccountsRow,
@@ -86,7 +86,7 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    available: parseStringValueToInt(account.available),
+    available: parseRoseStringToBaseUnitString(account.available),
     delegations: null,
     debonding: null,
     total: null,
