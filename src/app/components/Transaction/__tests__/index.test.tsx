@@ -103,6 +103,9 @@ describe('<Transaction  />', () => {
         fee: undefined,
         level: undefined,
         status: true,
+        runtimeName: undefined,
+        runtimeId: undefined,
+        round: undefined,
       },
       network,
     )
@@ -123,6 +126,9 @@ describe('<Transaction  />', () => {
         fee: undefined,
         level: undefined,
         status: true,
+        runtimeName: undefined,
+        runtimeId: undefined,
+        round: undefined,
       },
       network,
     )
@@ -155,5 +161,30 @@ describe('<Transaction  />', () => {
       'href',
       'https://testnet.oasismonitor.com/operation/ff1234',
     )
+  })
+
+  it('should render paratime transaction row', () => {
+    const runtimeId = '123'
+
+    renderComponent(
+      store,
+      'source',
+      {
+        ...transaction,
+        runtimeId,
+        runtimeName: 'Name',
+        round: 951933,
+        type: transactionTypes.TransactionType.ConsensusDeposit,
+      },
+      network,
+    )
+
+    expect(screen.getByText('common.round')).toBeInTheDocument()
+    expect(screen.queryByText('common.block')).not.toBeInTheDocument()
+    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
+      'href',
+      `https://oasisscan.com/paratimes/transactions/ff1234?runtime=${runtimeId}`,
+    )
+    expect(screen.getByLabelText('Inherit')).toHaveStyleRule('stroke', '#FFCA58')
   })
 })
