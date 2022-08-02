@@ -4,7 +4,7 @@ import { getOasisscanAPIs } from '../../src/vendors/oasisscan'
 
 // Abusing jest to handle typescript and run this
 test('dump validators', async () => {
-  const { getAllValidators } = getOasisscanAPIs('https://api.oasisscan.com/mainnet/')
+  const { getAllValidators } = getOasisscanAPIs('https://api.oasisscan.com/mainnet')
   const validators = await getAllValidators()
 
   const json = {

@@ -1,12 +1,12 @@
 {
-  "dump_timestamp": 1656642701446,
-  "dump_timestamp_iso": "2022-07-01T02:31:41.446Z",
+  "dump_timestamp": 1659447769531,
+  "dump_timestamp_iso": "2022-08-02T13:42:49.531Z",
   "list": [
     {
       "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
       "name": "BinanceStaking",
       "nodeAddress": "oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k",
-      "escrow": 547352456179999940,
+      "escrow": 635883380920000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -18,7 +18,7 @@
       "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
       "name": "stakefish",
       "nodeAddress": "oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar",
-      "escrow": 316270543060000000,
+      "escrow": 341994692250000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -33,7 +33,7 @@
       "address": "oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3",
       "name": "Chorus One",
       "nodeAddress": "oasis1qrs74qakgmxcrj4vcvl6javrps65awk6x5656msr",
-      "escrow": 268241617350000000,
+      "escrow": 263739814360000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -47,7 +47,7 @@
       "address": "oasis1qz0ea28d8p4xk8xztems60wq22f9pm2yyyd82tmt",
       "name": "Simply Staking",
       "nodeAddress": "oasis1qr60nw7vxmzyn3vq4yeg9fuzp7uhfwu69cu3gpp7",
-      "escrow": 217836322440000000,
+      "escrow": 219675949000000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -61,7 +61,7 @@
     {
       "address": "oasis1qzv2rktycpcykhudyvg5l6u75v08lpfcw5nt7aj5",
       "nodeAddress": "oasis1qpt95y3m28pada0gdamyqwrqtk6egl9jcq3dnqlt",
-      "escrow": 207689634380000000,
+      "escrow": 199265845650000000,
       "current_rate": 0.12,
       "status": "active",
       "media": {},
@@ -71,7 +71,7 @@
       "address": "oasis1qrdx0n7lgheek24t24vejdks9uqmfldtmgdv7jzz",
       "name": "Bit Cat🐱",
       "nodeAddress": "oasis1qz557a3rmflgxtn46f8hegrnfdak7es4gcedfme6",
-      "escrow": 104936947010000000,
+      "escrow": 106012681670000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -86,7 +86,7 @@
       "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
       "name": "Staking Fund",
       "nodeAddress": "oasis1qp0lt6y2kq8g7ffzy49acga2l8uefngz0yf9v0jk",
-      "escrow": 91982627200000000,
+      "escrow": 92826850260000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -101,7 +101,7 @@
       "address": "oasis1qq7vyz4ewrdh00yujw0mgkf459et306xmvh2h3zg",
       "name": "P2P.ORG - P2P Validator",
       "nodeAddress": "oasis1qzgs6akhvl9qgnepas3p0tf97p9cuv63ps8v6qgx",
-      "escrow": 89646202990000000,
+      "escrow": 90429526280000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -115,7 +115,7 @@
     {
       "address": "oasis1qram2p9w3yxm4px5nth8n7ugggk5rr6ay5d284at",
       "nodeAddress": "oasis1qqd78tnekpc4j5tltxcrxy6phvad48exuyd2z3c9",
-      "escrow": 88542668040000000,
+      "escrow": 89303501170000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {},
@@ -125,7 +125,7 @@
       "address": "oasis1qrtq873ddwnnjqyv66ezdc9ql2a07l37d5vae9k0",
       "name": "Forbole",
       "nodeAddress": "oasis1qqvkk79jfcvm7d09a84thv7rak9885wdgu7270tl",
-      "escrow": 82399251840000000,
+      "escrow": 82220261810000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -137,24 +137,10 @@
       "rank": 10
     },
     {
-      "address": "oasis1qzugextrcdueshq63w7l9x4xglnusznsgqa95w7e",
-      "name": "Alexander (aka Bambarello) Validator",
-      "nodeAddress": "oasis1qz7sam9dh3g4e70egpzs8n54rf6m3xumav3z6uyy",
-      "escrow": 76953820340000000,
-      "current_rate": 0.19,
-      "status": "active",
-      "media": {
-        "email_address": "bambarello@keybase.io",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/54d9aa8c94a4c2a8b9893fe94a721305_360_360.jpg",
-        "website_link": "https://keybase.io/bambarello"
-      },
-      "rank": 11
-    },
-    {
       "address": "oasis1qpqz2ut6a6prfcjm64xnpnjhsnqny6jqfyav829v",
       "name": "GoStaking",
       "nodeAddress": "oasis1qzhpchu80rdy0z76uxnc29p09yc39lrmnuhrd04m",
-      "escrow": 76829406810000000,
+      "escrow": 78174566450000000,
       "current_rate": 0,
       "status": "active",
       "media": {
@@ -162,12 +148,26 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/796f004b2fa2a5ff17299d361b78b005_360_360.jpg",
         "twitter_acc": "StakingGo"
       },
+      "rank": 11
+    },
+    {
+      "address": "oasis1qzugextrcdueshq63w7l9x4xglnusznsgqa95w7e",
+      "name": "Alexander (aka Bambarello) Validator",
+      "nodeAddress": "oasis1qz7sam9dh3g4e70egpzs8n54rf6m3xumav3z6uyy",
+      "escrow": 77618674450000000,
+      "current_rate": 0.19,
+      "status": "active",
+      "media": {
+        "email_address": "bambarello@keybase.io",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/54d9aa8c94a4c2a8b9893fe94a721305_360_360.jpg",
+        "website_link": "https://keybase.io/bambarello"
+      },
       "rank": 12
     },
     {
       "address": "oasis1qrw82ag2sypeytse9x9k4uxym53l5lc5jyfs2sxv",
       "nodeAddress": "oasis1qq720jlr6y2wn7wt8ts6al792hey322zmqqaex6u",
-      "escrow": 72937057320000000,
+      "escrow": 73566004480000000,
       "current_rate": 0.1961,
       "status": "active",
       "media": {},
@@ -177,7 +177,7 @@
       "address": "oasis1qpwrq93z8s9ytu2hfjtqggc9edgwfadzevs3trvm",
       "name": "Munay Network",
       "nodeAddress": "oasis1qzvk4rfeamnn6e9xpu8lgl27kf45np5z7uldhkuz",
-      "escrow": 72888490390000000,
+      "escrow": 73564176020000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -190,7 +190,7 @@
       "address": "oasis1qz26ty8q6gwt6zah7dtt8jpepvwnttkg8ssnxjl7",
       "name": "JrMain",
       "nodeAddress": "oasis1qpdfwsn3ymsazr7tygt8r7pldjvpgd4mksya7y3n",
-      "escrow": 72359049930000000,
+      "escrow": 72980591760000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -205,7 +205,7 @@
       "address": "oasis1qpjuke27se2wnmvx6e8uc4l5h44yjp9h7g2clqfq",
       "name": "RockX",
       "nodeAddress": "oasis1qqyzheah4xulyqz74m5v6vt552rrh54lnyghy7et",
-      "escrow": 70307766230000010,
+      "escrow": 70916831830000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -217,17 +217,16 @@
       "rank": 16
     },
     {
-      "address": "oasis1qp60saapdcrhe5zp3c3zk52r4dcfkr2uyuc5qjxp",
-      "name": "Tessellated Geometry",
-      "nodeAddress": "oasis1qq9hpt5ljzc592cdhgvex08cct3s6928tq54qvky",
-      "escrow": 68197845599999990,
-      "current_rate": 0.03,
+      "address": "oasis1qq0xmq7r0z9sdv02t5j9zs7en3n6574gtg8v9fyt",
+      "name": "Mars Staking | Long term fee 1%",
+      "nodeAddress": "oasis1qqnucpyju04fjxlg5j5a0akscqhf34ulnsupnwx3",
+      "escrow": 68466254180000010,
+      "current_rate": 0.01,
       "status": "active",
       "media": {
-        "email_address": "hello@tessellatedgeometry.com",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/cde8ccc7b686b7e78dd5e519ca418305_360_360.jpg",
-        "twitter_acc": "tessellatedgeo",
-        "website_link": "https://tessellatedgeometry.com"
+        "email_address": "marssuper@outlook.com",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/f30f9b2207b7d83ef05219ca483b6f05_360_360.jpg",
+        "website_link": "https://linktr.ee/marssuper"
       },
       "rank": 17
     },
@@ -235,7 +234,7 @@
       "address": "oasis1qz8u0zqhcmgxalnjgwj6m0sg6wuy2vrsgyna2z7t",
       "name": "Everstake",
       "nodeAddress": "oasis1qpnjnmhuyhtrplnwstpr50wxd7h3ywzx056hgnd0",
-      "escrow": 67273969280000000,
+      "escrow": 67241158879999990,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -247,24 +246,10 @@
       "rank": 18
     },
     {
-      "address": "oasis1qq0xmq7r0z9sdv02t5j9zs7en3n6574gtg8v9fyt",
-      "name": "Mars Staking | Long term fee 1%",
-      "nodeAddress": "oasis1qqnucpyju04fjxlg5j5a0akscqhf34ulnsupnwx3",
-      "escrow": 67233705840000000,
-      "current_rate": 0.01,
-      "status": "active",
-      "media": {
-        "email_address": "marssuper@outlook.com",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/f30f9b2207b7d83ef05219ca483b6f05_360_360.jpg",
-        "website_link": "https://linktr.ee/marssuper"
-      },
-      "rank": 19
-    },
-    {
       "address": "oasis1qz86vltcdhjurzuvzfhkku4yaf7vf2umdvpwmtlv",
       "name": "Coinbase Cloud",
       "nodeAddress": "oasis1qpf76sutrrk7kzj7ke2cz8kxesm8fqhm7gwyp4lh",
-      "escrow": 65820532070000000,
+      "escrow": 66355246750000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -273,13 +258,28 @@
         "twitter_acc": "CoinbaseCloud",
         "website_link": "https://coinbase.com/cloud"
       },
+      "rank": 19
+    },
+    {
+      "address": "oasis1qp60saapdcrhe5zp3c3zk52r4dcfkr2uyuc5qjxp",
+      "name": "Tessellated Geometry",
+      "nodeAddress": "oasis1qq9hpt5ljzc592cdhgvex08cct3s6928tq54qvky",
+      "escrow": 64504288640000000,
+      "current_rate": 0.03,
+      "status": "active",
+      "media": {
+        "email_address": "hello@tessellatedgeometry.com",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/cde8ccc7b686b7e78dd5e519ca418305_360_360.jpg",
+        "twitter_acc": "tessellatedgeo",
+        "website_link": "https://tessellatedgeometry.com"
+      },
       "rank": 20
     },
     {
       "address": "oasis1qzzytegg6jc7hxu6y8feuzkgmr75ms7hc54mz85p",
       "name": "Doorgod",
       "nodeAddress": "oasis1qqhh2jjeahvsdum6nsg7r52fmz7wngj8kus0crue",
-      "escrow": 63535433000000000,
+      "escrow": 63838878030000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -294,7 +294,7 @@
       "address": "oasis1qzp8e4ldf9zq27jle847nawll5jwwa9x75y6spaz",
       "name": "Hashed x DELIGHT",
       "nodeAddress": "oasis1qztgkw8kklepfu3javhp6gz0qqtx8xmu6ccc8ctn",
-      "escrow": 60887907160000000,
+      "escrow": 61485346080000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -309,7 +309,7 @@
       "address": "oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf",
       "name": "0base.vc",
       "nodeAddress": "oasis1qzplwqappgvpw67jvw5ngr30acaal5vuqq9raghp",
-      "escrow": 57211787740000000,
+      "escrow": 57791053800000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -324,7 +324,7 @@
       "address": "oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty",
       "name": "SerGo",
       "nodeAddress": "oasis1qq22f368g9c4pn26ncrpvzgj9jtrl57c8g7wznxv",
-      "escrow": 54658107510000000,
+      "escrow": 55134017470000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -337,7 +337,7 @@
     {
       "address": "oasis1qrecdyjt5wu4ynkugv9ns8qjl5wl7gzprukywrly",
       "nodeAddress": "oasis1qzmkety59uvm8ytv2wyj7t8key9h4ca34v4w82eh",
-      "escrow": 52166805920000000,
+      "escrow": 52914736540000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {},
@@ -347,7 +347,7 @@
       "address": "oasis1qztpm422n7v98f4s7ja0wt5jey7fy3xpg5ye2vtl",
       "name": "Second State",
       "nodeAddress": "oasis1qp0l8r2s3076n4xrq8av0uuqegj7z9kq55gu5exy",
-      "escrow": 50577636650000000,
+      "escrow": 51436327730000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -361,7 +361,7 @@
       "address": "oasis1qryc94hn6hucev6ex79ceheve2pjesenc50svvvp",
       "name": "InfStones",
       "nodeAddress": "oasis1qpjkzn47d7q770vefjwc4lvj2vqlnsgstcggthmh",
-      "escrow": 49227917540000000,
+      "escrow": 49589444210000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -373,102 +373,45 @@
       "rank": 27
     },
     {
-      "address": "oasis1qp6fzgx9zhamsk6c77cwzjeme06xwswffvhk6js2",
-      "name": "Making.Cash Validator",
-      "nodeAddress": "oasis1qqc4er3l8ey0kxk884pysmrjxw0mp2cx3vhnyuls",
-      "escrow": 49068059440000000,
-      "current_rate": 0.19,
-      "status": "active",
-      "media": {
-        "email_address": "info@making.cash",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/1ea3ba236f36f7ff1846fe8bc353da05_360_360.jpg",
-        "website_link": "https://www.making.cash"
-      },
-      "rank": 28
-    },
-    {
-      "address": "oasis1qz0tqva49ysnjk2p7xe83qfp86khxwms8sc2wf6e",
-      "name": "Arrington XRP Capital",
-      "nodeAddress": "oasis1qrfjkh3adcm8vlkc9rnk85lghtsfuy2ywvksaux0",
-      "escrow": 48947364340000000,
-      "current_rate": 0.1,
-      "status": "active",
-      "media": {
-        "email_address": "contact@arringtonxrpcapital.com",
-        "twitter_acc": "arringtonXRPcap",
-        "website_link": "https://www.arringtonxrpcapital.com"
-      },
-      "rank": 29
-    },
-    {
       "address": "oasis1qzgq240adkyxhm6598ex2jvgs7lyx5wmtg7cszmk",
       "nodeAddress": "oasis1qrqxafugm50enh78w92s3u2xw6zw3qt3eqrax4t0",
-      "escrow": 48804896760000000,
+      "escrow": 49224350820000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
-      "rank": 30
-    },
-    {
-      "address": "oasis1qppjm5sxqwps4dpyekdvz530sjmq3e5eusp7hdan",
-      "name": "Ubik Capital",
-      "nodeAddress": "oasis1qzv8hqggfsywpgvu3km4xnukzrfltslxwytpq5w7",
-      "escrow": 48754427600000000,
-      "current_rate": 0.195,
-      "status": "active",
-      "media": {
-        "email_address": "contact@ubik.capital",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/b3273b5e67fbb587d207293e478aab05_360_360.jpg",
-        "twitter_acc": "ubikcapital",
-        "website_link": "https://ubik.capital"
-      },
-      "rank": 31
+      "rank": 28
     },
     {
       "address": "oasis1qzmwdlxy7cltmwt99u9pwqt3g0rdwgsqyvcqymmt",
       "name": "alexandr0",
       "nodeAddress": "oasis1qr8v2lqtwzas6m2fwurd2kt8qlthfytpjcu7mvvc",
-      "escrow": 48734983570000000,
+      "escrow": 49153534380000000,
       "current_rate": 0.18,
       "status": "active",
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/6aafc1f8fff43733e97703cd41651505_360_360.jpg",
         "twitter_acc": "padygumuk51"
       },
-      "rank": 32
-    },
-    {
-      "address": "oasis1qzthup6qts0k689z2wy84yvk9ctnht66eyxl7268",
-      "name": "Figment",
-      "nodeAddress": "oasis1qzt42a4qy999lmk3emez4q367ktdr9qszu0we9zp",
-      "escrow": 48217555170000000,
-      "current_rate": 0.1,
-      "status": "active",
-      "media": {
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/bd5fb87f241bd78a9c4bceaaa849ca05_360_360.jpg",
-        "twitter_acc": "Figment_io",
-        "website_link": "https://figment.io"
-      },
-      "rank": 33
+      "rank": 29
     },
     {
       "address": "oasis1qqx820g2geqzeyeyfnm5hgz72eaj9emajgqmscy0",
       "name": "max999",
       "nodeAddress": "oasis1qreek0uuuj0nzkdp5spj2rqt9mk4q78k658nzmkq",
-      "escrow": 47475134960000000,
+      "escrow": 47884086100000000,
       "current_rate": 0.18,
       "status": "active",
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/9bfdffc819f8599631ce55d0b08ec405_360_360.jpg",
         "twitter_acc": "ValyaSukhov"
       },
-      "rank": 34
+      "rank": 30
     },
     {
       "address": "oasis1qrgxl0ylc7lvkj0akv6s32rj4k98nr0f7smf6m4k",
       "name": "itokenpool",
       "nodeAddress": "oasis1qrz30rk856uaf7zv5dpu3wkvs8vcpv7tjqnddpk3",
-      "escrow": 46889342190000000,
+      "escrow": 47286515120000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -477,13 +420,27 @@
         "twitter_acc": "itokenpool",
         "website_link": "https://www.itokenpool.com"
       },
-      "rank": 35
+      "rank": 31
+    },
+    {
+      "address": "oasis1qzthup6qts0k689z2wy84yvk9ctnht66eyxl7268",
+      "name": "Figment",
+      "nodeAddress": "oasis1qzt42a4qy999lmk3emez4q367ktdr9qszu0we9zp",
+      "escrow": 46756601890000000,
+      "current_rate": 0.1,
+      "status": "active",
+      "media": {
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/bd5fb87f241bd78a9c4bceaaa849ca05_360_360.jpg",
+        "twitter_acc": "Figment_io",
+        "website_link": "https://figment.io"
+      },
+      "rank": 32
     },
     {
       "address": "oasis1qq4f2h225gv6g8w8w23fm740aze9lke4qun72n59",
       "name": "gunray",
       "nodeAddress": "oasis1qqvgrcwnulmvy604rvy4sgmakxjacg0y6uhpc4xw",
-      "escrow": 46249029720000000,
+      "escrow": 46646230400000000,
       "current_rate": 0.17,
       "status": "active",
       "media": {
@@ -491,13 +448,13 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d9315769d8f437f14be90dc070ddc805_360_360.jpg",
         "website_link": "https://gunray.xyz"
       },
-      "rank": 36
+      "rank": 33
     },
     {
       "address": "oasis1qr5f26k9rnfa2pg6wgsuljyq7lecej3gaqqhyra5",
       "name": "HashQuark",
       "nodeAddress": "oasis1qprf9qmumjdpxxfz7cn3ahfsdugprvw3lqdlenln",
-      "escrow": 45289602150000000,
+      "escrow": 45681385370000000,
       "current_rate": 0.18,
       "status": "active",
       "media": {
@@ -505,13 +462,13 @@
         "twitter_acc": "HashQuark",
         "website_link": "https://hashquark.io"
       },
-      "rank": 37
+      "rank": 34
     },
     {
       "address": "oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq",
       "name": "Oxnode",
       "nodeAddress": "oasis1qrllj6u73fpe5uylcs6m3y5hvc40r3wa4cg0ajjp",
-      "escrow": 44758691690000000,
+      "escrow": 45308308540000000,
       "current_rate": 0.09,
       "status": "active",
       "media": {
@@ -519,13 +476,13 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/46049b6c4201d0b6ca65662e94998905_360_360.jpg",
         "website_link": "https://oxnode.org"
       },
-      "rank": 38
+      "rank": 35
     },
     {
       "address": "oasis1qzv7a0gkxwpfelv985fvkl24k7jh3arfwy84zw7q",
       "name": "huglester.com",
       "nodeAddress": "oasis1qryxlps075x66qt24kxskjqy2sp75nfuccs46k9a",
-      "escrow": 43024851350000000,
+      "escrow": 43394361820000000,
       "current_rate": 0.17,
       "status": "active",
       "media": {
@@ -534,41 +491,26 @@
         "twitter_acc": "huglester",
         "website_link": "https://huglester.com/"
       },
-      "rank": 39
+      "rank": 36
     },
     {
       "address": "oasis1qqf6wmc0ax3mykd028ltgtqr49h3qffcm50gwag3",
       "name": "ou812",
       "nodeAddress": "oasis1qr9h9zlr7kd2wkclwxdekers5ekg96zskcjppwap",
-      "escrow": 42509201940000000,
+      "escrow": 43109092720000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/ab2fd838c7cd35e2ee608520e64aca05_360_360.jpg",
         "website_link": "https://www.kruptosnomisma.org/"
       },
-      "rank": 40
-    },
-    {
-      "address": "oasis1qzl8w5ka9y3p8a8gqlemqk98hzc33sn0tuezyc8l",
-      "name": "Staked",
-      "nodeAddress": "oasis1qzuarp2q70gpn23vru5s43qpm24892lqngt46zzc",
-      "escrow": 41935771340000000,
-      "current_rate": 0.1,
-      "status": "active",
-      "media": {
-        "email_address": "devops@staked.us",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/313047df6e3b466844bd8df96e1b9505_360_360.jpg",
-        "twitter_acc": "staked_us",
-        "website_link": "https://staked.us"
-      },
-      "rank": 41
+      "rank": 37
     },
     {
       "address": "oasis1qrs8zlh0mj37ug0jzlcykz808ylw93xwkvknm7yc",
       "name": "Bitoven",
       "nodeAddress": "oasis1qqd5s0436fnd7qm523d4dwnmp5sry43gtgv365ad",
-      "escrow": 41882316900000000,
+      "escrow": 42256007180000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -576,13 +518,13 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/695a44c03aa16422aaa8c7c6b1191605_360_360.jpg",
         "website_link": "https://bitoven.me"
       },
-      "rank": 42
+      "rank": 38
     },
     {
       "address": "oasis1qzk6qlmgnq40cq2n3jfkw3307feqngt4gvksfml6",
       "name": "GateOmega",
       "nodeAddress": "oasis1qzdvnqsguq5caa6txftmanad4qc2f6yazsq75lay",
-      "escrow": 41707957950000000,
+      "escrow": 42047726840000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -591,13 +533,28 @@
         "twitter_acc": "GateOmega",
         "website_link": "https://gateomega.com"
       },
-      "rank": 43
+      "rank": 39
+    },
+    {
+      "address": "oasis1qzl8w5ka9y3p8a8gqlemqk98hzc33sn0tuezyc8l",
+      "name": "Staked",
+      "nodeAddress": "oasis1qzuarp2q70gpn23vru5s43qpm24892lqngt46zzc",
+      "escrow": 42041086800000000,
+      "current_rate": 0.1,
+      "status": "active",
+      "media": {
+        "email_address": "devops@staked.us",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/313047df6e3b466844bd8df96e1b9505_360_360.jpg",
+        "twitter_acc": "staked_us",
+        "website_link": "https://staked.us"
+      },
+      "rank": 40
     },
     {
       "address": "oasis1qqqn56k79st0zy4060m0wvmec76vd3pl6czmg90a",
       "name": "Oasis@UBC",
       "nodeAddress": "oasis1qq7g7546ckdh3tgj4us278yk27400xnf25y5y50s",
-      "escrow": 41065844140000000,
+      "escrow": 41525065430000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -605,22 +562,37 @@
         "twitter_acc": "blockchainubc",
         "website_link": "https://blockchain.ubc.ca/"
       },
-      "rank": 44
+      "rank": 41
     },
     {
       "address": "oasis1qrzkqzvlw9xgyxhhqps746ssyhn5lkqrmcgz8amq",
       "nodeAddress": "oasis1qzjlhqpkfjr960uyrn6tdpq4xqrd3lwtluk69h6l",
-      "escrow": 38819672710000000,
+      "escrow": 39101801810000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
-      "rank": 45
+      "rank": 42
+    },
+    {
+      "address": "oasis1qz2rxs50p4kn537tcupjhg7ad3zcm9s7uuyrrd9e",
+      "name": "Staky.io",
+      "nodeAddress": "oasis1qzpzq4gs5c2ywr2q6sp9c6l82vy6jzm60ytjvf5y",
+      "escrow": 38715442010000000,
+      "current_rate": 0.025,
+      "status": "active",
+      "media": {
+        "email_address": "hello@staky.io",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/802332fc652f99a333844817aaddc105_360_360.jpg",
+        "twitter_acc": "staky_validator",
+        "website_link": "https://staky.io"
+      },
+      "rank": 43
     },
     {
       "address": "oasis1qrmexg6kh67xvnp7k42sx482nja5760stcrcdkhm",
       "name": "ushakov",
       "nodeAddress": "oasis1qrnzt9lt3z5pc449f09frplmt8wyez5jlgcu808f",
-      "escrow": 38105578630000000,
+      "escrow": 38433343500000000,
       "current_rate": 0.17,
       "status": "active",
       "media": {
@@ -628,13 +600,41 @@
         "twitter_acc": "1lucky_star",
         "website_link": "https://stake2.me"
       },
+      "rank": 44
+    },
+    {
+      "address": "oasis1qp6fzgx9zhamsk6c77cwzjeme06xwswffvhk6js2",
+      "name": "Making.Cash Validator",
+      "nodeAddress": "oasis1qqc4er3l8ey0kxk884pysmrjxw0mp2cx3vhnyuls",
+      "escrow": 38065774490000000,
+      "current_rate": 0.19,
+      "status": "active",
+      "media": {
+        "email_address": "info@making.cash",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/1ea3ba236f36f7ff1846fe8bc353da05_360_360.jpg",
+        "website_link": "https://www.making.cash"
+      },
+      "rank": 45
+    },
+    {
+      "address": "oasis1qps7mh7usg7u4t35ujr0l8dxjs2ly2swhu9v0mr0",
+      "name": "Blockdaemon",
+      "nodeAddress": "oasis1qq32rts3qsuvty8hupenratl8yyzc67suun6mc3v",
+      "escrow": 38043884320000000,
+      "current_rate": 0.2,
+      "status": "active",
+      "media": {
+        "email_address": "support@blockdaemon.com",
+        "twitter_acc": "_blockdaemon",
+        "website_link": "https://blockdaemon.com"
+      },
       "rank": 46
     },
     {
       "address": "oasis1qqewwznmvwfvee0dyq9g48acy0wcw890g549pukz",
       "name": "Wanderer Staking",
       "nodeAddress": "oasis1qphrrdd0kktcjcelmyq59y6w4ng8zyj00gmw4n4x",
-      "escrow": 37788435030000000,
+      "escrow": 38009106360000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -647,7 +647,7 @@
       "address": "oasis1qql4alk30frfa6xua42eu7tynkqf9vd5ug95yqpn",
       "name": "Breathe and Stake",
       "nodeAddress": "oasis1qqcrnmx9qvqm268sklcr9czylu2f8lv3kuudghpr",
-      "escrow": 37747657950000000,
+      "escrow": 38002860270000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -660,7 +660,7 @@
       "address": "oasis1qp4f47plgld98n5g2ltalalnndnzz96euv9n89lz",
       "name": "Julia-Ju",
       "nodeAddress": "oasis1qr3g3ay3l2xzu3zplyt3vn7qx58jze0etqktc96d",
-      "escrow": 37724126540000000,
+      "escrow": 37969717200000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -670,61 +670,46 @@
       "rank": 49
     },
     {
-      "address": "oasis1qps7mh7usg7u4t35ujr0l8dxjs2ly2swhu9v0mr0",
-      "name": "Blockdaemon",
-      "nodeAddress": "oasis1qq32rts3qsuvty8hupenratl8yyzc67suun6mc3v",
-      "escrow": 37703620910000000,
-      "current_rate": 0.2,
-      "status": "active",
-      "media": {
-        "email_address": "support@blockdaemon.com",
-        "twitter_acc": "_blockdaemon",
-        "website_link": "https://blockdaemon.com"
-      },
-      "rank": 50
-    },
-    {
-      "address": "oasis1qz2rxs50p4kn537tcupjhg7ad3zcm9s7uuyrrd9e",
-      "name": "Staky.io",
-      "nodeAddress": "oasis1qzpzq4gs5c2ywr2q6sp9c6l82vy6jzm60ytjvf5y",
-      "escrow": 37618821170000000,
-      "current_rate": 0.025,
-      "status": "active",
-      "media": {
-        "email_address": "hello@staky.io",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/802332fc652f99a333844817aaddc105_360_360.jpg",
-        "twitter_acc": "staky_validator",
-        "website_link": "https://staky.io"
-      },
-      "rank": 51
-    },
-    {
       "address": "oasis1qzrehfnnntdaeshy5f6kfa8v3p35yu7mluaapmgc",
       "name": "University of Malta - Centre for DLT",
       "nodeAddress": "oasis1qzgephk58r8a6uvu5rgred45n8prjgtj6ucxqs9y",
-      "escrow": 36968559020000000,
+      "escrow": 37413171030000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
         "email_address": "dlt@um.edu.mt",
         "website_link": "https://www.um.edu.mt/dlt"
       },
-      "rank": 52
+      "rank": 50
+    },
+    {
+      "address": "oasis1qz0tqva49ysnjk2p7xe83qfp86khxwms8sc2wf6e",
+      "name": "Arrington XRP Capital",
+      "nodeAddress": "oasis1qrfjkh3adcm8vlkc9rnk85lghtsfuy2ywvksaux0",
+      "escrow": 36256748850000000,
+      "current_rate": 0.1,
+      "status": "active",
+      "media": {
+        "email_address": "contact@arringtonxrpcapital.com",
+        "twitter_acc": "arringtonXRPcap",
+        "website_link": "https://www.arringtonxrpcapital.com"
+      },
+      "rank": 51
     },
     {
       "address": "oasis1qzzwkrjmyrzey46hyste5xszue3ggy90ag7k3687",
       "nodeAddress": "oasis1qqk7acpefc84re5uj9d76ypz7ydvarh9qqjz0rwt",
-      "escrow": 35531970470000000,
+      "escrow": 35837129799999996,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
-      "rank": 53
+      "rank": 52
     },
     {
       "address": "oasis1qzc687uuywnel4eqtdn6x3t9hkdvf6sf2gtv4ye9",
       "name": "Witval",
       "nodeAddress": "oasis1qrs7wre6j6jrcp30y9n7hn9m9cy3hpw8tgcah00j",
-      "escrow": 35192951180000000,
+      "escrow": 35495665229999996,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -733,22 +718,51 @@
         "twitter_acc": "vitwit_",
         "website_link": "https://www.vitwit.com/"
       },
-      "rank": 54
+      "rank": 53
     },
     {
       "address": "oasis1qresj0vhmwawll6fe2vw2nlapkp6nj6etcx7a32h",
       "nodeAddress": "oasis1qzu6q5n5dhmm0vkng3zpyklv5r8djjle9q6t5crh",
-      "escrow": 35049730740000004,
+      "escrow": 35350748450000004,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
+      "rank": 54
+    },
+    {
+      "address": "oasis1qppjm5sxqwps4dpyekdvz530sjmq3e5eusp7hdan",
+      "name": "Ubik Capital",
+      "nodeAddress": "oasis1qzv8hqggfsywpgvu3km4xnukzrfltslxwytpq5w7",
+      "escrow": 34535507140000000,
+      "current_rate": 0.195,
+      "status": "active",
+      "media": {
+        "email_address": "contact@ubik.capital",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/b3273b5e67fbb587d207293e478aab05_360_360.jpg",
+        "twitter_acc": "ubikcapital",
+        "website_link": "https://ubik.capital"
+      },
       "rank": 55
+    },
+    {
+      "address": "oasis1qqlq8jplttrmw982rrhp0svl8054xqevecks5yqr",
+      "name": "Smart Stake",
+      "nodeAddress": "oasis1qpm8f53qe4hjhukuelmaasr3r0n09n8nzyp9rvls",
+      "escrow": 33276468970000000,
+      "current_rate": 0.195,
+      "status": "active",
+      "media": {
+        "email_address": "aionsmartstake@gmail.com",
+        "twitter_acc": "smartstake",
+        "website_link": "https://smartstake.io"
+      },
+      "rank": 56
     },
     {
       "address": "oasis1qzl99wft8jtt7ppprk7ce7s079z3r3t77s6pf3dd",
       "name": "DCC Capital",
       "nodeAddress": "oasis1qp62cjgdl77hgs67nmgmlsd90y034eh5kg53jvlp",
-      "escrow": 33415507580000000,
+      "escrow": 33128763590000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -757,42 +771,13 @@
         "twitter_acc": "dcccapital",
         "website_link": "https://dcc.capital/"
       },
-      "rank": 56
-    },
-    {
-      "address": "oasis1qqlq8jplttrmw982rrhp0svl8054xqevecks5yqr",
-      "name": "Smart Stake",
-      "nodeAddress": "oasis1qpm8f53qe4hjhukuelmaasr3r0n09n8nzyp9rvls",
-      "escrow": 32992863470000000,
-      "current_rate": 0.195,
-      "status": "active",
-      "media": {
-        "email_address": "aionsmartstake@gmail.com",
-        "twitter_acc": "smartstake",
-        "website_link": "https://smartstake.io"
-      },
       "rank": 57
-    },
-    {
-      "address": "oasis1qp4rp7adhegfktyg4aq3w6jelqumx6klfv5t7kvv",
-      "name": "moonli.me",
-      "nodeAddress": "oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t",
-      "escrow": 32247330700000000,
-      "current_rate": 0.15,
-      "status": "active",
-      "media": {
-        "email_address": "tequila@moonli.me",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d1c943413294d35174aeb0464ddd1305_360_360.jpg",
-        "twitter_acc": "moonli_me",
-        "website_link": "https://moonli.me"
-      },
-      "rank": 58
     },
     {
       "address": "oasis1qr9wccuk6pqcr5ld8t2uf599e4ch5348hqeq53x4",
       "name": "Blockscale - Planet-Scale Blockchain Services",
       "nodeAddress": "oasis1qz22tfax52pskfc7qw7zdwjpwa7s4j5dsuq8sz82",
-      "escrow": 32199284440000000,
+      "escrow": 32559601110000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -801,13 +786,28 @@
         "twitter_acc": "blockscale",
         "website_link": "https://blockscale.net/"
       },
+      "rank": 58
+    },
+    {
+      "address": "oasis1qp4rp7adhegfktyg4aq3w6jelqumx6klfv5t7kvv",
+      "name": "moonli.me",
+      "nodeAddress": "oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t",
+      "escrow": 32494316410000000,
+      "current_rate": 0.15,
+      "status": "active",
+      "media": {
+        "email_address": "tequila@moonli.me",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d1c943413294d35174aeb0464ddd1305_360_360.jpg",
+        "twitter_acc": "moonli_me",
+        "website_link": "https://moonli.me"
+      },
       "rank": 59
     },
     {
       "address": "oasis1qqnmppt4j5d2yl584euhn6g2cw9gewdswga9frg4",
       "name": "Nodeasy",
       "nodeAddress": "oasis1qz2yqlvtkpkveg733p4vtgkndrfrgd8pscsuenst",
-      "escrow": 32180019680000000,
+      "escrow": 32270025990000000,
       "current_rate": 0.18,
       "status": "active",
       "media": {
@@ -822,7 +822,7 @@
       "address": "oasis1qpl883gp995zs9n6a279tqsavnaxxf0rzcdlauwu",
       "name": "Princess Stake",
       "nodeAddress": "oasis1qp89shz72ytcz4d5v82tt3l64hjcumhyq528zd6g",
-      "escrow": 30512397300000000,
+      "escrow": 30840035600000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -835,7 +835,7 @@
       "address": "oasis1qz72lvk2jchk0fjrz7u2swpazj3t5p0edsdv7sf8",
       "name": "Ocean Stake",
       "nodeAddress": "oasis1qrt395hkglxv82xdlaw043253llcl5uz3s8la238",
-      "escrow": 30028523710000000,
+      "escrow": 30218215380000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -847,7 +847,7 @@
     {
       "address": "oasis1qzaracvtpgp87frlk9jshdcu8aczpsrz8y94jjg4",
       "nodeAddress": "oasis1qqygpvc9yy8e0u0jxckxt9gmvcquy7es0um36plj",
-      "escrow": 28193164260000000,
+      "escrow": 28435295700000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
@@ -857,7 +857,7 @@
       "address": "oasis1qpqz8g88kvw49m402k8m2r6nv4p62vsdkv5d0u6r",
       "name": "Dobrynya Hukutu4",
       "nodeAddress": "oasis1qp4yxwtjuu8eadr63laq78t0qvy7cy95pg9vvr8g",
-      "escrow": 27633216510000000,
+      "escrow": 27882267530000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -870,7 +870,7 @@
       "address": "oasis1qqyynj90zkvyhja33w4ltgej45pr48f45ymmnsrx",
       "name": "WolfEdge Capital",
       "nodeAddress": "oasis1qzz6d383exa42wfeep70f497zjehqtr94vfts2v7",
-      "escrow": 26888439460000000,
+      "escrow": 27119916650000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -883,7 +883,7 @@
     {
       "address": "oasis1qrcmmvgf7qt8pmy543dmz0muwcm752kleund8rwr",
       "nodeAddress": "oasis1qrxrz9aq0lvetu7p942y3kvh48czzrzlr5dc45ql",
-      "escrow": 25967825280000000,
+      "escrow": 26190844830000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
@@ -892,7 +892,7 @@
     {
       "address": "oasis1qpp6s22fa3l86enkye5wlu2jgp83zrgspg4fzlhr",
       "nodeAddress": "oasis1qr47p6u9jc9tm6tk9pvc5vul2hyamzewlc75zynj",
-      "escrow": 25343851520000000,
+      "escrow": 25562013220000000,
       "current_rate": 0.12,
       "status": "active",
       "media": {},
@@ -902,7 +902,7 @@
       "address": "oasis1qz22xm9vyg0uqxncc667m4j4p5mrsj455c743lfn",
       "name": "S5",
       "nodeAddress": "oasis1qzs429ts5f4pvnylnhkhhfgjvtqj35asc5mv68sz",
-      "escrow": 25229726200000000,
+      "escrow": 25445183770000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -913,24 +913,10 @@
       "rank": 68
     },
     {
-      "address": "oasis1qq2kqzr4q942x44st97n66nmmyh7dhsuvsqyc22u",
-      "name": "Aptemuyc🌹",
-      "nodeAddress": "oasis1qrh8x7mcmzcm47dv22u7vu8x3ffgcv8vty85dzjd",
-      "escrow": 25014017800000000,
-      "current_rate": 0.19,
-      "status": "active",
-      "media": {
-        "email_address": "lazarev.zahar@yandex.ru",
-        "twitter_acc": "g5sliqjq2g92jet",
-        "website_link": "https://my.entity/url"
-      },
-      "rank": 69
-    },
-    {
       "address": "oasis1qp0j5v5mkxk3eg4kxfdsk8tj6p22g4685qk76fw6",
       "name": "Esya's node",
       "nodeAddress": "oasis1qrrydyt6pz5xv9yya8xt6w7w9er2s5vvq50xwvj3",
-      "escrow": 25012646190000000,
+      "escrow": 25230476380000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -939,44 +925,58 @@
         "twitter_acc": "esyacreations",
         "website_link": "https://github.com/esya"
       },
+      "rank": 69
+    },
+    {
+      "address": "oasis1qq2kqzr4q942x44st97n66nmmyh7dhsuvsqyc22u",
+      "name": "Aptemuyc🌹",
+      "nodeAddress": "oasis1qrh8x7mcmzcm47dv22u7vu8x3ffgcv8vty85dzjd",
+      "escrow": 25228845770000000,
+      "current_rate": 0.19,
+      "status": "active",
+      "media": {
+        "email_address": "lazarev.zahar@yandex.ru",
+        "twitter_acc": "g5sliqjq2g92jet",
+        "website_link": "https://my.entity/url"
+      },
       "rank": 70
+    },
+    {
+      "address": "oasis1qz68kwx74uqysx3mlnny4f32vj8ykrgdmgrt3g4x",
+      "name": "KuCoin",
+      "nodeAddress": "oasis1qzss3vqjy7jmn7lkp6wrnpjg4vn6azh7c59ft8aw",
+      "escrow": 25136883810000000,
+      "current_rate": 0.01,
+      "status": "active",
+      "media": {
+        "email_address": "staking@kucoin.com",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/523ec2d04c5a833fa510e62e7937bb05_360_360.jpg",
+        "website_link": "https://www.kucoin.com/"
+      },
+      "rank": 71
     },
     {
       "address": "oasis1qqs5wnxvsk009swtt7ehm5fslxve96kczszwt47s",
       "nodeAddress": "oasis1qz8lhyfpr9n5ydxk20e5etr93058h2sq4cf45ytd",
-      "escrow": 24874941240000000,
+      "escrow": 25046107440000000,
       "current_rate": 0.2,
-      "status": "active",
-      "media": {},
-      "rank": 71
-    },
-    {
-      "address": "oasis1qptk3ydjxuq3eenqwljdy45uxdye5tfg4sqar0fz",
-      "nodeAddress": "oasis1qpv92ljpg0m6xkasm7sc0zfpn5he748uyqd9m4kp",
-      "escrow": 23818195510000000,
-      "current_rate": 0.15,
       "status": "active",
       "media": {},
       "rank": 72
     },
     {
-      "address": "oasis1qpaygvzwd5ffh2f5p4qdqylymgqcvl7sp5gxyrl3",
-      "name": "Appload",
-      "nodeAddress": "oasis1qzerer6dtyputgk43phfkwa9cpvulywf5cpz35sz",
-      "escrow": 23321435170000000,
-      "current_rate": 0.19,
+      "address": "oasis1qptk3ydjxuq3eenqwljdy45uxdye5tfg4sqar0fz",
+      "nodeAddress": "oasis1qpv92ljpg0m6xkasm7sc0zfpn5he748uyqd9m4kp",
+      "escrow": 24022753390000000,
+      "current_rate": 0.15,
       "status": "active",
-      "media": {
-        "email_address": "dmytro.rozum@gmail.com",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/6243304c1ffac8281e1f2abf03fc7405_360_360.jpg",
-        "website_link": "https://t.me/dimaro"
-      },
+      "media": {},
       "rank": 73
     },
     {
       "address": "oasis1qryreqam7w0slj7rhz70g9xvt9rct2024cepgqjj",
       "nodeAddress": "oasis1qrctp3sjl0z76k409fatmdjfpm06pvqph523ysvf",
-      "escrow": 23120427840000000,
+      "escrow": 23318993080000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
@@ -985,9 +985,9 @@
     {
       "address": "oasis1qp0xuvw2a93w4yp8jwthfz93gxy87u7hes9eu2ev",
       "name": "Stardust",
-      "nodeAddress": "oasis1qzjugryxz8s4h8vkdg7g3ffyrden34kplvncthjf",
-      "escrow": 23013530430000000,
-      "current_rate": 0.15,
+      "nodeAddress": "oasis1qzz46k8w6mlyy2slyz2dwn0mmgf5xu66ggt8ytp4",
+      "escrow": 23212280090000000,
+      "current_rate": 0.2,
       "status": "active",
       "media": {
         "email_address": "oasis@starduststaking.com",
@@ -1001,7 +1001,7 @@
       "address": "oasis1qzm74el4utw4jssrl95ujq87g3ks3xfmjytvtaaa",
       "name": "Based",
       "nodeAddress": "oasis1qzyfyy67xhkaxxeyzwhvm06luu7503lk6v4h86gr",
-      "escrow": 22880158490000000,
+      "escrow": 23115661690000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -1011,10 +1011,24 @@
       "rank": 76
     },
     {
+      "address": "oasis1qpaygvzwd5ffh2f5p4qdqylymgqcvl7sp5gxyrl3",
+      "name": "Appload",
+      "nodeAddress": "oasis1qzerer6dtyputgk43phfkwa9cpvulywf5cpz35sz",
+      "escrow": 22951957940000000,
+      "current_rate": 0.19,
+      "status": "active",
+      "media": {
+        "email_address": "dmytro.rozum@gmail.com",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/6243304c1ffac8281e1f2abf03fc7405_360_360.jpg",
+        "website_link": "https://t.me/dimaro"
+      },
+      "rank": 77
+    },
+    {
       "address": "oasis1qqm6l2msa0lhp080wmd0xrudzpusqjp4puuusup5",
       "name": "Frankfurt School Blockchain Center",
       "nodeAddress": "oasis1qp72ehghs3qc72nve9ym2g9jvdtws3dtkcfjym99",
-      "escrow": 22539638480000000,
+      "escrow": 22743097280000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -1022,48 +1036,48 @@
         "twitter_acc": "fsblockchain",
         "website_link": "https://fs.de/blockchain"
       },
-      "rank": 77
+      "rank": 78
     },
     {
       "address": "oasis1qq3fq8hxrlq6pedw0q3f57daea43a6v7q5rwf0ll",
       "name": "Maria Mirabella❤️ ROSE ",
       "nodeAddress": "oasis1qqxnqu55qmmffv63pph049qa9dxz8av9j5g284m7",
-      "escrow": 22187526190000000,
+      "escrow": 22418639510000000,
       "current_rate": 0.195,
       "status": "active",
       "media": {
         "email_address": "icomun01@yandex.ru",
         "twitter_acc": "Alenka_kitty_00"
       },
-      "rank": 78
+      "rank": 79
     },
     {
       "address": "oasis1qz65awwegd9pr8msfxkg7hpwyjemm2qdlysyc8jq",
       "name": "Wetez",
       "nodeAddress": "oasis1qzd94cr2k22ph405pmk9fd675ggmc9yudvkr3ng2",
-      "escrow": 22114287210000000,
+      "escrow": 22302883980000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {
         "twitter_acc": "Wetez_wallet",
         "website_link": "https://www.wetez.io"
       },
-      "rank": 79
+      "rank": 80
     },
     {
       "address": "oasis1qpg763ex50jp0e34lsu789smlzqvcv7025v7m7yx",
       "nodeAddress": "oasis1qr4t4383vpxfpqpf0xzn2xw4r2zf4k6pzgsm4h4v",
-      "escrow": 21354347360000000,
+      "escrow": 21537744960000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {},
-      "rank": 80
+      "rank": 81
     },
     {
       "address": "oasis1qzt4fvcc6cw9af69tek9p3mfjwn3a5e5vcyrw7ac",
       "name": "StakeService",
       "nodeAddress": "oasis1qq5d925vszdwj9p9mhu39pkvnfdczjn6kgzmvwtv",
-      "escrow": 21072709470000000,
+      "escrow": 21253888250000000,
       "current_rate": 0.18,
       "status": "active",
       "media": {
@@ -1072,13 +1086,13 @@
         "twitter_acc": "stakeservice",
         "website_link": "https://stakeservice.com/"
       },
-      "rank": 81
+      "rank": 82
     },
     {
       "address": "oasis1qpxpnxxk4qcgl7n55tx0yuqmrcw5cy2u5vzjq5u4",
       "name": "Perfect Stake",
       "nodeAddress": "oasis1qr2s9hkyc2yf3330uwfnlqlegesj9dp42saftg5c",
-      "escrow": 20945930450000000,
+      "escrow": 21126122590000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -1087,76 +1101,76 @@
         "twitter_acc": "perfectstake",
         "website_link": "https://perfectstake.com"
       },
-      "rank": 82
+      "rank": 83
     },
     {
       "address": "oasis1qqxqhx9t52rsevhhtfspdxp4gsaft6ewyyeqnqy3",
       "name": "LDV",
       "nodeAddress": "oasis1qqxghu07qny9wj370m9z9kgjmk55v0e5u5ls8jr9",
-      "escrow": 20818061930000000,
+      "escrow": 20996853760000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/ec5c87e2f710581ba3a91fbc59313905_360_360.jpg",
         "website_link": "https://keybase.io/ludasik"
       },
-      "rank": 83
+      "rank": 84
     },
     {
       "address": "oasis1qr9zuf3n8g3znm786st3sldfw677pk3a6v85w9ds",
       "name": "glebanyy",
       "nodeAddress": "oasis1qzm6k2acwql9gfuxapa62c3sf68ugcqlwug2p90r",
-      "escrow": 19405365730000000,
+      "escrow": 19532561310000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
         "email_address": "glebanyy@yandex.ru",
         "website_link": "https://t.me/glebanyy"
       },
-      "rank": 84
+      "rank": 85
     },
     {
       "address": "oasis1qqrv4g5wu543wa7fcae76eucqfn2uc77zgqw8fxk",
       "name": "Lusia",
       "nodeAddress": "oasis1qrmj8mthtszl4hfwgdj7xz8hwqdkgj5u2veqqwf0",
-      "escrow": 19330846240000000,
+      "escrow": 19496865410000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
         "email_address": "cryptolusia@protonmail.com"
       },
-      "rank": 85
+      "rank": 86
     },
     {
       "address": "oasis1qqw05utlqvf2ska0fyjf5yr7peg2z4tuxcjmqztp",
       "name": "RedHead",
       "nodeAddress": "oasis1qq683clfckkj9afaxgzgep8sqgdecx5f6s6d82ry",
-      "escrow": 19278331110000000,
+      "escrow": 19443899260000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
         "twitter_acc": "Red__Head"
       },
-      "rank": 86
+      "rank": 87
     },
     {
       "address": "oasis1qz8vfnkcc48grazt83gstfm6yjwyptalny8cywtp",
       "name": "Kumaji",
       "nodeAddress": "oasis1qpeend7sgmdzy0dhtjhrhyjyextepzsx2su29g9a",
-      "escrow": 18122763750000000,
+      "escrow": 18302967710000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/f37d5d76fb6ad338ee06f438b4ab7605_360_360.jpg",
         "twitter_acc": "RathBlayde"
       },
-      "rank": 87
+      "rank": 88
     },
     {
       "address": "oasis1qpgl52u29wy4hjla89f46ntkn2qsa6zpdvhv6s6n",
       "name": "Bi23 Labs",
       "nodeAddress": "oasis1qpwjxz56xu7723c9vfh0chslvx4wjjpp0sjx3emd",
-      "escrow": 16713601850000000,
+      "escrow": 16857143329999998,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -1165,13 +1179,13 @@
         "twitter_acc": "bi23com",
         "website_link": "https://bi23.com"
       },
-      "rank": 88
+      "rank": 89
     },
     {
       "address": "oasis1qzu358mpd4z5frmrq6vnwq87cqfvdmfxh5ax57cj",
       "name": "Citadel.one",
       "nodeAddress": "oasis1qzf8kvej5x952h5d07pw6yh5cm9u2w26ngkj5dzc",
-      "escrow": 16258853920000000,
+      "escrow": 16827966190000002,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -1180,21 +1194,12 @@
         "twitter_acc": "CitadelDAO",
         "website_link": "https://citadel.one"
       },
-      "rank": 89
-    },
-    {
-      "address": "oasis1qp2vdltxqvglrwj6qur8s4dw97485vm6actrkcsm",
-      "nodeAddress": "oasis1qqz33s5748qv5hhy9py6h7prx5rl35payqqy7x93",
-      "escrow": 14632670010000000,
-      "current_rate": 0.149,
-      "status": "active",
-      "media": {},
       "rank": 90
     },
     {
       "address": "oasis1qrgmg0t3zxn4lgary6w227dv6c5dl55rfvh6p6k2",
       "nodeAddress": "oasis1qpq2ujrvl9d72c6qw9kfx9zwpvq5u38us56xm6ca",
-      "escrow": 12230340270000000,
+      "escrow": 12312994890000000,
       "current_rate": 0,
       "status": "active",
       "media": {},
@@ -1203,7 +1208,7 @@
     {
       "address": "oasis1qrxyndkhehffdme39urcp2v7m2t7k06xwsuyaxqq",
       "nodeAddress": "oasis1qpjnxewql7g3aqrt6axxux3c7kvr5en5cu5j57h0",
-      "escrow": 12208073340000000,
+      "escrow": 12311860010000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {},
@@ -1213,7 +1218,7 @@
       "address": "oasis1qrugz89g5esmhs0ezer0plsfvmcgctge35n32vmr",
       "name": "Validatrium",
       "nodeAddress": "oasis1qzuu4ahklv8ejy266lukpvad76k5ch8dputx2fze",
-      "escrow": 11475298820000000,
+      "escrow": 11604581750000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -1228,7 +1233,7 @@
       "address": "oasis1qr3w66akc8ud9a4zsgyjw2muvcfjgfszn5ycgc0a",
       "name": "RMIT Blockchain Innovation Hub",
       "nodeAddress": "oasis1qqrcrvv0k3uurs8c5zdhcqu55yztwdc3dv3lew7h",
-      "escrow": 10501490730000000,
+      "escrow": 10605144000000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -1241,7 +1246,7 @@
     {
       "address": "oasis1qr33agzz8r4xxfw9nhrdqcp9ejcv0f72ks05qt39",
       "nodeAddress": "oasis1qzs7hjtx58jp9f76m9mv26z84u0app4glymyjn2e",
-      "escrow": 10025146630000000,
+      "escrow": 10111025610000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {},
@@ -1251,7 +1256,7 @@
       "address": "oasis1qps9drw07z0gmh5z2pn7zwl3z53ate2yvqf3uzq5",
       "name": "cherkes",
       "nodeAddress": "oasis1qrflpa8fz5qkzqcqg049rq4gkpy6qe07052f34mt",
-      "escrow": 9762422490000000,
+      "escrow": 9846265140000000,
       "current_rate": 0.17,
       "status": "active",
       "media": {
@@ -1264,7 +1269,7 @@
       "address": "oasis1qppctxzn8djkqfvrxugak9v7dp25vddq7sxqhkry",
       "name": "Tuzem",
       "nodeAddress": "oasis1qpap3cwry5v6rulal7lt9z9245pytsp7mqzgw2d2",
-      "escrow": 9659244090000000,
+      "escrow": 9742200610000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -1278,7 +1283,7 @@
       "address": "oasis1qqr8y5cez0aczdlnfp9fre82whjsdgqgd5xxtv6p",
       "name": "BroMyb",
       "nodeAddress": "oasis1qpdwcm7guaqrvxwt0yv4s8enh77ppww4pggulwq8",
-      "escrow": 9618383970000000,
+      "escrow": 9700989570000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {
@@ -1290,7 +1295,7 @@
       "address": "oasis1qp334gzlzrap6k2ch6wc9vxxplw9sg3v9cfvvgsy",
       "name": "Alive29",
       "nodeAddress": "oasis1qzhkxnz8a7fxy7m66cc3vmsj6fl05u5585nz3aar",
-      "escrow": 8594448920000000,
+      "escrow": 8668260650000000,
       "current_rate": 0.17,
       "status": "active",
       "media": {
@@ -1303,8 +1308,8 @@
     {
       "address": "oasis1qzf03q57jdgdwp2w7y6a8yww6mak9khuag9qt0kd",
       "name": "Spectrum Staking",
-      "nodeAddress": "oasis1qrr32q34hsngq85jzgtzx2xh82kgk6aqqunx2cwv",
-      "escrow": 8436508560000001,
+      "nodeAddress": "oasis1qz3v2duf4qt0jcnxww3cs8ms3nf3zyajdcdnnhc7",
+      "escrow": 8529041949999999,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -1319,7 +1324,7 @@
       "address": "oasis1qp4ajz4vdgx3ze42ulk7m0jkxfstqcl87qymg9nx",
       "name": "Hammerfest",
       "nodeAddress": "oasis1qrncq8lms2zd0pl46lv5p69aflxc0r4pmuftplqx",
-      "escrow": 8213089900000000,
+      "escrow": 8283626400000000,
       "current_rate": 0.19,
       "status": "active",
       "media": {},
@@ -1329,7 +1334,7 @@
       "address": "oasis1qpavd66xsezz8s4wjw2fyycxw8jm2nlpnuejlg2g",
       "name": "Spherical One",
       "nodeAddress": "oasis1qq8mv2g8t86v9qn9jd7t4mem48smna993s74nqks",
-      "escrow": 7594150270000000,
+      "escrow": 7913455360000000,
       "current_rate": 0,
       "status": "active",
       "media": {
@@ -1341,7 +1346,7 @@
       "address": "oasis1qzp84num6xgspdst65yv7yqegln6ndcxmuuq8s9w",
       "name": "hybridx.exchange",
       "nodeAddress": "oasis1qqhak2t7cd5xvnkfwrhyy3ehunp20jjxysp96eap",
-      "escrow": 7166579650000000,
+      "escrow": 7228128410000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -1355,7 +1360,7 @@
     {
       "address": "oasis1qq58f3mqxt6htvtxcayt4zfshysj36zksvwkmjg9",
       "nodeAddress": "oasis1qqpevlj6hu5cmjradlzzcdpscev6an42hgpull05",
-      "escrow": 6612525050000000,
+      "escrow": 6891459030000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {},
@@ -1365,7 +1370,7 @@
       "address": "oasis1qqzh32kr72v7x55cjnjp2me0pdn579u6as38kacz",
       "name": "Trifasicko",
       "nodeAddress": "oasis1qrhuymyr683x0wdtdh3pqu7g0z9w505h5gufk487",
-      "escrow": 6356005050000000,
+      "escrow": 6472288530000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -1380,7 +1385,7 @@
       "address": "oasis1qp9xlxurlcx3k5h3pkays56mp48zfv9nmcf982kn",
       "name": "MARSOHOT",
       "nodeAddress": "oasis1qrus8qjjmhegyyzxk8djxxkre6fas7d2gsy7xfl9",
-      "escrow": 5595488420000000,
+      "escrow": 5643544170000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -1393,7 +1398,7 @@
       "address": "oasis1qrflth3g7k0ymkut2zrca3ktagw6g882yvqmgzdv",
       "name": "Datax Staking",
       "nodeAddress": "oasis1qq7rq7zxpk0pwfkkdv5nkg7tcc3j7tl6kclcc6sv",
-      "escrow": 4393282150000000.5,
+      "escrow": 4431012990000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
@@ -1408,7 +1413,7 @@
       "address": "oasis1qpntrlgxp5tt36pkdezdjt5d27fzkvp22y46qura",
       "name": "Chloris Network",
       "nodeAddress": "oasis1qz7knh9g5myce3ezn40x0j7sjwrnk4uyhycmara5",
-      "escrow": 2976398340000000,
+      "escrow": 2977073040000000,
       "current_rate": 0.2,
       "status": "active",
       "media": {
@@ -1423,8 +1428,8 @@
       "address": "oasis1qz0pvg26eudajp60835wl3jxhdxqz03q5qt9us34",
       "name": "AnkaStake",
       "nodeAddress": "oasis1qpca22hc0may5zkgm6r3h2s7gdd77dw8ey9rlxg9",
-      "escrow": 1588830050000000,
-      "current_rate": 0.05,
+      "escrow": 1603418220000000,
+      "current_rate": 0.2,
       "status": "active",
       "media": {
         "email_address": "hello@ankastake.com",
@@ -1438,7 +1443,7 @@
       "address": "oasis1qpfcsun7zju6ku7d2mdh54j9nsmxvj76uqk35w57",
       "name": "01node",
       "nodeAddress": "oasis1qr8m5u9aq3pp77gautt7ypd969tt8es46s55eag8",
-      "escrow": 1577170850000000,
+      "escrow": 1590716080000000,
       "current_rate": 0.15,
       "status": "active",
       "media": {
@@ -1451,10 +1456,10 @@
     },
     {
       "address": "oasis1qqc35xprrs0x595d9s0hrz0p60aey4cm8ya8at66",
-      "name": "0% Fee Terminet",
+      "name": "Terminet",
       "nodeAddress": "oasis1qz24zu242wdwcf8ghr9rmcn9anr94y7jmga8n9kd",
-      "escrow": 1268497600000000,
-      "current_rate": 0,
+      "escrow": 1142985730000000,
+      "current_rate": 0.05,
       "status": "active",
       "media": {
         "email_address": "support@terminet.io ",
@@ -1468,7 +1473,7 @@
       "address": "oasis1qpg5vq3jt6djfw5rq9l8kcwkt4s7vmjn4vvxujwv",
       "name": " BlockNgine 🛡️ Slash Protected",
       "nodeAddress": "oasis1qq7z8w49fv5kmaf0qae70g75s3pvdjtatqvmzknv",
-      "escrow": 809173670000000,
+      "escrow": 900541190000000,
       "current_rate": 0,
       "status": "active",
       "media": {
@@ -1483,22 +1488,36 @@
       "address": "oasis1qp4tj3u9qkcgjqrrjvwljrqcyx3g5ygjqgtm37t3",
       "name": "Strata One",
       "nodeAddress": "oasis1qqstyxmvfpgrtuf9k5ulc2cypfmle3f6ps0s9wlk",
-      "escrow": 656362910000000,
+      "escrow": 856795830000000,
       "current_rate": 0,
       "status": "active",
       "media": {
         "email_address": "support@strataone.io",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/44d18c8a796448733f60840d81c06105_360_360.jpg",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/3583cdef02a0247f74ea5c46c7a5e305_360_360.jpg",
         "twitter_acc": "Strata_ONE",
         "website_link": "https://strataone.io"
       },
       "rank": 113
     },
     {
+      "address": "oasis1qq4jqh66ga62pe9td5zsnfge3c9rfp6zucjr03q8",
+      "name": "Moonstake",
+      "nodeAddress": "oasis1qq9y9ymp7ujj5n703l075lszvfw2gkys8ya8vp9j",
+      "escrow": 742588800000000,
+      "current_rate": 0.1,
+      "status": "active",
+      "media": {
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/e80eaee4f1db47a6296ba935ffc07105_360_360.jpg",
+        "twitter_acc": "moonstake",
+        "website_link": "https://moonstake.io"
+      },
+      "rank": 114
+    },
+    {
       "address": "oasis1qqlckx8uus05llpl5jdcsck6zceal06zgg3ll75t",
       "name": "Orion.Money",
       "nodeAddress": "oasis1qr3k3q0wrv0kpjq0fx629kzqzpearnq4s58cgwt0",
-      "escrow": 605951170000000,
+      "escrow": 615607840000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -1507,55 +1526,13 @@
         "twitter_acc": "orion_money",
         "website_link": "https://orion.money"
       },
-      "rank": 114
-    },
-    {
-      "address": "oasis1qr8al5vcpqzjspdl8yt27fqc3pydz4alhs0xqp5e",
-      "name": "ViTAssIM|BrAzZzeRs ",
-      "nodeAddress": "oasis1qp29sa2lpdj86n82dq3744fzqsgp8l869s602k2v",
-      "escrow": 440990830000000,
-      "current_rate": 0.2,
-      "status": "active",
-      "media": {
-        "email_address": "slavaa129@gmail.com",
-        "twitter_acc": "tHWunE7JUkFY5F8"
-      },
       "rank": 115
-    },
-    {
-      "address": "oasis1qp3fd5rplv5uh6nc9vn85ejeaszewjv2xgvfts07",
-      "name": "ParaState",
-      "nodeAddress": "oasis1qq2wuaflrhql5hnrusr06ykhlr2v5qdt85y02xmv",
-      "escrow": 332587180000000,
-      "current_rate": 0.05,
-      "status": "active",
-      "media": {
-        "email_address": "contact@parastate.io",
-        "twitter_acc": "_parastate",
-        "website_link": "https://www.parastate.io/"
-      },
-      "rank": 116
-    },
-    {
-      "address": "oasis1qrhr9cdr0e8vyz2gmacyvgjs5ts5xfzz5s9hr7kv",
-      "name": "Bored Ape Stake Club",
-      "nodeAddress": "oasis1qrnxt96gqdtccqpvzn6hq5jcq9kvtsmacs990jap",
-      "escrow": 329411060000000,
-      "current_rate": 0,
-      "status": "active",
-      "media": {
-        "email_address": "welcome@boredapestakeclub.com",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/8b1744324e3783516f60bf360432ae05_360_360.jpg",
-        "twitter_acc": "StakeApe",
-        "website_link": "https://boredapestakeclub.com"
-      },
-      "rank": 117
     },
     {
       "address": "oasis1qpjk62axdvn2g97felfa9jpxxrptqzm4mgwh540r",
       "name": "Coinpayu",
       "nodeAddress": "oasis1qzzuvg5540zhzfwsy6pulkxsftex2jwqxqpq4efg",
-      "escrow": 287332080000000,
+      "escrow": 460624320000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {
@@ -1564,58 +1541,81 @@
         "twitter_acc": "coinpayu",
         "website_link": "https://www.coinpayu.com"
       },
+      "rank": 116
+    },
+    {
+      "address": "oasis1qr8al5vcpqzjspdl8yt27fqc3pydz4alhs0xqp5e",
+      "name": "ViTAssIM|BrAzZzeRs ",
+      "nodeAddress": "oasis1qp29sa2lpdj86n82dq3744fzqsgp8l869s602k2v",
+      "escrow": 444778200000000,
+      "current_rate": 0.2,
+      "status": "active",
+      "media": {
+        "email_address": "slavaa129@gmail.com",
+        "twitter_acc": "tHWunE7JUkFY5F8"
+      },
+      "rank": 117
+    },
+    {
+      "address": "oasis1qrhr9cdr0e8vyz2gmacyvgjs5ts5xfzz5s9hr7kv",
+      "name": "Hack'dSystem",
+      "nodeAddress": "oasis1qrnxt96gqdtccqpvzn6hq5jcq9kvtsmacs990jap",
+      "escrow": 351580600000000,
+      "current_rate": 0,
+      "status": "active",
+      "media": {
+        "email_address": "welcome@hackdsystem.com",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/15b41f2e0897b9fb91df0ae065ff2805_360_360.jpg",
+        "twitter_acc": "HackdSystem",
+        "website_link": "https://hackdsystem.com"
+      },
       "rank": 118
+    },
+    {
+      "address": "oasis1qp3fd5rplv5uh6nc9vn85ejeaszewjv2xgvfts07",
+      "name": "ParaState",
+      "nodeAddress": "oasis1qq2wuaflrhql5hnrusr06ykhlr2v5qdt85y02xmv",
+      "escrow": 341421760000000,
+      "current_rate": 0.05,
+      "status": "active",
+      "media": {
+        "email_address": "contact@parastate.io",
+        "twitter_acc": "_parastate",
+        "website_link": "https://www.parastate.io/"
+      },
+      "rank": 119
     },
     {
       "address": "oasis1qzrjsupecrjmvyfmg0aqz75sek4x7dn4ggchqx28",
       "name": "HuobiPool",
       "nodeAddress": "oasis1qrcgy7gg4nmgyrmsdrt034vzz8dmt3ulvu8ezvp0",
-      "escrow": 287103120000000,
+      "escrow": 270406490000000,
       "current_rate": 0.1,
       "status": "active",
       "media": {
         "email_address": "huobipool@huobi.com",
         "website_link": "https://huobipool.com"
       },
-      "rank": 119
-    },
-    {
-      "address": "oasis1qp5l7cfvyses0mcz7fnt7dlcer7h5e3mrc2uks9m",
-      "name": "kooltek68",
-      "nodeAddress": "oasis1qqauq2lt5y4uftef7ddv2av3g6w795lr053l7x0t",
-      "escrow": 215511310000000,
-      "current_rate": 0,
-      "status": "active",
-      "media": {
-        "email_address": "nguyenkhachung@gmail.com",
-        "twitter_acc": "HungNgu76442123",
-        "website_link": "https://dataverse.vn"
-      },
       "rank": 120
-    },
-    {
-      "address": "oasis1qq4jqh66ga62pe9td5zsnfge3c9rfp6zucjr03q8",
-      "name": "Moonstake",
-      "nodeAddress": "oasis1qq9y9ymp7ujj5n703l075lszvfw2gkys8ya8vp9j",
-      "escrow": 205596550000000,
-      "current_rate": 0.1,
-      "status": "active",
-      "media": {
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/e80eaee4f1db47a6296ba935ffc07105_360_360.jpg",
-        "twitter_acc": "moonstake",
-        "website_link": "https://moonstake.io"
-      },
-      "rank": 126
     },
     {
       "address": "oasis1qrc8s2trrm9zgha8wq636yetx7sxjf7x35pf3vrc",
       "name": "StakeHaven",
       "nodeAddress": "oasis1qqmq4n0kkertts8fe884k3sr26jpre8k3svzpr5j",
-      "escrow": 130225470000000,
+      "escrow": 130348160000000,
       "current_rate": 0.05,
       "status": "active",
       "media": {},
-      "rank": 127
+      "rank": 121
+    },
+    {
+      "address": "oasis1qp2vdltxqvglrwj6qur8s4dw97485vm6actrkcsm",
+      "nodeAddress": "oasis1qqz33s5748qv5hhy9py6h7prx5rl35payqqy7x93",
+      "escrow": 81603450000000,
+      "current_rate": 0.149,
+      "status": "active",
+      "media": {},
+      "rank": 130
     },
     {
       "address": "oasis1qqcnfv69whlsmvgqvl6y4g8cfd0rxus9qynldlgw",
@@ -1624,26 +1624,13 @@
       "current_rate": 0.049,
       "status": "active",
       "media": {},
-      "rank": 132
-    },
-    {
-      "address": "oasis1qzxs0mhs34vkkerk49gqpvcyx7efvwwssung4593",
-      "name": "Konak Solutions",
-      "nodeAddress": "oasis1qpwqsp839ntj5vsr6s05uyukper98sqz7y9mhx6j",
-      "escrow": 4040000000000,
-      "current_rate": 0,
-      "status": "active",
-      "media": {
-        "email_address": "info@kon.am",
-        "website_link": "https://t.me/konak_solutions_oasis_rose_stake"
-      },
-      "rank": 139
+      "rank": 131
     },
     {
       "address": "oasis1qq45am6gzaur2rxhk26av9qf7ryhgca6ecg28clu",
       "name": "Jr",
       "nodeAddress": "oasis1qp9n6wm85h37nh864m9gk0j0ud0ahcme2vl4rt30",
-      "escrow": 3209330000000,
+      "escrow": 4209330000000,
       "current_rate": 0,
       "status": "active",
       "media": {
@@ -1652,21 +1639,21 @@
         "twitter_acc": "zgenerator",
         "website_link": "https://aitivity.com"
       },
-      "rank": 141
+      "rank": 139
     },
     {
-      "address": "oasis1qz68kwx74uqysx3mlnny4f32vj8ykrgdmgrt3g4x",
-      "name": "KuCoin",
-      "nodeAddress": "oasis1qzss3vqjy7jmn7lkp6wrnpjg4vn6azh7c59ft8aw",
-      "escrow": 1019010000000,
-      "current_rate": 0.1,
+      "address": "oasis1qp5l7cfvyses0mcz7fnt7dlcer7h5e3mrc2uks9m",
+      "name": "kooltek68",
+      "nodeAddress": "oasis1qqauq2lt5y4uftef7ddv2av3g6w795lr053l7x0t",
+      "escrow": 3383920000000,
+      "current_rate": 0,
       "status": "active",
       "media": {
-        "email_address": "staking@kucoin.com",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/523ec2d04c5a833fa510e62e7937bb05_360_360.jpg",
-        "website_link": "https://www.kucoin.com/"
+        "email_address": "nguyenkhachung@gmail.com",
+        "twitter_acc": "HungNgu76442123",
+        "website_link": "https://dataverse.vn"
       },
-      "rank": 144
+      "rank": 140
     },
     {
       "address": "oasis1qz8kksv46jy4pgu6dzsvndqhsa9vaj550y6u9q4f",
@@ -1681,11 +1668,11 @@
     {
       "address": "oasis1qztsz3v57fgeyznckxe0rpah5wezr352ec8s0699",
       "nodeAddress": "oasis1qqhsrwjj3te5qjutkavqr0d3y5fkw3quas8hlr04",
-      "escrow": 200000000000,
+      "escrow": 349710000000,
       "current_rate": 0,
       "status": "active",
       "media": {},
-      "rank": 166
+      "rank": 158
     },
     {
       "address": "oasis1qqdd4nmtcmarf4u9gdg24swxhec52du43cxzf302",
@@ -1694,7 +1681,7 @@
       "current_rate": 0.05,
       "status": "inactive",
       "media": {},
-      "rank": 121
+      "rank": 122
     },
     {
       "address": "oasis1qzz8zmehzgcynlueydeqfax9cznzdw3lvgark5h3",
@@ -1703,7 +1690,7 @@
       "current_rate": 0.05,
       "status": "inactive",
       "media": {},
-      "rank": 122
+      "rank": 123
     },
     {
       "address": "oasis1qzufmg23p7jprqmptvz0vyn69c7lk6vfwuz8xapf",
@@ -1712,7 +1699,7 @@
       "current_rate": 0.05,
       "status": "inactive",
       "media": {},
-      "rank": 123
+      "rank": 124
     },
     {
       "address": "oasis1qz04lk6qzm9ml3ff4qt3f7qjepdqh4l6dyr4lsmu",
@@ -1725,7 +1712,7 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/dad7bee19dc8e79d4f76d26617197405_360_360.jpg",
         "website_link": "https://aquanow.io"
       },
-      "rank": 124
+      "rank": 125
     },
     {
       "address": "oasis1qqm6hnxzwm5h04zqh4fm0w2eygx0kuj9rymg48m5",
@@ -1738,7 +1725,7 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/951b357eb90132ce4f2e2728ee54b805_360_360.jpg",
         "website_link": "https://hashfabric.net"
       },
-      "rank": 125
+      "rank": 126
     },
     {
       "address": "oasis1qra3rvq7y055waxmnx8rc0nad3frr8na2s9l8l3f",
@@ -1753,7 +1740,7 @@
         "twitter_acc": "daylight_net",
         "website_link": "https://daylightnetwork.org"
       },
-      "rank": 128
+      "rank": 127
     },
     {
       "address": "oasis1qrwxcth2c6njtyan2vdt7k9ra2xkmadmpv7v9387",
@@ -1768,7 +1755,7 @@
         "twitter_acc": "lux8net",
         "website_link": "https://lux8.net"
       },
-      "rank": 129
+      "rank": 128
     },
     {
       "address": "oasis1qq5huvjkenm46zzsvgdt6evgjq6h7xp92cdh6826",
@@ -1777,22 +1764,7 @@
       "current_rate": 0.005,
       "status": "inactive",
       "media": {},
-      "rank": 130
-    },
-    {
-      "address": "oasis1qr2v5gj2kmyczyrcm7feunjds8kn5fdltg9jsn3z",
-      "name": "MMS",
-      "nodeAddress": "oasis1qryzwxtm3v940cwk83lh4z2ws50cfcl90ut6p22v",
-      "escrow": 81534510000000,
-      "current_rate": 0.1111,
-      "status": "inactive",
-      "media": {
-        "email_address": "mainnet@mms.team",
-        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/fdcb09f923483e82ceda5b2bd2402905_360_360.jpg",
-        "twitter_acc": "0xMMS",
-        "website_link": "https://mms.team"
-      },
-      "rank": 131
+      "rank": 129
     },
     {
       "address": "oasis1qzgfrauyppwvfpkjcsxmhjxu5qtp909qtuvslqjc",
@@ -1801,7 +1773,7 @@
       "current_rate": 0.01,
       "status": "inactive",
       "media": {},
-      "rank": 133
+      "rank": 132
     },
     {
       "address": "oasis1qrt07xfajnree25q27dxnwvmxs7drj4g3sknwmh4",
@@ -1814,7 +1786,7 @@
         "twitter_acc": "SeaStake",
         "website_link": "https://seastake.com"
       },
-      "rank": 134
+      "rank": 133
     },
     {
       "address": "oasis1qr87t7j3csez6jknwr4ksjn4u2pwye2ku5xjcjcc",
@@ -1827,6 +1799,21 @@
         "email_address": "labs@londonblockchainlabs.com",
         "twitter_acc": "ldnlabs",
         "website_link": "https://londonblockchainlabs.com"
+      },
+      "rank": 134
+    },
+    {
+      "address": "oasis1qr2v5gj2kmyczyrcm7feunjds8kn5fdltg9jsn3z",
+      "name": "MMS",
+      "nodeAddress": "oasis1qryzwxtm3v940cwk83lh4z2ws50cfcl90ut6p22v",
+      "escrow": 15199130000000,
+      "current_rate": 0.1111,
+      "status": "inactive",
+      "media": {
+        "email_address": "mainnet@mms.team",
+        "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/fdcb09f923483e82ceda5b2bd2402905_360_360.jpg",
+        "twitter_acc": "0xMMS",
+        "website_link": "https://mms.team"
       },
       "rank": 135
     },
@@ -1876,7 +1863,7 @@
       "media": {
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/a616c0d45f095f2fcc4d8539bf55dd05_360_360.jpg"
       },
-      "rank": 140
+      "rank": 141
     },
     {
       "address": "oasis1qq0lrzantpn5a4gx8ej7ampfw25cy8z78vh4uep7",
@@ -1915,7 +1902,7 @@
       "current_rate": 0.01,
       "status": "inactive",
       "media": {},
-      "rank": 145
+      "rank": 144
     },
     {
       "address": "oasis1qqzvrnpu4kw69wedg5g7mf8jy5tzuhu9vchpyh0j",
@@ -1924,6 +1911,19 @@
       "current_rate": 0.02,
       "status": "inactive",
       "media": {},
+      "rank": 145
+    },
+    {
+      "address": "oasis1qzxs0mhs34vkkerk49gqpvcyx7efvwwssung4593",
+      "name": "Konak Solutions",
+      "nodeAddress": "oasis1qpwqsp839ntj5vsr6s05uyukper98sqz7y9mhx6j",
+      "escrow": 900000000000,
+      "current_rate": 0,
+      "status": "inactive",
+      "media": {
+        "email_address": "info@kon.am",
+        "website_link": "https://t.me/konak_solutions_oasis_rose_stake"
+      },
       "rank": 146
     },
     {
@@ -2040,7 +2040,7 @@
         "twitter_acc": "Provalidator",
         "website_link": "https://provalidator.com"
       },
-      "rank": 158
+      "rank": 159
     },
     {
       "address": "oasis1qqxg9s39jfqwhwnnv3nlpfzvdv9hqw5n2gdvuj3r",
@@ -2049,7 +2049,7 @@
       "current_rate": 0.2,
       "status": "inactive",
       "media": {},
-      "rank": 159
+      "rank": 160
     },
     {
       "address": "oasis1qr6fr4effjgztms230033me33ycrnf0a8cv0a7xp",
@@ -2062,7 +2062,7 @@
         "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/93f63f495b5848cf10e798b1702bdb05_360_360.jpg",
         "twitter_acc": "Adorid3"
       },
-      "rank": 160
+      "rank": 161
     },
     {
       "address": "oasis1qr7c0pta4h9666zmpl52j63sthzfw2hszvp2de3v",
@@ -2071,7 +2071,7 @@
       "current_rate": 0,
       "status": "inactive",
       "media": {},
-      "rank": 161
+      "rank": 162
     },
     {
       "address": "oasis1qqcf0zn6a9d20j99cq4pue8xx2dkp7d2uv55nz5v",
@@ -2080,7 +2080,7 @@
       "current_rate": 0,
       "status": "inactive",
       "media": {},
-      "rank": 162
+      "rank": 163
     },
     {
       "address": "oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6",
@@ -2095,7 +2095,7 @@
         "twitter_acc": "BlockscapeLab",
         "website_link": "https://blockscape.network/"
       },
-      "rank": 163
+      "rank": 164
     },
     {
       "address": "oasis1qr2zw0l903skt999tryu2e99v7t4g20hxc5nka9s",
@@ -2110,16 +2110,16 @@
         "twitter_acc": "fgratx",
         "website_link": "https://www.grousset.com"
       },
-      "rank": 164
+      "rank": 165
     },
     {
       "address": "oasis1qqpxw4qdhuwhqzuftsln2cz5rkevl5ehgv5jy5qa",
       "nodeAddress": "oasis1qz7hfmtux7q39my5qmcg6wkjxcw56l3tzygzjrk4",
-      "escrow": 200200000000,
+      "escrow": 200140000000,
       "current_rate": 0,
       "status": "inactive",
       "media": {},
-      "rank": 165
+      "rank": 166
     },
     {
       "address": "oasis1qr69qkx36k7mf7lzgy54pmrs8rsg7nst5gln8zvh",

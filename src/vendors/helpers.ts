@@ -20,22 +20,14 @@ export const throwAPIErrors: ConfigurationParameters = {
   fetchApi: async (info, init) => {
     try {
       const response = await window.fetch(info, init)
+      // eslint-disable-next-line no-throw-literal
+      if (response.status < 200 || response.status >= 300) throw `status ${response.status}` // Re-thrown below
       return response
     } catch (err: any) {
       const url = new Request(info).url
       throw new WalletError(WalletErrors.IndexerAPIError, `Request failed ${url} with ${err}`, err)
     }
   },
-  middleware: [
-    {
-      post: async ({ response }) => {
-        if (response.status < 200 || response.status >= 300) {
-          throw new WalletError(
-            WalletErrors.IndexerAPIError,
-            `Request failed ${response.url} with status ${response.status}`,
-          )
-        }
-      },
-    },
-  ],
+  // Don't use post-request middleware! It clones the response. Same issue in Ky:
+  // https://github.com/sindresorhus/ky/pull/356
 }
