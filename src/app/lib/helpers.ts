@@ -51,9 +51,7 @@ export function concat(...parts: Uint8Array[]) {
   return result
 }
 
-export const parseNumberToBigInt = (value: number) => BigInt(Math.round(value * 10 ** 9))
-export const parseStringValueToInt = (value: string) => parseFloat(value) * 10 ** 9
-export const parseRoseStringToBaseUnitString = (value: string): StringifiedBigInt => {
+export function parseRoseStringToBaseUnitString(value: string): StringifiedBigInt {
   const baseUnitBN = new BigNumber(value).shiftedBy(9) // * 10 ** 9
   if (baseUnitBN.isNaN()) {
     throw new Error('not a number in parseRoseStringToBaseUnitString(' + value)
