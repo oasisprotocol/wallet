@@ -3,21 +3,22 @@
  * ReclaimEscrowForm
  *
  */
-import { parseNumberToBigInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { Box, Button, Form, TextInput, Text } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector, useDispatch } from 'react-redux'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { TransactionStatus } from '../TransactionStatus'
 
 interface Props {
   /** Currently delegated amount */
-  maxAmount: string
+  maxAmount: StringifiedBigInt
 
   /** Current shares corresponding to maxAmount */
-  maxShares: string
+  maxShares: StringifiedBigInt
 
   /** Target validator address */
   address: string
@@ -46,8 +47,8 @@ export const ReclaimEscrowForm = memo((props: Props) => {
     dispatch(
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
-        amount: parseNumberToBigInt(Number(amount)).toString(),
-        shares: parseNumberToBigInt(Number(shares)).toString(),
+        amount: parseRoseStringToBaseUnitString(amount),
+        shares: parseRoseStringToBaseUnitString('' + shares),
         validator: props.address,
       }),
     )

@@ -1,6 +1,7 @@
 import {
   parseNumberToBigInt,
   parseStringValueToInt,
+  parseRoseStringToBaseUnitString,
   base64ToUint,
   shortPublicKey,
   publicKeyToAddress,
@@ -26,6 +27,16 @@ describe('parseStringValueToInt', () => {
   it('should parse without losing precision', () => {
     // eslint-disable-next-line @typescript-eslint/no-loss-of-precision
     expect(parseStringValueToInt('1563114365108.133939632')).toEqual(1563114365108133939632)
+  })
+})
+
+describe('parseRoseStringToBaseUnitString', () => {
+  it('should parse stringified number of ROSEs to stringified base units', () => {
+    expect(parseRoseStringToBaseUnitString('9143.65')).toEqual('9143650000000')
+    expect(parseRoseStringToBaseUnitString('5')).toEqual('5000000000')
+  })
+  it('should parse without losing precision', () => {
+    expect(parseRoseStringToBaseUnitString('1563114365108.133939632')).toEqual('1563114365108133939632')
   })
 })
 

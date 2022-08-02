@@ -2,7 +2,7 @@ import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { Transaction, TransactionType } from 'app/state/transaction/types'
-import { parseStringValueToInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString, parseStringValueToInt } from 'app/lib/helpers'
 import {
   AccountsApi,
   AccountsRow,
@@ -184,8 +184,8 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
 export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
   return delegations.map(delegation => {
     const parsed: Delegation = {
-      amount: parseStringValueToInt(delegation.amount).toString(),
-      shares: parseStringValueToInt(delegation.shares).toString(),
+      amount: parseRoseStringToBaseUnitString(delegation.amount),
+      shares: parseRoseStringToBaseUnitString(delegation.shares),
       validatorAddress: delegation.validatorAddress,
     }
     return parsed
@@ -193,12 +193,11 @@ export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
 }
 export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDelegation[] {
   return debonding.map(debonding => {
-    // TODO: use amount field, or share price when it is available. Until then,
-    // using price=1 is inaccurate if debonding pool gets slashed.
-    const sharePrice = 1
     const parsed: DebondingDelegation = {
-      amount: (parseStringValueToInt(debonding.shares) * sharePrice).toString(),
-      shares: parseStringValueToInt(debonding.shares).toString(),
+      // TODO: use amount field, or share price when it is available. Until then,
+      // using shares is inaccurate if debonding pool gets slashed.
+      amount: parseRoseStringToBaseUnitString(debonding.shares),
+      shares: parseRoseStringToBaseUnitString(debonding.shares),
       validatorAddress: debonding.validatorAddress,
       epoch: debonding.debondEnd,
     }

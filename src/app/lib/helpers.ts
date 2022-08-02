@@ -2,6 +2,7 @@ import { bech32 } from 'bech32'
 import { quantity, staking, types } from '@oasisprotocol/client'
 import { WalletBalance } from 'app/state/wallet/types'
 import { decode as base64decode } from 'base64-arraybuffer'
+import BigNumber from 'bignumber.js'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
@@ -52,6 +53,16 @@ export function concat(...parts: Uint8Array[]) {
 
 export const parseNumberToBigInt = (value: number) => BigInt(Math.round(value * 10 ** 9))
 export const parseStringValueToInt = (value: string) => parseFloat(value) * 10 ** 9
+export const parseRoseStringToBaseUnitString = (value: string): StringifiedBigInt => {
+  const baseUnitBN = new BigNumber(value).shiftedBy(9) // * 10 ** 9
+  if (baseUnitBN.isNaN()) {
+    throw new Error('not a number in parseRoseStringToBaseUnitString(' + value)
+  }
+  if (baseUnitBN.decimalPlaces() > 0) {
+    console.error('lost precision in parseRoseStringToBaseUnitString(', value)
+  }
+  return BigInt(baseUnitBN.toFixed(0)).toString()
+}
 
 export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
   const zero = stringBigint2uint('0')
