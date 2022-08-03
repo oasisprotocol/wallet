@@ -6,6 +6,7 @@
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
+import BigNumber from 'bignumber.js'
 import { Box, Button, Form, TextInput, Text } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -65,6 +66,14 @@ export const ReclaimEscrowForm = memo((props: Props) => {
     )
   }
 
+  /**
+   * `<input max="9000000000.111111111">` warns about <=9000000000.11111 so we
+   * round up to `<input max="9000000000.11112">`
+   */
+  const roundedUpStringifiedFloatMaxAmount = new BigNumber(props.maxAmount)
+    .shiftedBy(-9) // / 10 ** 9
+    .toPrecision(15, BigNumber.ROUND_UP)
+
   return (
     <Form onSubmit={submit}>
       <Box direction="row" gap="small" pad={{ top: 'small' }}>
@@ -77,8 +86,8 @@ export const ReclaimEscrowForm = memo((props: Props) => {
               placeholder={t('common.amount')}
               type="number"
               step="any"
-              min={0.0001}
-              max={Number(props.maxAmount) / 10 ** 9}
+              min="0"
+              max={roundedUpStringifiedFloatMaxAmount}
               size="medium"
               value={amount}
               onChange={event => amountChanged(event.target.value)}

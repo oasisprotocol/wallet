@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { transactionActions } from 'app/state/transaction'
 import * as React from 'react'
 import { Provider } from 'react-redux'
@@ -92,5 +93,16 @@ describe('<ReclaimEscrowForm />', () => {
       },
       type: 'transaction/reclaimEscrow',
     })
+  })
+
+  it('should round up max input limit when losing precision', async () => {
+    renderComponent(
+      store,
+      'dummy-address',
+      parseRoseStringToBaseUnitString('1655615038322.038833148'),
+      '1000',
+    )
+    const amountInput = await screen.findByPlaceholderText('common.amount')
+    expect(amountInput).toHaveAttribute('max', '1655615038322.04')
   })
 })
