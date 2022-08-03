@@ -72,7 +72,7 @@ export interface StakingState {
   /** Error from fetching delegations */
   updateDelegationsError?: ErrorPayload
 
-  /** Addresss of the selected validator */
+  /** Address of the selected validator */
   selectedValidator?: string | null
 
   /** Lazy-loaded validator details (commission bounds and rates schedules) */

@@ -1,6 +1,7 @@
 import { AddressBox } from 'app/components/AddressBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ResponsiveGridRow } from 'app/components/ResponsiveGridRow'
+import { formatCommissionPercent } from 'app/lib/helpers'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { Validator, ValidatorDetails } from 'app/state/staking/types'
 import { Box, Grid, Heading, ResponsiveContext, Spinner } from 'grommet'
@@ -49,7 +50,9 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         />
         <ResponsiveGridRow
           label={t('validator.commission', 'Commission')}
-          value={`${validator.current_rate !== undefined ? validator.current_rate * 100 : 'Unknown'} %`}
+          value={`${
+            validator.current_rate !== undefined ? formatCommissionPercent(validator.current_rate) : 'Unknown'
+          } %`}
         />
         <ResponsiveGridRow
           label={t('validator.commissionBounds.label', 'Commission bounds')}
