@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
 import { selectIsOpen } from 'app/state/wallet/selectors'
-import { dateFormat } from '../DateFormatter'
+import { intlDateTimeFormat } from '../DateFormatter'
 import { backend, BackendAPIs } from 'vendors/backend'
 import { MobileFooterNavigation, mobileFooterNavigationHeight } from '../MobileFooterNavigation'
 
@@ -67,7 +67,7 @@ export const Footer = memo(() => {
             ]}
             defaults="Version: <0></0> built at {{buildTime}}"
             values={{
-              buildTime: dateFormat.format(Number(process.env.REACT_APP_BUILD_DATETIME)),
+              buildTime: intlDateTimeFormat(Number(process.env.REACT_APP_BUILD_DATETIME)),
             }}
           />
           {poweredByLabel && <Box align="center">{poweredByLabel}</Box>}

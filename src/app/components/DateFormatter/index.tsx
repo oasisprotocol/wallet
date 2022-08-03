@@ -9,7 +9,7 @@ interface Props {
   date: Date | number
 }
 
-export const dateFormat = new Intl.DateTimeFormat(undefined, {
+const dateFormat = new Intl.DateTimeFormat(undefined, {
   year: 'numeric',
   month: 'numeric',
   day: 'numeric',
