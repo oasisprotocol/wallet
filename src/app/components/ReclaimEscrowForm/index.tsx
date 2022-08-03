@@ -3,7 +3,7 @@
  * ReclaimEscrowForm
  *
  */
-import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
+import { formatBaseUnitsAsRose, parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import BigNumber from 'bignumber.js'
@@ -29,7 +29,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
   const { error, success } = useSelector(selectTransaction)
   const [amount, setAmount] = useState('')
-  const [shares, setShares] = useState(0)
+  const [shares, setShares] = useState('0' as StringifiedBigInt)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -39,7 +39,10 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   }, [dispatch])
 
   const amountChanged = (amount: string) => {
-    const shares = (Number(amount) * Number(props.maxShares)) / Number(props.maxAmount)
+    const shares = (
+      (BigInt(parseRoseStringToBaseUnitString(amount || '0')) * BigInt(props.maxShares)) /
+      BigInt(props.maxAmount)
+    ).toString()
     setAmount(amount)
     setShares(shares)
   }
@@ -49,7 +52,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
         amount: parseRoseStringToBaseUnitString(amount),
-        shares: parseRoseStringToBaseUnitString('' + shares),
+        shares: shares,
         validator: props.address,
       }),
     )
@@ -98,10 +101,10 @@ export const ReclaimEscrowForm = memo((props: Props) => {
         <Button label={t('account.reclaimEscrow.reclaim', 'Reclaim')} type="submit" primary />
         <Button label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')} onClick={reclaimAll} />
       </Box>
-      {shares > 0 && (
+      {shares !== '0' && (
         <Text size="small" data-testid="numberOfShares">
           {t('account.reclaimEscrow.convertedToShares', 'Corresponding number of gigashares: {{shares}}', {
-            shares,
+            shares: formatBaseUnitsAsRose(shares),
           })}
         </Text>
       )}
