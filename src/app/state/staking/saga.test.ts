@@ -49,8 +49,10 @@ describe('Staking Sagas', () => {
       ] as Validator[])
 
       getDelegations.mockResolvedValue({
-        delegations: [{ validatorAddress: 'dummy', amount: '100', shares: '100' }],
-        debonding: [{ validatorAddress: 'dummy', amount: '100', shares: '100', epoch: 1234 }],
+        delegations: [{ validatorAddress: 'dummy', amount: 100n.toString(), shares: 100n.toString() }],
+        debonding: [
+          { validatorAddress: 'dummy', amount: 100n.toString(), shares: 100n.toString(), epoch: 1234 },
+        ],
       } as {
         delegations: Delegation[]
         debonding: DebondingDelegation[]
@@ -155,6 +157,7 @@ describe('Staking Sagas', () => {
             name: 'stakefish',
             nodeAddress: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
             status: 'active',
+            escrow: 2000n.toString(),
             _expectedStatus: 'active' as const,
           },
           {
@@ -163,6 +166,7 @@ describe('Staking Sagas', () => {
             name: 'BinanceStaking',
             nodeAddress: 'oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k',
             status: 'active',
+            escrow: 1000n.toString(),
             _expectedStatus: 'inactive' as const,
           },
         ],

@@ -30,8 +30,8 @@ describe('<DebondingDelegationList  />', () => {
         debondingDelegations: [
           {
             epoch: 100,
-            amount: '100',
-            shares: '100',
+            amount: 100n.toString(),
+            shares: 100n.toString(),
             validatorAddress: 'test-validator',
             validator: {
               current_rate: 0.1,
@@ -58,8 +58,8 @@ describe('<DebondingDelegationList  />', () => {
         debondingDelegations: [
           {
             epoch: 100,
-            amount: '100',
-            shares: '100',
+            amount: 100n.toString(),
+            shares: 100n.toString(),
             validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
             validator: {
               address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
@@ -72,8 +72,8 @@ describe('<DebondingDelegationList  />', () => {
             },
           },
           {
-            amount: '50',
-            shares: '50',
+            amount: 50n.toString(),
+            shares: 50n.toString(),
             validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
             epoch: 100,
           },

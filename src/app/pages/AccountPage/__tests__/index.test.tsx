@@ -51,7 +51,7 @@ describe('<AccountPage  />', () => {
         transactionsError: undefined,
       },
       staking: {
-        delegations: [{ amount: '1111.3' }],
+        delegations: [{ amount: 1111n.toString() }],
         debondingDelegations: [],
       },
       wallet: {
@@ -71,7 +71,7 @@ describe('<AccountPage  />', () => {
   it('should match snapshot', async () => {
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
     const balance = await screen.findByTestId('account-balance-total')
-    expect(balance).toHaveTextContent('100.0000011113')
+    expect(balance).toHaveTextContent('100.000001111')
     expect(page.container.firstChild).toMatchSnapshot()
   })
 
