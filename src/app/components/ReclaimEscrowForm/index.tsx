@@ -3,6 +3,7 @@
  * ReclaimEscrowForm
  *
  */
+import { parseNumberToBigInt } from 'app/lib/helpers'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { Box, Button, Form, TextInput, Text } from 'grommet'
@@ -15,11 +16,11 @@ interface Props {
   /** Currently delegated amount */
   maxAmount: string
 
+  /** Current shares corresponding to maxAmount */
+  maxShares: string
+
   /** Target validator address */
   address: string
-
-  /** Current shares corresponding to maxAmount */
-  shares: string
 }
 
 export const ReclaimEscrowForm = memo((props: Props) => {
@@ -29,9 +30,6 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   const [shares, setShares] = useState(0)
   const dispatch = useDispatch()
 
-  // Escrow tokens to shares conversion rate
-  const rate = Number(props.maxAmount) / Number(props.shares)
-
   useEffect(() => {
     return () => {
       dispatch(transactionActions.clearTransaction())
@@ -39,7 +37,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   }, [dispatch])
 
   const amountChanged = (amount: string) => {
-    const shares = Number(amount) / Number(rate)
+    const shares = (Number(amount) * Number(props.maxShares)) / Number(props.maxAmount)
     setAmount(amount)
     setShares(shares)
   }
@@ -48,8 +46,8 @@ export const ReclaimEscrowForm = memo((props: Props) => {
     dispatch(
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
-        amount: Number(amount),
-        shares: shares,
+        amount: parseNumberToBigInt(Number(amount)).toString(),
+        shares: parseNumberToBigInt(Number(shares)).toString(),
         validator: props.address,
       }),
     )
@@ -59,8 +57,8 @@ export const ReclaimEscrowForm = memo((props: Props) => {
     dispatch(
       transactionActions.reclaimEscrow({
         type: 'reclaimEscrow',
-        amount: Number(props.maxAmount) / 10 ** 9,
-        shares: Number(props.shares) / 10 ** 9,
+        amount: props.maxAmount,
+        shares: props.maxShares,
         validator: props.address,
       }),
     )

@@ -2,6 +2,7 @@
 
 import { NetworkType } from 'app/state/network/types'
 import { ErrorPayload } from 'types/errors'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 export interface Validator {
   address: string
@@ -46,8 +47,8 @@ export interface ValidatorMediaInfo {
 
 export interface Delegation {
   validator?: Validator
-  amount: string
-  shares: string
+  amount: StringifiedBigInt
+  shares: StringifiedBigInt
   validatorAddress: string
 }
 

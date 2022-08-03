@@ -1,3 +1,5 @@
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
+
 export enum WalletType {
   Ledger = 'ledger',
   PrivateKey = 'private_key',
@@ -12,10 +14,10 @@ export enum WalletType {
  *
  */
 export interface WalletBalance {
-  available: string
+  available: StringifiedBigInt
   validator: {
-    escrow: string
-    escrow_debonding: string
+    escrow: StringifiedBigInt
+    escrow_debonding: StringifiedBigInt
   }
 }
 
