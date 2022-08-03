@@ -62,6 +62,17 @@ export function parseRoseStringToBaseUnitString(value: string): StringifiedBigIn
   return BigInt(baseUnitBN.toFixed(0)).toString()
 }
 
+export function formatBaseUnitsAsRose(
+  amount: StringifiedBigInt | number,
+  { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
+) {
+  const roseBN = new BigNumber(amount).shiftedBy(-9) // / 10 ** 9
+  const roseString = roseBN.toFormat(
+    Math.min(Math.max(roseBN.decimalPlaces(), minimumFractionDigits), maximumFractionDigits),
+  )
+  return roseString
+}
+
 export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
   const zero = stringBigint2uint('0')
 
