@@ -12,7 +12,9 @@ import { stakingActions } from 'app/state/staking'
 import { WalletErrors } from 'types/errors'
 
 jest.unmock('react-i18next')
-jest.mock('qrcode.react', () => () => '')
+jest.mock('qrcode.react', () => ({
+  QRCodeCanvas: () => <>QRCodeCanvasMock</>,
+}))
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),

@@ -4,7 +4,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { AnchorLink } from 'app/components/AnchorLink'
 import { Box, ResponsiveContext, Text } from 'grommet'
-import QRCode from 'qrcode.react'
+import { QRCodeCanvas } from 'qrcode.react'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -154,7 +154,7 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
 
           {!isMobile && (
             <Box align="end" flex>
-              <QRCode
+              <QRCodeCanvas
                 value={address}
                 fgColor={theme === 'light' ? '#333333' : '#e8e8e8'}
                 bgColor="#00000000"
