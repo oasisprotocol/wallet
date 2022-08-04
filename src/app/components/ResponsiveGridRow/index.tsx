@@ -1,23 +1,18 @@
-/**
- *
- * ResponsiveGridRow
- *
- */
 import { Box, Text } from 'grommet'
 import React, { memo } from 'react'
 
-interface Props {
-  label: string | React.ReactNode
-  value: string | React.ReactNode
+interface ResponsiveGridRowProps {
+  label: React.ReactNode
+  value: React.ReactNode
 }
 
-export const ResponsiveGridRow = memo((props: Props) => {
+export const ResponsiveGridRow = memo(({ label, value }: ResponsiveGridRowProps) => {
   return (
     <>
       <Box>
-        <Text weight="bold">{props.label}</Text>
+        <Text weight="bold">{label}</Text>
       </Box>
-      <Box>{props.value}</Box>
+      <Box direction="row">{value}</Box>
     </>
   )
 })
