@@ -11,7 +11,7 @@
     "loadingError": "Računa ni bilo mogoče pridobiti. Prikazani podatki so zato prazni ali zastareli.",
     "otherTransaction": {
       "destination": "Drug naslov",
-      "header": "Nepoznana transakcija, metoda '{{method}}'"
+      "header": "Metoda '{{method}}'"
     },
     "reclaimEscrow": {
       "reclaim": "Oddelegiraj"

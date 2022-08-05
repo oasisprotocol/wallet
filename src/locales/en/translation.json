@@ -15,7 +15,7 @@
     "loadingError": "Couldn't load account.",
     "otherTransaction": {
       "destination": "Other address",
-      "header": "Unrecognized transaction, method '{{method}}'"
+      "header": "Method '{{method}}'"
     },
     "reclaimEscrow": {
       "convertedToShares": "Corresponding number of gigashares: {{shares}}",

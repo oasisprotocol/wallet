@@ -92,7 +92,7 @@ export function Transaction(props: TransactionProps) {
         i18nKey="account.otherTransaction.header"
         t={t}
         values={{ method: transaction.type }}
-        defaults="Unrecognized transaction, method '{{method}}'"
+        defaults="Method '{{method}}'"
       />
     ),
   }
