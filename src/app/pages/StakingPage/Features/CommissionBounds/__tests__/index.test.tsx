@@ -34,6 +34,11 @@ describe('<CommissionBounds  />', () => {
     expect(component.baseElement).toMatchSnapshot()
   })
 
+  it('should not have rounding issues', () => {
+    const component = renderComponent(store, [{ epochStart: 0, lower: 0.14, upper: 0.28, epochEnd: 100 }])
+    expect(component.container.textContent).toEqual('14% - 28% starting from Epoch 0')
+  })
+
   it('should match snapshot with active bounds', () => {
     store = configureAppStore()
     const component = renderComponent(store, [{ epochStart: 0, lower: 0.1, upper: 0.2, epochEnd: 100 }])

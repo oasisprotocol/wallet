@@ -5,6 +5,7 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
+import { formatCommissionPercent } from 'app/lib/helpers'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { stakingActions } from 'app/state/staking'
@@ -99,7 +100,7 @@ export const DelegationList = memo((props: Props) => {
       selector: 'amount',
       cell: datum => datum.amount && <AmountFormatter amount={datum.amount} />,
       sortable: true,
-      sortFunction: (row1, row2) => Number(row1.amount) - Number(row2.amount),
+      sortFunction: (row1, row2) => Number(BigInt(row1.amount) - BigInt(row2.amount)),
     },
     fee: {
       name: t('validator.fee', 'Fee'),
@@ -107,7 +108,9 @@ export const DelegationList = memo((props: Props) => {
       selector: 'fee',
       width: '100px',
       cell: datum =>
-        datum.validator?.current_rate !== undefined ? `${datum.validator.current_rate * 100}%` : 'Unknown',
+        datum.validator?.current_rate !== undefined
+          ? `${formatCommissionPercent(datum.validator.current_rate)}%`
+          : 'Unknown',
       sortable: true,
       sortFunction: (row1, row2) => (row1.validator?.current_rate ?? 0) - (row2.validator?.current_rate ?? 0),
     },

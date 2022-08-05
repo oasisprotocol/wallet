@@ -2,7 +2,7 @@ import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { Transaction, TransactionType } from 'app/state/transaction/types'
-import { parseStringValueToInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import {
   AccountsApi,
   AccountsRow,
@@ -86,7 +86,7 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    available: parseStringValueToInt(account.available),
+    available: parseRoseStringToBaseUnitString(account.available),
     delegations: null,
     debonding: null,
     total: null,
@@ -100,7 +100,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
         address: v.entityAddress,
         name: v.name ?? undefined,
         nodeAddress: v.nodeAddress,
-        escrow: parseStringValueToInt(v.escrow),
+        escrow: parseRoseStringToBaseUnitString(v.escrow),
         current_rate: v.commission,
         status: v.status ? 'active' : 'inactive',
         media: {
@@ -147,7 +147,7 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
   return list.map(t => {
     if ('ctx' in t) {
       const parsed: Transaction = {
-        amount: t.ctx.amount == null ? undefined : parseStringValueToInt(t.ctx.amount),
+        amount: t.ctx.amount == null ? undefined : parseRoseStringToBaseUnitString(t.ctx.amount),
         fee: undefined,
         from: t.ctx.from,
         hash: t.txHash,
@@ -163,8 +163,8 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
       return parsed
     } else {
       const parsed: Transaction = {
-        amount: t.amount == null ? undefined : parseStringValueToInt(t.amount),
-        fee: t.fee ? parseStringValueToInt(t.fee) : undefined,
+        amount: t.amount == null ? undefined : parseRoseStringToBaseUnitString(t.amount),
+        fee: t.fee ? parseRoseStringToBaseUnitString(t.fee) : undefined,
         from: t.from,
         hash: t.txHash,
         level: t.height,
@@ -184,8 +184,8 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
 export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
   return delegations.map(delegation => {
     const parsed: Delegation = {
-      amount: parseStringValueToInt(delegation.amount).toString(),
-      shares: parseStringValueToInt(delegation.shares).toString(),
+      amount: parseRoseStringToBaseUnitString(delegation.amount),
+      shares: parseRoseStringToBaseUnitString(delegation.shares),
       validatorAddress: delegation.validatorAddress,
     }
     return parsed
@@ -193,12 +193,11 @@ export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
 }
 export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDelegation[] {
   return debonding.map(debonding => {
-    // TODO: use amount field, or share price when it is available. Until then,
-    // using price=1 is inaccurate if debonding pool gets slashed.
-    const sharePrice = 1
     const parsed: DebondingDelegation = {
-      amount: (parseStringValueToInt(debonding.shares) * sharePrice).toString(),
-      shares: parseStringValueToInt(debonding.shares).toString(),
+      // TODO: use amount field, or share price when it is available. Until then,
+      // using shares is inaccurate if debonding pool gets slashed.
+      amount: parseRoseStringToBaseUnitString(debonding.shares),
+      shares: parseRoseStringToBaseUnitString(debonding.shares),
       validatorAddress: debonding.validatorAddress,
       epoch: debonding.debondEnd,
     }

@@ -27,6 +27,7 @@ import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataT
 import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
+import { formatCommissionPercent } from 'app/lib/helpers'
 
 interface Props {}
 
@@ -83,12 +84,11 @@ export const ValidatorList = memo((props: Props) => {
       id: 'escrow',
       selector: 'escrow',
       hide: 'sm',
-      cell: datum =>
-        datum.escrow && (
-          <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
-        ),
+      cell: datum => (
+        <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
+      ),
       sortable: true,
-      sortFunction: (row1, row2) => (row1.escrow ?? 0) - (row2.escrow ?? 0),
+      sortFunction: (row1, row2) => Number(BigInt(row1.escrow ?? 0) - BigInt(row2.escrow ?? 0)),
     },
     {
       name: t('validator.fee', 'Fee'),
@@ -96,7 +96,8 @@ export const ValidatorList = memo((props: Props) => {
       selector: 'fee',
       sortable: true,
       width: '110px',
-      cell: datum => (datum.current_rate !== undefined ? `${datum.current_rate * 100}%` : 'Unknown'),
+      cell: datum =>
+        datum.current_rate !== undefined ? `${formatCommissionPercent(datum.current_rate)}%` : 'Unknown',
       sortFunction: (row1, row2) => (row1.current_rate ?? 0) - (row2.current_rate ?? 0),
       hide: 'sm',
     },

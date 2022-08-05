@@ -566,7 +566,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                   id="cell-fee-test-validator"
                   role="gridcell"
                 >
-                  7.000000000000001%
+                  7%
                 </div>
               </div>
             </div>

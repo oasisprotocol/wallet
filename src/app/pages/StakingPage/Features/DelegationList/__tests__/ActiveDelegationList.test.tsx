@@ -26,8 +26,8 @@ describe('<ActiveDelegationList  />', () => {
       stakingActions.updateDelegations({
         delegations: [
           {
-            amount: '100',
-            shares: '100',
+            amount: 100n.toString(),
+            shares: 100n.toString(),
             validatorAddress: 'test-validator',
             validator: {
               current_rate: 0.07,
@@ -36,6 +36,7 @@ describe('<ActiveDelegationList  />', () => {
               status: 'active',
               name: 'test-validator',
               nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+              escrow: 1000n.toString(),
             },
           },
         ],
@@ -45,9 +46,8 @@ describe('<ActiveDelegationList  />', () => {
 
     expect(component.baseElement).toMatchSnapshot()
 
-    // @TODO expect no rounding issues
-    expect(screen.getByText('7.000000000000001%')).toBeInTheDocument()
-    expect(screen.queryByText('7%')).not.toBeInTheDocument()
+    expect(screen.getByText('7%')).toBeInTheDocument()
+    expect(screen.queryByText('7.000000000000001%')).not.toBeInTheDocument()
   })
 
   it('should expand and display the delegation on click', async () => {
@@ -56,8 +56,8 @@ describe('<ActiveDelegationList  />', () => {
       stakingActions.updateDelegations({
         delegations: [
           {
-            amount: '100',
-            shares: '100',
+            amount: 100n.toString(),
+            shares: 100n.toString(),
             validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
             validator: {
               address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
@@ -65,9 +65,14 @@ describe('<ActiveDelegationList  />', () => {
               status: 'active',
               name: 'test-validator1',
               nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+              escrow: 1000n.toString(),
             },
           },
-          { amount: '50', shares: '50', validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4' },
+          {
+            amount: 50n.toString(),
+            shares: 50n.toString(),
+            validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+          },
         ],
         debondingDelegations: [],
       }),

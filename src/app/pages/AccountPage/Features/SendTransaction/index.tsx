@@ -8,7 +8,7 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { parseNumberToBigInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 
 export interface SendTransactionProps {
   isAddressInWallet: boolean
@@ -30,7 +30,7 @@ export function SendTransaction(props: SendTransactionProps) {
     dispatch(
       transactionActions.sendTransaction({
         type: 'transfer',
-        amount: parseNumberToBigInt(parseFloat(amount)).toString(),
+        amount: parseRoseStringToBaseUnitString(amount),
         to: recipient.replaceAll(' ', ''),
       }),
     )

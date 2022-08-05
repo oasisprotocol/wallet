@@ -958,7 +958,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <dd
               data-testid="account-balance-total"
             >
-              100.00000111130001
+              100.000001111
               <span
                 class="c14"
               />
@@ -977,7 +977,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               Staked
             </dt>
             <dd>
-              0.0000011113
+              0.000001111
               <span
                 class="c14"
               />

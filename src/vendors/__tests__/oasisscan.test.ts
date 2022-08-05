@@ -409,4 +409,24 @@ describe('oasisscan', () => {
       ]),
     }).toMatchSnapshot()
   })
+
+  test('parse delegations without losing precision', () => {
+    const delegations = [
+      {
+        validatorAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+        validatorName: 'BinanceStaking',
+        icon: null,
+        entityAddress: null,
+        amount: '1655615038322.038833148',
+        shares: '1563114365108.133939632',
+        active: true,
+      },
+    ]
+
+    expect(parseDelegations(delegations)[0]).toEqual({
+      validatorAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+      amount: '1655615038322038833148',
+      shares: '1563114365108133939632',
+    })
+  })
 })

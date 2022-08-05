@@ -1,8 +1,4 @@
-/**
- *
- * CommisssionBounds
- *
- */
+import { formatCommissionPercent } from 'app/lib/helpers'
 import { selectEpoch } from 'app/state/network/selectors'
 import { CommissionBound as ICommissionBounds } from 'app/state/staking/types'
 import { Box, Text } from 'grommet'
@@ -27,14 +23,22 @@ const CommissionBound = memo((props: CommissionBoundProps) => {
       t={t}
       defaults="<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}"
       components={[<Text weight="bold" />]}
-      values={{ lowerBound: bound.lower * 100, upperBound: bound.upper * 100, epoch: epoch }}
+      values={{
+        lowerBound: formatCommissionPercent(bound.lower),
+        upperBound: formatCommissionPercent(bound.upper),
+        epoch: epoch,
+      }}
     />
   ) : (
     <Trans
       i18nKey="validator.commissionBounds.future"
       t={t}
       defaults="{{lowerBound}}% - {{upperBound}}% starting from Epoch {{epoch}}"
-      values={{ lowerBound: bound.lower * 100, upperBound: bound.upper * 100, epoch: bound.epochStart }}
+      values={{
+        lowerBound: formatCommissionPercent(bound.lower),
+        upperBound: formatCommissionPercent(bound.upper),
+        epoch: bound.epochStart,
+      }}
     />
   )
 

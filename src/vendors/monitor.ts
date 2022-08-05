@@ -70,7 +70,7 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
-    available: account.liquid_balance,
+    available: BigInt(account.liquid_balance).toString(),
     delegations: null,
     debonding: null,
     total: null,
@@ -88,7 +88,7 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
           address: v.account_id,
           name: v.account_name,
           nodeAddress: v.node_id,
-          escrow: v.escrow_balance,
+          escrow: BigInt(v.escrow_balance).toString(),
           current_rate: computeCurrentRate(v.current_epoch!, v.commission_schedule?.rates ?? []),
           status: v.status,
           media: v.media_info,
@@ -145,9 +145,10 @@ const transactionMethodMap: { [k in OperationsRowTypeEnum]: TransactionType } = 
 
 export function parseTransactionsList(transactionsList: OperationsRow[]): Transaction[] {
   return transactionsList.map(t => {
+    const amount = t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount
     const parsed: Transaction = {
-      amount: t.escrow_amount ?? t.reclaim_escrow_amount ?? t.amount,
-      fee: t.fee,
+      amount: amount == null ? undefined : BigInt(amount).toString(),
+      fee: t.fee == null ? undefined : BigInt(t.fee).toString(),
       from: t.from,
       hash: t.hash!,
       level: t.level,
@@ -163,26 +164,21 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
   })
 }
 
-function getSharePrice(pool: oasis.types.StakingSharePool) {
-  const balance = Number(oasis.quantity.toBigInt(pool.balance!)) / 10 ** 9
-  const share = Number(oasis.quantity.toBigInt(pool.total_shares!)) / 10 ** 9
-  return balance / share
-}
-
 function parseDelegation(
   bytesAddress: Uint8Array,
   delegation: StakingDelegationInfo | StakingDebondingDelegationInfo,
-) {
+): Delegation {
   const address = oasis.address.toBech32('oasis', bytesAddress)
-  const sharePrice = getSharePrice(delegation.pool)
-  const shares = oasis.quantity.toBigInt(delegation.shares)
 
-  const amount = BigInt(Math.round(Number(shares) * sharePrice))
+  const poolAmount = oasis.quantity.toBigInt(delegation.pool.balance!)
+  const poolShares = oasis.quantity.toBigInt(delegation.pool.total_shares!)
+  const shares = oasis.quantity.toBigInt(delegation.shares)
+  const amount = (shares * poolAmount) / poolShares
 
   return {
     validatorAddress: address,
     amount: amount.toString(),
-    shares: oasis.quantity.toBigInt(delegation.shares).toString(),
+    shares: shares.toString(),
   }
 }
 

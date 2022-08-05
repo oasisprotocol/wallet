@@ -1,11 +1,12 @@
 import { Transaction } from 'app/state/transaction/types'
 import { ErrorPayload } from 'types/errors'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 export interface BalanceDetails {
-  available: number | null
-  debonding: number | null
-  delegations: number | null
-  total: number | null
+  available: StringifiedBigInt | null
+  debonding: StringifiedBigInt | null
+  delegations: StringifiedBigInt | null
+  total: StringifiedBigInt | null
 }
 
 export interface Account extends BalanceDetails {

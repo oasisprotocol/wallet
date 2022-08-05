@@ -25,14 +25,19 @@ describe('<AmountFormatter />', () => {
   })
 
   it('should render component', () => {
-    const { container } = renderComponent(store, { amount: 456542341274, smallTicker: false })
+    const { container } = renderComponent(store, { amount: 456542341274n.toString(), smallTicker: false })
 
     expect(container).toMatchSnapshot()
   })
 
   it('should render component with small ticker', () => {
-    const { container } = renderComponent(store, { amount: 456542341274, smallTicker: true })
+    const { container } = renderComponent(store, { amount: 456542341274n.toString(), smallTicker: true })
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('should render without losing precision', () => {
+    const { container } = renderComponent(store, { amount: 1563114365108133939632n.toString() })
+    expect(container.textContent).toEqual('1,563,114,365,108.133939632ROSE')
   })
 })

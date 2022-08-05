@@ -4,7 +4,7 @@
  *
  */
 import { useModal } from 'app/components/Modal'
-import { parseNumberToBigInt } from 'app/lib/helpers'
+import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { selectMinStaking } from 'app/state/network/selectors'
 import { Validator } from 'app/state/staking/types'
 import { transactionActions } from 'app/state/transaction'
@@ -36,7 +36,7 @@ export const AddEscrowForm = memo((props: Props) => {
     dispatch(
       transactionActions.addEscrow({
         type: 'addEscrow',
-        amount: parseNumberToBigInt(parseFloat(amount)).toString(),
+        amount: parseRoseStringToBaseUnitString(amount),
         validator: props.validatorAddress,
       }),
     )

@@ -42,7 +42,7 @@ describe('<AccountPage  />', () => {
       account: {
         loading: false,
         address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
-        available: 100000000000,
+        available: 100000000000n.toString(),
         delegations: null,
         debonding: null,
         total: null,
@@ -51,7 +51,7 @@ describe('<AccountPage  />', () => {
         transactionsError: undefined,
       },
       staking: {
-        delegations: [{ amount: '1111.3' }],
+        delegations: [{ amount: 1111n.toString() }],
         debondingDelegations: [],
       },
       wallet: {
@@ -71,7 +71,7 @@ describe('<AccountPage  />', () => {
   it('should match snapshot', async () => {
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
     const balance = await screen.findByTestId('account-balance-total')
-    expect(balance).toHaveTextContent('100.00000111130001') // TODO: inaccurate
+    expect(balance).toHaveTextContent('100.000001111')
     expect(page.container.firstChild).toMatchSnapshot()
   })
 
@@ -90,5 +90,18 @@ describe('<AccountPage  />', () => {
     expect(balanceSummary.textContent).toMatchSnapshot()
     const tabs = await screen.findByRole('navigation')
     expect(tabs.textContent).toMatchSnapshot()
+  })
+
+  it('should sum total balance without losing precision', async () => {
+    store = configureAppStore({
+      ...store.getState(),
+      account: {
+        ...store.getState().account,
+        available: 1655615038322038833148n.toString(),
+      },
+    })
+    renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
+    const balance = await screen.findByTestId('account-balance-total')
+    expect(balance).toHaveTextContent('1,655,615,038,322.038834259')
   })
 })

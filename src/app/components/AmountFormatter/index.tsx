@@ -8,9 +8,11 @@ import * as React from 'react'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Text } from 'grommet'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { formatBaseUnitsAsRose } from 'app/lib/helpers'
 
 export interface AmountFormatterProps {
-  amount: string | number | null
+  amount: StringifiedBigInt | null
   minimumFractionDigits?: number
   maximumFractionDigits?: number
   hideTicker?: boolean
@@ -18,14 +20,18 @@ export interface AmountFormatterProps {
   smallTicker?: boolean
 }
 
+/**
+ * Formats base unit amounts to ROSEs
+ */
 export const AmountFormatter = memo((props: AmountFormatterProps) => {
-  const amount = Number(props.amount) / 10 ** 9
-  const amountString = new Intl.NumberFormat('en-US', {
+  const ticker = useSelector(selectTicker)
+  if (props.amount == null) return <>-</>
+
+  const amountString = formatBaseUnitsAsRose(props.amount, {
     minimumFractionDigits: props.minimumFractionDigits ?? 1,
     maximumFractionDigits: props.maximumFractionDigits ?? 15,
-  }).format(amount)
+  })
 
-  const ticker = useSelector(selectTicker)
   const tickerProps = props.smallTicker
     ? {
         size: 'xsmall',
@@ -33,7 +39,6 @@ export const AmountFormatter = memo((props: AmountFormatterProps) => {
         color: '#a3a3a3',
       }
     : {}
-  if (props.amount == null) return <>-</>
 
   return (
     <>

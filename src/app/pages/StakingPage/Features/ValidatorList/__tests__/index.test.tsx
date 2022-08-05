@@ -17,7 +17,7 @@ const activeValidator: Validator = {
   current_rate: 0.1,
   rank: 0,
   status: 'active',
-  escrow: 1000,
+  escrow: 1000n.toString(),
   name: 'test-validator1',
   media: {
     email_address: 'test@test.com',
@@ -32,7 +32,7 @@ const inactiveValidator: Validator = {
   current_rate: 0.2,
   rank: 1,
   status: 'inactive',
-  escrow: 1000,
+  escrow: 1000n.toString(),
   name: 'test-validator2',
   media: activeValidator.media,
 }
@@ -42,7 +42,7 @@ const unknownValidator: Validator = {
   current_rate: 0.2,
   rank: 2,
   status: 'unknown',
-  escrow: 1000,
+  escrow: 1000n.toString(),
   name: 'test-validator3',
   media: activeValidator.media,
 }
