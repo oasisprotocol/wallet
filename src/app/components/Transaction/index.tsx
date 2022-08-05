@@ -207,6 +207,34 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.ConsensusWithdraw]: {
+      [TransactionSide.Received]: {
+        destination: t('common.from', 'From'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensusWithdraw.received"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            components={[amount]}
+            defaults="Withdrew <0></0> out of {{runtimeName}} ParaTime"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        destination: t('common.to', 'To'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensusWithdraw.sent"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            components={[amount]}
+            defaults="Received <0></0> from withdrawal out of {{runtimeName}} ParaTime"
+          />
+        ),
+      },
+    },
 
     [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
       [TransactionSide.Received]: unrecognizedTransaction,
@@ -257,10 +285,6 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Sent]: unrecognizedTransaction,
     },
     [transactionTypes.TransactionType.BeaconVrfProve]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
-    },
-    [transactionTypes.TransactionType.ConsensusWithdraw]: {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },

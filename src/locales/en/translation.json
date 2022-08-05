@@ -60,6 +60,10 @@
         "received": "Received <0></0> deposit into {{runtimeName}} ParaTime",
         "sent": "Deposited <0></0> into {{runtimeName}} ParaTime"
       },
+      "consensusWithdraw": {
+        "received": "Withdrew <0></0> out of {{runtimeName}} ParaTime",
+        "sent": "Received <0></0> from withdrawal out of {{runtimeName}} ParaTime"
+      },
       "explorerLink": "View transaction records through explorer",
       "failed": "Failed",
       "loadingError": "Couldn't load transactions.",
