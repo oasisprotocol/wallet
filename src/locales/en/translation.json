@@ -13,10 +13,6 @@
     },
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
-    "otherTransaction": {
-      "destination": "Other address",
-      "header": "Method '{{method}}'"
-    },
     "reclaimEscrow": {
       "convertedToShares": "Corresponding number of gigashares: {{shares}}",
       "reclaim": "Reclaim",
@@ -66,6 +62,10 @@
       },
       "explorerLink": "View transaction records through explorer",
       "failed": "Failed",
+      "genericTransaction": {
+        "destination": "Other address",
+        "header": "Method '{{method}}'"
+      },
       "loadingError": "Couldn't load transactions.",
       "reclaimEscrow": {
         "received": "<0></0> reclaimed by delegator",
@@ -81,6 +81,10 @@
         "sent": {
           "header": "Sent <0></0>"
         }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Other address",
+        "header": "Unrecognized transaction, method '{{method}}'"
       }
     },
     "validator": {
