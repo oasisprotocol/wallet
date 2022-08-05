@@ -14,6 +14,7 @@ import { Box, Button, CheckBox, Heading, ResponsiveContext, Text } from 'grommet
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 interface Props {
   closeHandler: () => any
@@ -22,7 +23,7 @@ interface Props {
 interface AccountProps {
   index: number
   address: string
-  balance: string
+  balance: StringifiedBigInt
   type: WalletType
   onClick: (index: number) => void
   details?: string

@@ -12,7 +12,7 @@ import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { formatBaseUnitsAsRose } from 'app/lib/helpers'
 
 export interface AmountFormatterProps {
-  amount: string | StringifiedBigInt | number | null
+  amount: StringifiedBigInt | null
   minimumFractionDigits?: number
   maximumFractionDigits?: number
   hideTicker?: boolean

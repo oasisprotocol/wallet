@@ -63,7 +63,7 @@ export function parseRoseStringToBaseUnitString(value: string): StringifiedBigIn
 }
 
 export function formatBaseUnitsAsRose(
-  amount: StringifiedBigInt | number,
+  amount: StringifiedBigInt,
   { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
 ) {
   const roseBN = new BigNumber(amount).shiftedBy(-9) // / 10 ** 9
