@@ -56,9 +56,9 @@
         "received": "Received <0></0> delegation in escrow",
         "sent": "Delegated <0></0> to validator"
       },
-      "consensus": {
-        "received": "{{runtimeName}} ParaTime transfer",
-        "sent": "{{runtimeName}} ParaTime deposit"
+      "consensusDeposit": {
+        "received": "Received <0></0> deposit into {{runtimeName}} ParaTime",
+        "sent": "Deposited <0></0> into {{runtimeName}} ParaTime"
       },
       "explorerLink": "View transaction records through explorer",
       "failed": "Failed",

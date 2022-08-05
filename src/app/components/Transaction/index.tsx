@@ -179,20 +179,17 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
-    },
     [transactionTypes.TransactionType.ConsensusDeposit]: {
       [TransactionSide.Received]: {
         destination: t('common.from', 'From'),
         icon: () => <Inherit color="#FFCA58" />,
         header: () => (
           <Trans
-            i18nKey="account.transaction.consensus.received"
+            i18nKey="account.transaction.consensusDeposit.received"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            defaults="{{runtimeName}} ParaTime transfer"
+            components={[amount]}
+            defaults="Received <0></0> deposit into {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -201,13 +198,19 @@ export function Transaction(props: TransactionProps) {
         icon: () => <Inherit color="#FFCA58" />,
         header: () => (
           <Trans
-            i18nKey="account.transaction.consensus.sent"
+            i18nKey="account.transaction.consensusDeposit.sent"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            defaults="{{runtimeName}} ParaTime deposit"
+            components={[amount]}
+            defaults="Deposited <0></0> into {{runtimeName}} ParaTime"
           />
         ),
       },
+    },
+
+    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
+      [TransactionSide.Received]: unrecognizedTransaction,
+      [TransactionSide.Sent]: unrecognizedTransaction,
     },
     [transactionTypes.TransactionType.StakingAllow]: {
       [TransactionSide.Received]: unrecognizedTransaction,
