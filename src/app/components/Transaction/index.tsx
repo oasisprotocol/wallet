@@ -16,6 +16,7 @@ import {
   New,
   LinkPrevious,
   LinkNext,
+  Atm,
 } from 'grommet-icons/icons'
 import type { Icon } from 'grommet-icons/icons'
 import * as React from 'react'
@@ -235,12 +236,35 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.StakingAllow]: {
+      [TransactionSide.Received]: {
+        destination: t('common.from', 'From'),
+        icon: Atm,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingAllow.received"
+            t={t}
+            components={[amount]}
+            defaults="Received <0></0> allowance"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        destination: t('common.to', 'To'),
+        icon: Atm,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingAllow.sent"
+            t={t}
+            components={[amount]}
+            // TODO: try to resolve destination to a runtime name
+            defaults="Set <0></0> allowance"
+          />
+        ),
+      },
+    },
 
     [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
-    },
-    [transactionTypes.TransactionType.StakingAllow]: {
       [TransactionSide.Received]: unrecognizedTransaction,
       [TransactionSide.Sent]: unrecognizedTransaction,
     },

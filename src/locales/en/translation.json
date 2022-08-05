@@ -71,6 +71,10 @@
         "received": "<0></0> reclaimed by delegator",
         "sent": "Reclaimed <0></0> from validator"
       },
+      "stakingAllow": {
+        "received": "Received <0></0> allowance",
+        "sent": "Set <0></0> allowance"
+      },
       "successful": "Successful",
       "transfer": {
         "received": "Received <0></0>",
