@@ -22,10 +22,15 @@ import { isWebUri } from 'valid-url'
 
 import { DelegationItem } from './DelegationItem'
 
-interface Props {
-  type: 'active' | 'debonding'
-  delegations: Delegation[] | DebondingDelegation[]
-}
+type Props =
+  | {
+      type: 'active'
+      delegations: Delegation[]
+    }
+  | {
+      type: 'debonding'
+      delegations: DebondingDelegation[]
+    }
 
 /**
  * Renders the list of delegations
@@ -51,7 +56,7 @@ export const DelegationList = memo((props: Props) => {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const canReclaim = type === 'active' && isAddressInWallet
 
-  const rowClicked = (row: Delegation) => {
+  const rowClicked = (row: Delegation | DebondingDelegation) => {
     if (selectedAddress === row.validatorAddress) {
       dispatch(stakingActions.validatorDeselected())
     } else {
@@ -137,11 +142,14 @@ export const DelegationList = memo((props: Props) => {
       ? [columnTypes.icon, columnTypes.status, columnTypes.name, columnTypes.amount, columnTypes.fee]
       : [columnTypes.icon, columnTypes.name, columnTypes.amount, columnTypes.epoch]
 
+  const defaultSortField: undefined | keyof DebondingDelegation = type === 'active' ? undefined : 'epoch'
+
   return (
     <TypeSafeDataTable
       noHeader={true}
       columns={columns}
       data={delegations}
+      defaultSortField={defaultSortField}
       keyField="uniqueKey"
       style={{}}
       customStyles={dataTableStyles}
