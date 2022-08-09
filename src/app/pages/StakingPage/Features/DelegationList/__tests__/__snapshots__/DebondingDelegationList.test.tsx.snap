@@ -469,19 +469,19 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
             >
               <div
                 class="c13 rdt_TableRow"
-                id="row-test-validator"
+                id="row-test-validator+100"
                 role="row"
               >
                 <div
                   class="c14 c8 c15 rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-icon-test-validator"
+                  id="cell-icon-test-validator+100"
                   role="gridcell"
                 />
                 <div
                   class="c14 c9 c15 rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-name-test-validator"
+                  id="cell-name-test-validator+100"
                   role="gridcell"
                 >
                   test-validator
@@ -489,7 +489,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 <div
                   class="c14 c9 c15 rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-amount-test-validator"
+                  id="cell-amount-test-validator+100"
                   role="gridcell"
                 >
                   0.0000001
@@ -500,7 +500,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 <div
                   class="c14 c9 c17 rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-epoch-test-validator"
+                  id="cell-epoch-test-validator+100"
                   role="gridcell"
                 >
                   <div

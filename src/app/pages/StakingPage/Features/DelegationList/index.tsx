@@ -10,7 +10,7 @@ import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/Va
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { stakingActions } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
-import { Delegation } from 'app/state/staking/types'
+import { DebondingDelegation, Delegation } from 'app/state/staking/types'
 import { Text } from 'grommet'
 import { Down } from 'grommet-icons/icons'
 import React, { memo } from 'react'
@@ -24,7 +24,7 @@ import { DelegationItem } from './DelegationItem'
 
 interface Props {
   type: 'active' | 'debonding'
-  delegations: Delegation[]
+  delegations: Delegation[] | DebondingDelegation[]
 }
 
 /**
@@ -32,7 +32,15 @@ interface Props {
  */
 export const DelegationList = memo((props: Props) => {
   const type = props.type
-  const delegations = props.delegations
+
+  // Create a combined unique key because validatorAddress is not unique in debondings
+  const delegations = props.delegations.map(delegation => ({
+    ...delegation,
+    uniqueKey:
+      type === 'active'
+        ? delegation.validatorAddress
+        : `${delegation.validatorAddress}+${(delegation as DebondingDelegation).epoch}`,
+  }))
 
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -134,7 +142,7 @@ export const DelegationList = memo((props: Props) => {
       noHeader={true}
       columns={columns}
       data={delegations}
-      keyField="validatorAddress"
+      keyField="uniqueKey"
       style={{}}
       customStyles={dataTableStyles}
       expandableRowsHideExpander
