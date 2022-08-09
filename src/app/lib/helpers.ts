@@ -54,7 +54,7 @@ export function concat(...parts: Uint8Array[]) {
 export function parseRoseStringToBaseUnitString(value: string): StringifiedBigInt {
   const baseUnitBN = new BigNumber(value).shiftedBy(9) // * 10 ** 9
   if (baseUnitBN.isNaN()) {
-    throw new Error('not a number in parseRoseStringToBaseUnitString(' + value)
+    throw new Error(`not a number in parseRoseStringToBaseUnitString(${value})`)
   }
   if (baseUnitBN.decimalPlaces() > 0) {
     console.error('lost precision in parseRoseStringToBaseUnitString(', value)

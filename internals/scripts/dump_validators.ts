@@ -14,7 +14,7 @@ test('dump validators', async () => {
   }
   fs.writeFileSync(
     path.join(__dirname, '../../src/vendors/oasisscan/dump_validators.json'),
-    JSON.stringify(json, null, 2) + '\n',
+    `${JSON.stringify(json, null, 2)}\n`,
     'utf8',
   )
 }, 10_000)

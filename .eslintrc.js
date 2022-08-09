@@ -34,6 +34,7 @@ const config = {
         message: "Use 'TypeSafeDataTable'",
       },
     ],
+    'prefer-template': 'error',
 
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17

@@ -39,7 +39,7 @@ export const DelegationList = memo((props: Props) => {
     uniqueKey:
       type === 'active'
         ? delegation.validatorAddress
-        : delegation.validatorAddress + '+' + (delegation as DebondingDelegation).epoch,
+        : `${delegation.validatorAddress}+${(delegation as DebondingDelegation).epoch}`,
   }))
 
   const { t } = useTranslation()

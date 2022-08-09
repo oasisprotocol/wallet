@@ -41,7 +41,7 @@ describe('parsing public key', () => {
     expect(isValidAddress(address)).toEqual(true)
 
     expect(isValidAddress(address.slice(0, -1))).toEqual(false)
-    expect(isValidAddress(address.slice(0, -1) + 'f')).toEqual(false)
+    expect(isValidAddress(`${address.slice(0, -1)}f`)).toEqual(false)
 
     const validBechBTC = 'bc1q9swhsc6qpd309scrzwzhgs2jd56xtxvjuxwx4c'
     expect(isValidAddress(validBechBTC)).toEqual(false)
