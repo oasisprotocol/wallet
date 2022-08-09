@@ -110,7 +110,7 @@
   "delegations": {
     "activeDelegations": "Active delegations",
     "debondingDelegations": "Debonding delegations",
-    "debondingEpoch": "Debonding epoch",
+    "debondingTimeEnd": "End of debonding",
     "delegatedAmount": "Delegated amount",
     "loadingError": "Couldn't load delegations.",
     "reclaimedAmount": "Amount to reclaim"

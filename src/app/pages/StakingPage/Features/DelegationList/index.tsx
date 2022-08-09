@@ -5,6 +5,7 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
+import { TimeToEpoch } from 'app/components/TimeToEpoch'
 import { formatCommissionPercent } from 'app/lib/helpers'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
@@ -64,9 +65,8 @@ export const DelegationList = memo((props: Props) => {
     }
   }
 
-  // All possible columns
   const columnTypes: Record<
-    'icon' | 'status' | 'name' | 'amount' | 'fee' | 'epoch',
+    'icon' | 'status' | 'name' | 'amount' | 'fee' | 'debondingTimeEnd',
     ITypeSafeDataTableColumn<Delegation>
   > = {
     icon: {
@@ -127,20 +127,19 @@ export const DelegationList = memo((props: Props) => {
       sortable: true,
       sortFunction: (row1, row2) => (row1.validator?.current_rate ?? 0) - (row2.validator?.current_rate ?? 0),
     },
-    epoch: {
-      name: t('delegations.debondingEpoch', 'Debonding epoch'),
-      id: 'epoch',
+    debondingTimeEnd: {
+      name: t('delegations.debondingTimeEnd', 'End of debonding'),
+      id: 'debondingTimeEnd',
       selector: 'epoch',
       sortable: true,
-      // width: '120px',
-      // cell: datum => (datum.validator?.fee !== undefined ? `${datum.validator.fee}%` : 'Unknown'),
+      cell: datum => <TimeToEpoch epoch={(datum as DebondingDelegation).epoch} />,
     },
   }
 
   const columns =
     type === 'active'
       ? [columnTypes.icon, columnTypes.status, columnTypes.name, columnTypes.amount, columnTypes.fee]
-      : [columnTypes.icon, columnTypes.name, columnTypes.amount, columnTypes.epoch]
+      : [columnTypes.icon, columnTypes.name, columnTypes.amount, columnTypes.debondingTimeEnd]
 
   const defaultSortField: undefined | keyof DebondingDelegation = type === 'active' ? undefined : 'epoch'
 

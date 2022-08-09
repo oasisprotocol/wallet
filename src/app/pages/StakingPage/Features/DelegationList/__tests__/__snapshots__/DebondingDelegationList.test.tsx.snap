@@ -180,16 +180,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   font-weight: 400;
 }
 
-.c18 {
-  font-weight: 400;
-}
-
-.c18 div:first-child {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .c14 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -496,7 +486,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                     tabindex="0"
                   >
                     <div>
-                      delegations.debondingEpoch
+                      delegations.debondingTimeEnd
                     </div>
                     <span
                       class="asc __rdt_custom_sort_icon__"
@@ -554,16 +544,12 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                   />
                 </div>
                 <div
-                  class="c15 c9 c18 rdt_TableCell"
+                  class="c15 c9 c16 rdt_TableCell"
                   data-tag="allowRowEvents"
-                  id="cell-epoch-test-validator+100"
+                  id="cell-debondingTimeEnd-test-validator+100"
                   role="gridcell"
                 >
-                  <div
-                    data-tag="allowRowEvents"
-                  >
-                    100
-                  </div>
+                  in 4 days
                 </div>
               </div>
             </div>
