@@ -6,6 +6,7 @@ import { AccountState } from 'app/state/account/types'
 import { NetworkState } from 'app/state/network/types'
 import { TransactionState } from 'app/state/transaction/types'
 import { LedgerState } from 'app/state/ledger/types'
+import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
@@ -18,6 +19,7 @@ export interface RootState {
   network: NetworkState
   transaction: TransactionState
   ledger: LedgerState
+  paraTimes: ParaTimesState
   staking: StakingState
   fatalError: FatalErrorState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly

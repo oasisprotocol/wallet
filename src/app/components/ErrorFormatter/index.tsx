@@ -82,6 +82,13 @@ export function ErrorFormatter(props: Props) {
       },
     ),
     [WalletErrors.DisconnectedError]: t('errors.disconnectedError', 'Lost connection.'),
+    [WalletErrors.ParaTimesUnknownError]: t(
+      'errors.unknownParaTimeError',
+      'Unknown ParaTime error: {{message}}',
+      {
+        message,
+      },
+    ),
   }
 
   const error = errorMap[props.code]

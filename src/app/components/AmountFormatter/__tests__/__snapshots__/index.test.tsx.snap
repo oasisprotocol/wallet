@@ -22,7 +22,7 @@ exports[`<AmountFormatter /> should render component with small ticker 1`] = `
   margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
-  color: #a3a3a3;
+  color: lightText;
   font-weight: 600;
 }
 

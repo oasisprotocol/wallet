@@ -37,6 +37,7 @@ import { mobileHeaderZIndex } from '../../components/Sidebar'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
 import { AccountDetails } from './Features/AccountDetails'
 import { AccountSummary } from './Features/AccountSummary'
+import { ParaTimes } from '../ParaTimesPage'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -208,6 +209,7 @@ export function AccountPage(props: Props) {
             <Switch>
               <TransitionRoute exact path="/account/:address" component={AccountDetails} />
               <TransitionRoute exact path="/account/:address/stake" component={ValidatorList} />
+              <TransitionRoute path="/account/:address/paratimes" component={ParaTimes} />
               <TransitionRoute
                 exact
                 path="/account/:address/active-delegations"

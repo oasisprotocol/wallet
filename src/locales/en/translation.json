@@ -133,6 +133,7 @@
     "unknown": "Unknown error: {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
     "unknownLedgerError": "Unknown ledger error: {{message}}",
+    "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
     "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome."
   },
@@ -181,6 +182,7 @@
   "menu": {
     "closeWallet": "Close wallet",
     "home": "Home",
+    "paraTimes": "ParaTimes",
     "stake": "Stake",
     "wallet": "Wallet"
   },
@@ -214,6 +216,70 @@
       "hidePrivateKey": "Hide private key",
       "instruction": "Enter your private key in Base64 format.",
       "showPrivateKey": "Show private key"
+    }
+  },
+  "paraTimes": {
+    "common": {
+      "cipher": "Cipher",
+      "depositHeader": "Deposit to ParaTime",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "sapphire": "Sapphire",
+      "withdrawHeader": "Withdraw from ParaTime"
+    },
+    "amount": {
+      "available": "Available:",
+      "description": "Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "emptyWallet": "The wallet is empty. There is nothing to withdraw.",
+      "receiving": "to the receiving",
+      "withdrawing": "from the withdrawing"
+    },
+    "confirmation": {
+      "description": "You are about to transfer <strong>{{value}} {{ticker}}</strong> tokens {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
+      "checkboxLabel": "I confirm the amount and the address are correct",
+      "deposit": "Please confirm the transferring amount and the receiving wallet's address are correct and then click \"Deposit\" to make the transfer.",
+      "depositLabel": "Deposit",
+      "receiving": "into the receiving",
+      "withdraw": "Please confirm the withdrawing amount and the withdrawing wallet's address are correct and then click \"Withdraw\" to make the transfer.",
+      "withdrawing": "from the withdrawing",
+      "withdrawLabel": "Withdraw"
+    },
+    "footer": {
+      "next": "Next",
+      "notice": "* EVMc - Ethereum Virtual Machine compatible",
+      "previous": "Previous"
+    },
+    "recipient": {
+      "description": "Please enter the address of the {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
+      "placeholder": "0x...",
+      "receiving": "receiving",
+      "withdrawing": "withdrawing"
+    },
+    "summary": {
+      "description": "You have successfully transferred <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
+      "from": "from",
+      "into": "into",
+      "navigate": "Navigate to ParaTimes Transfers"
+    },
+    "selection": {
+      "cancel": "Cancel transfer",
+      "depositDescription": "Please select which ParaTime you wish to transfer your {{ticker}} tokens to and then click \"Next\".",
+      "withdrawDescription": "Please select which ParaTime you wish to withdraw your {{ticker}} tokens from and then click \"Next\".",
+      "evmc": "EVMc",
+      "select": "Select a ParaTime"
+    },
+    "transfers": {
+      "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
+      "header": "ParaTimes Transfers",
+      "deposit": "Deposit to ParaTime",
+      "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
+      "withdraw": "Withdraw from ParaTime"
+    },
+    "validation": {
+      "invalidEthPrivateKey": "Private key is invalid",
+      "invalidEthPrivateKeyLength": "Private key should be 64 characters long",
+      "required": "Field is required"
     }
   },
   "theme": {

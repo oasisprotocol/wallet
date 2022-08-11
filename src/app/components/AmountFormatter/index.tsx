@@ -9,10 +9,11 @@ import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Text } from 'grommet'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
-import { formatBaseUnitsAsRose } from 'app/lib/helpers'
+import { formatBaseUnitsAsRose, formatWeiAsWrose } from 'app/lib/helpers'
 
 export interface AmountFormatterProps {
   amount: StringifiedBigInt | null
+  amountUnit?: 'baseUnits' | 'wei'
   minimumFractionDigits?: number
   maximumFractionDigits?: number
   hideTicker?: boolean
@@ -23,31 +24,44 @@ export interface AmountFormatterProps {
 /**
  * Formats base unit amounts to ROSEs
  */
-export const AmountFormatter = memo((props: AmountFormatterProps) => {
-  const ticker = useSelector(selectTicker)
-  if (props.amount == null) return <>-</>
+export const AmountFormatter = memo(
+  ({
+    amount,
+    amountUnit = 'baseUnits',
+    minimumFractionDigits,
+    maximumFractionDigits,
+    hideTicker,
+    size,
+    smallTicker,
+  }: AmountFormatterProps) => {
+    const ticker = useSelector(selectTicker)
+    const isUsingBaseUnits = amountUnit === 'baseUnits'
+    if (amount == null) return <>-</>
 
-  const amountString = formatBaseUnitsAsRose(props.amount, {
-    minimumFractionDigits: props.minimumFractionDigits ?? 1,
-    maximumFractionDigits: props.maximumFractionDigits ?? 15,
-  })
+    const formatter = isUsingBaseUnits ? formatBaseUnitsAsRose : formatWeiAsWrose
+    const amountString = formatter(amount, {
+      minimumFractionDigits: minimumFractionDigits ?? 1,
+      maximumFractionDigits:
+        typeof maximumFractionDigits !== 'undefined' ? maximumFractionDigits : isUsingBaseUnits ? 15 : 18,
+    })
 
-  const tickerProps = props.smallTicker
-    ? {
-        size: 'xsmall',
-        weight: 600,
-        color: '#a3a3a3',
-      }
-    : {}
+    const tickerProps = smallTicker
+      ? {
+          size: 'xsmall',
+          weight: 600,
+          color: 'lightText',
+        }
+      : {}
 
-  return (
-    <>
-      {amountString}
-      {!props.hideTicker && (
-        <Text margin={{ left: 'xxsmall' }} size={props.size} {...tickerProps}>
-          {ticker}
-        </Text>
-      )}
-    </>
-  )
-})
+    return (
+      <>
+        {amountString}
+        {!hideTicker && (
+          <Text margin={{ left: 'xxsmall' }} size={size} {...tickerProps}>
+            {ticker}
+          </Text>
+        )}
+      </>
+    )
+  },
+)
