@@ -13,6 +13,16 @@ import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
 
+function groupBy<T>(items: T[], mapFn: (item: T) => string) {
+  return items.reduce((result, item) => {
+    const key = mapFn(item)
+    return {
+      ...result,
+      [key]: [...(result[key] ?? []), item],
+    }
+  }, {} as { [k in string]: T[] })
+}
+
 function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
   const { getDelegations } = yield* call(getExplorerAPIs)
@@ -28,6 +38,17 @@ function* loadDelegations(address: string) {
       ...delegation,
       validator: validators.find(v => v.address === delegation.validatorAddress),
     }))
+
+    // Aggregate debonding delegations to same validator within same epoch
+    const aggregatedDebondings = Object.values(
+      groupBy(debondingDelegations, debonding => `${debonding.validatorAddress}+${debonding.epoch}`),
+    ).map(ds => {
+      return ds.slice(1).reduce((aggregate, debonding) => {
+        aggregate.amount = (BigInt(aggregate.amount) + BigInt(debonding.amount)).toString()
+        aggregate.shares = (BigInt(aggregate.shares) + BigInt(debonding.shares)).toString()
+        return aggregate
+      }, ds[0])
+    })
 
     yield* put(stakingActions.updateDelegations({ delegations, debondingDelegations }))
   } catch (e: any) {
