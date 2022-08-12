@@ -24,6 +24,7 @@ export enum WalletErrors {
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
   IndexerAPIError = 'indexer_api_error',
   DisconnectedError = 'disconnected_error',
+  ParaTimesUnknownError = 'para_times_unknown_error',
 }
 
 export interface ErrorPayload {

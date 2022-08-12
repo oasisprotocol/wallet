@@ -8,6 +8,7 @@ import accountReducer from 'app/state/account'
 import fatalErrorReducer from 'app/state/fatalerror'
 import ledgerReducer from 'app/state/ledger'
 import networkReducer from 'app/state/network'
+import paraTimesReducer from 'app/state/paratimes'
 import stakingReducer from 'app/state/staking'
 import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
@@ -20,6 +21,7 @@ export function createReducer() {
     fatalError: fatalErrorReducer,
     ledger: ledgerReducer,
     network: networkReducer,
+    paraTimes: paraTimesReducer,
     staking: stakingReducer,
     theme: themeReducer,
     transaction: transactionReducer,

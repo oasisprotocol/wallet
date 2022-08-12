@@ -51,15 +51,34 @@ export function concat(...parts: Uint8Array[]) {
   return result
 }
 
-export function parseRoseStringToBaseUnitString(value: string): StringifiedBigInt {
-  const baseUnitBN = new BigNumber(value).shiftedBy(9) // * 10 ** 9
+function parseRoseStringToBigNumber(value: string, decimals = 9): BigNumber {
+  const baseUnitBN = new BigNumber(value).shiftedBy(decimals) // * 10 ** decimals
   if (baseUnitBN.isNaN()) {
     throw new Error(`not a number in parseRoseStringToBaseUnitString(${value})`)
   }
   if (baseUnitBN.decimalPlaces() > 0) {
     console.error('lost precision in parseRoseStringToBaseUnitString(', value)
   }
+  return baseUnitBN
+}
+
+export function parseRoseStringToBaseUnitString(value: string): StringifiedBigInt {
+  const baseUnitBN = parseRoseStringToBigNumber(value)
   return BigInt(baseUnitBN.toFixed(0)).toString()
+}
+
+function getRoseString(roseBN: BigNumber, minimumFractionDigits: number, maximumFractionDigits: number) {
+  return roseBN.toFormat(
+    Math.min(Math.max(roseBN.decimalPlaces(), minimumFractionDigits), maximumFractionDigits),
+  )
+}
+
+export function isAmountGreaterThan(amount: StringifiedBigInt, value: StringifiedBigInt) {
+  return parseRoseStringToBigNumber(amount).isGreaterThan(new BigNumber(value))
+}
+
+export function isEvmcAmountGreaterThan(amount: StringifiedBigInt, value: StringifiedBigInt) {
+  return parseRoseStringToBigNumber(amount, 18).isGreaterThan(new BigNumber(value))
 }
 
 export function formatBaseUnitsAsRose(
@@ -67,10 +86,15 @@ export function formatBaseUnitsAsRose(
   { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
 ) {
   const roseBN = new BigNumber(amount).shiftedBy(-9) // / 10 ** 9
-  const roseString = roseBN.toFormat(
-    Math.min(Math.max(roseBN.decimalPlaces(), minimumFractionDigits), maximumFractionDigits),
-  )
-  return roseString
+  return getRoseString(roseBN, minimumFractionDigits, maximumFractionDigits)
+}
+
+export function formatWeiAsWrose(
+  amount: StringifiedBigInt,
+  { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
+) {
+  const roseBN = new BigNumber(amount).shiftedBy(-18) // / 10 ** 18
+  return getRoseString(roseBN, minimumFractionDigits, maximumFractionDigits)
 }
 
 export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
