@@ -21,6 +21,9 @@ const evmcParaTimes = Object.keys(paraTimesConfig).filter(
 export const useParaTimes = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const submitTransaction = useCallback(() => {
+    dispatch(paraTimesActions.submitTransaction())
+  }, [dispatch])
   const resetTransactionForm = useCallback(() => {
     dispatch(paraTimesActions.resetTransactionForm())
   }, [dispatch])
@@ -62,6 +65,7 @@ export const useParaTimes = () => {
     ticker,
     transactionForm,
     setTransactionForm,
+    submitTransaction,
     usesOasisAddress: !needsEthAddress,
   }
 }

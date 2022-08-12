@@ -8,9 +8,17 @@ import { useParaTimesNavigation } from '../useParaTimesNavigation'
 
 export const TransactionConfirmation = () => {
   const { t } = useTranslation()
-  const { isDepositing, isEvmcParaTime, paraTimeName, setTransactionForm, ticker, transactionForm } =
-    useParaTimes()
-  const { navigateToAmount, navigateToSummary } = useParaTimesNavigation()
+  const {
+    isDepositing,
+    isEvmcParaTime,
+    isLoading,
+    paraTimeName,
+    setTransactionForm,
+    submitTransaction,
+    ticker,
+    transactionForm,
+  } = useParaTimes()
+  const { navigateToAmount } = useParaTimesNavigation()
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
@@ -32,6 +40,7 @@ export const TransactionConfirmation = () => {
           defaults="You are about to transfer <strong>{{value}} {{ticker}}</strong> tokens {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
         />
       }
+      isLoading={isLoading}
     >
       <Box margin={{ bottom: 'medium' }} style={{ maxWidth: '450px' }}>
         <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
@@ -50,7 +59,7 @@ export const TransactionConfirmation = () => {
       <Form
         messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
         onChange={nextValue => setTransactionForm(nextValue)}
-        onSubmit={navigateToSummary}
+        onSubmit={() => submitTransaction()}
         value={transactionForm}
       >
         <Box margin={{ bottom: 'small' }} responsive={false}>

@@ -1,5 +1,5 @@
 import { bech32 } from 'bech32'
-import { quantity, staking, types } from '@oasisprotocol/client'
+import { quantity, misc, staking, types } from '@oasisprotocol/client'
 import { WalletBalance } from 'app/state/wallet/types'
 import { decode as base64decode } from 'base64-arraybuffer'
 import BigNumber from 'bignumber.js'
@@ -51,7 +51,7 @@ export function concat(...parts: Uint8Array[]) {
   return result
 }
 
-function parseRoseStringToBigNumber(value: string, decimals = 9): BigNumber {
+export function parseRoseStringToBigNumber(value: string, decimals = 9): BigNumber {
   const baseUnitBN = new BigNumber(value).shiftedBy(decimals) // * 10 ** decimals
   if (baseUnitBN.isNaN()) {
     throw new Error(`not a number in parseRoseStringToBaseUnitString(${value})`)
@@ -111,4 +111,9 @@ export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
 
 export function formatCommissionPercent(commission: number): string {
   return new BigNumber(commission).times(100).toFormat()
+}
+
+export async function getRuntimeAddress(runtimeId: string) {
+  const address = await staking.addressFromRuntimeID(misc.fromHex(runtimeId))
+  return staking.addressToBech32(address).toLowerCase()
 }

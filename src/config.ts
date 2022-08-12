@@ -1,6 +1,8 @@
 import { BackendAPIs } from 'vendors/backend'
 import { NetworkType } from 'app/state/network/types'
 
+export const consensusDecimals = 9
+
 type BackendApiUrls = {
   explorer: string
   blockExplorer: string

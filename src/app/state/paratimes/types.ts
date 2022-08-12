@@ -40,3 +40,9 @@ export type EvmcBalancePayload = {
   privateKey: string
   paraTime: ParaTime
 }
+
+export type Runtime = {
+  address: string
+  id: string
+  decimals: number
+}

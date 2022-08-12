@@ -262,6 +262,16 @@ paths:
                         type: integer
 components:
   schemas:
+    Allowance:
+      type: object
+      properties:
+        address:
+          type: string
+        amount:
+          type: string
+      required:
+        - address
+        - amount
     AccountsRow:
       type: object
       properties:
@@ -282,7 +292,7 @@ components:
         allowances:
           type: array
           items:
-            type: object
+            $ref: '#/components/schemas/Allowance'
       required:
         - rank
         - address
