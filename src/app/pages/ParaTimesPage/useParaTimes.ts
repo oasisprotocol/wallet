@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
+import { TFunction, useTranslation } from 'react-i18next'
 import { paraTimesActions } from 'app/state/paratimes'
 import { TransactionForm, TransactionTypes } from 'app/state/paratimes/types'
 import { selectSelectedNetwork, selectTicker } from 'app/state/network/selectors'
@@ -17,6 +17,19 @@ type AvailableParaTimesForNetwork = {
 const evmcParaTimes = Object.keys(paraTimesConfig).filter(
   key => paraTimesConfig[key as ParaTime].type === RuntimeTypes.Evm,
 )
+
+const getParaTimeName = (t: TFunction, paraTime: ParaTime) => {
+  switch (paraTime) {
+    case ParaTime.Cipher:
+      return t('paraTimes.common.cipher', 'Cipher')
+    case ParaTime.Emerald:
+      return t('paraTimes.common.emerald', 'Emerald')
+    case ParaTime.Sapphire:
+      return t('paraTimes.common.sapphire', 'Sapphire')
+    default:
+      return ''
+  }
+}
 
 export const useParaTimes = () => {
   const { t } = useTranslation()
@@ -39,7 +52,7 @@ export const useParaTimes = () => {
   const isEvmcParaTime = evmcParaTimes.includes(transactionForm.paraTime!)
   const needsEthAddress = isDepositing && isEvmcParaTime
   const balanceInBaseUnit = isDepositing || (!isDepositing && !isEvmcParaTime)
-  const paraTimeName = transactionForm.paraTime ? t(`paraTimes.common.${transactionForm.paraTime}`) : ''
+  const paraTimeName = getParaTimeName(t, transactionForm.paraTime!)
   const availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[] = (
     Object.keys(paraTimesConfig) as ParaTime[]
   )
