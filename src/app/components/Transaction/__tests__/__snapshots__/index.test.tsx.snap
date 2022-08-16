@@ -632,11 +632,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
       <span
         class="c17"
       >
-        0.001
-        <span
-          class="c18"
-        >
-          TEST
+        <span>
+          0.001
+          <span
+            class="c18"
+          >
+            TEST
+          </span>
         </span>
       </span>
       <span
@@ -1310,11 +1312,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
       <span
         class="c17"
       >
-        0.001
-        <span
-          class="c18"
-        >
-          TEST
+        <span>
+          0.001
+          <span
+            class="c18"
+          >
+            TEST
+          </span>
         </span>
       </span>
       <span

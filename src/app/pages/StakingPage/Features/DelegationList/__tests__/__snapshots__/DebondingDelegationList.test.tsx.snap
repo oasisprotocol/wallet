@@ -538,10 +538,12 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                   id="cell-amount-test-validator+100"
                   role="gridcell"
                 >
-                  0.0000001
-                  <span
-                    class="c17"
-                  />
+                  <span>
+                    0.0000001
+                    <span
+                      class="c17"
+                    />
+                  </span>
                 </div>
                 <div
                   class="c15 c9 c16 rdt_TableCell"

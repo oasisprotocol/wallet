@@ -41,13 +41,13 @@ export const AmountFormatter = memo((props: AmountFormatterProps) => {
     : {}
 
   return (
-    <>
+    <span>
       {amountString}
       {!props.hideTicker && (
         <Text margin={{ left: 'xxsmall' }} size={props.size} {...tickerProps}>
           {ticker}
         </Text>
       )}
-    </>
+    </span>
   )
 })
