@@ -9,10 +9,6 @@
     },
     "loading": "Chargement du compte",
     "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
-    "otherTransaction": {
-      "destination": "Autre adresse",
-      "header": "Transaction non reconnue, le type '{{method}}'"
-    },
     "reclaimEscrow": {
       "reclaim": "Réclamer"
     },
@@ -48,6 +44,10 @@
         "received": "Délégation de <0></0> reçue",
         "sent": "<0></0> délégués au validateur"
       },
+      "genericTransaction": {
+        "destination": "Autre adresse",
+        "header": "Type '{{method}}'"
+      },
       "loadingError": "Impossible de charger les transactions. La liste peut être vide ou obsolète.",
       "reclaimEscrow": {
         "received": "<0></0> réclamés par le délégateur",
@@ -58,6 +58,10 @@
         "sent": {
           "header": "<0></0> envoyés"
         }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Autre adresse",
+        "header": "Transaction non reconnue, le type '{{method}}'"
       }
     },
     "validator": {

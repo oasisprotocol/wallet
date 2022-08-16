@@ -9,10 +9,6 @@
     },
     "loading": "Hesap yükleniyor",
     "loadingError": "Hesap yüklenmedi. Bilgiler tam ya da güncel olmayabilir.",
-    "otherTransaction": {
-      "destination": "Diğer adres",
-      "header": "Tanınmayan işlem yöntemi '{{method}}'"
-    },
     "reclaimEscrow": {
       "reclaim": "Al"
     },
@@ -48,6 +44,10 @@
         "received": "Escrowdaki delegasyondan <0></0> alındı",
         "sent": "Doğrulayıcıya <0></0> delege edildi"
       },
+      "genericTransaction": {
+        "destination": "Diğer adres",
+        "header": "Yöntemi '{{method}}'"
+      },
       "loadingError": "İşlem geçmişinizi yükleyemiyoruz. Liste boş ya da süresi geçmiş olabilir.",
       "reclaimEscrow": {
         "received": "<0></0> delegator tarafından alındı",
@@ -58,6 +58,10 @@
         "sent": {
           "header": "Gönderildi <0></0>"
         }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Diğer adres",
+        "header": "Tanınmayan işlem yöntemi '{{method}}'"
       }
     },
     "validator": {

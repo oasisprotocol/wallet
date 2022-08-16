@@ -16,6 +16,8 @@ import {
   New,
   LinkPrevious,
   LinkNext,
+  Atm,
+  Alert,
 } from 'grommet-icons/icons'
 import type { Icon } from 'grommet-icons/icons'
 import * as React from 'react'
@@ -84,12 +86,25 @@ export function Transaction(props: TransactionProps) {
     otherAddress = transaction.from!
   }
 
-  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
-    destination: t('account.otherTransaction.destination', 'Other address'),
+  const genericTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
+    destination: t('account.transaction.genericTransaction.destination', 'Other address'),
     icon: New,
     header: () => (
       <Trans
-        i18nKey="account.otherTransaction.header"
+        i18nKey="account.transaction.genericTransaction.header"
+        t={t}
+        values={{ method: transaction.type }}
+        defaults="Method '{{method}}'"
+      />
+    ),
+  }
+
+  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
+    destination: t('account.transaction.unrecognizedTransaction.destination', 'Other address'),
+    icon: Alert,
+    header: () => (
+      <Trans
+        i18nKey="account.transaction.unrecognizedTransaction.header"
         t={t}
         values={{ method: transaction.type }}
         defaults="Unrecognized transaction, method '{{method}}'"
@@ -179,20 +194,17 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
-    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
-    },
     [transactionTypes.TransactionType.ConsensusDeposit]: {
       [TransactionSide.Received]: {
         destination: t('common.from', 'From'),
         icon: () => <Inherit color="#FFCA58" />,
         header: () => (
           <Trans
-            i18nKey="account.transaction.consensus.received"
+            i18nKey="account.transaction.consensusDeposit.received"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            defaults="{{runtimeName}} ParaTime transfer"
+            components={[amount]}
+            defaults="Received <0></0> deposit into {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -201,77 +213,130 @@ export function Transaction(props: TransactionProps) {
         icon: () => <Inherit color="#FFCA58" />,
         header: () => (
           <Trans
-            i18nKey="account.transaction.consensus.sent"
+            i18nKey="account.transaction.consensusDeposit.sent"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            defaults="{{runtimeName}} ParaTime deposit"
+            components={[amount]}
+            defaults="Deposited <0></0> into {{runtimeName}} ParaTime"
+          />
+        ),
+      },
+    },
+    [transactionTypes.TransactionType.ConsensusWithdraw]: {
+      [TransactionSide.Received]: {
+        destination: t('common.from', 'From'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensusWithdraw.received"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            components={[amount]}
+            defaults="Withdrew <0></0> out of {{runtimeName}} ParaTime"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        destination: t('common.to', 'To'),
+        icon: () => <Inherit color="#FFCA58" />,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.consensusWithdraw.sent"
+            t={t}
+            values={{ runtimeName: transaction.runtimeName }}
+            components={[amount]}
+            defaults="Received <0></0> from withdrawal out of {{runtimeName}} ParaTime"
           />
         ),
       },
     },
     [transactionTypes.TransactionType.StakingAllow]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: {
+        destination: t('common.from', 'From'),
+        icon: Atm,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingAllow.received"
+            t={t}
+            components={[amount]}
+            defaults="Received <0></0> allowance"
+          />
+        ),
+      },
+      [TransactionSide.Sent]: {
+        destination: t('common.to', 'To'),
+        icon: Atm,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingAllow.sent"
+            t={t}
+            components={[amount]}
+            // TODO: try to resolve destination to a runtime name
+            defaults="Set <0></0> allowance"
+          />
+        ),
+      },
+    },
+
+    [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.StakingWithdraw]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RoothashExecutorCommit]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RoothashExecutorProposerTimeout]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RegistryRegisterEntity]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RegistryRegisterNode]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RegistryRegisterRuntime]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.GovernanceCastVote]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.GovernanceSubmitProposal]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.BeaconPvssCommit]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.BeaconPvssReveal]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.BeaconVrfProve]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
-    },
-    [transactionTypes.TransactionType.ConsensusWithdraw]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.ConsensusAccountsParameters]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.ConsensusBalance]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.ConsensusAccount]: {
-      [TransactionSide.Received]: unrecognizedTransaction,
-      [TransactionSide.Sent]: unrecognizedTransaction,
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
     },
   }
 

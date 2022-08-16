@@ -9,10 +9,6 @@
     },
     "loading": "Nalaganje računa",
     "loadingError": "Računa ni bilo mogoče pridobiti. Prikazani podatki so zato prazni ali zastareli.",
-    "otherTransaction": {
-      "destination": "Drug naslov",
-      "header": "Nepoznana transakcija, metoda '{{method}}'"
-    },
     "reclaimEscrow": {
       "reclaim": "Oddelegiraj"
     },
@@ -48,6 +44,10 @@
         "received": "Prejeth <0></0> v delegiranje",
         "sent": "Delegiranih <0></0> overitelju"
       },
+      "genericTransaction": {
+        "destination": "Drug naslov",
+        "header": "Metoda '{{method}}'"
+      },
       "loadingError": "Transakcij ni bilo mogoče pridobiti. Seznam je zato verjetno prazen ali zastarel.",
       "reclaimEscrow": {
         "received": "Vračilo <0></0> investitorju",
@@ -58,6 +58,10 @@
         "sent": {
           "header": "Poslanih <0></0>"
         }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Drug naslov",
+        "header": "Nepoznana transakcija, metoda '{{method}}'"
       }
     },
     "validator": {

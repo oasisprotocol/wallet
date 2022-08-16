@@ -470,12 +470,12 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     class="c1"
   >
     <svg
-      aria-label="New"
+      aria-label="Alert"
       class="c2"
       viewBox="0 0 24 24"
     >
       <path
-        d="M12 1v22M2 6l20 12m0-12L2 18"
+        d="M12 17v2m0-9v6m0-13L2 22h20L12 3z"
         fill="none"
         stroke="#000"
         stroke-width="2"
@@ -487,7 +487,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     <span
       class="c4"
     >
-      account.otherTransaction.header
+      account.transaction.unrecognizedTransaction.header
     </span>
   </header>
   <div
@@ -531,7 +531,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               <span
                 class="c4"
               >
-                account.otherTransaction.destination
+                account.transaction.unrecognizedTransaction.destination
               </span>
               <span
                 class="c14"
