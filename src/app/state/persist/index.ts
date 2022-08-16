@@ -1,15 +1,25 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { PersistState } from './types'
+import { runtimeIs } from 'config'
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { createPersistedRootReducer } from 'store/reducers'
 import { RootState } from 'types'
 
 export const STORAGE_FIELD = 'oasis_wallet_persist_v1'
 
+/** Syncing tabs is only needed in web app, not in extension. */
+export const needsSyncingTabs = runtimeIs === 'webapp'
+
+// Simulate with `delete window.BroadcastChannel`
+export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
+
 export function getInitialState(): PersistState {
   return {
     hasPersistedProfiles: !!localStorage.getItem(STORAGE_FIELD),
+    // Disable persistence if tabs would override each other.
+    isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
     stringifiedEncryptionKey: undefined,
     enteredWrongPassword: false,

@@ -24,6 +24,7 @@ export const testPreserveAliasName = '{}' as EncryptedString
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean
+  isPersistenceUnsupported: boolean
   loading: boolean
   stringifiedEncryptionKey: undefined | StringifiedKeyWithSalt
   enteredWrongPassword: boolean

@@ -7,6 +7,7 @@ import {
   Middleware,
 } from '@reduxjs/toolkit'
 import { networkActions } from 'app/state/network'
+import { isSyncingTabsSupported, needsSyncingTabs, persistActions } from 'app/state/persist'
 import { walletActions } from 'app/state/wallet'
 import { themeActions } from 'styles/theme/slice'
 import {
@@ -17,12 +18,6 @@ import {
 } from 'redux-state-sync'
 import { RootState } from 'types'
 import { SyncedRootState } from 'app/state/persist/types'
-
-/** Syncing tabs is only needed in web app, not in extension. */
-export const needsSyncingTabs = !window.chrome?.runtime?.id
-
-// Simulate with `delete window.BroadcastChannel`
-export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 
 /**
  * When opening a second tab it initially syncs these state slices.
