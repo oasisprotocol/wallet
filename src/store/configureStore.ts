@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
 
 import { createReducer } from './reducers'
 import rootSagas from './sagas'
 import { RootState } from 'types'
 import { fatalErrorActions } from 'app/state/fatalerror'
+import { configureStoreWithSyncTabs } from 'app/state/persist/syncTabs'
 
 export function configureAppStore(state?: Partial<RootState>) {
   const sagaMiddleware = createSagaMiddleware({
@@ -22,7 +22,7 @@ export function configureAppStore(state?: Partial<RootState>) {
   // Create the store with saga middleware
   const middlewares = [sagaMiddleware]
 
-  const store = configureStore({
+  const store = configureStoreWithSyncTabs({
     reducer: createReducer(),
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
     devTools:
