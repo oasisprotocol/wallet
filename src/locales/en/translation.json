@@ -331,6 +331,25 @@
       "unsupportedParaTime": "Unsupported ParaTime"
     }
   },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "Choose a password",
+      "passwordMismatch": "Entered password does not match",
+      "repeatPassword": "Re-enter your password",
+      "setPassword": "Create profile",
+      "unsupported": "Persistence is not supported in this browser."
+    },
+    "loading": "Loading",
+    "loginToProfile": {
+      "description": "Log into your existing user profile on this computer to access the wallets you already added.",
+      "enterPasswordHere": "Enter your password here",
+      "hidePassword": "Hide password",
+      "showPassword": "Show password",
+      "title": "Welcome Back!",
+      "unlock": "Unlock",
+      "wrongPassword": "Wrong password"
+    }
+  },
   "theme": {
     "darkMode": "Dark mode",
     "lightMode": "Light mode"

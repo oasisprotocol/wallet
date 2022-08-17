@@ -1,3 +1,5 @@
+import { SetPassword } from 'app/components/Persist/SetPassword'
+import { Lock } from 'app/components/Persist/Lock'
 import { Box, Grid, Paragraph, ResponsiveContext } from 'grommet'
 import { Add, Unlock } from 'grommet-icons'
 import React, { useContext } from 'react'
@@ -54,6 +56,11 @@ export function HomePage() {
               icon={<Add />}
             />
           </Box>
+        </Box>
+
+        <Box background="background-front" pad="large">
+          <SetPassword></SetPassword>
+          <Lock></Lock>
         </Box>
       </Grid>
     </>
