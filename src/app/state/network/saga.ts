@@ -1,5 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
+import { persistActions } from 'app/state/persist'
+import { selectNeedsPassword } from 'app/state/persist/selectors'
 import { config } from 'config'
 import { all, call, put, select, takeLatest } from 'typed-redux-saga'
 import { backend, backendApi } from 'vendors/backend'
@@ -50,10 +52,16 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
 
 export function* networkSaga() {
   yield* takeLatest(networkActions.selectNetwork, selectNetwork)
+  yield* takeLatest(persistActions.setUnlockedRootState, ({ payload }) =>
+    put(networkActions.selectNetwork(payload.rootState.network.selectedNetwork)),
+  )
 
-  if (process.env.REACT_APP_LOCALNET) {
-    yield* put(networkActions.selectNetwork('local'))
-  } else {
-    yield* put(networkActions.selectNetwork('mainnet'))
+  const needsPassword = yield* select(selectNeedsPassword)
+  if (!needsPassword) {
+    if (process.env.REACT_APP_LOCALNET) {
+      yield* put(networkActions.selectNetwork('local'))
+    } else {
+      yield* put(networkActions.selectNetwork('mainnet'))
+    }
   }
 }
