@@ -9,6 +9,9 @@ import { RootState } from 'types'
 
 const stateSyncConfig: StateSyncConfig = {
   channel: 'oasis_wallet_broadcast_channel',
+  broadcastChannelOption: {
+    type: 'native', // Prevent fallbacks to e.g. localStorage that would expose password.
+  },
 }
 
 /** Wrap configureStore with redux-state-sync. */
