@@ -1,7 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { config } from 'config'
-import { call, put, select, takeLatest } from 'typed-redux-saga'
+import { all, call, put, select, takeLatest } from 'typed-redux-saga'
 import { backend, backendApi } from 'vendors/backend'
 
 import { networkActions } from '.'
@@ -32,19 +32,18 @@ export function* getExplorerAPIs(network?: NetworkType) {
 
 export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>) {
   const nic = yield* call(getOasisNic, network)
-  const epoch = yield* call([nic, nic.beaconGetEpoch], oasis.consensus.HEIGHT_LATEST)
-  const ticker = yield* call([nic, nic.stakingTokenSymbol])
-  const chainContext = yield* call([nic, nic.consensusGetChainContext])
-  const stakingParams = yield* call([nic, nic.stakingConsensusParameters], oasis.consensus.HEIGHT_LATEST)
-  const minimumStakingAmount = Number(oasis.quantity.toBigInt(stakingParams.min_delegation)) / 10 ** 9
+  const { epoch, chainContext } = yield* all({
+    epoch: call([nic, nic.beaconGetEpoch], oasis.consensus.HEIGHT_LATEST),
+    chainContext: call([nic, nic.consensusGetChainContext]),
+  })
 
   yield* put(
     networkActions.networkSelected({
       chainContext: chainContext,
-      ticker: ticker,
-      epoch: Number(epoch),
+      ticker: config[network].ticker,
+      epoch: Number(epoch), // TODO: numeric precision
       selectedNetwork: network,
-      minimumStakingAmount: minimumStakingAmount,
+      minimumStakingAmount: config[network].min_delegation,
     }),
   )
 }

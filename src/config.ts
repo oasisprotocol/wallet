@@ -9,6 +9,8 @@ type BackendApiUrls = {
 
 type BackendProviders = {
   grpc: string
+  ticker: string // from nic.stakingTokenSymbol()
+  min_delegation: number // from nic.stakingConsensusParameters().min_delegation
   [BackendAPIs.OasisMonitor]: BackendApiUrls
   [BackendAPIs.OasisScan]: BackendApiUrls
 }
@@ -19,6 +21,9 @@ type BackendConfig = {
 
 export const config: BackendConfig = {
   mainnet: {
+    grpc: 'https://grpc.oasis.dev',
+    ticker: 'ROSE',
+    min_delegation: 100,
     [BackendAPIs.OasisMonitor]: {
       explorer: 'https://monitor.oasis.dev',
       blockExplorer: 'https://oasismonitor.com/operation/{{txHash}}',
@@ -28,10 +33,11 @@ export const config: BackendConfig = {
       blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
       blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
     },
-    grpc: 'https://grpc.oasis.dev',
   },
   testnet: {
     grpc: 'https://testnet.grpc.oasis.dev',
+    ticker: 'TEST',
+    min_delegation: 100,
     [BackendAPIs.OasisMonitor]: {
       explorer: 'https://monitor.oasis.dev/api/testnet',
       blockExplorer: 'https://testnet.oasismonitor.com/operation/{{txHash}}',
@@ -45,6 +51,8 @@ export const config: BackendConfig = {
   },
   local: {
     grpc: 'http://localhost:42280',
+    ticker: 'TEST',
+    min_delegation: 100,
     [BackendAPIs.OasisMonitor]: {
       explorer: 'http://localhost:9001',
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
