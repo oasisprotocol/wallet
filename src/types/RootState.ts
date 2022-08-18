@@ -9,6 +9,7 @@ import { ImportAccountsState } from 'app/state/importaccounts/types'
 import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
+import { PersistState } from 'app/state/persist/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 export interface RootState {
@@ -22,6 +23,7 @@ export interface RootState {
   paraTimes: ParaTimesState
   staking: StakingState
   fatalError: FatalErrorState
+  persist: PersistState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
 
