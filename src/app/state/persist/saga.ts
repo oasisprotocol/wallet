@@ -1,5 +1,5 @@
 import { AnyAction } from '@reduxjs/toolkit'
-import { call, fork, put, select, take } from 'typed-redux-saga'
+import { actionChannel, call, fork, put, select, take } from 'typed-redux-saga'
 import { persistActions, getInitialState, STORAGE_FIELD } from './index'
 import {
   base64andStringify,
@@ -14,8 +14,10 @@ import { PasswordWrongError } from 'types/errors'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
+    const channelQueue = yield* actionChannel<AnyAction>('*')
     while (true) {
-      const action: AnyAction = yield* take('*')
+      // TODO: could flush(channelQueue) to speedup multiple consecutive writes
+      const action: AnyAction = yield* take(channelQueue)
       // Make queue of async operations, without forking, to avoid race
       // conditions (e.g. multiple writes to localStorage in wrong order).
       // Problems with queue:
