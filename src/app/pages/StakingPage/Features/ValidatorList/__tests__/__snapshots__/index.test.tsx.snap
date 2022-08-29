@@ -693,10 +693,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               id="cell-escrow-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
               role="gridcell"
             >
-              0
-              <span
-                class="c18"
-              />
+              <span>
+                0
+                <span
+                  class="c18"
+                />
+              </span>
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"
@@ -751,10 +753,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
               role="gridcell"
             >
-              0
-              <span
-                class="c18"
-              />
+              <span>
+                0
+                <span
+                  class="c18"
+                />
+              </span>
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"
@@ -809,10 +813,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               id="cell-escrow-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
               role="gridcell"
             >
-              0
-              <span
-                class="c18"
-              />
+              <span>
+                0
+                <span
+                  class="c18"
+                />
+              </span>
             </div>
             <div
               class="c15 c12 c16 rdt_TableCell"

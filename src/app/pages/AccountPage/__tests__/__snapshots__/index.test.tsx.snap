@@ -958,38 +958,46 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <dd
               data-testid="account-balance-total"
             >
-              100.000001111
-              <span
-                class="c14"
-              />
+              <span>
+                100.000001111
+                <span
+                  class="c14"
+                />
+              </span>
             </dd>
             <dt>
               Available
             </dt>
             <dd>
-              100.0
-              <span
-                class="c14"
-              />
+              <span>
+                100.0
+                <span
+                  class="c14"
+                />
+              </span>
             </dd>
             <dt>
                
               Staked
             </dt>
             <dd>
-              0.000001111
-              <span
-                class="c14"
-              />
+              <span>
+                0.000001111
+                <span
+                  class="c14"
+                />
+              </span>
             </dd>
             <dt>
               Debonding
             </dt>
             <dd>
-              0.0
-              <span
-                class="c14"
-              />
+              <span>
+                0.0
+                <span
+                  class="c14"
+                />
+              </span>
             </dd>
           </dl>
         </div>

@@ -494,10 +494,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                       <div
                         class="c10"
                       >
-                        0.0000001
-                        <span
-                          class="c14"
-                        />
+                        <span>
+                          0.0000001
+                          <span
+                            class="c14"
+                          />
+                        </span>
                       </div>
                     </div>
                   </div>
