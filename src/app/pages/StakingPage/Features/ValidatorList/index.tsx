@@ -28,6 +28,7 @@ import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
 import { formatCommissionPercent } from 'app/lib/helpers'
+import { intlDateTimeFormat } from 'app/components/DateFormatter'
 
 interface Props {}
 
@@ -111,7 +112,7 @@ export const ValidatorList = memo((props: Props) => {
           {t('account.validator.loadingError', "Couldn't load validators.")}{' '}
           {validators.length > 0 &&
             t('account.validator.showingStale', 'Showing validator list as of {{staleTimestamp}}.', {
-              staleTimestamp: new Date(validatorsTimestamp!).toLocaleString(),
+              staleTimestamp: intlDateTimeFormat(validatorsTimestamp!),
             })}
           <br />
           {validators.length <= 0 && (
