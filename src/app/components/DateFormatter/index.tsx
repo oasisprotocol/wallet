@@ -19,8 +19,7 @@ const dateFormat = new Intl.DateTimeFormat(process?.env?.NODE_ENV === 'test' ? '
   timeZone: process?.env?.NODE_ENV === 'test' ? 'UTC' : undefined,
 })
 
-export const intlDateTimeFormat = (date: Date | number) =>
-  dateFormat.format(date instanceof Date ? date : date * 1000)
+export const intlDateTimeFormat = (date: Date | number) => dateFormat.format(date)
 
 export function DateFormatter(props: Props) {
   return <>{intlDateTimeFormat(props.date)}</>

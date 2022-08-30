@@ -51,7 +51,7 @@ describe('<Transaction  />', () => {
   const ref = 'sourceAddr'
   const transaction = {
     amount: 1000000n.toString(),
-    timestamp: 1618018255,
+    timestamp: 1618018255000,
     from: 'source',
     to: 'destination',
     type: transactionTypes.TransactionType.StakingTransfer,
@@ -95,7 +95,7 @@ describe('<Transaction  />', () => {
       'sourceAddr',
       {
         amount: 1000000n.toString(),
-        timestamp: 1618018255,
+        timestamp: 1618018255000,
         from: 'source',
         to: 'destination',
         type: 'turboencabulate' as transactionTypes.TransactionType,
@@ -118,7 +118,7 @@ describe('<Transaction  />', () => {
       'sourceAddr',
       {
         amount: 1000000n.toString(),
-        timestamp: 1618018255,
+        timestamp: 1618018255000,
         from: 'sourceAddr',
         to: undefined,
         type: 'anyType' as transactionTypes.TransactionType,
