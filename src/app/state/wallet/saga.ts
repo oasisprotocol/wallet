@@ -125,7 +125,8 @@ export function* openWalletFromMnemonic() {
  * If the wallet exists already, do nothingg
  * If it has "selectImmediately", we select it immediately
  */
-export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
+export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
+  const { selectImmediately, ...newWallet } = payload
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
     yield* put(walletActions.walletOpened(newWallet))
@@ -133,7 +134,7 @@ export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayloa
 
   const walletId = existingWallet ? existingWallet.id : newWallet.id
 
-  if (newWallet.selectImmediately) {
+  if (selectImmediately) {
     yield* put(walletActions.selectWallet(walletId))
   }
 }
