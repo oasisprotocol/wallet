@@ -5,9 +5,8 @@ import { DeepPartialRootState } from 'types/RootState'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { getBalance, rootWalletSaga, walletSaga, selectWallet } from './saga'
-import { selectActiveWallet } from './selectors'
-import { Wallet, WalletType } from './types'
+import { getBalance, rootWalletSaga, walletSaga } from './saga'
+import { AddWalletPayload, WalletType } from './types'
 
 describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
@@ -74,6 +73,15 @@ describe('Wallet Sagas', () => {
         .withState({})
         .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
         .fork(walletSaga)
+        .put.like({
+          action: {
+            type: walletActions.addWallet.type,
+            payload: {
+              address: addressHex,
+              type: WalletType.PrivateKey,
+            } as AddWalletPayload,
+          },
+        })
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
     })
@@ -149,15 +157,8 @@ describe('Wallet Sagas', () => {
     })
   })
 
-  it('Should redirect user when selecting a wallet', () => {
-    return expectSaga(selectWallet, { type: '', payload: 1 })
-      .provide([
-        ...providers,
-        [matchers.select.selector(selectActiveWallet), { address: addressHex } as Partial<Wallet>],
-      ])
-      .put({ type: walletActions.walletSelected.type, payload: 1 })
-      .run()
-    // See `useRouteRedirects` tests for redirect after selectedWallet.
+  it.skip('Should redirect user when selecting a wallet', () => {
+    // See `useRouteRedirects` tests for redirect after selectWallet.
   })
 
   it('Should allow opening multiple wallets', () => {
@@ -166,10 +167,10 @@ describe('Wallet Sagas', () => {
       .withState(state)
       .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
       .put.actionType(walletActions.walletOpened.type)
-      .put.actionType(walletActions.walletSelected.type)
+      .put.actionType(walletActions.selectWallet.type)
       .dispatch(walletActions.openWalletFromMnemonic())
       .put.actionType(walletActions.walletOpened.type)
-      .put.actionType(walletActions.walletSelected.type)
+      .put.actionType(walletActions.selectWallet.type)
       .silentRun(50)
   })
 

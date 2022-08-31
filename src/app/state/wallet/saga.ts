@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
+import { call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
@@ -31,9 +31,6 @@ export function* rootWalletSaga() {
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(refreshAccountOnTransaction)
   yield* takeEvery(walletActions.fetchWallet, loadWallet)
-
-  // Allow switching between wallets
-  yield* takeLatest(walletActions.selectWallet, selectWallet)
 
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
@@ -143,10 +140,6 @@ export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayloa
 
 export function* closeWallet() {
   yield* put(walletActions.walletClosed())
-}
-
-export function* selectWallet({ payload: index }: PayloadAction<number>) {
-  yield* put(walletActions.walletSelected(index))
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {
