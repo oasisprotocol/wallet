@@ -10,6 +10,7 @@ describe('reducer', () => {
     expect(newState).toHaveProperty('fatalError')
     expect(newState).toHaveProperty('ledger')
     expect(newState).toHaveProperty('network')
+    expect(newState).toHaveProperty('paraTimes')
     expect(newState).toHaveProperty('staking')
     expect(newState).toHaveProperty('theme')
     expect(newState).toHaveProperty('transaction')
