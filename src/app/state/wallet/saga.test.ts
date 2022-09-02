@@ -2,6 +2,7 @@ import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { RootState } from 'types'
+import { LedgerAccount } from '../ledger/types'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
@@ -67,6 +68,40 @@ describe('Wallet Sagas', () => {
         )
         .fork(walletSaga)
         .put.actionType(walletActions.selectWallet.type)
+        .silentRun(50)
+    })
+
+    it('Should open from ledger and select the first imported wallet as active', () => {
+      return expectSaga(rootWalletSaga)
+        .provide(providers)
+        .withState({
+          wallet: {
+            isOpen: true,
+            selectedWallet: 0,
+            wallets: [
+              {
+                address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+                id: 0,
+              },
+              {
+                address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+                id: 1,
+              },
+            ],
+          },
+        })
+        .dispatch(
+          walletActions.openWalletsFromLedger([
+            {
+              address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+            } as LedgerAccount,
+            {
+              address: 'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
+            } as LedgerAccount,
+          ]),
+        )
+        .fork(walletSaga)
+        .put({ type: walletActions.selectWallet.type, payload: 1 })
         .silentRun(50)
     })
 
