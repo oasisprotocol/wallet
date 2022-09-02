@@ -21,8 +21,7 @@ const CommissionBound = memo((props: CommissionBoundProps) => {
     <Trans
       i18nKey="validator.commissionBounds.current"
       t={t}
-      defaults="<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}"
-      components={[<Text weight="bold" />]}
+      defaults="<strong>{{lowerBound}}% - {{upperBound}}%</strong> at current Epoch {{epoch}}"
       values={{
         lowerBound: formatCommissionPercent(bound.lower),
         upperBound: formatCommissionPercent(bound.upper),

@@ -110,8 +110,8 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
             <Trans
               i18nKey="account.summary.noWalletIsOpen"
               t={t}
-              components={[<AnchorLink to="/" />]}
-              defaults="To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>"
+              components={{ HomeLink: <AnchorLink to="/" /> }}
+              defaults="To send, receive, stake and swap ROSE tokens, <HomeLink>open your wallet!</HomeLink>"
             />
           </AlertBox>
         )}

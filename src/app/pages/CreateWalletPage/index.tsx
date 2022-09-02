@@ -117,10 +117,11 @@ export function CreateWalletPage(props: CreateWalletProps) {
           </Heading>
           <Box width="100%" justify="evenly" margin={{ vertical: 'small' }}>
             <Text margin="0">
-              <Trans i18nKey="createWallet.instruction" t={t}>
-                Save your keyphrase <strong>in the right order</strong> in a secure location, you will need it
-                to open your wallet.
-              </Trans>
+              <Trans
+                i18nKey="createWallet.instruction"
+                t={t}
+                defaults="Save your keyphrase <strong>in the right order</strong> in a secure location, you will need it to open your wallet."
+              ></Trans>
             </Text>
           </Box>
           <AlertBox color="status-warning">

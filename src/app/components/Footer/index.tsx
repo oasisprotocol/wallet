@@ -42,16 +42,16 @@ export const Footer = memo(() => {
         <Trans
           i18nKey="footer.github"
           t={t}
-          components={[<Anchor href={githubLink} />]}
-          defaults="Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!"
+          components={{ GithubLink: <Anchor href={githubLink} /> }}
+          defaults="Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!"
         />
       </Text>
       <Text size={responsiveSize} textAlign="center" margin={{ bottom: responsiveSize }}>
         <Trans
           i18nKey="footer.terms"
           t={t}
-          components={[<Anchor href="https://wallet.oasisprotocol.org/t-c" />]}
-          defaults="<0>Terms and Conditions</0>"
+          components={{ TermsLink: <Anchor href="https://wallet.oasisprotocol.org/t-c" /> }}
+          defaults="<TermsLink>Terms and Conditions</TermsLink>"
         />
       </Text>
       {process.env.REACT_APP_BUILD_DATETIME && process.env.REACT_APP_BUILD_SHA && (
@@ -59,13 +59,15 @@ export const Footer = memo(() => {
           <Trans
             i18nKey="footer.version"
             t={t}
-            components={[
-              <Anchor
-                href={`${githubLink}commit/${process.env.REACT_APP_BUILD_SHA}`}
-                label={process.env.REACT_APP_BUILD_SHA.substring(0, 7)}
-              />,
-            ]}
-            defaults="Version: <0></0> built at {{buildTime}}"
+            components={{
+              CommitLink: (
+                <Anchor
+                  href={`${githubLink}commit/${process.env.REACT_APP_BUILD_SHA}`}
+                  label={process.env.REACT_APP_BUILD_SHA.substring(0, 7)}
+                />
+              ),
+            }}
+            defaults="Version: <CommitLink/> built at {{buildTime}}"
             values={{
               buildTime: intlDateTimeFormat(Number(process.env.REACT_APP_BUILD_DATETIME)),
             }}

@@ -43,22 +43,22 @@
         "total": "Total"
       },
       "noTransactionFound": "No transactions found.",
-      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <0>open your wallet!</0>",
+      "noWalletIsOpen": "To send, receive, stake and swap ROSE tokens, <HomeLink>open your wallet!</HomeLink>",
       "notYourAccount": "This is not your account.",
       "yourAccount": "This is your account."
     },
     "transaction": {
       "addEscrow": {
-        "received": "Received <0></0> delegation in escrow",
-        "sent": "Delegated <0></0> to validator"
+        "received": "Received <Amount> delegation in escrow",
+        "sent": "Delegated <Amount/> to validator"
       },
       "consensusDeposit": {
-        "received": "Received <0></0> deposit into {{runtimeName}} ParaTime",
-        "sent": "Deposited <0></0> into {{runtimeName}} ParaTime"
+        "received": "Received <Amount/> deposit into {{runtimeName}} ParaTime",
+        "sent": "Deposited <Amount/> into {{runtimeName}} ParaTime"
       },
       "consensusWithdraw": {
-        "received": "Withdrew <0></0> out of {{runtimeName}} ParaTime",
-        "sent": "Received <0></0> from withdrawal out of {{runtimeName}} ParaTime"
+        "received": "Withdrew <Amount/> out of {{runtimeName}} ParaTime",
+        "sent": "Received <Amount/> from withdrawal out of {{runtimeName}} ParaTime"
       },
       "explorerLink": "View transaction records through explorer",
       "failed": "Failed",
@@ -68,18 +68,18 @@
       },
       "loadingError": "Couldn't load transactions.",
       "reclaimEscrow": {
-        "received": "<0></0> reclaimed by delegator",
-        "sent": "Reclaimed <0></0> from validator"
+        "received": "<Amount/> reclaimed by delegator",
+        "sent": "Reclaimed <Amount/> from validator"
       },
       "stakingAllow": {
-        "received": "Received <0></0> allowance",
-        "sent": "Set <0></0> allowance"
+        "received": "Received <Amount/> allowance",
+        "sent": "Set <Amount/> allowance"
       },
       "successful": "Successful",
       "transfer": {
-        "received": "Received <0></0>",
+        "received": "Received <Amount/>",
         "sent": {
-          "header": "Sent <0></0>"
+          "header": "Sent <Amount/>"
         }
       },
       "unrecognizedTransaction": {
@@ -114,7 +114,7 @@
   "createWallet": {
     "confirmSaved": "I saved my keyphrase",
     "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
-    "instruction": "Save your keyphrase <1>in the right order</1> in a secure location, you will need it to open your wallet.",
+    "instruction": "Save your keyphrase <strong>in the right order</strong> in a secure location, you will need it to open your wallet.",
     "mnemonicMismatch": "Entered mnemonic does not match.",
     "newMnemonic": "Generate a new mnemonic",
     "thisIsYourPhrase": "This is your mnemonic"
@@ -139,7 +139,7 @@
     "invalidPrivateKey": "Invalid private key",
     "ledgerAppVersionNotSupported": "Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.",
     "ledgerCannotOpenOasisApp": "Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.",
-    "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected, <0>check common USB connection issues with Ledger</0>, and <1>check site permissions don't block USB devices</1>.",
+    "ledgerNoDeviceSelected": "No Ledger device selected. Make sure it is connected, <LedgerHelp>check common USB connection issues with Ledger</LedgerHelp>, and <ChromeHelp>check site permissions don't block USB devices</ChromeHelp>.",
     "ledgerTransactionRejected": "Transaction rejected on Ledger.",
     "noOpenWallet": "No wallet opened",
     "unknown": "Unknown error: {{message}}",
@@ -152,16 +152,16 @@
     "copied": "Error copied to clipboard",
     "copy": "Copy error to clipboard",
     "heading": "A fatal error occurred",
-    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallet to see if the issue persists. If the issue persists, please contact our support team via <0>wallet@oasisprotocol.org</0> email and attach the report below."
+    "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallet to see if the issue persists. If the issue persists, please contact our support team via <Email/> email and attach the report below."
   },
   "footer": {
-    "github": "Oasis Wallet is fully <0>open source</0> - Feedback and issues are appreciated!",
+    "github": "Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
     "poweredBy": {
       "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
-    "terms": "<0>Terms and Conditions</0>",
-    "version": "Version: <0></0> built at {{buildTime}}"
+    "terms": "<TermsLink>Terms and Conditions</TermsLink>",
+    "version": "Version: <CommitLink/> built at {{buildTime}}"
   },
   "home": {
     "create": {
@@ -198,7 +198,7 @@
   },
   "openWallet": {
     "bitpie": {
-      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <0>Check documentation for details.</0>"
+      "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <DocsLink>Check documentation for details.</DocsLink>"
     },
     "header": "How do you want to open your wallet?",
     "ledger": {
@@ -279,7 +279,7 @@
     "boundsNotSet": "No bounds set (0% - 100%)",
     "commission": "Commission",
     "commissionBounds": {
-      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> at current Epoch {{epoch}}",
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> at current Epoch {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}% starting from Epoch {{epoch}}",
       "label": "Commission bounds"
     },
