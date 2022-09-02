@@ -4,7 +4,7 @@ import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
 
-import { walletActions, initialState } from '.'
+import { walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
@@ -130,7 +130,6 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
  * If it has "selectImmediately", we select it immediately
  */
 export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
-  yield* put(walletActions.walletSelected(initialState.selectedWallet))
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
     yield* put(walletActions.walletOpened(newWallet))
