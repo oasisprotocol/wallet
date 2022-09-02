@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Box } from 'grommet'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
+import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { TransactionFormSteps } from 'app/state/paratimes/types'
+import { ParaTimesPageInaccessible } from './ParaTimesPageInaccessible'
 import { ParaTimeTransferType } from './ParaTimeTransferType'
 import { ParaTimeSelection } from './ParaTimeSelection'
 import { TransactionRecipient } from './TransactionRecipient'
@@ -10,6 +12,7 @@ import { TransactionAmount } from './TransactionAmount'
 import { TransactionConfirmation } from './TransactionConfirmation'
 import { TransactionSummary } from './TransactionSummary'
 import { useParaTimes } from './useParaTimes'
+
 const getActiveFormStepComponent = (step: number) => {
   switch (step) {
     case TransactionFormSteps.ParaTimeSelection:
@@ -29,6 +32,7 @@ const getActiveFormStepComponent = (step: number) => {
 
 export const ParaTimes = () => {
   const { transactionFormStep } = useSelector(selectParaTimes)
+  const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const { resetTransactionForm } = useParaTimes()
 
   useEffect(() => {
@@ -39,7 +43,7 @@ export const ParaTimes = () => {
 
   return (
     <Box pad="medium" background="background-front" align="center">
-      {getActiveFormStepComponent(transactionFormStep)}
+      {isAddressInWallet ? getActiveFormStepComponent(transactionFormStep) : <ParaTimesPageInaccessible />}
     </Box>
   )
 }
