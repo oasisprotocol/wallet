@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 
-import { AddWalletPayload, BalanceUpdatePayload, Wallet, WalletBalance, WalletState } from './types'
+import { AddWalletPayload, BalanceUpdatePayload, Wallet, WalletState } from './types'
 
 export const initialState: WalletState = {
   wallets: {},
@@ -34,10 +34,6 @@ const slice = createSlice({
     walletClosed(state, action: PayloadAction<void>) {
       // Revert to initial state
       Object.assign(state, initialState)
-    },
-    walletLoaded(state, action: PayloadAction<WalletBalance>) {
-      state.isOpen = true
-      // state.wallets[state.selectedWallet!].balance = action.payload
     },
   },
 })
