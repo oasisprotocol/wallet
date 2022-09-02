@@ -26,6 +26,20 @@ describe('Transaction Sagas', () => {
   const matchingAddress = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
   const validAddress = 'oasis1qqty93azxp4qeft3krvv23ljyj57g3tzk56tqhqe'
 
+  const badKeyWallet = {
+    balance: { available: '100000000000' },
+    privateKey: '00',
+    address: 'oasis1aa',
+    type: WalletType.PrivateKey,
+  } as Partial<Wallet>
+
+  const validKeyWallet = {
+    balance: { available: '100000000000' },
+    privateKey: validPrivateKeyHex,
+    address: matchingAddress,
+    type: WalletType.PrivateKey,
+  } as Partial<Wallet>
+
   const sendProviders: (EffectProviders | StaticProvider)[] = [
     [matchers.call.fn(signerFromPrivateKey), {}],
     [
@@ -46,11 +60,7 @@ describe('Transaction Sagas', () => {
 
   describe('Send transaction', () => {
     it('Should send transactions from a mnemonic', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: '00',
-        type: WalletType.Mnemonic,
-      } as Partial<Wallet>
+      const wallet = badKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -66,11 +76,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should send transactions from a private key', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: '00',
-        type: WalletType.PrivateKey,
-      } as Partial<Wallet>
+      const wallet = badKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -86,11 +92,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should allow aborting transactions', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: '00',
-        type: WalletType.PrivateKey,
-      } as Partial<Wallet>
+      const wallet = badKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -107,11 +109,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should error without sufficient balance', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: validPrivateKeyHex,
-        type: WalletType.PrivateKey,
-      } as Partial<Wallet>
+      const wallet = validKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -128,11 +126,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should error with invalid private key', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        type: 'private_key',
-        privateKey: '00',
-      } as Partial<Wallet>
+      const wallet = badKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -149,12 +143,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should error when sending to an invalid address', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: validPrivateKeyHex,
-        address: matchingAddress,
-        type: WalletType.PrivateKey,
-      } as Partial<Wallet>
+      const wallet = validKeyWallet
 
       return expectSaga(
         doTransaction,
@@ -171,12 +160,7 @@ describe('Transaction Sagas', () => {
     })
 
     it('Should error when trying to send to self', () => {
-      const wallet = {
-        balance: { available: '100000000000' },
-        privateKey: validPrivateKeyHex,
-        address: matchingAddress,
-        type: WalletType.PrivateKey,
-      } as Partial<Wallet>
+      const wallet = validKeyWallet
 
       return expectSaga(
         doTransaction,
