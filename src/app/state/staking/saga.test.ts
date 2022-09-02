@@ -2,7 +2,7 @@ import * as oasis from '@oasisprotocol/client'
 import { expectSaga, testSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
-import { RootState } from 'types'
+import { DeepPartialRootState } from 'types/RootState'
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { initialState, stakingActions, stakingReducer } from '.'
@@ -130,10 +130,10 @@ describe('Staking Sagas', () => {
     it('should load validators when switching network', () => {
       getAllValidators.mockResolvedValue([{ address: 'fromApi' }] as Validator[])
       return expectSaga(refreshValidators)
-        .withState({
+        .withState<DeepPartialRootState>({
           network: { selectedNetwork: 'testnet' },
           staking: { validators: { network: 'mainnet', list: [{ address: 'existing' }] } },
-        } as RootState)
+        })
         .provide(providers)
         .put(
           stakingActions.updateValidators({
@@ -183,9 +183,9 @@ describe('Staking Sagas', () => {
         .mockImplementationOnce(message => expect(message).toBe('get validators list failed'))
 
       return expectSaga(refreshValidators)
-        .withState({
+        .withState<DeepPartialRootState>({
           network: { selectedNetwork: 'mainnet' },
-        } as RootState)
+        })
         .provide([...providers, [matchers.call.fn(getMainnetDumpValidators), getMainnetDumpValidatorsMock]])
         .put(
           stakingActions.updateValidatorsError({

@@ -1,13 +1,13 @@
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
-import { RootState } from 'types'
 import { DeepPartialRootState } from 'types/RootState'
+
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
 import { getBalance, rootWalletSaga, walletSaga, selectWallet } from './saga'
 import { selectActiveWallet } from './selectors'
-import { Wallet, WalletState, WalletType } from './types'
+import { Wallet, WalletType } from './types'
 
 describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
@@ -112,7 +112,7 @@ describe('Wallet Sagas', () => {
 
       return expectSaga(rootWalletSaga)
         .provide(providers)
-        .withState({
+        .withState<DeepPartialRootState>({
           ...state,
           wallet: {
             isOpen: true,
@@ -176,13 +176,13 @@ describe('Wallet Sagas', () => {
   it('Should refresh balances on matching transaction', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)
-      .withState({
+      .withState<DeepPartialRootState>({
         account: { address: 'sender' },
         wallet: {
           selectedWallet: 0,
-          wallets: [{ address: 'sender', publicKey: '00' } as Partial<Wallet>],
-        } as Partial<WalletState>,
-      } as Partial<RootState>)
+          wallets: [{ address: 'sender', publicKey: '00' }],
+        },
+      })
       .dispatch(
         transactionActions.transactionSent({ amount: '1000000000', type: 'transfer', to: 'receiver' }),
       )

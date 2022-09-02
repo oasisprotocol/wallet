@@ -2,7 +2,7 @@ import { OasisTransaction, signerFromPrivateKey } from 'app/lib/transaction'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
-import { RootState } from 'types'
+import { DeepPartialRootState } from 'types/RootState'
 import { WalletErrors } from 'types/errors'
 
 import { transactionActions as actions } from '.'
@@ -10,14 +10,14 @@ import { selectAddress, selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
 import { doTransaction } from './saga'
 
-const makeState = (wallet: Partial<Wallet>) => {
+const makeState = (wallet: Partial<Wallet>): DeepPartialRootState => {
   return {
     wallet: {
       wallets: { 0: { id: 0, ...wallet } },
       selectedWallet: 0,
       isOpen: true,
     },
-  } as Partial<RootState>
+  }
 }
 
 describe('Transaction Sagas', () => {
