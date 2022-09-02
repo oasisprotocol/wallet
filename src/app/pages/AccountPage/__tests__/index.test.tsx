@@ -97,11 +97,11 @@ describe('<AccountPage  />', () => {
       ...store.getState(),
       account: {
         ...store.getState().account,
-        available: 1655615038322038833148n.toString(),
+        available: 1563114365108133939632n.toString(),
       },
     })
     renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
     const balance = await screen.findByTestId('account-balance-total')
-    expect(balance).toHaveTextContent('1,655,615,038,322.038834259')
+    expect(balance).toHaveTextContent('1,563,114,365,108.133940743')
   })
 })
