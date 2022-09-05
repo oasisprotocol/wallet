@@ -4,7 +4,7 @@ import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
 
-import { walletActions, initialState } from '.'
+import { walletActions } from '.'
 import { LedgerAccount } from '../ledger/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
@@ -63,7 +63,8 @@ function* getWalletByAddress(address: string) {
  * Take multiple ledger accounts that we want to open
  */
 export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<LedgerAccount[]>) {
-  for (const [index, account] of accounts.entries()) {
+  const newWalletId = walletId
+  for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
         id: walletId++,
@@ -72,10 +73,12 @@ export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<Ledg
         type: WalletType.Ledger,
         balance: account.balance,
         path: account.path,
-        selectImmediately: index === 0,
+        selectImmediately: false,
       }),
     )
   }
+  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
+  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
@@ -127,7 +130,6 @@ export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<str
  * If it has "selectImmediately", we select it immediately
  */
 export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
-  yield* put(walletActions.walletSelected(initialState.selectedWallet))
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
     yield* put(walletActions.walletOpened(newWallet))
