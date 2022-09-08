@@ -74,7 +74,7 @@ export function Transaction(props: TransactionProps) {
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const amount = <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} />
+  const Amount = <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} />
   let side: TransactionSide
   let otherAddress = ''
 
@@ -124,8 +124,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.transfer.received"
             t={t}
-            components={[amount]}
-            defaults="Received <0></0>"
+            components={{ Amount }}
+            defaults="Received <Amount/>"
           />
         ),
       },
@@ -136,8 +136,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.transfer.sent.header"
             t={t}
-            components={[amount]}
-            defaults="Sent <0></0>"
+            components={{ Amount }}
+            defaults="Sent <Amount/>"
           />
         ),
       },
@@ -150,8 +150,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.addEscrow.received"
             t={t}
-            components={[amount]}
-            defaults="Received <0></0> delegation in escrow"
+            components={{ Amount }}
+            defaults="Received <Amount> delegation in escrow"
           />
         ),
       },
@@ -162,8 +162,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.addEscrow.sent"
             t={t}
-            components={[amount]}
-            defaults="Delegated <0></0> to validator"
+            components={{ Amount }}
+            defaults="Delegated <Amount/> to validator"
           />
         ),
       },
@@ -176,8 +176,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.reclaimEscrow.received"
             t={t}
-            components={[amount]}
-            defaults="<0></0> reclaimed by delegator"
+            components={{ Amount }}
+            defaults="<Amount/> reclaimed by delegator"
           />
         ),
       },
@@ -188,8 +188,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.reclaimEscrow.sent"
             t={t}
-            components={[amount]}
-            defaults="Reclaimed <0></0> from validator"
+            components={{ Amount }}
+            defaults="Reclaimed <Amount/> from validator"
           />
         ),
       },
@@ -203,8 +203,8 @@ export function Transaction(props: TransactionProps) {
             i18nKey="account.transaction.consensusDeposit.received"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            components={[amount]}
-            defaults="Received <0></0> deposit into {{runtimeName}} ParaTime"
+            components={{ Amount }}
+            defaults="Received <Amount/> deposit into {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -216,8 +216,8 @@ export function Transaction(props: TransactionProps) {
             i18nKey="account.transaction.consensusDeposit.sent"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            components={[amount]}
-            defaults="Deposited <0></0> into {{runtimeName}} ParaTime"
+            components={{ Amount }}
+            defaults="Deposited <Amount/> into {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -231,8 +231,8 @@ export function Transaction(props: TransactionProps) {
             i18nKey="account.transaction.consensusWithdraw.received"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            components={[amount]}
-            defaults="Withdrew <0></0> out of {{runtimeName}} ParaTime"
+            components={{ Amount }}
+            defaults="Withdrew <Amount/> out of {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -244,8 +244,8 @@ export function Transaction(props: TransactionProps) {
             i18nKey="account.transaction.consensusWithdraw.sent"
             t={t}
             values={{ runtimeName: transaction.runtimeName }}
-            components={[amount]}
-            defaults="Received <0></0> from withdrawal out of {{runtimeName}} ParaTime"
+            components={{ Amount }}
+            defaults="Received <Amount/> from withdrawal out of {{runtimeName}} ParaTime"
           />
         ),
       },
@@ -258,8 +258,8 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.stakingAllow.received"
             t={t}
-            components={[amount]}
-            defaults="Received <0></0> allowance"
+            components={{ Amount }}
+            defaults="Received <Amount/> allowance"
           />
         ),
       },
@@ -270,9 +270,9 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.stakingAllow.sent"
             t={t}
-            components={[amount]}
+            components={{ Amount }}
             // TODO: try to resolve destination to a runtime name
-            defaults="Set <0></0> allowance"
+            defaults="Set <Amount/> allowance"
           />
         ),
       },

@@ -39,7 +39,6 @@ const config = {
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17
     'react/display-name': 'off', // TODO: Maybe enable
-    'react/jsx-key': 'off', // False-positives in `<Trans components={[...`
 
     '@typescript-eslint/no-empty-function': 'off', // Allow empty reducers for saga
     '@typescript-eslint/no-non-null-assertion': 'off',

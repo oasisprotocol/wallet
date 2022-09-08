@@ -35,14 +35,14 @@
         "total": "Stanje"
       },
       "noTransactionFound": "Ni transakcij",
-      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo kovancev ROSE morate <0>odpreti vašo denarnico!</0>",
+      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo kovancev ROSE morate <HomeLink>odpreti vašo denarnico!</HomeLink>",
       "notYourAccount": "To ni vaš račun.",
       "yourAccount": "To je vaš račun."
     },
     "transaction": {
       "addEscrow": {
-        "received": "Prejeth <0></0> v delegiranje",
-        "sent": "Delegiranih <0></0> overitelju"
+        "received": "Prejeth <Amount/> v delegiranje",
+        "sent": "Delegiranih <Amount/> overitelju"
       },
       "genericTransaction": {
         "destination": "Drug naslov",
@@ -50,13 +50,13 @@
       },
       "loadingError": "Transakcij ni bilo mogoče pridobiti. Seznam je zato verjetno prazen ali zastarel.",
       "reclaimEscrow": {
-        "received": "Vračilo <0></0> investitorju",
-        "sent": "Prejetih <0></0> od overitelja"
+        "received": "Vračilo <Amount/> investitorju",
+        "sent": "Prejetih <Amount/> od overitelja"
       },
       "transfer": {
-        "received": "Prejetih <0></0>",
+        "received": "Prejetih <Amount/>",
         "sent": {
-          "header": "Poslanih <0></0>"
+          "header": "Poslanih <Amount/>"
         }
       },
       "unrecognizedTransaction": {
@@ -84,7 +84,7 @@
   "createWallet": {
     "confirmSaved": "Ključne besede sem shranil",
     "doNotShare": "Ključnih besed nikomur ne kažite, saj z njimi lahko dostopa do vaše denarnice in kovancev.",
-    "instruction": "Ključne besede mnemonika shranite na varno mesto in <1>v pravilnem vrstnem redu</1>. Potrebovali jih boste ob vsakem odpiranju denarnice.",
+    "instruction": "Ključne besede mnemonika shranite na varno mesto in <strong>v pravilnem vrstnem redu</strong>. Potrebovali jih boste ob vsakem odpiranju denarnice.",
     "mnemonicMismatch": "Vnešen mnemonik se ne ujema.",
     "newMnemonic": "Ustvari nov mnemonik",
     "thisIsYourPhrase": "To je vaš mnemonik"
@@ -106,7 +106,7 @@
     "invalidPrivateKey": "Neveljaven zasebni ključ",
     "ledgerAppVersionNotSupported": "Aplikacija Oasis na Ledgerju je zaprta ali zastarela. Poskrbite, da je Ledger odklenjen in da je zadnja različica aplikacije Oasis zagnana.",
     "ledgerCannotOpenOasisApp": "Ni mogoče odpreti aplikacije Oasis na Ledgerju. Poskrbite, da je naprava odklenjena in aplikacija Oasis zagnana.",
-    "ledgerNoDeviceSelected": "Ledger ni izbran. Preverite, če je povezan. <0>Preverite običajne napake s povezavo USB</0> in da <1>dovoljenja spletne strani omogočajo dostop do USB</1>.",
+    "ledgerNoDeviceSelected": "Ledger ni izbran. Preverite, če je povezan. <LedgerHelp>Preverite običajne napake s povezavo USB</LedgerHelp> in da <ChromeHelp>dovoljenja spletne strani omogočajo dostop do USB</ChromeHelp>.",
     "ledgerTransactionRejected": "Transakcija na Ledgerju zavrnjena",
     "noOpenWallet": "Ni odprte denarnice",
     "unknown": "Neznana napaka: {{message}}",
@@ -119,16 +119,16 @@
     "copied": "Napaka skopirana v odložišče",
     "copy": "Skopiraj napako v odložišče",
     "heading": "Pojavila se je usodna napaka",
-    "instruction": "Pojavila se je usodna napaka in Oasis Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <0>wallet@oasisprotocol.org</0> in pripnete spodnje poročilo."
+    "instruction": "Pojavila se je usodna napaka in Oasis Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
   "footer": {
-    "github": "Projekt Oasis Wallet je <0>odprtokoden</0>. Odzivi in poročila o težavah so dobrodošla!",
+    "github": "Projekt Oasis Wallet je <GithubLink>odprtokoden</GithubLink>. Odzivi in poročila o težavah so dobrodošla!",
     "poweredBy": {
       "oasismonitor": "Deluje s pomočjo Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
     },
-    "terms": "<0>Pogoji uporabe</0>",
-    "version": "Različica <0>{{commit}}</0>, zgrajeno dne {{buildTime}}"
+    "terms": "<TermsLink>Pogoji uporabe</TermsLink>",
+    "version": "Različica <CommitLink/>, zgrajeno dne {{buildTime}}"
   },
   "home": {
     "create": {
@@ -165,7 +165,7 @@
   },
   "openWallet": {
     "bitpie": {
-      "warning": "❗ Uporabniki denarnice BitPie: Uvoz vašega BitPie mnemonika neposredno v Oasis denarnico ni mogoča. <0>Za več informacij preverite dokumentacijo.</0>"
+      "warning": "❗ Uporabniki denarnice BitPie: Uvoz vašega BitPie mnemonika neposredno v Oasis denarnico ni mogoča. <DocsLink>Za več informacij preverite dokumentacijo.</DocsLink>"
     },
     "header": "Kako želite odpreti denarnico?",
     "ledger": {
@@ -246,7 +246,7 @@
     "boundsNotSet": "Brez omejitev (0% - 100%)",
     "commission": "Provizija",
     "commissionBounds": {
-      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> ob trenutni epohi {{epoch}}",
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> ob trenutni epohi {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}% z začetkom pri epohi {{epoch}}",
       "label": "Meje provizije"
     },

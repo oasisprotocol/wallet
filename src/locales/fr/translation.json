@@ -35,14 +35,14 @@
         "total": "Solde total"
       },
       "noTransactionFound": "Aucune transaction trouvée",
-      "noWalletIsOpen": "Pour envoyer, recevoir, jalonner et échanger vos jetons Rose, <0>Ouvrez votre portefeuille</0> !",
+      "noWalletIsOpen": "Pour envoyer, recevoir, jalonner et échanger vos jetons Rose, <HomeLink>Ouvrez votre portefeuille</HomeLink> !",
       "notYourAccount": "Ce compte n'est pas le vôtre.",
       "yourAccount": "Ce compte est le vôtre."
     },
     "transaction": {
       "addEscrow": {
-        "received": "Délégation de <0></0> reçue",
-        "sent": "<0></0> délégués au validateur"
+        "received": "Délégation de <Amount/> reçue",
+        "sent": "<Amount/> délégués au validateur"
       },
       "genericTransaction": {
         "destination": "Autre adresse",
@@ -50,13 +50,13 @@
       },
       "loadingError": "Impossible de charger les transactions. La liste peut être vide ou obsolète.",
       "reclaimEscrow": {
-        "received": "<0></0> réclamés par le délégateur",
-        "sent": "<0></0> réclamés au validateur"
+        "received": "<Amount/> réclamés par le délégateur",
+        "sent": "<Amount/> réclamés au validateur"
       },
       "transfer": {
-        "received": "<0></0> reçus",
+        "received": "<Amount/> reçus",
         "sent": {
-          "header": "<0></0> envoyés"
+          "header": "<Amount/> envoyés"
         }
       },
       "unrecognizedTransaction": {
@@ -84,7 +84,7 @@
   "createWallet": {
     "confirmSaved": "J'ai sauvegardé ma phrase secrète.",
     "doNotShare": "Ne partagez jamais votre phrase secrète, l'accès à votre phrase secrète permet d'accéder à votre portefeuille ainsi qu'à vos tokens.",
-    "instruction": "Sauvegardez votre phrase secrète <1>dans le bon ordre</1> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
+    "instruction": "Sauvegardez votre phrase secrète <strong>dans le bon ordre</strong> et dans un endroit sécurisé, vous en aurez besoin pour ouvrir votre portefeuille à nouveau.",
     "mnemonicMismatch": "La phrase mnémonique saisie ne correspond pas.",
     "newMnemonic": "Générer une nouvelle phrase secrète",
     "thisIsYourPhrase": "Voici votre phrase secrète"
@@ -106,7 +106,7 @@
     "invalidPrivateKey": "Clé privée invalide",
     "ledgerAppVersionNotSupported": "Erreur reçue : \"Ledger App Version not supported\", cette erreur peut être un faux positif, relancez Oasis Wallet et réessayez. Si l'erreur persiste, mettez à jour l'application Oasis dans votre Ledger.",
     "ledgerCannotOpenOasisApp": "Impossible d'accéder à l'application Oasis sur le Ledger. Assurez vous qu'il est dévérouillé et que l'application Oasis est ouverte.",
-    "ledgerNoDeviceSelected": "Aucun matériel Ledger détecté. Vérifiez qu'il soit connecté. <0>Vérifiez les problèmes de connexion USB courants avec le matériel Ledger</0>. <1>Vérifiez que les permissions du site ne bloque pas les appareils de type USB</1>.",
+    "ledgerNoDeviceSelected": "Aucun matériel Ledger détecté. Vérifiez qu'il soit connecté. <LedgerHelp>Vérifiez les problèmes de connexion USB courants avec le matériel Ledger</LedgerHelp>. <ChromeHelp>Vérifiez que les permissions du site ne bloque pas les appareils de type USB</ChromeHelp>.",
     "ledgerTransactionRejected": "Transaction rejetée sur le Ledger.",
     "noOpenWallet": "Aucun portefeuille ouvert",
     "unknown": "Erreur inconnue : {{message}}",
@@ -119,16 +119,16 @@
     "copied": "Erreur copiée",
     "copy": "Copier l'erreur",
     "heading": "Une erreur fatale s'est produite",
-    "instruction": "Une erreur fatale s'est produite et Oasis Wallet doit s'arrêter. Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <0>wallet@oasisprotocol.org</0> . Envoyez l'email et joignez le rapport ci-dessous."
+    "instruction": "Une erreur fatale s'est produite et Oasis Wallet doit s'arrêter. Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <Email/> . Envoyez l'email et joignez le rapport ci-dessous."
   },
   "footer": {
-    "github": "Oasis Wallet est entièrement <0>open source</0> - N'hésitez pas à remonter tout problème !",
+    "github": "Oasis Wallet est entièrement <GithubLink>open source</GithubLink> - N'hésitez pas à remonter tout problème !",
     "poweredBy": {
       "oasismonitor": "Alimenté par Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC"
     },
-    "terms": "<0>Termes et Conditions</0>",
-    "version": "Version: <0>{{commit}}</0> construit à {{buildTime}}"
+    "terms": "<TermsLink>Termes et Conditions</TermsLink>",
+    "version": "Version: <CommitLink/> construit à {{buildTime}}"
   },
   "home": {
     "create": {
@@ -165,7 +165,7 @@
   },
   "openWallet": {
     "bitpie": {
-      "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <0>Consultez la documentation pour plus de détails.</0>"
+      "warning": "❗ Utilisateurs du portefeuille BitPie : vous ne pouvez pas importer la phrase mnémonique secrète directement depuis votre portefeuille BitPie. <DocsLink>Consultez la documentation pour plus de détails.</DocsLink>"
     },
     "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
     "ledger": {
@@ -246,7 +246,7 @@
     "boundsNotSet": "Pas de bornes définies (0% - 100%)",
     "commission": "Commission",
     "commissionBounds": {
-      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> à l'Epoch {{epoch}}",
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> à l'Epoch {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}% à partir de l'Epoch {{epoch}}",
       "label": "Bornes de commissions"
     },

@@ -52,15 +52,19 @@ export function ErrorFormatter(props: Props) {
       <Trans
         i18nKey="errors.ledgerNoDeviceSelected"
         t={t}
-        defaults="No Ledger device selected. Make sure it is connected, <0>check common USB connection issues with Ledger</0>, and <1>check site permissions don't block USB devices</1>."
-        components={[
-          <Anchor
-            href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
-            target="_blank"
-            rel="noopener"
-          />,
-          <Anchor href="https://support.google.com/chrome/answer/114662" target="_blank" rel="noopener" />,
-        ]}
+        defaults="No Ledger device selected. Make sure it is connected, <LedgerHelp>check common USB connection issues with Ledger</LedgerHelp>, and <ChromeHelp>check site permissions don't block USB devices</ChromeHelp>."
+        components={{
+          LedgerHelp: (
+            <Anchor
+              href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
+              target="_blank"
+              rel="noopener"
+            />
+          ),
+          ChromeHelp: (
+            <Anchor href="https://support.google.com/chrome/answer/114662" target="_blank" rel="noopener" />
+          ),
+        }}
       />
     ),
     [WalletErrors.LedgerCannotOpenOasisApp]: t(

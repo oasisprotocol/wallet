@@ -35,14 +35,14 @@
         "total": "Toplam bakiye"
       },
       "noTransactionFound": "İşlem bulunamadı",
-      "noWalletIsOpen": "ROSE jetonlarınızı göndermek, almak, stake etmek ya da takas etmek için <0> cüzdanınızı açın! </0>",
+      "noWalletIsOpen": "ROSE jetonlarınızı göndermek, almak, stake etmek ya da takas etmek için <HomeLink> cüzdanınızı açın! </HomeLink>",
       "notYourAccount": "Bu sizin hesabınız değil.",
       "yourAccount": "Bu sizin hesabınız"
     },
     "transaction": {
       "addEscrow": {
-        "received": "Escrowdaki delegasyondan <0></0> alındı",
-        "sent": "Doğrulayıcıya <0></0> delege edildi"
+        "received": "Escrowdaki delegasyondan <Amount/> alındı",
+        "sent": "Doğrulayıcıya <Amount/> delege edildi"
       },
       "genericTransaction": {
         "destination": "Diğer adres",
@@ -50,13 +50,13 @@
       },
       "loadingError": "İşlem geçmişinizi yükleyemiyoruz. Liste boş ya da süresi geçmiş olabilir.",
       "reclaimEscrow": {
-        "received": "<0></0> delegator tarafından alındı",
-        "sent": "Doğrulayıcıdan <0></0> alındı"
+        "received": "<Amount/> delegator tarafından alındı",
+        "sent": "Doğrulayıcıdan <Amount/> alındı"
       },
       "transfer": {
-        "received": "Alındı <0></0>",
+        "received": "Alındı <Amount/>",
         "sent": {
-          "header": "Gönderildi <0></0>"
+          "header": "Gönderildi <Amount/>"
         }
       },
       "unrecognizedTransaction": {
@@ -84,7 +84,7 @@
   "createWallet": {
     "confirmSaved": "Anahtar kelimelerimi kaydettim",
     "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
-    "instruction": "Anahtar kelimelerinizi <1>doğru sırada</1> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
+    "instruction": "Anahtar kelimelerinizi <strong>doğru sırada</strong> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
     "mnemonicMismatch": "Girdiğiniz anımsatıcılar birbiriyle eşleşmiyor.",
     "newMnemonic": "Yeni bir mnemonic oluştur",
     "thisIsYourPhrase": "Size ait olan mnemonic"
@@ -106,7 +106,7 @@
     "invalidPrivateKey": "Geçersiz anahtar kelime",
     "ledgerAppVersionNotSupported": "Alındı : \"Ledger uygulama versiyonu desteklenmiyor\", bu yanlış bir işlem olabilir, işlemi tekrar edin, eğer hata devam ederse Ledger'ınızdaki Oasis uygulamasını güncelleyin.",
     "ledgerCannotOpenOasisApp": "Oasis uygulamasını Ledger üzerinde açamadı, kilidin açık olduğundan ve Oasis uygulamasının açık olduğundan emin olun.",
-    "ledgerNoDeviceSelected": "Ledger cihazı seçilmedi. Bağlı olduğundan emin olun, <0> Ledger ile USB bağlantınız arasındaki genel sorunları inceleyin </0> ve <1> site izinlerinin USB cihazınızı engellemediğinden emin olun </1>.",
+    "ledgerNoDeviceSelected": "Ledger cihazı seçilmedi. Bağlı olduğundan emin olun, <LedgerHelp> Ledger ile USB bağlantınız arasındaki genel sorunları inceleyin </LedgerHelp> ve <ChromeHelp> site izinlerinin USB cihazınızı engellemediğinden emin olun </ChromeHelp>.",
     "ledgerTransactionRejected": "İşlem, Ledger tarafından reddedildi",
     "noOpenWallet": "Hiçbir cüzdan açık değil.",
     "unknown": "Bilinmeyen hata : {{message}}",
@@ -119,16 +119,16 @@
     "copied": "Hata panoya kopyalandı",
     "copy": "Hatayı panoya kopyala",
     "heading": "Önemli bir hata oluştu",
-    "instruction": "Oasis Cüzdanı'nın çalışmasını zorunlu olarak durduran bir hata meydana geldi. Lütfen sayfayı yenileyin ve sorunun devam edip etmediğini görmek için cüzdanınızı tekrar açın. Eğer sorun devam ediyorsa lütfen <0> wallet@oasisprotocol.org </01> adresine e-posta atın ve hatayı ek olarak gönderin."
+    "instruction": "Oasis Cüzdanı'nın çalışmasını zorunlu olarak durduran bir hata meydana geldi. Lütfen sayfayı yenileyin ve sorunun devam edip etmediğini görmek için cüzdanınızı tekrar açın. Eğer sorun devam ediyorsa lütfen <Email/> adresine e-posta atın ve hatayı ek olarak gönderin."
   },
   "footer": {
-    "github": "Oasis Cüzdan tamamen <0>açık kaynaktır</0> - Geri bildirim ve sorunlar için teşekkür ederiz!",
+    "github": "Oasis Cüzdan tamamen <GithubLink>açık kaynaktır</GithubLink> - Geri bildirim ve sorunlar için teşekkür ederiz!",
     "poweredBy": {
       "oasismonitor": "Oasis Monitor API & Oasis gRPC tarafından destekleniyor",
       "oasisscan": "Oasis Scan API & Oasis gRPC tarafından destekleniyor"
     },
-    "terms": "<0>Şartlar ve Koşullar</0>",
-    "version": "Versiyon: <0> {{commit}} </0> {{buildTime}} tarihinde inşa edildi."
+    "terms": "<TermsLink>Şartlar ve Koşullar</TermsLink>",
+    "version": "Versiyon: <CommitLink/> {{buildTime}} tarihinde inşa edildi."
   },
   "home": {
     "create": {
@@ -165,7 +165,7 @@
   },
   "openWallet": {
     "bitpie": {
-      "warning": "BitPie cüzdan kullanıcıları: Anımsatıcı kelimelerinizi direkt olarak BitPie cüzdanınızda içeriye aktaramazsınız. <0>Detaylar için dökümana göz atınız. </0>"
+      "warning": "BitPie cüzdan kullanıcıları: Anımsatıcı kelimelerinizi direkt olarak BitPie cüzdanınızda içeriye aktaramazsınız. <DocsLink>Detaylar için dökümana göz atınız. </DocsLink>"
     },
     "header": "Cüzdanınızı nasıl açmak istersiniz?",
     "ledger": {
@@ -246,7 +246,7 @@
     "boundsNotSet": "Sınır ayarlanmadı (0% - 100%)",
     "commission": "Komisyon",
     "commissionBounds": {
-      "current": "<0>{{lowerBound}}% - {{upperBound}}%</0> şu anki dönemde {{epoch}}",
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> şu anki dönemde {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}%  dönemden başlıyor {{epoch}}",
       "label": "Komisyon sınırları"
     },
