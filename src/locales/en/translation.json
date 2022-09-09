@@ -261,6 +261,7 @@
       "feeGasPlaceholder": "Fee Gas",
       "max": "MAX",
       "receiving": "to the receiving",
+      "tooltip": "Max value may be decreased by the fee",
       "withdrawing": "from the withdrawing"
     },
     "common": {
@@ -324,6 +325,7 @@
     },
     "unsupportedFormStep": "Unsupported form step",
     "validation": {
+      "insufficientBalanceToPayFee": "Insufficient balance to pay the fee",
       "invalidDecimalValue": "Maximum of {{token}} decimal places is allowed",
       "invalidEthPrivateKey": "Ethereum-compatible private key is invalid",
       "invalidEthPrivateKeyLength": "Private key should be 64 characters long",

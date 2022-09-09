@@ -27,7 +27,7 @@ type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
 
 // A wild guess: the minimum gas price on Emerald (100 nano ROSE) times the default loose
 // overestimate of the gas (15k).
-const defaultWithdrawFeeAmount = '1500000'
+export const defaultWithdrawFeeAmount = '1500000'
 const defaultDepositFeeAmount = '0'
 
 export class OasisTransaction {

@@ -5,7 +5,7 @@ import { paraTimesActions } from 'app/state/paratimes'
 import { useParaTimes, ParaTimesHook } from '../../useParaTimes'
 import { useParaTimesNavigation, ParaTimesNavigationHook } from '../../useParaTimesNavigation'
 import { TransactionAmount } from '..'
-import { ParaTime } from 'config'
+import { consensusDecimals, ParaTime } from 'config'
 
 const mockDispatch = jest.fn()
 jest.mock('react-redux', () => ({
@@ -20,6 +20,7 @@ describe('<TransactionAmount />', () => {
   const mockUseParaTimesResult = {
     balance: '1000000000',
     balanceInBaseUnit: true,
+    decimals: consensusDecimals,
     isDepositing: true,
     isEvmcParaTime: false,
     isWalletEmpty: false,
@@ -103,6 +104,37 @@ describe('<TransactionAmount />', () => {
     )
   })
 
+  it('should set input value to max and include custom fee', async () => {
+    const setTransactionForm = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      setTransactionForm,
+      balance: '91004888889',
+      transactionForm: {
+        ...mockUseParaTimesResult.transactionForm,
+        feeAmount: '4888889',
+      },
+    })
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'MAX' }))
+    expect(setTransactionForm).toHaveBeenNthCalledWith(1, expect.objectContaining({ amount: '91' }))
+  })
+
+  it('should set input value to max and include default fee value for withdraws', async () => {
+    const setTransactionForm = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      setTransactionForm,
+      balance: '2439997766000',
+      isDepositing: false,
+    })
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'MAX' }))
+    expect(setTransactionForm).toHaveBeenNthCalledWith(1, expect.objectContaining({ amount: '2439.996266' }))
+  })
+
   it('should require amount field on form submit', async () => {
     const navigateToConfirmation = jest.fn()
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -134,6 +166,50 @@ describe('<TransactionAmount />', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
     expect(screen.getByText('Insufficient balance')).toBeInTheDocument()
+    expect(navigateToConfirmation).not.toHaveBeenCalled()
+  })
+
+  it('should validate if there is enough tokens to pay a fee', async () => {
+    const navigateToConfirmation = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      balance: '2439997766000',
+      transactionForm: {
+        ...mockUseParaTimesResult.transactionForm,
+        amount: '2439.997766',
+        feeAmount: '1',
+      },
+    })
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      navigateToConfirmation,
+    })
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+
+    expect(screen.getByText('Insufficient balance to pay the fee')).toBeInTheDocument()
+    expect(navigateToConfirmation).not.toHaveBeenCalled()
+  })
+
+  it('should validate decimal places of amount field', async () => {
+    const navigateToConfirmation = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      transactionForm: {
+        ...mockUseParaTimesResult.transactionForm,
+        amount: '2439.1234567890',
+      },
+    })
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      navigateToConfirmation,
+    })
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+
+    expect(screen.getByText(`Maximum of ${consensusDecimals} decimal places is allowed`)).toBeInTheDocument()
     expect(navigateToConfirmation).not.toHaveBeenCalled()
   })
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { Box, Button, Form, FormField, Text, TextInput } from 'grommet'
+import { Box, Button, Form, FormField, Text, TextInput, Tip } from 'grommet'
 import { Trans, useTranslation } from 'react-i18next'
 
 import {
@@ -11,12 +11,26 @@ import {
 } from 'app/lib/helpers'
 import { paraTimesActions } from 'app/state/paratimes'
 import { AlertBox } from 'app/components/AlertBox'
+import { defaultWithdrawFeeAmount } from 'app/lib/transaction'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { AmountFormatter } from '../../../components/AmountFormatter'
 import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
 import { FeesSection } from './FeesSection'
+
+function getMaxAmountValue(
+  isDepositing: boolean,
+  accountBalance: StringifiedBigInt,
+  feeAmount: string,
+): StringifiedBigInt {
+  const maxValue =
+    isDepositing && !feeAmount
+      ? accountBalance
+      : BigInt(accountBalance!) - (feeAmount ? BigInt(feeAmount) : BigInt(defaultWithdrawFeeAmount))
+  return maxValue.toString()
+}
 
 export const TransactionAmount = () => {
   const { t } = useTranslation()
@@ -50,6 +64,7 @@ export const TransactionAmount = () => {
         : paraTimesActions.fetchBalanceUsingOasisAddress(),
     )
   }, [dispatch, isDepositing, isEvmcParaTime])
+  const maxAmount = getMaxAmountValue(isDepositing, balance, transactionForm.feeAmount)
 
   return (
     <ParaTimeContent
@@ -109,6 +124,16 @@ export const TransactionAmount = () => {
                           status: 'error',
                         }
                       : undefined,
+                  (amount: string) =>
+                    balanceValidator(amount, maxAmount)
+                      ? {
+                          message: t(
+                            'paraTimes.validation.insufficientBalanceToPayFee',
+                            'Insufficient balance to pay the fee',
+                          ),
+                          status: 'error',
+                        }
+                      : undefined,
                 ]}
               >
                 <TextInput
@@ -120,8 +145,7 @@ export const TransactionAmount = () => {
                 />
               </FormField>
               {balance && (
-                <Button
-                  disabled={disabled}
+                <Box
                   style={{
                     fontWeight: 'bold',
                     zIndex: 2,
@@ -129,12 +153,24 @@ export const TransactionAmount = () => {
                     top: '15px',
                     right: 0,
                   }}
-                  plain
-                  label={t('paraTimes.amount.max', 'MAX')}
-                  onClick={() =>
-                    setTransactionForm({ ...transactionForm, amount: formatter(balance).replaceAll(',', '') })
-                  }
-                />
+                >
+                  <Tip
+                    content={t('paraTimes.amount.tooltip', 'Max value may be decreased by the fee')}
+                    dropProps={{ align: { bottom: 'top' } }}
+                  >
+                    <Button
+                      disabled={disabled}
+                      plain
+                      label={t('paraTimes.amount.max', 'MAX')}
+                      onClick={() =>
+                        setTransactionForm({
+                          ...transactionForm,
+                          amount: formatter(maxAmount).replaceAll(',', ''),
+                        })
+                      }
+                    />
+                  </Tip>
+                </Box>
               )}
             </Box>
 
