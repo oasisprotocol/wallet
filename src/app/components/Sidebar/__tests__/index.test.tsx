@@ -1,10 +1,16 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
-
+import { Wallet } from 'app/state/wallet/types'
+import {
+  useParaTimesNavigation,
+  ParaTimesNavigationHook,
+} from '../../../pages/ParaTimesPage/useParaTimesNavigation'
 import { Navigation } from '..'
+
+jest.mock('../../../pages/ParaTimesPage/useParaTimesNavigation')
 
 const renderComponent = (store: any) => {
   return render(
@@ -18,10 +24,15 @@ const renderComponent = (store: any) => {
 
 describe('<Navigation />', () => {
   let store: ReturnType<typeof configureAppStore>
+  const mockUseParaTimesNavigationResult = {
+    canAccessParaTimesRoute: false,
+    getParaTimesRoutePath: (address: string) => address,
+    paraTimesRouteLabel: 'MockParaTimesLabel',
+  } as ParaTimesNavigationHook
 
   beforeEach(() => {
-    store = configureAppStore()
-    jest.resetAllMocks()
+    jest.mocked(useParaTimesNavigation).mockReturnValue(mockUseParaTimesNavigationResult)
+    store = configureAppStore({})
   })
 
   it('should match snapshot', () => {
@@ -29,5 +40,27 @@ describe('<Navigation />', () => {
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
-  it.todo('should be responsive')
+  it('should render paraTime link', () => {
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      canAccessParaTimesRoute: true,
+    })
+    renderComponent(
+      configureAppStore({
+        wallet: {
+          isOpen: true,
+          selectedWallet: 0,
+          wallets: {
+            0: {
+              address: 'dummy',
+              id: 1,
+            } as Wallet,
+          },
+        },
+      }),
+    )
+
+    expect(screen.getByText('MockParaTimesLabel')).toBeInTheDocument()
+    expect(screen.getByLabelText('Inherit')).toBeInTheDocument()
+  })
 })

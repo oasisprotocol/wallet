@@ -9,6 +9,9 @@ import { TransactionConfirmation } from '..'
 jest.unmock('react-i18next')
 jest.mock('../../useParaTimes')
 jest.mock('../../useParaTimesNavigation')
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(),
+}))
 
 describe('<TransactionConfirmation />', () => {
   const mockUseParaTimesResult = {
@@ -64,26 +67,23 @@ describe('<TransactionConfirmation />', () => {
     expect(navigateToSummary).not.toHaveBeenCalled()
   })
 
-  it('should allow to navigate to summary section', () => {
-    const navigateToSummary = jest.fn()
+  it('should submit transaction', () => {
+    const submitTransaction = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
       transactionForm: {
         amount: '10',
-        confirmation: true,
+        confirmTransfer: true,
         recipient: 'dummyAddress',
         type: TransactionTypes.Withdraw,
       } as TransactionForm,
-    })
-    jest.mocked(useParaTimesNavigation).mockReturnValue({
-      ...mockUseParaTimesNavigationResult,
-      navigateToSummary,
+      submitTransaction,
     })
     render(<TransactionConfirmation />)
 
     userEvent.click(screen.getByRole('button', { name: 'Deposit' }))
 
-    expect(navigateToSummary).toHaveBeenCalled()
+    expect(submitTransaction).toHaveBeenCalled()
   })
 
   it('should navigate back to amount selection step', () => {

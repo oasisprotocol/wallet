@@ -36,6 +36,7 @@ const slice = createSlice({
       state.success = false
       state.active = true
     },
+    paraTimeTransactionSent(state, action: PayloadAction<string>) {},
     reclaimEscrow(state, action: PayloadAction<ReclaimEscrowPayload>) {
       state.error = undefined
       state.success = false

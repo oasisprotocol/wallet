@@ -1,23 +1,21 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import {
-  EvmcBalancePayload,
-  OasisAddressBalancePayload,
-  ParaTimesState,
-  TransactionForm,
-  TransactionFormSteps,
-  TransactionTypes,
-} from './types'
+import { ParaTimesState, TransactionForm, TransactionFormSteps, TransactionTypes } from './types'
 
 export const initialState: ParaTimesState = {
   balance: '',
   isLoading: false,
   transactionForm: {
     amount: '',
-    confirmation: false,
+    confirmTransfer: false,
+    confirmTransferToValidator: false,
+    confirmTransferToForeignAccount: false,
+    ethPrivateKey: '',
+    feeAmount: '',
+    feeGas: '',
     paraTime: undefined,
-    privateKey: '',
     recipient: '',
     type: undefined,
   },
@@ -32,15 +30,16 @@ const slice = createSlice({
       state.balance = action.payload
       state.isLoading = false
     },
-    fetchBalanceUsingEthPrivateKey(state, action: PayloadAction<EvmcBalancePayload>) {
-      state.isLoading = true
-    },
-    fetchBalanceUsingOasisAddress(state, action: PayloadAction<OasisAddressBalancePayload>) {
-      state.isLoading = true
-    },
-    resetTransactionForm(state, action: PayloadAction<void>) {
+    clearTransactionForm(state, action: PayloadAction<void>) {
+      state.transactionError = undefined
       state.transactionForm = initialState.transactionForm
       state.transactionFormStep = TransactionFormSteps.TransferType
+    },
+    fetchBalanceUsingEthPrivateKey(state, action: PayloadAction<void>) {
+      state.isLoading = true
+    },
+    fetchBalanceUsingOasisAddress(state, action: PayloadAction<void>) {
+      state.isLoading = true
     },
     navigateToDeposit(state, action: PayloadAction<void>) {
       state.transactionForm.type = TransactionTypes.Deposit
@@ -67,6 +66,19 @@ const slice = createSlice({
     },
     setTransactionForm(state, action: PayloadAction<TransactionForm>) {
       state.transactionForm = action.payload
+    },
+    submitTransaction(state, action: PayloadAction<void>) {
+      state.isLoading = true
+      state.transactionError = undefined
+    },
+    transactionError(state, action: PayloadAction<ErrorPayload>) {
+      state.isLoading = false
+      state.transactionError = action.payload
+      state.transactionFormStep = TransactionFormSteps.TransactionError
+    },
+    transactionSubmitted(state, action: PayloadAction<void>) {
+      state.isLoading = false
+      state.transactionFormStep = TransactionFormSteps.TransactionSummary
     },
   },
 })

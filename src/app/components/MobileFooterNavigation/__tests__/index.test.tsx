@@ -4,8 +4,13 @@ import { MemoryRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { Wallet } from 'app/state/wallet/types'
-
+import {
+  useParaTimesNavigation,
+  ParaTimesNavigationHook,
+} from '../../../pages/ParaTimesPage/useParaTimesNavigation'
 import { MobileFooterNavigation, MobileFooterNavigationProps } from '..'
+
+jest.mock('../../../pages/ParaTimesPage/useParaTimesNavigation')
 
 const renderComponent = (store: any, { isAccountOpen, isMobile }: MobileFooterNavigationProps) =>
   render(
@@ -18,8 +23,14 @@ const renderComponent = (store: any, { isAccountOpen, isMobile }: MobileFooterNa
 
 describe('<MobileFooterNavigation />', () => {
   let store: ReturnType<typeof configureAppStore>
+  const mockUseParaTimesNavigationResult = {
+    canAccessParaTimesRoute: false,
+    getParaTimesRoutePath: (address: string) => address,
+    paraTimesRouteLabel: 'MockParaTimesLabel',
+  } as ParaTimesNavigationHook
 
   beforeEach(() => {
+    jest.mocked(useParaTimesNavigation).mockReturnValue(mockUseParaTimesNavigationResult)
     store = configureAppStore({
       wallet: {
         isOpen: true,
@@ -38,6 +49,7 @@ describe('<MobileFooterNavigation />', () => {
     renderComponent(store, { isAccountOpen: true, isMobile: true })
 
     expect(screen.getByTestId('mobile-footer-navigation')).toBeInTheDocument()
+    expect(screen.queryByText('MockParaTimesLabel')).not.toBeInTheDocument()
   })
 
   it('should not render component for non mobile', () => {
@@ -50,5 +62,16 @@ describe('<MobileFooterNavigation />', () => {
     renderComponent(store, { isAccountOpen: false, isMobile: true })
 
     expect(screen.queryByTestId('mobile-footer-navigation')).not.toBeInTheDocument()
+  })
+
+  it('should render paraTime link', () => {
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      canAccessParaTimesRoute: true,
+    })
+    renderComponent(store, { isAccountOpen: true, isMobile: true })
+
+    expect(screen.getByText('MockParaTimesLabel')).toBeInTheDocument()
+    expect(screen.getByLabelText('Inherit')).toBeInTheDocument()
   })
 })

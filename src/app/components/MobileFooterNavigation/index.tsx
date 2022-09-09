@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { normalizeColor } from 'grommet/utils'
 import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
+import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 
 export const mobileFooterNavigationHeight = '4rem'
 const StyledMobileFooterNavigation = styled.nav`
@@ -34,9 +35,9 @@ export interface MobileFooterNavigationProps {
 export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooterNavigationProps) => {
   const { t } = useTranslation()
   const address = useSelector(selectAddress)
-
+  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const getMenuItems = useMemo(() => {
-    return [
+    const menuItems = [
       {
         label: t('menu.wallet', 'Wallet'),
         Icon: Money,
@@ -47,13 +48,17 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
         Icon: LineChart,
         to: `/account/${address}/stake`,
       },
-      {
-        label: t('menu.paraTimes', 'ParaTimes'),
-        Icon: Inherit,
-        to: `/account/${address}/paratimes`,
-      },
     ]
-  }, [address, t])
+
+    if (canAccessParaTimesRoute) {
+      menuItems.push({
+        label: paraTimesRouteLabel,
+        Icon: Inherit,
+        to: getParaTimesRoutePath(address),
+      })
+    }
+    return menuItems
+  }, [address, canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel, t])
 
   if (!isMobile || !isAccountOpen) {
     return null

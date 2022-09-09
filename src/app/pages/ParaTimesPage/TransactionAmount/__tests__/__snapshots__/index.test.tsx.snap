@@ -2,33 +2,12 @@
 
 exports[`<TransactionAmount /> should render EVMc withdraw variant component 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 48px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
 }
 
 @media only screen and (max-width:768px) {
-  .c0 {
-    margin-bottom: 24px;
-  }
-}
-
-@media only screen and (max-width:768px) {
 
 }
 
@@ -56,21 +35,24 @@ exports[`<TransactionAmount /> should render EVMc withdraw variant component 1`]
 
 }
 
-<div
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+<span
   class="c0"
   data-testid="paraTime-content-description"
-  style="max-width: 550px;"
 >
-  <span
-    class="c1"
-  >
-    Please enter the amount of ROSE tokens you wish to transfer from the withdrawing wallet on the 
-    <strong>
-      Emerald
-    </strong>
-     (EVMc) ParaTime and then click "Next"
-  </span>
-</div>
+  Please enter the amount of ROSE tokens you wish to transfer from the withdrawing wallet on the 
+  <strong>
+    Emerald
+  </strong>
+   (EVMc) ParaTime and then click "Next"
+</span>
 `;
 
 exports[`<TransactionAmount /> should render component 1`] = `
@@ -217,6 +199,54 @@ exports[`<TransactionAmount /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   margin-bottom: 48px;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -247,11 +277,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
   line-height: 18px;
   color: lightText;
   font-weight: 600;
-}
-
-.c17 {
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .c11 {
@@ -312,7 +337,77 @@ exports[`<TransactionAmount /> should render component 1`] = `
   border: 0;
 }
 
-.c16 {
+.c17 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  margin-bottom: 24px;
+  border: 2px solid #7D4CDB;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+
+.c17:hover {
+  box-shadow: 0px 0px 0px 2px #7D4CDB;
+}
+
+.c17:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c17:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c17:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c17:focus:not(:focus-visible) > circle,
+.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,
+.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,
+.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c21 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -341,48 +436,55 @@ exports[`<TransactionAmount /> should render component 1`] = `
   width: 100%;
 }
 
-.c16:hover {
+.c21:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c16:focus {
+.c21:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c21:focus > circle,
+.c21:focus > ellipse,
+.c21:focus > line,
+.c21:focus > path,
+.c21:focus > polygon,
+.c21:focus > polyline,
+.c21:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c21:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c21:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c21:focus:not(:focus-visible) > circle,
+.c21:focus:not(:focus-visible) > ellipse,
+.c21:focus:not(:focus-visible) > line,
+.c21:focus:not(:focus-visible) > path,
+.c21:focus:not(:focus-visible) > polygon,
+.c21:focus:not(:focus-visible) > polyline,
+.c21:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c21:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
+}
+
+.c19 {
+  -webkit-transition: max-height 200ms,opacity 200ms;
+  transition: max-height 200ms,opacity 200ms;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .c1 {
@@ -474,6 +576,13 @@ exports[`<TransactionAmount /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c20 {
     margin-bottom: 24px;
   }
 }
@@ -503,11 +612,11 @@ exports[`<TransactionAmount /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      data-testid="paraTime-content-description"
       style="max-width: 550px;"
     >
       <span
         class="c3"
+        data-testid="paraTime-content-description"
       >
         Please enter the amount of ROSE tokens you wish to transfer to the receiving wallet on the 
         <strong>
@@ -522,7 +631,9 @@ exports[`<TransactionAmount /> should render component 1`] = `
       <div
         class="c5"
       >
-        <form>
+        <form
+          novalidate=""
+        >
           <div
             class="c6"
           >
@@ -543,6 +654,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
                     <input
                       autocomplete="off"
                       class="c10"
+                      inputmode="decimal"
                       name="amount"
                       placeholder="0"
                       value=""
@@ -577,21 +689,34 @@ exports[`<TransactionAmount /> should render component 1`] = `
             class="c15"
           >
             <div
+              class="c16"
+            >
+              <button
+                class="c17"
+                type="button"
+              >
+                Advanced
+              </button>
+            </div>
+            <div
+              aria-hidden="true"
+              class="c18 c19"
+            />
+          </div>
+          <div
+            class="c20"
+          >
+            <div
               class="c5"
             >
               <button
-                class="c16"
+                class="c21"
                 type="submit"
               >
                 Next
               </button>
             </div>
           </div>
-          <span
-            class="c17"
-          >
-            * EVMc - Ethereum Virtual Machine compatible
-          </span>
         </form>
       </div>
     </div>

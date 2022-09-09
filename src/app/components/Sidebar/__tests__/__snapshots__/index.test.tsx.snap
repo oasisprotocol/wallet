@@ -578,9 +578,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
       <div
         class="c6"
       />
-      <div
-        class="c6"
-      />
     </nav>
   </div>
   <div

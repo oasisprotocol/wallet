@@ -30,18 +30,18 @@ describe('<TransactionSummary />', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('should call resetTransactionForm', () => {
-    const resetTransactionForm = jest.fn()
+  it('should call clearTransactionForm', () => {
+    const clearTransactionForm = jest.fn()
 
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
-      resetTransactionForm,
+      clearTransactionForm,
     })
     render(<TransactionSummary />)
 
     userEvent.click(screen.getByRole('button'))
 
-    expect(resetTransactionForm).toHaveBeenCalled()
+    expect(clearTransactionForm).toHaveBeenCalled()
   })
 
   it('should render EVMc withdraw variant component', () => {

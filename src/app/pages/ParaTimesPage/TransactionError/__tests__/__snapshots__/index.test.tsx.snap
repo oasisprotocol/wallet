@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TransactionConfirmation /> should render EVMc withdraw variant component 1`] = `
+exports[`<TransactionError /> should render EVMc withdraw variant component 1`] = `
 .c0 {
   font-size: 18px;
   line-height: 24px;
@@ -47,38 +47,60 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
 
 }
 
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
 <span
   class="c0"
   data-testid="paraTime-content-description"
 >
-  You are about to transfer 
+  Transaction failed. We were not able to transfer 
   <strong>
     10 ROSE
   </strong>
-   tokens from the withdrawing wallet on the 
+   tokens from the following wallet on the 
   <strong>
     Emerald
   </strong>
-   (EVMc) ParaTime to: 
+   (EVMc) ParaTime: 
   <strong>
     dummyAddress
   </strong>
 </span>
 `;
 
-exports[`<TransactionConfirmation /> should render component 1`] = `
+exports[`<TransactionError /> should render component 1`] = `
+.c6 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+  fill: #FF4040;
+  stroke: #FF4040;
+}
+
+.c6 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c6 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c6 *[stroke*="#"],
+.c6 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c6 *[fill-rule],
+.c6 *[FILL-RULE],
+.c6 *[fill*="#"],
+.c6 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -140,6 +162,10 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin-bottom: 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -147,30 +173,15 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 12px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  background-color: rgba(255,170,21,0.1);
-  border-left: solid 3px #FFAA15;
+  background-color: rgba(255,64,64,0.1);
+  border-left: solid 3px #FF4040;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -182,87 +193,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   padding-bottom: 6px;
 }
 
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 12px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  border-bottom: solid 1px rgba(0,0,0,0.33);
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 12px;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-right: 12px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border: solid 2px rgba(0,0,0,0.15);
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 24px;
-  width: 24px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.c16 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -281,19 +212,54 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   flex-direction: column;
 }
 
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 24px;
+}
+
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 24px;
+}
+
 .c3 {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
 }
 
-.c8 {
+.c9 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
 }
 
-.c17 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -322,47 +288,47 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   width: 100%;
 }
 
-.c17:hover {
+.c13:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c17:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus > circle,
-.c17:focus > ellipse,
-.c17:focus > line,
-.c17:focus > path,
-.c17:focus > polygon,
-.c17:focus > polyline,
-.c17:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c17:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible) > circle,
-.c17:focus:not(:focus-visible) > ellipse,
-.c17:focus:not(:focus-visible) > line,
-.c17:focus:not(:focus-visible) > path,
-.c17:focus:not(:focus-visible) > polygon,
-.c17:focus:not(:focus-visible) > polyline,
-.c17:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,
+.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,
+.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,
+.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -372,53 +338,6 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
-}
-
-.c11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  cursor: pointer;
-}
-
-.c11:hover input:not([disabled]) + div,
-.c11:hover input:not([disabled]) + span {
-  border-color: #000000;
-}
-
-.c14 {
-  opacity: 0;
-  -moz-appearance: none;
-  width: 0;
-  height: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.c14:checked + span > span {
-  left: calc( 48px - 24px );
-  background: #7D4CDB;
-}
-
-.c13 {
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
 }
 
 @media only screen and (max-width:768px) {
@@ -434,58 +353,40 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
-    border-left: solid 3px #FFAA15;
+  .c8 {
+    border-left: solid 3px #FF4040;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     padding-left: 6px;
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     padding-top: 3px;
     padding-bottom: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c9 {
-    margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    border-bottom: solid 1px rgba(0,0,0,0.33);
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c10 {
-    padding: 6px;
+  .c11 {
+    margin-bottom: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c12 {
-    margin-right: 6px;
+    margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
-    border: solid 2px rgba(0,0,0,0.15);
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c16 {
-    margin-bottom: 24px;
+  .c7 {
+    height: 12px;
   }
 }
 
@@ -520,15 +421,15 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        You are about to transfer 
+        Transaction failed. We were not able to transfer 
         <strong>
           10 ROSE
         </strong>
-         tokens into the receiving wallet on the 
+         tokens into the following wallet on the 
         <strong>
           Cipher
         </strong>
-          ParaTime to: 
+          ParaTime: 
         <strong>
           dummyAddress
         </strong>
@@ -537,72 +438,52 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
     <div
       class="c4"
     >
-      <form>
-        <div
-          class="c5"
-          style="max-width: 450px;"
+      <div
+        class="c5"
+        style="max-width: 550px;"
+      >
+        <svg
+          aria-label="Status is critical"
+          class="c6"
+          viewBox="0 0 24 24"
         >
-          <div
-            class="c6"
-          >
-            <div
-              class="c7"
-            >
-              <span
-                class="c8"
-              >
-                <span
-                  class="c3"
-                >
-                  Please confirm the transferring amount and the receiving wallet's address are correct and then click "Deposit" to make the transfer.
-                </span>
-              </span>
-            </div>
-          </div>
-          <div
-            class="c9 "
-          >
-            <div
-              class="c10 FormField__FormFieldContentBox-sc-m9hood-1"
-            >
-              <label
-                class="c11"
-                label="I confirm the amount and the address are correct"
-              >
-                <div
-                  class="c12 c13"
-                >
-                  <input
-                    class="c14"
-                    name="confirmTransfer"
-                    type="checkbox"
-                  />
-                  <div
-                    class="c15 "
-                  />
-                </div>
-                <span>
-                  I confirm the amount and the address are correct
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
+          <path
+            d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </svg>
         <div
-          class="c16"
+          class="c7"
+        />
+        <div
+          class="c8"
         >
-          <div
-            class="c5"
+          <span
+            class="c9"
           >
-            <button
-              class="c17"
-              type="submit"
-            >
-              Deposit
-            </button>
-          </div>
+            Unknown ParaTime error: error message
+          </span>
         </div>
-      </form>
+      </div>
+      <div
+        class="c10"
+      />
+      <div
+        class="c11"
+      >
+        <div
+          class="c12"
+        >
+          <button
+            class="c13"
+            type="button"
+          >
+            Navigate to ParaTimes Transfers
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    Allowance,
+    AllowanceFromJSON,
+    AllowanceFromJSONTyped,
+    AllowanceToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -63,10 +70,10 @@ export interface AccountsRow {
     nonce: number;
     /**
      * 
-     * @type {Array<object>}
+     * @type {Array<Allowance>}
      * @memberof AccountsRow
      */
-    allowances: Array<object>;
+    allowances: Array<Allowance>;
 }
 
 export function AccountsRowFromJSON(json: any): AccountsRow {
@@ -86,7 +93,7 @@ export function AccountsRowFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'debonding': json['debonding'],
         'total': json['total'],
         'nonce': json['nonce'],
-        'allowances': json['allowances'],
+        'allowances': ((json['allowances'] as Array<any>).map(AllowanceFromJSON)),
     };
 }
 
@@ -106,7 +113,7 @@ export function AccountsRowToJSON(value?: AccountsRow | null): any {
         'debonding': value.debonding,
         'total': value.total,
         'nonce': value.nonce,
-        'allowances': value.allowances,
+        'allowances': ((value.allowances as Array<any>).map(AllowanceToJSON)),
     };
 }
 

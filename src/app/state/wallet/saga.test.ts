@@ -125,4 +125,20 @@ describe('Wallet Sagas', () => {
       .put.actionType(walletActions.updateBalance.type)
       .silentRun(50)
   })
+
+  it('Should refresh balances on paraTime transaction', () => {
+    return expectSaga(rootWalletSaga)
+      .provide(providers)
+      .withState({
+        account: { address: addressHex },
+        wallet: {
+          selectedWallet: 0,
+          wallets: [{ address: addressHex, publicKey: '00' } as Partial<Wallet>],
+        } as Partial<WalletState>,
+      } as Partial<RootState>)
+      .dispatch(transactionActions.paraTimeTransactionSent('dummyAddress'))
+      .call.fn(getBalance)
+      .put.actionType(walletActions.updateBalance.type)
+      .silentRun(50)
+  })
 })
