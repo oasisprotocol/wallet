@@ -10,6 +10,7 @@ describe('Scenario : multiple accounts', () => {
       { delay: 0 },
     )
     cy.findByRole('button', { name: /Import my wallet/ }).click()
+    cy.findByRole('button', { name: /Open/ }).click()
     cy.url().should('include', '/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
 
     cy.findByTestId('nav-home').click()

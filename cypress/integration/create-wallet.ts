@@ -44,6 +44,7 @@ describe('Create wallet', () => {
     cy.findByTestId('mnemonic').type(generatedMnemonic, { delay: 0 })
     cy.findByRole('button', { name: /Import my wallet/ }).click()
     cy.contains('mnemonic does not match').should('not.exist')
+    cy.findByRole('button', { name: /Open/ }).click()
     cy.findByRole('button', { name: /Send/ }).should('exist')
   })
 })

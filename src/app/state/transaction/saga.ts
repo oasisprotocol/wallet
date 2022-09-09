@@ -7,7 +7,7 @@ import { call, put, race, select, take, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 
 import { transactionActions } from '.'
-import { sign } from '../ledger/saga'
+import { sign } from '../importaccounts/saga'
 import { getOasisNic } from '../network/saga'
 import { selectChainContext } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'

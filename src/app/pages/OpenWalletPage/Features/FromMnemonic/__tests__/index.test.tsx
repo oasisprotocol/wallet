@@ -48,10 +48,21 @@ describe('<FromMnemonic/>', () => {
   it('newlines in mnemonic should be valid', () => {
     renderPage(store)
     const textbox = screen.getByRole('textbox')
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
     userEvent.type(textbox, 'echo\ntoward hold   roast\n rather reduce cute civil equal whale wait conduct')
     userEvent.click(button)
     const errorElem = screen.queryByText('openWallet.mnemonic.error')
     expect(errorElem).toBeNull()
+  })
+
+  it('should display account selection modal window', async () => {
+    renderPage(store)
+    const textbox = screen.getByRole('textbox') as HTMLInputElement
+    const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
+
+    userEvent.type(textbox, 'echo toward hold roast rather reduce cute civil equal whale wait conduct')
+    userEvent.click(button)
+
+    expect(await screen.findByText('openWallet.importAccounts.selectWallets')).toBeInTheDocument()
   })
 })

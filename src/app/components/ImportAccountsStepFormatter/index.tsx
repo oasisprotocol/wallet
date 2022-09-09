@@ -1,9 +1,4 @@
-/**
- *
- * LedgerStep
- *
- */
-import { LedgerStep as Step } from 'app/state/ledger/types'
+import { ImportAccountsStep as Step } from 'app/state/importaccounts/types'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -11,7 +6,7 @@ interface Props {
   step: Step
 }
 
-export const LedgerStepFormatter = memo((props: Props) => {
+export const ImportAccountsStepFormatter = memo((props: Props) => {
   const { t } = useTranslation()
   const step = props.step
 
