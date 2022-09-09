@@ -8,7 +8,7 @@ describe('reducer', () => {
     expect(newState).toHaveProperty('account')
     expect(newState).toHaveProperty('createWallet')
     expect(newState).toHaveProperty('fatalError')
-    expect(newState).toHaveProperty('ledger')
+    expect(newState).toHaveProperty('importAccounts')
     expect(newState).toHaveProperty('network')
     expect(newState).toHaveProperty('staking')
     expect(newState).toHaveProperty('theme')

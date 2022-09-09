@@ -1,11 +1,11 @@
-import { hdkey } from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
 import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
+import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
-import { LedgerAccount } from '../ledger/types'
+import { ImportAccountsListAccount } from '../importaccounts/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
@@ -62,7 +62,8 @@ function* getWalletByAddress(address: string) {
 /**
  * Take multiple ledger accounts that we want to open
  */
-export function* openWalletsFromLedger({ payload: accounts }: PayloadAction<LedgerAccount[]>) {
+export function* openWalletsFromLedger() {
+  const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   const newWalletId = walletId
   for (const account of accounts) {
     yield* put(
@@ -101,27 +102,25 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
   )
 }
 
-export function* openWalletFromMnemonic({ payload: mnemonic }: PayloadAction<string>) {
-  const signer = yield* call(hdkey.HDKey.getAccountSigner, mnemonic)
-  const privateKey = uint2hex(signer.secretKey)
-  const type = WalletType.Mnemonic
-  const publicKeyBytes = signer.publicKey
-  const publicKey = uint2hex(publicKeyBytes)
-
-  const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes!)
-  const balance = yield* call(getBalance, publicKeyBytes)
-
-  yield* put(
-    walletActions.addWallet({
-      id: walletId++,
-      address: walletAddress,
-      publicKey,
-      privateKey,
-      type: type!,
-      balance,
-      selectImmediately: true,
-    }),
-  )
+export function* openWalletFromMnemonic() {
+  const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
+  const newWalletId = walletId
+  for (const account of accounts) {
+    yield* put(
+      walletActions.addWallet({
+        address: account.address,
+        balance: account.balance,
+        id: walletId++,
+        path: account.path,
+        privateKey: account.privateKey,
+        publicKey: account.publicKey,
+        selectImmediately: false,
+        type: account.type,
+      }),
+    )
+  }
+  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
+  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 /**

@@ -1,15 +1,27 @@
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
-import { walletActions } from 'app/state/wallet'
-import { useDispatch } from 'react-redux'
+import { importAccountsActions } from 'app/state/importaccounts'
+import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
+import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 
-interface Props {}
-
-export function FromMnemonic(props: Props) {
+export function FromMnemonic() {
   const dispatch = useDispatch()
-
+  const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
+  const successHandler = (mnemonic: string) => {
+    dispatch(importAccountsActions.enumerateAccountsFromMnemonic(mnemonic))
+  }
   return (
-    <MnemonicValidation
-      successHandler={mnemonic => dispatch(walletActions.openWalletFromMnemonic(mnemonic))}
-    ></MnemonicValidation>
+    <>
+      <MnemonicValidation successHandler={successHandler} />
+      {showAccountsSelectionModal && (
+        <ImportAccountsSelectionModal
+          abort={() => {
+            dispatch(importAccountsActions.clear())
+          }}
+          type="mnemonic"
+        />
+      )}
+    </>
   )
 }

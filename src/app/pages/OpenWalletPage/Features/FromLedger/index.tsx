@@ -1,53 +1,16 @@
-/**
- *
- * FromLedger
- *
- */
-import { AlertBox } from 'app/components/AlertBox'
-import { ErrorFormatter } from 'app/components/ErrorFormatter'
-import { LedgerStepFormatter } from 'app/components/LedgerStepFormatter'
-import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
-import { Account } from 'app/components/Toolbar/Features/AccountSelector'
-import { ledgerActions } from 'app/state/ledger'
-import { selectLedger, selectSelectedLedgerAccounts } from 'app/state/ledger/selectors'
-import { LedgerAccount, LedgerStep } from 'app/state/ledger/types'
-import { walletActions } from 'app/state/wallet'
-import { WalletType } from 'app/state/wallet/types'
-import { Box, Button, Heading, Spinner, Text } from 'grommet'
-import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { importAccountsActions } from 'app/state/importaccounts'
+import { Box, Button, Heading } from 'grommet'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
+import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 
-interface LedgerAccountSelectorProps {
-  accounts: LedgerAccount[]
-}
-function LedgerAccountSelector(props: LedgerAccountSelectorProps) {
-  const dispatch = useDispatch()
-  const toggleAccount = (index: number) => {
-    dispatch(ledgerActions.toggleAccount(index))
-  }
-
-  const accounts = props.accounts.map((a, index) => (
-    <Account
-      index={index}
-      address={a.address}
-      balance={a.balance.available} // TODO: get total balance
-      type={WalletType.Ledger}
-      onClick={toggleAccount}
-      isActive={a.selected}
-      displayCheckbox={true}
-      details={a.path.join('/')}
-      key={index}
-    />
-  ))
-  return <Box gap="small">{accounts}</Box>
-}
-
-interface FromLedgerProps {}
-export function FromLedger(props: FromLedgerProps) {
+export function FromLedger() {
   const { t } = useTranslation()
-  const [ledgerModal, showLedgerModal] = useState(false)
+  const dispatch = useDispatch()
+  const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
+
   return (
     <Box
       background="background-front"
@@ -75,91 +38,21 @@ export function FromLedger(props: FromLedgerProps) {
       <Box direction="row" margin={{ top: 'medium' }}>
         <Button
           type="submit"
-          label={t('openWallet.ledger.selectWallets', 'Select accounts to open')}
+          label={t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
           onClick={() => {
-            showLedgerModal(true)
+            dispatch(importAccountsActions.enumerateAccountsFromLedger())
           }}
           primary
         />
       </Box>
-      {ledgerModal && (
-        <FromLedgerModal
+      {showAccountsSelectionModal && (
+        <ImportAccountsSelectionModal
           abort={() => {
-            showLedgerModal(false)
+            dispatch(importAccountsActions.clear())
           }}
+          type="ledger"
         />
       )}
     </Box>
-  )
-}
-
-interface FromLedgerModalProps {
-  abort: () => void
-}
-export function FromLedgerModal(props: FromLedgerModalProps) {
-  const { t } = useTranslation()
-  const ledger = useSelector(selectLedger)
-  const error = ledger.error
-  const selectedAccounts = useSelector(selectSelectedLedgerAccounts)
-  const dispatch = useDispatch()
-
-  const openAccounts = () => {
-    dispatch(walletActions.openWalletsFromLedger(selectedAccounts))
-  }
-
-  useEffect(() => {
-    dispatch(ledgerActions.enumerateAccounts())
-    return () => {
-      dispatch(ledgerActions.clear())
-    }
-  }, [dispatch])
-
-  const cancelDisabled = ledger.step === LedgerStep.Done || error ? false : true
-  const confirmDisabled = ledger.step !== LedgerStep.Done || selectedAccounts.length === 0
-
-  return (
-    <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
-      <Box width="750px" pad="medium">
-        <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
-          {t('openWallet.ledger.selectWallets', 'Select accounts to open')}
-        </Heading>
-        {ledger.step && ledger.step !== LedgerStep.Done && (
-          <Box direction="row" gap="medium" alignContent="center">
-            <Spinner size="medium" />
-            <Box alignSelf="center">
-              <Text size="xlarge">
-                <LedgerStepFormatter step={ledger.step} />
-              </Text>
-            </Box>
-          </Box>
-        )}
-        {ledger.step && ledger.step === LedgerStep.Done && (
-          <Box>
-            <LedgerAccountSelector accounts={ledger.accounts} />
-          </Box>
-        )}
-        {error && (
-          <AlertBox color="status-error">
-            <ErrorFormatter code={error.code} message={error.message} />
-          </AlertBox>
-        )}
-        <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
-          <Button
-            secondary
-            label={t('openWallet.ledger.cancel', 'Cancel')}
-            onClick={props.abort}
-            disabled={cancelDisabled}
-          />
-          <Button
-            primary
-            data-testid="ledger-open-accounts"
-            label={t('openWallet.ledger.openWallets', 'Open')}
-            onClick={openAccounts}
-            alignSelf="end"
-            disabled={confirmDisabled}
-          />
-        </Box>
-      </Box>
-    </ResponsiveLayer>
   )
 }
