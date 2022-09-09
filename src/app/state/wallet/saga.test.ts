@@ -48,24 +48,21 @@ describe('Wallet Sagas', () => {
         .withState(state)
         .dispatch(walletActions.openWalletFromMnemonic())
         .fork(walletSaga)
-        .put.like({
-          action: {
-            type: walletActions.addWallet.type,
-            payload: {
-              address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-              balance: {
-                available: '0',
-                validator: { escrow: '0', escrow_debonding: '0' },
-              },
-              id: 1,
-              path: [44, 474, 0],
-              privateKey: '00',
-              publicKey: '00',
-              selectImmediately: false,
-              type: WalletType.Mnemonic,
+        .put(
+          walletActions.addWallet({
+            address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+            balance: {
+              available: '0',
+              validator: { escrow: '0', escrow_debonding: '0' },
             },
-          },
-        })
+            id: 1,
+            path: [44, 474, 0],
+            privateKey: '00',
+            publicKey: '00',
+            selectImmediately: false,
+            type: WalletType.Mnemonic,
+          }),
+        )
         .put.actionType(walletActions.walletOpened.type)
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(200)
