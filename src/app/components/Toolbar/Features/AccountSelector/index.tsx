@@ -119,7 +119,7 @@ export const AccountSelector = memo((props: Props) => {
       type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}
-      details={wallet.path?.join('/')}
+      details={wallet.pathDisplay}
     />
   ))
 

@@ -31,6 +31,7 @@ export interface Wallet {
   address: string
   type: WalletType
   path?: number[]
+  pathDisplay?: string
   privateKey?: string
   balance: WalletBalance
 }

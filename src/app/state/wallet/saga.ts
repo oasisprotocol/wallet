@@ -70,6 +70,7 @@ export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAc
       type: WalletType.Ledger,
       balance: account.balance!,
       path: account.path,
+      pathDisplay: account.pathDisplay,
       selectImmediately: account === accounts[0], // Select first
     })
   }
@@ -108,6 +109,7 @@ export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedA
       address: account.address,
       balance: account.balance!,
       path: account.path,
+      pathDisplay: account.pathDisplay,
       privateKey: account.privateKey,
       publicKey: account.publicKey,
       type: account.type,

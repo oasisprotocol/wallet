@@ -18,6 +18,7 @@ describe('importAccounts Sagas', () => {
       const validAccount = {
         publicKey: await addressToPublicKey('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'),
         path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
       }
 
       return expectSaga(importAccountsSaga)
@@ -102,6 +103,7 @@ describe('importAccounts Sagas', () => {
         expectedAccounts.push({
           address: mockAddress,
           path: [44, 474, i],
+          pathDisplay: `m/44'/474'/${i}'`,
           privateKey: '00',
           publicKey: '00',
           selected: i === 0,

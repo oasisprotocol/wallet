@@ -10,6 +10,7 @@ import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/
 interface LedgerAccount {
   publicKey: Uint8Array
   path: number[]
+  pathDisplay: string
 }
 
 export async function canAccessNavigatorUsb(): Promise<boolean> {
@@ -56,9 +57,11 @@ export class Ledger {
     addressIndex: number,
   ): Promise<LedgerAccount> {
     const path = [44, 474, 0, 0, addressIndex]
+    const pathDisplay = `m/44'/474'/0'/0'/${addressIndex}'` // Hardening should match app.publicKey implementation
     const publicKeyResponse = successOrThrowWalletError(await app.publicKey(path), 'ledger public key')
     return {
       path,
+      pathDisplay,
       publicKey: new Uint8Array(publicKeyResponse.pk),
     }
   }
