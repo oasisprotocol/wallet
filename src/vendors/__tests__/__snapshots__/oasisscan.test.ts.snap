@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`oasisscan parse account 1`] = `
-Object {
+{
   "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
   "available": "756455428396",
   "debonding": null,
@@ -11,17 +11,17 @@ Object {
 `;
 
 exports[`oasisscan parse delegations 1`] = `
-Object {
-  "debonding": Array [
-    Object {
+{
+  "debonding": [
+    {
       "amount": "363940000000",
       "epoch": 12626,
       "shares": "363940000000",
       "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     },
   ],
-  "delegations": Array [
-    Object {
+  "delegations": [
+    {
       "amount": "89387",
       "shares": "80078",
       "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
@@ -31,8 +31,8 @@ Object {
 `;
 
 exports[`oasisscan parse transaction list 1`] = `
-Array [
-  Object {
+[
+  {
     "amount": "200000000000",
     "fee": undefined,
     "from": "oasis1qqnk4au603zs94k0d0n7c0hkx8t4p6r87s60axru",
@@ -46,7 +46,7 @@ Array [
     "to": "oasis1qzgc7dvlls36q47z5y6dvu6ylaa78rkrduqtxgdr",
     "type": "consensus.Deposit",
   },
-  Object {
+  {
     "amount": "116900000000",
     "fee": "2000",
     "from": "oasis1qz086axf5hreqpehv5hlgmtw7sfem79gz55v68wp",
@@ -60,7 +60,7 @@ Array [
     "to": "oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm",
     "type": "staking.Transfer",
   },
-  Object {
+  {
     "amount": "500100000000",
     "fee": "0",
     "from": "oasis1qz0rx0h3v8fyukfrr0npldrrzvpdg4wj2qxvg0kj",
@@ -74,7 +74,7 @@ Array [
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "type": "staking.AddEscrow",
   },
-  Object {
+  {
     "amount": "363940000000",
     "fee": "0",
     "from": "oasis1qzah5wn48ekakmq5405qvcg4czp8hjvrcvcywvhp",
@@ -88,7 +88,7 @@ Array [
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "type": "staking.ReclaimEscrow",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "2000",
     "from": "oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6",
@@ -102,7 +102,7 @@ Array [
     "to": undefined,
     "type": "staking.AmendCommissionSchedule",
   },
-  Object {
+  {
     "amount": "1714900000000",
     "fee": "0",
     "from": "oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj",
@@ -116,7 +116,7 @@ Array [
     "to": "oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte",
     "type": "staking.Allow",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg",
@@ -130,7 +130,7 @@ Array [
     "to": undefined,
     "type": "roothash.ExecutorCommit",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qz6k3gky5d43h70xh2c5vk5fztmzmxmmhc6rh72x",
@@ -144,7 +144,7 @@ Array [
     "to": undefined,
     "type": "roothash.ExecutorProposerTimeout",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "1000",
     "from": "oasis1qpdlqz373hcqvafadd3lxptj42x84sws35s02r4r",
@@ -158,7 +158,7 @@ Array [
     "to": undefined,
     "type": "registry.RegisterEntity",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qzwl8jlxzwjgz2m6d3ns0vt9hzfp2h63qsxs76ys",
@@ -172,7 +172,7 @@ Array [
     "to": undefined,
     "type": "registry.RegisterNode",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qrvmxhcjpjvgel9dqfs6zrnza3hqjpa6ug2arc0d",
@@ -186,7 +186,7 @@ Array [
     "to": undefined,
     "type": "registry.RegisterRuntime",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "4000",
     "from": "oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq",
@@ -200,7 +200,7 @@ Array [
     "to": undefined,
     "type": "governance.CastVote",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t",
@@ -214,7 +214,7 @@ Array [
     "to": undefined,
     "type": "beacon.PVSSCommit",
   },
-  Object {
+  {
     "amount": undefined,
     "fee": "0",
     "from": "oasis1qptn9zmdn5ksvq85vxg2mg84e9m6jp2875dyfl73",
@@ -232,12 +232,12 @@ Array [
 `;
 
 exports[`oasisscan parse validators 1`] = `
-Array [
-  Object {
+[
+  {
     "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
     "current_rate": 0.05,
     "escrow": "336904789680000000",
-    "media": Object {
+    "media": {
       "email_address": "s@s.f",
       "logotype": "https://s3.amazonaws.com/s.jpg",
       "twitter_acc": "https://twitter.com/s",
@@ -248,11 +248,11 @@ Array [
     "rank": 1,
     "status": "active",
   },
-  Object {
+  {
     "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
     "current_rate": 0.15,
     "escrow": "261889743040000000",
-    "media": Object {
+    "media": {
       "email_address": "go@staking.fund",
       "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d48739023a250815c4ac564c9870ec05_360_360.jpg",
       "twitter_acc": "StakingFund",
@@ -263,11 +263,11 @@ Array [
     "rank": 3,
     "status": "active",
   },
-  Object {
+  {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
     "escrow": "326477290610000000",
-    "media": Object {
+    "media": {
       "email_address": undefined,
       "logotype": undefined,
       "twitter_acc": undefined,
