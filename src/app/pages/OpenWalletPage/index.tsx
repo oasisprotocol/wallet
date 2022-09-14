@@ -52,7 +52,7 @@ export function SelectOpenMethod() {
           t={t}
           defaults="❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <DocsLink>Check documentation for details.</DocsLink>"
           components={{
-            DocsLink: <Anchor href="https://docs.oasis.dev/general/manage-tokens/faq" />,
+            DocsLink: <Anchor href="https://docs.oasis.io/general/manage-tokens/faq" />,
           }}
         />
       </Box>
