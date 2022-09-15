@@ -7,7 +7,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     defer={true}
     encodeSpecialCharacters={true}
     htmlAttributes={
-      Object {
+      {
         "lang": "en-US",
       }
     }
@@ -24,7 +24,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     direction="row-responsive"
     fill={true}
     style={
-      Object {
+      {
         "minHeight": "100vh",
       }
     }
@@ -33,7 +33,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     <Box
       flex={true}
       pad={
-        Object {
+        {
           "top": undefined,
         }
       }

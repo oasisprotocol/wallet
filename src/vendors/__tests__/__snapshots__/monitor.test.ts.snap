@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`monitor parse account 1`] = `
-Object {
+{
   "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
   "available": "756455428396",
   "debonding": null,
@@ -11,17 +11,17 @@ Object {
 `;
 
 exports[`monitor parse delegations 1`] = `
-Object {
-  "debonding": Array [
-    Object {
+{
+  "debonding": [
+    {
       "amount": "363940923824",
       "epoch": 12626,
       "shares": "363940923824",
       "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     },
   ],
-  "delegations": Array [
-    Object {
+  "delegations": [
+    {
       "amount": "89387",
       "shares": "80078",
       "validatorAddress": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
@@ -31,8 +31,8 @@ Object {
 `;
 
 exports[`monitor parse transaction list 1`] = `
-Array [
-  Object {
+[
+  {
     "amount": "116899998000",
     "fee": "2000",
     "from": "oasis1qz086axf5hreqpehv5hlgmtw7sfem79gz55v68wp",
@@ -46,7 +46,7 @@ Array [
     "to": "oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm",
     "type": "staking.Transfer",
   },
-  Object {
+  {
     "amount": "500100000000",
     "fee": undefined,
     "from": "oasis1qz0rx0h3v8fyukfrr0npldrrzvpdg4wj2qxvg0kj",
@@ -60,7 +60,7 @@ Array [
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "type": "staking.AddEscrow",
   },
-  Object {
+  {
     "amount": "363940923824",
     "fee": undefined,
     "from": "oasis1qzah5wn48ekakmq5405qvcg4czp8hjvrcvcywvhp",
@@ -74,7 +74,7 @@ Array [
     "to": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "type": "staking.ReclaimEscrow",
   },
-  Object {
+  {
     "amount": "0",
     "fee": "2000",
     "from": "oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6",
@@ -88,7 +88,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "staking.AmendCommissionSchedule",
   },
-  Object {
+  {
     "amount": "1714900000000",
     "fee": undefined,
     "from": "oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj",
@@ -102,7 +102,7 @@ Array [
     "to": "oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte",
     "type": "staking.Allow",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg",
@@ -116,7 +116,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "roothash.ExecutorCommit",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qz6k3gky5d43h70xh2c5vk5fztmzmxmmhc6rh72x",
@@ -130,7 +130,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "roothash.ExecutorProposerTimeout",
   },
-  Object {
+  {
     "amount": "0",
     "fee": "1000",
     "from": "oasis1qpdlqz373hcqvafadd3lxptj42x84sws35s02r4r",
@@ -144,7 +144,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "registry.RegisterEntity",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qzwl8jlxzwjgz2m6d3ns0vt9hzfp2h63qsxs76ys",
@@ -158,7 +158,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "registry.RegisterNode",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qrvmxhcjpjvgel9dqfs6zrnza3hqjpa6ug2arc0d",
@@ -172,7 +172,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "registry.RegisterRuntime",
   },
-  Object {
+  {
     "amount": "0",
     "fee": "4000",
     "from": "oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq",
@@ -186,7 +186,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "governance.CastVote",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t",
@@ -200,7 +200,7 @@ Array [
     "to": "oasis1qpg3hpf3vtuueyl8f8jzgsy8clqqw6qgxgurwfy5",
     "type": "beacon.PVSSCommit",
   },
-  Object {
+  {
     "amount": "0",
     "fee": undefined,
     "from": "oasis1qptn9zmdn5ksvq85vxg2mg84e9m6jp2875dyfl73",
@@ -218,12 +218,12 @@ Array [
 `;
 
 exports[`monitor parse validators 1`] = `
-Array [
-  Object {
+[
+  {
     "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
     "current_rate": 0.05,
     "escrow": "336904789689084160",
-    "media": Object {
+    "media": {
       "email_address": "s@s.f",
       "twitter_acc": "https://twitter.com/s",
       "website_link": "https://s.f",
@@ -233,11 +233,11 @@ Array [
     "rank": 1,
     "status": "active",
   },
-  Object {
+  {
     "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
     "current_rate": 0.15,
     "escrow": "261889743044845472",
-    "media": Object {
+    "media": {
       "email_address": "go@staking.fund",
       "twitter_acc": "https://twitter.com/StakingFund",
       "website_link": "https://staking.fund",
@@ -247,11 +247,11 @@ Array [
     "rank": 3,
     "status": "active",
   },
-  Object {
+  {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
     "escrow": "326477290615842944",
-    "media": Object {
+    "media": {
       "website_link": "https://www.b.com",
     },
     "name": "b",
