@@ -21,7 +21,7 @@ ADDITIONAL_EXCLUDED_DIRECTORIES:
   - cypress-coverage
   - .nyc_output
   - .parcel-cache
-FILTER_REGEX_EXCLUDE: (LICENCE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*|src/vendors/oasisscan/*)
+FILTER_REGEX_EXCLUDE: (LICENSE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*|src/vendors/oasisscan/*)
 SHOW_ELAPSED_TIME: true
 PRE_COMMANDS:
   - command: yarn install
