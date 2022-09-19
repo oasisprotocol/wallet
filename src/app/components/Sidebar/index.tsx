@@ -12,21 +12,13 @@ import {
   Text,
   Tip,
 } from 'grommet'
-import {
-  Github,
-  FormDown,
-  Home,
-  Language,
-  LineChart,
-  Logout,
-  Menu as MenuIcon,
-  Money,
-} from 'grommet-icons/icons'
+import { Github, FormDown, Home, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons/icons'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
+import { Language } from '../../../styles/theme/icons/language/Language'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
