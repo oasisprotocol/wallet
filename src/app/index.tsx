@@ -10,14 +10,12 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Switch } from 'react-router-dom'
-import { TransitionGroup } from 'react-transition-group'
+import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
 import { Toolbar } from './components/Toolbar'
-import { TransitionRoute } from './components/TransitionRoute'
 import { AccountPage } from './pages/AccountPage'
 import { CreateWalletPage } from './pages/CreateWalletPage'
 import { HomePage } from './pages/HomePage'
@@ -49,15 +47,13 @@ export function App() {
           <AppMain>
             <FatalErrorHandler />
             <Toolbar />
-            <TransitionGroup>
-              <Switch>
-                <TransitionRoute exact path="/" component={HomePage} />
-                <TransitionRoute exact path="/create-wallet" component={CreateWalletPage} />
-                <TransitionRoute path="/open-wallet" component={OpenWalletPage} />
-                <TransitionRoute exact path="/account/:address/stake" component={AccountPage} />
-                <TransitionRoute path="/account/:address" component={AccountPage} />
-              </Switch>
-            </TransitionGroup>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/create-wallet" component={CreateWalletPage} />
+              <Route path="/open-wallet" component={OpenWalletPage} />
+              <Route exact path="/account/:address/stake" component={AccountPage} />
+              <Route path="/account/:address" component={AccountPage} />
+            </Switch>
             <Footer />
           </AppMain>
         </Box>

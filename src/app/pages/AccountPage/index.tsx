@@ -6,7 +6,6 @@
 import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { TransactionModal } from 'app/components/TransactionModal'
-import { TransitionRoute } from 'app/components/TransitionRoute'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
@@ -17,8 +16,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Switch, useParams } from 'react-router-dom'
-import { TransitionGroup } from 'react-transition-group'
+import { NavLink, Route, Switch, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/utils'
 
@@ -204,22 +202,12 @@ export function AccountPage(props: Props) {
               route={`/account/${address}/debonding-delegations`}
             />
           </Nav>
-          <TransitionGroup>
-            <Switch>
-              <TransitionRoute exact path="/account/:address" component={AccountDetails} />
-              <TransitionRoute exact path="/account/:address/stake" component={ValidatorList} />
-              <TransitionRoute
-                exact
-                path="/account/:address/active-delegations"
-                component={ActiveDelegationList}
-              />
-              <TransitionRoute
-                exact
-                path="/account/:address/debonding-delegations"
-                component={DebondingDelegationList}
-              />
-            </Switch>
-          </TransitionGroup>
+          <Switch>
+            <Route exact path="/account/:address" component={AccountDetails} />
+            <Route exact path="/account/:address/stake" component={ValidatorList} />
+            <Route exact path="/account/:address/active-delegations" component={ActiveDelegationList} />
+            <Route exact path="/account/:address/debonding-delegations" component={DebondingDelegationList} />
+          </Switch>
         </>
       )}
     </Box>
