@@ -10,7 +10,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import styled from 'styled-components'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Footer } from './components/Footer'
@@ -47,13 +47,12 @@ export function App() {
           <AppMain>
             <FatalErrorHandler />
             <Toolbar />
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/create-wallet" component={CreateWalletPage} />
-              <Route path="/open-wallet" component={OpenWalletPage} />
-              <Route exact path="/account/:address/stake" component={AccountPage} />
-              <Route path="/account/:address" component={AccountPage} />
-            </Switch>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/create-wallet" element={<CreateWalletPage />} />
+              <Route path="/open-wallet/*" element={<OpenWalletPage />} />
+              <Route path="/account/:address/*" element={<AccountPage />} />
+            </Routes>
             <Footer />
           </AppMain>
         </Box>

@@ -16,7 +16,7 @@ import * as React from 'react'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Route, Switch, useParams } from 'react-router-dom'
+import { NavLink, Route, Routes, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/utils'
 
@@ -59,7 +59,7 @@ interface NavItemProps {
 const counterZIndex = mobileHeaderZIndex - 1
 const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
-    <StyledNavItem exact to={route}>
+    <StyledNavItem end to={route}>
       <Text>{label}</Text>
       {!!counter && (
         <Box
@@ -89,7 +89,7 @@ interface AccountPageParams {
 export function AccountPage(props: Props) {
   const { t } = useTranslation()
   const isMobile = React.useContext(ResponsiveContext) === 'small'
-  const { address } = useParams<AccountPageParams>()
+  const { address } = useParams<keyof AccountPageParams>()
   const dispatch = useDispatch()
 
   const account = useSelector(selectAccount)
@@ -119,8 +119,8 @@ export function AccountPage(props: Props) {
 
   // Reload account balances if address or network changes
   useEffect(() => {
-    dispatch(accountActions.fetchAccount(address))
-    dispatch(stakingActions.fetchAccount(address))
+    dispatch(accountActions.fetchAccount(address!))
+    dispatch(stakingActions.fetchAccount(address!))
     return () => {
       dispatch(accountActions.clearAccount())
     }
@@ -189,7 +189,7 @@ export function AccountPage(props: Props) {
                   ? t('account.subnavigation.mobileActiveDelegations', 'Delegations')
                   : t('account.subnavigation.activeDelegations', 'Active delegations')
               }
-              route={`/account/${address}/active-delegations`}
+              route="active-delegations"
             />
 
             <NavItem
@@ -199,15 +199,15 @@ export function AccountPage(props: Props) {
                   ? t('account.subnavigation.mobileDebondingDelegations', 'Debonding')
                   : t('account.subnavigation.debondingDelegations', 'Debonding delegations')
               }
-              route={`/account/${address}/debonding-delegations`}
+              route="debonding-delegations"
             />
           </Nav>
-          <Switch>
-            <Route exact path="/account/:address" component={AccountDetails} />
-            <Route exact path="/account/:address/stake" component={ValidatorList} />
-            <Route exact path="/account/:address/active-delegations" component={ActiveDelegationList} />
-            <Route exact path="/account/:address/debonding-delegations" component={DebondingDelegationList} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<AccountDetails />} />
+            <Route path="/stake" element={<ValidatorList />} />
+            <Route path="/active-delegations" element={<ActiveDelegationList />} />
+            <Route path="/debonding-delegations" element={<DebondingDelegationList />} />
+          </Routes>
         </>
       )}
     </Box>

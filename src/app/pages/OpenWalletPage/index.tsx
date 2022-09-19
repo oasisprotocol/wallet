@@ -6,8 +6,7 @@
 import { Anchor, Box, Button, Heading } from 'grommet'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Switch } from 'react-router'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import { FromLedger } from './Features/FromLedger'
 
 import { FromMnemonic } from './Features/FromMnemonic'
@@ -27,13 +26,13 @@ export function SelectOpenMethod() {
       <Heading level="3">{t('openWallet.header', 'How do you want to open your wallet?')}</Heading>
 
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
-        <NavLink to="/open-wallet/mnemonic">
+        <NavLink to="mnemonic">
           <Button type="submit" label={t('openWallet.method.mnemonic', 'Mnemonic')} primary />
         </NavLink>
-        <NavLink to="/open-wallet/private-key">
+        <NavLink to="private-key">
           <Button type="submit" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </NavLink>
-        <NavLink to="/open-wallet/ledger">
+        <NavLink to="ledger">
           <Button type="submit" label={t('openWallet.method.ledger', 'Ledger')} primary />
         </NavLink>
       </Box>
@@ -61,11 +60,11 @@ export function SelectOpenMethod() {
 interface Props {}
 export function OpenWalletPage(props: Props) {
   return (
-    <Switch>
-      <Route exact path="/open-wallet" component={SelectOpenMethod} />
-      <Route exact path="/open-wallet/mnemonic" component={FromMnemonic} />
-      <Route exact path="/open-wallet/private-key" component={FromPrivateKey} />
-      <Route exact path="/open-wallet/ledger" component={FromLedger} />
-    </Switch>
+    <Routes>
+      <Route path="/" element={<SelectOpenMethod />} />
+      <Route path="/mnemonic" element={<FromMnemonic />} />
+      <Route path="/private-key" element={<FromPrivateKey />} />
+      <Route path="/ledger" element={<FromLedger />} />
+    </Routes>
   )
 }

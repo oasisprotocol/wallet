@@ -265,6 +265,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     data-testid="mobile-footer-navigation"
   >
     <a
+      class=""
       href="/account/dummy"
     >
       <span
@@ -294,6 +295,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       </span>
     </a>
     <a
+      class=""
       href="/account/dummy/stake"
     >
       <span

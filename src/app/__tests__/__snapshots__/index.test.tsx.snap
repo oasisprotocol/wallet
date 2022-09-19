@@ -41,31 +41,24 @@ exports[`<App /> should render and match the snapshot 1`] = `
       <Styled(Main)>
         <FatalErrorHandler />
         <Toolbar />
-        <Switch>
+        <Routes>
           <Route
-            component={[Function]}
-            exact={true}
+            element={<HomePage />}
             path="/"
           />
           <Route
-            component={[Function]}
-            exact={true}
+            element={<CreateWalletPage />}
             path="/create-wallet"
           />
           <Route
-            component={[Function]}
-            path="/open-wallet"
+            element={<OpenWalletPage />}
+            path="/open-wallet/*"
           />
           <Route
-            component={[Function]}
-            exact={true}
-            path="/account/:address/stake"
+            element={<AccountPage />}
+            path="/account/:address/*"
           />
-          <Route
-            component={[Function]}
-            path="/account/:address"
-          />
-        </Switch>
+        </Routes>
         <Memo />
       </Styled(Main)>
     </Box>

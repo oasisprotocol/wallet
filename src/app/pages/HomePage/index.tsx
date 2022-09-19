@@ -24,7 +24,7 @@ export function HomePage() {
             )}
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <NavLink to="/open-wallet">
+            <NavLink to="open-wallet">
               <Button
                 type="submit"
                 label={t('home.existing.button', 'Open wallet')}
@@ -48,7 +48,7 @@ export function HomePage() {
             )}
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <NavLink to="/create-wallet">
+            <NavLink to="create-wallet">
               <Button type="submit" label={t('home.create.button', 'Create wallet')} primary icon={<Add />} />
             </NavLink>
           </Box>

@@ -8,16 +8,12 @@ jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
 }))
 
-const mockedHistoryPush = jest.fn()
+const mockNavigate = jest.fn()
 jest.mock('react-router-dom', () => ({
-  useHistory: () => ({
-    push: mockedHistoryPush,
-  }),
+  useNavigate: () => mockNavigate,
 }))
 
 describe('useRouteRedirects', () => {
-  beforeEach(() => {})
-
   it('should redirects to account page', () => {
     when(useSelector as any)
       .calledWith(selectAddress)
@@ -27,7 +23,7 @@ describe('useRouteRedirects', () => {
 
     renderHook(() => useRouteRedirects())
 
-    expect(mockedHistoryPush).toHaveBeenCalledWith('/account/dummyAddress')
+    expect(mockNavigate).toHaveBeenCalledWith('/account/dummyAddress')
   })
 
   it('should not trigger redirect when address is not defined', () => {
@@ -39,7 +35,7 @@ describe('useRouteRedirects', () => {
 
     renderHook(() => useRouteRedirects())
 
-    expect(mockedHistoryPush).not.toHaveBeenCalled()
+    expect(mockNavigate).not.toHaveBeenCalled()
   })
 
   it('should not trigger redirect when active wallet id is missing', () => {
@@ -51,6 +47,6 @@ describe('useRouteRedirects', () => {
 
     renderHook(() => useRouteRedirects())
 
-    expect(mockedHistoryPush).not.toHaveBeenCalled()
+    expect(mockNavigate).not.toHaveBeenCalled()
   })
 })

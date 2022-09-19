@@ -17,7 +17,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink, useHistory, useLocation } from 'react-router-dom'
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
@@ -165,7 +165,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
   const { t, i18n } = useTranslation()
   const size = props.size
   const dispatch = useDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const setLanguage = (ln: string) => {
     i18n.changeLanguage(ln)
@@ -173,7 +173,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
 
   const logout = () => {
     dispatch(walletActions.closeWallet())
-    history.push('/')
+    navigate('/')
   }
 
   return (
