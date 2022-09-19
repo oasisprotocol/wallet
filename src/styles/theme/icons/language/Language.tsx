@@ -1,6 +1,7 @@
 import React from 'react'
 import { Blank, IconProps } from 'grommet-icons'
 
+// From https://github.com/facebook/docusaurus/blob/6514f07/packages/docusaurus-theme-classic/src/theme/Icon/Language/index.tsx
 export const Language = (props: IconProps) => (
   <Blank aria-hidden={undefined} aria-label="Language" {...props}>
     <path
