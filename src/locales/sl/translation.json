@@ -5,12 +5,18 @@
         "description": "Stanje overitelja je {{validatorStatus}}. Vaše delegiranje morda ne bo prineslo nagrad.",
         "title": "Ste prepričani, da želite nadaljevati?"
       },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Vseeno delegiraj",
+        "description": "Izbran overitelj je med 20 največjimi. Za izboljšanje varnosti omrežja in enakomernejšo porazdelitev predlagamo, da delegirate manjšemu overitelju."
+      },
       "delegate": "Delegiraj"
     },
     "loading": "Nalaganje računa",
-    "loadingError": "Računa ni bilo mogoče pridobiti. Prikazani podatki so zato prazni ali zastareli.",
+    "loadingError": "Računa ni mogoče naložiti.",
     "reclaimEscrow": {
-      "reclaim": "Oddelegiraj"
+      "convertedToShares": "Število gigadeležev: {{shares}}",
+      "reclaim": "Oddelegiraj",
+      "reclaimAll": "Oddelegiraj vse"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -25,38 +31,55 @@
     "subnavigation": {
       "activeDelegations": "Aktivne delegacije",
       "debondingDelegations": "Delegacije v razvezi",
+      "mobileActiveDelegations": "Delegacije",
+      "mobileDebondingDelegations": "V razvezi",
       "transactions": "Transakcije"
     },
     "summary": {
       "balance": {
         "available": "Na voljo",
         "debonding": "V razvezi",
-        "delegations": "Delegiranih",
+        "delegations": "Delegirano",
         "total": "Stanje"
       },
       "noTransactionFound": "Ni transakcij",
-      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo kovancev ROSE morate <HomeLink>odpreti vašo denarnico!</HomeLink>",
+      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo {{ ticker }} morate <HomeLink>odpreti vašo denarnico</HomeLink>!",
       "notYourAccount": "To ni vaš račun.",
       "yourAccount": "To je vaš račun."
     },
     "transaction": {
       "addEscrow": {
-        "received": "Prejeth <Amount/> v delegiranje",
-        "sent": "Delegiranih <Amount/> overitelju"
+        "received": "Prejeto <Amount> v delegiranje",
+        "sent": "Delegirano <Amount/> overitelju"
       },
+      "consensusDeposit": {
+        "received": "Prejet polog <Amount/> na ParaTime {{runtimeName}}",
+        "sent": "Polog <Amount/> na ParaTime {{runtimeName}}"
+      },
+      "consensusWithdraw": {
+        "received": "Dvig <Amount/> s ParaTima {{runtimeName}}",
+        "sent": "Prejet dvig <Amount/> s ParaTima {{runtimeName}}"
+      },
+      "explorerLink": "Pregled transakcije v raziskovalcu blokov",
+      "failed": "Spodletelo",
       "genericTransaction": {
         "destination": "Drug naslov",
         "header": "Metoda '{{method}}'"
       },
-      "loadingError": "Transakcij ni bilo mogoče pridobiti. Seznam je zato verjetno prazen ali zastarel.",
+      "loadingError": "Transakcij ni bilo mogoče pridobiti.",
       "reclaimEscrow": {
         "received": "Vračilo <Amount/> investitorju",
-        "sent": "Prejetih <Amount/> od overitelja"
+        "sent": "Prejeto <Amount/> od overitelja"
       },
+      "stakingAllow": {
+        "received": "Dobljeno dovoljenje za <Amount/>",
+        "sent": "Dano dovoljenje za <Amount/>"
+      },
+      "successful": "Uspešno",
       "transfer": {
-        "received": "Prejetih <Amount/>",
+        "received": "Prejeto <Amount/>",
         "sent": {
-          "header": "Poslanih <Amount/>"
+          "header": "Poslano <Amount/>"
         }
       },
       "unrecognizedTransaction": {
@@ -69,6 +92,10 @@
       "showingStale": "Seznam overiteljev z dne {{staleTimestamp}}"
     }
   },
+  "backends": {
+    "oasismonitor": "Oasis Monitor API",
+    "oasisscan": "Oasis Scan API"
+  },
   "common": {
     "amount": "Znesek",
     "block": "Blok",
@@ -76,6 +103,9 @@
     "confirm": "Potrdi",
     "delegator": "Delegator",
     "from": "Od",
+    "hash": "Zgoščena vrednost transakcije",
+    "round": "Krog",
+    "time": "Čas",
     "to": "Za",
     "unavailable": "Nedosegljiv",
     "validator": "Overitelj",
@@ -92,14 +122,17 @@
   "delegations": {
     "activeDelegations": "Aktivne delegacije",
     "debondingDelegations": "Delegacije v razvezi",
-    "debondingEpoch": "Epoha razveze",
+    "debondingTimeEnd": "Konec razveze",
     "delegatedAmount": "Delegiran znesek",
+    "loadingError": "Ni mogoče naložiti delegacij.",
     "reclaimedAmount": "Vračilo"
   },
   "errors": {
     "LedgerOasisAppIsNotOpen": "Oasis App na Ledgerju je zaprt.",
     "cannotSendToSelf": "Ni mogoče pošiljati samemu sebi",
+    "disconnectedError": "Izgubljena povezava.",
     "duplicateTransaction": "Podvojena transakcija",
+    "indexerAPIError": "{{indexerName}} ni dosegljiv, zato informacije o računu ne bodo ažurne. Prosimo, poskusite kasneje.",
     "insufficientBalance": "Stanje na računu prenizko",
     "invalidAddress": "Neveljaven naslov",
     "invalidNonce": "Neveljavno unikatno število (številka transakcije)",
@@ -122,13 +155,13 @@
     "instruction": "Pojavila se je usodna napaka in Oasis Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
   "footer": {
-    "github": "Projekt Oasis Wallet je <GithubLink>odprtokoden</GithubLink>. Odzivi in poročila o težavah so dobrodošla!",
+    "github": "Oasis Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
     "poweredBy": {
       "oasismonitor": "Deluje s pomočjo Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Pogoji uporabe</TermsLink>",
-    "version": "Različica <CommitLink/>, zgrajeno dne {{buildTime}}"
+    "version": "Različica: <CommitLink/>, zgrajena dne {{buildTime}}"
   },
   "home": {
     "create": {
@@ -168,11 +201,12 @@
       "warning": "❗ Uporabniki denarnice BitPie: Uvoz vašega BitPie mnemonika neposredno v Oasis denarnico ni mogoča. <DocsLink>Za več informacij preverite dokumentacijo.</DocsLink>"
     },
     "header": "Kako želite odpreti denarnico?",
-    "ledger": {
-      "cancel": "Prekliči",
-      "header": "Odpri z Ledgerjem",
+    "importAccounts": {
       "openWallets": "Odpri",
       "selectWallets": "Izberite račune"
+    },
+    "ledger": {
+      "header": "Odpri z Ledgerjem"
     },
     "method": {
       "ledger": "Z Ledgerjem",
@@ -246,7 +280,7 @@
     "boundsNotSet": "Brez omejitev (0% - 100%)",
     "commission": "Provizija",
     "commissionBounds": {
-      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> ob trenutni epohi {{epoch}}",
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> v trenutni epohi {{epoch}}",
       "future": "{{lowerBound}}% - {{upperBound}}% z začetkom pri epohi {{epoch}}",
       "label": "Meje provizije"
     },
