@@ -20,6 +20,7 @@ describe('Open wallet', () => {
   })
 
   describe('Mnemonic', () => {
+    const mnemonic = 'planet believe session regular rib kiss police deposit prison hundred apart tongue'
     beforeEach(() => {
       cy.visit('/open-wallet/mnemonic')
     })
@@ -31,12 +32,21 @@ describe('Open wallet', () => {
     })
 
     it('Should accept valid mnemonic', () => {
-      cy.findByTestId('mnemonic').type(
-        'planet believe session regular rib kiss police deposit prison hundred apart tongue',
-        { delay: 1 },
-      )
+      cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid keyphrase/).should('not.exist')
+      cy.findByRole('button', { name: /Open/ }).click()
+      cy.url().should('include', 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh')
+    })
+
+    it('Should open multiple accounts from mnemonic', () => {
+      cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
+      cy.findByRole('button', { name: /Import my wallet/ }).click()
+      cy.findAllByTestId('account-choice').should('have.length', 5)
+      cy.findAllByRole('checkbox', { checked: false })
+        .should('have.length', 4)
+        .click({ force: true, multiple: true })
+
       cy.findByRole('button', { name: /Open/ }).click()
       cy.url().should('include', 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh')
     })
