@@ -58,12 +58,12 @@ describe('Wallet Sagas', () => {
             path: [44, 474, 0],
             privateKey: '00',
             publicKey: '00',
-            selectImmediately: false,
+            selectImmediately: true,
             type: WalletType.Mnemonic,
           }),
         )
         .put.actionType(walletActions.walletOpened.type)
-        .put.actionType(walletActions.selectWallet.type)
+        .put(walletActions.selectWallet(1))
         .silentRun(200)
     })
 

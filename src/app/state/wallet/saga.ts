@@ -61,7 +61,6 @@ function* getWalletByAddress(address: string) {
  */
 export function* openWalletsFromLedger() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
-  const newWalletId = walletId
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
@@ -71,12 +70,10 @@ export function* openWalletsFromLedger() {
         type: WalletType.Ledger,
         balance: account.balance,
         path: account.path,
-        selectImmediately: false,
+        selectImmediately: account === accounts[0], // Select first
       }),
     )
   }
-  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
-  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
@@ -101,7 +98,6 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
 
 export function* openWalletFromMnemonic() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
-  const newWalletId = walletId
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
@@ -111,13 +107,11 @@ export function* openWalletFromMnemonic() {
         path: account.path,
         privateKey: account.privateKey,
         publicKey: account.publicKey,
-        selectImmediately: false,
         type: account.type,
+        selectImmediately: account === accounts[0], // Select first
       }),
     )
   }
-  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
-  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 /**
