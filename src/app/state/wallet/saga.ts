@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
+import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
@@ -116,7 +116,7 @@ export function* openWalletFromMnemonic() {
 
 /**
  * Adds a wallet to the existing wallets
- * If the wallet exists already, do nothingg
+ * If the wallet exists already, do nothing
  * If it has "selectImmediately", we select it immediately
  */
 export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
@@ -129,6 +129,8 @@ export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
   const walletId = existingWallet ? existingWallet.id : newWallet.id
 
   if (selectImmediately) {
+    yield* put(walletActions.selectWallet(undefined)) // Workaround so useRouteRedirects detects selecting the same account
+    yield* delay(1) // Workaround to avoid React batching state updates
     yield* put(walletActions.selectWallet(walletId))
   }
 }

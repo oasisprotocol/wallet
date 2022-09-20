@@ -16,7 +16,7 @@ const slice = createSlice({
     openWalletFromMnemonic(state, action: PayloadAction<void>) {},
     openWalletFromPrivateKey(state, action: PayloadAction<string>) {},
     openWalletsFromLedger(state, action: PayloadAction<void>) {},
-    selectWallet(state, action: PayloadAction<number>) {
+    selectWallet(state, action: PayloadAction<number | undefined>) {
       state.selectedWallet = action.payload
     },
     closeWallet(state, action: PayloadAction<void>) {},
