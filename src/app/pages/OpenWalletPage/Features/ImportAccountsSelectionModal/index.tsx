@@ -18,15 +18,15 @@ interface ImportAccountsSelectorSelectorProps {
 
 function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProps) {
   const dispatch = useDispatch()
-  const toggleAccount = (index: number) => {
+  const toggleAccount = (address: string) => {
+    const index = accounts.findIndex(account => account.address === address)
     dispatch(importAccountsActions.toggleAccount(index))
   }
 
   return (
     <Box gap="small">
-      {accounts.map((a, index) => (
+      {accounts.map(a => (
         <Account
-          index={index}
           address={a.address}
           balance={a.balance.available} // TODO: get total balance
           type={a.type}
@@ -34,7 +34,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
           isActive={a.selected}
           displayCheckbox={true}
           details={a.path.join('/')}
-          key={index}
+          key={a.address}
         />
       ))}
     </Box>

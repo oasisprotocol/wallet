@@ -58,13 +58,12 @@ describe('<AccountPage  />', () => {
       },
       wallet: {
         isOpen: true,
-        selectedWallet: 0,
-        wallets: [
-          {
+        selectedWallet: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+        wallets: {
+          oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk: {
             address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
-            id: 0,
           },
-        ],
+        },
       },
     }
     store = configureAppStore(state as any)

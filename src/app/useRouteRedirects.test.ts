@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { useSelector } from 'react-redux'
-import { selectActiveWalletId, selectAddress } from 'app/state/wallet/selectors'
+import { selectAddress } from 'app/state/wallet/selectors'
 import { useRouteRedirects } from './useRouteRedirects'
 import { when } from 'jest-when'
 
@@ -18,31 +18,15 @@ describe('useRouteRedirects', () => {
     when(useSelector as any)
       .calledWith(selectAddress)
       .mockReturnValue('dummyAddress')
-      .calledWith(selectActiveWalletId)
-      .mockReturnValue(0)
 
     renderHook(() => useRouteRedirects())
 
     expect(mockNavigate).toHaveBeenCalledWith('/account/dummyAddress')
   })
 
-  it('should not trigger redirect when address is not defined', () => {
+  it('should not trigger redirect when active wallet is not defined', () => {
     when(useSelector as any)
       .calledWith(selectAddress)
-      .mockReturnValue('')
-      .calledWith(selectActiveWalletId)
-      .mockReturnValue(1)
-
-    renderHook(() => useRouteRedirects())
-
-    expect(mockNavigate).not.toHaveBeenCalled()
-  })
-
-  it('should not trigger redirect when active wallet id is missing', () => {
-    when(useSelector as any)
-      .calledWith(selectAddress)
-      .mockReturnValue('dummyAddress')
-      .calledWith(selectActiveWalletId)
       .mockReturnValue(undefined)
 
     renderHook(() => useRouteRedirects())

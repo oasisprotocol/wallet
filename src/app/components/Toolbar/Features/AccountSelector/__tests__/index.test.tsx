@@ -24,13 +24,12 @@ describe('<AccountSelector  />', () => {
       wallet: {
         isOpen: true,
         wallets: {
-          1: {
+          oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe: {
             address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
             balance: {
               available: 100n.toString(),
               validator: { escrow: 5000n.toString(), escrow_debonding: 300n.toString() },
             },
-            id: 1,
             publicKey: '00',
             type: WalletType.Ledger,
           },

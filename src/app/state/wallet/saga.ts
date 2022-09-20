@@ -11,10 +11,6 @@ import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
 import { AddWalletPayload, Wallet, WalletType } from './types'
 
-// Ensure a unique walletId per opened wallet
-// Maybe we should switch to something like uuid later
-let walletId = 0
-
 /**
  * Opened wallet saga
  * Will later be used to sign arbitrary messages
@@ -64,7 +60,6 @@ export function* openWalletsFromLedger() {
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
-        id: walletId++,
         address: account.address,
         publicKey: account.publicKey,
         type: WalletType.Ledger,
@@ -85,7 +80,6 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
 
   yield* put(
     walletActions.addWallet({
-      id: walletId++,
       address: walletAddress,
       publicKey,
       privateKey,
@@ -103,7 +97,6 @@ export function* openWalletFromMnemonic() {
       walletActions.addWallet({
         address: account.address,
         balance: account.balance,
-        id: walletId++,
         path: account.path,
         privateKey: account.privateKey,
         publicKey: account.publicKey,
@@ -126,12 +119,10 @@ export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
     yield* put(walletActions.walletOpened(newWallet))
   }
 
-  const walletId = existingWallet ? existingWallet.id : newWallet.id
-
   if (selectImmediately) {
     yield* put(walletActions.selectWallet(undefined)) // Workaround so useRouteRedirects detects selecting the same account
     yield* delay(1) // Workaround to avoid React batching state updates
-    yield* put(walletActions.selectWallet(walletId))
+    yield* put(walletActions.selectWallet(newWallet.address))
   }
 }
 
@@ -144,7 +135,7 @@ function* loadWallet(action: PayloadAction<Wallet>) {
   const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
   yield* put(
     walletActions.updateBalance({
-      walletId: wallet.id,
+      address: wallet.address,
       balance,
     }),
   )

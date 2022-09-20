@@ -23,11 +23,10 @@ describe('<MobileFooterNavigation />', () => {
     store = configureAppStore({
       wallet: {
         isOpen: true,
-        selectedWallet: 0,
+        selectedWallet: 'dummy',
         wallets: {
-          0: {
+          dummy: {
             address: 'dummy',
-            id: 1,
           } as Wallet,
         },
       },
