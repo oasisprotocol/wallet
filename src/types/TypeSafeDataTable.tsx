@@ -8,6 +8,8 @@ export interface ITypeSafeDataTableColumn<T> extends IDataTableColumn<T> {
 export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'keyField'> {
   keyField: keyof T
   columns: ITypeSafeDataTableColumn<T>[]
+  // Force translating https://github.com/jbetancur/react-data-table-component/blob/14e2e7f9eaaf8219e9988867d738c09b78644fcb/src/DataTable/defaultProps.tsx#L63
+  noDataComponent: React.ReactNode
 }
 
 /**
