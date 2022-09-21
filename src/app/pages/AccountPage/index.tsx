@@ -35,6 +35,7 @@ import { mobileHeaderZIndex } from '../../components/Sidebar'
 import { ValidatorList } from '../StakingPage/Features/ValidatorList'
 import { AccountDetails } from './Features/AccountDetails'
 import { AccountSummary } from './Features/AccountSummary'
+import { isValidAddress } from '../../lib/helpers'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -84,13 +85,13 @@ const NavItem = ({ counter, label, route }: NavItemProps) => {
   )
 }
 
-interface Props {}
+interface AccountPageProps {}
 
 interface AccountPageParams {
   address: string
 }
 
-export function AccountPage(props: Props) {
+function AccountPageInternal(props: AccountPageProps) {
   const { t } = useTranslation()
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const { address } = useParams<keyof AccountPageParams>()
@@ -216,4 +217,17 @@ export function AccountPage(props: Props) {
       )}
     </Box>
   )
+}
+
+export function AccountPage(props: AccountPageProps) {
+  const { t } = useTranslation()
+  const { address } = useParams<keyof AccountPageParams>()
+  if (!isValidAddress(address!)) {
+    return (
+      <Box pad={'small'}>
+        <AlertBox color={'status-error'}>{t('errors.invalidAddress', 'Invalid address')}</AlertBox>
+      </Box>
+    )
+  }
+  return <AccountPageInternal {...props} />
 }
