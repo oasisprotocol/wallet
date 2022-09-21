@@ -53,6 +53,12 @@ describe('Open wallet', () => {
       cy.findByText(/Invalid private key/).should('be.visible')
     })
 
+    it('Should reject invalid keys, even if base64 seems to be OK', () => {
+      cy.findByTestId('privatekey').type('aaamZybIOymrQCpCGGICczsaopANP02kwOhCyxETXljLLmRChL1QJGzJq3Pf3i+dFBN+peIK2vQ3Ew0wSQbp3g==')
+      cy.findByRole('button', { name: /Import my wallet/ }).click()
+      cy.findByText(/Invalid private key/).should('be.visible')
+    })
+
     it('Should accept valid base64 pkey', () => {
       cy.findByTestId('privatekey').type(
         'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
