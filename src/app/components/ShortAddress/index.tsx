@@ -12,7 +12,10 @@ interface Props {
 }
 
 export function trimLongString(value: string, trimStart = 10, trimEnd = -8) {
-  if (value.length <= trimStart) {
+  // The length of a trimmed string
+  const trimmedLength = trimStart + 3 - trimEnd // trimEnd is negative..
+  if (value.length <= trimStart || trimmedLength > value.length) {
+    // If the "trimmed" version would be longer, don't bother
     return value
   }
 
