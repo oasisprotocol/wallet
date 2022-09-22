@@ -5,7 +5,7 @@ import { trimLongString, ShortAddress } from '..'
 describe('trimLongString', () => {
   it('should return trimmed string', () => {
     expect(trimLongString('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4')).toEqual('oasis1qq2v...sv0d5eq4')
-    expect(trimLongString('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4', 2, -2)).toEqual('oa...q4')
+    expect(trimLongString('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4', 2, 2)).toEqual('oa...q4')
   })
 
   it('should return short hash', () => {
