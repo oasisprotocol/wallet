@@ -1,11 +1,11 @@
 import { walletActions } from 'app/state/wallet'
-import { Box, Form, Heading, Paragraph, FormField, Button, TextInput, Tip } from 'grommet'
-import { View, Hide } from 'grommet-icons/icons'
+import { Box, Form, Heading, Paragraph, Button } from 'grommet'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { OasisKey } from 'app/lib/key'
 import { base64ToUint, uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
+import { PasswordField } from 'app/components/PasswordField'
 
 interface Props {}
 
@@ -26,7 +26,6 @@ export function FromPrivateKey(props: Props) {
 
   const [privateKey, setPrivateKey] = React.useState('')
   const [privateKeyIsValid, setPrivateKeyIsValid] = React.useState(true)
-  const [privateKeyIsVisible, setPrivateKeyIsVisible] = React.useState(false)
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => setPrivateKey(event.target.value)
   const onSubmit = () => {
@@ -54,7 +53,19 @@ export function FromPrivateKey(props: Props) {
             {t('openWallet.privateKey.instruction', 'Enter your private key in Base64 format.')}
           </label>
         </Paragraph>
-        <PasswordField></PasswordField>
+
+        <PasswordField
+          inputElementId="privatekey"
+          placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
+          autoComplete="off"
+          value={privateKey}
+          onChange={onChange}
+          error={privateKeyIsValid ? false : t('openWallet.privateKey.error', 'Invalid private key')}
+          showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
+          hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
+          width="xlarge"
+        />
+
         <Box pad={{ vertical: 'medium' }}>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
             <Button

@@ -78,7 +78,7 @@ describe('Scenario : from private key', () => {
     cy.visit('/')
     cy.findByRole('button', { name: /Open wallet/ }).click()
     cy.findByRole('button', { name: /Private key/ }).click()
-    cy.findByTestId('privatekey').type(
+    cy.findByPlaceholderText('Enter your private key here').type(
       'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
       { delay: 1 },
     )

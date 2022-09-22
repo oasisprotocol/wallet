@@ -75,19 +75,22 @@ describe('Open wallet', () => {
     })
 
     it('Should reject invalid keys', () => {
-      cy.findByTestId('privatekey').type('this is an invalid key')
+      cy.findByPlaceholderText('Enter your private key here').type('this is an invalid key')
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid private key/).should('be.visible')
     })
 
     it('Should reject invalid keys, even if base64 seems to be OK', () => {
-      cy.findByTestId('privatekey').type('aaamZybIOymrQCpCGGICczsaopANP02kwOhCyxETXljLLmRChL1QJGzJq3Pf3i+dFBN+peIK2vQ3Ew0wSQbp3g==')
+      cy.findByPlaceholderText('Enter your private key here').type(
+        'aaamZybIOymrQCpCGGICczsaopANP02kwOhCyxETXljLLmRChL1QJGzJq3Pf3i+dFBN+peIK2vQ3Ew0wSQbp3g==',
+        { delay: 1 },
+      )
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid private key/).should('be.visible')
     })
 
     it('Should accept valid base64 pkey', () => {
-      cy.findByTestId('privatekey').type(privateKey, { delay: 1 })
+      cy.findByPlaceholderText('Enter your private key here').type(privateKey, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid private key/).should('not.exist')
       cy.url().should('include', '/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
@@ -97,7 +100,7 @@ describe('Open wallet', () => {
       cy.findByRole('button', { name: /Open wallet/ }).click()
       cy.findByRole('button', { name: /Private key/ }).click()
       cy.url().should('include', '/open-wallet/private-key')
-      cy.findByTestId('privatekey').type(privateKey, { delay: 1 })
+      cy.findByPlaceholderText('Enter your private key here').type(privateKey, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.url().should('include', '/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     })

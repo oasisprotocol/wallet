@@ -1,33 +1,47 @@
-export function PasswordField() {
+import { Box, FormField, Button, TextInput, Tip } from 'grommet'
+import { View, Hide } from 'grommet-icons/icons'
+import * as React from 'react'
+
+interface Props {
+  placeholder: string
+  inputElementId: string
+
+  autoComplete: 'on' | 'off' | 'new-password' | 'current-password'
+  value: string
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  error: string | false
+  showTip: string
+  hideTip: string
+
+  width: string
+}
+
+export function PasswordField(props: Props) {
+  const [passwordIsVisible, setPasswordIsVisible] = React.useState(false)
+
   return (
     <FormField
-      htmlFor="privateKey"
-      error={privateKeyIsValid === false ? t('openWallet.privateKey.error', 'Invalid private key') : ''}
+      htmlFor={props.inputElementId}
+      error={props.error ? props.error : ''}
       border
-      contentProps={{ border: privateKeyIsValid ? false : 'bottom' }}
+      contentProps={{ border: props.error ? 'bottom' : false }}
       round="small"
-      width="xlarge"
+      width={props.width}
     >
       <Box direction="row" align="center">
         <TextInput
-          id="privatekey"
-          data-testid="privatekey"
-          placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
-          value={privateKey}
-          onChange={onChange}
-          type={privateKeyIsVisible ? 'text' : 'password'}
+          id={props.inputElementId}
+          placeholder={props.placeholder}
+          value={props.value}
+          onChange={props.onChange}
+          type={passwordIsVisible ? 'text' : 'password'}
+          autoComplete={props.autoComplete}
           plain
         />
-        <Tip
-          content={
-            privateKeyIsVisible
-              ? t('openWallet.privateKey.hidePrivateKey', 'Hide private key')
-              : t('openWallet.privateKey.showPrivateKey', 'Show private key')
-          }
-        >
+        <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>
           <Button
-            onClick={() => setPrivateKeyIsVisible(!privateKeyIsVisible)}
-            icon={privateKeyIsVisible ? <View /> : <Hide />}
+            onClick={() => setPasswordIsVisible(!passwordIsVisible)}
+            icon={passwordIsVisible ? <View /> : <Hide />}
           />
         </Tip>
       </Box>
