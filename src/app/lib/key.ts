@@ -1,4 +1,5 @@
 import nacl from 'tweetnacl'
+import { uint2hex } from './helpers'
 
 /**
  * Verify if a key pair is actually usable for signatures
@@ -8,7 +9,7 @@ function canSignWith(keyPair: nacl.SignKeyPair) {
   const testMessage = Uint8Array.from([1, 2, 3])
   const signedTestMessage = nacl.sign(testMessage, secretKey)
   const testDecoded = nacl.sign.open(signedTestMessage, publicKey)
-  return `${testDecoded}` === `${testMessage}`
+  return testDecoded && uint2hex(testDecoded) === uint2hex(testMessage)
 }
 
 export class OasisKey {
