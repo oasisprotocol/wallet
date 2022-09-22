@@ -26,7 +26,7 @@ export const ThemeSwitcher = memo((props: Props) => {
     },
     dark: {
       icon: <Sun />,
-      label: t('theme.ligthMode', 'Light mode'),
+      label: t('theme.lightMode', 'Light mode'),
     },
   }
 

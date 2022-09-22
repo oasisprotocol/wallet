@@ -197,7 +197,7 @@
   },
   "theme": {
     "darkMode": "Temni način",
-    "ligthMode": "Svetli način"
+    "lightMode": "Svetli način"
   },
   "toolbar": {
     "networks": {
