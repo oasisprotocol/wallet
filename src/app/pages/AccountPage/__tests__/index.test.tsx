@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import * as React from 'react'
 import { Provider, useDispatch } from 'react-redux'
-import { MemoryRouter, Route } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { LocationDescriptor } from 'history'
 import { configureAppStore } from 'store/configureStore'
@@ -25,7 +25,9 @@ const renderPage = (store: any, initialEntries: LocationDescriptor[]) =>
     <Provider store={store}>
       <ThemeProvider>
         <MemoryRouter initialEntries={initialEntries}>
-          <Route path="/account/:address" component={AccountPage} />
+          <Routes>
+            <Route path="/account/:address" element={<AccountPage />} />
+          </Routes>
         </MemoryRouter>
       </ThemeProvider>
     </Provider>,
