@@ -104,7 +104,7 @@
     "@types/body-scroll-lock": "3.1.0",
     "@types/jest": "29.0.2",
     "@types/jest-when": "3.5.2",
-    "@types/node": "16.11.47",
+    "@types/node": "16.11.59",
     "@types/node-fetch": "3.0.3",
     "@types/qrcode.react": "1.0.2",
     "@types/react": "17.0.47",
