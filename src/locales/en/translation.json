@@ -18,6 +18,13 @@
       "reclaim": "Reclaim",
       "reclaimAll": "Reclaim all"
     },
+    "sendBurn": {
+      "burn": "Burn",
+      "confirmBurning": {
+        "description": "You are about to burn these tokens. You are not sending them anywhere, but destroying them. They will completely cease to exist, and there is no way to get them back.",
+        "title": "Are you sure you want to continue?"
+      }
+    },
     "sendTransaction": {
       "confirmSendingToValidator": {
         "description": "This is a validator address. Transfers to this address do not stake your funds with the validator.",
@@ -30,6 +37,7 @@
     },
     "subnavigation": {
       "activeDelegations": "Active delegations",
+      "burning": "Burning tokens",
       "debondingDelegations": "Debonding delegations",
       "mobileActiveDelegations": "Delegations",
       "mobileDebondingDelegations": "Debonding",
@@ -51,6 +59,9 @@
       "addEscrow": {
         "received": "Received <Amount> delegation in escrow",
         "sent": "Delegated <Amount/> to validator"
+      },
+      "burnTransaction": {
+        "header": "Burned <Amount/>"
       },
       "consensusDeposit": {
         "received": "Received <Amount/> deposit into {{runtimeName}} ParaTime",
@@ -95,6 +106,9 @@
   "backends": {
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
+  },
+  "burn": {
+    "amount": "Amount to burn"
   },
   "common": {
     "amount": "Amount",
@@ -287,6 +301,7 @@
     },
     "types": {
       "addEscrow": "Delegating your tokens to a validator and generate rewards",
+      "burn": "Burn tokens in your account",
       "reclaimEscrow": "Reclaiming your tokens delegated to a validator",
       "transfer": "Transferring tokens from your account to another"
     }
