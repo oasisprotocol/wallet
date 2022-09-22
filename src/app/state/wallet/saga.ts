@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, fork, put, select, take, takeEvery, takeLatest } from 'typed-redux-saga'
+import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
@@ -32,9 +32,6 @@ export function* rootWalletSaga() {
   yield* fork(refreshAccountOnTransaction)
   yield* takeEvery(walletActions.fetchWallet, loadWallet)
 
-  // Allow switching between wallets
-  yield* takeLatest(walletActions.selectWallet, selectWallet)
-
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
 
@@ -64,7 +61,6 @@ function* getWalletByAddress(address: string) {
  */
 export function* openWalletsFromLedger() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
-  const newWalletId = walletId
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
@@ -74,12 +70,10 @@ export function* openWalletsFromLedger() {
         type: WalletType.Ledger,
         balance: account.balance,
         path: account.path,
-        selectImmediately: false,
+        selectImmediately: account === accounts[0], // Select first
       }),
     )
   }
-  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
-  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
@@ -104,7 +98,6 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
 
 export function* openWalletFromMnemonic() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
-  const newWalletId = walletId
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
@@ -114,21 +107,20 @@ export function* openWalletFromMnemonic() {
         path: account.path,
         privateKey: account.privateKey,
         publicKey: account.publicKey,
-        selectImmediately: false,
         type: account.type,
+        selectImmediately: account === accounts[0], // Select first
       }),
     )
   }
-  const existingWallet = yield* call(getWalletByAddress, accounts[0].address)
-  yield* put(walletActions.selectWallet(existingWallet ? existingWallet.id : newWalletId))
 }
 
 /**
  * Adds a wallet to the existing wallets
- * If the wallet exists already, do nothingg
+ * If the wallet exists already, do nothing
  * If it has "selectImmediately", we select it immediately
  */
-export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayload>) {
+export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
+  const { selectImmediately, ...newWallet } = payload
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
     yield* put(walletActions.walletOpened(newWallet))
@@ -136,17 +128,15 @@ export function* addWallet({ payload: newWallet }: PayloadAction<AddWalletPayloa
 
   const walletId = existingWallet ? existingWallet.id : newWallet.id
 
-  if (newWallet.selectImmediately) {
+  if (selectImmediately) {
+    yield* put(walletActions.selectWallet(undefined)) // Workaround so useRouteRedirects detects selecting the same account
+    yield* delay(1) // Workaround to avoid React batching state updates
     yield* put(walletActions.selectWallet(walletId))
   }
 }
 
 export function* closeWallet() {
   yield* put(walletActions.walletClosed())
-}
-
-export function* selectWallet({ payload: index }: PayloadAction<number>) {
-  yield* put(walletActions.walletSelected(index))
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {
