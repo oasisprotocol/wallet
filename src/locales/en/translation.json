@@ -11,6 +11,7 @@
       },
       "delegate": "Delegate"
     },
+    "addressCopied": "Address copied.",
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "reclaimEscrow": {
