@@ -74,13 +74,13 @@ describe('<Transaction  />', () => {
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
-  it('should copy an address and tx hash value to clipboard', () => {
+  it('should copy an address and tx hash value to clipboard', async () => {
     renderComponent(store, ref, transaction, network)
 
-    userEvent.click(screen.getByLabelText('ContactInfo'))
+    await userEvent.click(screen.getByLabelText('ContactInfo'))
     expect(copy).toHaveBeenNthCalledWith(1, 'source')
 
-    userEvent.click(screen.getByLabelText('Package'))
+    await userEvent.click(screen.getByLabelText('Package'))
     expect(copy).toHaveBeenNthCalledWith(2, 'ff1234')
   })
 

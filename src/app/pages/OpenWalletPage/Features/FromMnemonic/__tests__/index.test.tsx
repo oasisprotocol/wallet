@@ -29,28 +29,31 @@ describe('<FromMnemonic/>', () => {
     expect(page.container.firstChild).toMatchSnapshot()
   })
 
-  it('should display an error on invalid mnemonic', () => {
+  it('should display an error on invalid mnemonic', async () => {
     renderPage(store)
     const textbox = screen.getByRole('textbox') as HTMLInputElement
     const button = screen.getByRole('button')
-    userEvent.type(textbox, 'hello')
-    userEvent.click(button)
+    await userEvent.type(textbox, 'hello')
+    await userEvent.click(button)
     const errorElem = screen.getByText('openWallet.mnemonic.error')
     expect(errorElem).toBeInTheDocument()
 
     // A valid phrase should remove the error
-    textbox.setSelectionRange(0, 5)
-    userEvent.type(textbox, 'echo toward hold roast rather reduce cute civil equal whale wait conduct')
-    userEvent.click(button)
+    await userEvent.clear(textbox)
+    await userEvent.type(textbox, 'echo toward hold roast rather reduce cute civil equal whale wait conduct')
+    await userEvent.click(button)
     expect(errorElem).not.toBeInTheDocument()
   })
 
-  it('newlines in mnemonic should be valid', () => {
+  it('newlines in mnemonic should be valid', async () => {
     renderPage(store)
     const textbox = screen.getByRole('textbox')
     const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
-    userEvent.type(textbox, 'echo\ntoward hold   roast\n rather reduce cute civil equal whale wait conduct')
-    userEvent.click(button)
+    await userEvent.type(
+      textbox,
+      'echo\ntoward hold   roast\n rather reduce cute civil equal whale wait conduct',
+    )
+    await userEvent.click(button)
     const errorElem = screen.queryByText('openWallet.mnemonic.error')
     expect(errorElem).toBeNull()
   })
@@ -60,8 +63,8 @@ describe('<FromMnemonic/>', () => {
     const textbox = screen.getByRole('textbox') as HTMLInputElement
     const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
 
-    userEvent.type(textbox, 'echo toward hold roast rather reduce cute civil equal whale wait conduct')
-    userEvent.click(button)
+    await userEvent.type(textbox, 'echo toward hold roast rather reduce cute civil equal whale wait conduct')
+    await userEvent.click(button)
 
     expect(await screen.findByText('openWallet.importAccounts.selectWallets')).toBeInTheDocument()
   })

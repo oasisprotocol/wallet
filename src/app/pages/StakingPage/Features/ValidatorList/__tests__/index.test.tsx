@@ -109,13 +109,13 @@ describe('<ValidatorList  />', () => {
 
     let row = screen.getByText(/test-validator/)
     expect(row).toBeVisible()
-    userEvent.click(row)
+    await userEvent.click(row)
 
     const details = await screen.findByTestId('validator-item')
     row = screen.getAllByText(/test-validator/)[0]
 
     expect(details).toBeVisible()
-    userEvent.click(row)
+    await userEvent.click(row)
     await waitFor(() => expect(details).not.toBeVisible())
   })
 
@@ -131,14 +131,14 @@ describe('<ValidatorList  />', () => {
 
     let row = screen.getByText(/test-validator1/)
     expect(row).toBeVisible()
-    userEvent.click(row)
+    await userEvent.click(row)
 
     let details = await screen.findByTestId('validator-item')
     expect(screen.getByTestId('validator-item-name').textContent).toEqual('test-validator1')
     expect(details).toBeVisible()
 
     row = screen.getByText(/test-validator2/)
-    userEvent.click(row)
+    await userEvent.click(row)
 
     details = screen.getByTestId('validator-item')
     expect(await screen.findByTestId('validator-item-name')).toHaveTextContent('test-validator2')

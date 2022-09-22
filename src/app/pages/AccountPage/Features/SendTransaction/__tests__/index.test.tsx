@@ -20,13 +20,13 @@ describe('<SendTransaction />', () => {
     store = configureAppStore()
   })
 
-  it('should dispatch sendTransaction action on submit', () => {
+  it('should dispatch sendTransaction action on submit', async () => {
     const spy = jest.spyOn(store, 'dispatch')
     renderComponent(store)
 
-    userEvent.type(screen.getByPlaceholderText('account.sendTransaction.enterAddress'), 'walletAddress')
-    userEvent.type(screen.getByPlaceholderText('0'), '10')
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.type(screen.getByPlaceholderText('account.sendTransaction.enterAddress'), 'walletAddress')
+    await userEvent.type(screen.getByPlaceholderText('0'), '10')
+    await userEvent.click(screen.getByRole('button'))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {

@@ -28,22 +28,22 @@ describe('<FromPrivateKey  />', () => {
     expect(page.container.firstChild).toMatchSnapshot()
   })
 
-  it('should display an error on invalid private key', () => {
+  it('should display an error on invalid private key', async () => {
     renderPage(store)
     const textbox = screen.getByPlaceholderText('openWallet.privateKey.enterPrivateKeyHere')
     const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
-    userEvent.type(textbox, 'hello')
-    userEvent.click(button)
+    await userEvent.type(textbox, 'hello')
+    await userEvent.click(button)
     const errorElem = screen.getByText('openWallet.privateKey.error')
     expect(errorElem).toBeInTheDocument()
 
     // A valid phrase should remove the error
-    userEvent.clear(textbox)
-    userEvent.type(
+    await userEvent.clear(textbox)
+    await userEvent.type(
       textbox,
       'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
     )
-    userEvent.click(button)
+    await userEvent.click(button)
     expect(errorElem).not.toBeInTheDocument()
   })
 
@@ -51,7 +51,7 @@ describe('<FromPrivateKey  />', () => {
     renderPage(store)
     const textbox = screen.getByPlaceholderText('openWallet.privateKey.enterPrivateKeyHere')
     const button = screen.getByRole('button', { name: 'openWallet.mnemonic.import' })
-    userEvent.type(
+    await userEvent.type(
       textbox,
       `
       -----BEGIN ED25519 PRIVATE KEY-----
@@ -59,7 +59,7 @@ describe('<FromPrivateKey  />', () => {
       4MEkyO0pi7lJeunILQKiZA==
       -----END ED25519 PRIVATE KEY-----`,
     )
-    userEvent.click(button)
+    await userEvent.click(button)
     const errorElem = screen.queryByText(/Invalid private key/)
     expect(errorElem).not.toBeInTheDocument()
   })
