@@ -64,7 +64,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
     expect(component.getByText('oasis1qzyq...7gh2pxqe')).toBeInTheDocument()
   })
 
-  it('should open the selected accounts', () => {
+  it('should open the selected accounts', async () => {
     const dispatchFn = jest.fn()
     jest.mocked(useDispatch).mockImplementation(() => dispatchFn)
 
@@ -91,14 +91,14 @@ describe('<ImportAccountsSelectionModal  />', () => {
     )
 
     store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
-    userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
+    await userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({
       payload: 0,
       type: importAccountsActions.toggleAccount.type,
     })
     store.dispatch(importAccountsActions.toggleAccount(0))
 
-    userEvent.click(screen.getByTestId('ledger-open-accounts'))
+    await userEvent.click(screen.getByTestId('ledger-open-accounts'))
     expect(dispatchFn).toHaveBeenLastCalledWith(
       expect.objectContaining({ type: walletActions.openWalletsFromLedger.type }),
     )

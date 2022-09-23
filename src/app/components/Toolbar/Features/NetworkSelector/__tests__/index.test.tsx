@@ -31,7 +31,7 @@ describe('<NetworkSelector  />', () => {
     const dispatchSpy = jest.spyOn(store, 'dispatch')
     const component = renderComponent(store)
     expect(component.getByTestId('active-network')).toContainHTML('toolbar.networks.local')
-    userEvent.click(screen.getByTestId('network-selector'))
+    await userEvent.click(screen.getByTestId('network-selector'))
 
     expect(await screen.findByText('toolbar.networks.testnet')).toBeInTheDocument()
     screen.getByText('toolbar.networks.testnet').click()

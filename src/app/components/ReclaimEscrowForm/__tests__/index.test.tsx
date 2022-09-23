@@ -5,7 +5,7 @@ import { transactionActions } from 'app/state/transaction'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
-
+import { WalletErrors } from 'types/errors'
 import { ReclaimEscrowForm } from '..'
 
 const renderComponent = (store: any, address: string, maxAmount: string, maxShares: string) =>
@@ -28,29 +28,37 @@ describe('<ReclaimEscrowForm />', () => {
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
-  it('should error without an open wallet', () => {
-    renderComponent(store, 'dummy-address', '1000000000000', '1000000000000')
+  it('should render error indicator', () => {
+    const storeWithError = configureAppStore({
+      transaction: {
+        active: true,
+        error: {
+          code: WalletErrors.NoOpenWallet,
+          message: 'message',
+        },
+        success: false,
+      },
+    })
 
-    userEvent.type(screen.getByTestId('amount'), '1000')
-    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaim' }))
+    renderComponent(storeWithError, 'dummy-address', '1000000000000', '1000000000000')
 
     expect(screen.getByText('errors.noOpenWallet')).toBeInTheDocument()
   })
 
-  it('should display the number of shares', () => {
+  it('should display the number of shares', async () => {
     renderComponent(store, 'dummy-address', '1000000000000', '1000000000000')
 
     expect(screen.queryByTestId('numberOfShares')).toBeNull()
-    userEvent.type(screen.getByTestId('amount'), '500')
+    await userEvent.type(screen.getByTestId('amount'), '500')
     expect(screen.getByTestId('numberOfShares')).toBeInTheDocument()
   })
 
-  it('should submit the transaction', () => {
+  it('should submit the transaction', async () => {
     const spy = jest.spyOn(store, 'dispatch')
     renderComponent(store, 'dummy-address', '2000000000000', '1000000000000')
 
-    userEvent.type(screen.getByTestId('amount'), '500')
-    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaim' }))
+    await userEvent.type(screen.getByTestId('amount'), '500')
+    await userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaim' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {
@@ -63,10 +71,10 @@ describe('<ReclaimEscrowForm />', () => {
     } as ReturnType<typeof transactionActions.reclaimEscrow>)
   })
 
-  it('reclaim all should submit the transaction', () => {
+  it('reclaim all should submit the transaction', async () => {
     const spy = jest.spyOn(store, 'dispatch')
     renderComponent(store, 'dummy-address', '2000000000000', '1000000000000')
-    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaimAll' }))
+    await userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaimAll' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {
@@ -79,10 +87,10 @@ describe('<ReclaimEscrowForm />', () => {
     } as ReturnType<typeof transactionActions.reclaimEscrow>)
   })
 
-  it('reclaim all should work without losing precision', () => {
+  it('reclaim all should work without losing precision', async () => {
     const spy = jest.spyOn(store, 'dispatch')
     renderComponent(store, 'dummy-address', '1655615038322038833148', '1563114365108133939632')
-    userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaimAll' }))
+    await userEvent.click(screen.getByRole('button', { name: 'account.reclaimEscrow.reclaimAll' }))
 
     expect(spy).toHaveBeenCalledWith({
       payload: {
