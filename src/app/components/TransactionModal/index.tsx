@@ -61,7 +61,11 @@ export function TransactionModal() {
             </AlertBox>
           </Box>
           {preview && (
-            <TransactionPreview chainContext={chainContext} preview={preview} walletAddress={walletAddress} />
+            <TransactionPreview
+              chainContext={chainContext}
+              preview={preview}
+              walletAddress={walletAddress!}
+            />
           )}
           {step === TransactionStep.Preview && (
             <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>

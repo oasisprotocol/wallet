@@ -13,8 +13,8 @@ import { doTransaction } from './saga'
 const makeState = (wallet: Partial<Wallet>): DeepPartialRootState => {
   return {
     wallet: {
-      wallets: { 0: { id: 0, ...wallet } },
-      selectedWallet: 0,
+      wallets: { [wallet.address!]: wallet },
+      selectedWallet: wallet.address,
       isOpen: true,
     },
   }

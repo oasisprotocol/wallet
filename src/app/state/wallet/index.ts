@@ -16,18 +16,18 @@ const slice = createSlice({
     openWalletFromMnemonic(state, action: PayloadAction<void>) {},
     openWalletFromPrivateKey(state, action: PayloadAction<string>) {},
     openWalletsFromLedger(state, action: PayloadAction<void>) {},
-    selectWallet(state, action: PayloadAction<number | undefined>) {
+    selectWallet(state, action: PayloadAction<string | undefined>) {
       state.selectedWallet = action.payload
     },
     closeWallet(state, action: PayloadAction<void>) {},
     fetchWallet(state, action: PayloadAction<Wallet>) {},
     updateBalance(state, action: PayloadAction<BalanceUpdatePayload>) {
-      Object.assign(state.wallets[action.payload.walletId].balance, action.payload.balance)
+      Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
     },
     addWallet(state, action: PayloadAction<AddWalletPayload>) {},
     walletOpened(state, action: PayloadAction<Wallet>) {
       const newWallet = action.payload
-      state.wallets[newWallet.id] = Object.assign({}, newWallet)
+      state.wallets[newWallet.address] = newWallet
       state.isOpen = true
     },
     walletClosed(state, action: PayloadAction<void>) {

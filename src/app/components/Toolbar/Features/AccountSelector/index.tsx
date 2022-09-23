@@ -8,7 +8,7 @@ import { PrettyAddress } from 'app/components/PrettyAddress'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { walletActions } from 'app/state/wallet'
-import { selectActiveWalletId, selectWallets } from 'app/state/wallet/selectors'
+import { selectAddress, selectWallets } from 'app/state/wallet/selectors'
 import { WalletType } from 'app/state/wallet/types'
 import { Box, Button, CheckBox, Heading, ResponsiveContext, Text } from 'grommet'
 import React, { memo, useContext } from 'react'
@@ -21,11 +21,10 @@ interface Props {
 }
 
 interface AccountProps {
-  index: number
   address: string
   balance: StringifiedBigInt
   type: WalletType
-  onClick: (index: number) => void
+  onClick: (address: string) => void
   details?: string
   isActive: boolean
   displayCheckbox?: boolean
@@ -60,7 +59,7 @@ export const Account = memo((props: AccountProps) => {
       flex="grow"
       fill="horizontal"
       onClick={() => {
-        props.onClick(props.index)
+        props.onClick(props.address)
       }}
       hoverIndicator={{ background: 'brand' }}
       direction="row"
@@ -92,22 +91,21 @@ export const AccountSelector = memo((props: Props) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const wallets = useSelector(selectWallets)
-  const activeWalletIndex = useSelector(selectActiveWalletId)
+  const activeAddress = useSelector(selectAddress)
 
-  const switchAccount = (index: number) => {
-    dispatch(walletActions.selectWallet(index))
+  const switchAccount = (address: string) => {
+    dispatch(walletActions.selectWallet(address))
     props.closeHandler()
   }
 
-  const accounts = Object.values(wallets).map((wallet, index) => (
+  const accounts = Object.values(wallets).map(wallet => (
     <Account
-      key={index}
-      index={wallet.id}
+      key={wallet.address}
       address={wallet.address}
       balance={wallet.balance.available} // TODO: get total balance
       type={wallet.type}
       onClick={switchAccount}
-      isActive={wallet.id === activeWalletIndex}
+      isActive={wallet.address === activeAddress}
       details={wallet.path?.join('/')}
     />
   ))

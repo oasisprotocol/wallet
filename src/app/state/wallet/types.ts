@@ -22,12 +22,11 @@ export interface WalletBalance {
 }
 
 export interface BalanceUpdatePayload {
-  walletId: number
+  address: string
   balance: WalletBalance
 }
 
 export interface Wallet {
-  id: number
   publicKey: string
   address: string
   type: WalletType
@@ -43,6 +42,6 @@ export interface AddWalletPayload extends Wallet {
 /* --- STATE --- */
 export interface WalletState {
   isOpen: boolean
-  selectedWallet?: number
-  wallets: { [id: number]: Wallet }
+  selectedWallet?: string
+  wallets: { [address: string]: Wallet }
 }

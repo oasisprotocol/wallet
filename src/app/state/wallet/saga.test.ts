@@ -54,7 +54,6 @@ describe('Wallet Sagas', () => {
               available: '0',
               validator: { escrow: '0', escrow_debonding: '0' },
             },
-            id: 1,
             path: [44, 474, 0],
             privateKey: '00',
             publicKey: '00',
@@ -63,7 +62,7 @@ describe('Wallet Sagas', () => {
           }),
         )
         .put.actionType(walletActions.walletOpened.type)
-        .put(walletActions.selectWallet(1))
+        .put(walletActions.selectWallet('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4'))
         .silentRun(200)
     })
 
@@ -124,22 +123,23 @@ describe('Wallet Sagas', () => {
           ...state,
           wallet: {
             isOpen: true,
-            selectedWallet: 0,
-            wallets: [
-              {
+            selectedWallet: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+            wallets: {
+              oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk: {
                 address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
-                id: 0,
               },
-              {
+              oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4: {
                 address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-                id: 1,
               },
-            ],
+            },
           },
         })
         .dispatch(walletActions.openWalletsFromLedger())
         .fork(walletSaga)
-        .put({ type: walletActions.selectWallet.type, payload: 1 })
+        .put({
+          type: walletActions.selectWallet.type,
+          payload: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+        })
         .silentRun(50)
     })
 
@@ -180,8 +180,10 @@ describe('Wallet Sagas', () => {
       .withState<DeepPartialRootState>({
         account: { address: 'sender' },
         wallet: {
-          selectedWallet: 0,
-          wallets: [{ address: 'sender', publicKey: '00' }],
+          selectedWallet: 'sender',
+          wallets: {
+            sender: { address: 'sender', publicKey: '00' },
+          },
         },
       })
       .dispatch(
