@@ -231,7 +231,7 @@
   },
   "theme": {
     "darkMode": "Dark mode",
-    "ligthMode": "Light mode"
+    "lightMode": "Light mode"
   },
   "toolbar": {
     "networks": {

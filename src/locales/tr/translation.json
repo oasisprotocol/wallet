@@ -197,7 +197,7 @@
   },
   "theme": {
     "darkMode": "Gece modu",
-    "ligthMode": "Gündüz modu"
+    "lightMode": "Gündüz modu"
   },
   "toolbar": {
     "networks": {

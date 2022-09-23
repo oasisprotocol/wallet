@@ -197,7 +197,7 @@
   },
   "theme": {
     "darkMode": "Thème nuit",
-    "ligthMode": "Thème clair"
+    "lightMode": "Thème clair"
   },
   "toolbar": {
     "networks": {
