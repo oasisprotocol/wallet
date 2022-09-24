@@ -12,6 +12,7 @@ import { normalizeColor } from 'grommet/utils'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'
+import { selectTicker } from '../../../../state/network/selectors'
 
 const StyledDescriptionList = styled.dl`
   display: flex;
@@ -93,6 +94,7 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
   const { t } = useTranslation()
   const theme = useSelector(selectTheme)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
+  const ticker = useSelector(selectTicker)
 
   return (
     <>
@@ -111,7 +113,8 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
               i18nKey="account.summary.noWalletIsOpen"
               t={t}
               components={{ HomeLink: <AnchorLink to="/" /> }}
-              defaults="To send, receive, stake and swap ROSE tokens, <HomeLink>open your wallet!</HomeLink>"
+              values={{ ticker }}
+              defaults="To send, receive, stake and swap {{ ticker }} tokens, <HomeLink>open your wallet!</HomeLink>"
             />
           </AlertBox>
         )}
