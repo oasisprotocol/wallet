@@ -11,6 +11,7 @@
     "build": "node ./internals/prod-web.js",
     "build:ext": "node ./internals/prod-ext.js",
     "clean": "rm -rf build/ .parcel-cache",
+    "clean:deep": "yarn clean; rm -rf node_modules",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
     "start": "REACT_APP_META_CSP= HMR_PORT=2222 EXTENSION_CSP=`yarn --silent print-extension-csp` parcel --host localhost --port 3000 --dist-dir build-dev",
     "cypress:open": "cypress open",
