@@ -1,11 +1,12 @@
 import { walletActions } from 'app/state/wallet'
-import { Box, Form, Heading, Paragraph, Button } from 'grommet'
+import { Box, Form, Paragraph, Button } from 'grommet'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { OasisKey } from 'app/lib/key'
 import { base64ToUint, uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
+import { Header } from 'app/components/Header'
 
 interface Props {}
 
@@ -47,7 +48,7 @@ export function FromPrivateKey(props: Props) {
       border={{ color: 'background-front-border', size: '1px' }}
     >
       <Form>
-        <Heading margin="0">{t('openWallet.privateKey.header', 'Enter your private key')}</Heading>
+        <Header>{t('openWallet.privateKey.header', 'Enter your private key')}</Header>
         <Paragraph>
           <label htmlFor="privatekey">
             {t('openWallet.privateKey.instruction', 'Enter your private key in Base64 format.')}

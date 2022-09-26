@@ -15,8 +15,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   width: auto;
-  padding-top: 12px;
-  padding-bottom: 12px;
 }
 
 .c7 {
@@ -233,11 +231,10 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c6 {
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 1;
-  line-height: normal;
-  max-width: 1200px;
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
 }
 
@@ -330,13 +327,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
   .c7 {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -388,8 +378,15 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c6 {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c6 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 
@@ -453,12 +450,11 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
             <div
               class="c5"
             >
-              <h1
+              <h2
                 class="c6"
-                size="1"
               >
                 toolbar.wallets.switchOtherWallet
-              </h1>
+              </h2>
               <div
                 class="c7"
               >

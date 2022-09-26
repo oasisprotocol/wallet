@@ -266,10 +266,10 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 }
 
 .c2 {
-  margin: 0;
-  font-size: 50px;
-  line-height: 56px;
-  max-width: 1200px;
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
 }
 
@@ -412,15 +412,15 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c2 {
-    margin: 0;
+    margin-top: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c2 {
-    font-size: 34px;
-    line-height: 40px;
-    max-width: 816px;
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 

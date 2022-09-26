@@ -7,10 +7,11 @@ import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { ShortAddress } from 'app/components/ShortAddress'
+import { ModalHeader } from 'app/components/Header'
 import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectWallets } from 'app/state/wallet/selectors'
 import { WalletType } from 'app/state/wallet/types'
-import { Box, Button, CheckBox, Heading, ResponsiveContext, Text } from 'grommet'
+import { Box, Button, CheckBox, ResponsiveContext, Text } from 'grommet'
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -118,10 +119,8 @@ export const AccountSelector = memo((props: Props) => {
       background="background-front"
       modal
     >
-      <Box pad={{ vertical: 'small' }} margin="medium" width={size === 'small' ? 'auto' : '700px'}>
-        <Heading size="1" margin={{ vertical: 'small' }}>
-          {t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}
-        </Heading>
+      <Box margin="medium" width={size === 'small' ? 'auto' : '700px'}>
+        <ModalHeader>{t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}</ModalHeader>
         <Box
           gap="small"
           pad={{ vertical: 'medium', right: 'small' }}

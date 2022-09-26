@@ -9,12 +9,13 @@ import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { NoTranslate } from 'app/components/NoTranslate'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { importAccountsActions } from 'app/state/importaccounts'
-import { Box, Button, CheckBox, Grid, Heading, Layer, ResponsiveContext, Text } from 'grommet'
+import { Box, Button, CheckBox, Grid, Layer, ResponsiveContext, Text } from 'grommet'
 import { Refresh } from 'grommet-icons'
 import * as React from 'react'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { Header } from 'app/components/Header'
 import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { createWalletActions } from './slice'
@@ -117,14 +118,8 @@ export function CreateWalletPage(props: CreateWalletProps) {
             </Box>
           </Box>
         </Box>
-        <Box
-          pad={{ left: 'small', vertical: 'small', right: 'small' }}
-          background="background-front"
-          round="5px"
-        >
-          <Heading margin="0" level="2">
-            {t('createWallet.thisIsYourPhrase', 'This is your mnemonic')}
-          </Heading>
+        <Box pad="medium" background="background-front" round="5px">
+          <Header>{t('createWallet.thisIsYourPhrase', 'This is your mnemonic')}</Header>
           <Box width="100%" justify="evenly" margin={{ vertical: 'small' }}>
             <Text margin="0">
               <Trans

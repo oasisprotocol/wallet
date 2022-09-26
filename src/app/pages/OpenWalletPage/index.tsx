@@ -3,12 +3,12 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box, Button, Heading } from 'grommet'
+import { Anchor, Box, Button } from 'grommet'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { NavLink, Route, Routes } from 'react-router-dom'
+import { Header } from 'app/components/Header'
 import { FromLedger } from './Features/FromLedger'
-
 import { FromMnemonic } from './Features/FromMnemonic'
 import { FromPrivateKey } from './Features/FromPrivateKey'
 
@@ -23,7 +23,7 @@ export function SelectOpenMethod() {
       margin="small"
       pad="medium"
     >
-      <Heading level="3">{t('openWallet.header', 'How do you want to open your wallet?')}</Heading>
+      <Header>{t('openWallet.header', 'How do you want to open your wallet?')}</Header>
 
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <NavLink to="mnemonic">

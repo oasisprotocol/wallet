@@ -21,17 +21,13 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   border-radius: 5px;
 }
 
-.c3 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-top: 12px;
-  margin-bottom: 12px;
-  margin-left: 12px;
-  margin-right: 48px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -46,6 +42,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  margin-bottom: 12px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -60,21 +57,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 12px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c8 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
   border-bottom: solid 1px rgba(0,0,0,0.33);
   min-width: 0;
   min-height: 0;
@@ -83,7 +65,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c10 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -98,7 +80,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c12 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -113,7 +95,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,7 +113,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding: 6px;
 }
 
-.c15 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -146,12 +128,12 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c16 {
+.c15 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c11 {
+.c10 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -180,56 +162,56 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c11:hover {
+.c10:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c11:focus {
+.c10:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus > circle,
-.c11:focus > ellipse,
-.c11:focus > line,
-.c11:focus > path,
-.c11:focus > polygon,
-.c11:focus > polyline,
-.c11:focus > rect {
+.c10:focus > circle,
+.c10:focus > ellipse,
+.c10:focus > line,
+.c10:focus > path,
+.c10:focus > polygon,
+.c10:focus > polyline,
+.c10:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus::-moz-focus-inner {
+.c10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c11:focus:not(:focus-visible) {
+.c10:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible) > circle,.c11:focus:not(:focus-visible) > ellipse,
-.c11:focus:not(:focus-visible) > line,.c11:focus:not(:focus-visible) > path,
-.c11:focus:not(:focus-visible) > polygon,.c11:focus:not(:focus-visible) > polyline,
-.c11:focus:not(:focus-visible) > rect {
+.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible)::-moz-focus-inner {
+.c10:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c4 {
-  margin: 0;
-  font-size: 50px;
-  line-height: 56px;
-  max-width: 1200px;
+.c3 {
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
 }
 
-.c13 {
+.c12 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
@@ -240,7 +222,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(100%,1fr) );
   grid-gap: 12px 12px;
-  padding: 12px;
+  padding: 0px;
 }
 
 .c0 {
@@ -256,13 +238,13 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c5 {
+.c4 {
   font-size: 18px;
   line-height: 24px;
   max-width: 432px;
 }
 
-.c9 {
+.c8 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -281,49 +263,49 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   height: 100%;
 }
 
-.c9:focus {
+.c8:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus::-moz-focus-inner {
+.c8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c9::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c9:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c9::-webkit-search-decoration {
+.c8::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c9::-moz-focus-inner {
+.c8::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c9:-moz-placeholder,
-.c9::-moz-placeholder {
+.c8:-moz-placeholder,
+.c8::-moz-placeholder {
   opacity: 1;
 }
 
@@ -346,77 +328,58 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c3 {
-    margin-top: 6px;
+  .c6 {
     margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c3 {
-    margin-left: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c3 {
-    margin-right: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c7 {
-    margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c8 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c9 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c13 {
     margin: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c13 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c13 {
     padding: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
-    margin: 0;
+  .c3 {
+    margin-top: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
-    font-size: 34px;
-    line-height: 40px;
-    max-width: 816px;
+  .c3 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 
@@ -426,7 +389,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c2 {
-    padding: 6px;
+    padding: 0px;
   }
 }
 
@@ -440,74 +403,70 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
     <div
       class="c2"
     >
-      <div
-        class="c3"
-      >
-        <form>
-          <h1
-            class="c4"
-          >
-            openWallet.mnemonic.header
-          </h1>
-          <p
-            class="c5"
-          >
-            openWallet.mnemonic.instruction
-          </p>
+      <form>
+        <h1
+          class="c3"
+        >
+          openWallet.mnemonic.header
+        </h1>
+        <p
+          class="c4"
+        >
+          openWallet.mnemonic.instruction
+        </p>
+        <div
+          class="c5"
+        >
           <div
-            class="c6"
+            class="c6 "
           >
             <div
               class="c7 "
             >
               <div
-                class="c8 "
+                class="c5"
               >
-                <div
-                  class="c6"
-                >
-                  <textarea
-                    class="c9"
-                    data-testid="mnemonic"
-                    id="mnemonic"
-                    placeholder="openWallet.mnemonic.enterPhraseHere"
-                    rows="5"
-                  />
-                </div>
+                <textarea
+                  class="c8"
+                  data-testid="mnemonic"
+                  id="mnemonic"
+                  placeholder="openWallet.mnemonic.enterPhraseHere"
+                  rows="5"
+                />
               </div>
             </div>
           </div>
-          <div
+        </div>
+        <div
+          class="c9"
+        >
+          <button
             class="c10"
+            type="submit"
           >
-            <button
-              class="c11"
-              type="submit"
-            >
-              openWallet.mnemonic.import
-            </button>
-          </div>
-        </form>
-      </div>
+            openWallet.mnemonic.import
+          </button>
+        </div>
+      </form>
       <div
-        class="c12"
+        class="c11"
       >
         <span
           class="notranslate"
           translate="no"
         >
           <div
-            class="c13"
+            class="c12"
             data-testid="mnemonic-grid"
           >
             <div
-              class="c14"
+              class="c13"
             >
               <div
-                class="c15"
+                class="c14"
               >
                 <span
-                  class="c16"
+                  class="c15"
                   style="user-select: none;"
                 >
                   1
@@ -515,7 +474,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c6"
+                class="c5"
               >
                 <span
                   class="notranslate"

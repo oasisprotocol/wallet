@@ -121,10 +121,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 24px;
   border-radius: 5px;
 }
 
@@ -466,7 +463,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 .c15 {
-  margin: 0;
+  margin-top: 0px;
   font-size: 34px;
   line-height: 40px;
   max-width: 816px;
@@ -566,20 +563,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c14 {
-    padding-top: 6px;
-    padding-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c14 {
-    padding-left: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c14 {
-    padding-right: 6px;
+    padding: 12px;
   }
 }
 
@@ -661,7 +645,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
-    margin: 0;
+    margin-top: 0px;
   }
 }
 
@@ -1447,11 +1431,11 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
     <div
       class="c14"
     >
-      <h2
+      <h1
         class="c15"
       >
         createWallet.thisIsYourPhrase
-      </h2>
+      </h1>
       <div
         class="c16"
       >

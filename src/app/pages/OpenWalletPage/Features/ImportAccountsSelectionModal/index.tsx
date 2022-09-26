@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
+import { ModalHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { Account } from 'app/components/Toolbar/Features/AccountSelector'
@@ -10,7 +11,7 @@ import { importAccountsActions } from 'app/state/importaccounts'
 import { selectImportAccounts, selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 import { ImportAccountsListAccount, ImportAccountsStep } from 'app/state/importaccounts/types'
 import { walletActions } from 'app/state/wallet'
-import { Box, Button, Heading, Spinner, Text } from 'grommet'
+import { Box, Button, Spinner, Text } from 'grommet'
 
 interface ImportAccountsSelectorSelectorProps {
   accounts: ImportAccountsListAccount[]
@@ -73,9 +74,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="750px" pad="medium">
-        <Heading size="1" margin={{ bottom: 'medium', top: 'none' }}>
-          {t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
-        </Heading>
+        <ModalHeader>{t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}</ModalHeader>
         {importAccounts.step && importAccounts.step !== ImportAccountsStep.Done && (
           <Box direction="row" gap="medium" alignContent="center">
             <Spinner size="medium" />

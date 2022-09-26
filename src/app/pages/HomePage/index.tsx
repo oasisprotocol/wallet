@@ -1,8 +1,9 @@
-import { Box, Button, Grid, Heading, Paragraph, ResponsiveContext } from 'grommet'
+import { Box, Button, Grid, Paragraph, ResponsiveContext } from 'grommet'
 import { Add, Unlock } from 'grommet-icons'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import { Header } from 'app/components/Header'
 
 export function HomePage() {
   const size = useContext(ResponsiveContext)
@@ -16,7 +17,7 @@ export function HomePage() {
           background="background-front"
           pad="large"
         >
-          <Heading size="1">{t('home.existing.header', 'Access existing wallet')}</Heading>
+          <Header>{t('home.existing.header', 'Access existing wallet')}</Header>
           <Paragraph>
             {t(
               'home.existing.description',
@@ -40,7 +41,7 @@ export function HomePage() {
           background="background-front"
           pad="large"
         >
-          <Heading size="1">{t('home.create.header', 'Create new wallet')}</Heading>
+          <Header>{t('home.create.header', 'Create new wallet')}</Header>
           <Paragraph>
             {t(
               'home.create.description',

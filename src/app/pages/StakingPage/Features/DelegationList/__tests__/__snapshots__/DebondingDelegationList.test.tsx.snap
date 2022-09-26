@@ -57,7 +57,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 }
 
 .c1 {
-  margin: 0px;
+  margin-top: 0px;
   font-size: 34px;
   line-height: 40px;
   max-width: 816px;
@@ -371,7 +371,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    margin: 0px;
+    margin-top: 0px;
   }
 }
 
