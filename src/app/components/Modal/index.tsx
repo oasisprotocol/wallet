@@ -39,7 +39,7 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
       <Box margin="medium">
         <ModalHeader>{modal.title}</ModalHeader>
         <Paragraph fill>{modal.description}</Paragraph>
-        <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
+        <Box direction="row" gap="small" justify="between" pad={{ top: 'large' }}>
           <Button
             label={t('common.cancel', 'Cancel')}
             onClick={closeModal}

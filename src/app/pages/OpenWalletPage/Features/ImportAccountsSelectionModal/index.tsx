@@ -95,7 +95,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             <ErrorFormatter code={error.code} message={error.message} />
           </AlertBox>
         )}
-        <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
+        <Box direction="row" gap="small" justify="between" pad={{ top: 'large' }}>
           <Button
             secondary
             label={t('common.cancel', 'Cancel')}
