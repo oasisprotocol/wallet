@@ -67,7 +67,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 1152px;
+  width: auto;
   border-radius: 12px;
 }
 

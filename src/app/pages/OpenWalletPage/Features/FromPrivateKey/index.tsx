@@ -64,7 +64,7 @@ export function FromPrivateKey(props: Props) {
           error={privateKeyIsValid ? false : t('openWallet.privateKey.error', 'Invalid private key')}
           showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
           hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
-          width="xlarge"
+          width="auto"
         />
 
         <Box pad={{ vertical: 'medium' }}>
