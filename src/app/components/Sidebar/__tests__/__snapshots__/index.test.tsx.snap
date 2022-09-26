@@ -21,16 +21,14 @@ exports[`<Navigation /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c10 *[stroke*="#"],
-.c10 *[STROKE*="#"] {
+.c10 *[stroke*="#"],.c10 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
 .c10 *[fill-rule],
 .c10 *[FILL-RULE],
-.c10 *[fill*="#"],
-.c10 *[FILL*="#"] {
+.c10 *[fill*="#"],.c10 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -365,12 +363,9 @@ exports[`<Navigation /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,
-.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,
-.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,
-.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
 .c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -423,12 +418,9 @@ exports[`<Navigation /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
 .c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -518,7 +510,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
         class="c2"
       >
         <div
-          class="c3 StyledAvatar-sc-1suyamb-1"
+          class="c3 "
         />
         <div
           class="c4"

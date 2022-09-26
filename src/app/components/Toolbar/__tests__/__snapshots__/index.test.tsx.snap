@@ -21,16 +21,14 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c6 *[stroke*="#"],
-.c6 *[STROKE*="#"] {
+.c6 *[stroke*="#"],.c6 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
 .c6 *[fill-rule],
 .c6 *[FILL-RULE],
-.c6 *[fill*="#"],
-.c6 *[FILL*="#"] {
+.c6 *[fill*="#"],.c6 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -139,12 +137,9 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c4:focus:not(:focus-visible) > circle,
-.c4:focus:not(:focus-visible) > ellipse,
-.c4:focus:not(:focus-visible) > line,
-.c4:focus:not(:focus-visible) > path,
-.c4:focus:not(:focus-visible) > polygon,
-.c4:focus:not(:focus-visible) > polyline,
+.c4:focus:not(:focus-visible) > circle,.c4:focus:not(:focus-visible) > ellipse,
+.c4:focus:not(:focus-visible) > line,.c4:focus:not(:focus-visible) > path,
+.c4:focus:not(:focus-visible) > polygon,.c4:focus:not(:focus-visible) > polyline,
 .c4:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

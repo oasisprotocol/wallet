@@ -114,12 +114,9 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c6:focus:not(:focus-visible) > circle,
-.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,
-.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,
-.c6:focus:not(:focus-visible) > polyline,
+.c6:focus:not(:focus-visible) > circle,.c6:focus:not(:focus-visible) > ellipse,
+.c6:focus:not(:focus-visible) > line,.c6:focus:not(:focus-visible) > path,
+.c6:focus:not(:focus-visible) > polygon,.c6:focus:not(:focus-visible) > polyline,
 .c6:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -183,12 +180,9 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c7:focus:not(:focus-visible) > circle,
-.c7:focus:not(:focus-visible) > ellipse,
-.c7:focus:not(:focus-visible) > line,
-.c7:focus:not(:focus-visible) > path,
-.c7:focus:not(:focus-visible) > polygon,
-.c7:focus:not(:focus-visible) > polyline,
+.c7:focus:not(:focus-visible) > circle,.c7:focus:not(:focus-visible) > ellipse,
+.c7:focus:not(:focus-visible) > line,.c7:focus:not(:focus-visible) > path,
+.c7:focus:not(:focus-visible) > polygon,.c7:focus:not(:focus-visible) > polyline,
 .c7:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

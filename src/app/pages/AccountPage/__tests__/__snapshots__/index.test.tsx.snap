@@ -21,16 +21,14 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c10 *[stroke*="#"],
-.c10 *[STROKE*="#"] {
+.c10 *[stroke*="#"],.c10 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
 .c10 *[fill-rule],
 .c10 *[FILL-RULE],
-.c10 *[fill*="#"],
-.c10 *[FILL*="#"] {
+.c10 *[fill*="#"],.c10 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -455,12 +453,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
 .c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -528,12 +523,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c28:focus:not(:focus-visible) > circle,
-.c28:focus:not(:focus-visible) > ellipse,
-.c28:focus:not(:focus-visible) > line,
-.c28:focus:not(:focus-visible) > path,
-.c28:focus:not(:focus-visible) > polygon,
-.c28:focus:not(:focus-visible) > polyline,
+.c28:focus:not(:focus-visible) > circle,.c28:focus:not(:focus-visible) > ellipse,
+.c28:focus:not(:focus-visible) > line,.c28:focus:not(:focus-visible) > path,
+.c28:focus:not(:focus-visible) > polygon,.c28:focus:not(:focus-visible) > polyline,
 .c28:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -826,8 +818,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     width: 60%;
   }
 
-  .c12 dt:not(:last-of-type),
-  .c12 dd:not(:last-of-type) {
+  .c12 dt:not(:last-of-type),.c12 dd:not(:last-of-type) {
     margin-bottom: 6px;
   }
 
@@ -854,8 +845,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     font-size: 16px;
   }
 
-  .c12 dt:not(:last-of-type),
-  .c12 dd:not(:last-of-type) {
+  .c12 dt:not(:last-of-type),.c12 dd:not(:last-of-type) {
     margin-bottom: 3px;
   }
 
@@ -1049,7 +1039,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                   Recipient
                 </label>
                 <div
-                  class="c23 FormField__FormFieldContentBox-sc-m9hood-1"
+                  class="c23 "
                 >
                   <div
                     class="c24"
@@ -1079,7 +1069,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                   Amount
                 </label>
                 <div
-                  class="c23 FormField__FormFieldContentBox-sc-m9hood-1"
+                  class="c23 "
                 >
                   <div
                     class="c24"
