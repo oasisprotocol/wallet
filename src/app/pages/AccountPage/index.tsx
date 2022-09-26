@@ -48,6 +48,10 @@ const StyledNavItem = styled(NavLink)`
   &.active {
     background-color: ${({ theme }) => normalizeColor('background-back', theme)};
   }
+
+  @media only screen and (max-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
+    padding: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+  }
 `
 
 interface NavItemProps {
