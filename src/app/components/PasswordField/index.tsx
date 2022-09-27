@@ -1,5 +1,5 @@
 import { Box, FormField, Button, TextInput, Tip } from 'grommet'
-import { View, Hide } from 'grommet-icons/icons'
+import { View, Hide } from 'grommet-icons'
 import * as React from 'react'
 
 interface Props {

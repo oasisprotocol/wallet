@@ -8,7 +8,7 @@ import { QRCodeCanvas } from 'qrcode.react'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { normalizeColor } from 'grommet/utils'
+import { normalizeColor } from 'grommet/es6/utils'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from '../../../../state/account/types'

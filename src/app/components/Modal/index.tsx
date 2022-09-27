@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useState } from 'react'
 import { Box, Button, Layer, Heading, Paragraph } from 'grommet'
 import { useTranslation } from 'react-i18next'
-import { Alert, Checkmark, Close } from 'grommet-icons/icons'
+import { Alert, Checkmark, Close } from 'grommet-icons'
 
 interface Modal {
   title: string

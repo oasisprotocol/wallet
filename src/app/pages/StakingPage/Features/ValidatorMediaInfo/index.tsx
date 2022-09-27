@@ -5,7 +5,7 @@
  */
 import { ValidatorMediaInfo as MediaInfo } from 'app/state/staking/types'
 import { Box, Button, Image, ResponsiveContext } from 'grommet'
-import { Home, MailOption, Twitter } from 'grommet-icons/icons'
+import { Home, MailOption, Twitter } from 'grommet-icons'
 import React, { memo, useContext } from 'react'
 import { isWebUri } from 'valid-url'
 
