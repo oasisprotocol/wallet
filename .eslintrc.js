@@ -36,6 +36,16 @@ const config = {
             message: "Import 'TypeSafeDataTable' instead.",
           },
         ],
+        patterns: [
+          {
+            group: ['grommet/*', '!grommet/es6'],
+            message: "Import 'grommet' or 'grommet/es6/*' instead.",
+          },
+          {
+            group: ['grommet-icons/*', '!grommet-icons/es6'],
+            message: "Import 'grommet-icons' or 'grommet-icons/es6/*' instead.",
+          },
+        ],
       },
     ],
     'prefer-template': 'error',
