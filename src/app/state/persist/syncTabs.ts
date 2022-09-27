@@ -36,6 +36,7 @@ export function receiveInitialTabSyncState(
     theme: initialSyncState.theme,
     wallet: initialSyncState.wallet,
     network: initialSyncState.network,
+    persist: initialSyncState.persist,
   }
 }
 
@@ -47,6 +48,9 @@ export const whitelistTabSyncActions = [
   walletActions.walletOpened.type,
   walletActions.updateBalance.type,
   networkActions.networkSelected.type,
+  persistActions.setUnlockedRootState.type,
+  persistActions.lockAsync.type,
+  persistActions.eraseAsync.type,
 ]
 
 const stateSyncConfig: StateSyncConfig = {
@@ -56,7 +60,7 @@ const stateSyncConfig: StateSyncConfig = {
   },
   whitelist: whitelistTabSyncActions,
   prepareState: (state: RootState): SyncedRootState => {
-    return { theme: state.theme, wallet: state.wallet, network: state.network }
+    return { theme: state.theme, wallet: state.wallet, network: state.network, persist: state.persist }
   },
 }
 

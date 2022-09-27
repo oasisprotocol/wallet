@@ -33,4 +33,4 @@ export interface RootStateWithoutPersistSlice extends StrictOmit<RootState, 'per
   persist: null
 }
 
-export interface SyncedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network'> {}
+export interface SyncedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network' | 'persist'> {}
