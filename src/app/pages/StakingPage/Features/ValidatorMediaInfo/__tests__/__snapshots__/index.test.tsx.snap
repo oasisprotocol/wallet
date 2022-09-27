@@ -21,16 +21,14 @@ exports[`<ValidatorMediaInfo /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c3 *[stroke*="#"],
-.c3 *[STROKE*="#"] {
+.c3 *[stroke*="#"],.c3 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
 .c3 *[fill-rule],
 .c3 *[FILL-RULE],
-.c3 *[fill*="#"],
-.c3 *[FILL*="#"] {
+.c3 *[fill*="#"],.c3 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -109,12 +107,9 @@ exports[`<ValidatorMediaInfo /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c2:focus:not(:focus-visible) > circle,
-.c2:focus:not(:focus-visible) > ellipse,
-.c2:focus:not(:focus-visible) > line,
-.c2:focus:not(:focus-visible) > path,
-.c2:focus:not(:focus-visible) > polygon,
-.c2:focus:not(:focus-visible) > polyline,
+.c2:focus:not(:focus-visible) > circle,.c2:focus:not(:focus-visible) > ellipse,
+.c2:focus:not(:focus-visible) > line,.c2:focus:not(:focus-visible) > path,
+.c2:focus:not(:focus-visible) > polygon,.c2:focus:not(:focus-visible) > polyline,
 .c2:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

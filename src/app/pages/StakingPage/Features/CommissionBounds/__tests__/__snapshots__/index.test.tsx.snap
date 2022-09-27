@@ -9,8 +9,7 @@ exports[`<CommissionBounds  /> should match snapshot when empty 1`] = `
 `;
 
 exports[`<CommissionBounds  /> should match snapshot with active bounds 1`] = `
-<body>
-  .c0 {
+.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -29,7 +28,8 @@ exports[`<CommissionBounds  /> should match snapshot with active bounds 1`] = `
   line-height: 24px;
 }
 
-<div>
+<body>
+  <div>
     <div
       class="c0"
     >
@@ -47,8 +47,7 @@ exports[`<CommissionBounds  /> should match snapshot with active bounds 1`] = `
 `;
 
 exports[`<CommissionBounds  /> should match snapshot with provided bounds 1`] = `
-<body>
-  .c0 {
+.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -67,7 +66,8 @@ exports[`<CommissionBounds  /> should match snapshot with provided bounds 1`] = 
   line-height: 24px;
 }
 
-<div>
+<body>
+  <div>
     <div
       class="c0"
     >

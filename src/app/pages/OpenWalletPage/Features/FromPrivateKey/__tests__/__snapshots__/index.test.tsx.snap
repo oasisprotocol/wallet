@@ -21,16 +21,14 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c10 *[stroke*="#"],
-.c10 *[STROKE*="#"] {
+.c10 *[stroke*="#"],.c10 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
 .c10 *[fill-rule],
 .c10 *[FILL-RULE],
-.c10 *[fill*="#"],
-.c10 *[FILL*="#"] {
+.c10 *[fill*="#"],.c10 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -185,12 +183,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
 .c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -258,12 +253,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,
-.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,
-.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,
-.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
 .c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -458,7 +450,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
         class="c4 "
       >
         <div
-          class="c5 FormField__FormFieldContentBox-sc-m9hood-1"
+          class="c5 "
         >
           <div
             class="c6"

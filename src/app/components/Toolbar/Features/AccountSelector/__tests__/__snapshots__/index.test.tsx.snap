@@ -220,12 +220,9 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
 .c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
