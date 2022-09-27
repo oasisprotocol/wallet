@@ -53,7 +53,7 @@ export function* selectNetwork({ payload: network }: PayloadAction<NetworkType>)
 export function* networkSaga() {
   yield* takeLatest(networkActions.selectNetwork, selectNetwork)
   yield* takeLatest(persistActions.setUnlockedRootState, ({ payload }) =>
-    put(networkActions.selectNetwork(payload.rootState.network.selectedNetwork)),
+    put(networkActions.selectNetwork(payload.persistedRootState.network.selectedNetwork)),
   )
 
   const needsPassword = yield* select(selectNeedsPassword)

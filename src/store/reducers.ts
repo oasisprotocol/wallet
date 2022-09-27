@@ -13,7 +13,7 @@ import stakingReducer from 'app/state/staking'
 import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
 import themeReducer from 'styles/theme/slice'
-import persistReducer, { persistActions } from 'app/state/persist'
+import persistReducer, { persistActions, receivePersistedRootState } from 'app/state/persist'
 import { RootState } from 'types'
 
 function createRootReducer() {
@@ -37,12 +37,14 @@ function createRootReducer() {
 export function createPersistedRootReducer() {
   const originalRootReducer = createRootReducer()
   return (state: RootState | undefined, action: AnyAction): RootState => {
+    const newState = originalRootReducer(state, action)
     if (persistActions.setUnlockedRootState.match(action)) {
-      const newState = action.payload.rootState
-      return newState
-    } else {
-      const newState = originalRootReducer(state, action)
-      return newState
+      return receivePersistedRootState(
+        newState,
+        action.payload.persistedRootState,
+        action.payload.stringifiedEncryptionKey,
+      )
     }
+    return newState
   }
 }

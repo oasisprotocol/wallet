@@ -1,7 +1,5 @@
 import { RootState } from 'types'
 
-type StrictOmit<T, K extends keyof T> = Omit<T, K>
-
 interface PreserveAliasName extends String {}
 
 export interface KeyWithSalt {
@@ -21,6 +19,11 @@ export type EncryptedString = string & PreserveAliasName
 // Hover to check if inferred variable type is EncryptedString (not string)
 export const testPreserveAliasName = '{}' as EncryptedString
 
+export interface SetUnlockedRootStatePayload {
+  persistedRootState: PersistedRootState
+  stringifiedEncryptionKey: StringifiedKeyWithSalt
+}
+
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean
@@ -30,8 +33,5 @@ export interface PersistState {
   enteredWrongPassword: boolean
 }
 
-export interface RootStateWithoutPersistSlice extends StrictOmit<RootState, 'persist'> {
-  persist: null
-}
-
+export interface PersistedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network'> {}
 export interface SyncedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network' | 'persist'> {}

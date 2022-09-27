@@ -9,9 +9,9 @@ export const selectLoading = createSelector([selectSlice], state => state.loadin
 export const selectEnteredWrongPassword = createSelector([selectSlice], state => state.enteredWrongPassword)
 export const selectNeedsPassword = createSelector(
   [selectSlice],
-  state => state.isPersisted && !state.stringifiedEncryptionKey,
+  state => state.hasPersistedProfiles && !state.stringifiedEncryptionKey,
 )
-export const selectIsPersisted = createSelector([selectSlice], state => state.isPersisted)
+export const selectHasPersistedProfiles = createSelector([selectSlice], state => state.hasPersistedProfiles)
 export const selectIsPersistenceUnsupported = createSelector(
   [selectSlice],
   state => state.isPersistenceUnsupported,

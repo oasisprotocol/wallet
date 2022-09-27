@@ -1,7 +1,7 @@
 import { AnyAction } from '@reduxjs/toolkit'
 import { actionChannel, call, fork, put, select, take } from 'typed-redux-saga'
 import { isActionSynced } from 'redux-state-sync'
-import { persistActions, getInitialState, STORAGE_FIELD } from './index'
+import { persistActions, STORAGE_FIELD } from './index'
 import {
   base64andStringify,
   decryptWithPassword,
@@ -10,7 +10,7 @@ import {
   fromBase64andParse,
 } from './encryption'
 import { RootState } from 'types'
-import { EncryptedString, KeyWithSalt, RootStateWithoutPersistSlice } from './types'
+import { EncryptedString, KeyWithSalt, PersistedRootState, SetUnlockedRootStatePayload } from './types'
 import { PasswordWrongError } from 'types/errors'
 
 function* watchPersistAsync() {
@@ -60,20 +60,20 @@ function* setPasswordAsync(action: ReturnType<typeof persistActions.setPasswordA
   const keyWithSalt = yield* call(deriveKeyFromPassword, action.payload.password)
   const encryptedState = yield* call(encryptState, latestState, keyWithSalt)
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
-  const decryptedState = yield* call(
+  const unlockedPayload = yield* call(
     decryptState,
     window.localStorage.getItem(STORAGE_FIELD)!,
     action.payload.password,
   )
-  yield* put(persistActions.setUnlockedRootState({ rootState: decryptedState }))
+  yield* put(persistActions.setUnlockedRootState(unlockedPayload))
 }
 
 function* unlockAsync(action: ReturnType<typeof persistActions.unlockAsync>) {
   const encryptedState: EncryptedString | null = window.localStorage.getItem(STORAGE_FIELD)
   if (!encryptedState) throw new Error('Unexpected unlock action while no state is locked')
   try {
-    const decryptedState = yield* call(decryptState, encryptedState, action.payload.password)
-    yield* put(persistActions.setUnlockedRootState({ rootState: decryptedState }))
+    const unlockedPayload = yield* call(decryptState, encryptedState, action.payload.password)
+    yield* put(persistActions.setUnlockedRootState(unlockedPayload))
   } catch (error) {
     if (error instanceof PasswordWrongError) {
       yield* put(persistActions.setWrongPassword())
@@ -96,28 +96,23 @@ function* eraseAsync(action: ReturnType<typeof persistActions.eraseAsync>) {
 
 // Encrypting
 async function encryptState(state: RootState, keyWithSalt: KeyWithSalt): Promise<EncryptedString> {
-  const stateWithoutEncryptSlice: RootStateWithoutPersistSlice = {
-    ...state,
-    persist: null,
+  const persistedRootState: PersistedRootState = {
+    theme: state.theme,
+    wallet: state.wallet,
+    network: state.network,
   }
-  const encryptedState = await encryptWithKey(keyWithSalt, stateWithoutEncryptSlice)
+  const encryptedState = await encryptWithKey(keyWithSalt, persistedRootState)
   return encryptedState
 }
 
-async function decryptState(encryptedState: EncryptedString, password: string): Promise<RootState> {
-  const stateWithoutEncryptSlice: RootStateWithoutPersistSlice = await decryptWithPassword(
-    password,
-    encryptedState,
-  )
+async function decryptState(
+  encryptedState: EncryptedString,
+  password: string,
+): Promise<SetUnlockedRootStatePayload> {
+  const persistedRootState: PersistedRootState = await decryptWithPassword(password, encryptedState)
   const keyWithSalt = await deriveKeyFromPassword(password)
-  const stateWithEncryptSlice: RootState = {
-    ...stateWithoutEncryptSlice,
-    persist: {
-      ...getInitialState(),
-      stringifiedEncryptionKey: base64andStringify(keyWithSalt),
-    },
-  }
-  return stateWithEncryptSlice
+  const stringifiedEncryptionKey = base64andStringify(keyWithSalt)
+  return { persistedRootState, stringifiedEncryptionKey }
 }
 
 function* encryptAndPersistState(action: AnyAction) {

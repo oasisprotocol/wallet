@@ -1,6 +1,6 @@
 import { PasswordField } from 'app/components/PasswordField'
 import { persistActions } from 'app/state/persist'
-import { selectIsPersistenceUnsupported, selectIsPersisted } from 'app/state/persist/selectors'
+import { selectIsPersistenceUnsupported, selectHasPersistedProfiles } from 'app/state/persist/selectors'
 import { Box, Button, Form, Paragraph } from 'grommet'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -14,13 +14,13 @@ interface FormData {
 export function SetPassword() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const isPersisted = useSelector(selectIsPersisted)
+  const hasPersistedProfiles = useSelector(selectHasPersistedProfiles)
   const isPersistenceUnsupported = useSelector(selectIsPersistenceUnsupported)
 
   if (isPersistenceUnsupported) {
     return <p>{t('persist.createProfile.unsupported', 'Persistence is not supported in this browser.')}</p>
   }
-  if (isPersisted) {
+  if (hasPersistedProfiles) {
     return <></>
   }
 

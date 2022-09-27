@@ -1,11 +1,16 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import { PersistState } from './types'
+import {
+  PersistedRootState,
+  PersistState,
+  SetUnlockedRootStatePayload,
+  StringifiedKeyWithSalt,
+} from './types'
+import { RootState } from 'types'
 import { runtimeIs } from 'config'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { createPersistedRootReducer } from 'store/reducers'
-import { RootState } from 'types'
 
 export const STORAGE_FIELD = 'oasis_wallet_persist_v1'
 
@@ -34,9 +39,9 @@ const persistSlice = createSlice({
       state.enteredWrongPassword = true
       state.loading = false
     },
-    setUnlockedRootState(state, action: PayloadAction<{ rootState: RootState }>) {
+    setUnlockedRootState(state, action: PayloadAction<SetUnlockedRootStatePayload>) {
       /**
-       * Handled in {@link createPersistedRootReducer}.
+       * Handled in {@link createPersistedRootReducer} and {@link receivePersistedRootState}.
        * Sets `state.loading = false` and `state.stringifiedEncryptionKey`.
        */
       return
@@ -75,3 +80,23 @@ const persistSlice = createSlice({
 export const persistActions = persistSlice.actions
 
 export default persistSlice.reducer
+
+/**
+ * When persisted state is unlocked use these state slices.
+ */
+export function receivePersistedRootState(
+  prevState: RootState,
+  persistedRootState: PersistedRootState,
+  stringifiedEncryptionKey: StringifiedKeyWithSalt,
+): RootState {
+  return {
+    ...prevState,
+    theme: persistedRootState.theme,
+    wallet: persistedRootState.wallet,
+    network: persistedRootState.network,
+    persist: {
+      ...getInitialState(),
+      stringifiedEncryptionKey: stringifiedEncryptionKey,
+    },
+  }
+}
