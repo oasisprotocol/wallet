@@ -1,4 +1,4 @@
-import { Anchor, AnchorExtendedProps } from 'grommet/components/Anchor'
+import { Anchor, AnchorExtendedProps } from 'grommet'
 import { Link, LinkProps } from 'react-router-dom'
 import React from 'react'
 

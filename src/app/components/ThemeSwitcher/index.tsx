@@ -3,7 +3,7 @@
  * ThemeSwitcher
  *
  */
-import { Moon, Sun } from 'grommet-icons/icons'
+import { Moon, Sun } from 'grommet-icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'

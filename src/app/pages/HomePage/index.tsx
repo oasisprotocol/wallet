@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Heading, Paragraph, ResponsiveContext } from 'grommet'
-import { Add, Unlock } from 'grommet-icons/icons'
+import { Add, Unlock } from 'grommet-icons'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'

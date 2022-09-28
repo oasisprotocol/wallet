@@ -1,5 +1,5 @@
 import { grommet, Grommet, ThemeType } from 'grommet'
-import { deepMerge } from 'grommet/utils'
+import { deepMerge } from 'grommet/es6/utils'
 import * as React from 'react'
 import { createTheme as dataTableCreateTheme, IDataTableStyles, ITheme } from 'react-data-table-component'
 import { useSelector } from 'react-redux'

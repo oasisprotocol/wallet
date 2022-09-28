@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Box, Text } from 'grommet'
 import { LineChart, Money } from 'grommet-icons'
 import styled from 'styled-components'
-import { normalizeColor } from 'grommet/utils'
+import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
 

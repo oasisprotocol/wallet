@@ -1,6 +1,6 @@
 import { Box, Text } from 'grommet'
 import * as React from 'react'
-import type { Icon } from 'grommet-icons/icons'
+import type { Icon } from 'grommet-icons'
 import copy from 'copy-to-clipboard'
 import { trimLongString } from '../ShortAddress'
 

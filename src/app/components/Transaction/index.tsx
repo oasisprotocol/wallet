@@ -18,8 +18,8 @@ import {
   LinkNext,
   Atm,
   Alert,
-} from 'grommet-icons/icons'
-import type { Icon } from 'grommet-icons/icons'
+} from 'grommet-icons'
+import type { Icon } from 'grommet-icons'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'

@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Route, Routes, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { normalizeColor } from 'grommet/utils'
+import { normalizeColor } from 'grommet/es6/utils'
 
 import { accountActions } from '../../state/account'
 import { selectAccount } from '../../state/account/selectors'

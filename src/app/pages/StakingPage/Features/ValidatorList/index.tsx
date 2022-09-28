@@ -18,7 +18,7 @@ import {
 import { Validator } from 'app/state/staking/types'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { Box, Text } from 'grommet'
-import { Down } from 'grommet-icons/icons'
+import { Down } from 'grommet-icons'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
