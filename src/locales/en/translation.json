@@ -176,6 +176,9 @@
       "header": "Access existing wallet"
     }
   },
+  "infoBox": {
+    "valueCopied": "{{ label }} copied."
+  },
   "ledger": {
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",

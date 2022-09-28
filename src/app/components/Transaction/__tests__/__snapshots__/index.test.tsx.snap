@@ -234,21 +234,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 12px;
-}
-
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
   margin-top: 6px;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;
@@ -263,7 +248,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   padding-right: 12px;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -310,13 +295,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   line-height: 24px;
 }
 
-.c17 {
+.c16 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c18 {
+.c17 {
   margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
@@ -324,19 +309,19 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   font-weight: 600;
 }
 
-.c19 {
+.c18 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c22 {
+.c21 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c21 {
+.c20 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -347,7 +332,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   cursor: pointer;
 }
 
-.c21:hover {
+.c20:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -421,18 +406,12 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 
 @media only screen and (max-width:768px) {
   .c15 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c16 {
     margin-top: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c15 {
     padding-right: 6px;
   }
 }
@@ -579,7 +558,8 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
           class="c9"
         >
           <div
-            class="c15"
+            class="c10"
+            tabindex="0"
           >
             <div
               class="c11"
@@ -623,39 +603,39 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
       </div>
     </div>
     <div
-      class="c16"
+      class="c15"
     >
       <span
-        class="c17"
+        class="c16"
       >
         <span>
           0.001
           <span
-            class="c18"
+            class="c17"
           >
             TEST
           </span>
         </span>
       </span>
       <span
-        class="c19"
+        class="c18"
       >
         account.transaction.successful
       </span>
     </div>
   </div>
   <footer
-    class="c20"
+    class="c19"
   >
     <a
-      class="c21"
+      class="c20"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c22"
+        class="c21"
       >
         account.transaction.explorerLink
       </span>
@@ -910,21 +890,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding: 12px;
-}
-
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
   margin-top: 6px;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;
@@ -939,7 +904,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -986,13 +951,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c17 {
+.c16 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c18 {
+.c17 {
   margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
@@ -1000,19 +965,19 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c19 {
+.c18 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c22 {
+.c21 {
   font-size: 14px;
   line-height: 20px;
 }
 
-.c21 {
+.c20 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -1023,7 +988,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c21:hover {
+.c20:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -1097,18 +1062,12 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c16 {
     margin-top: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c15 {
     padding-right: 6px;
   }
 }
@@ -1255,7 +1214,8 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           class="c9"
         >
           <div
-            class="c15"
+            class="c10"
+            tabindex="0"
           >
             <div
               class="c11"
@@ -1299,39 +1259,39 @@ exports[`<Transaction  /> should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="c16"
+      class="c15"
     >
       <span
-        class="c17"
+        class="c16"
       >
         <span>
           0.001
           <span
-            class="c18"
+            class="c17"
           >
             TEST
           </span>
         </span>
       </span>
       <span
-        class="c19"
+        class="c18"
       >
         account.transaction.successful
       </span>
     </div>
   </div>
   <footer
-    class="c20"
+    class="c19"
   >
     <a
-      class="c21"
+      class="c20"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c22"
+        class="c21"
       >
         account.transaction.explorerLink
       </span>
