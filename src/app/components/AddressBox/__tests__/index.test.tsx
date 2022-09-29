@@ -23,4 +23,11 @@ describe('<AddressBox />', () => {
     await userEvent.click(screen.getByTestId('copy-address'))
     expect(copy).toHaveBeenCalledWith(testAddress)
   })
+
+  it('should be able to show a notification', async () => {
+    renderComponent()
+    jest.mocked(copy).mockReturnValue(true) // Copy must return true so that the notification is actually displayed
+    await userEvent.click(screen.getByTestId('copy-address'))
+    expect(await screen.getByText('account.addressCopied')).toBeInTheDocument()
+  })
 })
