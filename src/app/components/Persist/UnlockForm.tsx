@@ -1,6 +1,6 @@
 import { Box, Button, Form, Layer, Paragraph } from 'grommet'
 import { persistActions } from 'app/state/persist'
-import { selectEnteredWrongPassword, selectNeedsPassword } from 'app/state/persist/selectors'
+import { selectEnteredWrongPassword } from 'app/state/persist/selectors'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
@@ -8,26 +8,13 @@ import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
-interface Props {
-  children: React.ReactNode
-}
-
-/**
- * Ask for password if user has encrypted state in localStorage, and no password in state.
- * Otherwise show child element.
- */
-export function UnlockForm(props: Props) {
+export function UnlockForm() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const needsPassword = useSelector(selectNeedsPassword)
   const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
   const [password, setPassword] = React.useState('')
 
   const onSubmit = () => dispatch(persistActions.unlockAsync({ password: password }))
-
-  if (!needsPassword) {
-    return <>{props.children}</>
-  }
 
   return (
     <Layer modal background="background-front">
