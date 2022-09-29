@@ -16,7 +16,7 @@ interface Props {
  * Ask for password if user has encrypted state in localStorage, and no password in state.
  * Otherwise show child element.
  */
-export function UnlockGate(props: Props) {
+export function UnlockForm(props: Props) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const needsPassword = useSelector(selectNeedsPassword)
