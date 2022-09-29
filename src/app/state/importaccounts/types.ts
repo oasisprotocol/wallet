@@ -22,7 +22,6 @@ export enum ImportAccountsStep {
 export interface ImportAccountsState {
   accounts: ImportAccountsListAccount[]
   error?: ErrorPayload
-  mnemonic?: string
   showAccountsSelectionModal: boolean
   step?: ImportAccountsStep
 }
