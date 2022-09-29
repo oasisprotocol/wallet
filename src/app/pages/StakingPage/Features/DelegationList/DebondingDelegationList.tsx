@@ -1,5 +1,6 @@
+import { Header } from 'app/components/Header'
 import { selectDebondingDelegations } from 'app/state/staking/selectors'
-import { Box, Heading } from 'grommet'
+import { Box } from 'grommet'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -11,9 +12,7 @@ export const DebondingDelegationList = () => {
   const delegations = useSelector(selectDebondingDelegations)
   return (
     <Box pad="medium" background="background-front">
-      <Heading margin="none" size="small">
-        {t('delegations.debondingDelegations', 'Debonding delegations')}
-      </Heading>
+      <Header>{t('delegations.debondingDelegations', 'Debonding delegations')}</Header>
       <DelegationList type="debonding" delegations={delegations ?? []} />
     </Box>
   )

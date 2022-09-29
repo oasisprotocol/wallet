@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import { Header } from 'app/components/Header'
 
 export function FromLedger() {
   const { t } = useTranslation()
@@ -19,7 +20,7 @@ export function FromLedger() {
       round="5px"
       border={{ color: 'background-front-border', size: '1px' }}
     >
-      <Heading margin={{ top: '0' }}>{t('openWallet.ledger.header', 'Open from Ledger device')}</Heading>
+      <Header>{t('openWallet.ledger.header', 'Open from Ledger device')}</Header>
 
       <Heading level="3" margin="0">
         {t('ledger.instructionSteps.header', 'Steps:')}

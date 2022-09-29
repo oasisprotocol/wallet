@@ -1,10 +1,11 @@
 import { AddressBox } from 'app/components/AddressBox'
+import { Header } from 'app/components/Header'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ResponsiveGridRow } from 'app/components/ResponsiveGridRow'
 import { formatCommissionPercent } from 'app/lib/helpers'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { Validator, ValidatorDetails } from 'app/state/staking/types'
-import { Box, Grid, Heading, ResponsiveContext, Spinner } from 'grommet'
+import { Box, Grid, ResponsiveContext, Spinner } from 'grommet'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -23,11 +24,11 @@ export const ValidatorInformations = (props: ValidatorProps) => {
 
   return (
     <>
-      <Box direction="row-responsive" gap={size !== 'small' ? 'medium' : 'none'}>
+      <Box align="center" direction="row-responsive" gap={size !== 'small' ? 'medium' : 'none'}>
         {validator.name && (
-          <Heading size="small" margin={{ bottom: 'none', top: 'none' }} data-testid="validator-item-name">
+          <Header level="2" margin={{ bottom: 'none', top: 'none' }} data-testid="validator-item-name">
             {validator.name}
-          </Heading>
+          </Header>
         )}
         {validator.media && (
           <Box direction="row">

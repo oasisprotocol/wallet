@@ -1,10 +1,11 @@
 import { AlertBox } from 'app/components/AlertBox'
+import { ModalHeader } from 'app/components/Header'
 import { selectChainContext } from 'app/state/network/selectors'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
 import { selectAddress, selectBalance } from 'app/state/wallet/selectors'
-import { Box, Button, Heading, Spinner, Text } from 'grommet'
+import { Box, Button, Spinner, Text } from 'grommet'
 import { Checkmark, Close } from 'grommet-icons'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -49,9 +50,7 @@ export function TransactionModal() {
     <ResponsiveLayer modal position="center" background="background-front">
       <Box pad="medium" gap="medium" width="800px">
         <Box>
-          <Heading level="2" margin="none">
-            {t('transaction.step.preview', 'Preview transaction')}
-          </Heading>
+          <ModalHeader>{t('transaction.step.preview', 'Preview transaction')}</ModalHeader>
           <Box margin={{ vertical: 'small' }}>
             <AlertBox color="status-warning">
               {t(

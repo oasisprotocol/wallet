@@ -24,14 +24,15 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding-top: 48px;
 }
 
@@ -183,10 +184,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 
 .c6 {
   margin-top: 0px;
-  margin-bottom: 24px;
-  font-size: 1;
-  line-height: normal;
-  max-width: 1200px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
 }
 
@@ -298,7 +298,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c6 {
-    margin-bottom: 12px;
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 
@@ -362,12 +364,11 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
             <div
               class="c5"
             >
-              <h1
+              <h2
                 class="c6"
-                size="1"
               >
                 openWallet.importAccounts.selectWallets
-              </h1>
+              </h2>
               <div
                 class="c7"
               >

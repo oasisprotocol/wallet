@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> should render component 1`] = `
+.c0 {
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
+  }
+}
+
+<div>
+  <h1
+    class="c0"
+  >
+    Title
+  </h1>
+</div>
+`;
+
+exports[`<ModalHeader /> should render component 1`] = `
+.c0 {
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
+  font-weight: 600;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
+  }
+}
+
+<div>
+  <h2
+    class="c0"
+  >
+    Title
+  </h2>
+</div>
+`;

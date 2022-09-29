@@ -1,7 +1,8 @@
 import { createContext, useCallback, useContext, useState } from 'react'
-import { Box, Button, Layer, Heading, Paragraph } from 'grommet'
+import { Box, Button, Layer, Paragraph } from 'grommet'
 import { useTranslation } from 'react-i18next'
 import { Alert, Checkmark, Close } from 'grommet-icons'
+import { ModalHeader } from 'app/components/Header'
 
 interface Modal {
   title: string
@@ -36,9 +37,9 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
   return (
     <Layer modal onEsc={closeModal} onClickOutside={closeModal} background="background-front">
       <Box margin="medium">
-        <Heading size="small">{modal.title}</Heading>
+        <ModalHeader>{modal.title}</ModalHeader>
         <Paragraph fill>{modal.description}</Paragraph>
-        <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
+        <Box direction="row" gap="small" justify="between" pad={{ top: 'large' }}>
           <Button
             label={t('common.cancel', 'Cancel')}
             onClick={closeModal}
