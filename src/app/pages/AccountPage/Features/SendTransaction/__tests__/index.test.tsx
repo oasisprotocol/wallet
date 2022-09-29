@@ -25,7 +25,7 @@ describe('<SendTransaction />', () => {
     renderComponent(store)
 
     await userEvent.type(screen.getByPlaceholderText('account.sendTransaction.enterAddress'), 'walletAddress')
-    await userEvent.type(screen.getByPlaceholderText('0'), '10')
+    await userEvent.type(screen.getByPlaceholderText('account.sendTransaction.enterAmount'), '10')
     await userEvent.click(screen.getByRole('button'))
 
     expect(spy).toHaveBeenCalledWith({

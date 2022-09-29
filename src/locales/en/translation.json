@@ -25,6 +25,7 @@
         "title": "Are you sure you want to continue?"
       },
       "enterAddress": "Enter an address",
+      "enterAmount": "Enter an amount",
       "recipient": "Recipient",
       "send": "Send",
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account."
