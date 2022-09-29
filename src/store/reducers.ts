@@ -45,6 +45,9 @@ export function createPersistedRootReducer() {
         action.payload.stringifiedEncryptionKey,
       )
     }
+    if (persistActions.resetRootState.match(action)) {
+      return originalRootReducer(undefined, action)
+    }
     return newState
   }
 }

@@ -40,6 +40,8 @@ function* handleAsyncPersistActions(action: AnyAction) {
     yield* call(eraseAsync, action)
   } else if (persistActions.setUnlockedRootState.match(action)) {
     // Skip encrypting the same state
+  } else if (persistActions.resetRootState.match(action)) {
+    // Skip encrypting the empty state
   } else if (persistActions.setWrongPassword.match(action)) {
     // Skip encrypting the same state
   } else {
@@ -84,13 +86,13 @@ function* unlockAsync(action: ReturnType<typeof persistActions.unlockAsync>) {
 }
 
 function* lockAsync(action: ReturnType<typeof persistActions.lockAsync>) {
-  yield* call([window.location, window.location.reload])
+  yield* put(persistActions.resetRootState())
   // Implies state.loading = false
 }
 
 function* eraseAsync(action: ReturnType<typeof persistActions.eraseAsync>) {
   yield* call([window.localStorage, window.localStorage.removeItem], STORAGE_FIELD)
-  yield* call([window.location, window.location.reload])
+  yield* put(persistActions.resetRootState())
   // Implies state.loading = false
 }
 

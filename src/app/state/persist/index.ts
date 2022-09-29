@@ -33,7 +33,7 @@ export function getInitialState(): PersistState {
 
 const persistSlice = createSlice({
   name: 'persist',
-  initialState: getInitialState(),
+  initialState: () => getInitialState(),
   reducers: {
     setWrongPassword(state) {
       state.enteredWrongPassword = true
@@ -43,6 +43,13 @@ const persistSlice = createSlice({
       /**
        * Handled in {@link createPersistedRootReducer} and {@link receivePersistedRootState}.
        * Sets `state.loading = false` and `state.stringifiedEncryptionKey`.
+       */
+      return
+    },
+    resetRootState(state) {
+      /**
+       * Handled in {@link createPersistedRootReducer}.
+       * Sets `state.loading = false`.
        */
       return
     },

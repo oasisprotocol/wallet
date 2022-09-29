@@ -44,8 +44,7 @@ export const whitelistTabSyncActions = [
   walletActions.updateBalance.type,
   networkActions.networkSelected.type,
   persistActions.setUnlockedRootState.type,
-  persistActions.lockAsync.type,
-  persistActions.eraseAsync.type,
+  persistActions.resetRootState.type,
 ]
 
 const stateSyncConfig: StateSyncConfig = {
