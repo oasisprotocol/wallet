@@ -177,6 +177,9 @@
     "store": "./src/store",
     "vendors": "./src/vendors"
   },
+  "engines": {
+    "node": ">=14 <18"
+  },
   "targets": {
     "// see also .parcelrc and .terserrc": {},
     "web": {
