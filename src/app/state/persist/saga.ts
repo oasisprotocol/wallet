@@ -12,6 +12,7 @@ import {
 import { RootState } from 'types'
 import { EncryptedString, KeyWithSalt, PersistedRootState, SetUnlockedRootStatePayload } from './types'
 import { PasswordWrongError } from 'types/errors'
+import { walletActions } from 'app/state/wallet'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -127,9 +128,18 @@ function* encryptAndPersistState(action: AnyAction) {
   if (action.type.startsWith('@')) return // Ignore @@INIT from redux-devtools-instrument
   if (action.type.startsWith('&')) return // Ignore e.g. &_GET_INIT_STATE from redux-state-sync
   if (isActionSynced(action)) return // Ignore actions synced across tabs from redux-state-sync
+
+  // Handle actions while state is locked
+  // TODO: If we used private/public key-pair we could encrypt and persist
+  // state while state is locked. But not if we support multiple profiles.
   if (!latestState.persist.stringifiedEncryptionKey) {
-    throw new Error(`Unexpected action while state is locked ${JSON.stringify(action)}`)
+    if (walletActions.walletOpened.match(action)) {
+      throw new Error('Could not add account while state is locked.')
+    } else {
+      return // Ignore non-essential actions emitted while state is locked.
+    }
   }
+
   const keyWithSalt: KeyWithSalt = fromBase64andParse(latestState.persist.stringifiedEncryptionKey)
   const encryptedState = yield* call(encryptState, latestState, keyWithSalt)
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
