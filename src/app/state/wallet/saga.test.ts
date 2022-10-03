@@ -7,6 +7,7 @@ import { walletActions } from '.'
 import { transactionActions } from '../transaction'
 import { getBalance, rootWalletSaga, walletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
+import { importAccountsActions } from '../importaccounts'
 
 describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
@@ -47,6 +48,7 @@ describe('Wallet Sagas', () => {
         .withState(state)
         .dispatch(walletActions.openWalletFromMnemonic())
         .fork(walletSaga)
+        .put(importAccountsActions.clear())
         .put(
           walletActions.addWallet({
             address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
@@ -91,6 +93,7 @@ describe('Wallet Sagas', () => {
         .withState(state)
         .dispatch(walletActions.openWalletsFromLedger())
         .fork(walletSaga)
+        .put(importAccountsActions.clear())
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
     })
