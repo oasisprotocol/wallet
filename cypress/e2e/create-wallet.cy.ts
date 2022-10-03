@@ -10,6 +10,7 @@ describe('Create wallet', () => {
 
   it('Should have generated a mnemonic', () => {
     cy.findByTestId('generated-mnemonic')
+      .should('be.visible')
       .invoke('text')
       .then(text => {
         generatedMnemonic = text

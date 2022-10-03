@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react'
+import { act, cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { ImportAccountsStep } from 'app/state/importaccounts/types'
@@ -47,20 +47,22 @@ describe('<ImportAccountsSelectionModal  />', () => {
 
   it('should list the accounts when done', () => {
     const component = renderComponent(store)
-    store.dispatch(
-      importAccountsActions.accountsListed([
-        {
-          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
-          path: [44, 474, 0],
-          publicKey: '00',
-          selected: false,
-          type: WalletType.Mnemonic,
-        },
-      ]),
-    )
+    act(() => {
+      store.dispatch(
+        importAccountsActions.accountsListed([
+          {
+            address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
+            balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+            path: [44, 474, 0],
+            publicKey: '00',
+            selected: false,
+            type: WalletType.Mnemonic,
+          },
+        ]),
+      )
 
-    store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+    })
     expect(component.getByText('oasis1qzyq...7gh2pxqe')).toBeInTheDocument()
   })
 
@@ -69,35 +71,38 @@ describe('<ImportAccountsSelectionModal  />', () => {
     jest.mocked(useDispatch).mockImplementation(() => dispatchFn)
 
     renderComponent(store)
-    store.dispatch(
-      importAccountsActions.accountsListed([
-        {
-          address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
-          path: [44, 474, 0],
-          publicKey: '00',
-          selected: false,
-          type: WalletType.Mnemonic,
-        },
-        {
-          address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
-          path: [44, 474, 1],
-          publicKey: '00',
-          selected: false,
-          type: WalletType.Mnemonic,
-        },
-      ]),
-    )
+    act(() => {
+      store.dispatch(
+        importAccountsActions.accountsListed([
+          {
+            address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
+            balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+            path: [44, 474, 0],
+            publicKey: '00',
+            selected: false,
+            type: WalletType.Mnemonic,
+          },
+          {
+            address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
+            balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+            path: [44, 474, 1],
+            publicKey: '00',
+            selected: false,
+            type: WalletType.Mnemonic,
+          },
+        ]),
+      )
 
-    store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+    })
     await userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({
       payload: 0,
       type: importAccountsActions.toggleAccount.type,
     })
-    store.dispatch(importAccountsActions.toggleAccount(0))
-
+    act(() => {
+      store.dispatch(importAccountsActions.toggleAccount(0))
+    })
     await userEvent.click(screen.getByTestId('ledger-open-accounts'))
     expect(dispatchFn).toHaveBeenLastCalledWith(
       expect.objectContaining({ type: walletActions.openWalletsFromLedger.type }),

@@ -9,7 +9,7 @@ import 'react-app-polyfill/ie11'
 import 'react-app-polyfill/stable'
 
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 
 // Use consistent styling
@@ -31,9 +31,10 @@ import './locales/i18n'
 import './styles/main.css'
 
 const store = configureAppStore()
-const MOUNT_NODE = document.getElementById('root') as HTMLElement
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container!)
 
-ReactDOM.render(
+root.render(
   <Provider store={store}>
     <ThemeProvider>
       <HelmetProvider>
@@ -45,5 +46,4 @@ ReactDOM.render(
       </HelmetProvider>
     </ThemeProvider>
   </Provider>,
-  MOUNT_NODE,
 )

@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/dom'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { networkActions } from 'app/state/network'
 import * as React from 'react'
@@ -34,7 +33,7 @@ describe('<NetworkSelector  />', () => {
     await userEvent.click(screen.getByTestId('network-selector'))
 
     expect(await screen.findByText('toolbar.networks.testnet')).toBeInTheDocument()
-    screen.getByText('toolbar.networks.testnet').click()
+    await userEvent.click(screen.getByText('toolbar.networks.testnet'))
 
     expect(dispatchSpy).toHaveBeenCalledWith({
       payload: 'testnet',

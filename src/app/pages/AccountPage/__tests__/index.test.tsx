@@ -26,7 +26,7 @@ const renderPage = (store: any, initialEntries: LocationDescriptor[]) =>
       <ThemeProvider>
         <MemoryRouter initialEntries={initialEntries}>
           <Routes>
-            <Route path="/account/:address" element={<AccountPage />} />
+            <Route path="/account/:address/*" element={<AccountPage />} />
           </Routes>
         </MemoryRouter>
       </ThemeProvider>
