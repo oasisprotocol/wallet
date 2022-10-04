@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { AlertBox } from 'app/components/AlertBox'
@@ -61,13 +61,6 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
         : walletActions.openWalletFromMnemonic(),
     )
   }
-
-  useEffect(() => {
-    return () => {
-      dispatch(importAccountsActions.clear())
-    }
-  }, [dispatch])
-
   const cancelDisabled = importAccounts.step === ImportAccountsStep.Done || error ? false : true
   const confirmDisabled = importAccounts.step !== ImportAccountsStep.Done || selectedAccounts.length === 0
 

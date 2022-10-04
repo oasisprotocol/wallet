@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 import { networkActions } from 'app/state/network'
 import { NetworkState } from 'app/state/network/types'
 import { CommissionBound as ICommissionBounds } from 'app/state/staking/types'
@@ -42,7 +42,9 @@ describe('<CommissionBounds  />', () => {
   it('should match snapshot with active bounds', () => {
     store = configureAppStore()
     const component = renderComponent(store, [{ epochStart: 0, lower: 0.1, upper: 0.2, epochEnd: 100 }])
-    store.dispatch(networkActions.networkSelected({ epoch: 50 } as NetworkState))
+    act(() => {
+      store.dispatch(networkActions.networkSelected({ epoch: 50 } as NetworkState))
+    })
     expect(component.baseElement).toMatchSnapshot()
   })
 })

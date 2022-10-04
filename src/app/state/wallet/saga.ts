@@ -5,6 +5,7 @@ import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-sag
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
+import { importAccountsActions } from '../importaccounts'
 import { ImportAccountsListAccount } from '../importaccounts/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
@@ -57,6 +58,7 @@ function* getWalletByAddress(address: string) {
  */
 export function* openWalletsFromLedger() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
+  yield* put(importAccountsActions.clear())
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({
@@ -92,6 +94,7 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
 
 export function* openWalletFromMnemonic() {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
+  yield* put(importAccountsActions.clear())
   for (const account of accounts) {
     yield* put(
       walletActions.addWallet({

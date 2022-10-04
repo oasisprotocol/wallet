@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event'
-import { render, screen, waitFor } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 
 import { Provider } from 'react-redux'
 import { ActiveDelegationList } from '../ActiveDelegationList'
@@ -22,27 +22,29 @@ describe('<ActiveDelegationList  />', () => {
 
   it('should match snapshot', () => {
     const component = renderComponent(store)
-    store.dispatch(
-      stakingActions.updateDelegations({
-        delegations: [
-          {
-            amount: 100n.toString(),
-            shares: 100n.toString(),
-            validatorAddress: 'test-validator',
-            validator: {
-              current_rate: 0.07,
-              address: 'test-validator',
-              rank: 1,
-              status: 'active',
-              name: 'test-validator',
-              nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
-              escrow: 1000n.toString(),
+    act(() => {
+      store.dispatch(
+        stakingActions.updateDelegations({
+          delegations: [
+            {
+              amount: 100n.toString(),
+              shares: 100n.toString(),
+              validatorAddress: 'test-validator',
+              validator: {
+                current_rate: 0.07,
+                address: 'test-validator',
+                rank: 1,
+                status: 'active',
+                name: 'test-validator',
+                nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+                escrow: 1000n.toString(),
+              },
             },
-          },
-        ],
-        debondingDelegations: [],
-      }),
-    )
+          ],
+          debondingDelegations: [],
+        }),
+      )
+    })
 
     expect(component.baseElement).toMatchSnapshot()
 
@@ -52,31 +54,33 @@ describe('<ActiveDelegationList  />', () => {
 
   it('should expand and display the delegation on click', async () => {
     renderComponent(store)
-    store.dispatch(
-      stakingActions.updateDelegations({
-        delegations: [
-          {
-            amount: 100n.toString(),
-            shares: 100n.toString(),
-            validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-            validator: {
-              address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-              rank: 1,
-              status: 'active',
-              name: 'test-validator1',
-              nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
-              escrow: 1000n.toString(),
+    act(() => {
+      store.dispatch(
+        stakingActions.updateDelegations({
+          delegations: [
+            {
+              amount: 100n.toString(),
+              shares: 100n.toString(),
+              validatorAddress: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
+              validator: {
+                address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
+                rank: 1,
+                status: 'active',
+                name: 'test-validator1',
+                nodeAddress: 'oasis1qq7pgk9v8l3hu2aenjtflezy5vajc2cz3y4d96rj',
+                escrow: 1000n.toString(),
+              },
             },
-          },
-          {
-            amount: 50n.toString(),
-            shares: 50n.toString(),
-            validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-          },
-        ],
-        debondingDelegations: [],
-      }),
-    )
+            {
+              amount: 50n.toString(),
+              shares: 50n.toString(),
+              validatorAddress: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+            },
+          ],
+          debondingDelegations: [],
+        }),
+      )
+    })
 
     let row = screen.getByText(/test-validator1/)
     expect(row).toBeVisible()

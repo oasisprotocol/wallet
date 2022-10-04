@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { HelmetProvider } from 'react-helmet-async'
 import { Store } from 'webext-redux'
@@ -12,11 +12,12 @@ import 'locales/i18n'
 import 'sanitize.css/sanitize.css'
 import 'styles/main.css'
 
-const MOUNT_NODE = document.getElementById('root') as HTMLElement
+const container = document.getElementById('root') as HTMLElement
+const root = createRoot(container!)
 const store = new Store()
 
 store.ready().then(() => {
-  ReactDOM.render(
+  root.render(
     <Provider store={store}>
       <ThemeProvider>
         <HelmetProvider>
@@ -28,7 +29,6 @@ store.ready().then(() => {
         </HelmetProvider>
       </ThemeProvider>
     </Provider>,
-    MOUNT_NODE,
   )
 })
 

@@ -1,5 +1,5 @@
 import { NodeInternal } from '@oasisprotocol/client/dist/client'
-import { render, screen, waitFor } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { stakingActions } from 'app/state/staking'
 import { Validator } from 'app/state/staking/types'
@@ -75,37 +75,43 @@ describe('<ValidatorList  />', () => {
 
   it('empty should match snapshot', () => {
     const component = renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators({
-        timestamp: new Date('2022').getTime(),
-        network: 'mainnet',
-        list: [],
-      }),
-    )
+    act(() => {
+      store.dispatch(
+        stakingActions.updateValidators({
+          timestamp: new Date('2022').getTime(),
+          network: 'mainnet',
+          list: [],
+        }),
+      )
+    })
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
   it('list should match snapshot', () => {
     const component = renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators({
-        timestamp: new Date('2022').getTime(),
-        network: 'mainnet',
-        list: [activeValidator, inactiveValidator, unknownValidator],
-      }),
-    )
+    act(() => {
+      store.dispatch(
+        stakingActions.updateValidators({
+          timestamp: new Date('2022').getTime(),
+          network: 'mainnet',
+          list: [activeValidator, inactiveValidator, unknownValidator],
+        }),
+      )
+    })
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
   it('should display validator details on click', async () => {
     renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators({
-        timestamp: new Date('2022').getTime(),
-        network: 'mainnet',
-        list: [activeValidator],
-      }),
-    )
+    act(() => {
+      store.dispatch(
+        stakingActions.updateValidators({
+          timestamp: new Date('2022').getTime(),
+          network: 'mainnet',
+          list: [activeValidator],
+        }),
+      )
+    })
 
     let row = screen.getByText(/test-validator/)
     expect(row).toBeVisible()
@@ -121,13 +127,15 @@ describe('<ValidatorList  />', () => {
 
   it('should only display the details of a single validator', async () => {
     renderComponent(store)
-    store.dispatch(
-      stakingActions.updateValidators({
-        timestamp: new Date('2022').getTime(),
-        network: 'mainnet',
-        list: [activeValidator, inactiveValidator],
-      }),
-    )
+    act(() => {
+      store.dispatch(
+        stakingActions.updateValidators({
+          timestamp: new Date('2022').getTime(),
+          network: 'mainnet',
+          list: [activeValidator, inactiveValidator],
+        }),
+      )
+    })
 
     let row = screen.getByText(/test-validator1/)
     expect(row).toBeVisible()
