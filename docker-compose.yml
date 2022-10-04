@@ -48,7 +48,7 @@ services:
       POSTGRES_USER: oasis
       POSTGRES_DATABASE: oasis
   explorer-clickhouse:
-    image: docker.io/yandex/clickhouse-server:21.12.4-alpine
+    image: docker.io/yandex/clickhouse-server:22.1.3-alpine
     restart: always
     volumes:
       - explorer-clickhouse-data:/var/lib/clickhouse:z
