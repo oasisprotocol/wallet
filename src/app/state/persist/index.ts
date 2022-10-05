@@ -53,6 +53,9 @@ const persistSlice = createSlice({
        */
       return
     },
+    skipUnlocking(state) {
+      state.stringifiedEncryptionKey = 'skipped'
+    },
 
     // Handled in saga
     // ---------------

@@ -29,7 +29,7 @@ export interface PersistState {
   hasPersistedProfiles: boolean
   isPersistenceUnsupported: boolean
   loading: boolean
-  stringifiedEncryptionKey: undefined | StringifiedKeyWithSalt
+  stringifiedEncryptionKey: undefined | 'skipped' | StringifiedKeyWithSalt
   enteredWrongPassword: boolean
 }
 

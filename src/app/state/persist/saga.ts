@@ -124,7 +124,7 @@ function* encryptAndPersistState(action: AnyAction) {
    * but when it is queued by {@link watchPersistAsync}.
    */
   const latestState: RootState = yield* select()
-  if (!latestState.persist.hasPersistedProfiles) return
+  if (latestState.persist.stringifiedEncryptionKey === 'skipped') return
   if (action.type.startsWith('@')) return // Ignore @@INIT from redux-devtools-instrument
   if (action.type.startsWith('&')) return // Ignore e.g. &_GET_INIT_STATE from redux-state-sync
   if (isActionSynced(action)) return // Ignore actions synced across tabs from redux-state-sync

@@ -7,10 +7,12 @@ import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { useNavigate } from 'react-router-dom'
 
 export function UnlockForm() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
   const [password, setPassword] = React.useState('')
 
@@ -43,8 +45,17 @@ export function UnlockForm() {
             width="auto"
           ></PasswordField>
 
-          <Box direction="row" justify="between" margin={{ top: 'medium' }}>
+          <Box direction="row-responsive" gap="medium" justify="between" margin={{ top: 'medium' }}>
             <Button type="submit" label={t('persist.loginToProfile.unlock', 'Unlock')} primary />
+
+            <Button
+              label={t('persist.loginToProfile.skipUnlocking', 'Continue without the profile')}
+              onClick={() => {
+                navigate('/')
+                dispatch(persistActions.skipUnlocking())
+              }}
+              plain
+            />
           </Box>
         </Form>
       </Box>

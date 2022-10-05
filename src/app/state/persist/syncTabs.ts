@@ -45,6 +45,7 @@ export const whitelistTabSyncActions = [
   networkActions.networkSelected.type,
   persistActions.setUnlockedRootState.type,
   persistActions.resetRootState.type,
+  persistActions.skipUnlocking.type,
 ]
 
 const stateSyncConfig: StateSyncConfig = {

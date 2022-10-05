@@ -55,13 +55,12 @@ export function* networkSaga() {
   yield* takeLatest(persistActions.setUnlockedRootState, ({ payload }) =>
     put(networkActions.selectNetwork(payload.persistedRootState.network.selectedNetwork)),
   )
+  yield* takeLatest(persistActions.skipUnlocking, () =>
+    put(networkActions.selectNetwork(process.env.REACT_APP_LOCALNET ? 'local' : 'mainnet')),
+  )
 
   const needsPassword = yield* select(selectNeedsPassword)
   if (!needsPassword) {
-    if (process.env.REACT_APP_LOCALNET) {
-      yield* put(networkActions.selectNetwork('local'))
-    } else {
-      yield* put(networkActions.selectNetwork('mainnet'))
-    }
+    yield* put(persistActions.skipUnlocking())
   }
 }
