@@ -28,6 +28,7 @@ const slice = createSlice({
     walletOpened(state, action: PayloadAction<Wallet>) {
       const newWallet = action.payload
       state.wallets[newWallet.address] = newWallet
+      state.selectedWallet ??= newWallet.address
       state.isOpen = true
     },
     walletClosed(state, action: PayloadAction<void>) {
