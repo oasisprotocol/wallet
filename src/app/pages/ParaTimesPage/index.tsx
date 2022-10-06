@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
 import { Box } from 'grommet'
+import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { TransactionFormSteps } from 'app/state/paratimes/types'
@@ -40,6 +41,7 @@ const getActiveFormStepComponent = (t: TFunction, step: TransactionFormSteps) =>
 
 export const ParaTimes = () => {
   const { t } = useTranslation()
+  const selectedNetwork = useSelector(selectSelectedNetwork)
   const { transactionFormStep } = useSelector(selectParaTimes)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const { clearTransactionForm } = useParaTimes()
@@ -49,6 +51,10 @@ export const ParaTimes = () => {
       clearTransactionForm()
     }
   }, [clearTransactionForm])
+
+  useEffect(() => {
+    clearTransactionForm()
+  }, [clearTransactionForm, selectedNetwork])
 
   return (
     <Box pad="medium" background="background-front" align="center">
