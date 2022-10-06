@@ -4,7 +4,13 @@ import { addHexPrefix, isValidPrivate, privateToAddress, toChecksumAddress } fro
 export { isValidAddress as isValidEthAddress } from 'ethereumjs-util'
 
 export const hexToBuffer = (value: string): Buffer => Buffer.from(value, 'hex')
-export const isValidEthPrivateKey = (value: string): boolean => isValidPrivate(hexToBuffer(value))
+export const isValidEthPrivateKey = (value: string): boolean => {
+  try {
+    return isValidPrivate(hexToBuffer(value))
+  } catch {
+    return false
+  }
+}
 export const isValidEthPrivateKeyLength = (value: string) => value.length === 64
 export const privateToEthAddress = (value: string): string =>
   toChecksumAddress(addHexPrefix(privateToAddress(hexToBuffer(value)).toString('hex')))
