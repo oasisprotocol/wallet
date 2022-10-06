@@ -47,6 +47,38 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
 `;
 
 exports[`<TransactionSummary /> should render component 1`] = `
+.c6 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+  fill: successful-label;
+  stroke: successful-label;
+}
+
+.c6 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c6 *:not([stroke])[fill="none"] {
+  stroke-width: 0;
+}
+
+.c6 *[stroke*="#"],.c6 *[STROKE*="#"] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c6 *[fill-rule],
+.c6 *[FILL-RULE],
+.c6 *[fill*="#"],.c6 *[FILL*="#"] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -107,6 +139,21 @@ exports[`<TransactionSummary /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   margin-bottom: 48px;
   -webkit-align-items: center;
   -webkit-box-align: center;
@@ -119,19 +166,14 @@ exports[`<TransactionSummary /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 24px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 24px;
 }
 
 .c3 {
@@ -140,12 +182,7 @@ exports[`<TransactionSummary /> should render component 1`] = `
   text-align: center;
 }
 
-.c8 {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.c7 {
+.c9 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -174,44 +211,44 @@ exports[`<TransactionSummary /> should render component 1`] = `
   width: 100%;
 }
 
-.c7:hover {
+.c9:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c7:focus {
+.c9:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c7:focus > circle,
-.c7:focus > ellipse,
-.c7:focus > line,
-.c7:focus > path,
-.c7:focus > polygon,
-.c7:focus > polyline,
-.c7:focus > rect {
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c7:focus::-moz-focus-inner {
+.c9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c7:focus:not(:focus-visible) {
+.c9:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c7:focus:not(:focus-visible) > circle,.c7:focus:not(:focus-visible) > ellipse,
-.c7:focus:not(:focus-visible) > line,.c7:focus:not(:focus-visible) > path,
-.c7:focus:not(:focus-visible) > polygon,.c7:focus:not(:focus-visible) > polyline,
-.c7:focus:not(:focus-visible) > rect {
+.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c7:focus:not(:focus-visible)::-moz-focus-inner {
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -232,13 +269,13 @@ exports[`<TransactionSummary /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c5 {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
-    margin-bottom: 12px;
+  .c8 {
+    margin-bottom: 24px;
   }
 }
 
@@ -293,22 +330,36 @@ exports[`<TransactionSummary /> should render component 1`] = `
       <div
         class="c5"
       >
-        <div
+        <svg
+          aria-label="Status is okay"
           class="c6"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
+            fill="none"
+            stroke="#000"
+            stroke-width="2"
+          />
+        </svg>
+      </div>
+      <div
+        class="c7"
+      />
+      <div
+        class="c8"
+      >
+        <div
+          class="c5"
         >
           <button
-            class="c7"
+            class="c9"
             type="button"
           >
             Navigate to ParaTimes Transfers
           </button>
         </div>
       </div>
-      <span
-        class="c8"
-      >
-        * EVMc - Ethereum Virtual Machine compatible
-      </span>
     </div>
   </div>
 </div>

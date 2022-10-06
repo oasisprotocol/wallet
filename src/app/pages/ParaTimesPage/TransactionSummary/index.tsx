@@ -1,6 +1,7 @@
 import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-
+import { Box } from 'grommet'
+import { StatusGood } from 'grommet-icons'
 import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
@@ -30,10 +31,14 @@ export const TransactionSummary = () => {
         />
       }
     >
+      <Box margin={{ bottom: 'medium' }}>
+        <StatusGood size="80px" color="successful-label" />
+      </Box>
+
       <ParaTimeFormFooter
         primaryLabel={t('paraTimes.summary.navigate', 'Navigate to ParaTimes Transfers')}
         primaryAction={clearTransactionForm}
-        withNotice
+        withNotice={isEvmcParaTime}
       />
     </ParaTimeContent>
   )
