@@ -9,9 +9,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     setError(state, action: PayloadAction<FatalErrorPayload>) {
-      if (!state.error) {
-        state.error = action.payload
-      }
+      state.error ??= action.payload
     },
   },
 })

@@ -38,6 +38,6 @@ module.exports = {
   },
   transform: typescriptTransform({
     extensions: ['.ts', '.tsx'],
-    tsOptions: { jsx: 'preserve', target: 'esnext' },
+    tsOptions: { jsx: 'preserve', target: 'es2018' },
   }),
 }
