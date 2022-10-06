@@ -32,9 +32,6 @@ export function* rootWalletSaga() {
 
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
-
-  // Listen to closeWallet
-  yield* takeEvery(walletActions.closeWallet, closeWallet)
 }
 
 export function* getBalance(publicKey: Uint8Array) {
@@ -128,10 +125,6 @@ export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
     yield* delay(1) // Workaround to avoid React batching state updates
     yield* put(walletActions.selectWallet(newWallet.address))
   }
-}
-
-export function* closeWallet() {
-  yield* put(walletActions.walletClosed())
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {

@@ -1,4 +1,3 @@
-import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
 import {
   Avatar,
@@ -12,7 +11,17 @@ import {
   Text,
   Tip,
 } from 'grommet'
-import { Github, FormDown, Home, Inherit, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons'
+import {
+  Github,
+  FormDown,
+  Home,
+  Inherit,
+  LineChart,
+  Lock,
+  Logout,
+  Menu as MenuIcon,
+  Money,
+} from 'grommet-icons'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -23,6 +32,8 @@ import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavi
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
+import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
+import { persistActions } from 'app/state/persist'
 
 const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
   const size = useContext(ResponsiveContext)
@@ -167,25 +178,37 @@ const SidebarFooter = (props: SidebarFooterProps) => {
   const size = props.size
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const isLockableOrCloseable = useSelector(selectIsLockableOrCloseable)
 
   const setLanguage = (ln: string) => {
     i18n.changeLanguage(ln)
   }
 
-  const logout = () => {
-    dispatch(walletActions.closeWallet())
+  const closeWallet = () => {
     navigate('/')
+    dispatch(persistActions.lockAsync())
+  }
+  const lockProfile = () => {
+    dispatch(persistActions.lockAsync())
   }
 
   return (
     <Nav gap="small">
       <ThemeSwitcher />
-      <SidebarButton
-        icon={<Logout />}
-        label={t('menu.closeWallet', 'Close wallet')}
-        needsWalletOpen={true}
-        onClick={() => logout()}
-      />
+      {isLockableOrCloseable === 'closeable' && (
+        <SidebarButton
+          icon={<Logout />}
+          label={t('menu.closeWallet', 'Close wallet')}
+          onClick={() => closeWallet()}
+        />
+      )}
+      {isLockableOrCloseable === 'lockable' && (
+        <SidebarButton
+          icon={<Lock />}
+          label={t('menu.lockProfile', 'Lock profile')}
+          onClick={() => lockProfile()}
+        />
+      )}
 
       <SidebarTooltip label="Language" isActive={false}>
         <Box pad="small" align={size === 'medium' ? 'center' : 'start'}>

@@ -147,19 +147,6 @@ describe('Wallet Sagas', () => {
         })
         .silentRun(50)
     })
-
-    it('Should close the wallet and wait for another open attempt', () => {
-      return expectSaga(rootWalletSaga)
-        .provide(providers)
-        .withState({})
-        .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
-        .fork(walletSaga)
-        .put.actionType(walletActions.selectWallet.type)
-        .dispatch(walletActions.closeWallet())
-        .put(walletActions.walletClosed())
-        .take(walletActions.openWalletFromMnemonic)
-        .silentRun(50)
-    })
   })
 
   it.skip('Should redirect user when selecting a wallet', () => {

@@ -206,6 +206,7 @@
   "menu": {
     "closeWallet": "Close wallet",
     "home": "Home",
+    "lockProfile": "Lock profile",
     "paraTimes": "ParaTimes",
     "stake": "Stake",
     "wallet": "Wallet"

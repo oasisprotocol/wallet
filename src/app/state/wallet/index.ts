@@ -19,7 +19,6 @@ const slice = createSlice({
     selectWallet(state, action: PayloadAction<string | undefined>) {
       state.selectedWallet = action.payload
     },
-    closeWallet(state, action: PayloadAction<void>) {},
     fetchWallet(state, action: PayloadAction<Wallet>) {},
     updateBalance(state, action: PayloadAction<BalanceUpdatePayload>) {
       Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
@@ -30,10 +29,6 @@ const slice = createSlice({
       state.wallets[newWallet.address] = newWallet
       state.selectedWallet ??= newWallet.address
       state.isOpen = true
-    },
-    walletClosed(state, action: PayloadAction<void>) {
-      // Revert to initial state
-      Object.assign(state, initialState)
     },
   },
 })
