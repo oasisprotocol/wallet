@@ -47,7 +47,7 @@ export function FromPrivateKey(props: Props) {
       round="5px"
       border={{ color: 'background-front-border', size: '1px' }}
     >
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Header>{t('openWallet.privateKey.header', 'Enter your private key')}</Header>
         <Paragraph>
           <label htmlFor="privatekey">
@@ -73,7 +73,6 @@ export function FromPrivateKey(props: Props) {
               type="submit"
               label={t('openWallet.mnemonic.import', 'Import my account')}
               primary
-              onClick={onSubmit}
             />
           </Box>
         </Box>

@@ -41,7 +41,7 @@ export function MnemonicValidation(props: Props) {
       border={{ color: 'background-front-border', size: '1px' }}
     >
       <Grid gap="small" pad="none" columns={size === 'small' ? '100%' : ['1fr', '1fr']}>
-        <Form>
+        <Form onSubmit={onSubmit}>
           <Header>{t('openWallet.mnemonic.header', 'Enter your keyphrase')}</Header>
           <Paragraph>
             {t(
@@ -80,7 +80,6 @@ export function MnemonicValidation(props: Props) {
               type="submit"
               label={t('openWallet.mnemonic.import', 'Import my wallet')}
               primary
-              onClick={onSubmit}
             />
             {props.abortHandler && (
               <Button label={t('common.cancel', 'Cancel')} secondary onClick={props.abortHandler} />
