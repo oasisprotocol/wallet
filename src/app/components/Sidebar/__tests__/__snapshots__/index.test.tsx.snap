@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Navigation /> should match snapshot 1`] = `
-.c10 {
+.c11 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,23 +12,23 @@ exports[`<Navigation /> should match snapshot 1`] = `
   stroke: #666666;
 }
 
-.c10 g {
+.c11 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c10 *:not([stroke])[fill="none"] {
+.c11 *:not([stroke])[fill="none"] {
   stroke-width: 0;
 }
 
-.c10 *[stroke*="#"],.c10 *[STROKE*="#"] {
+.c11 *[stroke*="#"],.c11 *[STROKE*="#"] {
   stroke: inherit;
   fill: none;
 }
 
-.c10 *[fill-rule],
-.c10 *[FILL-RULE],
-.c10 *[fill*="#"],.c10 *[FILL*="#"] {
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*="#"],.c11 *[FILL*="#"] {
   fill: inherit;
   stroke: none;
 }
@@ -106,8 +106,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: url(IMAGE_MOCK) no-repeat center center;
-  background-size: cover;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -123,7 +121,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   overflow: hidden;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -140,7 +138,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 1 1;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -158,7 +156,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding: 0px;
 }
 
-.c9 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -180,7 +178,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -197,7 +195,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 0 0 auto;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -218,7 +216,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -237,7 +235,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -251,7 +249,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c18 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,7 +264,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -284,7 +282,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c4 {
+.c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -294,7 +292,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c6 {
+.c7 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -304,7 +302,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   height: 12px;
 }
 
-.c11 {
+.c12 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -314,12 +312,12 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 24px;
 }
 
-.c5 {
+.c6 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c13 {
+.c14 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -338,44 +336,44 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 100%;
 }
 
-.c13:focus {
+.c14:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus > circle,
-.c13:focus > ellipse,
-.c13:focus > line,
-.c13:focus > path,
-.c13:focus > polygon,
-.c13:focus > polyline,
-.c13:focus > rect {
+.c14:focus > circle,
+.c14:focus > ellipse,
+.c14:focus > line,
+.c14:focus > path,
+.c14:focus > polygon,
+.c14:focus > polyline,
+.c14:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus::-moz-focus-inner {
+.c14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c13:focus:not(:focus-visible) {
+.c14:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
-.c13:focus:not(:focus-visible) > rect {
+.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible)::-moz-focus-inner {
+.c14:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -393,41 +391,49 @@ exports[`<Navigation /> should match snapshot 1`] = `
   text-align: inherit;
 }
 
-.c16:focus {
+.c17:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c17:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
+}
+
+.c4 {
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  overflow: hidden;
+  object-fit: contain;
 }
 
 @media only screen and (max-width:768px) {
@@ -462,19 +468,13 @@ exports[`<Navigation /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c9 {
     padding: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c18 {
+  .c16 {
     padding: 6px;
   }
 }
@@ -486,13 +486,19 @@ exports[`<Navigation /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c20 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
     width: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     height: 6px;
   }
 }
@@ -511,12 +517,19 @@ exports[`<Navigation /> should match snapshot 1`] = `
       >
         <div
           class="c3 "
-        />
+          role="figure"
+        >
+          <img
+            class="c4"
+            role="presentation"
+            src="IMAGE_MOCK"
+          />
+        </div>
         <div
-          class="c4"
+          class="c5"
         />
         <span
-          class="c5"
+          class="c6"
         >
           Oasis Wallet
         </span>
@@ -524,13 +537,13 @@ exports[`<Navigation /> should match snapshot 1`] = `
     </a>
   </div>
   <div
-    class="c6"
+    class="c7"
   />
   <div
-    class="c7"
+    class="c8"
   >
     <nav
-      class="c8"
+      class="c9"
     >
       <a
         aria-current="page"
@@ -540,11 +553,11 @@ exports[`<Navigation /> should match snapshot 1`] = `
         href="/"
       >
         <div
-          class="c9"
+          class="c10"
         >
           <svg
             aria-label="Home"
-            class="c10"
+            class="c11"
             viewBox="0 0 24 24"
           >
             <path
@@ -555,40 +568,40 @@ exports[`<Navigation /> should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c11"
+            class="c12"
           />
           <span
-            class="c5"
+            class="c6"
           >
             menu.home
           </span>
         </div>
       </a>
       <div
-        class="c6"
+        class="c7"
       />
       <div
-        class="c6"
+        class="c7"
       />
     </nav>
   </div>
   <div
-    class="c6"
+    class="c7"
   />
   <nav
-    class="c12"
+    class="c13"
   >
     <button
       aria-label="theme.darkMode"
-      class="c13"
+      class="c14"
       type="button"
     >
       <div
-        class="c14"
+        class="c15"
       >
         <svg
           aria-label="Moon"
-          class="c10"
+          class="c11"
           viewBox="0 0 24 24"
         >
           <path
@@ -599,40 +612,40 @@ exports[`<Navigation /> should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c11"
+          class="c12"
         />
         <span
-          class="c5"
+          class="c6"
         >
           theme.darkMode
         </span>
       </div>
     </button>
     <div
-      class="c6"
+      class="c7"
     />
     <div
-      class="c6"
+      class="c7"
     />
     <div
-      class="c15"
+      class="c16"
     >
       <button
         aria-expanded="false"
         aria-haspopup="menu"
         aria-label="Open Menu"
-        class="c16"
+        class="c17"
         type="button"
       >
         <div
-          class="c17"
+          class="c18"
         >
           <div
-            class="c18"
+            class="c19"
           >
             <svg
               aria-label="Language"
-              class="c10"
+              class="c11"
               viewBox="0 0 24 24"
             >
               <path
@@ -642,20 +655,20 @@ exports[`<Navigation /> should match snapshot 1`] = `
             </svg>
           </div>
           <div
-            class="c19"
+            class="c20"
           >
             <span
-              class="c5"
+              class="c6"
             >
               Language
             </span>
           </div>
           <div
-            class="c18"
+            class="c19"
           >
             <svg
               aria-label="FormDown"
-              class="c10"
+              class="c11"
               viewBox="0 0 24 24"
             >
               <path
@@ -670,7 +683,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
       </button>
     </div>
     <div
-      class="c6"
+      class="c7"
     />
     <a
       aria-label="GitHub"
@@ -679,11 +692,11 @@ exports[`<Navigation /> should match snapshot 1`] = `
       target="_blank"
     >
       <div
-        class="c14"
+        class="c15"
       >
         <svg
           aria-label="Github"
-          class="c10"
+          class="c11"
           viewBox="0 0 24 24"
         >
           <path
@@ -693,10 +706,10 @@ exports[`<Navigation /> should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c11"
+          class="c12"
         />
         <span
-          class="c5"
+          class="c6"
         >
           GitHub
         </span>

@@ -540,6 +540,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .c25 {

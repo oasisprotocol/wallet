@@ -111,6 +111,7 @@ exports[`<FromLedger /> should render component 1`] = `
   line-height: 40px;
   max-width: 816px;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .c2 {
@@ -119,6 +120,7 @@ exports[`<FromLedger /> should render component 1`] = `
   line-height: 32px;
   max-width: 624px;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width:768px) {
