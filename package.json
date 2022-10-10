@@ -65,7 +65,7 @@
     "bip39": "3.0.4",
     "body-scroll-lock": "4.0.0-beta.0",
     "copy-to-clipboard": "3.3.2",
-    "grommet": "2.25.3",
+    "grommet": "2.27.0",
     "grommet-icons": "4.8.0",
     "i18next": "21.10.0",
     "i18next-browser-languagedetector": "6.1.8",
@@ -153,6 +153,7 @@
     "@testing-library/dom": "8.19.0",
     "@typescript-eslint/eslint-plugin": "5.39.0",
     "eslint-plugin-react": "7.31.9",
+    "grommet-icons": "4.8.0",
     "typescript": "4.8.4"
   },
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",

@@ -209,6 +209,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   line-height: 40px;
   max-width: 816px;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .c12 {
