@@ -150,7 +150,7 @@
   },
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
-    "@testing-library/dom": "8.18.1",
+    "@testing-library/dom": "8.19.0",
     "@typescript-eslint/eslint-plugin": "5.39.0",
     "eslint-plugin-react": "7.31.9",
     "typescript": "4.8.4"
