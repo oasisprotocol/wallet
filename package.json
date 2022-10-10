@@ -58,7 +58,7 @@
     "@metamask/jazzicon": "2.0.0",
     "@oasisprotocol/client": "0.1.0-alpha9",
     "@oasisprotocol/ledger": "0.2.3",
-    "@reduxjs/toolkit": "1.8.5",
+    "@reduxjs/toolkit": "1.8.6",
     "base64-arraybuffer": "1.0.2",
     "bech32": "2.0.0",
     "bignumber.js": "9.0.2",
