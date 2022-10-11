@@ -77,10 +77,6 @@ export function isAmountGreaterThan(amount: string, value: StringifiedBigInt) {
   return parseRoseStringToBigNumber(amount).isGreaterThan(new BigNumber(value))
 }
 
-export function isEvmcAmountGreaterThan(amount: string, value: StringifiedBigInt) {
-  return parseRoseStringToBigNumber(amount, 18).isGreaterThan(new BigNumber(value))
-}
-
 export function formatBaseUnitsAsRose(
   amount: StringifiedBigInt,
   { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},

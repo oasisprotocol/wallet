@@ -25,9 +25,10 @@ export type ParaTimesHook = {
   accountAddress: string | undefined
   accountIsLoading: boolean
   availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[]
-  balance: StringifiedBigInt
+  balance: StringifiedBigInt | null
   balanceInBaseUnit: boolean
   clearTransactionForm: () => void
+  consensusDecimals: number
   decimals: number
   isDepositing: boolean
   isEvmcParaTime: boolean
@@ -95,9 +96,10 @@ export const useParaTimes = (): ParaTimesHook => {
     accountAddress,
     accountIsLoading,
     availableParaTimesForSelectedNetwork,
-    balance: walletBalance || '0',
+    balance: walletBalance,
     balanceInBaseUnit,
     clearTransactionForm,
+    consensusDecimals,
     decimals,
     isDepositing,
     isEvmcParaTime,

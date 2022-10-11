@@ -20,6 +20,7 @@ describe('<TransactionAmount />', () => {
   const mockUseParaTimesResult = {
     balance: '1000000000',
     balanceInBaseUnit: true,
+    consensusDecimals,
     decimals: consensusDecimals,
     isDepositing: true,
     isEvmcParaTime: false,

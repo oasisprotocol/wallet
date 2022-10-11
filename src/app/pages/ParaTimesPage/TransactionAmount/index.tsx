@@ -2,13 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Box, Button, Form, FormField, Text, TextInput, Tip } from 'grommet'
 import { Trans, useTranslation } from 'react-i18next'
-
-import {
-  formatBaseUnitsAsRose,
-  formatWeiAsWrose,
-  isAmountGreaterThan,
-  isEvmcAmountGreaterThan,
-} from 'app/lib/helpers'
+import BigNumber from 'bignumber.js'
+import { formatBaseUnitsAsRose, isAmountGreaterThan } from 'app/lib/helpers'
 import { paraTimesActions } from 'app/state/paratimes'
 import { AlertBox } from 'app/components/AlertBox'
 import { defaultWithdrawFeeAmount } from 'app/lib/transaction'
@@ -24,11 +19,17 @@ function getMaxAmountValue(
   isDepositing: boolean,
   accountBalance: StringifiedBigInt,
   feeAmount: string,
+  balanceInBaseUnit: boolean,
+  consensusDecimals: number,
+  runtimeDecimals: number,
 ): StringifiedBigInt {
+  const balance = balanceInBaseUnit
+    ? accountBalance
+    : new BigNumber(accountBalance).shiftedBy(consensusDecimals - runtimeDecimals).toFixed(0)
   const maxValue =
     isDepositing && !feeAmount
       ? accountBalance
-      : BigInt(accountBalance!) - (feeAmount ? BigInt(feeAmount) : BigInt(defaultWithdrawFeeAmount))
+      : BigInt(balance) - BigInt(feeAmount || defaultWithdrawFeeAmount)
   return maxValue.toString()
 }
 
@@ -38,6 +39,7 @@ export const TransactionAmount = () => {
   const {
     balance,
     balanceInBaseUnit,
+    consensusDecimals,
     decimals,
     isDepositing,
     isEvmcParaTime,
@@ -49,8 +51,6 @@ export const TransactionAmount = () => {
     transactionForm,
   } = useParaTimes()
   const { navigateToRecipient, navigateToConfirmation } = useParaTimesNavigation()
-  const formatter = balanceInBaseUnit ? formatBaseUnitsAsRose : formatWeiAsWrose
-  const balanceValidator = balanceInBaseUnit ? isAmountGreaterThan : isEvmcAmountGreaterThan
   const disabled = !isLoading && isWalletEmpty
 
   useEffect(() => {
@@ -64,7 +64,6 @@ export const TransactionAmount = () => {
         : paraTimesActions.fetchBalanceUsingOasisAddress(),
     )
   }, [dispatch, isDepositing, isEvmcParaTime])
-  const maxAmount = getMaxAmountValue(isDepositing, balance, transactionForm.feeAmount)
 
   return (
     <ParaTimeContent
@@ -101,76 +100,98 @@ export const TransactionAmount = () => {
         >
           <Box margin={{ bottom: 'small' }}>
             <Box width="medium" direction="row" margin="none" align="center" style={{ position: 'relative' }}>
-              <FormField
-                name="amount"
-                style={{ width: '100%' }}
-                required
-                validate={[
-                  (amount: string) =>
-                    !new RegExp(`^\\d*(?:[.][0-9]{0,${decimals}})?$`).test(amount)
-                      ? {
-                          message: t(
-                            'paraTimes.validation.invalidDecimalValue',
-                            'Maximum of {{token}} decimal places is allowed',
-                            { token: decimals },
-                          ),
-                          status: 'error',
-                        }
-                      : undefined,
-                  (amount: string) =>
-                    balanceValidator(amount, balance!)
-                      ? {
-                          message: t('errors.insufficientBalance', 'Insufficient balance'),
-                          status: 'error',
-                        }
-                      : undefined,
-                  (amount: string) =>
-                    balanceValidator(amount, maxAmount)
-                      ? {
-                          message: t(
-                            'paraTimes.validation.insufficientBalanceToPayFee',
-                            'Insufficient balance to pay the fee',
-                          ),
-                          status: 'error',
-                        }
-                      : undefined,
-                ]}
-              >
-                <TextInput
-                  disabled={disabled}
-                  inputMode="decimal"
-                  name="amount"
-                  placeholder="0"
-                  value={transactionForm.amount}
-                />
-              </FormField>
               {balance && (
-                <Box
-                  style={{
-                    fontWeight: 'bold',
-                    zIndex: 2,
-                    position: 'absolute',
-                    top: '15px',
-                    right: 0,
-                  }}
-                >
-                  <Tip
-                    content={t('paraTimes.amount.tooltip', 'Max value may be decreased by the fee')}
-                    dropProps={{ align: { bottom: 'top' } }}
+                <>
+                  <FormField
+                    name="amount"
+                    style={{ width: '100%' }}
+                    required
+                    validate={[
+                      (amount: string) =>
+                        !new RegExp(`^\\d*(?:[.][0-9]{0,${consensusDecimals}})?$`).test(amount)
+                          ? {
+                              message: t(
+                                'paraTimes.validation.invalidDecimalValue',
+                                'Maximum of {{consensusDecimals}} decimal places is allowed',
+                                { consensusDecimals },
+                              ),
+                              status: 'error',
+                            }
+                          : undefined,
+                      (amount: string) =>
+                        isAmountGreaterThan(amount, balance)
+                          ? {
+                              message: t('errors.insufficientBalance', 'Insufficient balance'),
+                              status: 'error',
+                            }
+                          : undefined,
+                      (amount: string) =>
+                        isAmountGreaterThan(
+                          amount,
+                          getMaxAmountValue(
+                            isDepositing,
+                            balance,
+                            transactionForm.feeAmount,
+                            balanceInBaseUnit,
+                            consensusDecimals,
+                            decimals,
+                          ),
+                        )
+                          ? {
+                              message: t(
+                                'paraTimes.validation.insufficientBalanceToPayFee',
+                                'Insufficient balance to pay the fee',
+                              ),
+                              status: 'error',
+                            }
+                          : undefined,
+                    ]}
                   >
-                    <Button
+                    <TextInput
                       disabled={disabled}
-                      plain
-                      label={t('paraTimes.amount.max', 'MAX')}
-                      onClick={() =>
-                        setTransactionForm({
-                          ...transactionForm,
-                          amount: formatter(maxAmount).replaceAll(',', ''),
-                        })
-                      }
+                      inputMode="decimal"
+                      name="amount"
+                      placeholder="0"
+                      value={transactionForm.amount}
                     />
-                  </Tip>
-                </Box>
+                  </FormField>
+
+                  <Box
+                    style={{
+                      fontWeight: 'bold',
+                      zIndex: 2,
+                      position: 'absolute',
+                      top: '15px',
+                      right: 0,
+                    }}
+                  >
+                    <Tip
+                      content={t('paraTimes.amount.tooltip', 'Max value may be decreased by the fee')}
+                      dropProps={{ align: { bottom: 'top' } }}
+                    >
+                      <Button
+                        disabled={disabled}
+                        plain
+                        label={t('paraTimes.amount.max', 'MAX')}
+                        onClick={() =>
+                          setTransactionForm({
+                            ...transactionForm,
+                            amount: formatBaseUnitsAsRose(
+                              getMaxAmountValue(
+                                isDepositing,
+                                balance,
+                                transactionForm.feeAmount,
+                                balanceInBaseUnit,
+                                consensusDecimals,
+                                decimals,
+                              ),
+                            ).replaceAll(',', ''),
+                          })
+                        }
+                      />
+                    </Tip>
+                  </Box>
+                </>
               )}
             </Box>
 
