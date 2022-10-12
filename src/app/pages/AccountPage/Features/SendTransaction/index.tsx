@@ -100,11 +100,7 @@ export function SendTransaction(props: SendTransactionProps) {
             />
           </FormField>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <Button
-              type="submit"
-              label={t('account.sendTransaction.send', 'Send')}
-              primary
-            />
+            <Button type="submit" label={t('account.sendTransaction.send', 'Send')} primary />
           </Box>
         </Box>
       </Form>

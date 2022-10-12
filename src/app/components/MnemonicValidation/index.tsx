@@ -76,11 +76,7 @@ export function MnemonicValidation(props: Props) {
             </FormField>
           </Box>
           <Box direction="row" gap="small" margin={{ top: 'medium' }}>
-            <Button
-              type="submit"
-              label={t('openWallet.mnemonic.import', 'Import my wallet')}
-              primary
-            />
+            <Button type="submit" label={t('openWallet.mnemonic.import', 'Import my wallet')} primary />
             {props.abortHandler && (
               <Button label={t('common.cancel', 'Cancel')} secondary onClick={props.abortHandler} />
             )}

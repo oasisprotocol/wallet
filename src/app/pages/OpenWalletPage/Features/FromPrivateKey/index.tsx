@@ -69,11 +69,7 @@ export function FromPrivateKey(props: Props) {
 
         <Box pad={{ vertical: 'medium' }}>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <Button
-              type="submit"
-              label={t('openWallet.mnemonic.import', 'Import my account')}
-              primary
-            />
+            <Button type="submit" label={t('openWallet.mnemonic.import', 'Import my account')} primary />
           </Box>
         </Box>
       </Form>
