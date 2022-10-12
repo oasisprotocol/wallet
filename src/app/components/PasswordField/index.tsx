@@ -2,36 +2,45 @@ import { Box, FormField, Button, TextInput, Tip } from 'grommet'
 import { View, Hide } from 'grommet-icons'
 import * as React from 'react'
 
-interface Props {
-  placeholder: string
+interface Props<TFormValue> {
+  name: Extract<keyof TFormValue, string>
+  label?: string
+  placeholder?: string
   inputElementId: string
 
   autoComplete: 'on' | 'off' | 'new-password' | 'current-password'
-  value: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  error: string | false
+  value?: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  validate?: (password: string, form: TFormValue) => string | undefined
+  error?: string | false
+  required?: boolean
   showTip: string
   hideTip: string
 
   width: string
 }
 
-export function PasswordField(props: Props) {
+export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
   const [passwordIsVisible, setPasswordIsVisible] = React.useState(false)
 
   return (
     <FormField
+      name={props.name}
       htmlFor={props.inputElementId}
+      label={props.label}
+      validate={props.validate}
       error={props.error ? props.error : ''}
       width={props.width}
     >
       <Box direction="row" align="center">
         <TextInput
           id={props.inputElementId}
+          name={props.name}
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}
           type={passwordIsVisible ? 'text' : 'password'}
+          required={props.required}
           autoComplete={props.autoComplete}
           plain
         />

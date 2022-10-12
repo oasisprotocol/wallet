@@ -456,6 +456,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
                 autocomplete="off"
                 class="c8"
                 id="privatekey"
+                name="privateKey"
                 placeholder="openWallet.privateKey.enterPrivateKeyHere"
                 type="password"
                 value=""
