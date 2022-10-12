@@ -4,10 +4,13 @@
  *
  */
 import { Anchor, Box, Button } from 'grommet'
-import * as React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
+import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 
 type SelectOpenMethodProps = {
   webExtensionLedgerAccess?: () => void
@@ -15,6 +18,14 @@ type SelectOpenMethodProps = {
 
 export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
+
+  useEffect(() => {
+    if (webExtensionLedgerAccess && showAccountsSelectionModal) {
+      navigate('/open-wallet/ledger')
+    }
+  }, [navigate, showAccountsSelectionModal, webExtensionLedgerAccess])
 
   return (
     <Box
