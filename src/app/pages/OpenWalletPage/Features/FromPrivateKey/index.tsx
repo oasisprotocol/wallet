@@ -10,6 +10,10 @@ import { Header } from 'app/components/Header'
 
 interface Props {}
 
+interface FormValue {
+  privateKey: string
+}
+
 const parseKey = (key: string) => {
   const keyWithoutEnvelope = key
     .replace(/\n/gm, '')
@@ -34,11 +38,8 @@ export function FromPrivateKey(props: Props) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
 
-  const [privateKey, setPrivateKey] = React.useState('')
-
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => setPrivateKey(event.target.value)
-  const onSubmit = () => {
-    const secret = parseKey(privateKey)
+  const onSubmit = ({ value }: { value: FormValue }) => {
+    const secret = parseKey(value.privateKey)
     dispatch(walletActions.openWalletFromPrivateKey(uint2hex(secret)))
   }
 
@@ -50,7 +51,7 @@ export function FromPrivateKey(props: Props) {
       round="5px"
       border={{ color: 'background-front-border', size: '1px' }}
     >
-      <Form onSubmit={onSubmit}>
+      <Form<FormValue> onSubmit={onSubmit}>
         <Header>{t('openWallet.privateKey.header', 'Enter your private key')}</Header>
         <Paragraph>
           <label htmlFor="privatekey">
@@ -58,13 +59,11 @@ export function FromPrivateKey(props: Props) {
           </label>
         </Paragraph>
 
-        <PasswordField
+        <PasswordField<FormValue>
           inputElementId="privatekey"
           name="privateKey"
           placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
           autoComplete="off"
-          value={privateKey}
-          onChange={onChange}
           validate={privateKey =>
             isValidKey(privateKey) ? undefined : t('openWallet.privateKey.error', 'Invalid private key')
           }
