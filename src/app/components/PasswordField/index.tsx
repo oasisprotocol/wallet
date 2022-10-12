@@ -23,9 +23,6 @@ export function PasswordField(props: Props) {
     <FormField
       htmlFor={props.inputElementId}
       error={props.error ? props.error : ''}
-      border
-      contentProps={{ border: props.error ? 'bottom' : false }}
-      round="small"
       width={props.width}
     >
       <Box direction="row" align="center">
