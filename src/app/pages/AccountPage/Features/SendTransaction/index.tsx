@@ -70,7 +70,7 @@ export function SendTransaction(props: SendTransactionProps) {
 
   return (
     <Box border={{ color: 'background-front-border', size: '1px' }} round="5px" background="background-front">
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Box fill gap="medium" pad="medium">
           <FormField
             htmlFor="recipient-id"
@@ -100,12 +100,7 @@ export function SendTransaction(props: SendTransactionProps) {
             />
           </FormField>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <Button
-              type="submit"
-              label={t('account.sendTransaction.send', 'Send')}
-              onClick={onSubmit}
-              primary
-            />
+            <Button type="submit" label={t('account.sendTransaction.send', 'Send')} primary />
           </Box>
         </Box>
       </Form>
