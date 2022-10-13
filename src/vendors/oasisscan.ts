@@ -86,6 +86,10 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
 export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
+    allowances: account.allowances.map(allowance => ({
+      ...allowance,
+      amount: parseRoseStringToBaseUnitString(allowance.amount),
+    })),
     available: parseRoseStringToBaseUnitString(account.available),
     delegations: null,
     debonding: null,

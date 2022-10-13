@@ -10,16 +10,21 @@ import {
 describe('oasisscan', () => {
   test('parse account', () => {
     expect(
-      // https://api.oasisscan.com/mainnet/chain/account/info/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe
+      // https://api.oasisscan.com/mainnet/chain/account/info/oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty
       parseAccount({
         rank: 0,
-        address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-        available: '756.455428396',
-        escrow: '1460535.533308247',
+        address: 'oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty',
+        available: '7791.547645364',
+        escrow: '312240.929087243',
         debonding: '0',
-        total: '1461291.988735606',
-        nonce: 2,
-        allowances: [],
+        total: '320032.476732607',
+        nonce: 89,
+        allowances: [
+          {
+            address: 'oasis1qrnu9yhwzap7rqh6tdcdcpz0zf86hwhycchkhvt8',
+            amount: '1',
+          },
+        ],
       }),
     ).toMatchSnapshot()
   })
