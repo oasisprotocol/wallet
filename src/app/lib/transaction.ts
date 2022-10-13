@@ -79,6 +79,30 @@ export class OasisTransaction {
     return tw
   }
 
+  public static async buildStakingAllowTransfer(
+    nic: OasisClient,
+    signer: Signer,
+    to: string,
+    amount: bigint,
+  ): Promise<TW<oasis.types.StakingAllow>> {
+    const tw = oasis.staking.allowWrapper()
+    const nonce = await OasisTransaction.getNonce(nic, signer)
+    const beneficiary = await addressToPublicKey(to)
+
+    tw.setNonce(nonce)
+    tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
+    tw.setBody({
+      beneficiary,
+      negative: false,
+      amount_change: oasis.quantity.fromBigInt(amount),
+    })
+
+    const gas = await tw.estimateGas(nic, signer.public())
+    tw.setFeeGas(gas)
+
+    return tw
+  }
+
   public static async signUsingLedger<T>(
     chainContext: string,
     signer: ContextSigner,

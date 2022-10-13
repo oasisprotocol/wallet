@@ -11,3 +11,4 @@ export const selectTransactionsError = createSelector([selectAccount], account =
 export const selectAccountAddress = createSelector([selectAccount], account => account.address)
 export const selectAccountAvailableBalance = createSelector([selectAccount], account => account.available)
 export const selectAccountIsLoading = createSelector([selectAccount], account => account.loading)
+export const selectAccountAllowances = createSelector([selectAccount], account => account.allowances)
