@@ -30,16 +30,16 @@ const slice = createSlice({
       state.balance = action.payload
       state.isLoading = false
     },
+    clearTransactionForm(state, action: PayloadAction<void>) {
+      state.transactionError = undefined
+      state.transactionForm = initialState.transactionForm
+      state.transactionFormStep = TransactionFormSteps.TransferType
+    },
     fetchBalanceUsingEthPrivateKey(state, action: PayloadAction<void>) {
       state.isLoading = true
     },
     fetchBalanceUsingOasisAddress(state, action: PayloadAction<void>) {
       state.isLoading = true
-    },
-    resetTransactionForm(state, action: PayloadAction<void>) {
-      state.transactionError = undefined
-      state.transactionForm = initialState.transactionForm
-      state.transactionFormStep = TransactionFormSteps.TransferType
     },
     navigateToDeposit(state, action: PayloadAction<void>) {
       state.transactionForm.type = TransactionTypes.Deposit

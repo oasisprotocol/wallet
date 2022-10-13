@@ -52,16 +52,16 @@ describe('<TransactionError />', () => {
   })
 
   it('should reset transaction form', async () => {
-    const resetTransactionForm = jest.fn()
+    const clearTransactionForm = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
-      resetTransactionForm,
+      clearTransactionForm,
     })
     render(<TransactionError />)
 
     await userEvent.click(screen.getByRole('button', { name: 'Navigate to ParaTimes Transfers' }))
 
-    expect(resetTransactionForm).toHaveBeenCalled()
+    expect(clearTransactionForm).toHaveBeenCalled()
   })
 
   it('should navigate back to confirmation step', async () => {

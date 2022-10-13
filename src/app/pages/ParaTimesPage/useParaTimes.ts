@@ -27,13 +27,13 @@ export type ParaTimesHook = {
   availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[]
   balance: StringifiedBigInt | null
   balanceInBaseUnit: boolean
+  clearTransactionForm: () => void
   decimals: number
   isDepositing: boolean
   isEvmcParaTime: boolean
   isLoading: boolean
   isWalletEmpty: boolean
   paraTimeName: string
-  resetTransactionForm: () => void
   setTransactionForm: (formValues: TransactionForm) => void
   submitTransaction: () => void
   ticker: string
@@ -61,8 +61,8 @@ const getParaTimeName = (t: TFunction, paraTime: ParaTime) => {
 export const useParaTimes = (): ParaTimesHook => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const resetTransactionForm = useCallback(() => {
-    dispatch(paraTimesActions.resetTransactionForm())
+  const clearTransactionForm = useCallback(() => {
+    dispatch(paraTimesActions.clearTransactionForm())
   }, [dispatch])
   const submitTransaction = useCallback(() => {
     dispatch(paraTimesActions.submitTransaction())
@@ -97,13 +97,13 @@ export const useParaTimes = (): ParaTimesHook => {
     availableParaTimesForSelectedNetwork,
     balance: walletBalance,
     balanceInBaseUnit,
+    clearTransactionForm,
     decimals,
     isDepositing,
     isEvmcParaTime,
     isLoading,
     isWalletEmpty: walletBalance === '0',
     paraTimeName,
-    resetTransactionForm,
     setTransactionForm,
     submitTransaction,
     ticker,

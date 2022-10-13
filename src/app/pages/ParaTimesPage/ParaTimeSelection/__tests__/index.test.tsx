@@ -71,15 +71,15 @@ describe('<ParaTimeSelection />', () => {
   })
 
   it('should cancel transfer', async () => {
-    const resetTransactionForm = jest.fn()
+    const clearTransactionForm = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
-      resetTransactionForm,
+      clearTransactionForm,
     })
     render(<ParaTimeSelection />)
 
     await userEvent.click(screen.getByRole('button', { name: 'paraTimes.selection.cancel' }))
 
-    expect(resetTransactionForm).toHaveBeenCalled()
+    expect(clearTransactionForm).toHaveBeenCalled()
   })
 })

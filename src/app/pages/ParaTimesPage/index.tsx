@@ -42,13 +42,13 @@ export const ParaTimes = () => {
   const { t } = useTranslation()
   const { transactionFormStep } = useSelector(selectParaTimes)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
-  const { resetTransactionForm } = useParaTimes()
+  const { clearTransactionForm } = useParaTimes()
 
   useEffect(() => {
     return () => {
-      resetTransactionForm()
+      clearTransactionForm()
     }
-  }, [resetTransactionForm])
+  }, [clearTransactionForm])
 
   return (
     <Box pad="medium" background="background-front" align="center">

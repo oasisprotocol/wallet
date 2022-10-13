@@ -253,17 +253,17 @@ describe('useParaTimes', () => {
     })
   })
 
-  describe('resetTransactionForm', () => {
+  describe('clearTransactionForm', () => {
     it('should dispatch an action', () => {
       const { result } = renderHook(() => useParaTimes())
 
       act(() => {
-        result.current.resetTransactionForm()
+        result.current.clearTransactionForm()
       })
 
       expect(mockDispatch).toHaveBeenCalledWith({
         payload: undefined,
-        type: paraTimesActions.resetTransactionForm.type,
+        type: paraTimesActions.clearTransactionForm.type,
       })
     })
   })

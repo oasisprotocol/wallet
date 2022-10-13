@@ -25,8 +25,8 @@ export const ParaTimeSelection = () => {
   const { t } = useTranslation()
   const {
     availableParaTimesForSelectedNetwork,
+    clearTransactionForm,
     isDepositing,
-    resetTransactionForm,
     setTransactionForm,
     ticker,
     transactionForm,
@@ -79,7 +79,7 @@ export const ParaTimeSelection = () => {
         </Box>
 
         <ParaTimeFormFooter
-          secondaryAction={resetTransactionForm}
+          secondaryAction={clearTransactionForm}
           secondaryLabel={t('paraTimes.selection.cancel', 'Cancel transfer')}
           submitButton
           withNotice
