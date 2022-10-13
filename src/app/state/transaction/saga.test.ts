@@ -87,7 +87,7 @@ describe('Transaction Sagas', () => {
     }
     const transaction = {
       amount: '10',
-      privateKey: '',
+      ethPrivateKey: '',
       feeAmount: '',
       feeGas: '',
       recipient: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',

@@ -249,13 +249,13 @@ export function* setAllowance(
 const transactionSentDelay = 1000 // to increase a chance to get updated account data from BE
 
 export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTimeTransaction) {
-  const fromAddress = transaction.privateKey
-    ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.privateKey))
+  const fromAddress = transaction.ethPrivateKey
+    ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.ethPrivateKey))
     : yield* select(selectAccountAddress)
   const nic = yield* call(getOasisNic)
   const chainContext = yield* select(selectChainContext)
-  const paraTimeTransactionSigner = transaction.privateKey
-    ? yield* call(signerFromEthPrivateKey, misc.fromHex(transaction.privateKey))
+  const paraTimeTransactionSigner = transaction.ethPrivateKey
+    ? yield* call(signerFromEthPrivateKey, misc.fromHex(transaction.ethPrivateKey))
     : yield* getSigner()
 
   if (transaction.type === TransactionTypes.Deposit) {

@@ -29,7 +29,7 @@ describe('<TransactionAmount />', () => {
       amount: '',
       recipient: 'dummyAddress',
       paraTime: ParaTime.Cipher,
-      privateKey: 'privateKey',
+      ethPrivateKey: 'ethPrivateKey',
     },
     usesOasisAddress: true,
   } as ParaTimesHook

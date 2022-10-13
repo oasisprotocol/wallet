@@ -159,7 +159,7 @@ export class OasisTransaction {
     const feeGas = transaction.feeGas ? BigInt(transaction.feeGas) : 15000n
     const signerInfo = {
       address_spec: {
-        signature: { [transaction.privateKey ? 'secp256k1eth' : 'ed25519']: signer.public() },
+        signature: { [transaction.ethPrivateKey ? 'secp256k1eth' : 'ed25519']: signer.public() },
       },
       nonce,
     }

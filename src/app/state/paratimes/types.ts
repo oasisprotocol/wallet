@@ -22,10 +22,10 @@ export interface TransactionForm {
   confirmTransfer: boolean
   confirmTransferToValidator: boolean
   confirmTransferToForeignAccount: boolean
+  ethPrivateKey: string
   feeAmount: string
   feeGas: string
   paraTime?: ParaTime
-  privateKey: string
   recipient: string
   type: TransactionTypes | undefined
 }
@@ -46,5 +46,5 @@ export type Runtime = {
 
 export type ParaTimeTransaction = Pick<
   TransactionForm,
-  'amount' | 'privateKey' | 'feeAmount' | 'feeGas' | 'recipient' | 'type'
+  'amount' | 'ethPrivateKey' | 'feeAmount' | 'feeGas' | 'recipient' | 'type'
 >

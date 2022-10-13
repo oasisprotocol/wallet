@@ -13,7 +13,7 @@ describe('ParaTimes Sagas', () => {
   const state: DeepPartialRootState = {
     paraTimes: {
       transactionForm: {
-        privateKey: '00',
+        ethPrivateKey: '00',
         paraTime: ParaTime.Cipher,
       },
     },

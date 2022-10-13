@@ -19,7 +19,7 @@ describe('<TransactionRecipient />', () => {
     ticker: 'ROSE',
     transactionForm: {
       recipient: '',
-      privateKey: '',
+      ethPrivateKey: '',
     },
     usesOasisAddress: true,
   } as ParaTimesHook

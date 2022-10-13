@@ -50,10 +50,10 @@ export const TransactionRecipient = () => {
         <Box margin={{ bottom: 'medium' }}>
           {isEvmcParaTime && !isDepositing ? (
             <FormField
-              name="privateKey"
+              name="ethPrivateKey"
               required
-              validate={(privateKey: string) =>
-                !isValidEthPrivateKeyLength(privateKey)
+              validate={(ethPrivateKey: string) =>
+                !isValidEthPrivateKeyLength(ethPrivateKey)
                   ? {
                       message: t(
                         'paraTimes.validation.invalidEthPrivateKeyLength',
@@ -61,7 +61,7 @@ export const TransactionRecipient = () => {
                       ),
                       status: 'error',
                     }
-                  : !isValidEthPrivateKey(privateKey)
+                  : !isValidEthPrivateKey(ethPrivateKey)
                   ? {
                       message: t('paraTimes.validation.invalidEthPrivateKey', 'Private key is invalid'),
                       status: 'error',
@@ -70,13 +70,13 @@ export const TransactionRecipient = () => {
               }
             >
               <TextInput
-                name="privateKey"
+                name="ethPrivateKey"
                 type="password"
                 placeholder={t(
                   'paraTimes.recipient.privateKeyPlaceholder',
                   'Enter Ethereum-compatible private key',
                 )}
-                value={transactionForm.privateKey}
+                value={transactionForm.ethPrivateKey}
               />
             </FormField>
           ) : (
