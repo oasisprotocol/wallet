@@ -898,6 +898,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
           >
             <button
               class="c9"
+              data-testid="copy-address"
               type="button"
             >
               <svg

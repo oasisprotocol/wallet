@@ -126,6 +126,11 @@ const grommetCustomTheme: ThemeType = {
       weak: 0.25,
     },
   },
+  notification: {
+    toast: {
+      time: 2000,
+    },
+  },
 }
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const theme = deepMerge(grommet, grommetCustomTheme)

@@ -11,6 +11,7 @@
       },
       "delegate": "Delegate"
     },
+    "addressCopied": "Address copied.",
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "reclaimEscrow": {
@@ -174,6 +175,9 @@
       "description": "Open your existing wallet stored on Ledger, import a private key or a mnemonic phrase.",
       "header": "Access existing wallet"
     }
+  },
+  "infoBox": {
+    "valueCopied": "{{ label }} copied."
   },
   "ledger": {
     "instructionSteps": {
