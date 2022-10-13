@@ -10,12 +10,14 @@ type FeesSectionProps = {
 
 export const FeesSection = ({ feeAmount, feeGas, ticker }: FeesSectionProps) => {
   const { t } = useTranslation()
-  const [open, setOpen] = useState(false)
+  const hasValue = !!feeAmount || !!feeGas
+  const [open, setOpen] = useState(hasValue)
 
   return (
     <Box pad={{ vertical: 'medium' }}>
       <Box align="start">
         <Button
+          disabled={hasValue}
           label={t('paraTimes.amount.advanced', 'Advanced')}
           margin={{ bottom: 'medium' }}
           onClick={() => setOpen(!open)}
