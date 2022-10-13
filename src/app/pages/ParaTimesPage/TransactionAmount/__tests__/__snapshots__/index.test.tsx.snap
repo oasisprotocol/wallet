@@ -623,7 +623,9 @@ exports[`<TransactionAmount /> should render component 1`] = `
       <div
         class="c5"
       >
-        <form>
+        <form
+          novalidate=""
+        >
           <div
             class="c6"
           >
