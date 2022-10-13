@@ -36,6 +36,9 @@ describe('Scenario : from mnemonic', () => {
   })
 
   it('Should send a transaction', () => {
+    // expect not to crash
+    cy.findByRole('button', { name: /Send/ }).click()
+
     cy.get('#recipient-id').type('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
     cy.get('#amount-id').type('10')
     cy.findByRole('button', { name: /Send/ }).click()

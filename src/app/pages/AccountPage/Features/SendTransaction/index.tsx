@@ -90,7 +90,7 @@ export function SendTransaction(props: SendTransactionProps) {
             <TextInput
               id="amount-id"
               name="amount"
-              placeholder="0"
+              placeholder={t('account.sendTransaction.enterAmount', 'Enter an amount')}
               type="number"
               step="any"
               min="0"
