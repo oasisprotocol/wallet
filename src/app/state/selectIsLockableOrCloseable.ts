@@ -1,16 +1,12 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { selectSlice as selectPersistSlice } from 'app/state/persist/selectors'
-import { selectIsOpen } from 'app/state/wallet/selectors'
+import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
+import { ExhaustedTypeError } from 'types/errors'
 
-export const selectIsLockableOrCloseable = createSelector(
-  [selectPersistSlice, selectIsOpen],
-  (state, isOpen) => {
-    if (state.hasPersistedProfiles) {
-      if (state.stringifiedEncryptionKey === 'skipped') return 'closeable'
-      if (state.stringifiedEncryptionKey) return 'lockable'
-    } else {
-      if (isOpen) return 'closeable'
-    }
-    return false
-  },
-)
+export const selectIsLockableOrCloseable = createSelector([selectUnlockedStatus], unlockedStatus => {
+  if (unlockedStatus === 'skippedUnlockingProfile') return 'closeable'
+  if (unlockedStatus === 'unlockedProfile') return 'lockable'
+  if (unlockedStatus === 'openUnpersisted') return 'closeable'
+  if (unlockedStatus === 'lockedProfile') return false
+  if (unlockedStatus === 'emptyUnpersisted') return false
+  throw new ExhaustedTypeError('Invalid unlocked status', unlockedStatus)
+})
