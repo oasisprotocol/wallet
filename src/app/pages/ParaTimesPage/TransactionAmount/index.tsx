@@ -96,7 +96,13 @@ export const TransactionAmount = () => {
                     : undefined
                 }
               >
-                <TextInput disabled={disabled} name="amount" placeholder="0" value={transactionForm.amount} />
+                <TextInput
+                  disabled={disabled}
+                  inputMode="decimal"
+                  name="amount"
+                  placeholder="0"
+                  value={transactionForm.amount}
+                />
               </FormField>
               {balance && (
                 <Button

@@ -511,6 +511,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
                     <input
                       autocomplete="off"
                       class="c10"
+                      inputmode="decimal"
                       name="amount"
                       placeholder="0"
                       value=""
