@@ -26,7 +26,7 @@ export function getInitialState(): PersistState {
     // Disable persistence if tabs would override each other.
     isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
-    stringifiedEncryptionKey: undefined,
+    stringifiedEncryptionKey: localStorage.getItem(STORAGE_FIELD) ? undefined : 'skipped',
     enteredWrongPassword: false,
   }
 }
