@@ -282,11 +282,11 @@
     },
     "pageInaccessible": "Transfers are not available.",
     "recipient": {
-      "description": "Please enter the address of the {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "depositDescription": "Please enter the address of the receiving wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "evmcWithdrawDescription": "Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click \"Next\"",
       "placeholder": "0x...",
       "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
-      "receiving": "receiving",
-      "withdrawing": "withdrawing"
+      "withdrawDescription": "Please enter the receiving address on Consensus and then click \"Next\""
     },
     "selection": {
       "cancel": "Cancel transfer",
@@ -310,7 +310,7 @@
     "unsupportedFormStep": "Unsupported form step",
     "validation": {
       "invalidDecimalValue": "Maximum of {{token}} decimal places is allowed",
-      "invalidEthPrivateKey": "Private key is invalid",
+      "invalidEthPrivateKey": "Ethereum-compatible private key is invalid",
       "invalidEthPrivateKeyLength": "Private key should be 64 characters long",
       "invalidFee": "Value must be integer greater than or equal to 0",
       "required": "Field is required",

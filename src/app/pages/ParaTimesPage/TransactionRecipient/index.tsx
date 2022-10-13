@@ -26,29 +26,38 @@ export const TransactionRecipient = () => {
   return (
     <ParaTimeContent
       description={
-        <Trans
-          i18nKey="paraTimes.recipient.description"
-          t={t}
-          values={{
-            actionType: isDepositing
-              ? t('paraTimes.recipient.receiving', 'receiving')
-              : t('paraTimes.recipient.withdrawing', 'withdrawing'),
-            paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
-            paraTime: paraTimeName,
-          }}
-          defaults='Please enter the address of the {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click "Next"'
-        />
+        isDepositing ? (
+          <Trans
+            i18nKey="paraTimes.recipient.depositDescription"
+            t={t}
+            values={{
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+            }}
+            defaults='Please enter the address of the receiving wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click "Next"'
+          />
+        ) : isEvmcParaTime ? (
+          t(
+            'paraTimes.recipient.evmcWithdrawDescription',
+            'Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click "Next"',
+          )
+        ) : (
+          t(
+            'paraTimes.recipient.withdrawDescription',
+            'Please enter the receiving address on Consensus and then click "Next"',
+          )
+        )
       }
     >
       <Form
-        messages={{ required: t('paraTimes.validation.required') }}
+        messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
         onChange={nextValue => setTransactionForm(nextValue)}
         onSubmit={navigateToAmount}
         value={transactionForm}
         style={{ width: isMobile ? '100%' : '465px' }}
       >
         <Box margin={{ bottom: 'medium' }}>
-          {isEvmcParaTime && !isDepositing ? (
+          {isEvmcParaTime && !isDepositing && (
             <FormField
               name="ethPrivateKey"
               required
@@ -63,7 +72,10 @@ export const TransactionRecipient = () => {
                     }
                   : !isValidEthPrivateKey(ethPrivateKey)
                   ? {
-                      message: t('paraTimes.validation.invalidEthPrivateKey', 'Private key is invalid'),
+                      message: t(
+                        'paraTimes.validation.invalidEthPrivateKey',
+                        'Ethereum-compatible private key is invalid',
+                      ),
                       status: 'error',
                     }
                   : undefined
@@ -79,30 +91,28 @@ export const TransactionRecipient = () => {
                 value={transactionForm.ethPrivateKey}
               />
             </FormField>
-          ) : (
-            <FormField
-              name="recipient"
-              required
-              validate={(recipient: string) =>
-                addressValidator(recipient)
-                  ? undefined
-                  : { message: t('errors.invalidAddress', 'Invalid address'), status: 'error' }
-              }
-            >
-              <TextInput
-                name="recipient"
-                placeholder={
-                  usesOasisAddress ? accountAddress : t('paraTimes.recipient.placeholder', '0x...')
-                }
-                value={transactionForm.recipient}
-              />
-            </FormField>
           )}
+
+          <FormField
+            name="recipient"
+            required
+            validate={(recipient: string) =>
+              addressValidator(recipient)
+                ? undefined
+                : { message: t('errors.invalidAddress', 'Invalid address'), status: 'error' }
+            }
+          >
+            <TextInput
+              name="recipient"
+              placeholder={usesOasisAddress ? accountAddress : t('paraTimes.recipient.placeholder', '0x...')}
+              value={transactionForm.recipient}
+            />
+          </FormField>
         </Box>
         <ParaTimeFormFooter
           secondaryAction={isDepositing ? navigateToDeposit : navigateToWithdraw}
           submitButton
-          withNotice
+          withNotice={isEvmcParaTime}
         />
       </Form>
     </ParaTimeContent>
