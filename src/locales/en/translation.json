@@ -238,9 +238,12 @@
   },
   "paraTimes": {
     "amount": {
+      "advanced": "Advanced",
       "available": "Available:",
       "description": "Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
       "emptyWallet": "The wallet is empty. There is nothing to withdraw.",
+      "feeAmountPlaceholder": "Fee Amount (nano {{ticker}})",
+      "feeGasPlaceholder": "Fee Gas",
       "max": "MAX",
       "receiving": "to the receiving",
       "withdrawing": "from the withdrawing"
@@ -303,6 +306,7 @@
     "validation": {
       "invalidEthPrivateKey": "Private key is invalid",
       "invalidEthPrivateKeyLength": "Private key should be 64 characters long",
+      "invalidFee": "Value must be integer greater than or equal to 0",
       "required": "Field is required",
       "unsupportedParaTime": "Unsupported ParaTime"
     }
