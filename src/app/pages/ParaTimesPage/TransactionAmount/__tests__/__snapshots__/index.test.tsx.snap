@@ -227,11 +227,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
   font-weight: 600;
 }
 
-.c17 {
-  font-size: 14px;
-  line-height: 20px;
-}
-
 .c11 {
   display: inline-block;
   box-sizing: border-box;
@@ -562,11 +557,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
               </button>
             </div>
           </div>
-          <span
-            class="c17"
-          >
-            * EVMc - Ethereum Virtual Machine compatible
-          </span>
         </form>
       </div>
     </div>

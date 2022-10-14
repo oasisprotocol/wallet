@@ -109,8 +109,10 @@ export const TransactionAmount = () => {
                     right: 0,
                   }}
                   plain
-                  label="MAX"
-                  onClick={() => setTransactionForm({ ...transactionForm, amount: formatter(balance) })}
+                  label={t('paraTimes.amount.max', 'MAX')}
+                  onClick={() =>
+                    setTransactionForm({ ...transactionForm, amount: formatter(balance).replaceAll(',', '') })
+                  }
                 />
               )}
             </Box>
@@ -131,7 +133,7 @@ export const TransactionAmount = () => {
             disabled={disabled}
             secondaryAction={navigateToRecipient}
             submitButton
-            withNotice
+            withNotice={isEvmcParaTime}
           />
         </Form>
       </Box>

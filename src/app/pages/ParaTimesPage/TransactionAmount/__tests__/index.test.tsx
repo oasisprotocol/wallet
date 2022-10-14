@@ -82,13 +82,13 @@ describe('<TransactionAmount />', () => {
 
     jest
       .mocked(useParaTimes)
-      .mockReturnValue({ ...mockUseParaTimesResult, setTransactionForm, balance: '2493300888889' })
+      .mockReturnValue({ ...mockUseParaTimesResult, setTransactionForm, balance: '1563114365108133939632' })
     rerender(<TransactionAmount />)
 
     await userEvent.click(screen.getByRole('button', { name: 'MAX' }))
     expect(setTransactionForm).toHaveBeenNthCalledWith(
       2,
-      expect.objectContaining({ amount: '2,493.300888889' }),
+      expect.objectContaining({ amount: '1563114365108.133939632' }),
     )
   })
 
