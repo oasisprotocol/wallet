@@ -19,7 +19,9 @@ export enum TransactionTypes {
 
 export interface TransactionForm {
   amount: string
-  confirmation: boolean
+  confirmTransfer: boolean
+  confirmTransferToValidator: boolean
+  confirmTransferToForeignAccount: boolean
   feeAmount: string
   feeGas: string
   paraTime?: ParaTime
