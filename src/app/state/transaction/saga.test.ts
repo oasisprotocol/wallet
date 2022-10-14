@@ -1,4 +1,5 @@
 import { OasisTransaction, signerFromPrivateKey } from 'app/lib/transaction'
+import delayP from '@redux-saga/delay-p'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
@@ -41,6 +42,7 @@ describe('Transaction Sagas', () => {
   } as Partial<Wallet>
 
   const sendProviders: (EffectProviders | StaticProvider)[] = [
+    [matchers.call.fn(delayP), null], // https://github.com/jfairbank/redux-saga-test-plan/issues/257
     [matchers.call.fn(getAllowanceDifference), -1n],
     [matchers.call.fn(signerFromPrivateKey), {}],
     [
