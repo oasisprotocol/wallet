@@ -17,7 +17,7 @@ interface Props<TFormValue> {
   showTip: string
   hideTip: string
 
-  width: string
+  width?: string
 }
 
 export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
