@@ -6,7 +6,7 @@ export interface ITypeSafeDataTableColumn<T> extends IDataTableColumn<T> {
   id: string
 }
 export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'keyField'> {
-  keyField: keyof T
+  keyField: Extract<keyof T, string>
   columns: ITypeSafeDataTableColumn<T>[]
 }
 
@@ -16,5 +16,5 @@ export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'ke
  * - `id` on cols is not missing
  */
 export function TypeSafeDataTable<T>(props: ITypeSafeDataTableProps<T>): React.ReactElement {
-  return <DataTable {...(props as IDataTableProps<T>)} />
+  return <DataTable {...props} />
 }
