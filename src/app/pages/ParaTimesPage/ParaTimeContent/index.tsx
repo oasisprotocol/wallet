@@ -23,12 +23,12 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
             ? t('paraTimes.common.depositHeader', 'Deposit to ParaTime')
             : t('paraTimes.common.withdrawHeader', 'Withdraw from ParaTime'))}
       </Heading>
-      <Box
-        data-testid="paraTime-content-description"
-        margin={{ bottom: 'large' }}
-        style={{ maxWidth: '550px' }}
-      >
-        <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
+      <Box margin={{ bottom: 'large' }} style={{ maxWidth: '550px' }}>
+        <Text
+          data-testid="paraTime-content-description"
+          textAlign="center"
+          size={isMobile ? '16px' : 'medium'}
+        >
           {description}
         </Text>
       </Box>

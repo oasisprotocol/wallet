@@ -2,33 +2,12 @@
 
 exports[`<TransactionConfirmation /> should render EVMc withdraw variant component 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 48px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
 }
 
 @media only screen and (max-width:768px) {
-  .c0 {
-    margin-bottom: 24px;
-  }
-}
-
-@media only screen and (max-width:768px) {
 
 }
 
@@ -64,28 +43,27 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
 
 }
 
-<div
+@media only screen and (max-width:768px) {
+
+}
+
+<span
   class="c0"
   data-testid="paraTime-content-description"
-  style="max-width: 550px;"
 >
-  <span
-    class="c1"
-  >
-    You are about to transfer 
-    <strong>
-      10 ROSE
-    </strong>
-     tokens from the withdrawing wallet on the 
-    <strong>
-      Emerald
-    </strong>
-     (EVMc) ParaTime: 
-    <strong>
-      dummyAddress
-    </strong>
-  </span>
-</div>
+  You are about to transfer 
+  <strong>
+    10 ROSE
+  </strong>
+   tokens from the withdrawing wallet on the 
+  <strong>
+    Emerald
+  </strong>
+   (EVMc) ParaTime: 
+  <strong>
+    dummyAddress
+  </strong>
+</span>
 `;
 
 exports[`<TransactionConfirmation /> should render component 1`] = `
@@ -490,11 +468,11 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      data-testid="paraTime-content-description"
       style="max-width: 550px;"
     >
       <span
         class="c3"
+        data-testid="paraTime-content-description"
       >
         You are about to transfer 
         <strong>

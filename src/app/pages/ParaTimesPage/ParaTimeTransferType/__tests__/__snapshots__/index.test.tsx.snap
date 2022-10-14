@@ -261,11 +261,11 @@ exports[`<ParaTimeTransferType /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      data-testid="paraTime-content-description"
       style="max-width: 550px;"
     >
       <span
         class="c3"
+        data-testid="paraTime-content-description"
       >
         paraTimes.transfers.description
       </span>
