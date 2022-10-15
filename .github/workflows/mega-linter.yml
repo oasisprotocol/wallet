@@ -54,7 +54,7 @@ jobs:
         id: ml
         # You can override Mega-Linter flavor used to have faster performances
         # More info at https://nvuillam.github.io/mega-linter/flavors/
-        uses: nvuillam/mega-linter/flavors/javascript@v5
+        uses: nvuillam/mega-linter/flavors/javascript@v6
         env:
           # All available variables are described in documentation
           # https://nvuillam.github.io/mega-linter/configuration/

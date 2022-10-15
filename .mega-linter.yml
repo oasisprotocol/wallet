@@ -11,6 +11,8 @@ DISABLE_LINTERS:
   - TYPESCRIPT_STANDARD
   - DOCKERFILE_HADOLINT
   - CREDENTIALS_SECRETLINT
+  - REPOSITORY_SECRETLINT
+  - REPOSITORY_TRIVY
 DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
   - SPELL # Comment to disable checks of spelling mistakes # - SPELL # Uncomment to disable checks of spelling mistakes
@@ -26,3 +28,13 @@ SHOW_ELAPSED_TIME: true
 PRE_COMMANDS:
   - command: yarn install
     cwd: 'root' # Will be run at the root of Mega-Linter docker image
+REPOSITORY_CHECKOV_ARGUMENTS:
+  - --skip-path
+  - docker/
+  - --skip-path
+  - src/locales/.*/translation.json
+  - --skip-path
+  - src/vendors/explorer/swagger.yml
+  - --skip-path
+  - src/vendors/oasisscan/swagger3.yml
+REPOSITORY_GITLEAKS_CONFIG_FILE: ./.github/.gitleaks.toml
