@@ -71,7 +71,7 @@ jobs:
         continue-on-error: true
       - run: REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start &
       - run: docker-compose up --build -d
-      - uses: emilioschepis/wait-for-endpoint@v1.0.2
+      - uses: emilioschepis/wait-for-endpoint@v1.0.3
         with:
           url: 'http://localhost:3000/'
           expected-status: 200
