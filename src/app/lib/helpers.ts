@@ -56,7 +56,7 @@ export function parseRoseStringToBaseUnitString(value: string): StringifiedBigIn
   if (baseUnitBN.isNaN()) {
     throw new Error(`not a number in parseRoseStringToBaseUnitString(${value})`)
   }
-  if (baseUnitBN.decimalPlaces() > 0) {
+  if (baseUnitBN.decimalPlaces()! > 0) {
     console.error('lost precision in parseRoseStringToBaseUnitString(', value)
   }
   return BigInt(baseUnitBN.toFixed(0)).toString()
@@ -68,7 +68,7 @@ export function formatBaseUnitsAsRose(
 ) {
   const roseBN = new BigNumber(amount).shiftedBy(-9) // / 10 ** 9
   const roseString = roseBN.toFormat(
-    Math.min(Math.max(roseBN.decimalPlaces(), minimumFractionDigits), maximumFractionDigits),
+    Math.min(Math.max(roseBN.decimalPlaces()!, minimumFractionDigits), maximumFractionDigits),
   )
   return roseString
 }
