@@ -12,13 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 14.x
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - run: yarn dump-validators
+      - run: ./.github/dump_validators.sh
       - name: Create Pull Request with updated dumped validators
         # https://github.com/peter-evans/create-pull-request
         uses: peter-evans/create-pull-request@v4

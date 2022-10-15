@@ -17,6 +17,8 @@ import {
   stakingSaga,
 } from './saga'
 import { DebondingDelegation, Delegation, StakingState, Validator } from './types'
+import { parseValidatorsList } from 'vendors/oasisscan'
+import { ValidatorRow } from 'vendors/oasisscan/models'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
 
@@ -153,21 +155,21 @@ describe('Staking Sagas', () => {
         list: [
           {
             rank: 1,
-            address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+            entityAddress: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
             name: 'stakefish',
             nodeAddress: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
-            status: 'active',
-            escrow: 2000n.toString(),
-            _expectedStatus: 'active' as const,
+            escrow: '0.2',
+            status: true,
+            _expectedStatus: true,
           },
           {
             rank: 2,
-            address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+            entityAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
             name: 'BinanceStaking',
             nodeAddress: 'oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k',
-            status: 'active',
-            escrow: 1000n.toString(),
-            _expectedStatus: 'inactive' as const,
+            escrow: '0.1',
+            status: true,
+            _expectedStatus: false,
           },
         ],
       }
@@ -196,10 +198,12 @@ describe('Staking Sagas', () => {
             validators: {
               timestamp: getMainnetDumpValidatorsMock.dump_timestamp,
               network: 'mainnet',
-              list: getMainnetDumpValidatorsMock.list.map((v, ix) => ({
-                ...v,
-                status: v._expectedStatus,
-              })),
+              list: parseValidatorsList(
+                getMainnetDumpValidatorsMock.list.map(({ _expectedStatus, ...v }) => ({
+                  ...v,
+                  status: _expectedStatus,
+                })) as ValidatorRow[],
+              ),
             },
           }),
         )

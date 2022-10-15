@@ -28,8 +28,7 @@
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "semantic-release": "semantic-release",
     "print-csp": "node ./internals/scripts/print-csp.js",
-    "print-extension-csp": "node ./internals/scripts/print-extension-csp.js",
-    "dump-validators": "CI=1 jest --roots ./internals --testMatch '<rootDir>/internals/scripts/dump_validators.ts'"
+    "print-extension-csp": "node ./internals/scripts/print-extension-csp.js"
   },
   "browserslist": {
     "production": [
