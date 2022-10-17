@@ -5,7 +5,7 @@ import { DeepPartialRootState } from 'types/RootState'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { getBalance, rootWalletSaga, walletSaga } from './saga'
+import { addWallet, getBalance, rootWalletSaga, walletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
 import { importAccountsActions } from '../importaccounts'
 
@@ -50,20 +50,18 @@ describe('Wallet Sagas', () => {
         .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
         .fork(walletSaga)
         .put(importAccountsActions.clear())
-        .put(
-          walletActions.addWallet({
-            address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-            balance: {
-              available: '0',
-              validator: { escrow: '0', escrow_debonding: '0' },
-            },
-            path: [44, 474, 0],
-            privateKey: '00',
-            publicKey: '00',
-            selectImmediately: true,
-            type: WalletType.Mnemonic,
-          }),
-        )
+        .call(addWallet, {
+          address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+          balance: {
+            available: '0',
+            validator: { escrow: '0', escrow_debonding: '0' },
+          },
+          path: [44, 474, 0],
+          privateKey: '00',
+          publicKey: '00',
+          selectImmediately: true,
+          type: WalletType.Mnemonic,
+        } as AddWalletPayload)
         .put.actionType(walletActions.walletOpened.type)
         .put(walletActions.selectWallet('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4'))
         .silentRun(200)
@@ -80,14 +78,14 @@ describe('Wallet Sagas', () => {
           }),
         )
         .fork(walletSaga)
-        .put.like({
-          action: {
-            type: walletActions.addWallet.type,
-            payload: {
+        .call.like({
+          fn: addWallet,
+          args: [
+            {
               address: addressHex,
               type: WalletType.PrivateKey,
             } as AddWalletPayload,
-          },
+          ],
         })
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)

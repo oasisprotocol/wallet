@@ -30,7 +30,6 @@ export function* rootWalletSaga() {
   yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
   yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
   yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
-  yield* takeEvery(walletActions.addWallet, addWallet)
 
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(refreshAccountOnTransaction)
@@ -65,16 +64,14 @@ export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAc
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    yield* put(
-      walletActions.addWallet({
-        address: account.address,
-        publicKey: account.publicKey,
-        type: WalletType.Ledger,
-        balance: account.balance!,
-        path: account.path,
-        selectImmediately: account === accounts[0], // Select first
-      }),
-    )
+    yield* call(addWallet, {
+      address: account.address,
+      publicKey: account.publicKey,
+      type: WalletType.Ledger,
+      balance: account.balance!,
+      path: account.path,
+      selectImmediately: account === accounts[0], // Select first
+    })
   }
 
   if (payload.choosePassword) {
@@ -89,16 +86,14 @@ export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPri
   const publicKey = uint2hex(publicKeyBytes)
   const balance = yield* call(getBalance, publicKeyBytes)
 
-  yield* put(
-    walletActions.addWallet({
-      address: walletAddress,
-      publicKey,
-      privateKey: payload.privateKey,
-      type: type!,
-      balance,
-      selectImmediately: true,
-    }),
-  )
+  yield* call(addWallet, {
+    address: walletAddress,
+    publicKey,
+    privateKey: payload.privateKey,
+    type: type!,
+    balance,
+    selectImmediately: true,
+  })
 
   if (payload.choosePassword) {
     yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
@@ -109,17 +104,15 @@ export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedA
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    yield* put(
-      walletActions.addWallet({
-        address: account.address,
-        balance: account.balance!,
-        path: account.path,
-        privateKey: account.privateKey,
-        publicKey: account.publicKey,
-        type: account.type,
-        selectImmediately: account === accounts[0], // Select first
-      }),
-    )
+    yield* call(addWallet, {
+      address: account.address,
+      balance: account.balance!,
+      path: account.path,
+      privateKey: account.privateKey,
+      publicKey: account.publicKey,
+      type: account.type,
+      selectImmediately: account === accounts[0], // Select first
+    })
   }
 
   if (payload.choosePassword) {
@@ -132,7 +125,7 @@ export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedA
  * If the wallet exists already, do nothing
  * If it has "selectImmediately", we select it immediately
  */
-export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
+export function* addWallet(payload: AddWalletPayload) {
   const { selectImmediately, ...newWallet } = payload
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
