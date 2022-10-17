@@ -7,11 +7,13 @@ paths = [
   '''docker/.*''',
 ]
 regexes = [
+  '''abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger''',
+  '''planet believe session regular rib kiss police deposit prison hundred apart tongue''',
+
   '''X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==''',
   '''7c0280a2967ba774899b2641e46f0ba71f5008b4b381b0231751b08e9b851a78''',
 
-  '''ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN''',
-  '''4MEkyO0pi7lJeunILQKiZA==''',
+  '''ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN''', '''4MEkyO0pi7lJeunILQKiZA==''',
 
   '''"public_key": ".*?"''',
   '''oasis_wallet_persist_v1''',
