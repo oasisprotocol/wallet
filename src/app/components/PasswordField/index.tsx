@@ -9,6 +9,7 @@ interface Props<TFormValue> {
   inputElementId: string
 
   autoComplete: 'on' | 'off' | 'new-password' | 'current-password'
+  autoFocus?: boolean
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   validate?: (password: string, form: TFormValue) => string | undefined
@@ -42,6 +43,7 @@ export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
           type={passwordIsVisible ? 'text' : 'password'}
           required={props.required}
           autoComplete={props.autoComplete}
+          autoFocus={props.autoFocus}
           plain
         />
         <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>

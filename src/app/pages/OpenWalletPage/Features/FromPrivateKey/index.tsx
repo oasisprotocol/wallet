@@ -64,6 +64,7 @@ export function FromPrivateKey(props: Props) {
           name="privateKey"
           placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
           autoComplete="off"
+          autoFocus
           validate={privateKey =>
             isValidKey(privateKey) ? undefined : t('openWallet.privateKey.error', 'Invalid private key')
           }

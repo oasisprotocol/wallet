@@ -66,6 +66,7 @@ export function MnemonicValidation(props: Props) {
                   id="mnemonic"
                   data-testid="mnemonic"
                   placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
+                  autoFocus
                   size="medium"
                   rows={5}
                   value={rawMnemonic}
