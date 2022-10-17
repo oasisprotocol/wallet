@@ -15,6 +15,8 @@ regexes = [
 
   '''ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN''', '''4MEkyO0pi7lJeunILQKiZA==''',
 
+  '''5f48e5a6fb243f5abc13aac7c56449afbc93be90ae38f10a0465bc82db954f17e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132''',
+
   '''"public_key": ".*?"''',
   '''oasis_wallet_persist_v1''',
 ]
