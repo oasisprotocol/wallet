@@ -12,7 +12,6 @@
 
 - [Oasis Wallet](#oasis-wallet)
   - [Features](#features)
-    - [Additional features coming soon](#additional-features-coming-soon)
   - [Getting started](#getting-started)
     - [Installing and running oasis-wallet](#installing-and-running-oasis-wallet)
     - [Test accounts](#test-accounts)
