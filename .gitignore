@@ -33,4 +33,4 @@ debug*.c
 /instrumented/
 
 # Megalinter
-/report/
+megalinter-reports/

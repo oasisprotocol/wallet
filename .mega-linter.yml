@@ -1,5 +1,5 @@
 # Configuration file for Mega-Linter
-# See all available variables at https://nvuillam.github.io/mega-linter/configuration/ and in linters documentation
+# See all available variables at https://oxsecurity.github.io/megalinter/configuration/ and in linters documentation
 
 APPLY_FIXES: all # all, none, or list of linter keys
 DEFAULT_BRANCH: master # Usually master or main
@@ -25,9 +25,6 @@ ADDITIONAL_EXCLUDED_DIRECTORIES:
   - .parcel-cache
 FILTER_REGEX_EXCLUDE: (LICENSE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*|src/vendors/oasisscan/*)
 SHOW_ELAPSED_TIME: true
-PRE_COMMANDS:
-  - command: yarn install
-    cwd: 'root' # Will be run at the root of Mega-Linter docker image
 REPOSITORY_CHECKOV_ARGUMENTS:
   - --skip-path
   - docker/
