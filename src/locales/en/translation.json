@@ -238,8 +238,15 @@
   "paraTimes": {
     "common": {
       "cipher": "Cipher",
+      "depositHeader": "Deposit to ParaTime",
       "emerald": "Emerald",
-      "sapphire": "Sapphire"
+      "sapphire": "Sapphire",
+      "withdrawHeader": "Withdraw from ParaTime"
+    },
+    "footer": {
+      "next": "Next",
+      "notice": "* EVMc - Ethereum Virtual Machine compatible",
+      "previous": "Previous"
     }
   },
   "theme": {
