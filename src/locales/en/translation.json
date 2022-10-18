@@ -280,6 +280,12 @@
       "evmc": "EVMc",
       "select": "Select a ParaTime"
     },
+    "summary": {
+      "description": "You have successfully transferred <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
+      "from": "from",
+      "into": "into",
+      "navigate": "Navigate to ParaTimes Transfers"
+    },
     "transfers": {
       "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
       "header": "ParaTimes Transfers",
