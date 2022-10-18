@@ -256,6 +256,13 @@
       "notice": "* EVMc - Ethereum Virtual Machine compatible",
       "previous": "Previous"
     },
+    "recipient": {
+      "description": "Please enter the address of the {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
+      "placeholder": "0x...",
+      "receiving": "receiving",
+      "withdrawing": "withdrawing"
+    },
     "selection": {
       "cancel": "Cancel transfer",
       "depositDescription": "Please select which ParaTime you wish to transfer your {{ticker}} tokens to and then click \"Next\".",
@@ -271,6 +278,8 @@
       "withdraw": "Withdraw from ParaTime"
     },
     "validation": {
+      "invalidEthPrivateKey": "Private key is invalid",
+      "invalidEthPrivateKeyLength": "Private key should be 64 characters long",
       "required": "Field is required"
     }
   },
