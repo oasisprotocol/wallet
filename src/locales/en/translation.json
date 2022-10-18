@@ -251,6 +251,16 @@
       "sapphire": "Sapphire",
       "withdrawHeader": "Withdraw from ParaTime"
     },
+    "confirmation": {
+      "description": "You are about to transfer <strong>{{value}} {{ticker}}</strong> tokens {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
+      "checkboxLabel": "I confirm the amount and the address are correct",
+      "deposit": "Please confirm the transferring amount and the receiving wallet's address are correct and then click \"Deposit\" to make the transfer.",
+      "depositLabel": "Deposit",
+      "receiving": "into the receiving",
+      "withdraw": "Please confirm the withdrawing amount and the withdrawing wallet's address are correct and then click \"Withdraw\" to make the transfer.",
+      "withdrawing": "from the withdrawing",
+      "withdrawLabel": "Withdraw"
+    },
     "footer": {
       "next": "Next",
       "notice": "* EVMc - Ethereum Virtual Machine compatible",
