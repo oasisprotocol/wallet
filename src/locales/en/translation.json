@@ -247,6 +247,13 @@
       "next": "Next",
       "notice": "* EVMc - Ethereum Virtual Machine compatible",
       "previous": "Previous"
+    },
+    "transfers": {
+      "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
+      "header": "ParaTimes Transfers",
+      "deposit": "Deposit to ParaTime",
+      "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
+      "withdraw": "Withdraw from ParaTime"
     }
   },
   "theme": {
