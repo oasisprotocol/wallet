@@ -236,10 +236,18 @@
     }
   },
   "paraTimes": {
+    "amount": {
+      "available": "Available:",
+      "description": "Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "emptyWallet": "The wallet is empty. There is nothing to withdraw.",
+      "receiving": "to the receiving",
+      "withdrawing": "from the withdrawing"
+    },
     "common": {
       "cipher": "Cipher",
       "depositHeader": "Deposit to ParaTime",
       "emerald": "Emerald",
+      "evmcType": "(EVMc)",
       "sapphire": "Sapphire",
       "withdrawHeader": "Withdraw from ParaTime"
     },
