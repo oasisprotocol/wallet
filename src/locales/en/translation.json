@@ -235,6 +235,13 @@
       "showPrivateKey": "Show private key"
     }
   },
+  "paraTimes": {
+    "common": {
+      "cipher": "Cipher",
+      "emerald": "Emerald",
+      "sapphire": "Sapphire"
+    }
+  },
   "theme": {
     "darkMode": "Dark mode",
     "lightMode": "Light mode"
