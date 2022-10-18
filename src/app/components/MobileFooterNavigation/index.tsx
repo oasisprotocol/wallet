@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box, Text } from 'grommet'
-import { LineChart, Money } from 'grommet-icons'
+import { LineChart, Inherit, Money } from 'grommet-icons'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
@@ -46,6 +46,11 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
         label: t('menu.stake', 'Stake'),
         Icon: LineChart,
         to: `/account/${address}/stake`,
+      },
+      {
+        label: t('menu.paraTimes', 'ParaTimes'),
+        Icon: Inherit,
+        to: `/account/${address}/paratimes`,
       },
     ]
   }, [address, t])
