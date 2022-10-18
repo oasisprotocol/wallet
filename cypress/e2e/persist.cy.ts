@@ -4,6 +4,13 @@ const mnemonicAddress0 = 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh'
 const privateKey = 'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg=='
 const privateKeyAddress = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
 
+const privateKey2 = `
+  -----BEGIN ED25519 PRIVATE KEY-----
+  ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN
+  4MEkyO0pi7lJeunILQKiZA==
+  -----END ED25519 PRIVATE KEY-----`
+const privateKey2Address = 'oasis1qzu5y29xzw5vm0f9glcpg9ckx7lulpg69qjp4hc6'
+
 const password = 'abcd1234&'
 const wrongPassword = 'wrongPassword1&'
 
@@ -90,7 +97,7 @@ describe('Persist', () => {
     cy.findAllByTestId('account-choice').should('have.length', 4)
   })
 
-  it('Should persist private key account', () => {
+  it('Should persist private key accounts', () => {
     cy.visit('/open-wallet/private-key')
 
     cy.findByRole('checkbox', { name: 'Store private keys locally, protected by a password' })
@@ -122,6 +129,21 @@ describe('Persist', () => {
 
     cy.findByTestId('account-selector').click({ timeout: 15_000 })
     cy.findAllByTestId('account-choice').should('have.length', 1)
+    cy.findByRole('button', { name: /Close/ }).click()
+
+    cy.log('Add another account after reloading and unlocking and it should persist')
+    cy.findByRole('link', { name: /Home/ }).click()
+    cy.findByRole('button', { name: /Open wallet/ }).click()
+    cy.findByRole('button', { name: /Private key/ }).click()
+    cy.findByRole('checkbox', { name: 'Store private keys locally, protected by a password' })
+      .should('be.disabled')
+      .and('be.checked')
+    cy.findByPlaceholderText('Enter your private key here').type(`${privateKey2}{Enter}`, { delay: 1 })
+    cy.url().should('include', privateKey2Address)
+    cy.visit('/')
+    cy.findByPlaceholderText('Enter your password here').clear().type(`${password}{Enter}`)
+    cy.findByTestId('account-selector').click({ timeout: 15_000 })
+    cy.findAllByTestId('account-choice').should('have.length', 2)
   })
 
   it('Should reload balance after unlocking, in case balance has changed while locked', () => {
