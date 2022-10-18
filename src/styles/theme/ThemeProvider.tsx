@@ -78,6 +78,7 @@ const grommetCustomTheme: ThemeType = {
         dark: '#0f477b',
         light: '#0092f6',
       },
+      lightText: '#a3a3a3',
       neutral: {
         dark: '#310081FF',
         light: '#310081FF',

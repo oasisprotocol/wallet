@@ -62,15 +62,26 @@ export function parseRoseStringToBaseUnitString(value: string): StringifiedBigIn
   return BigInt(baseUnitBN.toFixed(0)).toString()
 }
 
+function getRoseString(roseBN: BigNumber, minimumFractionDigits: number, maximumFractionDigits: number) {
+  return roseBN.toFormat(
+    Math.min(Math.max(roseBN.decimalPlaces()!, minimumFractionDigits), maximumFractionDigits),
+  )
+}
+
 export function formatBaseUnitsAsRose(
   amount: StringifiedBigInt,
   { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
 ) {
   const roseBN = new BigNumber(amount).shiftedBy(-9) // / 10 ** 9
-  const roseString = roseBN.toFormat(
-    Math.min(Math.max(roseBN.decimalPlaces()!, minimumFractionDigits), maximumFractionDigits),
-  )
-  return roseString
+  return getRoseString(roseBN, minimumFractionDigits, maximumFractionDigits)
+}
+
+export function formatWeiAsWrose(
+  amount: StringifiedBigInt,
+  { minimumFractionDigits = 0, maximumFractionDigits = Infinity } = {},
+) {
+  const roseBN = new BigNumber(amount).shiftedBy(-18) // / 10 ** 18
+  return getRoseString(roseBN, minimumFractionDigits, maximumFractionDigits)
 }
 
 export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
