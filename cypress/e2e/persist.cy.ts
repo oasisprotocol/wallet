@@ -7,6 +7,38 @@ const privateKeyAddress = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
 const password = 'abcd1234&'
 const wrongPassword = 'wrongPassword1&'
 
+function mockAccountAPI(address: string, balance: number) {
+  return cy.intercept('*', request => {
+    if (request.url.endsWith(`/data/accounts/${address}`)) { // oasismonitor
+      request.reply({
+        address: address,
+        liquid_balance: balance * 10 ** 9,
+        escrow_balance: 0,
+        escrow_debonding_balance: 0,
+        delegations_balance: 0,
+        debonding_delegations_balance: 0,
+        self_delegation_balance: 0,
+        total_balance: 0,
+        nonce: 0,
+      })
+    }
+    if (request.url.endsWith(`/chain/account/info/${address}`)) { // oasisscan
+      request.reply({
+        code: 0,
+        data: {
+          address: address,
+          available: balance.toString(),
+          escrow: '0',
+          debonding: '0',
+          total: '0',
+          nonce: 0,
+          allowances: [],
+        },
+      })
+    }
+  })
+}
+
 describe('Persist', () => {
   beforeEach(() => {
     cy.visit('/')
@@ -90,5 +122,20 @@ describe('Persist', () => {
 
     cy.findByTestId('account-selector').click({ timeout: 15_000 })
     cy.findAllByTestId('account-choice').should('have.length', 1)
+  })
+
+  it('Should reload balance after unlocking, in case balance has changed while locked', () => {
+    cy.visit('/open-wallet/private-key')
+    mockAccountAPI(privateKeyAddress, 123)
+    cy.findByRole('checkbox', { name: 'Store private keys locally, protected by a password' }).check({ force: true })
+    cy.findByPlaceholderText('Enter your private key here').type(`${privateKey}{Enter}`, { delay: 1 })
+    cy.findByPlaceholderText('Enter your password here').type(`${password}{Enter}`)
+    cy.findByPlaceholderText('Re-enter your password').type(`${password}{Enter}`)
+    cy.url().should('include', privateKeyAddress)
+    cy.findByTestId('account-balance-summary').invoke('text').should('contain', '123.0')
+    cy.findByRole('button', { name: /Lock profile/ }).click()
+    mockAccountAPI(privateKeyAddress, 456)
+    cy.findByPlaceholderText('Enter your password here').type(`${password}{Enter}`)
+    cy.findByTestId('account-balance-summary').invoke('text').should('contain', '456.0')
   })
 })
