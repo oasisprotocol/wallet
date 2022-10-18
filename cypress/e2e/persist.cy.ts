@@ -138,4 +138,25 @@ describe('Persist', () => {
     cy.findByPlaceholderText('Enter your password here').type(`${password}{Enter}`)
     cy.findByTestId('account-balance-summary').invoke('text').should('contain', '456.0')
   })
+
+  it('Should NOT persist if user chooses password but unchecks persistence before opening accounts', () => {
+    cy.visit('/open-wallet/mnemonic')
+
+    cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
+    cy.findByRole('button', { name: /Import my wallet/ }).click()
+
+    cy.findByRole('checkbox', { name: 'Store private keys locally, protected by a password' })
+      .check({ force: true })
+    cy.findByPlaceholderText('Enter your password here').type(`${password}{Enter}`)
+    cy.findByPlaceholderText('Re-enter your password').type(`${password}`)
+    cy.findByRole('checkbox', { name: 'Store private keys locally, protected by a password' })
+      .uncheck({ force: true })
+
+    cy.findByRole('button', { name: /Open/ }).click()
+    cy.url().should('include', mnemonicAddress0)
+
+    cy.visit('/')
+    cy.findByPlaceholderText('Enter your password here').should('not.exist')
+    cy.findByTestId('account-selector').should('not.exist')
+  })
 })
