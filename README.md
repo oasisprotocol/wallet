@@ -12,7 +12,6 @@
 
 - [Oasis Wallet](#oasis-wallet)
   - [Features](#features)
-    - [Additional features coming soon](#additional-features-coming-soon)
   - [Getting started](#getting-started)
     - [Installing and running oasis-wallet](#installing-and-running-oasis-wallet)
     - [Test accounts](#test-accounts)
@@ -94,7 +93,7 @@ Oasis-wallet needs multiple components to run, all provided in the
 
 - [oasis-scan], oasis blockchain explorer that enables view of historical data
   about transactions, accounts, validators, paratimes, blocks, proposals and
-  more. It exposes an [API](scan-api-repo).
+  more. It exposes an [API][scan-api-repo].
 
 API that web wallet is using is determined during a build time.
 

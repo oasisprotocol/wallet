@@ -1,5 +1,5 @@
 # Configuration file for Mega-Linter
-# See all available variables at https://nvuillam.github.io/mega-linter/configuration/ and in linters documentation
+# See all available variables at https://oxsecurity.github.io/megalinter/configuration/ and in linters documentation
 
 APPLY_FIXES: all # all, none, or list of linter keys
 DEFAULT_BRANCH: master # Usually master or main
@@ -7,11 +7,13 @@ DEFAULT_BRANCH: master # Usually master or main
 # ENABLE_LINTERS: # If you use ENABLE_LINTERS variable, all other linters will be disabled by default
 DISABLE_LINTERS:
   - MARKDOWN_MARKDOWN_LINK_CHECK
+  - HTML_DJLINT
   - JAVASCRIPT_STANDARD
   - TYPESCRIPT_STANDARD
   - DOCKERFILE_HADOLINT
   - CREDENTIALS_SECRETLINT
   - REPOSITORY_SECRETLINT
+  - REPOSITORY_GITLEAKS
   - REPOSITORY_TRIVY
 DISABLE:
   - COPYPASTE # Comment to disable checks of abusive copy-pastes
@@ -25,9 +27,6 @@ ADDITIONAL_EXCLUDED_DIRECTORIES:
   - .parcel-cache
 FILTER_REGEX_EXCLUDE: (LICENSE|\.codecov.yml|CHANGELOG.md|src/vendors/explorer/*|src/vendors/oasisscan/*)
 SHOW_ELAPSED_TIME: true
-PRE_COMMANDS:
-  - command: yarn install
-    cwd: 'root' # Will be run at the root of Mega-Linter docker image
 REPOSITORY_CHECKOV_ARGUMENTS:
   - --skip-path
   - docker/
