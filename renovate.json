@@ -3,27 +3,27 @@
   "extends": ["config:base"],
   "packageRules": [
     {
-      "groupName": "eslint",
+      "groupName": "lint dependencies",
       "matchPackagePatterns": ["eslint", "prettier", "stylelint"]
     },
     {
-      "groupName": "tests",
+      "groupName": "test dependencies",
       "matchPackagePatterns": ["jest", "cypress", "testing-library", "istanbul"]
     },
     {
-      "groupName": "react",
+      "groupName": "react dependencies",
       "matchPackagePatterns": ["react"]
     },
     {
-      "groupName": "redux",
+      "groupName": "redux dependencies",
       "matchPackagePatterns": ["redux"]
     },
     {
-      "groupName": "i18n",
+      "groupName": "i18n dependencies",
       "matchPackagePatterns": ["i18n"]
     },
     {
-      "groupName": "docker",
+      "groupName": "docker dependencies",
       "matchManagers": ["docker-compose", "dockerfile"]
     },
     {
