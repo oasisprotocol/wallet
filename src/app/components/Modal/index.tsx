@@ -1,11 +1,12 @@
 import { createContext, useCallback, useContext, useEffect, useState } from 'react'
-import { Box, Button, Layer, Heading, Paragraph } from 'grommet'
+import { Box, Button, Layer, Paragraph } from 'grommet'
 import { useTranslation } from 'react-i18next'
-import { Alert, Checkmark, Close } from 'grommet-icons'
+import { Alert, Checkmark, Close, Configure } from 'grommet-icons'
 import { ModalHeader } from 'app/components/Header'
 import { AlertBox } from '../AlertBox'
 import { selectAllowDangerousSetting } from '../SettingsDialog/slice/selectors'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { settingsActions } from '../SettingsDialog/slice'
 
 interface Modal {
   title: string
@@ -30,11 +31,29 @@ interface Modal {
 interface ModalContainerProps {
   modal: Modal
   closeModal: () => void
+  hideModal: () => void
 }
 
 interface ModalContextProps {
+  /**
+   * Show a new modal
+   */
   launchModal: (modal: Modal) => void
+
+  /**
+   * Close the current modal
+   */
   closeModal: () => void
+
+  /**
+   * Hide the current modal (with the intention of showing in again later)
+   */
+  hideModal: () => void
+
+  /**
+   * Show the previously hidden modal again
+   */
+  showModal: () => void
 }
 
 interface ModalProviderProps {
@@ -43,7 +62,8 @@ interface ModalProviderProps {
 
 const ModalContext = createContext<ModalContextProps>({} as ModalContextProps)
 
-const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
+const ModalContainer = ({ modal, closeModal, hideModal }: ModalContainerProps) => {
+  const dispatch = useDispatch()
   const { t } = useTranslation()
   const confirm = useCallback(() => {
     modal.handleConfirm()
@@ -59,6 +79,10 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
     : mustWaitSecs ?? 0 // For normal, non-dangerous operations, just use what was specified
 
   const [secsLeft, setSecsLeft] = useState(0)
+  const openSettings = () => {
+    hideModal()
+    setTimeout(() => dispatch(settingsActions.setOpen(true)), 100)
+  }
 
   useEffect(() => {
     if (waitingTime) {
@@ -99,9 +123,6 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
           </AlertBox>
         )}
         <Box direction="row" gap="small" justify="between" pad={{ top: 'large' }}>
-          {/* This is a placeholder, so that if we have only one valid button,
-           the Cancel, it should be on the right side, not the left side.*/}
-          {!!forbidden && <span />}
           <Button
             label={t('common.cancel', 'Cancel')}
             onClick={closeModal}
@@ -118,6 +139,9 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
               icon={modal.isDangerous ? <Alert size="18px" /> : <Checkmark size="18px" />}
             />
           )}
+          {forbidden && (
+            <Button label={t('menu.settings', 'Settings')} onClick={openSettings} icon={<Configure />} />
+          )}
         </Box>
       </Box>
     </Layer>
@@ -126,14 +150,32 @@ const ModalContainer = ({ modal, closeModal }: ModalContainerProps) => {
 
 const ModalProvider = (props: ModalProviderProps) => {
   const [modal, setModal] = useState<Modal | null>(null)
+  const [hiddenModal, setHiddenModal] = useState<Modal | null>(null)
   const closeModal = useCallback(() => {
     setModal(null)
   }, [])
+  const hideModal = useCallback(() => {
+    if (!modal) {
+      throw new Error("You can't call hideModal if no model is shown!")
+    }
+    setHiddenModal(modal)
+    setModal(null)
+  }, [modal])
+  const showModal = useCallback(() => {
+    if (modal) {
+      throw new Error("You can't call showModal when a modal is already visible!")
+    }
+    if (!hiddenModal) {
+      return
+    }
+    setModal(hiddenModal)
+    setHiddenModal(null)
+  }, [modal, hiddenModal])
 
   return (
-    <ModalContext.Provider value={{ closeModal, launchModal: setModal }}>
+    <ModalContext.Provider value={{ closeModal, launchModal: setModal, hideModal, showModal }}>
       {props.children}
-      {modal && <ModalContainer modal={modal} closeModal={closeModal} />}
+      {modal && <ModalContainer modal={modal} closeModal={closeModal} hideModal={hideModal} />}
     </ModalContext.Provider>
   )
 }

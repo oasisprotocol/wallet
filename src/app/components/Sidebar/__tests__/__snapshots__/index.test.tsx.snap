@@ -687,15 +687,15 @@ exports[`<Navigation /> should match snapshot 1`] = `
     />
     <button
       aria-label="menu.settings"
-      class="c13"
+      class="c14"
       type="button"
     >
       <div
-        class="c14"
+        class="c15"
       >
         <svg
           aria-label="Configure"
-          class="c10"
+          class="c11"
           viewBox="0 0 24 24"
         >
           <path
@@ -706,17 +706,17 @@ exports[`<Navigation /> should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c11"
+          class="c12"
         />
         <span
-          class="c5"
+          class="c6"
         >
           menu.settings
         </span>
       </div>
     </button>
     <div
-      class="c6"
+      class="c7"
     />
     <a
       aria-label="GitHub"
