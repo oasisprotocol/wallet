@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { SidebarButton } from '../Sidebar'
-import { Configure } from 'grommet-icons/icons'
+import { Configure } from 'grommet-icons'
 import { useTranslation } from 'react-i18next'
 import { SettingsDialog } from '../SettingsDialog'
 
