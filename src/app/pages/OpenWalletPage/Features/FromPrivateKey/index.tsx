@@ -21,22 +21,25 @@ const parseKey = (key: string) => {
   return OasisKey.fromPrivateKey(key_bytes)
 }
 
+const isValidKey = (privateKey: string) => {
+  try {
+    parseKey(privateKey)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
 export function FromPrivateKey(props: Props) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
 
   const [privateKey, setPrivateKey] = React.useState('')
-  const [privateKeyIsValid, setPrivateKeyIsValid] = React.useState(true)
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => setPrivateKey(event.target.value)
   const onSubmit = () => {
-    try {
-      const secret = parseKey(privateKey)
-      setPrivateKeyIsValid(true)
-      dispatch(walletActions.openWalletFromPrivateKey(uint2hex(secret)))
-    } catch (e) {
-      setPrivateKeyIsValid(false)
-    }
+    const secret = parseKey(privateKey)
+    dispatch(walletActions.openWalletFromPrivateKey(uint2hex(secret)))
   }
 
   return (
@@ -57,11 +60,14 @@ export function FromPrivateKey(props: Props) {
 
         <PasswordField
           inputElementId="privatekey"
+          name="privateKey"
           placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
           autoComplete="off"
           value={privateKey}
           onChange={onChange}
-          error={privateKeyIsValid ? false : t('openWallet.privateKey.error', 'Invalid private key')}
+          validate={privateKey =>
+            isValidKey(privateKey) ? undefined : t('openWallet.privateKey.error', 'Invalid private key')
+          }
           showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
           hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
           width="auto"
