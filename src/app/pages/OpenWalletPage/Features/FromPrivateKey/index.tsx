@@ -70,7 +70,7 @@ export function FromPrivateKey(props: Props) {
           }
           showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
           hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
-          width="auto"
+          width="xlarge"
         />
 
         <Box pad={{ vertical: 'medium' }}>
