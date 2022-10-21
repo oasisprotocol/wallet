@@ -3,14 +3,15 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box, Button } from 'grommet'
+import { Anchor, Box } from 'grommet'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { Header } from 'app/components/Header'
 import { FromLedger } from './Features/FromLedger'
 import { FromMnemonic } from './Features/FromMnemonic'
 import { FromPrivateKey } from './Features/FromPrivateKey'
+import { ButtonLink } from 'app/components/ButtonLink'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
@@ -26,15 +27,15 @@ export function SelectOpenMethod() {
       <Header>{t('openWallet.header', 'How do you want to open your wallet?')}</Header>
 
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
-        <NavLink to="mnemonic">
-          <Button type="submit" label={t('openWallet.method.mnemonic', 'Mnemonic')} primary />
-        </NavLink>
-        <NavLink to="private-key">
-          <Button type="submit" label={t('openWallet.method.privateKey', 'Private key')} primary />
-        </NavLink>
-        <NavLink to="ledger">
-          <Button type="submit" label={t('openWallet.method.ledger', 'Ledger')} primary />
-        </NavLink>
+        <span>
+          <ButtonLink to="mnemonic" label={t('openWallet.method.mnemonic', 'Mnemonic')} primary />
+        </span>
+        <span>
+          <ButtonLink to="private-key" label={t('openWallet.method.privateKey', 'Private key')} primary />
+        </span>
+        <span>
+          <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
+        </span>
       </Box>
 
       <Box
