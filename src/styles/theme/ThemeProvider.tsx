@@ -52,6 +52,14 @@ const grommetCustomTheme: ThemeType = {
       radius: '4px',
     },
   },
+  tip: {
+    content: {
+      // Default background is background-contrast, but we made that one transparent
+      background: 'background-front',
+      border: 'all',
+      elevation: 'none',
+    },
+  },
   global: {
     colors: {
       oasisIndigo: '#310081',
