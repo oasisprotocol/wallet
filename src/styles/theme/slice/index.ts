@@ -4,13 +4,13 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 import { getThemeFromStorage, saveTheme } from '../utils'
 import { ThemeState } from './types'
 
-export const initialState: ThemeState = {
+export const getInitialState = (): ThemeState => ({
   selected: getThemeFromStorage() || 'system',
-}
+})
 
 const slice = createSlice({
   name: 'theme',
-  initialState,
+  initialState: () => getInitialState(),
   reducers: {
     changeTheme(state, action: PayloadAction<'dark' | 'light'>) {
       saveTheme(action.payload)
