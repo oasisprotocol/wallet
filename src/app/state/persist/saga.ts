@@ -13,6 +13,8 @@ import { RootState } from 'types'
 import { EncryptedString, KeyWithSalt, PersistedRootState, SetUnlockedRootStatePayload } from './types'
 import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
+import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
+import { runtimeIs } from 'config'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -43,6 +45,7 @@ function* handleAsyncPersistActions(action: AnyAction) {
     // Skip encrypting the same state
   } else if (persistActions.resetRootState.match(action)) {
     // Skip encrypting the empty state
+    yield* call(resetRootState, action)
   } else if (persistActions.setWrongPassword.match(action)) {
     // Skip encrypting the same state
   } else {
@@ -95,6 +98,19 @@ function* eraseAsync(action: ReturnType<typeof persistActions.eraseAsync>) {
   yield* call([window.localStorage, window.localStorage.removeItem], STORAGE_FIELD)
   yield* put(persistActions.resetRootState())
   // Implies state.loading = false
+}
+
+function* resetRootState(action: ReturnType<typeof persistActions.resetRootState>) {
+  const unlockedStatus = yield* select(selectUnlockedStatus)
+  // Redirect home to prevent infinite loading if user closes unpersisted wallet in another tab.
+  if (isActionSynced(action) && unlockedStatus === 'emptyUnpersisted') {
+    // Note: can only redirect in webapp, because saga runs in background page in extension.
+    // TODO: find another way if extension starts supporting multiple popups or tabs
+    // e.g. show "You closed wallet in another tab, click to go home"
+    if (runtimeIs === 'webapp') {
+      yield* call([window.location, window.location.assign], '/')
+    }
+  }
 }
 
 // Encrypting
