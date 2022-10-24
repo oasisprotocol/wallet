@@ -1,9 +1,10 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { validateMnemonic } from 'bip39'
-import { Grid, Box, Form, Paragraph, FormField, TextArea, Button, ResponsiveContext } from 'grommet'
+import { Grid, Box, Form, Paragraph, FormField, TextArea, ResponsiveContext } from 'grommet'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Header } from 'app/components/Header'
+import { Button } from 'types/grommet/Button'
 
 interface Props {
   /** Called once the mnemonic is confirmed */

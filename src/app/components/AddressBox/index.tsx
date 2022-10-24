@@ -4,10 +4,11 @@
  *
  */
 import copy from 'copy-to-clipboard'
-import { Box, Button, Text, Notification } from 'grommet'
+import { Box, Text, Notification } from 'grommet'
 import { Copy } from 'grommet-icons'
 import React, { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Button } from 'types/grommet/Button'
 
 import { PrettyAddress } from '../PrettyAddress'
 

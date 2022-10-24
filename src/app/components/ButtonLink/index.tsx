@@ -1,6 +1,7 @@
-import { Button, ButtonExtendedProps } from 'grommet'
+import { ButtonExtendedProps } from 'grommet'
 import { Link, To } from 'react-router-dom'
 import React from 'react'
+import { Button } from 'types/grommet/Button'
 
 type ButtonLinkProps = Omit<ButtonExtendedProps, 'label'> & { label: string; to: To }
 

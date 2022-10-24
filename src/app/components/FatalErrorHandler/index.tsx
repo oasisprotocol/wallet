@@ -6,12 +6,13 @@
 import { AlertBox } from 'app/components/AlertBox'
 import { selectFatalError } from 'app/state/fatalerror/selectors'
 import copy from 'copy-to-clipboard'
-import { Anchor, Box, Button, Heading, Text } from 'grommet'
+import { Anchor, Box, Heading, Text } from 'grommet'
 import { Copy, StatusWarning } from 'grommet-icons'
 import * as React from 'react'
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
+import { Button } from 'types/grommet/Button'
 
 import { ResponsiveLayer } from '../ResponsiveLayer'
 

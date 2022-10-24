@@ -9,10 +9,11 @@ import { selectMinStaking } from 'app/state/network/selectors'
 import { Validator } from 'app/state/staking/types'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { Box, Button, CheckBox, Form, TextInput } from 'grommet'
+import { Box, CheckBox, Form, TextInput } from 'grommet'
 import React, { memo, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { Button } from 'types/grommet/Button'
 
 import { TransactionStatus } from '../TransactionStatus'
 

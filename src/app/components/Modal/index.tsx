@@ -1,8 +1,9 @@
 import { createContext, useCallback, useContext, useState } from 'react'
-import { Box, Button, Layer, Paragraph } from 'grommet'
+import { Box, Layer, Paragraph } from 'grommet'
 import { useTranslation } from 'react-i18next'
 import { Alert, Checkmark, Close } from 'grommet-icons'
 import { ModalHeader } from 'app/components/Header'
+import { Button } from 'types/grommet/Button'
 
 interface Modal {
   title: string
