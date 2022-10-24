@@ -130,7 +130,7 @@
     "jest-environment-jsdom": "29.2.1",
     "jest-styled-components": "7.1.1",
     "jest-watch-typeahead": "2.2.0",
-    "jest-when": "3.5.1",
+    "jest-when": "3.5.2",
     "nodemon": "2.0.20",
     "parcel": "2.7.0",
     "parcel-transformer-env-variables-injection": "0.1.2",
