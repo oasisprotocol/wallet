@@ -1,8 +1,8 @@
-import { Box, Button, Grid, Paragraph, ResponsiveContext } from 'grommet'
+import { Box, Grid, Paragraph, ResponsiveContext } from 'grommet'
 import { Add, Unlock } from 'grommet-icons'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { NavLink } from 'react-router-dom'
+import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
 
 export function HomePage() {
@@ -25,14 +25,12 @@ export function HomePage() {
             )}
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <NavLink to="open-wallet">
-              <Button
-                type="submit"
-                label={t('home.existing.button', 'Open wallet')}
-                primary
-                icon={<Unlock />}
-              />
-            </NavLink>
+            <ButtonLink
+              to="open-wallet"
+              label={t('home.existing.button', 'Open wallet')}
+              primary
+              icon={<Unlock />}
+            />
           </Box>
         </Box>
         <Box
@@ -49,9 +47,12 @@ export function HomePage() {
             )}
           </Paragraph>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
-            <NavLink to="create-wallet">
-              <Button type="submit" label={t('home.create.button', 'Create wallet')} primary icon={<Add />} />
-            </NavLink>
+            <ButtonLink
+              to="create-wallet"
+              label={t('home.create.button', 'Create wallet')}
+              primary
+              icon={<Add />}
+            />
           </Box>
         </Box>
       </Grid>

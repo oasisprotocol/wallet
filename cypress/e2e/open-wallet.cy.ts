@@ -8,13 +8,13 @@ describe('Open wallet', () => {
   describe('Method selection', () => {
     it('Should be able to open from Mnemonic', () => {
       cy.visit('/open-wallet')
-      cy.findByRole('button', { name: /Mnemonic/ }).click()
+      cy.findByRole('link', { name: /Mnemonic/ }).click()
       cy.url().should('include', 'mnemonic')
     })
 
     it('Should be able to open from private key', () => {
       cy.visit('/open-wallet')
-      cy.findByRole('button', { name: /Private key/ }).click()
+      cy.findByRole('link', { name: /Private key/ }).click()
       cy.url().should('include', 'private-key')
     })
   })
@@ -52,8 +52,8 @@ describe('Open wallet', () => {
 
       // Should allow importing and reselecting the same accounts
       cy.findByRole('link', { name: /Home/ }).click()
-      cy.findByRole('button', { name: /Open wallet/ }).click()
-      cy.findByRole('button', { name: /Mnemonic/ }).click()
+      cy.findByRole('link', { name: /Open wallet/ }).click()
+      cy.findByRole('link', { name: /Mnemonic/ }).click()
       cy.url().should('include', '/open-wallet/mnemonic')
 
       cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
@@ -97,8 +97,8 @@ describe('Open wallet', () => {
 
       // Should allow importing and reselecting the same account
       cy.findByRole('link', { name: /Home/ }).click()
-      cy.findByRole('button', { name: /Open wallet/ }).click()
-      cy.findByRole('button', { name: /Private key/ }).click()
+      cy.findByRole('link', { name: /Open wallet/ }).click()
+      cy.findByRole('link', { name: /Private key/ }).click()
       cy.url().should('include', '/open-wallet/private-key')
       cy.findByPlaceholderText('Enter your private key here').type(privateKey, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
@@ -128,6 +128,6 @@ describe('Open wallet', () => {
   //   cy.get('button[aria-label="Close Wallet"]').click()
 
   //   // Back to homepage
-  //   cy.findByRole('button', { name: /Create wallet/i }).should('be.visible')
+  //   cy.findByRole('link', { name: /Create wallet/i }).should('be.visible')
   // })
 })

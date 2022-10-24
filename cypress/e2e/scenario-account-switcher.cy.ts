@@ -3,8 +3,8 @@ describe('Scenario : multiple accounts', () => {
     cy.visit('/')
 
     // Open account 1 through mnemonic
-    cy.findByRole('button', { name: /Open wallet/ }).click()
-    cy.findByRole('button', { name: /Mnemonic/ }).click()
+    cy.findByRole('link', { name: /Open wallet/ }).click()
+    cy.findByRole('link', { name: /Mnemonic/ }).click()
     cy.findByTestId('mnemonic').type(
       'abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger',
       { delay: 0 },
@@ -16,8 +16,8 @@ describe('Scenario : multiple accounts', () => {
     cy.findByTestId('nav-home').click()
 
     // Open account 2 through private
-    cy.findByRole('button', { name: /Open wallet/ }).click()
-    cy.findByRole('button', { name: /Private key/ }).click()
+    cy.findByRole('link', { name: /Open wallet/ }).click()
+    cy.findByRole('link', { name: /Private key/ }).click()
     cy.findByPlaceholderText('Enter your private key here').type(
       'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
       { delay: 0 },
