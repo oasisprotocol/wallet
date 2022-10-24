@@ -35,6 +35,11 @@ const config = {
             importNames: ['default', 'DataTable', 'IDataTableColumn', 'IDataTableProps'],
             message: "Import 'TypeSafeDataTable' instead.",
           },
+          {
+            name: 'grommet',
+            importNames: ['Button'],
+            message: "Import 'types/grommet/Button' instead.",
+          },
         ],
         patterns: [
           {
