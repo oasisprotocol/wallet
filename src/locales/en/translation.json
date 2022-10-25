@@ -249,6 +249,7 @@
       "depositHeader": "Deposit to ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
+      "header": "ParaTimes Transfers",
       "sapphire": "Sapphire",
       "withdrawHeader": "Withdraw from ParaTime"
     },
@@ -267,6 +268,7 @@
       "notice": "* EVMc - Ethereum Virtual Machine compatible",
       "previous": "Previous"
     },
+    "pageInaccessible": "Transfers are not available.",
     "recipient": {
       "description": "Please enter the address of the {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
       "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
@@ -289,7 +291,6 @@
     },
     "transfers": {
       "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
-      "header": "ParaTimes Transfers",
       "deposit": "Deposit to ParaTime",
       "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
       "withdraw": "Withdraw from ParaTime"
