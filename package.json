@@ -24,7 +24,6 @@
     "lint": "eslint --ext js,ts,tsx ./",
     "lint:fix": "yarn run lint --fix",
     "lint:css": "stylelint src/**/*.css",
-    "prettify": "prettier --write",
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "print-csp": "node ./internals/scripts/print-csp.js",
     "print-extension-csp": "node ./internals/scripts/print-extension-csp.js"
