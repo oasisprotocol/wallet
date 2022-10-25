@@ -1,4 +1,5 @@
 export * from './AccountsRow'
+export * from './Allowance'
 export * from './DebondingDelegationRow'
 export * from './DelegationRow'
 export * from './InlineResponse200'
