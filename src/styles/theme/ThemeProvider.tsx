@@ -137,6 +137,10 @@ const grommetCustomTheme: ThemeType = {
   notification: {
     toast: {
       time: 2000,
+      container: {
+        border: 'all',
+        elevation: 'none',
+      },
     },
   },
 }
