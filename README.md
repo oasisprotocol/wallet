@@ -117,6 +117,11 @@ yarn checkTs
 # Run jest tests
 yarn test
 
+# Run playwright tests
+yarn start
+(cd playwright; yarn; npx playwright install --with-deps)
+(cd playwright; yarn test)
+
 # Run cypress tests
 docker-compose up -d
 # Run this in another terminal to keep it open
