@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
+import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
@@ -224,7 +225,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
 function SidebarMenuItems() {
   const address = useSelector(selectAddress)
   const { t } = useTranslation()
-
+  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const menu = {
     home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
     wallet: (
@@ -248,9 +249,9 @@ function SidebarMenuItems() {
     paraTimes: (
       <SidebarButton
         icon={<Inherit />}
-        label={t('menu.paraTimes', 'ParaTimes')}
+        label={paraTimesRouteLabel}
         needsWalletOpen={true}
-        route={`/account/${address}/paratimes`}
+        route={getParaTimesRoutePath(address!)}
         data-testid="nav-paratime"
       />
     ),
@@ -262,7 +263,7 @@ function SidebarMenuItems() {
       {menu.home}
       {menu.wallet}
       {menu.stake}
-      {menu.paraTimes}
+      {canAccessParaTimesRoute && menu.paraTimes}
     </Nav>
   )
 }

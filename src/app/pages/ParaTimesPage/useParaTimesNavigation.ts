@@ -1,8 +1,14 @@
 import { useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 import { paraTimesActions } from 'app/state/paratimes'
+import { backend, BackendAPIs } from 'vendors/backend'
+import { WalletType } from 'app/state/wallet/types'
+import { selectType } from 'app/state/wallet/selectors'
 
 export type ParaTimesNavigationHook = {
+  canAccessParaTimesRoute: boolean
+  getParaTimesRoutePath: (address: string) => string
   navigateToAmount: () => void
   navigateToDeposit: () => void
   navigateToParaTimes: () => void
@@ -10,11 +16,15 @@ export type ParaTimesNavigationHook = {
   navigateToConfirmation: () => void
   navigateToSummary: () => void
   navigateToWithdraw: () => void
+  paraTimesRouteLabel: string
 }
 
 export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
+  const { t } = useTranslation()
   const dispatch = useDispatch()
-
+  const walletType = useSelector(selectType)
+  const canAccessParaTimesRoute = backend() === BackendAPIs.OasisScan && walletType !== WalletType.Ledger
+  const getParaTimesRoutePath = (address: string) => `/account/${address}/paratimes`
   const navigateToDeposit = useCallback(() => dispatch(paraTimesActions.navigateToDeposit()), [dispatch])
   const navigateToWithdraw = useCallback(() => dispatch(paraTimesActions.navigateToWithdraw()), [dispatch])
   const navigateToParaTimes = useCallback(() => dispatch(paraTimesActions.navigateToParaTimes()), [dispatch])
@@ -25,14 +35,18 @@ export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
     [dispatch],
   )
   const navigateToSummary = useCallback(() => dispatch(paraTimesActions.navigateToSummary()), [dispatch])
+  const paraTimesRouteLabel = t('menu.paraTimes', 'ParaTimes')
 
   return {
+    canAccessParaTimesRoute,
+    getParaTimesRoutePath,
     navigateToAmount,
+    navigateToConfirmation,
     navigateToDeposit,
     navigateToParaTimes,
     navigateToRecipient,
-    navigateToConfirmation,
     navigateToSummary,
     navigateToWithdraw,
+    paraTimesRouteLabel,
   }
 }
