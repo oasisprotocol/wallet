@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 import { paraTimesActions } from 'app/state/paratimes'
 import { TransactionForm, TransactionTypes } from 'app/state/paratimes/types'
 import { selectSelectedNetwork, selectTicker } from 'app/state/network/selectors'
@@ -8,7 +9,7 @@ import { selectAccountAvailableBalance, selectAccountIsLoading } from 'app/state
 import { selectAddress } from 'app/state/wallet/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
-import { ErrorPayload } from 'types/errors'
+import { ErrorPayload, ExhaustedTypeError } from 'types/errors'
 import { consensusDecimals, paraTimesConfig, RuntimeTypes, ParaTime } from '../../../config'
 
 type AvailableParaTimesForNetwork = {
@@ -41,6 +42,22 @@ export type ParaTimesHook = {
   usesOasisAddress: boolean
 }
 
+const getParaTimeName = (t: TFunction, paraTime: ParaTime) => {
+  switch (paraTime) {
+    case ParaTime.Cipher:
+      return t('paraTimes.common.cipher', 'Cipher')
+    case ParaTime.Emerald:
+      return t('paraTimes.common.emerald', 'Emerald')
+    case ParaTime.Sapphire:
+      return t('paraTimes.common.sapphire', 'Sapphire')
+    default:
+      throw new ExhaustedTypeError(
+        t('paraTimes.validation.unsupportedParaTime', 'Unsupported ParaTime'),
+        paraTime,
+      )
+  }
+}
+
 export const useParaTimes = (): ParaTimesHook => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
@@ -63,7 +80,7 @@ export const useParaTimes = (): ParaTimesHook => {
   const needsEthAddress = isDepositing && isEvmcParaTime
   const balanceInBaseUnit = isDepositing || (!isDepositing && !isEvmcParaTime)
   const decimals = balanceInBaseUnit ? consensusDecimals : paraTimesConfig[transactionForm.paraTime!].decimals
-  const paraTimeName = transactionForm.paraTime ? t(`paraTimes.common.${transactionForm.paraTime}`) : ''
+  const paraTimeName = transactionForm.paraTime ? getParaTimeName(t, transactionForm.paraTime) : ''
   const availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[] = (
     Object.keys(paraTimesConfig) as ParaTime[]
   )
