@@ -4,11 +4,11 @@ import * as matchers from 'redux-saga-test-plan/matchers'
 import { EffectProviders, StaticProvider } from 'redux-saga-test-plan/providers'
 import { DeepPartialRootState } from 'types/RootState'
 import { WalletErrors } from 'types/errors'
-
 import { transactionActions as actions } from '.'
+import { TransactionTypes } from '../paratimes/types'
 import { selectAddress, selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
-import { doTransaction } from './saga'
+import { doTransaction, submitParaTimeTransaction, getAllowanceDifference, setAllowance } from './saga'
 
 const makeState = (wallet: Partial<Wallet>): DeepPartialRootState => {
   return {
@@ -41,12 +41,15 @@ describe('Transaction Sagas', () => {
   } as Partial<Wallet>
 
   const sendProviders: (EffectProviders | StaticProvider)[] = [
+    [matchers.call.fn(getAllowanceDifference), -1n],
     [matchers.call.fn(signerFromPrivateKey), {}],
     [
       matchers.call.fn(OasisTransaction.buildTransfer),
       { transaction: { fee: { amount: new Uint8Array(0), gas: BigInt(0) } } },
     ],
+    [matchers.call.fn(OasisTransaction.buildParaTimeTransfer), {}],
     [matchers.call.fn(OasisTransaction.sign), {}],
+    [matchers.call.fn(OasisTransaction.signParaTime), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
   ]
 
@@ -73,6 +76,45 @@ describe('Transaction Sagas', () => {
         .dispatch(actions.confirmTransaction())
         .put.actionType(actions.transactionSent.type)
         .run()
+    })
+
+    const runtime = {
+      address: 'oasis1qrnu9yhwzap7rqh6tdcdcpz0zf86hwhycchkhvt8',
+      id: '000000000000000000000000000000000000000000000000e199119c992377cb',
+      decimals: 9,
+    }
+    const transaction = {
+      amount: '10',
+      privateKey: '',
+      feeAmount: '',
+      feeGas: '',
+      recipient: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+      type: TransactionTypes.Deposit,
+    }
+
+    it('Should deposit to paraTime transactions', () => {
+      const wallet = validKeyWallet
+
+      return expectSaga(submitParaTimeTransaction, runtime, transaction)
+        .withState(makeState(wallet))
+        .provide(providers)
+        .provide(sendProviders)
+        .call.like({ fn: setAllowance })
+        .silentRun(50)
+    })
+
+    it('Should withdraw from paraTime transactions', () => {
+      const wallet = validKeyWallet
+
+      return expectSaga(submitParaTimeTransaction, runtime, {
+        ...transaction,
+        type: TransactionTypes.Withdraw,
+      })
+        .withState(makeState(wallet))
+        .provide(providers)
+        .provide(sendProviders)
+        .not.call.like({ fn: setAllowance })
+        .silentRun(50)
     })
 
     it('Should send transactions from a private key', () => {

@@ -2,11 +2,13 @@ import { call, put, select, takeLatest } from 'typed-redux-saga'
 import * as oasis from '@oasisprotocol/client'
 import { accounts, token } from '@oasisprotocol/client-rt'
 import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
+import { submitParaTimeTransaction } from 'app/state/transaction/saga'
 import { getOasisNic } from 'app/state/network/saga'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { WalletError, WalletErrors } from 'types/errors'
 import { paraTimesActions } from '.'
+import { Runtime } from './types'
 import { selectParaTimes } from './selectors'
 import { paraTimesConfig, ParaTime } from '../../../config'
 
@@ -65,7 +67,30 @@ export function* fetchBalanceUsingOasisAddress() {
   yield* call(fetchBalance, address!, transactionForm.paraTime!)
 }
 
+export function* submitTransaction() {
+  const selectedNetwork = yield* select(selectSelectedNetwork)
+  const { transactionForm } = yield* select(selectParaTimes)
+  const paraTimeConfig = paraTimesConfig[transactionForm.paraTime!]
+  const runtime: Runtime = {
+    address: paraTimeConfig[selectedNetwork].address!,
+    id: paraTimeConfig[selectedNetwork].runtimeId!,
+    decimals: paraTimeConfig.decimals,
+  }
+
+  yield* call(submitParaTimeTransaction, runtime, {
+    amount: transactionForm.amount,
+    privateKey: transactionForm.privateKey,
+    feeAmount: transactionForm.feeAmount,
+    feeGas: transactionForm.feeGas,
+    recipient: transactionForm.recipient,
+    type: transactionForm.type,
+  })
+
+  yield* put(paraTimesActions.transactionSubmitted())
+}
+
 export function* paraTimesSaga() {
+  yield* takeLatest(paraTimesActions.submitTransaction, submitTransaction)
   yield* takeLatest(paraTimesActions.fetchBalanceUsingOasisAddress, fetchBalanceUsingOasisAddress)
   yield* takeLatest(paraTimesActions.fetchBalanceUsingEthPrivateKey, fetchBalanceUsingEthPrivateKey)
 }

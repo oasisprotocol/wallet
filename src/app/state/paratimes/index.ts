@@ -9,6 +9,8 @@ export const initialState: ParaTimesState = {
   transactionForm: {
     amount: '',
     confirmation: false,
+    feeAmount: '',
+    feeGas: '',
     paraTime: undefined,
     privateKey: '',
     recipient: '',
@@ -60,6 +62,13 @@ const slice = createSlice({
     },
     setTransactionForm(state, action: PayloadAction<TransactionForm>) {
       state.transactionForm = action.payload
+    },
+    submitTransaction(state, action: PayloadAction<void>) {
+      state.isLoading = true
+    },
+    transactionSubmitted(state, action: PayloadAction<void>) {
+      state.isLoading = false
+      state.transactionFormStep = TransactionFormSteps.TransactionSummary
     },
   },
 })

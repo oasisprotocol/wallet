@@ -18,6 +18,8 @@ export enum TransactionTypes {
 export interface TransactionForm {
   amount: string
   confirmation: boolean
+  feeAmount: string
+  feeGas: string
   paraTime?: ParaTime
   privateKey: string
   recipient: string
@@ -30,3 +32,14 @@ export interface ParaTimesState {
   transactionForm: TransactionForm
   transactionFormStep: TransactionFormSteps
 }
+
+export type Runtime = {
+  address: string
+  id: string
+  decimals: number
+}
+
+export type ParaTimeTransaction = Pick<
+  TransactionForm,
+  'amount' | 'privateKey' | 'feeAmount' | 'feeGas' | 'recipient' | 'type'
+>
