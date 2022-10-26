@@ -147,6 +147,7 @@
     "unknown": "Unknown error: {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
     "unknownLedgerError": "Unknown ledger error: {{message}}",
+    "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
     "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome."
   },
