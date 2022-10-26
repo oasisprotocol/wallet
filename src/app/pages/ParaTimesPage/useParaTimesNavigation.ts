@@ -2,7 +2,17 @@ import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { paraTimesActions } from 'app/state/paratimes'
 
-export const useParaTimesNavigation = () => {
+export type ParaTimesNavigationHook = {
+  navigateToAmount: () => void
+  navigateToDeposit: () => void
+  navigateToParaTimes: () => void
+  navigateToRecipient: () => void
+  navigateToConfirmation: () => void
+  navigateToSummary: () => void
+  navigateToWithdraw: () => void
+}
+
+export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
   const dispatch = useDispatch()
 
   const navigateToDeposit = useCallback(() => dispatch(paraTimesActions.navigateToDeposit()), [dispatch])

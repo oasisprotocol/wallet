@@ -7,6 +7,7 @@ import { selectSelectedNetwork, selectTicker } from 'app/state/network/selectors
 import { selectAccountAvailableBalance, selectAccountIsLoading } from 'app/state/account/selectors'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { paraTimesConfig, RuntimeTypes, ParaTime } from '../../../config'
 
 type AvailableParaTimesForNetwork = {
@@ -18,7 +19,25 @@ const evmcParaTimes = Object.keys(paraTimesConfig).filter(
   key => paraTimesConfig[key as ParaTime].type === RuntimeTypes.Evm,
 )
 
-export const useParaTimes = () => {
+export type ParaTimesHook = {
+  accountAddress: string | undefined
+  accountIsLoading: boolean
+  availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[]
+  balance: StringifiedBigInt | null
+  balanceInBaseUnit: boolean
+  isDepositing: boolean
+  isEvmcParaTime: boolean
+  isLoading: boolean
+  isWalletEmpty: boolean
+  paraTimeName: string
+  resetTransactionForm: () => void
+  setTransactionForm: (formValues: TransactionForm) => void
+  ticker: string
+  transactionForm: TransactionForm
+  usesOasisAddress: boolean
+}
+
+export const useParaTimes = (): ParaTimesHook => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const resetTransactionForm = useCallback(() => {
@@ -54,14 +73,14 @@ export const useParaTimes = () => {
     balance: walletBalance,
     balanceInBaseUnit,
     isDepositing,
-    isWalletEmpty: walletBalance === '0',
     isEvmcParaTime,
     isLoading,
+    isWalletEmpty: walletBalance === '0',
     paraTimeName,
     resetTransactionForm,
+    setTransactionForm,
     ticker,
     transactionForm,
-    setTransactionForm,
     usesOasisAddress: !needsEthAddress,
   }
 }
