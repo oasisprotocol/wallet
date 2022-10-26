@@ -16,7 +16,6 @@ import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
-import { ParaTime } from '../../../../config'
 
 export const TransactionAmount = () => {
   const { t } = useTranslation()
@@ -45,23 +44,10 @@ export const TransactionAmount = () => {
 
     dispatch(
       isEvmcParaTime
-        ? paraTimesActions.fetchBalanceUsingEthPrivateKey({
-            privateKey: transactionForm.privateKey,
-            paraTime: transactionForm.paraTime as ParaTime,
-          })
-        : paraTimesActions.fetchBalanceUsingOasisAddress({
-            address: transactionForm.recipient,
-            paraTime: transactionForm.paraTime as ParaTime,
-          }),
+        ? paraTimesActions.fetchBalanceUsingEthPrivateKey()
+        : paraTimesActions.fetchBalanceUsingOasisAddress(),
     )
-  }, [
-    dispatch,
-    isDepositing,
-    isEvmcParaTime,
-    transactionForm.paraTime,
-    transactionForm.recipient,
-    transactionForm.privateKey,
-  ])
+  }, [dispatch, isDepositing, isEvmcParaTime])
 
   return (
     <ParaTimeContent

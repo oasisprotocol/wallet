@@ -1,13 +1,13 @@
 import { call, put, select, takeLatest } from 'typed-redux-saga'
-import { PayloadAction } from '@reduxjs/toolkit'
 import * as oasis from '@oasisprotocol/client'
 import { accounts, token } from '@oasisprotocol/client-rt'
 import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
+import { getOasisNic } from 'app/state/network/saga'
+import { selectSelectedNetwork } from 'app/state/network/selectors'
+import { selectAddress } from 'app/state/wallet/selectors'
 import { WalletError, WalletErrors } from 'types/errors'
 import { paraTimesActions } from '.'
-import { EvmcBalancePayload, OasisAddressBalancePayload } from './types'
-import { selectSelectedNetwork } from '../network/selectors'
-import { getOasisNic } from '../network/saga'
+import { selectParaTimes } from './selectors'
 import { paraTimesConfig, ParaTime } from '../../../config'
 
 export async function getRuntimeBalance(address: string, runtimeId: string, nic: oasis.client.NodeInternal) {
@@ -48,22 +48,21 @@ export function* fetchBalance(oasisAddress: string, paraTime: ParaTime) {
   }
 }
 
-export function* fetchBalanceUsingEthPrivateKey({
-  payload: { privateKey, paraTime },
-}: PayloadAction<EvmcBalancePayload>) {
+export function* fetchBalanceUsingEthPrivateKey() {
+  const { transactionForm } = yield* select(selectParaTimes)
   try {
-    const address = privateToEthAddress(privateKey)
+    const address = privateToEthAddress(transactionForm.privateKey)
     const oasisAddress = yield* call(getEvmBech32Address, address)
-    yield* call(fetchBalance, oasisAddress, paraTime)
+    yield* call(fetchBalance, oasisAddress, transactionForm.paraTime!)
   } catch (error: any) {
     throw new WalletError(WalletErrors.ParaTimesUnknownError, error)
   }
 }
 
-export function* fetchBalanceUsingOasisAddress({
-  payload: { address, paraTime },
-}: PayloadAction<OasisAddressBalancePayload>) {
-  yield* call(fetchBalance, address, paraTime)
+export function* fetchBalanceUsingOasisAddress() {
+  const address = yield* select(selectAddress)
+  const { transactionForm } = yield* select(selectParaTimes)
+  yield* call(fetchBalance, address!, transactionForm.paraTime!)
 }
 
 export function* paraTimesSaga() {

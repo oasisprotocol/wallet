@@ -30,13 +30,3 @@ export interface ParaTimesState {
   transactionForm: TransactionForm
   transactionFormStep: TransactionFormSteps
 }
-
-export type OasisAddressBalancePayload = {
-  address: string
-  paraTime: ParaTime
-}
-
-export type EvmcBalancePayload = {
-  privateKey: string
-  paraTime: ParaTime
-}

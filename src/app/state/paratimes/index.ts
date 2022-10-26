@@ -1,14 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { createSlice } from 'utils/@reduxjs/toolkit'
-import {
-  EvmcBalancePayload,
-  OasisAddressBalancePayload,
-  ParaTimesState,
-  TransactionForm,
-  TransactionFormSteps,
-  TransactionTypes,
-} from './types'
+import { ParaTimesState, TransactionForm, TransactionFormSteps, TransactionTypes } from './types'
 
 export const initialState: ParaTimesState = {
   balance: '',
@@ -32,10 +25,10 @@ const slice = createSlice({
       state.balance = action.payload
       state.isLoading = false
     },
-    fetchBalanceUsingEthPrivateKey(state, action: PayloadAction<EvmcBalancePayload>) {
+    fetchBalanceUsingEthPrivateKey(state, action: PayloadAction<void>) {
       state.isLoading = true
     },
-    fetchBalanceUsingOasisAddress(state, action: PayloadAction<OasisAddressBalancePayload>) {
+    fetchBalanceUsingOasisAddress(state, action: PayloadAction<void>) {
       state.isLoading = true
     },
     resetTransactionForm(state, action: PayloadAction<void>) {

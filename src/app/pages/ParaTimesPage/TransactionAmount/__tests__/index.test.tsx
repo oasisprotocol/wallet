@@ -153,10 +153,7 @@ describe('<TransactionAmount />', () => {
     render(<TransactionAmount />)
 
     expect(mockDispatch).toHaveBeenCalledWith({
-      payload: {
-        address: 'dummyAddress',
-        paraTime: 'cipher',
-      },
+      payload: undefined,
       type: paraTimesActions.fetchBalanceUsingOasisAddress.type,
     })
   })
@@ -174,10 +171,7 @@ describe('<TransactionAmount />', () => {
     render(<TransactionAmount />)
 
     expect(mockDispatch).toHaveBeenCalledWith({
-      payload: {
-        paraTime: 'emerald',
-        privateKey: 'privateKey',
-      },
+      payload: undefined,
       type: paraTimesActions.fetchBalanceUsingEthPrivateKey.type,
     })
   })
