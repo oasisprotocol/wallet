@@ -102,6 +102,7 @@ describe('Transaction Sagas', () => {
         .provide(providers)
         .provide(sendProviders)
         .call.like({ fn: setAllowance })
+        .put.actionType(actions.paraTimeTransactionSent.type)
         .silentRun(50)
     })
 
@@ -116,6 +117,7 @@ describe('Transaction Sagas', () => {
         .provide(providers)
         .provide(sendProviders)
         .not.call.like({ fn: setAllowance })
+        .put.actionType(actions.paraTimeTransactionSent.type)
         .silentRun(50)
     })
 

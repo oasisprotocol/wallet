@@ -27,6 +27,7 @@ export function* rootWalletSaga() {
 
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(refreshAccountOnTransaction)
+  yield* fork(refreshAccountOnParaTimeTransaction)
   yield* takeEvery(walletActions.fetchWallet, loadWallet)
 
   // Start the wallet saga in parallel
@@ -156,13 +157,25 @@ function* refreshAccountOnTransaction() {
       return
     }
 
-    const from = yield* select(selectAddress)
-    const to = payload.to
+    yield* call(refreshAccount, payload.to)
+  }
+}
 
-    const wallets = yield* select(selectWallets)
-    const matchingWallets = Object.values(wallets).filter(w => w.address === to || w.address === from)
-    for (const wallet of matchingWallets) {
-      yield* put(walletActions.fetchWallet(wallet))
-    }
+function* refreshAccountOnParaTimeTransaction() {
+  while (true) {
+    const { payload } = yield* take(transactionActions.paraTimeTransactionSent)
+
+    yield* call(refreshAccount, payload)
+  }
+}
+
+function* refreshAccount(address: string) {
+  const from = yield* select(selectAddress)
+  const wallets = yield* select(selectWallets)
+  const matchingWallets = Object.values(wallets).filter(
+    wallet => wallet.address === address || wallet.address === from,
+  )
+  for (const wallet of matchingWallets) {
+    yield* put(walletActions.fetchWallet(wallet))
   }
 }
