@@ -147,6 +147,7 @@
     "unknown": "Unknown error: {{message}}",
     "unknownGrpc": "Unknown gRPC error: {{message}}",
     "unknownLedgerError": "Unknown ledger error: {{message}}",
+    "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
     "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome."
   },
@@ -198,6 +199,7 @@
   "menu": {
     "closeWallet": "Close wallet",
     "home": "Home",
+    "paraTimes": "ParaTimes",
     "stake": "Stake",
     "wallet": "Wallet"
   },
@@ -232,6 +234,87 @@
       "hidePrivateKey": "Hide private key",
       "instruction": "Enter your private key in Base64 format.",
       "showPrivateKey": "Show private key"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Advanced",
+      "available": "Available:",
+      "description": "Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "emptyWallet": "The wallet is empty. There is nothing to withdraw.",
+      "feeAmountPlaceholder": "Fee Amount (nano {{ticker}})",
+      "feeGasPlaceholder": "Fee Gas",
+      "max": "MAX",
+      "receiving": "to the receiving",
+      "withdrawing": "from the withdrawing"
+    },
+    "common": {
+      "cipher": "Cipher",
+      "depositHeader": "Deposit to ParaTime",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "header": "ParaTimes Transfers",
+      "sapphire": "Sapphire",
+      "withdrawHeader": "Withdraw from ParaTime"
+    },
+    "confirmation": {
+      "confirmDepositDescription": "Please confirm the transferring amount and the receiving wallet's address are correct and then click \"Deposit\" to make the transfer.",
+      "confirmDepositToForeignAccountDescription": "Destination account is not in your wallet! We recommend you always deposit into your own ParaTime account, then transfer from there.",
+      "confirmTransferLabel": "I confirm the amount and the address are correct",
+      "confirmTransferToForeignAccount": "I confirm I want to transfer tokens to a foreign account",
+      "confirmTransferToValidatorDescription": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
+      "confirmTransferToValidatorLabel": "I confirm I want to transfer tokens to a validator address",
+      "confirmWithdrawDescription": "Please confirm the withdrawing amount and the withdrawing wallet's address are correct and then click \"Withdraw\" to make the transfer.",
+      "confirmWithdrawToForeignAccountDescription": "Destination account is not in your wallet! Some automated systems, e.g., those used for tracking exchange deposits, may be unable to accept funds through ParaTime withdrawals. For better compatibility, cancel, withdraw into your own account, and transfer from there.",
+      "depositLabel": "Deposit",
+      "description": "You are about to transfer <strong>{{value}} {{ticker}}</strong> tokens {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime to: <strong>{{address}}</strong>",
+      "receiving": "into the receiving",
+      "withdrawLabel": "Withdraw",
+      "withdrawing": "from the withdrawing"
+    },
+    "error": {
+      "description": "Transaction failed. We were not able to transfer <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
+    },
+    "footer": {
+      "next": "Next",
+      "notice": "* EVMc - Ethereum Virtual Machine compatible",
+      "previous": "Previous"
+    },
+    "pageInaccessible": "Transfers are not available.",
+    "recipient": {
+      "depositDescription": "Please enter the address of the receiving wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
+      "evmcWithdrawDescription": "Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click \"Next\"",
+      "placeholder": "0x...",
+      "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
+      "withdrawDescription": "Please enter the receiving address on Consensus and then click \"Next\""
+    },
+    "selection": {
+      "cancel": "Cancel transfer",
+      "depositDescription": "Please select which ParaTime you wish to transfer your {{ticker}} tokens to and then click \"Next\".",
+      "evmc": "EVMc",
+      "select": "Select a ParaTime",
+      "withdrawDescription": "Please select which ParaTime you wish to withdraw your {{ticker}} tokens from and then click \"Next\"."
+    },
+    "summary": {
+      "description": "You have successfully transferred <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
+      "from": "from",
+      "into": "into",
+      "navigate": "Navigate to ParaTimes Transfers"
+    },
+    "transfers": {
+      "deposit": "Deposit to ParaTime",
+      "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
+      "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
+      "withdraw": "Withdraw from ParaTime"
+    },
+    "unsupportedFormStep": "Unsupported form step",
+    "validation": {
+      "invalidDecimalValue": "Maximum of {{token}} decimal places is allowed",
+      "invalidEthPrivateKey": "Ethereum-compatible private key is invalid",
+      "invalidEthPrivateKeyLength": "Private key should be 64 characters long",
+      "invalidFee": "Value must be integer greater than or equal to 0",
+      "required": "Field is required",
+      "unsupportedParaTime": "Unsupported ParaTime"
     }
   },
   "theme": {

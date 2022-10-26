@@ -12,13 +12,14 @@ import {
   Text,
   Tip,
 } from 'grommet'
-import { Github, FormDown, Home, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons'
+import { Github, FormDown, Home, Inherit, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
+import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
 import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
@@ -224,7 +225,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
 function SidebarMenuItems() {
   const address = useSelector(selectAddress)
   const { t } = useTranslation()
-
+  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const menu = {
     home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
     wallet: (
@@ -245,6 +246,15 @@ function SidebarMenuItems() {
         data-testid="nav-stake"
       />
     ),
+    paraTimes: (
+      <SidebarButton
+        icon={<Inherit />}
+        label={paraTimesRouteLabel}
+        needsWalletOpen={true}
+        route={getParaTimesRoutePath(address!)}
+        data-testid="nav-paratime"
+      />
+    ),
   }
 
   // Normal
@@ -253,6 +263,7 @@ function SidebarMenuItems() {
       {menu.home}
       {menu.wallet}
       {menu.stake}
+      {canAccessParaTimesRoute && menu.paraTimes}
     </Nav>
   )
 }

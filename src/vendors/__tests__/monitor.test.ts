@@ -10,33 +10,33 @@ import {
 describe('monitor', () => {
   test('parse account', () => {
     expect(
-      // https://monitor.oasis.dev/data/accounts/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe
+      // https://monitor.oasis.dev/data/accounts/oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty
       parseAccount({
-        address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-        liquid_balance: 756455428396,
+        address: 'oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty',
+        liquid_balance: 7791547645377,
         /* eslint-disable @typescript-eslint/no-loss-of-precision */
-        escrow_balance: 336982978187110627,
-        escrow_debonding_balance: 11942413553858170,
-        delegations_balance: 1460535533308247,
+        escrow_balance: 55597275304680782,
+        escrow_debonding_balance: 2613007343417,
+        delegations_balance: 312240929087242,
         debonding_delegations_balance: 0,
-        self_delegation_balance: 1460535533308247,
-        total_balance: 336983734642539023,
-        created_at: '2021-04-28T16:00:00Z',
-        last_active: '2022-02-23T00:32:19Z',
-        nonce: 2,
+        self_delegation_balance: 312240929087242,
+        total_balance: 55605066852326159,
+        created_at: '2021-08-15T22:20:44Z',
+        last_active: '2022-08-31T22:35:29Z',
+        nonce: 89,
         type: 'validator',
-        entity_address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+        entity_address: 'oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty',
         validator: {
           rate_change_interval: 1,
           rate_bound_lead: 14,
           max_rate_steps: 21,
           max_bound_steps: 21,
-          status: 'active',
-          node_address: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
-          consensus_address: '5E690F476067545CB5DD29BE90004EC7C691C8BF',
-          depositors_count: 9690,
-          blocks_count: 284137,
-          signatures_count: 8387143,
+          status: 'inactive',
+          node_address: 'oasis1qr4200x0hpza2cgfydlrckr6hwllwg7ssyh96mdu',
+          consensus_address: 'EC98C32FAAB7718052E09187D16FD06048EDC8D7',
+          depositors_count: 14,
+          blocks_count: 18831,
+          signatures_count: 2072250,
         },
       }),
     ).toMatchSnapshot()

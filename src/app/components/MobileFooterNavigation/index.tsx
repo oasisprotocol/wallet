@@ -2,11 +2,12 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box, Text } from 'grommet'
-import { LineChart, Money } from 'grommet-icons'
+import { LineChart, Inherit, Money } from 'grommet-icons'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
+import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 
 export const mobileFooterNavigationHeight = '4rem'
 const StyledMobileFooterNavigation = styled.nav`
@@ -34,9 +35,9 @@ export interface MobileFooterNavigationProps {
 export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooterNavigationProps) => {
   const { t } = useTranslation()
   const address = useSelector(selectAddress)
-
+  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const getMenuItems = useMemo(() => {
-    return [
+    const menuItems = [
       {
         label: t('menu.wallet', 'Wallet'),
         Icon: Money,
@@ -48,7 +49,16 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
         to: `/account/${address}/stake`,
       },
     ]
-  }, [address, t])
+
+    if (canAccessParaTimesRoute) {
+      menuItems.push({
+        label: paraTimesRouteLabel,
+        Icon: Inherit,
+        to: getParaTimesRoutePath(address!),
+      })
+    }
+    return menuItems
+  }, [address, canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel, t])
 
   if (!isMobile || !isAccountOpen) {
     return null
