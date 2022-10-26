@@ -263,6 +263,9 @@
       "withdrawLabel": "Withdraw",
       "withdrawing": "from the withdrawing"
     },
+    "error": {
+      "description": "Transaction failed. We were not able to transfer <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
+    },
     "footer": {
       "next": "Next",
       "notice": "* EVMc - Ethereum Virtual Machine compatible",
@@ -295,6 +298,7 @@
       "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
       "withdraw": "Withdraw from ParaTime"
     },
+    "unsupportedFormStep": "Unsupported form step",
     "validation": {
       "invalidEthPrivateKey": "Private key is invalid",
       "invalidEthPrivateKeyLength": "Private key should be 64 characters long",

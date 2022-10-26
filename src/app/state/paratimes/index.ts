@@ -1,5 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ParaTimesState, TransactionForm, TransactionFormSteps, TransactionTypes } from './types'
 
@@ -34,6 +35,7 @@ const slice = createSlice({
       state.isLoading = true
     },
     resetTransactionForm(state, action: PayloadAction<void>) {
+      state.transactionError = undefined
       state.transactionForm = initialState.transactionForm
       state.transactionFormStep = TransactionFormSteps.TransferType
     },
@@ -65,6 +67,12 @@ const slice = createSlice({
     },
     submitTransaction(state, action: PayloadAction<void>) {
       state.isLoading = true
+      state.transactionError = undefined
+    },
+    transactionError(state, action: PayloadAction<ErrorPayload>) {
+      state.isLoading = false
+      state.transactionError = action.payload
+      state.transactionFormStep = TransactionFormSteps.TransactionError
     },
     transactionSubmitted(state, action: PayloadAction<void>) {
       state.isLoading = false

@@ -68,25 +68,34 @@ export function* fetchBalanceUsingOasisAddress() {
 }
 
 export function* submitTransaction() {
-  const selectedNetwork = yield* select(selectSelectedNetwork)
-  const { transactionForm } = yield* select(selectParaTimes)
-  const paraTimeConfig = paraTimesConfig[transactionForm.paraTime!]
-  const runtime: Runtime = {
-    address: paraTimeConfig[selectedNetwork].address!,
-    id: paraTimeConfig[selectedNetwork].runtimeId!,
-    decimals: paraTimeConfig.decimals,
+  try {
+    const selectedNetwork = yield* select(selectSelectedNetwork)
+    const { transactionForm } = yield* select(selectParaTimes)
+    const paraTimeConfig = paraTimesConfig[transactionForm.paraTime!]
+    const runtime: Runtime = {
+      address: paraTimeConfig[selectedNetwork].address!,
+      id: paraTimeConfig[selectedNetwork].runtimeId!,
+      decimals: paraTimeConfig.decimals,
+    }
+
+    yield* call(submitParaTimeTransaction, runtime, {
+      amount: transactionForm.amount,
+      privateKey: transactionForm.privateKey,
+      feeAmount: transactionForm.feeAmount,
+      feeGas: transactionForm.feeGas,
+      recipient: transactionForm.recipient,
+      type: transactionForm.type,
+    })
+
+    yield* put(paraTimesActions.transactionSubmitted())
+  } catch (error: any) {
+    yield* put(
+      paraTimesActions.transactionError({
+        code: error instanceof WalletError ? error.type : WalletErrors.ParaTimesUnknownError,
+        message: error.message,
+      }),
+    )
   }
-
-  yield* call(submitParaTimeTransaction, runtime, {
-    amount: transactionForm.amount,
-    privateKey: transactionForm.privateKey,
-    feeAmount: transactionForm.feeAmount,
-    feeGas: transactionForm.feeGas,
-    recipient: transactionForm.recipient,
-    type: transactionForm.type,
-  })
-
-  yield* put(paraTimesActions.transactionSubmitted())
 }
 
 export function* paraTimesSaga() {
