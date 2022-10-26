@@ -2,8 +2,14 @@
 
 exports[`oasisscan parse account 1`] = `
 {
-  "address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
-  "available": "756455428396",
+  "address": "oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty",
+  "allowances": [
+    {
+      "address": "oasis1qrnu9yhwzap7rqh6tdcdcpz0zf86hwhycchkhvt8",
+      "amount": "1000000000",
+    },
+  ],
+  "available": "7791547645364",
   "debonding": null,
   "delegations": null,
   "total": null,

@@ -1,18 +1,22 @@
+import { client, misc } from '@oasisprotocol/client'
 import { Signer } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { hex2uint, isValidAddress, uint2bigintString } from 'app/lib/helpers'
+import { hex2uint, isValidAddress, uint2bigintString, parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import { LedgerSigner } from 'app/lib/ledger'
-import { OasisTransaction, signerFromPrivateKey, TW } from 'app/lib/transaction'
-import { call, put, race, select, take, takeEvery } from 'typed-redux-saga'
+import { OasisTransaction, signerFromPrivateKey, signerFromEthPrivateKey, TW } from 'app/lib/transaction'
+import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
+import { call, delay, put, race, select, take, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
-
 import { transactionActions } from '.'
 import { sign } from '../importaccounts/saga'
 import { getOasisNic } from '../network/saga'
+import { selectAccountAddress } from '../account/selectors'
+import { selectAccountAllowances } from '../account/selectors'
 import { selectChainContext } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
 import { TransactionPayload, TransactionStep } from './types'
+import { Runtime, ParaTimeTransaction, TransactionTypes } from '../paratimes/types'
 
 export function* transactionSaga() {
   yield* takeEvery(transactionActions.sendTransaction, doTransaction)
@@ -74,6 +78,43 @@ function* prepareTransfer(signer: Signer, amount: bigint, to: string) {
   yield* call(assertRecipientNotSelf, to)
 
   return yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, to, amount)
+}
+
+/**
+ * Set allowance for ParaTime transaction
+ */
+function* prepareStakingAllowTransfer(signer: Signer, amount: bigint, to: string) {
+  const nic = yield* call(getOasisNic)
+
+  yield* call(assertWalletIsOpen)
+  yield* call(assertValidAddress, to)
+  yield* call(assertSufficientBalance, amount)
+  yield* call(assertRecipientNotSelf, to)
+
+  return yield* call(OasisTransaction.buildStakingAllowTransfer, nic, signer as Signer, to, amount)
+}
+
+function* prepareParatimeTransfer(
+  nic: client.NodeInternal,
+  signer: Signer,
+  transaction: ParaTimeTransaction,
+  from: string,
+  runtime: Runtime,
+) {
+  yield* call(assertWalletIsOpen)
+  if (transaction.type === TransactionTypes.Deposit) {
+    yield* call(assertSufficientBalance, BigInt(parseRoseStringToBaseUnitString(transaction.amount)))
+  }
+
+  return yield* call(
+    OasisTransaction.buildParaTimeTransfer,
+    nic,
+    signer,
+    transaction,
+    from,
+    runtime.id,
+    runtime.decimals,
+  )
 }
 
 function* prepareAddEscrow(signer: Signer, amount: bigint, validator: string) {
@@ -179,6 +220,61 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     yield* put(transactionActions.transactionFailed(payload))
   }
+}
+
+export function* getAllowanceDifference(amount: string, runtimeAddress: string) {
+  const allowances = yield* select(selectAccountAllowances)
+  const allowance = allowances
+    ? allowances.find(item => item.address === runtimeAddress)?.amount ?? 0 // No allowance set yet
+    : 0 // Allowance info is missing
+
+  return BigInt(parseRoseStringToBaseUnitString(amount)) - BigInt(allowance)
+}
+
+export function* setAllowance(
+  nic: client.NodeInternal,
+  chainContext: string,
+  amount: string,
+  runtimeAddress: string,
+) {
+  const allowanceDifference = yield* call(getAllowanceDifference, amount, runtimeAddress)
+  if (allowanceDifference > 0n) {
+    const signer = yield* getSigner()
+    const tw = yield* call(prepareStakingAllowTransfer, signer as Signer, allowanceDifference, runtimeAddress)
+    yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
+    yield* call(OasisTransaction.submit, nic, tw)
+  }
+}
+
+const transactionSentDelay = 1000 // to increase a chance to get updated account data from BE
+
+export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTimeTransaction) {
+  const fromAddress = transaction.ethPrivateKey
+    ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.ethPrivateKey))
+    : yield* select(selectAccountAddress)
+  const nic = yield* call(getOasisNic)
+  const chainContext = yield* select(selectChainContext)
+  const paraTimeTransactionSigner = transaction.ethPrivateKey
+    ? yield* call(signerFromEthPrivateKey, misc.fromHex(transaction.ethPrivateKey))
+    : yield* getSigner()
+
+  if (transaction.type === TransactionTypes.Deposit) {
+    yield* call(setAllowance, nic, chainContext, transaction.amount, runtime.address)
+  }
+
+  const rtw = yield* call(
+    prepareParatimeTransfer,
+    nic,
+    paraTimeTransactionSigner as Signer,
+    transaction,
+    fromAddress,
+    runtime,
+  )
+
+  yield* call(OasisTransaction.signParaTime, chainContext, paraTimeTransactionSigner as Signer, rtw)
+  yield* call(OasisTransaction.submit, nic, rtw)
+  yield* delay(transactionSentDelay)
+  yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
 }
 
 function* assertWalletIsOpen() {

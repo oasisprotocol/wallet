@@ -1,8 +1,13 @@
 import * as oasis from '@oasisprotocol/client'
+import * as oasisRT from '@oasisprotocol/client-rt'
+import BigNumber from 'bignumber.js'
 import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
-
-import { addressToPublicKey, shortPublicKey } from './helpers'
+import { getEvmBech32Address } from 'app/lib/eth-helpers'
+import { isValidEthAddress } from 'app/lib/eth-helpers'
+import { ParaTimeTransaction, TransactionTypes } from 'app/state/paratimes/types'
+import { addressToPublicKey, parseRoseStringToBigNumber, shortPublicKey } from './helpers'
+import { consensusDecimals } from '../../config'
 
 type OasisClient = oasis.client.NodeInternal
 
@@ -10,8 +15,20 @@ export const signerFromPrivateKey = (privateKey: Uint8Array) => {
   return oasis.signature.NaclSigner.fromSecret(privateKey, 'this key is not important')
 }
 
+export const signerFromEthPrivateKey = (ethPrivateKey: Uint8Array) => {
+  return oasisRT.signatureSecp256k1.EllipticSigner.fromPrivate(ethPrivateKey, 'this key is not important')
+}
+
 /** Transaction Wrapper */
 export type TW<T> = oasis.consensus.TransactionWrapper<T>
+
+/** Runtime Transaction Wrapper */
+type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
+
+// A wild guess: the minimum gas price on Emerald (100 nano ROSE) times the default loose
+// overestimate of the gas (15k).
+const defaultWithdrawFeeAmount = '1500000'
+const defaultDepositFeeAmount = '0'
 
 export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
@@ -79,6 +96,92 @@ export class OasisTransaction {
     return tw
   }
 
+  public static async buildStakingAllowTransfer(
+    nic: OasisClient,
+    signer: Signer,
+    to: string,
+    amount: bigint,
+  ): Promise<TW<oasis.types.StakingAllow>> {
+    const tw = oasis.staking.allowWrapper()
+    const nonce = await OasisTransaction.getNonce(nic, signer)
+    const beneficiary = await addressToPublicKey(to)
+
+    tw.setNonce(nonce)
+    tw.setFeeAmount(oasis.quantity.fromBigInt(0n))
+    tw.setBody({
+      beneficiary,
+      negative: false,
+      amount_change: oasis.quantity.fromBigInt(amount),
+    })
+
+    const gas = await tw.estimateGas(nic, signer.public())
+    tw.setFeeGas(gas)
+
+    return tw
+  }
+
+  /**
+   * Note: uses raw user input amounts in ROSE as parameter instead of
+   * normalized bigint base units, because it needs to convert to base units
+   * dependent on paratime decimals.
+   */
+  public static async buildParaTimeTransfer(
+    nic: OasisClient,
+    signer: Signer,
+    transaction: ParaTimeTransaction,
+    fromAddress: string,
+    runtimeId: string,
+    runtimeDecimals: number,
+  ): Promise<RTW<oasisRT.types.ConsensusDeposit | oasisRT.types.ConsensusWithdraw>> {
+    const { amount, recipient: targetAddress, type } = transaction
+    const isDepositing = type === TransactionTypes.Deposit
+    const consensusRuntimeId = oasis.misc.fromHex(runtimeId)
+    const txWrapper = new oasisRT.consensusAccounts.Wrapper(consensusRuntimeId)[
+      isDepositing ? 'callDeposit' : 'callWithdraw'
+    ]()
+    const accountsWrapper = new oasisRT.accounts.Wrapper(consensusRuntimeId)
+    const nonce = await accountsWrapper
+      .queryNonce()
+      .setArgs({ address: oasis.staking.addressFromBech32(fromAddress) })
+      .query(nic)
+    const feeAmount = BigInt(
+      new BigNumber(
+        transaction.feeAmount
+          ? transaction.feeAmount
+          : isDepositing
+          ? defaultDepositFeeAmount
+          : defaultWithdrawFeeAmount,
+      )
+        .shiftedBy(runtimeDecimals)
+        .shiftedBy(-consensusDecimals)
+        .toFixed(0),
+    )
+    const feeGas = transaction.feeGas ? BigInt(transaction.feeGas) : 15000n
+    const signerInfo = {
+      address_spec: {
+        signature: { [transaction.ethPrivateKey ? 'secp256k1eth' : 'ed25519']: signer.public() },
+      },
+      nonce,
+    }
+
+    txWrapper
+      .setBody({
+        amount: [
+          oasis.quantity.fromBigInt(BigInt(parseRoseStringToBigNumber(amount, runtimeDecimals).toFixed(0))),
+          oasisRT.token.NATIVE_DENOMINATION,
+        ],
+        to: oasis.staking.addressFromBech32(
+          isValidEthAddress(targetAddress) ? await getEvmBech32Address(targetAddress) : targetAddress,
+        ),
+      })
+      .setFeeAmount([oasis.quantity.fromBigInt(feeAmount), oasisRT.token.NATIVE_DENOMINATION])
+      .setFeeGas(feeGas)
+      .setFeeConsensusMessages(1)
+      .setSignerInfo([signerInfo])
+
+    return txWrapper
+  }
+
   public static async signUsingLedger<T>(
     chainContext: string,
     signer: ContextSigner,
@@ -94,7 +197,11 @@ export class OasisTransaction {
     return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
   }
 
-  public static async submit<T>(nic: OasisClient, tw: TW<T>): Promise<void> {
+  public static async signParaTime<T>(chainContext: string, signer: Signer, tw: RTW<T>): Promise<void> {
+    return tw.sign([new oasis.signature.BlindContextSigner(signer)], chainContext)
+  }
+
+  public static async submit<T>(nic: OasisClient, tw: TW<T> | RTW<T>): Promise<void> {
     try {
       await tw.submit(nic)
     } catch (e: any) {

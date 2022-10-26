@@ -4,6 +4,7 @@ apis/RuntimeApi.ts
 apis/index.ts
 index.ts
 models/AccountsRow.ts
+models/Allowance.ts
 models/DebondingDelegationRow.ts
 models/DelegationRow.ts
 models/InlineResponse200.ts

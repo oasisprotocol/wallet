@@ -19,7 +19,7 @@ describe('<TransactionRecipient />', () => {
     ticker: 'ROSE',
     transactionForm: {
       recipient: '',
-      privateKey: '',
+      ethPrivateKey: '',
     },
     usesOasisAddress: true,
   } as ParaTimesHook
@@ -34,6 +34,22 @@ describe('<TransactionRecipient />', () => {
     const { container } = render(<TransactionRecipient />)
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('should render withdraw variant component', () => {
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      isDepositing: false,
+      transactionForm: {
+        amount: '10',
+        recipient: 'dummyAddress',
+        type: TransactionTypes.Withdraw,
+      },
+    } as ParaTimesHook)
+    render(<TransactionRecipient />)
+
+    expect(screen.getByTestId('paraTime-content-description')).toMatchSnapshot()
+    expect(screen.queryByPlaceholderText('Enter Ethereum-compatible private key')).not.toBeInTheDocument()
   })
 
   it('should render EVMc withdraw variant component', () => {

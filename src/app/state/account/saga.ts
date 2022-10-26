@@ -88,7 +88,6 @@ export function* fetchAccount(action: PayloadAction<string>) {
 export function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
-    const from = yield* select(selectAddress)
     let otherAddress: string
 
     if (payload.type === 'transfer') {
@@ -97,16 +96,29 @@ export function* refreshAccountOnTransaction() {
       otherAddress = payload.validator
     }
 
-    const currentAccount = yield* select(selectAccountAddress)
-    if (currentAccount === from || currentAccount === otherAddress) {
-      // Refresh current account
-      yield* put(actions.fetchAccount(currentAccount))
-      yield* put(stakingActions.fetchAccount(currentAccount))
-    }
+    yield* call(refreshAccount, otherAddress)
+  }
+}
+
+export function* refreshAccountOnParaTimeTransaction() {
+  while (true) {
+    const { payload } = yield* take(transactionActions.paraTimeTransactionSent)
+
+    yield* call(refreshAccount, payload)
+  }
+}
+
+function* refreshAccount(address: string) {
+  const from = yield* select(selectAddress)
+  const currentAccount = yield* select(selectAccountAddress)
+  if (currentAccount === from || currentAccount === address) {
+    yield* put(actions.fetchAccount(currentAccount))
+    yield* put(stakingActions.fetchAccount(currentAccount))
   }
 }
 
 export function* accountSaga() {
   yield* fork(refreshAccountOnTransaction)
+  yield* fork(refreshAccountOnParaTimeTransaction)
   yield* takeLatest(actions.fetchAccount, fetchAccount)
 }

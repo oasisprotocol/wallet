@@ -51,15 +51,15 @@ export function concat(...parts: Uint8Array[]) {
   return result
 }
 
-function parseRoseStringToBigNumber(value: string, decimals = 9): BigNumber {
+export function parseRoseStringToBigNumber(value: string, decimals = 9): BigNumber {
   const baseUnitBN = new BigNumber(value).shiftedBy(decimals) // * 10 ** decimals
   if (baseUnitBN.isNaN()) {
-    throw new Error(`not a number in parseRoseStringToBaseUnitString(${value})`)
+    throw new Error(`not a number in parseRoseStringToBigNumber(${value})`)
   }
   if (baseUnitBN.decimalPlaces()! > 0) {
-    console.error('lost precision in parseRoseStringToBaseUnitString(', value)
+    console.error('lost precision in parseRoseStringToBigNumber(', value)
   }
-  return baseUnitBN
+  return baseUnitBN.decimalPlaces(0)
 }
 
 export function parseRoseStringToBaseUnitString(value: string): StringifiedBigInt {
@@ -73,11 +73,11 @@ function getRoseString(roseBN: BigNumber, minimumFractionDigits: number, maximum
   )
 }
 
-export function isAmountGreaterThan(amount: StringifiedBigInt, value: StringifiedBigInt) {
+export function isAmountGreaterThan(amount: string, value: StringifiedBigInt) {
   return parseRoseStringToBigNumber(amount).isGreaterThan(new BigNumber(value))
 }
 
-export function isEvmcAmountGreaterThan(amount: StringifiedBigInt, value: StringifiedBigInt) {
+export function isEvmcAmountGreaterThan(amount: string, value: StringifiedBigInt) {
   return parseRoseStringToBigNumber(amount, 18).isGreaterThan(new BigNumber(value))
 }
 

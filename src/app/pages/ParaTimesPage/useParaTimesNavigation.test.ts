@@ -4,7 +4,7 @@ import { useParaTimesNavigation } from './useParaTimesNavigation'
 
 const mockDispatch = jest.fn()
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  useSelector: jest.fn(),
   useDispatch: () => mockDispatch,
 }))
 
@@ -50,5 +50,17 @@ describe('useParaTimesNavigation', () => {
       payload: undefined,
       type: paraTimesActions.navigateToWithdraw.type,
     })
+  })
+
+  it('should return main route label', () => {
+    const { result } = renderHook(() => useParaTimesNavigation())
+
+    expect(result.current.paraTimesRouteLabel).toEqual('menu.paraTimes')
+  })
+
+  it('should return main route path', () => {
+    const { result } = renderHook(() => useParaTimesNavigation())
+
+    expect(result.current.getParaTimesRoutePath('dummyAddress')).toEqual('/account/dummyAddress/paratimes')
   })
 })

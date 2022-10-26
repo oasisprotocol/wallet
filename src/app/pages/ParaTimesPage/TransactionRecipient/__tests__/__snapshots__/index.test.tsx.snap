@@ -2,33 +2,12 @@
 
 exports[`<TransactionRecipient /> should render EVMc withdraw variant component 1`] = `
 .c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 48px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c1 {
   font-size: 18px;
   line-height: 24px;
   text-align: center;
 }
 
 @media only screen and (max-width:768px) {
-  .c0 {
-    margin-bottom: 24px;
-  }
-}
-
-@media only screen and (max-width:768px) {
 
 }
 
@@ -52,21 +31,16 @@ exports[`<TransactionRecipient /> should render EVMc withdraw variant component 
 
 }
 
-<div
+@media only screen and (max-width:768px) {
+
+}
+
+<span
   class="c0"
   data-testid="paraTime-content-description"
-  style="max-width: 550px;"
 >
-  <span
-    class="c1"
-  >
-    Please enter the address of the withdrawing wallet on the 
-    <strong>
-      Emerald
-    </strong>
-     (EVMc) ParaTime and then click "Next"
-  </span>
-</div>
+  Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click "Next"
+</span>
 `;
 
 exports[`<TransactionRecipient /> should render component 1`] = `
@@ -191,11 +165,6 @@ exports[`<TransactionRecipient /> should render component 1`] = `
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-}
-
-.c12 {
-  font-size: 14px;
-  line-height: 20px;
 }
 
 .c11 {
@@ -381,11 +350,11 @@ exports[`<TransactionRecipient /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      data-testid="paraTime-content-description"
       style="max-width: 550px;"
     >
       <span
         class="c3"
+        data-testid="paraTime-content-description"
       >
         Please enter the address of the receiving wallet on the 
         <strong>
@@ -437,13 +406,51 @@ exports[`<TransactionRecipient /> should render component 1`] = `
             </button>
           </div>
         </div>
-        <span
-          class="c12"
-        >
-          * EVMc - Ethereum Virtual Machine compatible
-        </span>
       </form>
     </div>
   </div>
 </div>
+`;
+
+exports[`<TransactionRecipient /> should render withdraw variant component 1`] = `
+.c0 {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+<span
+  class="c0"
+  data-testid="paraTime-content-description"
+>
+  Please enter the receiving address on Consensus and then click "Next"
+</span>
 `;

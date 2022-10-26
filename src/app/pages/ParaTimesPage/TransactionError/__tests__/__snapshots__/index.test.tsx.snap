@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`] = `
+exports[`<TransactionError /> should render EVMc withdraw variant component 1`] = `
 .c0 {
   font-size: 18px;
   line-height: 24px;
@@ -27,11 +27,31 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
 
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
 <span
   class="c0"
   data-testid="paraTime-content-description"
 >
-  You have successfully transferred 
+  Transaction failed. We were not able to transfer 
   <strong>
     10 ROSE
   </strong>
@@ -46,7 +66,7 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
 </span>
 `;
 
-exports[`<TransactionSummary /> should render component 1`] = `
+exports[`<TransactionError /> should render component 1`] = `
 .c6 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
@@ -54,8 +74,8 @@ exports[`<TransactionSummary /> should render component 1`] = `
   flex: 0 0 auto;
   width: 80px;
   height: 80px;
-  fill: successful-label;
-  stroke: successful-label;
+  fill: #FF4040;
+  stroke: #FF4040;
 }
 
 .c6 g {
@@ -140,6 +160,10 @@ exports[`<TransactionSummary /> should render component 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin-bottom: 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -148,6 +172,26 @@ exports[`<TransactionSummary /> should render component 1`] = `
 }
 
 .c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background-color: rgba(255,64,64,0.1);
+  border-left: solid 3px #FF4040;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -166,7 +210,32 @@ exports[`<TransactionSummary /> should render component 1`] = `
   flex-direction: column;
 }
 
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 24px;
+}
+
+.c10 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -183,6 +252,12 @@ exports[`<TransactionSummary /> should render component 1`] = `
 }
 
 .c9 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -211,44 +286,44 @@ exports[`<TransactionSummary /> should render component 1`] = `
   width: 100%;
 }
 
-.c9:hover {
+.c13:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c9:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -275,7 +350,39 @@ exports[`<TransactionSummary /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c8 {
+    border-left: solid 3px #FF4040;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c11 {
     margin-bottom: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c12 {
+    margin-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c7 {
+    height: 12px;
   }
 }
 
@@ -310,7 +417,7 @@ exports[`<TransactionSummary /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        You have successfully transferred 
+        Transaction failed. We were not able to transfer 
         <strong>
           10 ROSE
         </strong>
@@ -329,31 +436,44 @@ exports[`<TransactionSummary /> should render component 1`] = `
     >
       <div
         class="c5"
+        style="max-width: 550px;"
       >
         <svg
-          aria-label="Status is okay"
+          aria-label="Status is critical"
           class="c6"
           viewBox="0 0 24 24"
         >
           <path
-            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
+            d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
             fill="none"
             stroke="#000"
             stroke-width="2"
           />
         </svg>
+        <div
+          class="c7"
+        />
+        <div
+          class="c8"
+        >
+          <span
+            class="c9"
+          >
+            Unknown ParaTime error: error message
+          </span>
+        </div>
       </div>
       <div
-        class="c7"
+        class="c10"
       />
       <div
-        class="c8"
+        class="c11"
       >
         <div
-          class="c5"
+          class="c12"
         >
           <button
-            class="c9"
+            class="c13"
             type="button"
           >
             Navigate to ParaTimes Transfers

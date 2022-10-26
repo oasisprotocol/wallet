@@ -16,7 +16,7 @@ import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
-import { ParaTime } from '../../../../config'
+import { FeesSection } from './FeesSection'
 
 export const TransactionAmount = () => {
   const { t } = useTranslation()
@@ -24,6 +24,7 @@ export const TransactionAmount = () => {
   const {
     balance,
     balanceInBaseUnit,
+    decimals,
     isDepositing,
     isEvmcParaTime,
     isLoading,
@@ -35,7 +36,7 @@ export const TransactionAmount = () => {
   } = useParaTimes()
   const { navigateToRecipient, navigateToConfirmation } = useParaTimesNavigation()
   const formatter = balanceInBaseUnit ? formatBaseUnitsAsRose : formatWeiAsWrose
-  const validator = balanceInBaseUnit ? isAmountGreaterThan : isEvmcAmountGreaterThan
+  const balanceValidator = balanceInBaseUnit ? isAmountGreaterThan : isEvmcAmountGreaterThan
   const disabled = !isLoading && isWalletEmpty
 
   useEffect(() => {
@@ -45,23 +46,10 @@ export const TransactionAmount = () => {
 
     dispatch(
       isEvmcParaTime
-        ? paraTimesActions.fetchBalanceUsingEthPrivateKey({
-            privateKey: transactionForm.privateKey,
-            paraTime: transactionForm.paraTime as ParaTime,
-          })
-        : paraTimesActions.fetchBalanceUsingOasisAddress({
-            address: transactionForm.recipient,
-            paraTime: transactionForm.paraTime as ParaTime,
-          }),
+        ? paraTimesActions.fetchBalanceUsingEthPrivateKey()
+        : paraTimesActions.fetchBalanceUsingOasisAddress(),
     )
-  }, [
-    dispatch,
-    isDepositing,
-    isEvmcParaTime,
-    transactionForm.paraTime,
-    transactionForm.recipient,
-    transactionForm.privateKey,
-  ])
+  }, [dispatch, isDepositing, isEvmcParaTime])
 
   return (
     <ParaTimeContent
@@ -91,6 +79,7 @@ export const TransactionAmount = () => {
       <Box margin={{ bottom: 'medium' }}>
         <Form
           messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
+          noValidate
           onChange={nextValue => setTransactionForm(nextValue)}
           onSubmit={navigateToConfirmation}
           value={transactionForm}
@@ -101,16 +90,34 @@ export const TransactionAmount = () => {
                 name="amount"
                 style={{ width: '100%' }}
                 required
-                validate={amount =>
-                  validator(amount, balance!)
-                    ? {
-                        message: t('errors.insufficientBalance', 'Insufficient balance'),
-                        status: 'error',
-                      }
-                    : undefined
-                }
+                validate={[
+                  (amount: string) =>
+                    !new RegExp(`^\\d*(?:[.][0-9]{0,${decimals}})?$`).test(amount)
+                      ? {
+                          message: t(
+                            'paraTimes.validation.invalidDecimalValue',
+                            'Maximum of {{token}} decimal places is allowed',
+                            { token: decimals },
+                          ),
+                          status: 'error',
+                        }
+                      : undefined,
+                  (amount: string) =>
+                    balanceValidator(amount, balance!)
+                      ? {
+                          message: t('errors.insufficientBalance', 'Insufficient balance'),
+                          status: 'error',
+                        }
+                      : undefined,
+                ]}
               >
-                <TextInput disabled={disabled} name="amount" placeholder="0" value={transactionForm.amount} />
+                <TextInput
+                  disabled={disabled}
+                  inputMode="decimal"
+                  name="amount"
+                  placeholder="0"
+                  value={transactionForm.amount}
+                />
               </FormField>
               {balance && (
                 <Button
@@ -123,8 +130,10 @@ export const TransactionAmount = () => {
                     right: 0,
                   }}
                   plain
-                  label="MAX"
-                  onClick={() => setTransactionForm({ ...transactionForm, amount: formatter(balance) })}
+                  label={t('paraTimes.amount.max', 'MAX')}
+                  onClick={() =>
+                    setTransactionForm({ ...transactionForm, amount: formatter(balance).replaceAll(',', '') })
+                  }
                 />
               )}
             </Box>
@@ -140,12 +149,16 @@ export const TransactionAmount = () => {
               </Text>
             </Box>
           </Box>
-
+          <FeesSection
+            feeAmount={transactionForm.feeAmount}
+            feeGas={transactionForm.feeGas}
+            ticker={ticker}
+          />
           <ParaTimeFormFooter
             disabled={disabled}
             secondaryAction={navigateToRecipient}
             submitButton
-            withNotice
+            withNotice={isEvmcParaTime}
           />
         </Form>
       </Box>
