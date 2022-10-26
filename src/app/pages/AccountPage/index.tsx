@@ -36,6 +36,7 @@ import { ValidatorList } from '../StakingPage/Features/ValidatorList'
 import { AccountDetails } from './Features/AccountDetails'
 import { AccountSummary } from './Features/AccountSummary'
 import { isValidAddress } from '../../lib/helpers'
+import { ParaTimes } from '../ParaTimesPage'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -210,6 +211,7 @@ function AccountPageInternal(props: AccountPageProps) {
           <Routes>
             <Route path="/" element={<AccountDetails />} />
             <Route path="/stake" element={<ValidatorList />} />
+            <Route path="/paratimes" element={<ParaTimes />} />
             <Route path="/active-delegations" element={<ActiveDelegationList />} />
             <Route path="/debonding-delegations" element={<DebondingDelegationList />} />
           </Routes>

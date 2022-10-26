@@ -12,7 +12,7 @@ import {
   Text,
   Tip,
 } from 'grommet'
-import { Github, FormDown, Home, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons'
+import { Github, FormDown, Home, Inherit, LineChart, Logout, Menu as MenuIcon, Money } from 'grommet-icons'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -245,6 +245,15 @@ function SidebarMenuItems() {
         data-testid="nav-stake"
       />
     ),
+    paraTimes: (
+      <SidebarButton
+        icon={<Inherit />}
+        label={t('menu.paraTimes', 'ParaTimes')}
+        needsWalletOpen={true}
+        route={`/account/${address}/paratimes`}
+        data-testid="nav-paratime"
+      />
+    ),
   }
 
   // Normal
@@ -253,6 +262,7 @@ function SidebarMenuItems() {
       {menu.home}
       {menu.wallet}
       {menu.stake}
+      {menu.paraTimes}
     </Nav>
   )
 }
