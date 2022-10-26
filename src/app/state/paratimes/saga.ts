@@ -10,7 +10,7 @@ import { selectSelectedNetwork } from '../network/selectors'
 import { getOasisNic } from '../network/saga'
 import { paraTimesConfig, ParaTime } from '../../../config'
 
-async function getRuntimeBalance(address: string, runtimeId: string, nic: oasis.client.NodeInternal) {
+export async function getRuntimeBalance(address: string, runtimeId: string, nic: oasis.client.NodeInternal) {
   const accountsWrapper = new accounts.Wrapper(oasis.misc.fromHex(runtimeId))
   const accountBalances = await accountsWrapper
     .queryBalances()
