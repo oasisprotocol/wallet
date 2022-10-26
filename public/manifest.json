@@ -34,5 +34,6 @@
     "page": "../extension/src/background.html",
     "persistent": true
   },
-  "web_accessible_resources": ["./oasis-xu-frame.html"]
+  "web_accessible_resources": ["./oasis-xu-frame.html"],
+  "externally_connectable": { "ids": [] }
 }
