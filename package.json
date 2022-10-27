@@ -54,6 +54,7 @@
     "report-dir": "cypress-coverage"
   },
   "dependencies": {
+    "@ethereumjs/util": "8.0.2",
     "@ledgerhq/hw-transport-webusb": "6.27.6",
     "@metamask/jazzicon": "2.0.0",
     "@oasisprotocol/client": "0.1.0-alpha9",
@@ -66,7 +67,6 @@
     "bip39": "3.0.4",
     "body-scroll-lock": "4.0.0-beta.0",
     "copy-to-clipboard": "3.3.2",
-    "ethereumjs-util": "7.1.5",
     "grommet": "2.27.0",
     "grommet-icons": "4.8.0",
     "i18next": "22.0.2",
@@ -116,7 +116,6 @@
     "@types/w3c-web-usb": "1.0.6",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
-    "assert": "2.0.0",
     "babel-jest": "29.2.2",
     "babel-plugin-istanbul": "6.1.1",
     "babel-preset-react-app": "10.0.1",
