@@ -1,8 +1,15 @@
 import { test, expect } from '@playwright/test'
+import { mockApi } from '../utils/mockApi'
+import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
 
 const privateKey = 'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg=='
 const password = 'abcd1234&'
+
+test.beforeEach(async ({ context, page }) => {
+  await warnSlowApi(context)
+  await mockApi(context, 0)
+})
 
 test.afterEach(async ({ context }, testInfo) => {
   await expectNoFatal(context, testInfo)
