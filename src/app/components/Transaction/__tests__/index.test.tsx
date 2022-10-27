@@ -20,7 +20,7 @@ jest.mock('react-i18next', () => ({
   Trans: (({ i18nKey }) => <>{i18nKey}</>) as TransType,
   useTranslation: () => {
     return {
-      t: str => str,
+      t: (str: string) => str,
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
