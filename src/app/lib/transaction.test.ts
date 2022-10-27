@@ -84,7 +84,7 @@ describe('OasisTransaction', () => {
       BigInt(1250),
     )
 
-    expect(tw.signedTransaction).toBeUndefined()
+    expect(tw.signedTransaction).toEqual(null)
 
     await OasisTransaction.sign('', testSigner, tw)
     const hexSignature = uint2hex(tw.signedTransaction.signature.signature)
