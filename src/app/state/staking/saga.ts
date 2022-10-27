@@ -6,6 +6,7 @@ import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
 import { sortByStatus } from 'vendors/helpers'
+import { parseValidatorsList } from 'vendors/oasisscan'
 
 import { stakingActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -95,7 +96,7 @@ function* getFallbackValidators(network: NetworkType, errorApi: Error) {
     fallbackValidators = {
       timestamp: dump_validators.dump_timestamp,
       network: 'mainnet',
-      list: dump_validators.list.map(v => {
+      list: parseValidatorsList(dump_validators.list).map(v => {
         return {
           ...v,
           status: 'unknown',
