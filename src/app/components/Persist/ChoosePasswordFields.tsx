@@ -11,7 +11,7 @@ interface FormData {
   password2: string
 }
 
-export function SetPassword() {
+export function ChoosePasswordFields() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const hasPersistedProfiles = useSelector(selectHasPersistedProfiles)
