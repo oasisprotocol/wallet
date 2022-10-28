@@ -75,9 +75,9 @@ jobs:
       - uses: emilioschepis/wait-for-endpoint@v1.0.3
         with:
           url: 'http://localhost:3000/'
-      - name: Run playwright tests
+      - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
-        run: yarn test
+        run: xvfb-run yarn test
 
   cypress:
     needs: [yarn_cache]
