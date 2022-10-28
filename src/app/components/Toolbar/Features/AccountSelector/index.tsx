@@ -82,7 +82,7 @@ export const Account = memo((props: AccountProps) => {
           </Text>
         </Box>
       )}
-      <Box flex="grow">
+      <Box flex="grow" gap={size === 'small' ? undefined : 'xsmall'}>
         <Box>
           <Text weight="bold">{address}</Text>
         </Box>

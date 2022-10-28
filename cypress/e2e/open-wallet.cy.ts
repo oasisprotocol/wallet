@@ -43,7 +43,7 @@ describe('Open wallet', () => {
       cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
-      cy.findAllByRole('checkbox', { checked: false })
+      cy.findAllByRole('checkbox', { name: /oasis1/, checked: false })
         .should('have.length', 3)
         .click({ force: true, multiple: true })
 
@@ -59,7 +59,7 @@ describe('Open wallet', () => {
       cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
-      cy.findAllByRole('checkbox', { checked: false })
+      cy.findAllByRole('checkbox', { name: /oasis1/, checked: false })
         .should('have.length', 3)
         .click({ force: true, multiple: true })
 

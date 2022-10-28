@@ -7,11 +7,15 @@ import { base64ToUint, uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
+import {
+  ChoosePasswordFields,
+  FormValue as ChoosePasswordFieldsFormValue,
+} from 'app/components/Persist/ChoosePasswordFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {}
 
-interface FormValue {
+interface FormValue extends ChoosePasswordFieldsFormValue {
   privateKey: string
 }
 
@@ -41,7 +45,12 @@ export function FromPrivateKey(props: Props) {
 
   const onSubmit = ({ value }: { value: FormValue }) => {
     const secret = parseKey(value.privateKey)
-    dispatch(walletActions.openWalletFromPrivateKey(uint2hex(secret)))
+    dispatch(
+      walletActions.openWalletFromPrivateKey({
+        privateKey: uint2hex(secret),
+        choosePassword: value.password2,
+      }),
+    )
   }
 
   return (
@@ -72,6 +81,8 @@ export function FromPrivateKey(props: Props) {
           hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
           width="xlarge"
         />
+
+        <ChoosePasswordFields />
 
         <Box pad={{ vertical: 'medium' }}>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>

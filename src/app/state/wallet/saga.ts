@@ -10,7 +10,14 @@ import { ImportAccountsListAccount } from '../importaccounts/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
-import { AddWalletPayload, Wallet, WalletType } from './types'
+import {
+  AddWalletPayload,
+  OpenFromPrivateKeyPayload,
+  OpenSelectedAccountsPayload,
+  Wallet,
+  WalletType,
+} from './types'
+import { persistActions } from 'app/state/persist'
 
 /**
  * Opened wallet saga
@@ -54,7 +61,7 @@ function* getWalletByAddress(address: string) {
 /**
  * Take multiple ledger accounts that we want to open
  */
-export function* openWalletsFromLedger() {
+export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAccountsPayload>) {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
@@ -69,11 +76,15 @@ export function* openWalletsFromLedger() {
       }),
     )
   }
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
+  }
 }
 
-export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
+export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPrivateKeyPayload>) {
   const type = WalletType.PrivateKey
-  const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(privateKey)).publicKey
+  const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(payload.privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
   const balance = yield* call(getBalance, publicKeyBytes)
@@ -82,15 +93,19 @@ export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction
     walletActions.addWallet({
       address: walletAddress,
       publicKey,
-      privateKey,
+      privateKey: payload.privateKey,
       type: type!,
       balance,
       selectImmediately: true,
     }),
   )
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
+  }
 }
 
-export function* openWalletFromMnemonic() {
+export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedAccountsPayload>) {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
@@ -105,6 +120,10 @@ export function* openWalletFromMnemonic() {
         selectImmediately: account === accounts[0], // Select first
       }),
     )
+  }
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
   }
 }
 

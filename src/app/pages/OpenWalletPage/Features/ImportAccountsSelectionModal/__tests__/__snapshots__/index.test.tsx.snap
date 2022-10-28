@@ -60,6 +60,10 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -673,6 +677,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
                     &gt;
                   </button>
                 </div>
+                <p>
+                  persist.createProfile.unsupported
+                </p>
                 <div
                   class="c15"
                 >

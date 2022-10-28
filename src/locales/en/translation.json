@@ -337,7 +337,7 @@
       "choosePassword": "Choose a password",
       "passwordMismatch": "Entered password does not match",
       "repeatPassword": "Re-enter your password",
-      "setPassword": "Create profile",
+      "startPersisting": "Store private keys locally, protected by a password",
       "unsupported": "Persistence is not supported in this browser."
     },
     "loading": "Loading",

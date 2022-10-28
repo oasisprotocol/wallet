@@ -38,7 +38,7 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .withState(state)
         .provide(providers)
-        .dispatch(walletActions.openWalletFromMnemonic())
+        .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
         .fork(walletSaga)
         .silentRun(50)
     })
@@ -47,7 +47,7 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState(state)
-        .dispatch(walletActions.openWalletFromMnemonic())
+        .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
         .fork(walletSaga)
         .put(importAccountsActions.clear())
         .put(
@@ -73,7 +73,12 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState({})
-        .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
+        .dispatch(
+          walletActions.openWalletFromPrivateKey({
+            privateKey: validPrivateKeyHex,
+            choosePassword: undefined,
+          }),
+        )
         .fork(walletSaga)
         .put.like({
           action: {
@@ -92,7 +97,7 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState(state)
-        .dispatch(walletActions.openWalletsFromLedger())
+        .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
         .fork(walletSaga)
         .put(importAccountsActions.clear())
         .put.actionType(walletActions.selectWallet.type)
@@ -139,7 +144,7 @@ describe('Wallet Sagas', () => {
             },
           },
         })
-        .dispatch(walletActions.openWalletsFromLedger())
+        .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
         .fork(walletSaga)
         .put({
           type: walletActions.selectWallet.type,
@@ -157,10 +162,12 @@ describe('Wallet Sagas', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)
       .withState(state)
-      .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
+      .dispatch(
+        walletActions.openWalletFromPrivateKey({ privateKey: validPrivateKeyHex, choosePassword: undefined }),
+      )
       .put.actionType(walletActions.walletOpened.type)
       .put.actionType(walletActions.selectWallet.type)
-      .dispatch(walletActions.openWalletFromMnemonic())
+      .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
       .put.actionType(walletActions.walletOpened.type)
       .put.actionType(walletActions.selectWallet.type)
       .silentRun(50)
