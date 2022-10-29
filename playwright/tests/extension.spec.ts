@@ -1,8 +1,11 @@
 import { test as base, expect, BrowserContext, chromium } from '@playwright/test'
 import path from 'path'
 
-import extensionManifest from '../../build-dev/manifest.json'
-const pathToExtension = path.join(__dirname, '../../build-dev')
+// Test dev build by default, but also allow testing production
+const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '../build-dev/')
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const extensionManifest = require(path.join(extensionPath, '/manifest.json'))
 const popupFile = extensionManifest.browser_action.default_popup
 
 // From https://playwright.dev/docs/chrome-extensions
@@ -14,7 +17,7 @@ export const test = base.extend<{
   context: async ({}, use) => {
     const context = await chromium.launchPersistentContext('', {
       headless: false,
-      args: [`--disable-extensions-except=${pathToExtension}`, `--load-extension=${pathToExtension}`],
+      args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`],
     })
     await use(context)
     await context.close()
