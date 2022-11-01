@@ -4,6 +4,7 @@ import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import { WalletType } from 'app/state/wallet/types'
 
 export function FromMnemonic() {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ export function FromMnemonic() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type="mnemonic"
+          type={WalletType.Mnemonic}
         />
       )}
     </>

@@ -19,7 +19,7 @@ const renderComponent = (store: any, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ImportAccountsSelectionModal abort={abortFunction} type="ledger" />
+        <ImportAccountsSelectionModal abort={abortFunction} type={WalletType.Ledger} />
       </ThemeProvider>
     </Provider>,
   )
@@ -61,7 +61,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
         ]),
       )
 
-      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Idle))
     })
     expect(component.getByText('oasis1qzyq...7gh2pxqe')).toBeInTheDocument()
   })
@@ -93,15 +93,15 @@ describe('<ImportAccountsSelectionModal  />', () => {
         ]),
       )
 
-      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Idle))
     })
     await userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({
-      payload: 0,
+      payload: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
       type: importAccountsActions.toggleAccount.type,
     })
     act(() => {
-      store.dispatch(importAccountsActions.toggleAccount(0))
+      store.dispatch(importAccountsActions.toggleAccount('oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe'))
     })
     await userEvent.click(screen.getByTestId('ledger-open-accounts'))
     expect(dispatchFn).toHaveBeenLastCalledWith(

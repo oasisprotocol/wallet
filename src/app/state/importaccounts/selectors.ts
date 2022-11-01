@@ -2,16 +2,29 @@ import { createSelector } from '@reduxjs/toolkit'
 
 import { RootState } from 'types'
 import { initialState } from '.'
+import { accountsPerPage } from './saga'
 
 const selectSlice = (state: RootState) => state.importAccounts || initialState
 
 export const selectError = createSelector([selectSlice], state => state.error)
 export const selectImportAccounts = createSelector([selectSlice], state => state)
-export const selectImportAccountsList = createSelector([selectSlice], state => state.accounts)
+export const selectImportAccountsFullList = createSelector([selectSlice], state => state.accounts)
 export const selectShowAccountsSelectionModal = createSelector(
   [selectSlice],
   state => state.showAccountsSelectionModal,
 )
-export const selectSelectedAccounts = createSelector([selectImportAccountsList], state =>
+export const selectImportAccountsPageNumber = createSelector(
+  [selectSlice],
+  state => state.accountsSelectionPageNumber,
+)
+export const selectImportAccountsOnCurrentPage = createSelector(
+  [selectImportAccountsFullList, selectImportAccountsPageNumber],
+  (fullList, pageNumber) => fullList.slice(pageNumber * accountsPerPage, (pageNumber + 1) * accountsPerPage),
+)
+export const selectImportAccountHasMissingBalances = createSelector(
+  [selectImportAccountsOnCurrentPage],
+  list => list.some(a => !a.balance),
+)
+export const selectSelectedAccounts = createSelector([selectImportAccountsFullList], state =>
   state.filter(a => a.selected),
 )

@@ -13,7 +13,7 @@ import {
   selectAccountAddress,
   selectTransactions,
   selectTransactionsError,
-} from '../../../../state/account/selectors'
+} from 'app/state/account/selectors'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 

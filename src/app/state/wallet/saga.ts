@@ -66,7 +66,7 @@ export function* openWalletsFromLedger() {
         address: account.address,
         publicKey: account.publicKey,
         type: WalletType.Ledger,
-        balance: account.balance,
+        balance: account.balance!,
         path: account.path,
         selectImmediately: account === accounts[0], // Select first
       }),
@@ -100,7 +100,7 @@ export function* openWalletFromMnemonic() {
     yield* put(
       walletActions.addWallet({
         address: account.address,
-        balance: account.balance,
+        balance: account.balance!,
         path: account.path,
         privateKey: account.privateKey,
         publicKey: account.publicKey,

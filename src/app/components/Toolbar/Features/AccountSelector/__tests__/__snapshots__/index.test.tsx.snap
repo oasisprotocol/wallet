@@ -129,7 +129,22 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c15 {
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 24px;
+}
+
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -154,13 +169,13 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c14 {
+.c15 {
   margin-left: 3px;
   font-size: 18px;
   line-height: 24px;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -189,44 +204,44 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c16:hover {
+.c17:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c16:focus {
+.c17:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c17:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -372,7 +387,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     padding-top: 12px;
   }
 }
@@ -486,12 +501,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                          
                       </div>
                       <div
-                        class="c10"
+                        class="c14"
                       >
                         <span>
                           0.0000001
                           <span
-                            class="c14"
+                            class="c15"
                           />
                         </span>
                       </div>
@@ -500,10 +515,10 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c15"
+                class="c16"
               >
                 <button
-                  class="c16"
+                  class="c17"
                   type="button"
                 >
                   toolbar.wallets.close

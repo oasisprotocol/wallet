@@ -11,7 +11,7 @@ import { ModalHeader } from 'app/components/Header'
 import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectWallets } from 'app/state/wallet/selectors'
 import { WalletType } from 'app/state/wallet/types'
-import { Box, Button, CheckBox, ResponsiveContext, Text } from 'grommet'
+import { Box, Button, CheckBox, ResponsiveContext, Spinner, Text } from 'grommet'
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -23,12 +23,13 @@ interface Props {
 
 interface AccountProps {
   address: string
-  balance: StringifiedBigInt
+  balance?: StringifiedBigInt
   type: WalletType
   onClick: (address: string) => void
   details?: string
   isActive: boolean
   displayCheckbox?: boolean
+  displayIndex?: boolean
 }
 
 export const Account = memo((props: AccountProps) => {
@@ -50,6 +51,10 @@ export const Account = memo((props: AccountProps) => {
     [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private key'),
   }
 
+  const { details } = props
+
+  const index = details ? details.split('/').at(-1) : '?'
+
   return (
     <Box
       data-testid="account-choice"
@@ -70,6 +75,13 @@ export const Account = memo((props: AccountProps) => {
           <CheckBox checked={props.isActive} />
         </Box>
       )}
+      {props.displayIndex && (
+        <Box alignSelf="center" pad={{ left: 'small', right: 'small' }} style={{ minWidth: '2.5em' }}>
+          <Text weight="bold" style={{ width: '2em' }}>
+            {index}
+          </Text>
+        </Box>
+      )}
       <Box flex="grow">
         <Box>
           <Text weight="bold">{address}</Text>
@@ -78,8 +90,8 @@ export const Account = memo((props: AccountProps) => {
           <Box align="start" flex="grow" direction="row">
             {walletTypes[props.type]} {props.details && <Text size="small">({props.details})</Text>}
           </Box>
-          <Box>
-            <AmountFormatter amount={props.balance} />
+          <Box height={'24px'}>
+            {props.balance ? <AmountFormatter amount={props.balance} /> : <Spinner />}
           </Box>
         </Box>
       </Box>
@@ -103,7 +115,7 @@ export const AccountSelector = memo((props: Props) => {
     <Account
       key={wallet.address}
       address={wallet.address}
-      balance={wallet.balance.available} // TODO: get total balance
+      balance={wallet.balance ? wallet.balance.available : undefined} // TODO: get total balance
       type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}

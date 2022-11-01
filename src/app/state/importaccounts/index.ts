@@ -3,41 +3,65 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
 
-export const initialState: ImportAccountsState = { accounts: [], showAccountsSelectionModal: false }
+export const initialState: ImportAccountsState = {
+  accounts: [],
+  showAccountsSelectionModal: false,
+  accountsSelectionPageNumber: 0,
+  step: ImportAccountsStep.Idle,
+}
 
 const slice = createSlice({
   name: 'importAccounts',
   initialState,
   reducers: {
-    clear(state, action: PayloadAction<void>) {
+    clear(state, _action: PayloadAction<void>) {
       state.accounts = []
       state.error = undefined
-      state.step = undefined
+      state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
     },
-    enumerateAccountsFromLedger(state, action: PayloadAction<void>) {
-      state.step = undefined
+    enumerateAccountsFromLedger(state, _action: PayloadAction<void>) {
       state.accounts = []
+      state.accountsSelectionPageNumber = 0
+      state.showAccountsSelectionModal = true
+      state.step = ImportAccountsStep.Idle
+    },
+    enumerateMoreAccountsFromLedger(state, _action: PayloadAction<void>) {
+      state.step = ImportAccountsStep.Idle
+    },
+    enumerateAccountsFromMnemonic(state, _action: PayloadAction<string>) {
+      state.step = ImportAccountsStep.Idle
+      state.accounts = []
+      state.accountsSelectionPageNumber = 0
       state.showAccountsSelectionModal = true
     },
-    enumerateAccountsFromMnemonic(state, action: PayloadAction<string>) {
-      state.step = undefined
-      state.accounts = []
-      state.showAccountsSelectionModal = true
+    toggleAccount(state, action: PayloadAction<string>) {
+      const account = state.accounts.find(a => a.address === action.payload)!
+      account.selected = !account.selected
     },
-    toggleAccount(state, action: PayloadAction<number>) {
-      const index = action.payload
-      state.accounts[index].selected = !state.accounts[index].selected
+    accountGenerated(state, action: PayloadAction<ImportAccountsListAccount>) {
+      state.accounts.push(action.payload)
     },
     accountsListed(state, action: PayloadAction<ImportAccountsListAccount[]>) {
       state.accounts = action.payload
+    },
+    updateAccountBalance(
+      state,
+      action: PayloadAction<Pick<ImportAccountsListAccount, 'address' | 'balance'>>,
+    ) {
+      const { address, balance } = action.payload
+      const account = state.accounts.find(a => a.address === address)
+      if (account) account.balance = balance
+    },
+    setPage(state, action: PayloadAction<number>) {
+      state.accountsSelectionPageNumber = action.payload
     },
     setStep(state, action: PayloadAction<ImportAccountsStep>) {
       state.step = action.payload
     },
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload
-      state.step = undefined
+      state.step = ImportAccountsStep.Idle
     },
   },
 })

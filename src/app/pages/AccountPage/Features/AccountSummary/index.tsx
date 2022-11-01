@@ -11,8 +11,8 @@ import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
 import { selectTheme } from 'styles/theme/slice/selectors'
 
-import { BalanceDetails } from '../../../../state/account/types'
-import { selectTicker } from '../../../../state/network/selectors'
+import { BalanceDetails } from 'app/state/account/types'
+import { selectTicker } from 'app/state/network/selectors'
 
 const StyledDescriptionList = styled.dl`
   display: flex;
