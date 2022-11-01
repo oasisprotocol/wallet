@@ -1,5 +1,6 @@
 import { AnyAction } from '@reduxjs/toolkit'
 import { actionChannel, call, fork, put, select, take } from 'typed-redux-saga'
+import { isActionSynced } from 'redux-state-sync'
 import { persistActions, getInitialState, STORAGE_FIELD } from './index'
 import {
   base64andStringify,
@@ -127,6 +128,8 @@ function* encryptAndPersistState(action: AnyAction) {
   const latestState: RootState = yield* select()
   if (!latestState.persist.hasPersistedProfiles) return
   if (action.type.startsWith('@')) return // Ignore @@INIT from redux-devtools-instrument
+  if (action.type.startsWith('&')) return // Ignore e.g. &_GET_INIT_STATE from redux-state-sync
+  if (isActionSynced(action)) return // Ignore actions synced across tabs from redux-state-sync
   if (!latestState.persist.stringifiedEncryptionKey) {
     throw new Error(`Unexpected action while state is locked ${JSON.stringify(action)}`)
   }
