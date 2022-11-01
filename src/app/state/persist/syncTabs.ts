@@ -6,6 +6,9 @@ import {
   EnhancedStore,
   Middleware,
 } from '@reduxjs/toolkit'
+import { networkActions } from 'app/state/network'
+import { walletActions } from 'app/state/wallet'
+import { themeActions } from 'styles/theme/slice'
 import {
   createStateSyncMiddleware,
   initStateWithPrevTab,
@@ -13,6 +16,7 @@ import {
   withReduxStateSync,
 } from 'redux-state-sync'
 import { RootState } from 'types'
+import { SyncedRootState } from 'app/state/persist/types'
 
 /** Syncing tabs is only needed in web app, not in extension. */
 export const needsSyncingTabs = !window.chrome?.runtime?.id
@@ -20,10 +24,39 @@ export const needsSyncingTabs = !window.chrome?.runtime?.id
 // Simulate with `delete window.BroadcastChannel`
 export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 
+/**
+ * When opening a second tab it initially syncs these state slices.
+ */
+export function receiveInitialTabSyncState(
+  prevState: RootState,
+  initialSyncState: SyncedRootState,
+): RootState {
+  return {
+    ...prevState,
+    theme: initialSyncState.theme,
+    wallet: initialSyncState.wallet,
+    network: initialSyncState.network,
+  }
+}
+
+/**
+ * When interacting with a second tab it syncs these actions.
+ */
+export const whitelistTabSyncActions = [
+  themeActions.changeTheme.type,
+  walletActions.walletOpened.type,
+  walletActions.updateBalance.type,
+  networkActions.networkSelected.type,
+]
+
 const stateSyncConfig: StateSyncConfig = {
   channel: 'oasis_wallet_broadcast_channel',
   broadcastChannelOption: {
     type: 'native', // Prevent fallbacks to e.g. localStorage that would expose password.
+  },
+  whitelist: whitelistTabSyncActions,
+  prepareState: (state: RootState): SyncedRootState => {
+    return { theme: state.theme, wallet: state.wallet, network: state.network }
   },
 }
 
@@ -45,7 +78,7 @@ export function configureStoreWithSyncTabs(
 
   const store = configureStore({
     ...options,
-    reducer: withReduxStateSync(options.reducer),
+    reducer: withReduxStateSync(options.reducer, receiveInitialTabSyncState),
     middleware: getDefaultMiddleware =>
       optionsMiddleware(getDefaultMiddleware).concat(createStateSyncMiddleware(stateSyncConfig)),
   })
