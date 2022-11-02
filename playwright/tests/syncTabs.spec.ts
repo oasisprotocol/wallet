@@ -83,4 +83,52 @@ test.describe('syncTabs', () => {
       await expect(tab2.getByTestId('account-selector')).toBeHidden()
     }
   })
+
+  test.describe('switch network and open second tab', () => {
+    test('unpersisted', async ({ page, context }) => {
+      await page.goto('/open-wallet/private-key')
+      await page.getByPlaceholder('Enter your private key here').fill(privateKey)
+      await page.keyboard.press('Enter')
+      await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+      const tab2 = await context.newPage()
+      await testSyncingNetwork(page, tab2)
+    })
+
+    test('persisted', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.keyboard.press('Enter')
+      const tab2 = await context.newPage()
+      await testSyncingNetwork(page, tab2)
+    })
+
+    test('incognito', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByRole('button', { name: 'Continue without the profile' }).click()
+      const tab2 = await context.newPage()
+      await tab2.goto('/open-wallet/private-key')
+      await tab2.getByPlaceholder('Enter your private key here').fill(privateKey)
+      await tab2.keyboard.press('Enter')
+      await testSyncingNetwork(page, tab2)
+    })
+
+    async function testSyncingNetwork(page: Page, tab2: Page) {
+      await expect(page.getByTestId('network-selector')).toHaveText('Mainnet')
+      await page.getByTestId('network-selector').click()
+      await page.getByRole('menuitem', { name: 'Testnet' }).click()
+      await expect(page.getByTestId('network-selector')).toHaveText('Testnet')
+
+      await tab2.goto('/')
+      await expect(tab2.getByTestId('account-selector')).toBeVisible()
+      await expect(page.getByTestId('network-selector')).toHaveText('Testnet')
+      await expect(tab2.getByTestId('network-selector')).toHaveText('Testnet')
+
+      await page.getByTestId('network-selector').click()
+      await page.getByRole('menuitem', { name: 'Mainnet' }).click()
+      await expect(page.getByTestId('network-selector')).toHaveText('Mainnet')
+      await expect(tab2.getByTestId('network-selector')).toHaveText('Mainnet')
+    }
+  })
 })
