@@ -1,8 +1,19 @@
+export const mnemonicAddress0 = 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh'
+export const mnemonic = 'planet believe session regular rib kiss police deposit prison hundred apart tongue'
+
 export const privateKeyAddress = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
 export const privateKey =
   'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg=='
 
+export const privateKey2Address = 'oasis1qzu5y29xzw5vm0f9glcpg9ckx7lulpg69qjp4hc6'
+export const privateKey2 = `
+  -----BEGIN ED25519 PRIVATE KEY-----
+  ZqtrV0QtEY/JemfTPbOl9hgk3UxHXfZO42G4sG+XKHThZTM+GvRiqsAgc7magKNN
+  4MEkyO0pi7lJeunILQKiZA==
+  -----END ED25519 PRIVATE KEY-----`
+
 export const password = 'abcd1234&'
+export const wrongPassword = 'wrongPassword1&'
 
 export const privateKeyPersistedState = JSON.stringify({
   secretbox: {

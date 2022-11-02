@@ -1,6 +1,6 @@
-import { BrowserContext } from '@playwright/test'
+import { BrowserContext, Page } from '@playwright/test'
 
-export async function mockApi(context: BrowserContext, balance: number) {
+export async function mockApi(context: BrowserContext | Page, balance: number) {
   await context.route('**/chain/account/info/*', route => {
     route.fulfill({
       body: JSON.stringify({
