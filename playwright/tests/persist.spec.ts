@@ -145,11 +145,13 @@ test.describe('Persist', () => {
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
     await expect(page.getByTestId('account-balance-summary')).toContainText('123.0')
+    await expect(page.getByTestId('account-balance-summary')).toContainText('ROSE')
     await page.getByRole('button', { name: /Lock profile/ }).click()
     await mockApi(context, 456)
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')
     await expect(page.getByTestId('account-balance-summary')).toContainText('456.0')
+    await expect(page.getByTestId('account-balance-summary')).toContainText('ROSE')
   })
 
   test('Should NOT persist if user chooses password but unchecks persistence before opening accounts', async ({

@@ -69,6 +69,7 @@ test.describe('syncTabs', () => {
       await expect(tab2.getByTestId('account-selector')).toBeVisible()
       await tab2.getByRole('link', { name: 'Wallet' }).click()
       await expect(tab2).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+      await expect(tab2.getByTestId('account-balance-summary')).toContainText('ROSE')
 
       // Second tab should not get stuck on loading after first tab closes wallet
       await page.getByRole('button', { name: /(Close wallet)|(Lock profile)/ }).click()

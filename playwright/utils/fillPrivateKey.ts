@@ -8,6 +8,7 @@ export async function fillPrivateKeyWithoutPassword(
     privateKeyAddress?: string
     persistenceCheckboxDisabled: boolean
     persistenceCheckboxChecked: boolean
+    ticker?: string
   },
 ) {
   await expect(page).toHaveURL(new RegExp('/open-wallet/private-key'))
@@ -29,11 +30,12 @@ export async function fillPrivateKeyWithoutPassword(
   await expect(page).toHaveURL(new RegExp(`/account/${params.privateKeyAddress ?? privateKeyAddress}`))
   await expect(page.getByText('Loading account')).toBeVisible()
   await expect(page.getByText('Loading account')).toBeHidden()
+  await expect(page.getByTestId('account-balance-summary')).toContainText(params.ticker ?? 'ROSE')
 }
 
 export async function fillPrivateKeyAndPassword(
   page: Page,
-  params: { privateKey?: string; privateKeyAddress?: string } = {},
+  params: { privateKey?: string; privateKeyAddress?: string; ticker?: string } = {},
 ) {
   await expect(page).toHaveURL(new RegExp('/open-wallet/private-key'))
 
@@ -49,4 +51,5 @@ export async function fillPrivateKeyAndPassword(
   await expect(page).toHaveURL(new RegExp(`/account/${params.privateKeyAddress ?? privateKeyAddress}`))
   await expect(page.getByText('Loading account')).toBeVisible()
   await expect(page.getByText('Loading account')).toBeHidden()
+  await expect(page.getByTestId('account-balance-summary')).toContainText(params.ticker ?? 'ROSE')
 }
