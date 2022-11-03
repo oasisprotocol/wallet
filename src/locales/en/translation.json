@@ -340,6 +340,7 @@
   "transaction": {
     "abort": "Abort",
     "confirm": "Confirm",
+    "header": "Confirm transaction",
     "preview": {
       "amount": "Amount",
       "fee": "Fee",
@@ -348,20 +349,13 @@
       "genesisHash": "Genesis hash",
       "shares": "Gigashares",
       "to": "To",
-      "type": "Type",
       "validator": "Validator",
       "warning": "Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it."
     },
     "step": {
       "building": "Building transaction",
-      "preview": "Preview transaction",
       "signing": "Signing transaction",
       "submitting": "Submitting transaction"
-    },
-    "types": {
-      "addEscrow": "Delegating your tokens to a validator and generate rewards",
-      "reclaimEscrow": "Reclaiming your tokens delegated to a validator",
-      "transfer": "Transferring tokens from your account to another"
     }
   },
   "validator": {

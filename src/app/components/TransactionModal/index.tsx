@@ -5,7 +5,7 @@ import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
 import { selectAddress, selectBalance } from 'app/state/wallet/selectors'
-import { Box, Button, Spinner, Text } from 'grommet'
+import { Box, Button, Spinner, ResponsiveContext, Text } from 'grommet'
 import { Checkmark, Close } from 'grommet-icons'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -32,6 +32,7 @@ export function TransactionModal() {
   const walletAddress = useSelector(selectAddress)
   const balance = useSelector(selectBalance)
   const chainContext = useSelector(selectChainContext)
+  const isMobile = React.useContext(ResponsiveContext) === 'small'
 
   if (!balance) {
     throw new Error('No balance found for wallet')
@@ -50,24 +51,26 @@ export function TransactionModal() {
     <ResponsiveLayer modal position="center" background="background-front">
       <Box pad="medium" gap="medium" width="800px">
         <Box>
-          <ModalHeader>{t('transaction.step.preview', 'Preview transaction')}</ModalHeader>
-          <Box margin={{ vertical: 'small' }}>
-            <AlertBox color="status-warning">
-              {t(
-                'transaction.preview.warning',
-                'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
-              )}
-            </AlertBox>
-          </Box>
           {preview && (
-            <TransactionPreview
-              chainContext={chainContext}
-              preview={preview}
-              walletAddress={walletAddress!}
-            />
+            <>
+              <ModalHeader>{t('transaction.header', 'Confirm transaction')}</ModalHeader>
+              <Box margin={{ bottom: 'medium' }} responsive={false}>
+                <AlertBox color="status-warning">
+                  {t(
+                    'transaction.preview.warning',
+                    'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
+                  )}
+                </AlertBox>
+              </Box>
+              <TransactionPreview
+                chainContext={chainContext}
+                preview={preview}
+                walletAddress={walletAddress!}
+              />
+            </>
           )}
           {step === TransactionStep.Preview && (
-            <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
+            <Box direction="row" gap="small" justify={isMobile ? 'between' : 'end'} pad={{ top: 'large' }}>
               <Button
                 secondary
                 label={t('transaction.abort', 'Abort')}

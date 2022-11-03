@@ -9,4 +9,10 @@ describe('<ResponsiveGridRow />', () => {
 
     expect(container).toMatchSnapshot()
   })
+
+  it('should render component with a separator', () => {
+    const { container } = render(<ResponsiveGridRow label="label" value="value" withSeparator />)
+
+    expect(container).toMatchSnapshot()
+  })
 })
