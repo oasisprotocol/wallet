@@ -11,6 +11,10 @@ export const selectNeedsPassword = createSelector(
   [selectSlice],
   state => state.hasPersistedProfiles && !state.stringifiedEncryptionKey,
 )
+export const selectSkipUnlockingOnInit = createSelector(
+  [selectSlice],
+  state => !state.hasPersistedProfiles && !state.stringifiedEncryptionKey,
+)
 export const selectHasPersistedProfiles = createSelector([selectSlice], state => state.hasPersistedProfiles)
 export const selectIsPersistenceUnsupported = createSelector(
   [selectSlice],

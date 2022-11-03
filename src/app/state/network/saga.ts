@@ -1,9 +1,10 @@
 import * as oasis from '@oasisprotocol/client'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { persistActions } from 'app/state/persist'
-import { selectNeedsPassword } from 'app/state/persist/selectors'
+import { selectSkipUnlockingOnInit } from 'app/state/persist/selectors'
 import { config } from 'config'
-import { all, call, put, select, takeLatest } from 'typed-redux-saga'
+import { RECEIVE_INIT_STATE } from 'redux-state-sync'
+import { all, call, delay, put, race, select, take, takeLatest } from 'typed-redux-saga'
 import { backend, backendApi } from 'vendors/backend'
 
 import { networkActions } from '.'
@@ -59,14 +60,19 @@ export function* networkSaga() {
     put(networkActions.selectNetwork(process.env.REACT_APP_LOCALNET ? 'local' : 'mainnet')),
   )
   yield* takeLatest(persistActions.resetRootState, function* () {
-    const needsPassword = yield* select(selectNeedsPassword)
-    if (!needsPassword) {
+    const skipUnlockOnInit = yield* select(selectSkipUnlockingOnInit)
+    if (skipUnlockOnInit) {
       yield* put(persistActions.skipUnlocking())
     }
   })
 
-  const needsPassword = yield* select(selectNeedsPassword)
-  if (!needsPassword) {
+  // Wait for tabs to sync state. >5ms should be enough.
+  const maybeSynced = yield* race({
+    tabsSynced: take(RECEIVE_INIT_STATE),
+    thereAreNoOtherTabs: delay(50),
+  })
+  const skipUnlockOnInit = yield* select(selectSkipUnlockingOnInit)
+  if (!maybeSynced.tabsSynced && skipUnlockOnInit) {
     yield* put(persistActions.skipUnlocking())
   }
 }
