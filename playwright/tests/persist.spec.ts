@@ -13,6 +13,7 @@ import {
   password,
   wrongPassword,
 } from '../utils/test-inputs'
+import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
@@ -119,12 +120,12 @@ test.describe('Persist', () => {
       await page.getByRole('link', { name: /Home/ }).click()
       await page.getByRole('button', { name: /Open wallet/ }).click()
       await page.getByRole('button', { name: /Private key/ }).click()
-      const persistence = await page.getByText('Store private keys locally, protected by a password')
-      await expect(persistence).toBeDisabled()
-      await expect(persistence).toBeChecked()
-      await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
-      await page.keyboard.press('Enter')
-      await expect(page).toHaveURL(new RegExp(`/account/${privateKey2Address}`))
+      await fillPrivateKeyWithoutPassword(page, {
+        privateKey: privateKey2,
+        privateKeyAddress: privateKey2Address,
+        persistenceCheckboxChecked: true,
+        persistenceCheckboxDisabled: true,
+      })
       await page.goto('/')
       await page.getByPlaceholder('Enter your password here').fill(password)
       await page.keyboard.press('Enter')
@@ -182,13 +183,12 @@ test.describe('Persist', () => {
     await page.getByRole('button', { name: /Open wallet/ }).click()
     await page.getByRole('button', { name: /Private key/ }).click()
 
-    const persistence = await page.getByText('Store private keys locally, protected by a password')
-    await expect(persistence).toBeDisabled()
-    await expect(persistence).not.toBeChecked()
-
-    await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
-    await page.keyboard.press('Enter')
-    await expect(page).toHaveURL(new RegExp(`/account/${privateKey2Address}`))
+    await fillPrivateKeyWithoutPassword(page, {
+      privateKey: privateKey2,
+      privateKeyAddress: privateKey2Address,
+      persistenceCheckboxChecked: false,
+      persistenceCheckboxDisabled: true,
+    })
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')
@@ -214,9 +214,10 @@ test.describe('Persist', () => {
 
     await page.getByRole('button', { name: /Open wallet/ }).click()
     await page.getByRole('button', { name: /Private key/ }).click()
-    await page.getByPlaceholder('Enter your private key here').fill(privateKey)
-    await page.keyboard.press('Enter')
-    await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+    await fillPrivateKeyWithoutPassword(page, {
+      persistenceCheckboxChecked: false,
+      persistenceCheckboxDisabled: false,
+    })
   })
 
   test('Password should not be cached in input field', async ({ page }) => {

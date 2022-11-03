@@ -2,8 +2,9 @@ import { test, expect, Page } from '@playwright/test'
 import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
-import { privateKey, password, privateKeyAddress } from '../utils/test-inputs'
+import { password, privateKeyAddress } from '../utils/test-inputs'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
+import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
@@ -19,12 +20,11 @@ test.describe('syncTabs', () => {
   test.describe('lock second tab after locking wallet', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
-      await page.getByPlaceholder('Enter your private key here').fill(privateKey)
-      await page.keyboard.press('Enter')
-      await expect(page.getByText('Loading account')).toBeVisible()
-      await expect(page.getByText('Loading account')).toBeHidden()
+      await fillPrivateKeyWithoutPassword(page, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: false,
+      })
       await expect(page.getByTestId('account-selector')).toBeVisible()
-      await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
 
       const tab2 = await context.newPage()
       await testLockingIsSynced(page, tab2)
@@ -32,15 +32,8 @@ test.describe('syncTabs', () => {
 
     test('persisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
-      await page.getByPlaceholder('Enter your private key here').fill(privateKey)
-      await page.getByText('Store private keys locally, protected by a password').check()
-      await page.getByPlaceholder('Enter your password here').fill(password)
-      await page.getByPlaceholder('Re-enter your password').fill(password)
-      await page.keyboard.press('Enter')
-      await expect(page.getByText('Loading account')).toBeVisible()
-      await expect(page.getByText('Loading account')).toBeHidden()
+      await fillPrivateKeyAndPassword(page)
       await expect(page.getByTestId('account-selector')).toBeVisible()
-      await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
 
       const tab2 = await context.newPage()
       await testLockingIsSynced(page, tab2)
@@ -58,8 +51,10 @@ test.describe('syncTabs', () => {
       await tab2.goto('/')
       await expect(tab2.getByRole('button', { name: 'Unlock' })).toBeHidden()
       await tab2.goto('/open-wallet/private-key')
-      await tab2.getByPlaceholder('Enter your private key here').fill(privateKey)
-      await tab2.keyboard.press('Enter')
+      await fillPrivateKeyWithoutPassword(tab2, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: true,
+      })
       await expect(tab2.getByTestId('account-selector')).toBeVisible()
       await expect(page.getByTestId('account-selector')).toBeVisible()
 
@@ -87,9 +82,10 @@ test.describe('syncTabs', () => {
   test.describe('switch network and open second tab', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
-      await page.getByPlaceholder('Enter your private key here').fill(privateKey)
-      await page.keyboard.press('Enter')
-      await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+      await fillPrivateKeyWithoutPassword(page, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: false,
+      })
       const tab2 = await context.newPage()
       await testSyncingNetwork(page, tab2)
     })
@@ -109,8 +105,10 @@ test.describe('syncTabs', () => {
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
       const tab2 = await context.newPage()
       await tab2.goto('/open-wallet/private-key')
-      await tab2.getByPlaceholder('Enter your private key here').fill(privateKey)
-      await tab2.keyboard.press('Enter')
+      await fillPrivateKeyWithoutPassword(tab2, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: true,
+      })
       await testSyncingNetwork(page, tab2)
     })
 
