@@ -205,19 +205,31 @@ test.describe('Persist', () => {
     await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
   })
 
-  test('Opening a wallet after erasing a profile should NOT crash', async ({ page }) => {
-    await addPersistedStorage(page)
-    await page.goto('/')
-
-    page.once('dialog', dialog => dialog.accept())
-    await page.getByRole('button', { name: /Erase profile/ }).click()
-
-    await page.getByRole('button', { name: /Open wallet/ }).click()
-    await page.getByRole('button', { name: /Private key/ }).click()
-    await fillPrivateKeyWithoutPassword(page, {
-      persistenceCheckboxChecked: false,
-      persistenceCheckboxDisabled: false,
+  test.describe('Opening a wallet after erasing a profile should NOT crash', () => {
+    test('erasing newly created', async ({ page }) => {
+      await page.goto('/open-wallet/private-key')
+      await fillPrivateKeyAndPassword(page)
+      await page.getByRole('button', { name: /Lock profile/ }).click()
+      await testErasingAndCreatingNew(page)
     })
+
+    test('erasing stored', async ({ page }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await testErasingAndCreatingNew(page)
+    })
+
+    async function testErasingAndCreatingNew(page: Page) {
+      page.once('dialog', dialog => dialog.accept())
+      await page.getByRole('button', { name: /Erase profile/ }).click()
+
+      await page.getByRole('button', { name: /Open wallet/ }).click()
+      await page.getByRole('button', { name: /Private key/ }).click()
+      await fillPrivateKeyWithoutPassword(page, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: false,
+      })
+    }
   })
 
   test('Password should not be cached in input field', async ({ page }) => {
