@@ -33,7 +33,7 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
         </Text>
       </Box>
       <Box align="center" fill="horizontal" gap="medium" margin={{ bottom: 'xlarge' }} responsive={false}>
-        {isLoading ? <Spinner size="medium" /> : children}
+        {isLoading ? <Spinner data-testid="paraTime-content-loading" size="medium" /> : children}
       </Box>
     </Box>
   )

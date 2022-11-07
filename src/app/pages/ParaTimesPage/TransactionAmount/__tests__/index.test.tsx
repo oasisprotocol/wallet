@@ -58,6 +58,17 @@ describe('<TransactionAmount />', () => {
     expect(screen.getByTestId('paraTime-content-description')).toMatchSnapshot()
   })
 
+  it('should render collapsible Advance section', async () => {
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Advanced' }))
+    expect(screen.getByPlaceholderText('Fee Amount (nano ROSE)')).toBeVisible()
+    expect(screen.getByPlaceholderText('Fee Gas')).toBeVisible()
+    await userEvent.click(screen.getByRole('button', { name: 'Advanced' }))
+    expect(screen.getByPlaceholderText('Fee Amount (nano ROSE)')).not.toBeVisible()
+    expect(screen.getByPlaceholderText('Fee Gas')).not.toBeVisible()
+  })
+
   it('should render disabled variant', () => {
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
