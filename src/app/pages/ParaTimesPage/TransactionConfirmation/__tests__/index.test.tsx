@@ -1,7 +1,11 @@
 import * as React from 'react'
 import { render, screen } from '@testing-library/react'
+import { useSelector } from 'react-redux'
+import { when } from 'jest-when'
 import userEvent from '@testing-library/user-event'
 import { TransactionForm, TransactionTypes } from 'app/state/paratimes/types'
+import { selectValidators } from 'app/state/staking/selectors'
+import { selectWalletsAddresses } from 'app/state/wallet/selectors'
 import { useParaTimes, ParaTimesHook } from '../../useParaTimes'
 import { useParaTimesNavigation, ParaTimesNavigationHook } from '../../useParaTimesNavigation'
 import { TransactionConfirmation } from '..'
@@ -23,12 +27,18 @@ describe('<TransactionConfirmation />', () => {
       amount: '10',
       recipient: 'dummyAddress',
     },
+    usesOasisAddress: true,
   } as ParaTimesHook
   const mockUseParaTimesNavigationResult = {} as ParaTimesNavigationHook
 
   beforeEach(() => {
     jest.mocked(useParaTimes).mockReturnValue(mockUseParaTimesResult)
     jest.mocked(useParaTimesNavigation).mockReturnValue(mockUseParaTimesNavigationResult)
+    when(useSelector as any)
+      .calledWith(selectValidators)
+      .mockReturnValue([])
+      .calledWith(selectWalletsAddresses)
+      .mockReturnValue(['dummyAddress'])
   })
 
   it('should render component', () => {
@@ -65,6 +75,31 @@ describe('<TransactionConfirmation />', () => {
 
     expect(screen.getByText('Field is required')).toBeInTheDocument()
     expect(navigateToSummary).not.toHaveBeenCalled()
+  })
+
+  it('should render additional confirmation checkbox when transferring tokens to validator', async () => {
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      transactionForm: {
+        ...mockUseParaTimesResult.transactionForm,
+        recipient: 'validatorAddress',
+      },
+    } as ParaTimesHook)
+    when(useSelector as any)
+      .calledWith(selectValidators)
+      .mockReturnValue([{ address: 'validatorAddress' }])
+    render(<TransactionConfirmation />)
+
+    expect(screen.getByText('I confirm I want to transfer tokens to a validator address')).toBeInTheDocument()
+  })
+
+  it('should render additional confirmation checkbox when transferring tokens to foreign account', async () => {
+    when(useSelector as any)
+      .calledWith(selectWalletsAddresses)
+      .mockReturnValue(['addressInAccount'])
+    render(<TransactionConfirmation />)
+
+    expect(screen.getByText('I confirm I want to transfer tokens to a foreign account')).toBeInTheDocument()
   })
 
   it('should submit transaction', async () => {

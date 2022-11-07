@@ -23,6 +23,17 @@ describe('<TransactionRecipient />', () => {
     },
     usesOasisAddress: true,
   } as ParaTimesHook
+  const mockUseParaTimesEVMcResult = {
+    isDepositing: false,
+    isEvmcParaTime: true,
+    paraTimeName: 'Emerald',
+    ticker: 'ROSE',
+    transactionForm: {
+      amount: '10',
+      recipient: 'dummyAddress',
+      type: TransactionTypes.Withdraw,
+    },
+  } as ParaTimesHook
   const mockUseParaTimesNavigationResult = {} as ParaTimesNavigationHook
 
   beforeEach(() => {
@@ -53,17 +64,7 @@ describe('<TransactionRecipient />', () => {
   })
 
   it('should render EVMc withdraw variant component', () => {
-    jest.mocked(useParaTimes).mockReturnValue({
-      isDepositing: false,
-      isEvmcParaTime: true,
-      paraTimeName: 'Emerald',
-      ticker: 'ROSE',
-      transactionForm: {
-        amount: '10',
-        recipient: 'dummyAddress',
-        type: TransactionTypes.Withdraw,
-      },
-    } as ParaTimesHook)
+    jest.mocked(useParaTimes).mockReturnValue(mockUseParaTimesEVMcResult)
     render(<TransactionRecipient />)
 
     expect(screen.getByTestId('paraTime-content-description')).toMatchSnapshot()
@@ -101,6 +102,48 @@ describe('<TransactionRecipient />', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
     expect(screen.getByText('Invalid address')).toBeInTheDocument()
+    expect(navigateToSummary).not.toHaveBeenCalled()
+  })
+
+  it('should check private eth key length for EVMc withdraw', async () => {
+    const navigateToSummary = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesEVMcResult,
+      transactionForm: {
+        ...mockUseParaTimesEVMcResult.transactionForm,
+        ethPrivateKey: '123',
+      },
+    })
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      navigateToSummary,
+    })
+    render(<TransactionRecipient />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+
+    expect(screen.getByText('Private key should be 64 characters long')).toBeInTheDocument()
+    expect(navigateToSummary).not.toHaveBeenCalled()
+  })
+
+  it('should validate private eth key for EVMc withdraw', async () => {
+    const navigateToSummary = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesEVMcResult,
+      transactionForm: {
+        ...mockUseParaTimesEVMcResult.transactionForm,
+        ethPrivateKey: '----------------------------------------------------------------',
+      },
+    })
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      navigateToSummary,
+    })
+    render(<TransactionRecipient />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+
+    expect(screen.getByText('Ethereum-compatible private key is invalid')).toBeInTheDocument()
     expect(navigateToSummary).not.toHaveBeenCalled()
   })
 
