@@ -7,6 +7,7 @@ import { LocationDescriptor } from 'history'
 import { configureAppStore } from 'store/configureStore'
 
 import { AccountPage } from '..'
+import { AccountDetails } from '../Features/AccountDetails'
 import { DeepPartialRootState } from 'types/RootState'
 import { stakingActions } from 'app/state/staking'
 import { WalletErrors } from 'types/errors'
@@ -26,7 +27,9 @@ const renderPage = (store: any, initialEntries: LocationDescriptor[]) =>
       <ThemeProvider>
         <MemoryRouter initialEntries={initialEntries}>
           <Routes>
-            <Route path="/account/:address/*" element={<AccountPage />} />
+            <Route path="/account/:address/*" element={<AccountPage />}>
+              <Route path="" element={<AccountDetails />}></Route>
+            </Route>
           </Routes>
         </MemoryRouter>
       </ThemeProvider>

@@ -3,18 +3,39 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box } from 'grommet'
-import * as React from 'react'
+import { Anchor, Box, Button, Text } from 'grommet'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
-import { Route, Routes } from 'react-router-dom'
-import { Header } from 'app/components/Header'
-import { FromLedger } from './Features/FromLedger'
-import { FromMnemonic } from './Features/FromMnemonic'
-import { FromPrivateKey } from './Features/FromPrivateKey'
 import { ButtonLink } from 'app/components/ButtonLink'
+import { Header } from 'app/components/Header'
+import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import { canAccessNavigatorUsb } from 'app/lib/ledger'
 
-export function SelectOpenMethod() {
+type SelectOpenMethodProps = {
+  webExtensionLedgerAccess?: () => void
+}
+
+export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
+  const [supportsWebUsb, setSupportsWebUsb] = React.useState<boolean | undefined>(false)
+  const navigate = useNavigate()
+  const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
+
+  useEffect(() => {
+    if (webExtensionLedgerAccess && showAccountsSelectionModal) {
+      navigate('/open-wallet/ledger')
+    }
+  }, [navigate, showAccountsSelectionModal, webExtensionLedgerAccess])
+
+  useEffect(() => {
+    async function getWebUsb() {
+      setSupportsWebUsb(await canAccessNavigatorUsb())
+    }
+
+    getWebUsb()
+  }, [])
 
   return (
     <Box
@@ -33,9 +54,36 @@ export function SelectOpenMethod() {
         <span>
           <ButtonLink to="private-key" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </span>
-        <span>
-          <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
-        </span>
+        <div>
+          <div>
+            {webExtensionLedgerAccess ? (
+              <Button
+                disabled={!supportsWebUsb}
+                style={{ width: 'fit-content' }}
+                onClick={webExtensionLedgerAccess}
+                label={t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
+                primary
+              />
+            ) : (
+              <span>
+                <ButtonLink
+                  disabled={!supportsWebUsb}
+                  to="ledger"
+                  label={t('openWallet.method.ledger', 'Ledger')}
+                  primary
+                />
+              </span>
+            )}
+          </div>
+          {!supportsWebUsb && (
+            <Text size="small" textAlign="center">
+              {t(
+                'errors.usbTransportNotSupported',
+                'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',
+              )}
+            </Text>
+          )}
+        </div>
       </Box>
 
       <Box
@@ -58,14 +106,6 @@ export function SelectOpenMethod() {
   )
 }
 
-interface Props {}
-export function OpenWalletPage(props: Props) {
-  return (
-    <Routes>
-      <Route path="/" element={<SelectOpenMethod />} />
-      <Route path="/mnemonic" element={<FromMnemonic />} />
-      <Route path="/private-key" element={<FromPrivateKey />} />
-      <Route path="/ledger" element={<FromLedger />} />
-    </Routes>
-  )
+export function OpenWalletPage() {
+  return <SelectOpenMethod />
 }

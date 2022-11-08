@@ -5,10 +5,21 @@ import { Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
+import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
 
 interface LedgerAccount {
   publicKey: Uint8Array
   path: number[]
+}
+
+export async function canAccessNavigatorUsb(): Promise<boolean> {
+  return await isSupported()
+}
+
+export async function requestDevice(): Promise<USBDevice | undefined> {
+  if (await isSupported()) {
+    return await requestLedgerDevice()
+  }
 }
 
 function successOrThrowWalletError<T>(response: Response<T>, message: string) {

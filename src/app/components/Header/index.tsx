@@ -1,7 +1,7 @@
 import React from 'react'
 import { Heading, HeadingProps } from 'grommet'
 
-interface HeaderProps extends Pick<HeadingProps, 'level' | 'size' | 'margin'> {
+interface HeaderProps extends Pick<HeadingProps, 'level' | 'size' | 'margin' | 'textAlign'> {
   children: React.ReactNode
 }
 
@@ -10,9 +10,10 @@ export const Header = ({
   level = 1,
   size = 'small',
   margin = { top: 'none' },
+  textAlign,
   ...props
 }: HeaderProps) => (
-  <Heading level={level} size={size} margin={margin} {...props}>
+  <Heading level={level} size={size} margin={margin} textAlign={textAlign} {...props}>
     {children}
   </Heading>
 )
