@@ -5,12 +5,19 @@ type Dimensions = {
   width: number
 }
 
-const getExtensionUrl = (path: string) =>
+const getPopupUrl = (path: string) =>
   browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
 
 const openPopup = (path: string, dimensions: Dimensions) => {
+  const existingPopupWindow = browser.extension
+    .getViews()
+    .find(window => window.location.href === getPopupUrl(path))
+
+  if (existingPopupWindow) {
+    existingPopupWindow.close()
+  }
   browser.windows.create({
-    url: getExtensionUrl(path),
+    url: getPopupUrl(path),
     type: 'popup',
     width: dimensions.width,
     height: dimensions.height,
