@@ -12,7 +12,11 @@ interface LedgerAccount {
   path: number[]
 }
 
-export async function requestDevice() {
+export async function canAccessNavigatorUsb(): Promise<boolean> {
+  return await isSupported()
+}
+
+export async function requestDevice(): Promise<USBDevice | undefined> {
   if (await isSupported()) {
     return await requestLedgerDevice()
   }

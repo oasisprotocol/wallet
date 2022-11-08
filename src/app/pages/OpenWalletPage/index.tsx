@@ -3,7 +3,7 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box, Button } from 'grommet'
+import { Anchor, Box, Button, Text } from 'grommet'
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -11,6 +11,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import { canAccessNavigatorUsb } from 'app/lib/ledger'
 
 type SelectOpenMethodProps = {
   webExtensionLedgerAccess?: () => void
@@ -18,6 +19,7 @@ type SelectOpenMethodProps = {
 
 export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
+  const [supportsWebUsb, setSupportsWebUsb] = React.useState<boolean | undefined>(false)
   const navigate = useNavigate()
   const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
 
@@ -26,6 +28,14 @@ export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodP
       navigate('/open-wallet/ledger')
     }
   }, [navigate, showAccountsSelectionModal, webExtensionLedgerAccess])
+
+  useEffect(() => {
+    async function getWebUsb() {
+      setSupportsWebUsb(await canAccessNavigatorUsb())
+    }
+
+    getWebUsb()
+  }, [])
 
   return (
     <Box
@@ -44,18 +54,36 @@ export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodP
         <span>
           <ButtonLink to="private-key" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </span>
-        {webExtensionLedgerAccess ? (
-          <Button
-            style={{ width: 'fit-content' }}
-            onClick={webExtensionLedgerAccess}
-            label={t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
-            primary
-          />
-        ) : (
-          <span>
-            <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
-          </span>
-        )}
+        <div>
+          <div>
+            {webExtensionLedgerAccess ? (
+              <Button
+                disabled={!supportsWebUsb}
+                style={{ width: 'fit-content' }}
+                onClick={webExtensionLedgerAccess}
+                label={t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
+                primary
+              />
+            ) : (
+              <span>
+                <ButtonLink
+                  disabled={!supportsWebUsb}
+                  to="ledger"
+                  label={t('openWallet.method.ledger', 'Ledger')}
+                  primary
+                />
+              </span>
+            )}
+          </div>
+          {!supportsWebUsb && (
+            <Text size="small" textAlign="center">
+              {t(
+                'errors.usbTransportNotSupported',
+                'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',
+              )}
+            </Text>
+          )}
+        </div>
       </Box>
 
       <Box

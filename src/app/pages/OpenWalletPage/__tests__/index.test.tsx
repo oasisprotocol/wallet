@@ -1,14 +1,16 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { when } from 'jest-when'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import { canAccessNavigatorUsb } from 'app/lib/ledger'
 import { SelectOpenMethod } from '..'
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
 }))
+jest.mock('app/lib/ledger')
 
 const mockNavigate = jest.fn()
 jest.mock('react-router-dom', () => ({
@@ -24,10 +26,15 @@ const renderComponent = (webExtensionLedgerAccess?: () => void) =>
   )
 
 describe('<SelectOpenMethod />', () => {
+  beforeEach(() => {
+    jest.mocked(canAccessNavigatorUsb).mockResolvedValue(false)
+  })
+
   it('should render component', () => {
     const { container } = renderComponent()
 
     expect(container).toMatchSnapshot()
+    expect(screen.getByText('errors.usbTransportNotSupported')).toBeInTheDocument()
   })
 
   it('should render component with an access button', () => {
@@ -45,5 +52,19 @@ describe('<SelectOpenMethod />', () => {
     renderComponent(() => {})
 
     expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger')
+  })
+
+  it('should render variant with web usb support', async () => {
+    jest.mocked(canAccessNavigatorUsb).mockResolvedValue(true)
+
+    const { rerender } = renderComponent()
+    rerender(
+      <MemoryRouter>
+        <SelectOpenMethod />
+      </MemoryRouter>,
+    )
+
+    await waitForElementToBeRemoved(() => screen.queryByText('errors.usbTransportNotSupported'))
+    expect(screen.getByRole('button', { name: 'openWallet.method.ledger' })).not.toBeDisabled()
   })
 })
