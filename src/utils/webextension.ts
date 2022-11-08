@@ -5,11 +5,16 @@ type Dimensions = {
   width: number
 }
 
-const openPopup = (url: string, dimensions: Dimensions) => {
+const getExtensionUrl = (path: string) =>
+  browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
+
+const openPopup = (path: string, dimensions: Dimensions) => {
   browser.windows.create({
-    url,
+    url: getExtensionUrl(path),
     type: 'popup',
     width: dimensions.width,
     height: dimensions.height,
   })
 }
+
+export const openLedgerAccessPopup = (path: string) => openPopup(path, { width: 500, height: 650 })

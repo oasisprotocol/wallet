@@ -3,13 +3,17 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box } from 'grommet'
+import { Anchor, Box, Button } from 'grommet'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
 
-export function SelectOpenMethod() {
+type SelectOpenMethodProps = {
+  webExtensionLedgerAccess?: () => void
+}
+
+export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
 
   return (
@@ -29,9 +33,18 @@ export function SelectOpenMethod() {
         <span>
           <ButtonLink to="private-key" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </span>
-        <span>
-          <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
-        </span>
+        {webExtensionLedgerAccess ? (
+          <Button
+            style={{ width: 'fit-content' }}
+            onClick={webExtensionLedgerAccess}
+            label={t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
+            primary
+          />
+        ) : (
+          <span>
+            <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
+          </span>
+        )}
       </Box>
 
       <Box
