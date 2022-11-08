@@ -6,12 +6,8 @@
 import { Anchor, Box } from 'grommet'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Route, Routes } from 'react-router-dom'
-import { Header } from 'app/components/Header'
-import { FromLedger } from './Features/FromLedger'
-import { FromMnemonic } from './Features/FromMnemonic'
-import { FromPrivateKey } from './Features/FromPrivateKey'
 import { ButtonLink } from 'app/components/ButtonLink'
+import { Header } from 'app/components/Header'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
@@ -58,14 +54,6 @@ export function SelectOpenMethod() {
   )
 }
 
-interface Props {}
-export function OpenWalletPage(props: Props) {
-  return (
-    <Routes>
-      <Route path="/" element={<SelectOpenMethod />} />
-      <Route path="/mnemonic" element={<FromMnemonic />} />
-      <Route path="/private-key" element={<FromPrivateKey />} />
-      <Route path="/ledger" element={<FromLedger />} />
-    </Routes>
-  )
+export function OpenWalletPage() {
+  return <SelectOpenMethod />
 }

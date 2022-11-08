@@ -10,16 +10,12 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
-import { Route, Routes } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
 import { Toolbar } from './components/Toolbar'
-import { AccountPage } from './pages/AccountPage'
-import { CreateWalletPage } from './pages/CreateWalletPage'
-import { HomePage } from './pages/HomePage'
-import { OpenWalletPage } from './pages/OpenWalletPage'
 import { ModalProvider } from './components/Modal'
 import { useRouteRedirects } from './useRouteRedirects'
 
@@ -47,12 +43,7 @@ export function App() {
           <AppMain>
             <FatalErrorHandler />
             <Toolbar />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/create-wallet" element={<CreateWalletPage />} />
-              <Route path="/open-wallet/*" element={<OpenWalletPage />} />
-              <Route path="/account/:address/*" element={<AccountPage />} />
-            </Routes>
+            <Outlet />
             <Footer />
           </AppMain>
         </Box>
