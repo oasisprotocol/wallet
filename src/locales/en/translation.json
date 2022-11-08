@@ -182,6 +182,13 @@
     "valueCopied": "{{ label }} copied."
   },
   "ledger": {
+    "extension": {
+      "connect": "Connect Ledger device",
+      "failed": "Connection failed",
+      "grantAccess": "Grant access to your Ledger",
+      "instructionStep": "Once device is connected continue the operation in the wallet app",
+      "succeed": "Device connected"
+    },
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
       "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { Header, ModalHeader } from '..'
 
@@ -8,6 +8,12 @@ describe('<Header />', () => {
     const { container } = render(<Header>Title</Header>)
 
     expect(container).toMatchSnapshot()
+  })
+
+  it('should render header with text align property', () => {
+    render(<Header textAlign="center">Title</Header>)
+
+    expect(screen.queryByRole('heading')).toHaveStyle('text-align: center')
   })
 })
 
