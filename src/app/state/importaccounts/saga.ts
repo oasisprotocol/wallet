@@ -164,7 +164,11 @@ function* enumerateAccountsFromLedger() {
     yield* put(importAccountsActions.operationFailed(payload))
   } finally {
     if (transport) {
-      yield* call([transport, transport.close])
+      try {
+        yield* call([transport, transport.close])
+      } catch (error) {
+        console.log('Error while closing Ledger USB interface:', error)
+      }
     }
   }
 }
