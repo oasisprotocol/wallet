@@ -98,24 +98,24 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="800px" pad="medium">
         <ModalHeader>{t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}</ModalHeader>
-        <Box>
+        <Box style={{ minHeight: '336px' }}>
           <ImportAccountsSelector accounts={accounts} />
-        </Box>
-        {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
-          <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
-            <Spinner size="medium" />
-            <Box alignSelf="center">
-              <Text size="xlarge">
-                <ImportAccountsStepFormatter step={importAccounts.step} />
-              </Text>
+          {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
+            <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
+              <Spinner size="medium" />
+              <Box alignSelf="center">
+                <Text size="xlarge">
+                  <ImportAccountsStepFormatter step={importAccounts.step} />
+                </Text>
+              </Box>
             </Box>
-          </Box>
-        )}
-        {error && (
-          <AlertBox color="status-error">
-            <ErrorFormatter code={error.code} message={error.message} />
-          </AlertBox>
-        )}
+          )}
+          {error && (
+            <AlertBox color="status-error">
+              <ErrorFormatter code={error.code} message={error.message} />
+            </AlertBox>
+          )}
+        </Box>
         <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
           <Button
             disabled={!canGoPrev}
