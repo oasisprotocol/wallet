@@ -34,8 +34,6 @@ describe('importAccounts Sagas', () => {
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
-        .put.actionType(importAccountsActions.accountGenerated.type)
-        .put.actionType(importAccountsActions.updateAccountBalance.type)
         .put.actionType(importAccountsActions.updateAccountBalance.type)
         .put.actionType(importAccountsActions.updateAccountBalance.type)
         .put.actionType(importAccountsActions.updateAccountBalance.type)

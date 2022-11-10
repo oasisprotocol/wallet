@@ -46,15 +46,19 @@ function* getUSBTransport() {
  *
  * The limitations are:
  *  - We must consider slow Ledger devices. If we set this too big, the waiting time might be inconvenient.
+ *  - We must consider the very limited vertical space available in extension mode. If we set this too big,
+ *    the user will need to scroll to reach the open button.
+ *
+ * Because of the above considerations, we have set this to 4, for now.
  */
-export const accountsPerPage = 5
+export const accountsPerPage = 4
 
 /**
  * How many pages should there be, altogether?
  *
- * We want to offer ~50 accounts.
+ * We want to offer ~50 accounts, so now se use 12, because 12 x 4 = 48 which is close to 50.
  */
-export const numberOfAccountPages = 10
+export const numberOfAccountPages = 12
 
 function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
   const wallets = []

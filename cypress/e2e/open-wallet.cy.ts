@@ -42,9 +42,9 @@ describe('Open wallet', () => {
     it('Should open multiple accounts from mnemonic', () => {
       cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
-      cy.findAllByTestId('account-choice').should('have.length', 5)
+      cy.findAllByTestId('account-choice').should('have.length', 4)
       cy.findAllByRole('checkbox', { checked: false })
-        .should('have.length', 4)
+        .should('have.length', 3)
         .click({ force: true, multiple: true })
 
       cy.findByRole('button', { name: /Open/ }).click()
@@ -58,9 +58,9 @@ describe('Open wallet', () => {
 
       cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
-      cy.findAllByTestId('account-choice').should('have.length', 5)
+      cy.findAllByTestId('account-choice').should('have.length', 4)
       cy.findAllByRole('checkbox', { checked: false })
-        .should('have.length', 4)
+        .should('have.length', 3)
         .click({ force: true, multiple: true })
 
       cy.findByRole('button', { name: /Open/ }).click()
