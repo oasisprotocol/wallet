@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/ImportAccountsSelectionModal'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { Header } from 'app/components/Header'
+import { WalletType } from 'app/state/wallet/types'
 
 export function FromLedger() {
   const { t } = useTranslation()
@@ -51,7 +52,7 @@ export function FromLedger() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type="ledger"
+          type={WalletType.Ledger}
         />
       )}
     </Box>

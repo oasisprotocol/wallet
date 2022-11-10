@@ -12,6 +12,7 @@ import { selectImportAccounts, selectSelectedAccounts } from 'app/state/importac
 import { ImportAccountsListAccount, ImportAccountsStep } from 'app/state/importaccounts/types'
 import { walletActions } from 'app/state/wallet'
 import { Box, Button, Spinner, Text } from 'grommet'
+import { WalletType } from 'app/state/wallet/types'
 
 interface ImportAccountsSelectorSelectorProps {
   accounts: ImportAccountsListAccount[]
@@ -44,7 +45,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
 
 interface ImportAccountsSelectionModalProps {
   abort: () => void
-  type: 'mnemonic' | 'ledger'
+  type: WalletType.Mnemonic | WalletType.Ledger
 }
 
 export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModalProps) {
@@ -56,7 +57,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
 
   const openAccounts = () => {
     dispatch(
-      props.type === 'ledger'
+      props.type === WalletType.Ledger
         ? walletActions.openWalletsFromLedger()
         : walletActions.openWalletFromMnemonic(),
     )

@@ -19,7 +19,7 @@ const renderComponent = (store: any, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ImportAccountsSelectionModal abort={abortFunction} type="ledger" />
+        <ImportAccountsSelectionModal abort={abortFunction} type={WalletType.Ledger} />
       </ThemeProvider>
     </Provider>,
   )
