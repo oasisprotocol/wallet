@@ -20,15 +20,15 @@ import { NavLink, Outlet, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 
-import { accountActions } from '../../state/account'
-import { selectAccount } from '../../state/account/selectors'
-import { BalanceDetails } from '../../state/account/types'
+import { accountActions } from 'app/state/account'
+import { selectAccount } from 'app/state/account/selectors'
+import { BalanceDetails } from 'app/state/account/types'
 import {
   selectAddress,
   selectIsOpen,
   selectWallets,
   selectWalletsPublicKeys,
-} from '../../state/wallet/selectors'
+} from 'app/state/wallet/selectors'
 import { mobileHeaderZIndex } from '../../components/Sidebar'
 import { AccountSummary } from './Features/AccountSummary'
 import { isValidAddress } from '../../lib/helpers'
