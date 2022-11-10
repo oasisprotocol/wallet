@@ -197,7 +197,7 @@
       "openOasisApp": "Open the Oasis App on your Ledger device"
     },
     "steps": {
-      "done": "Done",
+      "idle": "Idle",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
       "openingUsb": "Opening Ledger through USB"

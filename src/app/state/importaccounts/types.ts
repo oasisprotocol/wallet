@@ -13,15 +13,15 @@ export interface ImportAccountsListAccount {
 }
 
 export enum ImportAccountsStep {
+  Idle = 'idle',
   OpeningUSB = 'opening_usb',
   LoadingAccounts = 'loading_accounts',
   LoadingBalances = 'loading_balances',
-  Done = 'done',
 }
 
 export interface ImportAccountsState {
   accounts: ImportAccountsListAccount[]
   error?: ErrorPayload
   showAccountsSelectionModal: boolean
-  step?: ImportAccountsStep
+  step: ImportAccountsStep
 }

@@ -57,8 +57,8 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
         type: WalletType.Mnemonic,
       } as ImportAccountsListAccount)
     }
-    yield* setStep(ImportAccountsStep.Done)
     yield* put(importAccountsActions.accountsListed(wallets))
+    yield* setStep(ImportAccountsStep.Idle)
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
@@ -96,7 +96,7 @@ function* enumerateAccountsFromLedger() {
       } as ImportAccountsListAccount
     })
 
-    yield* setStep(ImportAccountsStep.Done)
+    yield* setStep(ImportAccountsStep.Idle)
     yield* put(importAccountsActions.accountsListed(wallets))
   } catch (e: any) {
     let payload: ErrorPayload

@@ -61,14 +61,14 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
         : walletActions.openWalletFromMnemonic(),
     )
   }
-  const cancelDisabled = importAccounts.step === ImportAccountsStep.Done || error ? false : true
-  const confirmDisabled = importAccounts.step !== ImportAccountsStep.Done || selectedAccounts.length === 0
+  const cancelDisabled = importAccounts.step === ImportAccountsStep.Idle || error ? false : true
+  const confirmDisabled = importAccounts.step !== ImportAccountsStep.Idle || selectedAccounts.length === 0
 
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="750px" pad="medium">
         <ModalHeader>{t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}</ModalHeader>
-        {importAccounts.step && importAccounts.step !== ImportAccountsStep.Done && (
+        {importAccounts.step && importAccounts.step !== ImportAccountsStep.Idle && (
           <Box direction="row" gap="medium" alignContent="center">
             <Spinner size="medium" />
             <Box alignSelf="center">
@@ -78,7 +78,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             </Box>
           </Box>
         )}
-        {importAccounts.step && importAccounts.step === ImportAccountsStep.Done && (
+        {importAccounts.step && importAccounts.step === ImportAccountsStep.Idle && (
           <Box>
             <ImportAccountsSelector accounts={importAccounts.accounts} />
           </Box>

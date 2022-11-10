@@ -2,12 +2,12 @@ import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as oasis from '@oasisprotocol/client'
 import { importAccountsActions } from '.'
-import { importAccountsSaga, sign } from './saga'
+import { accountsNumberLimit, importAccountsSaga, sign } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { getBalance } from '../wallet/saga'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
-import { ImportAccountsStep } from './types'
+import { ImportAccountsListAccount, ImportAccountsStep } from './types'
 import { WalletErrors } from 'types/errors'
 import { OasisTransaction } from 'app/lib/transaction'
 import { WalletType } from 'app/state/wallet/types'
@@ -28,7 +28,6 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(getBalance), {}],
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromLedger())
-        .put(importAccountsActions.setStep(ImportAccountsStep.Done))
         .put.actionType(importAccountsActions.accountsListed.type)
         .silentRun(50)
     })
@@ -84,7 +83,20 @@ describe('importAccounts Sagas', () => {
     const mockKey = new Uint8Array(1)
 
     it('should list accounts', async () => {
+      const expectedAccounts: ImportAccountsListAccount[] = []
+      for (let i = 0; i < accountsNumberLimit; i++) {
+        expectedAccounts.push({
+          address: mockAddress,
+          path: [44, 474, i],
+          privateKey: '00',
+          publicKey: '00',
+          selected: i === 0,
+          type: WalletType.Mnemonic,
+        })
+      }
+
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [
             matchers.call.fn(oasis.hdkey.HDKey.getAccountSigner),
@@ -97,58 +109,9 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(getBalance), {}],
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromMnemonic('mnemonic'))
-        .put({ type: importAccountsActions.setStep.type, payload: ImportAccountsStep.LoadingAccounts })
-        .put({ type: importAccountsActions.setStep.type, payload: ImportAccountsStep.Done })
-        .put({
-          type: importAccountsActions.accountsListed.type,
-          payload: [
-            {
-              address: mockAddress,
-              balance: {},
-              path: [44, 474, 0],
-              privateKey: '00',
-              publicKey: '00',
-              selected: true,
-              type: WalletType.Mnemonic,
-            },
-            {
-              address: mockAddress,
-              balance: {},
-              path: [44, 474, 1],
-              privateKey: '00',
-              publicKey: '00',
-              selected: false,
-              type: WalletType.Mnemonic,
-            },
-            {
-              address: mockAddress,
-              balance: {},
-              path: [44, 474, 2],
-              privateKey: '00',
-              publicKey: '00',
-              selected: false,
-              type: WalletType.Mnemonic,
-            },
-            {
-              address: mockAddress,
-              balance: {},
-              path: [44, 474, 3],
-              privateKey: '00',
-              publicKey: '00',
-              selected: false,
-              type: WalletType.Mnemonic,
-            },
-            {
-              address: mockAddress,
-              balance: {},
-              path: [44, 474, 4],
-              privateKey: '00',
-              publicKey: '00',
-              selected: false,
-              type: WalletType.Mnemonic,
-            },
-          ],
-        })
+        .put(importAccountsActions.setStep(ImportAccountsStep.LoadingAccounts))
+        .put(importAccountsActions.accountsListed(expectedAccounts))
+        .put(importAccountsActions.setStep(ImportAccountsStep.Idle))
         .silentRun(50)
     })
   })

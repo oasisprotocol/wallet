@@ -3,25 +3,29 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
 
-export const initialState: ImportAccountsState = { accounts: [], showAccountsSelectionModal: false }
+export const initialState: ImportAccountsState = {
+  accounts: [],
+  showAccountsSelectionModal: false,
+  step: ImportAccountsStep.Idle,
+}
 
 const slice = createSlice({
   name: 'importAccounts',
   initialState,
   reducers: {
-    clear(state, action: PayloadAction<void>) {
+    clear(state) {
       state.accounts = []
       state.error = undefined
-      state.step = undefined
+      state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
     },
-    enumerateAccountsFromLedger(state, action: PayloadAction<void>) {
-      state.step = undefined
+    enumerateAccountsFromLedger(state) {
       state.accounts = []
       state.showAccountsSelectionModal = true
+      state.step = ImportAccountsStep.Idle
     },
-    enumerateAccountsFromMnemonic(state, action: PayloadAction<string>) {
-      state.step = undefined
+    enumerateAccountsFromMnemonic(state, _action: PayloadAction<string>) {
+      state.step = ImportAccountsStep.Idle
       state.accounts = []
       state.showAccountsSelectionModal = true
     },
@@ -37,7 +41,7 @@ const slice = createSlice({
     },
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload
-      state.step = undefined
+      state.step = ImportAccountsStep.Idle
     },
   },
 })

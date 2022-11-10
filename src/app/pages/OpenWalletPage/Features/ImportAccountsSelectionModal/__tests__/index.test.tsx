@@ -61,7 +61,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
         ]),
       )
 
-      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Idle))
     })
     expect(component.getByText('oasis1qzyq...7gh2pxqe')).toBeInTheDocument()
   })
@@ -93,7 +93,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
         ]),
       )
 
-      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Done))
+      store.dispatch(importAccountsActions.setStep(ImportAccountsStep.Idle))
     })
     await userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({
