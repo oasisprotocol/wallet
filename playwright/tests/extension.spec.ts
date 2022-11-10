@@ -36,10 +36,19 @@ export const test = base.extend<{
   },
 })
 
-test.describe('The extension homepage should load', () => {
-  test('should have options to open the wallet', async ({ page, extensionId }) => {
+test.describe('The extension popup should load', () => {
+  test('should successfully load javascript chunks', async ({ page, extensionId }) => {
     await page.goto(`chrome-extension://${extensionId}/${popupFile}`)
     await expect(page.getByRole('link', { name: /Open wallet/i })).toBeVisible()
     await expect(page.getByRole('link', { name: /Create wallet/i })).toBeVisible()
+  })
+
+  test('get state from background page through webext-redux', async ({ page, extensionId }) => {
+    await page.goto(`chrome-extension://${extensionId}/${popupFile}`)
+    await page.getByRole('button', { name: /Dark mode/i }).click()
+    await page.getByRole('button', { name: /Light mode/i }).click()
+
+    await page.getByRole('link', { name: /Create wallet/i }).click()
+    await expect(page.getByTestId('mnemonic-grid').locator('> *')).toHaveCount(24)
   })
 })
