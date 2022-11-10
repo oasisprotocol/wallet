@@ -4,7 +4,7 @@ import { WalletBalance, WalletType } from '../wallet/types'
 /* --- STATE --- */
 export interface ImportAccountsListAccount {
   address: string
-  balance: WalletBalance
+  balance?: WalletBalance
   path: number[]
   privateKey?: string
   publicKey: string
