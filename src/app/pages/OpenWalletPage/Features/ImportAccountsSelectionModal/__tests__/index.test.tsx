@@ -97,11 +97,11 @@ describe('<ImportAccountsSelectionModal  />', () => {
     })
     await userEvent.click(screen.getByText('oasis1qzyq...7gh2pxqe'))
     expect(dispatchFn).toHaveBeenLastCalledWith({
-      payload: 0,
+      payload: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
       type: importAccountsActions.toggleAccount.type,
     })
     act(() => {
-      store.dispatch(importAccountsActions.toggleAccount(0))
+      store.dispatch(importAccountsActions.toggleAccount('oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe'))
     })
     await userEvent.click(screen.getByTestId('ledger-open-accounts'))
     expect(dispatchFn).toHaveBeenLastCalledWith(

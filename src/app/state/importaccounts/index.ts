@@ -29,12 +29,23 @@ const slice = createSlice({
       state.accounts = []
       state.showAccountsSelectionModal = true
     },
-    toggleAccount(state, action: PayloadAction<number>) {
-      const index = action.payload
-      state.accounts[index].selected = !state.accounts[index].selected
+    toggleAccount(state, action: PayloadAction<string>) {
+      const account = state.accounts.find(a => a.address === action.payload)!
+      account.selected = !account.selected
+    },
+    accountGenerated(state, action: PayloadAction<ImportAccountsListAccount>) {
+      state.accounts.push(action.payload)
     },
     accountsListed(state, action: PayloadAction<ImportAccountsListAccount[]>) {
       state.accounts = action.payload
+    },
+    updateAccountBalance(
+      state,
+      action: PayloadAction<Pick<ImportAccountsListAccount, 'address' | 'balance'>>,
+    ) {
+      const { address, balance } = action.payload
+      const account = state.accounts.find(a => a.address === address)
+      if (account) account.balance = balance
     },
     setStep(state, action: PayloadAction<ImportAccountsStep>) {
       state.step = action.payload

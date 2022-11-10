@@ -1,10 +1,10 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
-import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
+import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
-import { all, call, put, select, takeEvery } from 'typed-redux-saga'
+import { all, call, fork, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
@@ -12,6 +12,11 @@ import { selectChainContext } from '../network/selectors'
 import { getBalance } from '../wallet/saga'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
 import type Transport from '@ledgerhq/hw-transport'
+import {
+  selectImportAccountHasMissingBalances,
+  selectImportAccounts,
+  selectImportAccountsList,
+} from './selectors'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
@@ -45,11 +50,9 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
     for (let i = 0; i < accountsNumberLimit; i++) {
       const signer = yield* call(oasis.hdkey.HDKey.getAccountSigner, mnemonic, i)
       const address = yield* call(publicKeyToAddress, signer.publicKey)
-      const balance = yield* call(getBalance, signer.publicKey)
 
       wallets.push({
         address,
-        balance,
         path: [44, 474, i],
         privateKey: uint2hex(signer.secretKey),
         publicKey: uint2hex(signer.publicKey),
@@ -59,6 +62,7 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
     }
     yield* put(importAccountsActions.accountsListed(wallets))
     yield* setStep(ImportAccountsStep.Idle)
+    yield* ensureAllBalancesArePresentOnCurrentPage()
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
@@ -71,6 +75,33 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
   }
 }
 
+function* fetchBalanceForAccount(account: ImportAccountsListAccount) {
+  let currentStep = (yield* select(selectImportAccounts)).step
+  if (currentStep === ImportAccountsStep.Idle) {
+    yield* setStep(ImportAccountsStep.LoadingBalances)
+  }
+  const balance = yield* call(getBalance, hex2uint(account.publicKey))
+  yield* put(
+    importAccountsActions.updateAccountBalance({
+      address: account.address,
+      balance,
+    }),
+  )
+  currentStep = (yield* select(selectImportAccounts)).step
+  const hasMissingBalances = yield* select(selectImportAccountHasMissingBalances)
+  if (currentStep === ImportAccountsStep.LoadingBalances && !hasMissingBalances) {
+    yield* setStep(ImportAccountsStep.Idle)
+  }
+}
+
+function* ensureAllBalancesArePresentOnCurrentPage() {
+  const accounts = yield* select(selectImportAccountsList)
+  yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
+}
+
+/**
+ * Enumerate more accounts from Ledger, enough to fill up one page.
+ */
 function* enumerateAccountsFromLedger() {
   yield* setStep(ImportAccountsStep.OpeningUSB)
   let transport: Transport | undefined
@@ -78,26 +109,23 @@ function* enumerateAccountsFromLedger() {
     transport = yield* getUSBTransport()
 
     yield* setStep(ImportAccountsStep.LoadingAccounts)
-    const accounts = yield* call(Ledger.enumerateAccounts, transport)
+    const app = yield* call(Ledger.getOasisApp, transport)
+    for (let index = 0; index < accountsNumberLimit; index++) {
+      const account = yield* call(Ledger.deriveAccountUsingOasisApp, app, index)
+      const address = yield* call(publicKeyToAddress, account.publicKey)
 
-    yield* setStep(ImportAccountsStep.LoadingBalances)
-    const balances = yield* all(accounts.map(a => call(getBalance, a.publicKey)))
-    const addresses = yield* all(accounts.map(a => call(publicKeyToAddress, a.publicKey)))
-
-    const wallets = accounts.map((a, index) => {
-      return {
-        publicKey: uint2hex(a.publicKey),
-        path: a.path,
-        address: addresses[index],
-        balance: balances[index],
+      const wallet = {
+        publicKey: uint2hex(account.publicKey),
+        path: account.path,
+        address,
         // We select the first account by default
         selected: index === 0,
         type: WalletType.Ledger,
       } as ImportAccountsListAccount
-    })
-
-    yield* setStep(ImportAccountsStep.Idle)
-    yield* put(importAccountsActions.accountsListed(wallets))
+      yield* put(importAccountsActions.accountGenerated(wallet))
+      yield* fork(fetchBalanceForAccount, wallet)
+    }
+    yield* setStep(ImportAccountsStep.LoadingBalances)
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {

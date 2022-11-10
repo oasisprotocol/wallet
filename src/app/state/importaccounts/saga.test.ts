@@ -21,19 +21,31 @@ describe('importAccounts Sagas', () => {
       }
 
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
-          [matchers.call.fn(Ledger.enumerateAccounts), [validAccount]],
+          [matchers.call.fn(Ledger.getOasisApp), undefined],
+          [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), validAccount],
           [matchers.call.fn(getBalance), {}],
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromLedger())
-        .put.actionType(importAccountsActions.accountsListed.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
         .silentRun(50)
     })
 
     it('should handle unsupported browsers', async () => {
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), false],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
@@ -45,6 +57,7 @@ describe('importAccounts Sagas', () => {
 
     it('should handle transport errors', async () => {
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
@@ -56,6 +69,7 @@ describe('importAccounts Sagas', () => {
 
     it('should bubble-up USB unknown errors', async () => {
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
@@ -67,10 +81,12 @@ describe('importAccounts Sagas', () => {
 
     it('should bubble-up other unknown errors', async () => {
       return expectSaga(importAccountsSaga)
+        .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
-          [matchers.call.fn(Ledger.enumerateAccounts), Promise.reject(new Error('Dummy error'))],
+          [matchers.call.fn(Ledger.getOasisApp), undefined],
+          [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), Promise.reject(new Error('Dummy error'))],
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromLedger())
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })

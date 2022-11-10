@@ -12,6 +12,10 @@ export const selectShowAccountsSelectionModal = createSelector(
   [selectSlice],
   state => state.showAccountsSelectionModal,
 )
+export const selectImportAccountHasMissingBalances = createSelector(
+  [selectImportAccountsList],
+  list => list.some(a => !a.balance),
+)
 export const selectSelectedAccounts = createSelector([selectImportAccountsList], state =>
   state.filter(a => a.selected),
 )

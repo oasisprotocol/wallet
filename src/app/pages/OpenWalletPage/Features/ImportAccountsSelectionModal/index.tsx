@@ -20,10 +20,7 @@ interface ImportAccountsSelectorSelectorProps {
 
 function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProps) {
   const dispatch = useDispatch()
-  const toggleAccount = (address: string) => {
-    const index = accounts.findIndex(account => account.address === address)
-    dispatch(importAccountsActions.toggleAccount(index))
-  }
+  const toggleAccount = (address: string) => dispatch(importAccountsActions.toggleAccount(address))
 
   return (
     <Box gap="small">
@@ -62,26 +59,26 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
         : walletActions.openWalletFromMnemonic(),
     )
   }
-  const cancelDisabled = importAccounts.step === ImportAccountsStep.Idle || error ? false : true
-  const confirmDisabled = importAccounts.step !== ImportAccountsStep.Idle || selectedAccounts.length === 0
+
+  const isBusyImporting = importAccounts.step !== ImportAccountsStep.Idle
+  const cancelDisabled = isBusyImporting && !error
+  const confirmDisabled = isBusyImporting || selectedAccounts.length === 0
 
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
-      <Box width="750px" pad="medium">
+      <Box width="800px" pad="medium">
         <ModalHeader>{t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}</ModalHeader>
-        {importAccounts.step && importAccounts.step !== ImportAccountsStep.Idle && (
-          <Box direction="row" gap="medium" alignContent="center">
+        <Box>
+          <ImportAccountsSelector accounts={importAccounts.accounts} />
+        </Box>
+        {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
+          <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
             <Spinner size="medium" />
             <Box alignSelf="center">
               <Text size="xlarge">
                 <ImportAccountsStepFormatter step={importAccounts.step} />
               </Text>
             </Box>
-          </Box>
-        )}
-        {importAccounts.step && importAccounts.step === ImportAccountsStep.Idle && (
-          <Box>
-            <ImportAccountsSelector accounts={importAccounts.accounts} />
           </Box>
         )}
         {error && (
