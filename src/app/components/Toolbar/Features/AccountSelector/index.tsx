@@ -29,6 +29,7 @@ interface AccountProps {
   details?: string
   isActive: boolean
   displayCheckbox?: boolean
+  displayAccountNumber?: boolean
 }
 
 export const Account = memo((props: AccountProps) => {
@@ -50,6 +51,8 @@ export const Account = memo((props: AccountProps) => {
     [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private key'),
   }
 
+  const accountNumber = props.details ? props.details.split('/').at(-1) : '?'
+
   return (
     <Box
       data-testid="account-choice"
@@ -68,6 +71,13 @@ export const Account = memo((props: AccountProps) => {
       {props.displayCheckbox && (
         <Box alignSelf="center" pad={{ left: 'small', right: 'medium' }}>
           <CheckBox checked={props.isActive} />
+        </Box>
+      )}
+      {props.displayAccountNumber && (
+        <Box alignSelf="center" pad={{ left: 'small', right: 'small' }} style={{ minWidth: '2.5em' }}>
+          <Text weight="bold" style={{ width: '2em' }}>
+            {accountNumber}
+          </Text>
         </Box>
       )}
       <Box flex="grow">

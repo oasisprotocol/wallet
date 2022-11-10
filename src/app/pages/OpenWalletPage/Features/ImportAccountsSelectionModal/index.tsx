@@ -32,6 +32,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
           onClick={toggleAccount}
           isActive={a.selected}
           displayCheckbox={true}
+          displayAccountNumber={true}
           details={a.path.join('/')}
           key={a.address}
         />
