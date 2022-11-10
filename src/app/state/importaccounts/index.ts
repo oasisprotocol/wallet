@@ -6,6 +6,7 @@ import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } fr
 export const initialState: ImportAccountsState = {
   accounts: [],
   showAccountsSelectionModal: false,
+  accountsSelectionPageNumber: 0,
   step: ImportAccountsStep.Idle,
 }
 
@@ -21,12 +22,17 @@ const slice = createSlice({
     },
     enumerateAccountsFromLedger(state) {
       state.accounts = []
+      state.accountsSelectionPageNumber = 0
       state.showAccountsSelectionModal = true
+      state.step = ImportAccountsStep.Idle
+    },
+    enumerateMoreAccountsFromLedger(state) {
       state.step = ImportAccountsStep.Idle
     },
     enumerateAccountsFromMnemonic(state, _action: PayloadAction<string>) {
       state.step = ImportAccountsStep.Idle
       state.accounts = []
+      state.accountsSelectionPageNumber = 0
       state.showAccountsSelectionModal = true
     },
     toggleAccount(state, action: PayloadAction<string>) {
@@ -46,6 +52,9 @@ const slice = createSlice({
       const { address, balance } = action.payload
       const account = state.accounts.find(a => a.address === address)
       if (account) account.balance = balance
+    },
+    setPage(state, action: PayloadAction<number>) {
+      state.accountsSelectionPageNumber = action.payload
     },
     setStep(state, action: PayloadAction<ImportAccountsStep>) {
       state.step = action.payload

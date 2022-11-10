@@ -15,7 +15,9 @@ import type Transport from '@ledgerhq/hw-transport'
 import {
   selectImportAccountHasMissingBalances,
   selectImportAccounts,
-  selectImportAccountsList,
+  selectImportAccountsOnCurrentPage,
+  selectImportAccountsFullList,
+  selectImportAccountsPageNumber,
 } from './selectors'
 
 function* setStep(step: ImportAccountsStep) {
@@ -39,7 +41,20 @@ function* getUSBTransport() {
   }
 }
 
-export const accountsNumberLimit = 5
+/**
+ * When deriving accounts, how many accounts do we want to offer on a single page?
+ *
+ * The limitations are:
+ *  - We must consider slow Ledger devices. If we set this too big, the waiting time might be inconvenient.
+ */
+export const accountsPerPage = 5
+
+/**
+ * How many pages should there be, altogether?
+ *
+ * We want to offer ~50 accounts.
+ */
+export const numberOfAccountPages = 10
 
 function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
   const wallets = []
@@ -47,7 +62,7 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
 
   try {
     yield* setStep(ImportAccountsStep.LoadingAccounts)
-    for (let i = 0; i < accountsNumberLimit; i++) {
+    for (let i = 0; i < accountsPerPage * numberOfAccountPages; i++) {
       const signer = yield* call(oasis.hdkey.HDKey.getAccountSigner, mnemonic, i)
       const address = yield* call(publicKeyToAddress, signer.publicKey)
 
@@ -95,7 +110,7 @@ function* fetchBalanceForAccount(account: ImportAccountsListAccount) {
 }
 
 function* ensureAllBalancesArePresentOnCurrentPage() {
-  const accounts = yield* select(selectImportAccountsList)
+  const accounts = yield* select(selectImportAccountsOnCurrentPage)
   yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
 }
 
@@ -103,14 +118,22 @@ function* ensureAllBalancesArePresentOnCurrentPage() {
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
 function* enumerateAccountsFromLedger() {
+  const existingAccounts = yield* select(selectImportAccountsFullList)
+  const pageNumber = yield* select(selectImportAccountsPageNumber)
+  if (existingAccounts.length >= (pageNumber + 1) * accountsPerPage) {
+    // Selected page was already enumerated.
+    return
+  }
   yield* setStep(ImportAccountsStep.OpeningUSB)
   let transport: Transport | undefined
   try {
     transport = yield* getUSBTransport()
+    const existingAccounts = yield* select(selectImportAccountsFullList)
+    const start = existingAccounts.length
 
     yield* setStep(ImportAccountsStep.LoadingAccounts)
     const app = yield* call(Ledger.getOasisApp, transport)
-    for (let index = 0; index < accountsNumberLimit; index++) {
+    for (let index = start; index < start + accountsPerPage; index++) {
       const account = yield* call(Ledger.deriveAccountUsingOasisApp, app, index)
       const address = yield* call(publicKeyToAddress, account.publicKey)
 
@@ -156,5 +179,7 @@ export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWr
 
 export function* importAccountsSaga() {
   yield* takeEvery(importAccountsActions.enumerateAccountsFromLedger, enumerateAccountsFromLedger)
+  yield* takeEvery(importAccountsActions.enumerateMoreAccountsFromLedger, enumerateAccountsFromLedger)
   yield* takeEvery(importAccountsActions.enumerateAccountsFromMnemonic, enumerateAccountsFromMnemonic)
+  yield* takeEvery(importAccountsActions.setPage, ensureAllBalancesArePresentOnCurrentPage)
 }

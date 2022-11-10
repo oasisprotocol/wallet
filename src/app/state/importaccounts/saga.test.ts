@@ -2,7 +2,7 @@ import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as oasis from '@oasisprotocol/client'
 import { importAccountsActions } from '.'
-import { accountsNumberLimit, importAccountsSaga, sign } from './saga'
+import { accountsPerPage, importAccountsSaga, numberOfAccountPages, sign } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { getBalance } from '../wallet/saga'
@@ -14,7 +14,7 @@ import { WalletType } from 'app/state/wallet/types'
 
 describe('importAccounts Sagas', () => {
   describe('enumerateAccountsFromLedger', () => {
-    it('should list accounts', async () => {
+    it('should list accounts for the first page', async () => {
       const validAccount = {
         publicKey: await addressToPublicKey('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'),
         path: [44, 474, 0, 0, 0],
@@ -100,7 +100,7 @@ describe('importAccounts Sagas', () => {
 
     it('should list accounts', async () => {
       const expectedAccounts: ImportAccountsListAccount[] = []
-      for (let i = 0; i < accountsNumberLimit; i++) {
+      for (let i = 0; i < accountsPerPage * numberOfAccountPages; i++) {
         expectedAccounts.push({
           address: mockAddress,
           path: [44, 474, i],

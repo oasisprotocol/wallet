@@ -23,5 +23,6 @@ export interface ImportAccountsState {
   accounts: ImportAccountsListAccount[]
   error?: ErrorPayload
   showAccountsSelectionModal: boolean
+  accountsSelectionPageNumber: number
   step: ImportAccountsStep
 }
