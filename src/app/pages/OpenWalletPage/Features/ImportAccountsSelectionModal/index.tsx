@@ -65,6 +65,13 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const cancelDisabled = isBusyImporting && !error
   const confirmDisabled = isBusyImporting || selectedAccounts.length === 0
 
+
+  // Workaround for i18next-scanner to pickup plurals correctly, because it is missing
+  // defaultValue_zero, defaultValue_one, defaultValue_other here:
+  // https://github.com/i18next/i18next-scanner/blob/4687b6a/src/parser.js#L502-L503
+  t('openWallet.importAccounts.accountCounter_zero', 'No account selected')
+  t('openWallet.importAccounts.accountCounter_one', 'One account selected')
+
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="800px" pad="medium">
@@ -87,19 +94,23 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             <ErrorFormatter code={error.code} message={error.message} />
           </AlertBox>
         )}
-        <Box direction="row" gap="small" justify="between" pad={{ top: 'large' }}>
+        <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
           <Button
             secondary
             label={t('common.cancel', 'Cancel')}
             onClick={props.abort}
             disabled={cancelDisabled}
           />
+          <Text textAlign={'center'}>
+            {t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
+              count: selectedAccounts.length,
+            })}
+          </Text>
           <Button
             primary
             data-testid="ledger-open-accounts"
             label={t('openWallet.importAccounts.openWallets', 'Open')}
             onClick={openAccounts}
-            alignSelf="end"
             disabled={confirmDisabled}
           />
         </Box>

@@ -216,6 +216,10 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
+      "accountCounter": "{{ count }} accounts selected",
+      "accountCounter_one": "One account selected",
+      "accountCounter_plural": "{{ count }} accounts selected",
+      "accountCounter_zero": "No account selected",
       "openWallets": "Open",
       "selectWallets": "Select accounts to open"
     },
