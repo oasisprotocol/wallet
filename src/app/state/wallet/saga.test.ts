@@ -29,6 +29,7 @@ describe('Wallet Sagas', () => {
           type: WalletType.Mnemonic,
         },
       ],
+      accountsSelectionPageNumber: 0,
     },
   }
 
@@ -117,6 +118,7 @@ describe('Wallet Sagas', () => {
               selected: true,
             },
           ],
+          accountsSelectionPageNumber: 0,
         },
       }
 

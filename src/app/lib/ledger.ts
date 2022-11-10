@@ -42,20 +42,33 @@ function successOrThrowWalletError<T>(response: Response<T>, message: string) {
 }
 
 export class Ledger {
-  public static async enumerateAccounts(transport: Transport, count = 5) {
-    const accounts: LedgerAccount[] = []
-
+  public static async getOasisApp(transport: Transport): Promise<OasisApp> {
     const app = new OasisApp(transport)
     const appInfo = successOrThrowWalletError(await app.appInfo(), 'ledger app info')
     if (appInfo.appName !== 'Oasis') {
       throw new WalletError(WalletErrors.LedgerOasisAppIsNotOpen, 'Oasis App is not open')
     }
-    for (let i = 0; i < count; i++) {
-      const path = [44, 474, 0, 0, i]
-      const publicKeyResponse = successOrThrowWalletError(await app.publicKey(path), 'ledger public key')
-      accounts.push({ path, publicKey: new Uint8Array(publicKeyResponse.pk) })
-    }
+    return app
+  }
 
+  public static async deriveAccountUsingOasisApp(
+    app: OasisApp,
+    addressIndex: number,
+  ): Promise<LedgerAccount> {
+    const path = [44, 474, 0, 0, addressIndex]
+    const publicKeyResponse = successOrThrowWalletError(await app.publicKey(path), 'ledger public key')
+    return {
+      path,
+      publicKey: new Uint8Array(publicKeyResponse.pk),
+    }
+  }
+
+  public static async enumerateAccounts(transport: Transport, count = 5, start = 0) {
+    const app = await Ledger.getOasisApp(transport)
+    const accounts: LedgerAccount[] = []
+    for (let i = start; i < start + count; i++) {
+      accounts.push(await Ledger.deriveAccountUsingOasisApp(app, i))
+    }
     return accounts
   }
 }

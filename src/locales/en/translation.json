@@ -197,7 +197,7 @@
       "openOasisApp": "Open the Oasis App on your Ledger device"
     },
     "steps": {
-      "done": "Done",
+      "idle": "Idle",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
       "openingUsb": "Opening Ledger through USB"
@@ -216,7 +216,14 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
+      "accountCounter": "{{ count }} accounts selected",
+      "accountCounter_one": "One account selected",
+      "accountCounter_plural": "{{ count }} accounts selected",
+      "accountCounter_zero": "No account selected",
+      "next": "Next",
       "openWallets": "Open",
+      "pageNumber": "Page {{ pageNum }} of {{ totalPages }}",
+      "prev": "Prev",
       "selectWallets": "Select accounts to open"
     },
     "ledger": {

@@ -4,7 +4,7 @@ import { WalletBalance, WalletType } from '../wallet/types'
 /* --- STATE --- */
 export interface ImportAccountsListAccount {
   address: string
-  balance: WalletBalance
+  balance?: WalletBalance
   path: number[]
   privateKey?: string
   publicKey: string
@@ -13,15 +13,16 @@ export interface ImportAccountsListAccount {
 }
 
 export enum ImportAccountsStep {
+  Idle = 'idle',
   OpeningUSB = 'opening_usb',
   LoadingAccounts = 'loading_accounts',
   LoadingBalances = 'loading_balances',
-  Done = 'done',
 }
 
 export interface ImportAccountsState {
   accounts: ImportAccountsListAccount[]
   error?: ErrorPayload
   showAccountsSelectionModal: boolean
-  step?: ImportAccountsStep
+  accountsSelectionPageNumber: number
+  step: ImportAccountsStep
 }

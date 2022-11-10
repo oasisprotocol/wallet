@@ -13,11 +13,25 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 750px;
+  width: 800px;
   padding: 24px;
 }
 
 .c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -33,10 +47,10 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-top: 48px;
+  padding-top: 24px;
 }
 
-.c9 {
+.c10 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -46,7 +60,145 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c8 {
+.c13 {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.c9 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0.3;
+  cursor: default;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c9:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c9:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c9:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c11 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 18px;
+  color: #444444;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c11:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c11:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c11:focus > circle,
+.c11:focus > ellipse,
+.c11:focus > line,
+.c11:focus > path,
+.c11:focus > polygon,
+.c11:focus > polyline,
+.c11:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c11:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c11:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c11:focus:not(:focus-visible) > circle,.c11:focus:not(:focus-visible) > ellipse,
+.c11:focus:not(:focus-visible) > line,.c11:focus:not(:focus-visible) > path,
+.c11:focus:not(:focus-visible) > polygon,.c11:focus:not(:focus-visible) > polyline,
+.c11:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c11:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -63,8 +215,6 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  opacity: 0.3;
-  cursor: default;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -74,44 +224,48 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c8:focus {
+.c12:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c8:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c8:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
-.c8:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c10 {
+.c14 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -122,9 +276,6 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
-  align-self: flex-end;
   border: 2px solid #0092f6;
   border-radius: 4px;
   color: #444444;
@@ -145,40 +296,40 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c10:focus {
+.c14:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus > circle,
-.c10:focus > ellipse,
-.c10:focus > line,
-.c10:focus > path,
-.c10:focus > polygon,
-.c10:focus > polyline,
-.c10:focus > rect {
+.c14:focus > circle,
+.c14:focus > ellipse,
+.c14:focus > line,
+.c14:focus > path,
+.c14:focus > polygon,
+.c14:focus > polyline,
+.c14:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus::-moz-focus-inner {
+.c14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c10:focus:not(:focus-visible) {
+.c14:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
-.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
-.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
-.c10:focus:not(:focus-visible) > rect {
+.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible)::-moz-focus-inner {
+.c14:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -280,13 +431,13 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
-    padding-top: 24px;
+  .c8 {
+    padding-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c9 {
+  .c10 {
     width: 6px;
   }
 }
@@ -372,19 +523,64 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
               </h2>
               <div
                 class="c7"
+                style="min-height: 336px;"
+              >
+                <div
+                  class="c7"
+                />
+              </div>
+              <div
+                class="c8"
               >
                 <button
-                  class="c8"
+                  aria-label="openWallet.importAccounts.prev"
+                  class="c9"
                   disabled=""
+                  type="button"
+                >
+                  &lt;
+                </button>
+                <div
+                  class="c10"
+                />
+                <div
+                  class="c7"
+                >
+                  openWallet.importAccounts.pageNumber
+                </div>
+                <div
+                  class="c10"
+                />
+                <button
+                  aria-label="openWallet.importAccounts.next"
+                  class="c11"
+                  type="button"
+                >
+                  &gt;
+                </button>
+              </div>
+              <div
+                class="c8"
+              >
+                <button
+                  class="c12"
                   type="button"
                 >
                   common.cancel
                 </button>
                 <div
-                  class="c9"
+                  class="c10"
+                />
+                <span
+                  class="c13"
+                >
+                  openWallet.importAccounts.accountCounter
+                </span>
+                <div
+                  class="c10"
                 />
                 <button
-                  class="c10"
+                  class="c14"
                   data-testid="ledger-open-accounts"
                   disabled=""
                   type="button"
