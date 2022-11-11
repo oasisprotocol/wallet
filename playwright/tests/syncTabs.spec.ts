@@ -2,7 +2,13 @@ import { test, expect, Page } from '@playwright/test'
 import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
-import { password, privateKeyAddress } from '../utils/test-inputs'
+import {
+  password,
+  privateKeyAddress,
+  privateKeyAddressPretty,
+  privateKey2,
+  privateKey2AddressPretty,
+} from '../utils/test-inputs'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 
@@ -128,6 +134,68 @@ test.describe('syncTabs', () => {
       await page.getByRole('menuitem', { name: 'Mainnet' }).click()
       await expect(page.getByTestId('network-selector')).toHaveText('Mainnet')
       await expect(tab2.getByTestId('network-selector')).toHaveText('Mainnet')
+    }
+  })
+
+  test.describe('switching account should not sync', () => {
+    test('unpersisted', async ({ page, context }) => {
+      await page.goto('/open-wallet/private-key')
+      await fillPrivateKeyWithoutPassword(page, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: false,
+      })
+      const tab2 = await context.newPage()
+      await testSelectedAccountNotSync(page, tab2)
+    })
+
+    test('persisted', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.keyboard.press('Enter')
+      const tab2 = await context.newPage()
+      await testSelectedAccountNotSync(page, tab2)
+    })
+
+    test('incognito', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByRole('button', { name: 'Continue without the profile' }).click()
+      const tab2 = await context.newPage()
+      await tab2.goto('/open-wallet/private-key')
+      await fillPrivateKeyWithoutPassword(tab2, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: true,
+      })
+      await testSelectedAccountNotSync(page, tab2)
+    })
+
+    async function testSelectedAccountNotSync(page: Page, tab2: Page) {
+      await tab2.goto('/')
+      await tab2.getByTestId('account-selector').click()
+      await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKeyAddressPretty) // Synced on load
+
+      await page.getByRole('link', { name: /Home/ }).click()
+      await page.getByRole('button', { name: /Open wallet/ }).click()
+      await page.getByRole('button', { name: /Private key/ }).click()
+      await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
+      await page.keyboard.press('Enter')
+      await page.getByTestId('account-selector').click()
+
+      await expect(page.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty)
+      await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKeyAddressPretty) // Not synced
+
+      await page.getByRole('checkbox', { name: new RegExp(privateKeyAddressPretty) }).click()
+      await page.getByTestId('account-selector').click()
+      await page.getByRole('checkbox', { name: new RegExp(privateKey2AddressPretty) }).click()
+      await page.getByTestId('account-selector').click()
+
+      await expect(page.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty)
+      await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKeyAddressPretty) // Not synced
+
+      await tab2.goto('/')
+      await tab2.getByTestId('account-selector').click()
+      await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty) // Synced on load
     }
   })
 })
