@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { RouteObject } from 'react-router-dom'
 import { CreateWalletPage } from 'app/pages/CreateWalletPage'
 import { HomePage } from 'app/pages/HomePage'
 import { FromLedger } from 'app/pages/OpenWalletPage/Features/FromLedger'
@@ -11,13 +12,7 @@ import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationL
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
 
-export type Route = {
-  path: string
-  element: ReactNode
-  children?: Route[]
-}
-
-export const commonRoutes: Route[] = [
+export const commonRoutes: RouteObject[] = [
   {
     path: '',
     element: <HomePage />,
