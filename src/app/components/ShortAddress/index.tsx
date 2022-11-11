@@ -4,6 +4,7 @@
  *
  * Used to render short address or hash.
  */
+import { NoTranslate } from 'app/components/NoTranslate'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -26,5 +27,5 @@ export function ShortAddress(props: Props) {
   const { t } = useTranslation()
 
   const short = props.address ? trimLongString(props.address) : t('common.unavailable', 'Unavailable')
-  return <>{short}</>
+  return <NoTranslate>{short}</NoTranslate>
 }

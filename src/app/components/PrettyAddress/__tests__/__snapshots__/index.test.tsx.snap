@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PrettyAddress  /> should match snapshot 1`] = `oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4`;
+exports[`<PrettyAddress  /> should match snapshot 1`] = `
+<span
+  class="notranslate"
+  translate="no"
+>
+  oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4
+</span>
+`;
 
-exports[`<PrettyAddress  /> should split the address 1`] = `oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4`;
+exports[`<PrettyAddress  /> should split the address 1`] = `
+<span
+  class="notranslate"
+  translate="no"
+>
+  oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4
+</span>
+`;

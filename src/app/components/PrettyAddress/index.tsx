@@ -3,6 +3,7 @@
  * PrettyAddress
  *
  */
+import { NoTranslate } from 'app/components/NoTranslate'
 import { isValidAddress } from 'app/lib/helpers'
 import React, { memo } from 'react'
 
@@ -26,7 +27,7 @@ export const PrettyAddress = memo((props: Props) => {
     const publicKey = parts[1].match(/.{1,4}/g)?.join(' ')
     const prettyAddress = `${hrp}1 ${publicKey}`
 
-    return <>{prettyAddress}</>
+    return <NoTranslate>{prettyAddress}</NoTranslate>
   } else {
     throw new Error('Invalid bech32 address')
   }
