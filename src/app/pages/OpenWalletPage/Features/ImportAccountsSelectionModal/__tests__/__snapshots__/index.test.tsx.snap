@@ -523,7 +523,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
               </h2>
               <div
                 class="c7"
-                style="min-height: 336px;"
+                style="min-height: 362px;"
               >
                 <div
                   class="c7"
