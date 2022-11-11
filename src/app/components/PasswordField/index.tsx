@@ -50,6 +50,7 @@ export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
             <Button
               onClick={() => setPasswordIsVisible(!passwordIsVisible)}
               icon={passwordIsVisible ? <View /> : <Hide />}
+              a11yTitle={passwordIsVisible ? props.hideTip : props.showTip}
             />
           </Tip>
         </Box>

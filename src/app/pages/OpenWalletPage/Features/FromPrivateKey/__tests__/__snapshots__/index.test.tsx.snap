@@ -480,6 +480,7 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
                 />
               </div>
               <button
+                aria-label="openWallet.privateKey.showPrivateKey"
                 class="c10"
                 type="button"
               >
