@@ -1,5 +1,5 @@
 import React from 'react'
-import { Heading, HeadingProps } from 'grommet'
+import { Box, Heading, HeadingProps, Text } from 'grommet'
 
 interface HeaderProps extends Pick<HeadingProps, 'level' | 'size' | 'margin' | 'textAlign'> {
   children: React.ReactNode
@@ -24,5 +24,18 @@ interface ModalHeaderProps {
 export const ModalHeader = ({ children, ...props }: ModalHeaderProps) => (
   <Header level={2} size="medium" {...props}>
     {children}
+  </Header>
+)
+
+interface ModalSplitHeaderProps {
+  children: React.ReactNode
+  side: React.ReactNode
+}
+export const ModalSplitHeader = ({ children, side }: ModalSplitHeaderProps) => (
+  <Header level={2} size="medium">
+    <Box direction="row-responsive" gap="medium" justify="between" align="baseline">
+      {children}
+      <Text weight="normal">{side}</Text>
+    </Box>
   </Header>
 )
