@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { CreateWalletPage } from 'app/pages/CreateWalletPage'
 import { HomePage } from 'app/pages/HomePage'
 import { FromLedger } from 'app/pages/OpenWalletPage/Features/FromLedger'
 import { FromMnemonic } from 'app/pages/OpenWalletPage/Features/FromMnemonic'
 import { FromPrivateKey } from 'app/pages/OpenWalletPage/Features/FromPrivateKey'
-import { AccountPage } from 'app/pages/AccountPage'
+import { AccountPage, validateRoute } from 'app/pages/AccountPage'
 import { AccountDetails } from 'app/pages/AccountPage/Features/AccountDetails'
 import { ValidatorList } from 'app/pages/StakingPage/Features/ValidatorList'
 import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
+import { ErrorBoundary } from 'app/components/ErrorBoundary'
 
 export const commonRoutes: RouteObject[] = [
   {
@@ -24,6 +25,10 @@ export const commonRoutes: RouteObject[] = [
   {
     path: 'account/:address/*',
     element: <AccountPage />,
+    errorElement: <ErrorBoundary></ErrorBoundary>,
+    loader: async ({ params }) => {
+      validateRoute(params as any)
+    },
     children: [
       {
         path: '',
