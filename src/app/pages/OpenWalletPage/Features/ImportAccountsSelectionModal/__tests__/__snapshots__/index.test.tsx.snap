@@ -24,6 +24,28 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -31,7 +53,26 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c8 {
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -50,7 +91,27 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c10 {
+.c8 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 24px;
+}
+
+.c13 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 48px;
+}
+
+.c17 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -60,13 +121,13 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c13 {
+.c9 {
   font-size: 18px;
   line-height: 24px;
-  text-align: center;
+  font-weight: normal;
 }
 
-.c9 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -92,140 +153,6 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   font-weight: bold;
-}
-
-.c9:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c9:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c9:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c11 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #0092f6;
-  border-radius: 18px;
-  color: #444444;
-  padding: 4px 20px;
-  font-size: 14px;
-  line-height: 20px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
-}
-
-.c11:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
-}
-
-.c11:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c11:focus > circle,
-.c11:focus > ellipse,
-.c11:focus > line,
-.c11:focus > path,
-.c11:focus > polygon,
-.c11:focus > polyline,
-.c11:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c11:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c11:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c11:focus:not(:focus-visible) > circle,.c11:focus:not(:focus-visible) > ellipse,
-.c11:focus:not(:focus-visible) > line,.c11:focus:not(:focus-visible) > path,
-.c11:focus:not(:focus-visible) > polygon,.c11:focus:not(:focus-visible) > polyline,
-.c11:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c11:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c12 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #0092f6;
-  border-radius: 4px;
-  color: #444444;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
-}
-
-.c12:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
 .c12:focus {
@@ -277,16 +204,11 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   overflow: visible;
   text-transform: none;
   border: 2px solid #0092f6;
-  border-radius: 4px;
+  border-radius: 18px;
   color: #444444;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #0092f6;
-  color: #f8f8f8;
-  border-radius: 4px;
-  opacity: 0.3;
-  cursor: default;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -294,6 +216,10 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
   font-weight: bold;
+}
+
+.c14:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
 .c14:focus {
@@ -330,6 +256,141 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 .c14:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c16 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c16:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c16:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus > circle,
+.c16:focus > ellipse,
+.c16:focus > line,
+.c16:focus > path,
+.c16:focus > polygon,
+.c16:focus > polyline,
+.c16:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c16:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c18 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #0092f6;
+  color: #f8f8f8;
+  border-radius: 4px;
+  opacity: 0.3;
+  cursor: default;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c18:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c18:focus > circle,
+.c18:focus > ellipse,
+.c18:focus > line,
+.c18:focus > path,
+.c18:focus > polygon,
+.c18:focus > polyline,
+.c18:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c18:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c18:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c18:focus:not(:focus-visible) > circle,.c18:focus:not(:focus-visible) > ellipse,
+.c18:focus:not(:focus-visible) > line,.c18:focus:not(:focus-visible) > path,
+.c18:focus:not(:focus-visible) > polygon,.c18:focus:not(:focus-visible) > polyline,
+.c18:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c18:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -431,13 +492,51 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c7 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-basis: auto;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c11 {
     padding-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c15 {
+    padding-top: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c8 {
+    width: auto;
+    height: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c13 {
+    width: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c17 {
     width: 6px;
   }
 }
@@ -519,68 +618,72 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
               <h2
                 class="c6"
               >
-                openWallet.importAccounts.selectWallets
+                <div
+                  class="c7"
+                >
+                  openWallet.importAccounts.selectWallets
+                  <div
+                    class="c8"
+                  />
+                  <span
+                    class="c9"
+                  >
+                    openWallet.importAccounts.accountCounter
+                  </span>
+                </div>
               </h2>
               <div
-                class="c7"
+                class="c10"
                 style="min-height: 362px;"
               >
                 <div
-                  class="c7"
+                  class="c10"
                 />
               </div>
               <div
-                class="c8"
+                class="c11"
               >
                 <button
                   aria-label="openWallet.importAccounts.prev"
-                  class="c9"
+                  class="c12"
                   disabled=""
                   type="button"
                 >
                   &lt;
                 </button>
                 <div
-                  class="c10"
+                  class="c13"
                 />
                 <div
-                  class="c7"
+                  class="c10"
                 >
                   openWallet.importAccounts.pageNumber
                 </div>
                 <div
-                  class="c10"
+                  class="c13"
                 />
                 <button
                   aria-label="openWallet.importAccounts.next"
-                  class="c11"
+                  class="c14"
                   type="button"
                 >
                   &gt;
                 </button>
               </div>
               <div
-                class="c8"
+                class="c15"
               >
                 <button
-                  class="c12"
+                  class="c16"
                   type="button"
                 >
                   common.cancel
                 </button>
                 <div
-                  class="c10"
-                />
-                <span
-                  class="c13"
-                >
-                  openWallet.importAccounts.accountCounter
-                </span>
-                <div
-                  class="c10"
+                  class="c17"
                 />
                 <button
-                  class="c14"
+                  class="c18"
                   data-testid="ledger-open-accounts"
                   disabled=""
                   type="button"

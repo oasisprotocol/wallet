@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
-import { ModalHeader } from 'app/components/Header'
+import { ModalSplitHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { Account } from 'app/components/Toolbar/Features/AccountSelector'
@@ -97,7 +97,14 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="800px" pad="medium">
-        <ModalHeader>{t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}</ModalHeader>
+        <ModalSplitHeader
+          side={t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
+            count: selectedAccounts.length,
+          })}
+        >
+          {t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
+        </ModalSplitHeader>
+
         <Box style={{ minHeight: '362px' }}>
           <ImportAccountsSelector accounts={accounts} />
           {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
@@ -116,7 +123,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             </AlertBox>
           )}
         </Box>
-        <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
+        <Box direction="row" gap="large" justify="center" pad={{ top: 'medium' }}>
           <Button
             disabled={!canGoPrev}
             label={size === 'small' ? '<' : `< ${t('openWallet.importAccounts.prev', 'Prev')}`}
@@ -145,11 +152,6 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             onClick={props.abort}
             disabled={cancelDisabled}
           />
-          <Text textAlign={'center'}>
-            {t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
-              count: selectedAccounts.length,
-            })}
-          </Text>
           <Button
             primary
             data-testid="ledger-open-accounts"
