@@ -11,6 +11,7 @@ import { ValidatorList } from 'app/pages/StakingPage/Features/ValidatorList'
 import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
+import { E2EPage } from 'app/pages/E2EPage'
 import { ErrorBoundary } from 'app/components/ErrorBoundary'
 
 export const commonRoutes: RouteObject[] = [
@@ -63,5 +64,9 @@ export const commonRoutes: RouteObject[] = [
   {
     path: 'open-wallet/ledger',
     element: <FromLedger />,
+  },
+  {
+    path: 'e2e',
+    element: process.env.REACT_APP_E2E_TEST ? <E2EPage /> : <div />,
   },
 ]
