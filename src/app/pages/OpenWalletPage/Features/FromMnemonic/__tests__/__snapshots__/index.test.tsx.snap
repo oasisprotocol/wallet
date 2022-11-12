@@ -429,7 +429,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
               >
                 <textarea
                   class="c8"
-                  data-testid="mnemonic"
                   id="mnemonic"
                   placeholder="openWallet.mnemonic.enterPhraseHere"
                   rows="5"

@@ -31,7 +31,7 @@ describe('Create wallet', () => {
   it('Should not be able to confirm with a different (valid) mnemonic', () => {
     cy.contains('mnemonic does not match').should('not.exist')
 
-    cy.findByTestId('mnemonic').type(
+    cy.findByPlaceholderText('Enter your keyphrase here').type(
       'abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger',
       { delay: 0 },
     )
@@ -42,7 +42,7 @@ describe('Create wallet', () => {
   it('Should confirm mnemonic', () => {
     cy.findByRole('button', { name: /Send/ }).should('not.exist')
     cy.findByRole('button', { name: /Import my wallet/ }).click()
-    cy.findByTestId('mnemonic').type(generatedMnemonic, { delay: 0 })
+    cy.findByPlaceholderText('Enter your keyphrase here').type(generatedMnemonic, { delay: 0 })
     cy.findByRole('button', { name: /Import my wallet/ }).click()
     cy.contains('mnemonic does not match').should('not.exist')
     cy.findByRole('button', { name: /Open/ }).click()
