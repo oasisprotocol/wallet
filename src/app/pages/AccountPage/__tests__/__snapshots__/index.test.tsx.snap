@@ -917,7 +917,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <span
               class="c11"
             >
-              oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
+              </span>
             </span>
           </div>
           <dl

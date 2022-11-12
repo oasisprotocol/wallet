@@ -151,7 +151,12 @@ exports[`<AddressBox /> should render address properly 1`] = `
     <span
       class="c3"
     >
-      oasis1 qqur xkga vtcj jytn eume clx5 9ds3 avja qg7f tqph
+      <span
+        class="notranslate"
+        translate="no"
+      >
+        oasis1 qqur xkga vtcj jytn eume clx5 9ds3 avja qg7f tqph
+      </span>
     </span>
   </div>
 </div>

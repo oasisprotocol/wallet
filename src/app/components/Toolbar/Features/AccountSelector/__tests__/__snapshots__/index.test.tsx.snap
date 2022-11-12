@@ -488,7 +488,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                       <span
                         class="c11"
                       >
-                        oasis1qq3x...rscnlwxe
+                        <span
+                          class="notranslate"
+                          translate="no"
+                        >
+                          oasis1qq3x...rscnlwxe
+                        </span>
                       </span>
                     </div>
                     <div
