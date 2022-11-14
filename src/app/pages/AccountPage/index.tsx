@@ -32,6 +32,7 @@ import {
 import { mobileHeaderZIndex } from '../../components/Sidebar'
 import { AccountSummary } from './Features/AccountSummary'
 import { isValidAddress } from '../../lib/helpers'
+import { WalletError, WalletErrors } from 'types/errors'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -87,7 +88,7 @@ interface AccountPageParams {
   address: string
 }
 
-function AccountPageInternal(props: AccountPageProps) {
+export function AccountPage(props: AccountPageProps) {
   const { t } = useTranslation()
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const { address } = useParams<keyof AccountPageParams>()
@@ -210,15 +211,8 @@ function AccountPageInternal(props: AccountPageProps) {
   )
 }
 
-export function AccountPage(props: AccountPageProps) {
-  const { t } = useTranslation()
-  const { address } = useParams<keyof AccountPageParams>()
-  if (!isValidAddress(address!)) {
-    return (
-      <Box pad={'small'}>
-        <AlertBox color={'status-error'}>{t('errors.invalidAddress', 'Invalid address')}</AlertBox>
-      </Box>
-    )
+export function validateRoute(params: AccountPageParams) {
+  if (!isValidAddress(params.address!)) {
+    throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
   }
-  return <AccountPageInternal {...props} />
 }
