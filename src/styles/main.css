@@ -40,3 +40,16 @@ html {
   max-width: 16px;
   max-height: 16px;
 }
+
+/* Visually warn developers about sensitive input fields missing preventSavingInputsToUserData */
+:is(input, textarea):is(
+[type="password"], [name="password"], [name="privatekey"], [name="mnemonic"], #privatekey, #mnemonic
+):not([autocomplete="off"]),
+/* Parent form should have preventSavingInputsToUserData too */
+form:not([autocomplete="off"]) :is(input, textarea):is(
+[type="password"], [name="password"], [name="privatekey"], [name="mnemonic"], #privatekey, #mnemonic
+) {
+  background: rgb(255 0 0) !important;
+  border: 1px solid rgb(255 0 0) !important;
+  content: "Use preventSavingInputsToUserData on sensitive inputs and parent form";
+}
