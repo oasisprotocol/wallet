@@ -42,7 +42,7 @@ const CommissionBound = memo((props: CommissionBoundProps) => {
   )
 
   return (
-    <Box>
+    <Box as="li">
       <Text>{component}</Text>
     </Box>
   )
@@ -61,7 +61,11 @@ export const CommissionBounds = memo((props: Props) => {
       .slice()
       .sort((a, b) => a.epochStart - b.epochStart)
       .map((b, i) => <CommissionBound bound={b} key={i} />)
-    return <>{items}</>
+    return (
+      <Box as="ul" margin="none" pad="none">
+        {items}
+      </Box>
+    )
   } else {
     return <>{t('validator.boundsNotSet', 'No bounds set (0% - 100%)')}</>
   }
