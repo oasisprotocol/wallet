@@ -612,86 +612,88 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
             tabindex="-1"
           />
           <div>
-            <div
-              class="c5"
-            >
-              <h2
-                class="c6"
+            <form>
+              <div
+                class="c5"
               >
-                <div
-                  class="c7"
+                <h2
+                  class="c6"
                 >
-                  openWallet.importAccounts.selectWallets
                   <div
-                    class="c8"
-                  />
-                  <span
-                    class="c9"
+                    class="c7"
                   >
-                    openWallet.importAccounts.accountCounter
-                  </span>
-                </div>
-              </h2>
-              <div
-                class="c10"
-                style="min-height: 362px;"
-              >
+                    openWallet.importAccounts.selectWallets
+                    <div
+                      class="c8"
+                    />
+                    <span
+                      class="c9"
+                    >
+                      openWallet.importAccounts.accountCounter
+                    </span>
+                  </div>
+                </h2>
                 <div
                   class="c10"
-                />
-              </div>
-              <div
-                class="c11"
-              >
-                <button
-                  aria-label="openWallet.importAccounts.prev"
-                  class="c12"
-                  disabled=""
-                  type="button"
+                  style="min-height: 362px;"
                 >
-                  &lt;
-                </button>
-                <div
-                  class="c13"
-                />
-                <div
-                  class="c10"
-                >
-                  openWallet.importAccounts.pageNumber
+                  <div
+                    class="c10"
+                  />
                 </div>
                 <div
-                  class="c13"
-                />
-                <button
-                  aria-label="openWallet.importAccounts.next"
-                  class="c14"
-                  type="button"
+                  class="c11"
                 >
-                  &gt;
-                </button>
-              </div>
-              <div
-                class="c15"
-              >
-                <button
-                  class="c16"
-                  type="button"
-                >
-                  common.cancel
-                </button>
+                  <button
+                    aria-label="openWallet.importAccounts.prev"
+                    class="c12"
+                    disabled=""
+                    type="button"
+                  >
+                    &lt;
+                  </button>
+                  <div
+                    class="c13"
+                  />
+                  <div
+                    class="c10"
+                  >
+                    openWallet.importAccounts.pageNumber
+                  </div>
+                  <div
+                    class="c13"
+                  />
+                  <button
+                    aria-label="openWallet.importAccounts.next"
+                    class="c14"
+                    type="button"
+                  >
+                    &gt;
+                  </button>
+                </div>
                 <div
-                  class="c17"
-                />
-                <button
-                  class="c18"
-                  data-testid="ledger-open-accounts"
-                  disabled=""
-                  type="button"
+                  class="c15"
                 >
-                  openWallet.importAccounts.openWallets
-                </button>
+                  <button
+                    class="c16"
+                    type="button"
+                  >
+                    common.cancel
+                  </button>
+                  <div
+                    class="c17"
+                  />
+                  <button
+                    class="c18"
+                    data-testid="ledger-open-accounts"
+                    disabled=""
+                    type="submit"
+                  >
+                    openWallet.importAccounts.openWallets
+                  </button>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@ import {
 } from 'app/state/importaccounts/selectors'
 import { ImportAccountsListAccount, ImportAccountsStep } from 'app/state/importaccounts/types'
 import { walletActions } from 'app/state/wallet'
-import { Box, Button, ResponsiveContext, Spinner, Text } from 'grommet'
+import { Box, Button, Form, ResponsiveContext, Spinner, Text } from 'grommet'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
 
@@ -51,6 +51,8 @@ interface ImportAccountsSelectionModalProps {
   abort: () => void
   type: WalletType.Mnemonic | WalletType.Ledger
 }
+
+interface FormValue {}
 
 export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModalProps) {
   const { t } = useTranslation()
@@ -96,71 +98,73 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
 
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
-      <Box width="800px" pad="medium">
-        <ModalSplitHeader
-          side={t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
-            count: selectedAccounts.length,
-          })}
-        >
-          {t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
-        </ModalSplitHeader>
-
-        <Box style={{ minHeight: '362px' }}>
-          <ImportAccountsSelector accounts={accounts} />
-          {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
-            <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
-              <Spinner size="medium" />
-              <Box alignSelf="center">
-                <Text size="xlarge">
-                  <ImportAccountsStepFormatter step={importAccounts.step} />
-                </Text>
-              </Box>
-            </Box>
-          )}
-          {error && (
-            <AlertBox color="status-error">
-              <ErrorFormatter code={error.code} message={error.message} />
-            </AlertBox>
-          )}
-        </Box>
-        <Box direction="row" gap="large" justify="center" pad={{ top: 'medium' }}>
-          <Button
-            disabled={!canGoPrev}
-            label={size === 'small' ? '<' : `< ${t('openWallet.importAccounts.prev', 'Prev')}`}
-            size={'small'}
-            a11yTitle={t('openWallet.importAccounts.prev', 'Prev')}
-            onClick={onPrev}
-          />
-          <Box>
-            {t('openWallet.importAccounts.pageNumber', 'Page {{ pageNum }} of {{ totalPages }}', {
-              pageNum: importAccounts.accountsSelectionPageNumber + 1,
-              totalPages: numberOfAccountPages,
+      <Form<FormValue> onSubmit={openAccounts}>
+        <Box width="800px" pad="medium">
+          <ModalSplitHeader
+            side={t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
+              count: selectedAccounts.length,
             })}
+          >
+            {t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
+          </ModalSplitHeader>
+
+          <Box style={{ minHeight: '362px' }}>
+            <ImportAccountsSelector accounts={accounts} />
+            {![ImportAccountsStep.Idle, ImportAccountsStep.LoadingBalances].includes(importAccounts.step) && (
+              <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
+                <Spinner size="medium" />
+                <Box alignSelf="center">
+                  <Text size="xlarge">
+                    <ImportAccountsStepFormatter step={importAccounts.step} />
+                  </Text>
+                </Box>
+              </Box>
+            )}
+            {error && (
+              <AlertBox color="status-error">
+                <ErrorFormatter code={error.code} message={error.message} />
+              </AlertBox>
+            )}
           </Box>
-          <Button
-            disabled={!canGoNext}
-            label={size === 'small' ? '>' : `${t('openWallet.importAccounts.next', 'Next')} >`}
-            size={'small'}
-            a11yTitle={t('openWallet.importAccounts.next', 'Next')}
-            onClick={onNext}
-          />
+          <Box direction="row" gap="large" justify="center" pad={{ top: 'medium' }}>
+            <Button
+              disabled={!canGoPrev}
+              label={size === 'small' ? '<' : `< ${t('openWallet.importAccounts.prev', 'Prev')}`}
+              size={'small'}
+              a11yTitle={t('openWallet.importAccounts.prev', 'Prev')}
+              onClick={onPrev}
+            />
+            <Box>
+              {t('openWallet.importAccounts.pageNumber', 'Page {{ pageNum }} of {{ totalPages }}', {
+                pageNum: importAccounts.accountsSelectionPageNumber + 1,
+                totalPages: numberOfAccountPages,
+              })}
+            </Box>
+            <Button
+              disabled={!canGoNext}
+              label={size === 'small' ? '>' : `${t('openWallet.importAccounts.next', 'Next')} >`}
+              size={'small'}
+              a11yTitle={t('openWallet.importAccounts.next', 'Next')}
+              onClick={onNext}
+            />
+          </Box>
+          <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
+            <Button
+              secondary
+              label={t('common.cancel', 'Cancel')}
+              onClick={props.abort}
+              disabled={cancelDisabled}
+            />
+            <Button
+              type="submit"
+              primary
+              data-testid="ledger-open-accounts"
+              label={t('openWallet.importAccounts.openWallets', 'Open')}
+              disabled={confirmDisabled}
+            />
+          </Box>
         </Box>
-        <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
-          <Button
-            secondary
-            label={t('common.cancel', 'Cancel')}
-            onClick={props.abort}
-            disabled={cancelDisabled}
-          />
-          <Button
-            primary
-            data-testid="ledger-open-accounts"
-            label={t('openWallet.importAccounts.openWallets', 'Open')}
-            onClick={openAccounts}
-            disabled={confirmDisabled}
-          />
-        </Box>
-      </Box>
+      </Form>
     </ResponsiveLayer>
   )
 }
