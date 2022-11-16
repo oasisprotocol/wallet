@@ -27,8 +27,8 @@ function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => v
  */
 export function ResponsiveLayer(props: LayerExtendedProps) {
   const layerRef = useRefWithCallback<HTMLDivElement>(
-    node => disableBodyScroll(node),
-    node => enableBodyScroll(node),
+    useCallback(node => disableBodyScroll(node), []),
+    useCallback(node => enableBodyScroll(node), []),
   )
 
   return (
