@@ -154,7 +154,7 @@
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   },
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
@@ -162,7 +162,7 @@
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "eslint-plugin-react": "7.31.10",
     "grommet-icons": "4.8.0",
-    "typescript": "4.8.4"
+    "typescript": "4.9.3"
   },
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",
   "alias": {
