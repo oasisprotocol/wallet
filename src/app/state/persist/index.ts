@@ -22,7 +22,7 @@ export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 
 export function getInitialState(): PersistState {
   return {
-    hasPersistedProfiles: !!localStorage.getItem(STORAGE_FIELD),
+    hasPersistedProfiles: !!window.localStorage.getItem(STORAGE_FIELD),
     // Disable persistence if tabs would override each other.
     isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
