@@ -1,4 +1,4 @@
-import { test, expect, Page } from '@playwright/test'
+import { test, expect, Page, Route } from '@playwright/test'
 import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
@@ -197,5 +197,37 @@ test.describe('syncTabs', () => {
       await tab2.getByTestId('account-selector').click()
       await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty) // Synced on load
     }
+  })
+
+  test('TODO opening from private key and locking in second tab should not crash', async ({
+    page,
+    context,
+  }) => {
+    // TODO: https://github.com/oasisprotocol/oasis-wallet-web/pull/975#discussion_r1019567305
+    test.fail()
+
+    await addPersistedStorage(page)
+    await page.goto('/')
+    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.keyboard.press('Enter')
+    await page.getByRole('link', { name: /Home/ }).click()
+    await page.getByRole('button', { name: /Open wallet/ }).click()
+    await page.getByRole('button', { name: /Private key/ }).click()
+    const tab2 = await context.newPage()
+    await tab2.goto('/')
+
+    // Delay getBalance so addWallet is called after wallet is locked.
+    let grpcBalance: Route
+    await page.route('**/oasis-core.Staking/Account', route => (grpcBalance = route))
+
+    await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
+    await page.keyboard.press('Enter')
+    await tab2.getByRole('button', { name: /Lock profile/ }).click()
+    await grpcBalance!.fulfill({
+      contentType: 'application/grpc-web-text+proto',
+      body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
+    })
+
+    await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
   })
 })
