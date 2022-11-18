@@ -62,6 +62,8 @@ export const Account = memo((props: AccountProps) => {
       pad="small"
       flex="grow"
       fill="horizontal"
+      role="checkbox"
+      aria-checked={props.isActive}
       onClick={() => {
         props.onClick(props.address)
       }}
@@ -70,7 +72,7 @@ export const Account = memo((props: AccountProps) => {
     >
       {props.displayCheckbox && (
         <Box alignSelf="center" pad={{ left: 'small', right: 'medium' }}>
-          <CheckBox checked={props.isActive} />
+          <CheckBox checked={props.isActive} hidden />
         </Box>
       )}
       {props.displayAccountNumber && (

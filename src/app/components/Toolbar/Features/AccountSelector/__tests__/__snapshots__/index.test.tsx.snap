@@ -475,8 +475,10 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                 class="c7"
               >
                 <div
+                  aria-checked="false"
                   class="c8"
                   data-testid="account-choice"
+                  role="checkbox"
                   tabindex="0"
                 >
                   <div
