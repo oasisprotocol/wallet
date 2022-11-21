@@ -9,6 +9,7 @@ interface Props<TFormValue> {
   inputElementId: string
 
   autoComplete: 'on' | 'off' | 'new-password' | 'current-password'
+  autoFocus?: boolean
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   validate?: (password: string, form: TFormValue) => string | undefined
@@ -24,33 +25,36 @@ export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
   const [passwordIsVisible, setPasswordIsVisible] = React.useState(false)
 
   return (
-    <FormField
-      name={props.name}
-      htmlFor={props.inputElementId}
-      label={props.label}
-      validate={props.validate}
-      error={props.error ? props.error : ''}
-      width={props.width}
-    >
-      <Box direction="row" align="center">
-        <TextInput
-          id={props.inputElementId}
-          name={props.name}
-          placeholder={props.placeholder}
-          value={props.value}
-          onChange={props.onChange}
-          type={passwordIsVisible ? 'text' : 'password'}
-          required={props.required}
-          autoComplete={props.autoComplete}
-          plain
-        />
-        <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>
-          <Button
-            onClick={() => setPasswordIsVisible(!passwordIsVisible)}
-            icon={passwordIsVisible ? <View /> : <Hide />}
+    <Box width={{ max: props.width }}>
+      <FormField
+        name={props.name}
+        htmlFor={props.inputElementId}
+        label={props.label}
+        validate={props.validate}
+        error={props.error ? props.error : ''}
+      >
+        <Box direction="row" align="center">
+          <TextInput
+            id={props.inputElementId}
+            name={props.name}
+            placeholder={props.placeholder}
+            value={props.value}
+            onChange={props.onChange}
+            type={passwordIsVisible ? 'text' : 'password'}
+            required={props.required}
+            autoComplete={props.autoComplete}
+            autoFocus={props.autoFocus}
+            plain
           />
-        </Tip>
-      </Box>
-    </FormField>
+          <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>
+            <Button
+              onClick={() => setPasswordIsVisible(!passwordIsVisible)}
+              icon={passwordIsVisible ? <View /> : <Hide />}
+              a11yTitle={passwordIsVisible ? props.hideTip : props.showTip}
+            />
+          </Tip>
+        </Box>
+      </FormField>
+    </Box>
   )
 }

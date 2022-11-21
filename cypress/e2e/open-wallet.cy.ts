@@ -26,13 +26,13 @@ describe('Open wallet', () => {
     })
 
     it('Should reject invalid mnemonics', () => {
-      cy.findByTestId('mnemonic').type('this is an invalid mnemonic')
+      cy.findByPlaceholderText('Enter your keyphrase here').type('this is an invalid mnemonic')
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid keyphrase/).should('be.visible')
     })
 
     it('Should accept valid mnemonic', () => {
-      cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByText(/Invalid keyphrase/).should('not.exist')
       cy.findByRole('button', { name: /Open/ }).click()
@@ -40,7 +40,7 @@ describe('Open wallet', () => {
     })
 
     it('Should open multiple accounts from mnemonic', () => {
-      cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
       cy.findAllByRole('checkbox', { checked: false })
@@ -56,7 +56,7 @@ describe('Open wallet', () => {
       cy.findByRole('link', { name: /Mnemonic/ }).click()
       cy.url().should('include', '/open-wallet/mnemonic')
 
-      cy.findByTestId('mnemonic').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
       cy.findAllByRole('checkbox', { checked: false })

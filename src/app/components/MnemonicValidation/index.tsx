@@ -1,9 +1,10 @@
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { validateMnemonic } from 'bip39'
-import { Grid, Box, Form, Paragraph, FormField, TextArea, Button, ResponsiveContext } from 'grommet'
+import { Grid, Box, Form, Paragraph, Button, ResponsiveContext } from 'grommet'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Header } from 'app/components/Header'
+import { MnemonicField } from 'app/components/MnemonicField'
 
 interface Props {
   /** Called once the mnemonic is confirmed */
@@ -49,32 +50,21 @@ export function MnemonicValidation(props: Props) {
               'Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.',
             )}
           </Paragraph>
-          <Box border={false}>
-            <FormField
-              htmlFor="mnemonic"
-              error={
-                mnemonicIsValid === false
-                  ? t(
-                      'openWallet.mnemonic.error',
-                      'Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.',
-                    )
-                  : ''
-              }
-            >
-              <Box border={false}>
-                <TextArea
-                  id="mnemonic"
-                  data-testid="mnemonic"
-                  placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
-                  size="medium"
-                  rows={5}
-                  value={rawMnemonic}
-                  onChange={onChange}
-                  fill
-                />
-              </Box>
-            </FormField>
-          </Box>
+          <MnemonicField
+            inputElementId="mnemonic"
+            placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
+            autoFocus
+            value={rawMnemonic}
+            onChange={onChange}
+            error={
+              mnemonicIsValid === false
+                ? t(
+                    'openWallet.mnemonic.error',
+                    'Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.',
+                  )
+                : ''
+            }
+          ></MnemonicField>
           <Box direction="row" gap="small" margin={{ top: 'medium' }}>
             <Button type="submit" label={t('openWallet.mnemonic.import', 'Import my wallet')} primary />
             {props.abortHandler && (

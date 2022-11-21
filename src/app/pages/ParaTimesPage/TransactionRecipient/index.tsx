@@ -7,6 +7,7 @@ import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
+import { PasswordField } from 'app/components/PasswordField'
 
 export const TransactionRecipient = () => {
   const { t } = useTranslation()
@@ -58,39 +59,31 @@ export const TransactionRecipient = () => {
       >
         <Box margin={{ bottom: 'medium' }}>
           {isEvmcParaTime && !isDepositing && (
-            <FormField
+            <PasswordField
+              inputElementId="ethPrivateKey"
               name="ethPrivateKey"
-              required
-              validate={(ethPrivateKey: string) =>
+              validate={ethPrivateKey =>
                 !isValidEthPrivateKeyLength(ethPrivateKey)
-                  ? {
-                      message: t(
-                        'paraTimes.validation.invalidEthPrivateKeyLength',
-                        'Private key should be 64 characters long',
-                      ),
-                      status: 'error',
-                    }
+                  ? t(
+                      'paraTimes.validation.invalidEthPrivateKeyLength',
+                      'Private key should be 64 characters long',
+                    )
                   : !isValidEthPrivateKey(ethPrivateKey)
-                  ? {
-                      message: t(
-                        'paraTimes.validation.invalidEthPrivateKey',
-                        'Ethereum-compatible private key is invalid',
-                      ),
-                      status: 'error',
-                    }
+                  ? t(
+                      'paraTimes.validation.invalidEthPrivateKey',
+                      'Ethereum-compatible private key is invalid',
+                    )
                   : undefined
               }
-            >
-              <TextInput
-                name="ethPrivateKey"
-                type="password"
-                placeholder={t(
-                  'paraTimes.recipient.privateKeyPlaceholder',
-                  'Enter Ethereum-compatible private key',
-                )}
-                value={transactionForm.ethPrivateKey}
-              />
-            </FormField>
+              placeholder={t(
+                'paraTimes.recipient.privateKeyPlaceholder',
+                'Enter Ethereum-compatible private key',
+              )}
+              value={transactionForm.ethPrivateKey}
+              autoComplete="off"
+              showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
+              hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
+            />
           )}
 
           <FormField
