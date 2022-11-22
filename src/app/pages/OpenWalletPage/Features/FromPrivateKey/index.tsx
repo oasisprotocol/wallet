@@ -7,6 +7,7 @@ import { base64ToUint, uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {}
 
@@ -51,7 +52,7 @@ export function FromPrivateKey(props: Props) {
       round="5px"
       border={{ color: 'background-front-border', size: '1px' }}
     >
-      <Form<FormValue> onSubmit={onSubmit}>
+      <Form<FormValue> onSubmit={onSubmit} {...preventSavingInputsToUserData}>
         <Header>{t('openWallet.privateKey.header', 'Enter your private key')}</Header>
         <Paragraph>
           <label htmlFor="privatekey">
@@ -63,7 +64,6 @@ export function FromPrivateKey(props: Props) {
           inputElementId="privatekey"
           name="privateKey"
           placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
-          autoComplete="off"
           autoFocus
           validate={privateKey =>
             isValidKey(privateKey) ? undefined : t('openWallet.privateKey.error', 'Invalid private key')

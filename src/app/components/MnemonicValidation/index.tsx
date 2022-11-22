@@ -5,6 +5,7 @@ import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Header } from 'app/components/Header'
 import { MnemonicField } from 'app/components/MnemonicField'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {
   /** Called once the mnemonic is confirmed */
@@ -42,7 +43,7 @@ export function MnemonicValidation(props: Props) {
       border={{ color: 'background-front-border', size: '1px' }}
     >
       <Grid gap="small" pad="none" columns={size === 'small' ? '100%' : ['1fr', '1fr']}>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} {...preventSavingInputsToUserData}>
           <Header>{t('openWallet.mnemonic.header', 'Enter your keyphrase')}</Header>
           <Paragraph>
             {t(

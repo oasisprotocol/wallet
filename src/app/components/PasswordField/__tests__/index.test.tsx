@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { Form, FormField, TextInput } from 'grommet'
 import * as React from 'react'
 import { PasswordField } from '..'
@@ -18,6 +19,7 @@ describe('<PasswordField />', () => {
             expect(value.privateKey.length).toBeGreaterThanOrEqual(5)
             props.onSubmit(value)
           }}
+          {...preventSavingInputsToUserData}
         >
           <FormField name="name">
             <TextInput name="name" value="name" />
@@ -26,7 +28,6 @@ describe('<PasswordField />', () => {
             inputElementId="privateKey"
             name="privateKey"
             label="privateKey"
-            autoComplete="current-password"
             validate={(privateKey, form) => {
               return privateKey.length < 5 ? 'invalid' : undefined
             }}
@@ -60,6 +61,7 @@ describe('<PasswordField />', () => {
             // expect(privateKey.length).toBeGreaterThanOrEqual(5)
             props.onSubmit({ name, privateKey })
           }}
+          {...preventSavingInputsToUserData}
         >
           <FormField name="name">
             <TextInput name="name" value={name} onChange={event => setName(event.target.value)} />
@@ -68,7 +70,6 @@ describe('<PasswordField />', () => {
             inputElementId="privateKey"
             name="privateKey"
             label="privateKey"
-            autoComplete="off"
             value={privateKey}
             onChange={event => setPrivateKey(event.target.value)}
             error={privateKey.length < 5 ? 'invalid' : undefined}

@@ -1,3 +1,4 @@
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { Form, FormField, TextInput } from 'grommet'
 import * as React from 'react'
 import { PasswordField } from '..'
@@ -16,6 +17,7 @@ describe('type-only test', () => {
             expect(value.privateKey !== 5).toBeTruthy()
             expect(value.privateKey !== '5').toBeTruthy()
           }}
+          {...preventSavingInputsToUserData}
         >
           <FormField name="name">
             <TextInput name="name" value="name" />
@@ -24,8 +26,6 @@ describe('type-only test', () => {
             inputElementId="privateKey"
             name="privateKey"
             label="privateKey"
-            // @ts-expect-error Detect incorrect value
-            autoComplete="password"
             validate={(privateKey, form) => {
               // @ts-expect-error Detect incorrect type
               expect(privateKey !== 5).toBeTruthy()
@@ -47,7 +47,6 @@ describe('type-only test', () => {
             inputElementId="privateKey3"
             // @ts-expect-error Detect missing field
             name="privateKey3"
-            autoComplete="current-password"
             showTip="show"
             hideTip="hide"
           />
@@ -63,6 +62,7 @@ describe('type-only test', () => {
             // @ts-expect-error Doesn't know about any fields
             expect(value.privateKey !== '5').toBeTruthy()
           }}
+          {...preventSavingInputsToUserData}
         >
           <FormField name="name">
             <TextInput name="name" value="name" />
@@ -71,7 +71,6 @@ describe('type-only test', () => {
             inputElementId="privateKey"
             name="privateKey"
             label="privateKey"
-            autoComplete="off"
             validate={(privateKey, form) => {
               // @ts-expect-error Detect incorrect type
               expect(privateKey !== 5).toBeTruthy()
