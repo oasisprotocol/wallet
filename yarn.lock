@@ -6470,7 +6470,7 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
-grommet-icons@4.8.0, grommet-icons@^4.7.0:
+grommet-icons@4.8.0, grommet-icons@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.8.0.tgz#3c9922b3662d0b9e22913ecbaa7b1101031b554b"
   integrity sha512-8cS1zVib88SIyLfsWFFazMzYz/8k5MvXZqopUjN/Bnl8HvQBUe0Z87F+JXRb1AMMYkuqXQW9Pg6XfBB3Ro9VdQ==
@@ -6482,12 +6482,12 @@ grommet-styles@^0.2.0:
   resolved "https://registry.npmjs.org/grommet-styles/-/grommet-styles-0.2.0.tgz"
   integrity sha512-0OMSYuGeyifYKpg4Gv2HzL8rUdd0ddnJ5LbCBKgDuloC71XIwr9g/Fxa6rs737MbPV7OZ4pEm4wvrjH4epzf1A==
 
-grommet@2.27.0:
-  version "2.27.0"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.27.0.tgz#f2396155cb8d871d3c4ec6a0ab47c2ee0fe90939"
-  integrity sha512-VAk1sNPagLJX4d9wLEZbAt1NU+AMzwtnX5eFy6ZkINKpvKcHOhO05E/RW7i7a4RBTGz2w251Y4xGTmPieCDxOA==
+grommet@2.28.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.28.0.tgz#57a08713012efd76a8c54783bd0735de4af73b46"
+  integrity sha512-3urt3aK1v7MRhVrdc7qUY5BkLZNlL4eEt5+3CBIDlA7IOb2x4y21hyxjhVd4lbklowC/n2Gtrt8YTob7sS6s3w==
   dependencies:
-    grommet-icons "^4.7.0"
+    grommet-icons "^4.8.0"
     hoist-non-react-statics "^3.2.0"
     markdown-to-jsx "^7.1.5"
     prop-types "^15.8.1"
