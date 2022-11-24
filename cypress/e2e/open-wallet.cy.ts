@@ -43,14 +43,14 @@ describe('Open wallet', () => {
       cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
-      cy.findAllByRole('checkbox', { checked: false })
+      cy.findAllByRole('checkbox', { name: /oasis1/, checked: false })
         .should('have.length', 3)
         .click({ force: true, multiple: true })
 
       cy.findByRole('button', { name: /Open/ }).click()
       cy.url().should('include', 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh')
 
-      // Should allow importing and reselecting the same accounts
+      cy.log('Should allow importing and re-selecting the same accounts')
       cy.findByRole('link', { name: /Home/ }).click()
       cy.findByRole('link', { name: /Open wallet/ }).click()
       cy.findByRole('link', { name: /Mnemonic/ }).click()
@@ -59,7 +59,7 @@ describe('Open wallet', () => {
       cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findAllByTestId('account-choice').should('have.length', 4)
-      cy.findAllByRole('checkbox', { checked: false })
+      cy.findAllByRole('checkbox', { name: /oasis1/, checked: false })
         .should('have.length', 3)
         .click({ force: true, multiple: true })
 
@@ -95,7 +95,7 @@ describe('Open wallet', () => {
       cy.findByText(/Invalid private key/).should('not.exist')
       cy.url().should('include', '/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk')
 
-      // Should allow importing and reselecting the same account
+      cy.log('Should allow importing and re-selecting the same account')
       cy.findByRole('link', { name: /Home/ }).click()
       cy.findByRole('link', { name: /Open wallet/ }).click()
       cy.findByRole('link', { name: /Private key/ }).click()

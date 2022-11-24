@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit'
 
 import { RootState } from 'types'
-import { initialState } from '.'
+import { getInitialState } from '.'
 import { isSystemDark } from '../utils'
 
-const selectSlice = (state: RootState) => state.theme || initialState
+const selectSlice = (state: RootState) => state.theme || getInitialState()
 export const selectTheme = createSelector([selectSlice], theme => {
   if (theme.selected === 'system') {
     return isSystemDark ? 'dark' : 'light'

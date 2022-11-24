@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 8000,
+    timeout: 3000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -30,11 +30,11 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'line',
+  reporter: 'list',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 8000,
+    actionTimeout: 3000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     /* Test dev server by default, but also allow testing `start:prod`. */
     baseURL: process.env.BASE_URL ?? 'http://localhost:3000',

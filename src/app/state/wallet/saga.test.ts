@@ -5,7 +5,7 @@ import { DeepPartialRootState } from 'types/RootState'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { getBalance, rootWalletSaga, walletSaga } from './saga'
+import { addWallet, getBalance, rootWalletSaga, walletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
 import { importAccountsActions } from '../importaccounts'
 
@@ -38,7 +38,7 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .withState(state)
         .provide(providers)
-        .dispatch(walletActions.openWalletFromMnemonic())
+        .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
         .fork(walletSaga)
         .silentRun(50)
     })
@@ -47,23 +47,21 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState(state)
-        .dispatch(walletActions.openWalletFromMnemonic())
+        .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
         .fork(walletSaga)
         .put(importAccountsActions.clear())
-        .put(
-          walletActions.addWallet({
-            address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-            balance: {
-              available: '0',
-              validator: { escrow: '0', escrow_debonding: '0' },
-            },
-            path: [44, 474, 0],
-            privateKey: '00',
-            publicKey: '00',
-            selectImmediately: true,
-            type: WalletType.Mnemonic,
-          }),
-        )
+        .call(addWallet, {
+          address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
+          balance: {
+            available: '0',
+            validator: { escrow: '0', escrow_debonding: '0' },
+          },
+          path: [44, 474, 0],
+          privateKey: '00',
+          publicKey: '00',
+          selectImmediately: true,
+          type: WalletType.Mnemonic,
+        } as AddWalletPayload)
         .put.actionType(walletActions.walletOpened.type)
         .put(walletActions.selectWallet('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4'))
         .silentRun(200)
@@ -73,16 +71,21 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState({})
-        .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
+        .dispatch(
+          walletActions.openWalletFromPrivateKey({
+            privateKey: validPrivateKeyHex,
+            choosePassword: undefined,
+          }),
+        )
         .fork(walletSaga)
-        .put.like({
-          action: {
-            type: walletActions.addWallet.type,
-            payload: {
+        .call.like({
+          fn: addWallet,
+          args: [
+            {
               address: addressHex,
               type: WalletType.PrivateKey,
             } as AddWalletPayload,
-          },
+          ],
         })
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
@@ -92,7 +95,7 @@ describe('Wallet Sagas', () => {
       return expectSaga(rootWalletSaga)
         .provide(providers)
         .withState(state)
-        .dispatch(walletActions.openWalletsFromLedger())
+        .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
         .fork(walletSaga)
         .put(importAccountsActions.clear())
         .put.actionType(walletActions.selectWallet.type)
@@ -139,25 +142,12 @@ describe('Wallet Sagas', () => {
             },
           },
         })
-        .dispatch(walletActions.openWalletsFromLedger())
+        .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
         .fork(walletSaga)
         .put({
           type: walletActions.selectWallet.type,
           payload: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
         })
-        .silentRun(50)
-    })
-
-    it('Should close the wallet and wait for another open attempt', () => {
-      return expectSaga(rootWalletSaga)
-        .provide(providers)
-        .withState({})
-        .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
-        .fork(walletSaga)
-        .put.actionType(walletActions.selectWallet.type)
-        .dispatch(walletActions.closeWallet())
-        .put(walletActions.walletClosed())
-        .take(walletActions.openWalletFromMnemonic)
         .silentRun(50)
     })
   })
@@ -170,10 +160,12 @@ describe('Wallet Sagas', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)
       .withState(state)
-      .dispatch(walletActions.openWalletFromPrivateKey(validPrivateKeyHex))
+      .dispatch(
+        walletActions.openWalletFromPrivateKey({ privateKey: validPrivateKeyHex, choosePassword: undefined }),
+      )
       .put.actionType(walletActions.walletOpened.type)
       .put.actionType(walletActions.selectWallet.type)
-      .dispatch(walletActions.openWalletFromMnemonic())
+      .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
       .put.actionType(walletActions.walletOpened.type)
       .put.actionType(walletActions.selectWallet.type)
       .silentRun(50)

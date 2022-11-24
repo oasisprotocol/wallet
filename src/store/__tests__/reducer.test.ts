@@ -1,9 +1,9 @@
-import { createReducer } from '../reducers'
+import { createPersistedRootReducer } from '../reducers'
 import { Reducer } from '@reduxjs/toolkit'
 
 describe('reducer', () => {
   it('should define app reducers', () => {
-    const reducer = createReducer() as Reducer<any, any>
+    const reducer = createPersistedRootReducer() as Reducer<any, any>
     const newState = reducer({ theme: { selected: 'dark' } }, '')
     expect(newState).toHaveProperty('account')
     expect(newState).toHaveProperty('createWallet')
@@ -15,5 +15,6 @@ describe('reducer', () => {
     expect(newState).toHaveProperty('theme')
     expect(newState).toHaveProperty('transaction')
     expect(newState).toHaveProperty('wallet')
+    expect(newState).toHaveProperty('persist')
   })
 })

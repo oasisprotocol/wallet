@@ -58,7 +58,15 @@ describe('<ValidatorList  />', () => {
   let store: ReturnType<typeof configureAppStore>
 
   beforeEach(() => {
-    store = configureAppStore()
+    store = configureAppStore({
+      network: {
+        chainContext: '',
+        epoch: 300,
+        selectedNetwork: 'mainnet',
+        ticker: 'ROSE',
+        minimumStakingAmount: 100,
+      },
+    })
 
     jest.mocked(NodeInternal).mockReturnValue({
       async stakingAccount(query: any) {

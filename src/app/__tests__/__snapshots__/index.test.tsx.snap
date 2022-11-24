@@ -19,6 +19,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
       name="description"
     />
   </Helmet>
+  <FatalErrorHandler />
   <Box
     background="background-back"
     direction="row-responsive"
@@ -29,22 +30,26 @@ exports[`<App /> should render and match the snapshot 1`] = `
       }
     }
   >
-    <Navigation />
-    <Box
-      flex={true}
-      pad={
-        {
-          "top": undefined,
-        }
-      }
-    >
-      <Styled(Main)>
-        <FatalErrorHandler />
-        <Toolbar />
-        <Outlet />
-        <Memo />
-      </Styled(Main)>
-    </Box>
+    <PersistLoadingGate>
+      <UnlockGate>
+        <Navigation />
+        <Box
+          flex={true}
+          pad={
+            {
+              "top": undefined,
+            }
+          }
+        >
+          <Styled(Main)>
+            <FatalErrorHandler />
+            <Toolbar />
+            <Outlet />
+            <Memo />
+          </Styled(Main)>
+        </Box>
+      </UnlockGate>
+    </PersistLoadingGate>
   </Box>
 </ModalProvider>
 `;

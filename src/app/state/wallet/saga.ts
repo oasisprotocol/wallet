@@ -10,7 +10,14 @@ import { ImportAccountsListAccount } from '../importaccounts/types'
 import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
-import { AddWalletPayload, Wallet, WalletType } from './types'
+import {
+  AddWalletPayload,
+  OpenFromPrivateKeyPayload,
+  OpenSelectedAccountsPayload,
+  Wallet,
+  WalletType,
+} from './types'
+import { persistActions } from 'app/state/persist'
 
 /**
  * Opened wallet saga
@@ -23,7 +30,6 @@ export function* rootWalletSaga() {
   yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
   yield* takeEvery(walletActions.openWalletFromMnemonic, openWalletFromMnemonic)
   yield* takeEvery(walletActions.openWalletsFromLedger, openWalletsFromLedger)
-  yield* takeEvery(walletActions.addWallet, addWallet)
 
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(refreshAccountOnTransaction)
@@ -32,9 +38,6 @@ export function* rootWalletSaga() {
 
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
-
-  // Listen to closeWallet
-  yield* takeEvery(walletActions.closeWallet, closeWallet)
 }
 
 export function* getBalance(publicKey: Uint8Array) {
@@ -57,57 +60,63 @@ function* getWalletByAddress(address: string) {
 /**
  * Take multiple ledger accounts that we want to open
  */
-export function* openWalletsFromLedger() {
+export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAccountsPayload>) {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    yield* put(
-      walletActions.addWallet({
-        address: account.address,
-        publicKey: account.publicKey,
-        type: WalletType.Ledger,
-        balance: account.balance!,
-        path: account.path,
-        selectImmediately: account === accounts[0], // Select first
-      }),
-    )
+    yield* call(addWallet, {
+      address: account.address,
+      publicKey: account.publicKey,
+      type: WalletType.Ledger,
+      balance: account.balance!,
+      path: account.path,
+      selectImmediately: account === accounts[0], // Select first
+    })
+  }
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
   }
 }
 
-export function* openWalletFromPrivateKey({ payload: privateKey }: PayloadAction<string>) {
+export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPrivateKeyPayload>) {
   const type = WalletType.PrivateKey
-  const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(privateKey)).publicKey
+  const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(payload.privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
   const balance = yield* call(getBalance, publicKeyBytes)
 
-  yield* put(
-    walletActions.addWallet({
-      address: walletAddress,
-      publicKey,
-      privateKey,
-      type: type!,
-      balance,
-      selectImmediately: true,
-    }),
-  )
+  yield* call(addWallet, {
+    address: walletAddress,
+    publicKey,
+    privateKey: payload.privateKey,
+    type: type!,
+    balance,
+    selectImmediately: true,
+  })
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
+  }
 }
 
-export function* openWalletFromMnemonic() {
+export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedAccountsPayload>) {
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    yield* put(
-      walletActions.addWallet({
-        address: account.address,
-        balance: account.balance!,
-        path: account.path,
-        privateKey: account.privateKey,
-        publicKey: account.publicKey,
-        type: account.type,
-        selectImmediately: account === accounts[0], // Select first
-      }),
-    )
+    yield* call(addWallet, {
+      address: account.address,
+      balance: account.balance!,
+      path: account.path,
+      privateKey: account.privateKey,
+      publicKey: account.publicKey,
+      type: account.type,
+      selectImmediately: account === accounts[0], // Select first
+    })
+  }
+
+  if (payload.choosePassword) {
+    yield* put(persistActions.setPasswordAsync({ password: payload.choosePassword }))
   }
 }
 
@@ -116,7 +125,7 @@ export function* openWalletFromMnemonic() {
  * If the wallet exists already, do nothing
  * If it has "selectImmediately", we select it immediately
  */
-export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
+export function* addWallet(payload: AddWalletPayload) {
   const { selectImmediately, ...newWallet } = payload
   const existingWallet = yield* call(getWalletByAddress, newWallet.address)
   if (!existingWallet) {
@@ -128,10 +137,6 @@ export function* addWallet({ payload }: PayloadAction<AddWalletPayload>) {
     yield* delay(1) // Workaround to avoid React batching state updates
     yield* put(walletActions.selectWallet(newWallet.address))
   }
-}
-
-export function* closeWallet() {
-  yield* put(walletActions.walletClosed())
 }
 
 function* loadWallet(action: PayloadAction<Wallet>) {

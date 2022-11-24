@@ -9,7 +9,9 @@ describe('Network Sagas', () => {
     process.env = { ...env }
   })
 
-  test('networkSaga', () => {
+  // TODO: don't test implementation
+  // https://github.com/oasisprotocol/oasis-wallet-web/pull/868#discussion_r903743398
+  test.skip('networkSaga', () => {
     delete process.env.REACT_APP_LOCALNET
 
     testSaga(networkSaga)

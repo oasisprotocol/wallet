@@ -9,14 +9,24 @@ import { ImportAccountsState } from 'app/state/importaccounts/types'
 import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
+import { PersistState } from 'app/state/persist/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { receivePersistedRootState } from 'app/state/persist'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { receiveInitialTabSyncState, whitelistTabSyncActions } from 'app/state/persist/syncTabs'
+
 export interface RootState {
+  /** Stored slices, see {@link receivePersistedRootState} */
   theme: ThemeState
   wallet: WalletState
-  createWallet: CreateWalletState
-  account: AccountState
   network: NetworkState
+  /** Synced slices, see {@link receiveInitialTabSyncState} {@link whitelistTabSyncActions} */
+  persist: PersistState
+  /** Not synced or stored */
+  account: AccountState
+  createWallet: CreateWalletState
   transaction: TransactionState
   importAccounts: ImportAccountsState
   paraTimes: ParaTimesState

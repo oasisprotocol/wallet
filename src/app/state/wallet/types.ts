@@ -39,6 +39,15 @@ export interface AddWalletPayload extends Wallet {
   selectImmediately: boolean
 }
 
+export interface OpenFromPrivateKeyPayload {
+  privateKey: string
+  choosePassword: string | undefined
+}
+
+export interface OpenSelectedAccountsPayload {
+  choosePassword: string | undefined
+}
+
 /* --- STATE --- */
 export interface WalletState {
   isOpen: boolean

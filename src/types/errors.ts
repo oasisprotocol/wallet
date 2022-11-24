@@ -47,3 +47,9 @@ export class ExhaustedTypeError extends Error {
     )
   }
 }
+
+export class PasswordWrongError extends Error {
+  constructor() {
+    super('Password wrong')
+  }
+}

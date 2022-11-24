@@ -746,7 +746,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span
                   class="c19"
                 >
-                  TEST
+                  ROSE
                 </span>
               </span>
             </div>
@@ -808,7 +808,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span
                   class="c19"
                 >
-                  TEST
+                  ROSE
                 </span>
               </span>
             </div>
@@ -870,7 +870,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span
                   class="c19"
                 >
-                  TEST
+                  ROSE
                 </span>
               </span>
             </div>

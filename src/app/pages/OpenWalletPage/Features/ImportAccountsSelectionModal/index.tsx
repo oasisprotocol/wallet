@@ -19,6 +19,10 @@ import { walletActions } from 'app/state/wallet'
 import { Box, Button, Form, ResponsiveContext, Spinner, Text } from 'grommet'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
+import {
+  ChoosePasswordFields,
+  FormValue as ChoosePasswordFieldsFormValue,
+} from 'app/components/Persist/ChoosePasswordFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface ImportAccountsSelectorSelectorProps {
@@ -53,7 +57,7 @@ interface ImportAccountsSelectionModalProps {
   type: WalletType.Mnemonic | WalletType.Ledger
 }
 
-interface FormValue {}
+interface FormValue extends ChoosePasswordFieldsFormValue {}
 
 export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModalProps) {
   const { t } = useTranslation()
@@ -65,11 +69,11 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const selectedAccounts = useSelector(selectSelectedAccounts)
   const dispatch = useDispatch()
 
-  const openAccounts = () => {
+  const openAccounts = ({ value }: { value: FormValue }) => {
     dispatch(
       props.type === WalletType.Ledger
-        ? walletActions.openWalletsFromLedger()
-        : walletActions.openWalletFromMnemonic(),
+        ? walletActions.openWalletsFromLedger({ choosePassword: value.password2 })
+        : walletActions.openWalletFromMnemonic({ choosePassword: value.password2 }),
     )
   }
 
@@ -127,7 +131,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               </AlertBox>
             )}
           </Box>
-          <Box direction="row" gap="large" justify="center" pad={{ top: 'medium' }}>
+          <Box direction="row" gap="large" justify="center" align="baseline" pad={{ top: 'medium' }}>
             <Button
               disabled={!canGoPrev}
               label={size === 'small' ? '<' : `< ${t('openWallet.importAccounts.prev', 'Prev')}`}
@@ -149,6 +153,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               onClick={onNext}
             />
           </Box>
+          <ChoosePasswordFields />
           <Box direction="row" gap="small" justify="between" pad={{ top: 'medium' }}>
             <Button
               secondary

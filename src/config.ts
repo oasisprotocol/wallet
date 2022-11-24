@@ -153,3 +153,6 @@ export const paraTimesConfig: ParaTimesConfig = {
   [ParaTime.Emerald]: emeraldConfig,
   [ParaTime.Sapphire]: sapphireConfig,
 }
+
+// https://github.com/mozilla/webextension-polyfill/blob/6e3e26c/src/browser-polyfill.js#L9
+export const runtimeIs = (window as any).chrome?.runtime?.id ? 'extension' : 'webapp'

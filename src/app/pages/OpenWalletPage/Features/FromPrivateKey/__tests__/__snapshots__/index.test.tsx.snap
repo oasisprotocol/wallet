@@ -503,6 +503,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
           </div>
         </div>
       </div>
+      <p>
+        persist.createProfile.unsupported
+      </p>
       <div
         class="c12"
       >

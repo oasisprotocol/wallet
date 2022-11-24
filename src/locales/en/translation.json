@@ -206,6 +206,7 @@
   "menu": {
     "closeWallet": "Close wallet",
     "home": "Home",
+    "lockProfile": "Lock profile",
     "paraTimes": "ParaTimes",
     "stake": "Stake",
     "wallet": "Wallet"
@@ -329,6 +330,27 @@
       "invalidFee": "Value must be integer greater than or equal to 0",
       "required": "Field is required",
       "unsupportedParaTime": "Unsupported ParaTime"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "Choose a password",
+      "passwordMismatch": "Entered password does not match",
+      "repeatPassword": "Re-enter your password",
+      "startPersisting": "Store private keys locally, protected by a password",
+      "unsupported": "Persistence is not supported in this browser."
+    },
+    "loading": "Loading",
+    "loginToProfile": {
+      "description": "Log into your existing user profile on this computer to access the wallets you already added.",
+      "enterPasswordHere": "Enter your password here",
+      "eraseProfile": "Erase profile",
+      "hidePassword": "Hide password",
+      "showPassword": "Show password",
+      "skipUnlocking": "Continue without the profile",
+      "title": "Welcome Back!",
+      "unlock": "Unlock",
+      "wrongPassword": "Wrong password"
     }
   },
   "theme": {
