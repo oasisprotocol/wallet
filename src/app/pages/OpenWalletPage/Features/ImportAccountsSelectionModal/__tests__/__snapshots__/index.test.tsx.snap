@@ -612,7 +612,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
             tabindex="-1"
           />
           <div>
-            <form>
+            <form
+              autocomplete="off"
+            >
               <div
                 class="c5"
               >

@@ -439,7 +439,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   <div
     class="c1"
   >
-    <form>
+    <form
+      autocomplete="off"
+    >
       <h1
         class="c2"
       >

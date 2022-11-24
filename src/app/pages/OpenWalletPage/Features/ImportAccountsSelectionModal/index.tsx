@@ -19,6 +19,7 @@ import { walletActions } from 'app/state/wallet'
 import { Box, Button, Form, ResponsiveContext, Spinner, Text } from 'grommet'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface ImportAccountsSelectorSelectorProps {
   accounts: ImportAccountsListAccount[]
@@ -98,7 +99,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
 
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
-      <Form<FormValue> onSubmit={openAccounts}>
+      <Form<FormValue> onSubmit={openAccounts} {...preventSavingInputsToUserData}>
         <Box width="800px" pad="medium">
           <ModalSplitHeader
             side={t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {

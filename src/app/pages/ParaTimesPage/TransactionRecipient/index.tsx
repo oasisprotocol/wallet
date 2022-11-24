@@ -8,6 +8,7 @@ import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
 import { PasswordField } from 'app/components/PasswordField'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 export const TransactionRecipient = () => {
   const { t } = useTranslation()
@@ -56,6 +57,7 @@ export const TransactionRecipient = () => {
         onSubmit={navigateToAmount}
         value={transactionForm}
         style={{ width: isMobile ? '100%' : '465px' }}
+        {...preventSavingInputsToUserData}
       >
         <Box margin={{ bottom: 'medium' }}>
           {isEvmcParaTime && !isDepositing && (
@@ -80,7 +82,6 @@ export const TransactionRecipient = () => {
                 'Enter Ethereum-compatible private key',
               )}
               value={transactionForm.ethPrivateKey}
-              autoComplete="off"
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
             />

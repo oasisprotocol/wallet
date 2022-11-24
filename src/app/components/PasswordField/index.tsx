@@ -1,3 +1,4 @@
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { Box, FormField, Button, TextInput, Tip } from 'grommet'
 import { View, Hide } from 'grommet-icons'
 import * as React from 'react'
@@ -8,7 +9,6 @@ interface Props<TFormValue> {
   placeholder?: string
   inputElementId: string
 
-  autoComplete: 'on' | 'off' | 'new-password' | 'current-password'
   autoFocus?: boolean
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
@@ -42,9 +42,9 @@ export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
             onChange={props.onChange}
             type={passwordIsVisible ? 'text' : 'password'}
             required={props.required}
-            autoComplete={props.autoComplete}
             autoFocus={props.autoFocus}
             plain
+            {...preventSavingInputsToUserData}
           />
           <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>
             <Button

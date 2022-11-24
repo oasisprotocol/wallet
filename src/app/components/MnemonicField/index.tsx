@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { FormField, TextArea } from 'grommet'
+import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {
   placeholder?: string
@@ -24,6 +25,7 @@ export function MnemonicField(props: Props) {
         size="medium"
         rows={5}
         fill
+        {...preventSavingInputsToUserData}
       />
     </FormField>
   )
