@@ -29,7 +29,7 @@ export function HomePage() {
               to="open-wallet"
               label={t('home.existing.button', 'Open wallet')}
               primary
-              icon={<Unlock />}
+              icon={<Unlock a11yTitle={undefined} />}
             />
           </Box>
         </Box>
@@ -51,7 +51,7 @@ export function HomePage() {
               to="create-wallet"
               label={t('home.create.button', 'Create wallet')}
               primary
-              icon={<Add />}
+              icon={<Add a11yTitle={undefined} />}
             />
           </Box>
         </Box>
