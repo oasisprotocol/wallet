@@ -204,4 +204,18 @@ test.describe('Persist', () => {
     await page.waitForTimeout(1000)
     await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
   })
+
+  test('Opening a wallet after erasing a profile should NOT crash', async ({ page }) => {
+    await addPersistedStorage(page)
+    await page.goto('/')
+
+    page.once('dialog', dialog => dialog.accept())
+    await page.getByRole('button', { name: /Erase profile/ }).click()
+
+    await page.getByRole('button', { name: /Open wallet/ }).click()
+    await page.getByRole('button', { name: /Private key/ }).click()
+    await page.getByPlaceholder('Enter your private key here').fill(privateKey)
+    await page.keyboard.press('Enter')
+    await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+  })
 })
