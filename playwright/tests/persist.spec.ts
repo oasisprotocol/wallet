@@ -195,4 +195,13 @@ test.describe('Persist', () => {
     await page.getByTestId('account-selector').click({ timeout: 15_000 })
     await expect(page.getByTestId('account-choice')).toHaveCount(1)
   })
+
+  test('Should NOT crash after quickly locking a wallet', async ({ page }) => {
+    await addPersistedStorage(page)
+    await page.goto('/')
+    await page.getByRole('button', { name: /Continue without the profile/ }).click()
+    await page.getByRole('button', { name: /Close wallet/ }).click()
+    await page.waitForTimeout(1000)
+    await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
+  })
 })
