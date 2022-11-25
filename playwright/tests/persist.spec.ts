@@ -218,4 +218,13 @@ test.describe('Persist', () => {
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
   })
+
+  test('Password should not be cached in input field', async ({ page }) => {
+    await addPersistedStorage(page)
+    await page.goto('/')
+    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.keyboard.press('Enter')
+    await page.getByRole('button', { name: /Lock profile/ }).click()
+    await expect(page.getByPlaceholder('Enter your password here')).toHaveValue('')
+  })
 })
