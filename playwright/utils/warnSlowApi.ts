@@ -1,6 +1,6 @@
-import { BrowserContext } from '@playwright/test'
+import { BrowserContext, Page } from '@playwright/test'
 
-export async function warnSlowApi(context: BrowserContext) {
+export async function warnSlowApi(context: BrowserContext | Page) {
   await context.route('**', async route => {
     await route.continue()
     await (await route.request().response())?.finished()
