@@ -6,6 +6,7 @@ export interface ImportAccountsListAccount {
   address: string
   balance?: WalletBalance
   path: number[]
+  pathDisplay: string
   privateKey?: string
   publicKey: string
   selected: boolean

@@ -61,7 +61,7 @@ export const accountsPerPage = 4
 export const numberOfAccountPages = 12
 
 function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
-  const wallets = []
+  const wallets: ImportAccountsListAccount[] = []
   const mnemonic = action.payload
 
   try {
@@ -73,11 +73,12 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
       wallets.push({
         address,
         path: [44, 474, i],
+        pathDisplay: `m/44'/474'/${i}'`, // Hardening should match oasis.hdkey.HDKey.getAccountSigner implementation
         privateKey: uint2hex(signer.secretKey),
         publicKey: uint2hex(signer.publicKey),
         selected: i === 0,
         type: WalletType.Mnemonic,
-      } as ImportAccountsListAccount)
+      })
     }
     yield* put(importAccountsActions.accountsListed(wallets))
     yield* setStep(ImportAccountsStep.Idle)
@@ -144,6 +145,7 @@ function* enumerateAccountsFromLedger() {
       const wallet = {
         publicKey: uint2hex(account.publicKey),
         path: account.path,
+        pathDisplay: account.pathDisplay,
         address,
         // We select the first account by default
         selected: index === 0,

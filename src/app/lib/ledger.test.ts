@@ -66,8 +66,16 @@ describe('Ledger Library', () => {
 
       const accounts = await Ledger.enumerateAccounts({} as any, 2)
       expect(accounts).toHaveLength(2)
-      expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 0], publicKey: new Uint8Array([1, 2, 3]) })
-      expect(accounts).toContainEqual({ path: [44, 474, 0, 0, 1], publicKey: new Uint8Array([4, 5, 6]) })
+      expect(accounts).toContainEqual({
+        path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
+        publicKey: new Uint8Array([1, 2, 3]),
+      })
+      expect(accounts).toContainEqual({
+        path: [44, 474, 0, 0, 1],
+        pathDisplay: `m/44'/474'/0'/0'/1'`,
+        publicKey: new Uint8Array([4, 5, 6]),
+      })
     })
 
     it('Should catch Cannot open Oasis app', async () => {
@@ -121,6 +129,7 @@ describe('Ledger Library', () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',
       } as Wallet)
 
@@ -140,6 +149,7 @@ describe('Ledger Library', () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: 'aabbcc',
       } as Wallet)
 
@@ -153,6 +163,7 @@ describe('Ledger Library', () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',
       } as Wallet)
 
@@ -173,6 +184,7 @@ describe('Ledger Library', () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',
       } as Wallet)
 
