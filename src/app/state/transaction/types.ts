@@ -10,6 +10,7 @@ export enum TransactionType {
   StakingWithdraw = 'staking.Withdraw',
   RoothashExecutorCommit = 'roothash.ExecutorCommit',
   RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
+  RegistryDeregisterEntity = 'registry.DeregisterEntity',
   RegistryRegisterEntity = 'registry.RegisterEntity',
   RegistryRegisterNode = 'registry.RegisterNode',
   RegistryRegisterRuntime = 'registry.RegisterRuntime',

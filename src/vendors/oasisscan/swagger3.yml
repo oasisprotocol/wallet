@@ -439,6 +439,7 @@ components:
             - staking.Withdraw
             - roothash.ExecutorCommit
             - roothash.ExecutorProposerTimeout
+            - registry.DeregisterEntity
             - registry.RegisterEntity
             - registry.RegisterNode
             - registry.RegisterRuntime
