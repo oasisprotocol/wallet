@@ -3,7 +3,6 @@ import * as React from 'react'
 import { Provider, useDispatch } from 'react-redux'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
-import { LocationDescriptor } from 'history'
 import { configureAppStore } from 'store/configureStore'
 
 import { AccountPage } from '..'
@@ -21,7 +20,7 @@ jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
 }))
 
-const renderPage = (store: any, initialEntries: LocationDescriptor[]) =>
+const renderPage = (store: any, initialEntries: string[]) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
