@@ -2,6 +2,9 @@ import { NoTranslate } from 'app/components/NoTranslate'
 import { Box, Grid, ResponsiveContext, Text } from 'grommet'
 import * as React from 'react'
 import { useContext } from 'react'
+import { getDefaultWordlist, wordlists } from 'bip39'
+
+const validWords = new Set(wordlists[getDefaultWordlist()])
 
 /**
  *
@@ -20,12 +23,9 @@ const noSelect: React.CSSProperties = {
   userSelect: 'none',
 }
 
-// Make typos obvious e.g. if user has pasted mnemonic containing a newline
-const keepWhitespace: React.CSSProperties = {
-  whiteSpace: 'pre',
-}
-
 function MnemonicWord(props: WordProp) {
+  const isWordValid = validWords.has(props.word)
+
   return (
     <Box
       background="background-contrast"
@@ -39,7 +39,14 @@ function MnemonicWord(props: WordProp) {
       </Box>
       <Box>
         <NoTranslate>
-          <strong style={keepWhitespace}>{props.word}</strong>
+          <strong
+            style={{
+              whiteSpace: 'pre',
+              textDecoration: isWordValid ? undefined : 'red wavy underline',
+            }}
+          >
+            {props.word}
+          </strong>
         </NoTranslate>
       </Box>
     </Box>
