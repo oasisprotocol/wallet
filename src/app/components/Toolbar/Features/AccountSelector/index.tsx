@@ -26,7 +26,8 @@ interface AccountProps {
   balance?: StringifiedBigInt
   type: WalletType
   onClick: (address: string) => void
-  details?: string
+  path?: number[]
+  pathDisplay?: string
   isActive: boolean
   displayCheckbox?: boolean
   displayAccountNumber?: boolean
@@ -51,7 +52,7 @@ export const Account = memo((props: AccountProps) => {
     [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private key'),
   }
 
-  const accountNumber = props.details ? props.details.split('/').at(-1) : '?'
+  const accountNumber = props.path ? props.path.at(-1) : '?'
 
   return (
     <Box
@@ -88,7 +89,7 @@ export const Account = memo((props: AccountProps) => {
         </Box>
         <Box direction="row-responsive">
           <Box align="start" flex="grow" direction="row">
-            {walletTypes[props.type]} {props.details && <Text size="small">({props.details})</Text>}
+            {walletTypes[props.type]} {props.pathDisplay && <Text size="small">({props.pathDisplay})</Text>}
           </Box>
           <Box height={'24px'}>
             {props.balance ? <AmountFormatter amount={props.balance} /> : <Spinner />}
@@ -119,7 +120,8 @@ export const AccountSelector = memo((props: Props) => {
       type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}
-      details={wallet.pathDisplay}
+      path={wallet.path}
+      pathDisplay={wallet.pathDisplay}
     />
   ))
 
