@@ -19,7 +19,8 @@ const renderComponent = (store: any) =>
           isActive={false}
           displayCheckbox={true}
           displayAccountNumber={true}
-          details="m/44'/474'/0'/0'/0'"
+          path={[44, 474, 0, 0, 0]}
+          pathDisplay="m/44'/474'/0'/0'/0'"
         />
       </ThemeProvider>
     </Provider>,
