@@ -2,6 +2,9 @@ import { NoTranslate } from 'app/components/NoTranslate'
 import { Box, Grid, ResponsiveContext, Text } from 'grommet'
 import * as React from 'react'
 import { useContext } from 'react'
+import { getDefaultWordlist, wordlists } from 'bip39'
+
+const validWords = new Set(wordlists[getDefaultWordlist()])
 
 /**
  *
@@ -11,8 +14,6 @@ import { useContext } from 'react'
 interface WordProp {
   id: number
   word: string
-  hidden?: boolean
-  higlighted?: boolean
 }
 
 const noSelect: React.CSSProperties = {
@@ -22,15 +23,12 @@ const noSelect: React.CSSProperties = {
   userSelect: 'none',
 }
 
-// Make typos obvious e.g. if user has pasted mnemonic containing a newline
-const keepWhitespace: React.CSSProperties = {
-  whiteSpace: 'pre',
-}
-
 function MnemonicWord(props: WordProp) {
+  const isWordValid = validWords.has(props.word)
+
   return (
     <Box
-      background={props.higlighted ? 'brand' : 'background-contrast'}
+      background="background-contrast"
       margin="xsmall"
       direction="row"
       pad="xsmall"
@@ -41,7 +39,14 @@ function MnemonicWord(props: WordProp) {
       </Box>
       <Box>
         <NoTranslate>
-          <strong style={keepWhitespace}>{props.hidden ? '' : props.word}</strong>
+          <strong
+            style={{
+              whiteSpace: 'pre',
+              textDecoration: isWordValid ? undefined : 'red wavy underline',
+            }}
+          >
+            {props.word}
+          </strong>
         </NoTranslate>
       </Box>
     </Box>
@@ -51,15 +56,9 @@ function MnemonicWord(props: WordProp) {
 interface Props {
   // List of words
   mnemonic: string[]
-
-  /** Indexes of hidden words, used for mnemonic validation */
-  hiddenWords?: number[]
-
-  /** Highlighted word indexes, used for mnemonic validation */
-  highlightedIndex?: number
 }
 
-export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hiddenWords }: Props) {
+export function MnemonicGrid({ mnemonic }: Props) {
   const size = useContext(ResponsiveContext)
   const maxEnglishLength = 8
   const numberDotSpaceLength = 4
@@ -70,13 +69,7 @@ export function MnemonicGrid({ mnemonic, highlightedIndex: hilightedIndex, hidde
     <NoTranslate>
       <Grid columns={columnSize} data-testid="mnemonic-grid">
         {mnemonic.map((word, index) => (
-          <MnemonicWord
-            key={index + 1}
-            id={index + 1}
-            word={word}
-            higlighted={index === hilightedIndex}
-            hidden={hiddenWords && hiddenWords.indexOf(index) !== -1}
-          />
+          <MnemonicWord key={index + 1} id={index + 1} word={word} />
         ))}
       </Grid>
     </NoTranslate>

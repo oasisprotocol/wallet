@@ -482,7 +482,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
                   translate="no"
                 >
                   <strong
-                    style="white-space: pre;"
+                    style="white-space: pre; text-decoration: red wavy underline;"
                   />
                 </span>
               </div>
