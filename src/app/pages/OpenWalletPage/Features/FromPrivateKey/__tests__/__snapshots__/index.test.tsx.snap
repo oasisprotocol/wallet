@@ -440,7 +440,10 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
     class="c1"
   >
     <form
+      autocapitalize="off"
       autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"
     >
       <h1
         class="c2"
@@ -472,11 +475,14 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
                 class="c8"
               >
                 <input
+                  autocapitalize="off"
                   autocomplete="off"
+                  autocorrect="off"
                   class="c9"
                   id="privatekey"
                   name="privateKey"
                   placeholder="openWallet.privateKey.enterPrivateKeyHere"
+                  spellcheck="false"
                   type="password"
                   value=""
                 />
