@@ -613,7 +613,10 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
           />
           <div>
             <form
+              autocapitalize="off"
               autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
             >
               <div
                 class="c5"
