@@ -12,6 +12,10 @@
  * - Manually checked
  *   grep --text t.e.s.t.M.n.e.m.o.n.i.c -r ~/.config/google-chrome
  *   grep --text testMnemonic -r ~/.mozilla/firefox
+ * - Added CSS to visually warn about sensitive input fields missing
+ *   preventSavingInputsToUserData
+ * - Added E2E tests that check for plaintext mnemonic, privatekey, and password
+ *   inside user data
  *
  * References:
  * - https://nvd.nist.gov/vuln/detail/CVE-2022-32969

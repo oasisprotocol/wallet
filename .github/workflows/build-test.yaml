@@ -65,8 +65,8 @@ jobs:
           node-version: 14.x
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - run: yarn build:ext
-      - run: yarn start:prod &
+      - run: REACT_APP_E2E_TEST=1 yarn build:ext
+      - run: REACT_APP_E2E_TEST=1 yarn start:prod &
       - name: Install playwright's npm dependencies
         working-directory: ./playwright/
         run: yarn install --frozen-lockfile
