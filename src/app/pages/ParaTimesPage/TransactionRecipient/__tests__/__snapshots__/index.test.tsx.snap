@@ -367,7 +367,10 @@ exports[`<TransactionRecipient /> should render component 1`] = `
       class="c4"
     >
       <form
+        autocapitalize="off"
         autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
         style="width: 465px;"
       >
         <div

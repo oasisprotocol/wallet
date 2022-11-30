@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FromMnemonic/> should match snapshot 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin: 6px;
+  background: #33333310;
+  border-bottom: solid 1px rgba(0,0,0,0.33);
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 6px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c0 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    margin: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    border-bottom: solid 1px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    padding-right: 6px;
+  }
+}
+
+<span
+  class="notranslate"
+  translate="no"
+>
+  <div
+    class="c0"
+    data-testid="mnemonic-grid"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          style="user-select: none;"
+        >
+          1
+          .
+        </span>
+      </div>
+      <div
+        class="c4"
+      >
+        <span
+          class="notranslate"
+          translate="no"
+        >
+          <strong
+            style="white-space: pre;"
+          >
+            planet
+          </strong>
+        </span>
+      </div>
+    </div>
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          style="user-select: none;"
+        >
+          2
+          .
+        </span>
+      </div>
+      <div
+        class="c4"
+      >
+        <span
+          class="notranslate"
+          translate="no"
+        >
+          <strong
+            style="white-space: pre; text-decoration: red wavy underline;"
+          >
+            beelieve
+          </strong>
+        </span>
+      </div>
+    </div>
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <span
+          class="c3"
+          style="user-select: none;"
+        >
+          3
+          .
+        </span>
+      </div>
+      <div
+        class="c4"
+      >
+        <span
+          class="notranslate"
+          translate="no"
+        >
+          <strong
+            style="white-space: pre;"
+          >
+            session
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+</span>
+`;

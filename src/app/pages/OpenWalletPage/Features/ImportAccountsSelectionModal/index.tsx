@@ -44,7 +44,8 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
           isActive={a.selected}
           displayCheckbox={true}
           displayAccountNumber={true}
-          details={a.pathDisplay}
+          path={a.path}
+          pathDisplay={a.pathDisplay}
           key={a.address}
         />
       ))}

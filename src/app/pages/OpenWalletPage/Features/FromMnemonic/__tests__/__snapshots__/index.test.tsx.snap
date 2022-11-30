@@ -405,7 +405,10 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
       class="c2"
     >
       <form
+        autocapitalize="off"
         autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
       >
         <h1
           class="c3"
@@ -424,11 +427,14 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
             class="c6 "
           >
             <textarea
+              autocapitalize="off"
               autocomplete="off"
+              autocorrect="off"
               class="c7"
               id="mnemonic"
               placeholder="openWallet.mnemonic.enterPhraseHere"
               rows="5"
+              spellcheck="false"
             />
           </div>
         </div>
@@ -476,7 +482,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
                   translate="no"
                 >
                   <strong
-                    style="white-space: pre;"
+                    style="white-space: pre; text-decoration: red wavy underline;"
                   />
                 </span>
               </div>
