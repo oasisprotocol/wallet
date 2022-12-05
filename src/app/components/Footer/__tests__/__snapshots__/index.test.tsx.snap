@@ -247,11 +247,18 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     Version: 
     <a
       class="c2"
+      href="https://github.com/oasisprotocol/oasis-wallet-web/releases"
+    >
+      0.0
+    </a>
+     (commit: 
+    <a
+      class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000"
     >
       sha0000
     </a>
-     built at 1/1/1970, 12:00:00 AM
+    ) built at 1/1/1970, 12:00:00 AM
     <div
       class="c4"
     >

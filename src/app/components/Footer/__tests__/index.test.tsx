@@ -42,12 +42,21 @@ describe('<Footer />', () => {
     })
   })
 
-  it('should render a link with version number', () => {
+  it('should render a link with commit sha', () => {
     renderComponent(store, 'large')
 
     expect(screen.getByRole('link', { name: 'sha0000' })).toHaveAttribute(
       'href',
       'https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000',
+    )
+  })
+
+  it('should render a link with version number', () => {
+    renderComponent(store, 'large')
+
+    expect(screen.getByRole('link', { name: '0.0' })).toHaveAttribute(
+      'href',
+      'https://github.com/oasisprotocol/oasis-wallet-web/releases',
     )
   })
 
