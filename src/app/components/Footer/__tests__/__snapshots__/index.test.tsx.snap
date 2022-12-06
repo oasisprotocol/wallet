@@ -226,6 +226,8 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     <a
       class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       open source
     </a>
@@ -237,6 +239,8 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     <a
       class="c2"
       href="https://wallet.oasisprotocol.org/t-c"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       Terms and Conditions
     </a>
@@ -247,14 +251,18 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     Version: 
     <a
       class="c2"
-      href="https://github.com/oasisprotocol/oasis-wallet-web/releases"
+      href="https://github.com/oasisprotocol/oasis-wallet-web/releases/tag/v1.0.0-dev.1"
+      rel="noopener noreferrer"
+      target="_blank"
     >
-      0.0
+      1.0.0-dev.1
     </a>
      (commit: 
     <a
       class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000"
+      rel="noopener noreferrer"
+      target="_blank"
     >
       sha0000
     </a>
