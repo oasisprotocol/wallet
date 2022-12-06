@@ -9,6 +9,7 @@ node_modules/
 stats.json
 .pnp
 .pnp.js
+.idea/
 
 # misc
 .DS_Store
