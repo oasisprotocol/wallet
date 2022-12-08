@@ -136,7 +136,7 @@
     "parcel": "2.8.0",
     "parcel-transformer-env-variables-injection": "0.1.2",
     "portable-fetch": "3.0.0",
-    "prettier": "2.8.0",
+    "prettier": "2.8.1",
     "process": "0.11.10",
     "redux-saga-test-plan": "4.0.6",
     "sanitize.css": "13.0.0",
