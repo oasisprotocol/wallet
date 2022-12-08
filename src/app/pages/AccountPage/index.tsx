@@ -212,7 +212,10 @@ export function AccountPage(props: AccountPageProps) {
 }
 
 export function validateRoute(params: AccountPageParams) {
-  if (!isValidAddress(params.address!)) {
+  const isValid = isValidAddress(params.address!)
+  if (!isValid) {
     throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
   }
+
+  return isValid
 }
