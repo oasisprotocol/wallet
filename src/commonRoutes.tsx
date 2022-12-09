@@ -28,7 +28,7 @@ export const commonRoutes: RouteObject[] = [
     element: <AccountPage />,
     errorElement: <ErrorBoundary></ErrorBoundary>,
     loader: async ({ params }) => {
-      validateRoute(params as any)
+      return validateRoute(params as any)
     },
     children: [
       {
