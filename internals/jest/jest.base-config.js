@@ -13,7 +13,7 @@ const config = {
   modulePaths: ['<rootDir>/src'],
   resetMocks: true,
   setupFiles: ['react-app-polyfill/jsdom'],
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/internals/jest/setupTests.ts'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/internals/jest/babelTransform.js',
