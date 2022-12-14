@@ -94,7 +94,7 @@
     "@parcel/config-webextension": "2.8.1",
     "@parcel/packager-raw-url": "2.8.1",
     "@parcel/transformer-webmanifest": "2.8.1",
-    "@testing-library/cypress": "8.0.7",
+    "@testing-library/cypress": "9.0.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/react-hooks": "8.0.1",
