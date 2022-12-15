@@ -35,5 +35,5 @@ REPOSITORY_CHECKOV_ARGUMENTS:
   - --skip-path
   - src/vendors/explorer/swagger.yml
   - --skip-path
-  - src/vendors/oasisscan/swagger3.yml
+  - src/vendors/oasisscan/swagger.yml
 REPOSITORY_GITLEAKS_CONFIG_FILE: ./.github/.gitleaks.toml
