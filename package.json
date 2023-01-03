@@ -104,7 +104,7 @@
     "@types/jest-when": "3.5.2",
     "@types/react": "17.0.52",
     "@types/react-dom": "18.0.10",
-    "@types/react-redux": "7.1.24",
+    "@types/react-redux": "7.1.25",
     "@types/react-test-renderer": "18.0.0",
     "@types/redux-state-sync": "3.1.5",
     "@types/styled-components": "5.1.26",
