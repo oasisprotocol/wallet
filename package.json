@@ -100,7 +100,7 @@
     "@testing-library/react-hooks": "8.0.1",
     "@testing-library/user-event": "14.4.3",
     "@types/body-scroll-lock": "3.1.0",
-    "@types/jest": "29.2.4",
+    "@types/jest": "29.2.5",
     "@types/jest-when": "3.5.2",
     "@types/react": "17.0.52",
     "@types/react-dom": "18.0.10",
@@ -146,7 +146,7 @@
   },
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
-    "@testing-library/dom": "8.19.0",
+    "@testing-library/dom": "8.19.1",
     "@typescript-eslint/eslint-plugin": "5.48.0",
     "eslint-plugin-react": "7.31.11",
     "grommet-icons": "4.8.0",
