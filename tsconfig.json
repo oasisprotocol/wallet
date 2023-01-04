@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    // Project
     "target": "es2020",
     "lib": ["esnext", "dom"],
     "jsx": "react-jsx",
     "noEmit": true,
 
-    // Modules
     "baseUrl": "./src",
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,7 +14,6 @@
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
 
-    // Strictness
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
