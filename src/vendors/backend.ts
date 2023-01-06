@@ -11,5 +11,5 @@ const backendNameToApi = {
   [BackendAPIs.OasisScan]: getOasisscanAPIs,
 }
 
-export const backend = () => process.env.REACT_APP_BACKEND || BackendAPIs.OasisMonitor
+export const backend = () => import.meta.env.REACT_APP_BACKEND || BackendAPIs.OasisMonitor
 export const backendApi = backendNameToApi[backend()]

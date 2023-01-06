@@ -69,7 +69,7 @@ export function configureStoreWithSyncTabs(
     return configureStore(options)
   }
   if (!isSyncingTabsSupported) {
-    if (!process.env.JEST_WORKER_ID) console.warn('Syncing between tabs is not supported')
+    if (!import.meta.env.JEST_WORKER_ID) console.warn('Syncing between tabs is not supported')
     return configureStore(options)
   }
 

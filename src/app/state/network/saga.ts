@@ -57,7 +57,7 @@ export function* networkSaga() {
     put(networkActions.selectNetwork(payload.persistedRootState.network.selectedNetwork)),
   )
   yield* takeLatest(persistActions.skipUnlocking, () =>
-    put(networkActions.selectNetwork(process.env.REACT_APP_LOCALNET ? 'local' : 'mainnet')),
+    put(networkActions.selectNetwork(import.meta.env.REACT_APP_LOCALNET ? 'local' : 'mainnet')),
   )
   yield* takeLatest(persistActions.resetRootState, function* () {
     const skipUnlockOnInit = yield* select(selectSkipUnlockingOnInit)

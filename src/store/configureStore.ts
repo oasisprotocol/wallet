@@ -27,7 +27,7 @@ export function configureAppStore(state?: Partial<RootState>) {
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
     devTools:
       /* istanbul ignore next line */
-      process.env.NODE_ENV !== 'production',
+      import.meta.env.NODE_ENV !== 'production',
     preloadedState: state,
   })
 

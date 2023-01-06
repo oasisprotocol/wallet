@@ -3,16 +3,16 @@ import { networkActions } from '.'
 import { networkSaga, selectNetwork } from './saga'
 
 describe('Network Sagas', () => {
-  const env = process.env
+  const env = import.meta.env
 
   afterEach(() => {
-    process.env = { ...env }
+    import.meta.env = { ...env }
   })
 
   // TODO: don't test implementation
   // https://github.com/oasisprotocol/oasis-wallet-web/pull/868#discussion_r903743398
   test.skip('networkSaga', () => {
-    delete process.env.REACT_APP_LOCALNET
+    delete import.meta.env.REACT_APP_LOCALNET
 
     testSaga(networkSaga)
       .next()

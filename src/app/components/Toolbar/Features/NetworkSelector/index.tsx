@@ -46,7 +46,7 @@ export const NetworkSelector = memo((props: Props) => {
     },
   ]
 
-  if (process.env.REACT_APP_LOCALNET) {
+  if (import.meta.env.REACT_APP_LOCALNET) {
     menuItems.push({
       label: networkLabels['local'],
       onClick: () => {

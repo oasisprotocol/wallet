@@ -67,6 +67,6 @@ export const commonRoutes: RouteObject[] = [
   },
   {
     path: 'e2e',
-    element: process.env.REACT_APP_E2E_TEST ? <E2EPage /> : <div />,
+    element: import.meta.env.REACT_APP_E2E_TEST ? <E2EPage /> : <div />,
   },
 ]

@@ -59,9 +59,9 @@ export const Footer = memo(() => {
           defaults="<TermsLink>Terms and Conditions</TermsLink>"
         />
       </Text>
-      {process.env.REACT_APP_BUILD_DATETIME &&
-        process.env.REACT_APP_BUILD_SHA &&
-        process.env.REACT_APP_BUILD_VERSION && (
+      {import.meta.env.REACT_APP_BUILD_DATETIME &&
+        import.meta.env.REACT_APP_BUILD_SHA &&
+        import.meta.env.REACT_APP_BUILD_VERSION && (
           <Text size="small" textAlign="center">
             <Trans
               i18nKey="footer.version"
@@ -69,16 +69,16 @@ export const Footer = memo(() => {
               components={{
                 ReleaseLink: (
                   <Anchor
-                    href={githubReleaseLink(process.env.REACT_APP_BUILD_VERSION)}
-                    label={process.env.REACT_APP_BUILD_VERSION.replace('v', '')}
+                    href={githubReleaseLink(import.meta.env.REACT_APP_BUILD_VERSION)}
+                    label={import.meta.env.REACT_APP_BUILD_VERSION.replace('v', '')}
                     target="_blank"
                     rel="noopener noreferrer"
                   />
                 ),
                 CommitLink: (
                   <Anchor
-                    href={`${githubLink}commit/${process.env.REACT_APP_BUILD_SHA}`}
-                    label={process.env.REACT_APP_BUILD_SHA.substring(0, 7)}
+                    href={`${githubLink}commit/${import.meta.env.REACT_APP_BUILD_SHA}`}
+                    label={import.meta.env.REACT_APP_BUILD_SHA.substring(0, 7)}
                     target="_blank"
                     rel="noopener noreferrer"
                   />
@@ -86,7 +86,7 @@ export const Footer = memo(() => {
               }}
               defaults="Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
               values={{
-                buildTime: intlDateTimeFormat(Number(process.env.REACT_APP_BUILD_DATETIME)),
+                buildTime: intlDateTimeFormat(Number(import.meta.env.REACT_APP_BUILD_DATETIME)),
               }}
             />
             {poweredByLabel && <Box align="center">{poweredByLabel}</Box>}
