@@ -2,6 +2,7 @@ import path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import webExtension from '@samrum/vite-plugin-web-extension'
+import { getCsp } from './internals/getCsp'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -53,7 +54,7 @@ export default defineConfig({
           default_popup: './extension/src/popup.html',
         },
         permissions: ['storage', 'notifications', 'activeTab'],
-        content_security_policy: '{{{ EXTENSION_CSP }}}',
+        content_security_policy: getCsp({ isExtension: true }),
         background: {
           page: './extension/src/background.html',
           persistent: true,
