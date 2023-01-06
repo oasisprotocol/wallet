@@ -8,7 +8,7 @@ interface Props {
 
 const estimatedEpochsPerHour = 1
 
-const relativeFormat = new Intl.RelativeTimeFormat(process?.env?.NODE_ENV === 'test' ? 'en-US' : undefined)
+const relativeFormat = new Intl.RelativeTimeFormat(import.meta.env.NODE_ENV === 'test' ? 'en-US' : undefined)
 
 export function TimeToEpoch(props: Props) {
   const currentEpoch = useSelector(selectEpoch)
