@@ -20,7 +20,7 @@ const renderPage = (store: any) =>
 
 describe('<CreateWalletPage  />', () => {
   let store: ReturnType<typeof configureAppStore>
-  let generateMnemonicMock: jest.SpiedFunction<typeof HDKey['generateMnemonic']>
+  let generateMnemonicMock: jest.SpiedFunction<(typeof HDKey)['generateMnemonic']>
 
   beforeEach(() => {
     generateMnemonicMock = jest.spyOn(HDKey, 'generateMnemonic')
