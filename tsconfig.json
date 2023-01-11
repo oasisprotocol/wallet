@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "lib": ["dom", "esnext.bigint", "dom.iterable", "ES2020", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext", "dom"],
+    "jsx": "react-jsx",
+    "noEmit": true,
+
+    "baseUrl": "./src",
     "module": "esnext",
     "moduleResolution": "node",
+    "allowJs": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src"
+
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "extension/src", "vendors"]
+  "include": ["src", "extension/src"]
 }
