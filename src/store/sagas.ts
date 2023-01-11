@@ -10,7 +10,7 @@ import { rootWalletSaga } from 'app/state/wallet/saga'
 import { persistSaga } from 'app/state/persist/saga'
 
 export default function* rootSagas() {
-  yield all([
+  yield* all([
     accountSaga(),
     networkSaga(),
     importAccountsSaga(),

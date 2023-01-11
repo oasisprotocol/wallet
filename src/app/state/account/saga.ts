@@ -27,13 +27,13 @@ export function* fetchAccount(action: PayloadAction<string>) {
       yield* fork(function* () {
         try {
           const account = yield* call(getAccount, address)
-          yield put(actions.accountLoaded(account))
+          yield* put(actions.accountLoaded(account))
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
             const balance = parseRpcBalance(account)
-            yield put(
+            yield* put(
               actions.accountLoaded({
                 address,
                 available: balance.available,
@@ -65,7 +65,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
             accountId: address,
             limit: 20,
           })
-          yield put(actions.transactionsLoaded(transactions))
+          yield* put(actions.transactionsLoaded(transactions))
         } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
           if (e instanceof WalletError) {
