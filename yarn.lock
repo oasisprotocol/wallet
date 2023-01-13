@@ -2249,12 +2249,12 @@
     rxjs "6"
     semver "^7.3.5"
 
-"@ledgerhq/devices@^7.0.6":
-  version "7.0.6"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-7.0.6.tgz#222debb302fc51a29c068076fe5cdb76f6b48fac"
-  integrity sha512-trEqJqgXuXLgb228c6kJdur0idTVxtofy8NxumvsspZKh5x/pHJX8EoNxWX91Pg7H3AA+jxLEeRvAjNDVDJgGQ==
+"@ledgerhq/devices@^7.0.7":
+  version "7.0.7"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-7.0.7.tgz#3499304a1c9d3aa7399de2ad390719bef5d1e89c"
+  integrity sha512-PZ9TtaTGBYUm/g0qNKPbECZt7DDNvqM3ILS5wAtOMna2cBR+mrywUGXrkjuOWlHpuqZ8wenaAKveQBbzF2ba8w==
   dependencies:
-    "@ledgerhq/errors" "^6.12.2"
+    "@ledgerhq/errors" "^6.12.3"
     "@ledgerhq/logs" "^6.10.1"
     rxjs "6"
     semver "^7.3.5"
@@ -2264,22 +2264,22 @@
   resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.11.1.tgz#a8a81bda6d28ac43c757e109b1ff079ddeec54a6"
   integrity sha512-HT1PFvNrejcN5z3ba6xikacIdHWMkjBeE9U5FFoGHhaKBKGjC74mnCeEo0/oJunyuVId+9mhGnv6lrBl6Mkqdg==
 
-"@ledgerhq/errors@^6.12.2":
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.12.2.tgz#d12143caa49db8ae0c8c6ec6b2fb38f719f85630"
-  integrity sha512-qYTkxlWHVItxPAb9pQewfVoN8nFvvFYzWEyzVRX/NuO/g3JKL5kef5lLuqTtUIFOvFROMLi3EBxU+vbvV0ktow==
+"@ledgerhq/errors@^6.12.3":
+  version "6.12.3"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.12.3.tgz#a610caae1eeeb7cb038525e5212fe03217dda683"
+  integrity sha512-djiMSgB/7hnK3aLR/c5ZMMivxjcI7o2+y3VKcsZZpydPoVf9+FXqeJPRfOwmJ0JxbQ//LinUfWpIfHew8LkaVw==
 
-"@ledgerhq/hw-transport-webusb@6.27.9":
-  version "6.27.9"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.9.tgz#d3abc9207c93191365031d349cc8bbc681cbc719"
-  integrity sha512-/nII54hWkAVQldercMlS8WgQ4jLOpxdSH5+KC5tUtGLxgyYcD9tCUfhmAUidfkknz67/2s/UJj4cHNkaEykAOg==
+"@ledgerhq/hw-transport-webusb@6.27.10":
+  version "6.27.10"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.10.tgz#772ac56821e7fc41d1213815296a324df6a4cfea"
+  integrity sha512-wmKHiF/ar3xw+gQRBIZltYNxTLHW31n2f5cjuGPhQoqfLQBrgntM17YGlRSmyzI8Q2+uSmcWxNyCtssZALUDzQ==
   dependencies:
-    "@ledgerhq/devices" "^7.0.6"
-    "@ledgerhq/errors" "^6.12.2"
-    "@ledgerhq/hw-transport" "^6.27.9"
+    "@ledgerhq/devices" "^7.0.7"
+    "@ledgerhq/errors" "^6.12.3"
+    "@ledgerhq/hw-transport" "^6.27.10"
     "@ledgerhq/logs" "^6.10.1"
 
-"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.27.9":
+"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.10", "@ledgerhq/hw-transport@^6.27.6":
   version "6.27.6"
   resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.27.6.tgz#87f886591bad047c18e76920519aceb9d844667b"
   integrity sha512-DRGUsB8WfbeEPuU42nAtwYpA5D6Bq3q1CvC2VjDinkukLcf6XMc22YUJl9mxt+h+/cLTU1Ff/pz+fqYqeELLEA==
