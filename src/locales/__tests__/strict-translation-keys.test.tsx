@@ -9,6 +9,7 @@ describe('type-only test', () => {
           <div>
             {t('menu.home')}
             {t('menu.home', 'Default')}
+            {t('menu.does_not_exist_but_has_a_default', 'Default')}
             <Trans i18nKey="menu.home" t={t} />
             <Trans i18nKey="menu.home" t={t} defaults="Default" />
           </div>
@@ -25,10 +26,6 @@ describe('type-only test', () => {
             <div>
               {/* @ts-expect-error Expect typescript to detect incorrect key */}
               {t('menu.does_not_exist')}
-            </div>
-            <div>
-              {/* @ts-expect-error Expect typescript to detect incorrect key */}
-              {t('menu.does_not_exist', 'Default')}
             </div>
             <div>
               {/* @ts-expect-error Expect typescript to detect incorrect key */}
