@@ -146,7 +146,7 @@
   },
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
-    "@testing-library/dom": "8.19.1",
+    "@testing-library/dom": "8.20.0",
     "@typescript-eslint/eslint-plugin": "5.48.2",
     "eslint-plugin-react": "7.32.1",
     "grommet-icons": "4.8.0",
