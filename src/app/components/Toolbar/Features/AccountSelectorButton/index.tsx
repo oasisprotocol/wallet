@@ -13,7 +13,7 @@ import { AccountSelector } from '../AccountSelector'
 import { JazzIcon } from '../../../JazzIcon'
 import { smallSizeLogo, mediumSizeLogo } from '../../../Sidebar'
 
-const addressToNumber = (address: string) => {
+export const addressToNumber = (address: string) => {
   // https://github.com/oasisprotocol/oasis-wallet-ext/blob/da7ad67/src/popup/component/AccountIcon/index.js#L26
   const addressU8 = staking.addressFromBech32(address)
   const seed = addressU8[20] | (addressU8[19] << 8) | (addressU8[18] << 16) | (addressU8[17] << 24)
