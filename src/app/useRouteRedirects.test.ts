@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { useSelector } from 'react-redux'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { useRouteRedirects } from './useRouteRedirects'
