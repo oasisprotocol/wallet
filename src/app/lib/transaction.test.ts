@@ -1,7 +1,8 @@
-import { hex2uint, uint2hex } from './helpers'
+import { uint2hex } from './helpers'
 import { OasisTransaction, signerFromPrivateKey } from './transaction'
 import { NodeInternal } from '@oasisprotocol/client/dist/client'
 import { RpcError, StatusCode } from 'grpc-web'
+import { parseKey } from '../pages/OpenWalletPage/Features/FromPrivateKey'
 
 function wrapRpcError(method: string, grpcMessage: string) {
   const e = new RpcError(StatusCode.FAILED_PRECONDITION, 'RpcError: ..', {
@@ -18,9 +19,9 @@ function wrapRpcError(method: string, grpcMessage: string) {
 jest.mock('@oasisprotocol/client/dist/client')
 
 describe('OasisTransaction', () => {
-  const pkey =
-    '5f48e5a6fb243f5abc13aac7c56449afbc93be90ae38f10a0465bc82db954f17e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132'
-  const testSigner = signerFromPrivateKey(hex2uint(pkey))
+  const privateKey =
+    'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg=='
+  const testSigner = signerFromPrivateKey(parseKey(privateKey))
   const nic = new NodeInternal('http://0.0.0.0')
 
   it('Should build reclaimEscrow transactions', async () => {
@@ -108,6 +109,8 @@ describe('OasisTransaction', () => {
 
       await OasisTransaction.sign('', testSigner, tw)
       await OasisTransaction.submit(nic, tw)
+      expect(nic.consensusSubmitTx).toHaveBeenCalled()
+      expect(jest.isMockFunction(nic.consensusSubmitTx)).toBe(true)
     })
 
     it('Should bubble-up grpc errors', async () => {

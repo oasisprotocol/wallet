@@ -19,7 +19,7 @@ interface FormValue extends ChoosePasswordFieldsFormValue {
   privateKey: string
 }
 
-const parseKey = (key: string) => {
+export const parseKey = (key: string) => {
   const keyWithoutEnvelope = key
     .replace(/\n/gm, '')
     .replace(/ /g, '')
