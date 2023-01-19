@@ -471,6 +471,20 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
+.c3 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+.c1 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto;
+  grid-gap: 12px 12px;
+  padding: 12px;
+}
+
 .c21 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -515,20 +529,6 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-}
-
-.c3 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
-}
-
-.c1 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: auto;
-  grid-gap: 12px 12px;
-  padding: 12px;
 }
 
 .c0 {
