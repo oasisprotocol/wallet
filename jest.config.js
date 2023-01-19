@@ -1,7 +1,7 @@
 // @ts-check
 // https://jestjs.io/docs/configuration#defaults
 
-/** @type {import('@jest/types').Config.InitialOptions} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
