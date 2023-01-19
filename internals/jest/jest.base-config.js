@@ -21,7 +21,6 @@ const config = {
   transformIgnorePatterns: [
     '/node_modules/(?!(@ledgerhq/hw-transport-webusb|cborg|grommet/es6|grommet-icons/es6)/)',
   ],
-  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 }
 
 module.exports = config

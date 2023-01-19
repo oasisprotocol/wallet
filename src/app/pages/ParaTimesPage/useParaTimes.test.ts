@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react'
 import { useSelector } from 'react-redux'
 import { when } from 'jest-when'
 import { initialState, paraTimesActions } from 'app/state/paratimes'

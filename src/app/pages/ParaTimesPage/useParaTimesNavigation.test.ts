@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react'
 import { paraTimesActions } from 'app/state/paratimes'
 import { useParaTimesNavigation } from './useParaTimesNavigation'
 
