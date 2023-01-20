@@ -1,7 +1,7 @@
 // @ts-check
 // https://jestjs.io/docs/configuration#defaults
 
-/** @type {import('@jest/types').Config.InitialOptions} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   rootDir: './../../',
   clearMocks: true,
@@ -16,7 +16,13 @@ const config = {
   setupFilesAfterEnv: ['<rootDir>/internals/jest/setupTests.ts'],
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': '<rootDir>/internals/jest/babelTransform.js',
+    '^.+\\.(js|jsx|mjs|cjs|ts|tsx)$': [
+      'ts-jest',
+      {
+        // Disable typechecking to speedup tests. We have `yarn checkTs`.
+        isolatedModules: true,
+      },
+    ],
   },
   transformIgnorePatterns: [
     '/node_modules/(?!(@ledgerhq/hw-transport-webusb|cborg|grommet/es6|grommet-icons/es6)/)',
