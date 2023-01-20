@@ -16,8 +16,6 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "test": "jest --color",
-    "test:web": "yarn run test --projects internals/jest/jest.web-config.js",
-    "test:ext": "yarn run test --projects internals/jest/jest.ext-config.js",
     "test:watch": "yarn run test --watch",
     "start:prod": "yarn run build && node ./internals/scripts/serve-prod.js",
     "checkTs": "tsc --noEmit",
