@@ -65,7 +65,7 @@
     "body-scroll-lock": "4.0.0-beta.0",
     "copy-to-clipboard": "3.3.3",
     "grommet": "2.29.1",
-    "grommet-icons": "4.8.0",
+    "grommet-icons": "4.9.0",
     "i18next": "22.4.9",
     "i18next-browser-languagedetector": "7.0.1",
     "qrcode.react": "3.1.0",
@@ -145,7 +145,7 @@
     "@testing-library/dom": "8.20.0",
     "@typescript-eslint/eslint-plugin": "5.49.0",
     "eslint-plugin-react": "7.32.1",
-    "grommet-icons": "4.8.0",
+    "grommet-icons": "4.9.0",
     "typescript": "4.9.4"
   },
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",
