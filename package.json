@@ -135,8 +135,8 @@
     "serve-handler": "6.1.5",
     "stream-browserify": "3.0.0",
     "string_decoder": "1.3.0",
-    "stylelint": "14.16.1",
-    "stylelint-config-recommended": "9.0.0",
+    "stylelint": "15.0.0",
+    "stylelint-config-recommended": "10.0.0",
     "ts-jest": "29.0.5",
     "typescript": "4.9.5"
   },
