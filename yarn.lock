@@ -6663,10 +6663,10 @@ i18next-browser-languagedetector@7.0.1:
   dependencies:
     "@babel/runtime" "^7.19.4"
 
-i18next-scanner-typescript@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/i18next-scanner-typescript/-/i18next-scanner-typescript-1.0.6.tgz"
-  integrity sha512-v6kULnsv32OlFM9pnWTH+wNtRXf5owmFUNBYcX78jbZxQBFnTCUo3w99JjnxuzuXA9ch4UKNQBnt2P/o94eyeQ==
+i18next-scanner-typescript@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/i18next-scanner-typescript/-/i18next-scanner-typescript-1.1.1.tgz#47a6eaa09ce1c2d375bc2c76ca101b1ce9cfb6cc"
+  integrity sha512-b2vDA1X5yAwcAJPN3W5nfl4ILAdRbeuC0fqOsS6TCS58YjEsYMLWOpB55YznWMcTUQY7mQ/ZGiNpuckTe1fEYQ==
   dependencies:
     typescript "^3.0.0"
 
