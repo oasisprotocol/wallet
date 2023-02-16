@@ -2254,10 +2254,10 @@
     rxjs "6"
     semver "^7.3.5"
 
-"@ledgerhq/devices@^7.0.7":
-  version "7.0.7"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-7.0.7.tgz#3499304a1c9d3aa7399de2ad390719bef5d1e89c"
-  integrity sha512-PZ9TtaTGBYUm/g0qNKPbECZt7DDNvqM3ILS5wAtOMna2cBR+mrywUGXrkjuOWlHpuqZ8wenaAKveQBbzF2ba8w==
+"@ledgerhq/devices@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.0.0.tgz#8fe9f9e442e28b7a20bcdf4c2eed06ce7b8f76ae"
+  integrity sha512-gSnRT0KPca+LIpaC6D/WZQjOAlSI5uCvK1dmxXtKhODLAj735rX5Z3SnGnLUavRCHNbUi44FzgvloF5BKTkh7A==
   dependencies:
     "@ledgerhq/errors" "^6.12.3"
     "@ledgerhq/logs" "^6.10.1"
@@ -2274,17 +2274,17 @@
   resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.12.3.tgz#a610caae1eeeb7cb038525e5212fe03217dda683"
   integrity sha512-djiMSgB/7hnK3aLR/c5ZMMivxjcI7o2+y3VKcsZZpydPoVf9+FXqeJPRfOwmJ0JxbQ//LinUfWpIfHew8LkaVw==
 
-"@ledgerhq/hw-transport-webusb@6.27.11":
-  version "6.27.11"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.11.tgz#13fa5b4c2a3f4d9247b870637d02026a3d9df93c"
-  integrity sha512-W6eczX0/E3xZwgqnT0NfZThr1t9fzxDkX7EBzaXORLnemzvKLfTONO6A9yvIJYXfRDXTfeWra+xCkWsJIVrBaQ==
+"@ledgerhq/hw-transport-webusb@6.27.12":
+  version "6.27.12"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.12.tgz#96c9126161664f1c8736f76304309caf46433a7f"
+  integrity sha512-U96UWLZIurD9ifHlm77PAgBbvDCe99DAJk64O2SdR41WRF3WaRq/pjrzCq2UvvammdCd1p7nS4zbhlse0wZplg==
   dependencies:
-    "@ledgerhq/devices" "^7.0.7"
+    "@ledgerhq/devices" "^8.0.0"
     "@ledgerhq/errors" "^6.12.3"
-    "@ledgerhq/hw-transport" "^6.28.0"
+    "@ledgerhq/hw-transport" "^6.28.1"
     "@ledgerhq/logs" "^6.10.1"
 
-"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.28.0":
+"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.28.1":
   version "6.27.6"
   resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.27.6.tgz#87f886591bad047c18e76920519aceb9d844667b"
   integrity sha512-DRGUsB8WfbeEPuU42nAtwYpA5D6Bq3q1CvC2VjDinkukLcf6XMc22YUJl9mxt+h+/cLTU1Ff/pz+fqYqeELLEA==
