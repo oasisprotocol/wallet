@@ -138,8 +138,8 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
 
 .c2 {
   box-sizing: border-box;
-  font-size: inherit;
-  line-height: inherit;
+  font-size: 14px;
+  line-height: 20px;
   color: #0092f6;
   font-weight: 600;
   -webkit-text-decoration: none;
