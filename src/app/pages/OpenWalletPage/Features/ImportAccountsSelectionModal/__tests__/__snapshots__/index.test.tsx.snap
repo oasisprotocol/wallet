@@ -407,19 +407,6 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
 .c1 {
   font-family: Rubik;
   font-size: 18px;
@@ -487,6 +474,19 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   height: 0;
   overflow: hidden;
   position: absolute;
+}
+
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 @media only screen and (max-width:768px) {
