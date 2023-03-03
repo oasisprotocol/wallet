@@ -33,10 +33,10 @@ jobs:
           fetch-depth: 0
 
       # Install dependencies
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
 

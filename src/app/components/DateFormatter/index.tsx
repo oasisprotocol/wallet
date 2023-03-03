@@ -19,8 +19,16 @@ const dateFormat = new Intl.DateTimeFormat(process?.env?.NODE_ENV === 'test' ? '
   timeZone: process?.env?.NODE_ENV === 'test' ? 'UTC' : undefined,
 })
 
-export const intlDateTimeFormat = (date: Date | number) => dateFormat.format(date)
+/**
+ * Narrow No-Brake Space
+ *
+ * This is used by the date formatter.
+ * See https://unicodeplus.com/U+202F
+ */
+const NNBSP = '\u202F'
+
+export const intlDateTimeFormat = (date: Date | number) => dateFormat.format(date).replaceAll(NNBSP, ' ')
 
 export function DateFormatter(props: Props) {
-  return <>{intlDateTimeFormat(props.date)}</>
+  return <>{intlDateTimeFormat(props.date).replaceAll(NNBSP, ' ')}</>
 }

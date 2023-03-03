@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         id: yarn-cache
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
@@ -25,12 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn lint --max-warnings 0
@@ -42,12 +40,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn test --coverage
@@ -63,12 +59,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: REACT_APP_E2E_TEST=1 yarn build:ext
@@ -79,9 +73,7 @@ jobs:
       - name: Install playwright's system dependencies
         working-directory: ./playwright/
         run: npx playwright install --with-deps
-      - uses: emilioschepis/wait-for-endpoint@v1.0.3
-        with:
-          url: 'http://localhost:5000/'
+      - run: npx wait-on http://localhost:5000/ --timeout 60000
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
         run: BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/ xvfb-run yarn test
@@ -98,10 +90,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 18
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: docker-compose pull
@@ -110,12 +102,7 @@ jobs:
         continue-on-error: true
       - run: REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start &
       - run: docker-compose up --build -d
-      - uses: emilioschepis/wait-for-endpoint@v1.0.3
-        with:
-          url: 'http://localhost:3000/'
-          expected-status: 200
-          timeout: 20000
-          interval: 500
+      - run: npx wait-on http://localhost:3000/ --timeout 60000
       - run: yarn cypress:run
       - name: 'Upload coverage report'
         uses: actions/upload-artifact@v3
