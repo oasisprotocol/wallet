@@ -152,7 +152,8 @@
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-styled-components": "0.1.1",
     "stylelint-processor-styled-components": "1.10.0",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "wait-on": "7.0.1"
   },
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
