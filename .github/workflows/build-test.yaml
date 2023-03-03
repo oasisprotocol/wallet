@@ -79,9 +79,7 @@ jobs:
       - name: Install playwright's system dependencies
         working-directory: ./playwright/
         run: npx playwright install --with-deps
-      - uses: emilioschepis/wait-for-endpoint@v1.0.3
-        with:
-          url: 'http://localhost:5000/'
+      - run: npx wait-on http://localhost:5000/ --timeout 60000
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
         run: BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/ xvfb-run yarn test
@@ -110,12 +108,7 @@ jobs:
         continue-on-error: true
       - run: REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start &
       - run: docker-compose up --build -d
-      - uses: emilioschepis/wait-for-endpoint@v1.0.3
-        with:
-          url: 'http://localhost:3000/'
-          expected-status: 200
-          timeout: 20000
-          interval: 500
+      - run: npx wait-on http://localhost:3000/ --timeout 60000
       - run: yarn cypress:run
       - name: 'Upload coverage report'
         uses: actions/upload-artifact@v3
