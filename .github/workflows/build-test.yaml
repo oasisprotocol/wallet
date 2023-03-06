@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [stable, master]
 
+# disable secrets.GITHUB_TOKEN permissions
+permissions: {}
+
 jobs:
   yarn_cache:
     runs-on: ubuntu-latest

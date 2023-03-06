@@ -6,6 +6,10 @@ on:
   schedule:
     - cron: '0 0 1 * *'
 
+permissions: # Limit secrets.GITHUB_TOKEN permissions
+  contents: write
+  pull-requests: write
+
 jobs:
   dump-validators:
     if: github.repository == 'oasisprotocol/oasis-wallet-web'
