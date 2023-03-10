@@ -6543,10 +6543,10 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
-grommet-icons@4.9.0, grommet-icons@^4.8.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.9.0.tgz#ec1719b8ffc4895375d293cb2334ec50d6ae58a9"
-  integrity sha512-+wfO9vZxH8MJGGf/N8Myyyub9+3nCy/V6Rmk7gwohgnniM1d7nVRViuvhmE80OD+NyTpcCElGW8USD32l9AQ3A==
+grommet-icons@4.10.0, grommet-icons@^4.8.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.10.0.tgz#a56bc083f7d52502a12871c031a6746c61164cce"
+  integrity sha512-f3Re6jFRh93n2Cn2hyrJUANG7wOsv3wlEuyW/A1kIYzamDWnNfoZLgDQZXbAmMUMb1NdN7OU/0JrINxTCUOAEA==
   dependencies:
     grommet-styles "^0.2.0"
 
