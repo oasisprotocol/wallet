@@ -28,10 +28,10 @@ describe('openLedgerAccessPopup', () => {
 
     expect(browser.runtime.getURL).toHaveBeenCalledWith('popup.foo.html#/foo')
     expect(browser.windows.create).toHaveBeenCalledWith({
-      height: 650,
-      type: 'popup',
+      height: 850,
+      type: 'normal',
       url: 'mockedUrl',
-      width: 500,
+      width: 600,
     })
   })
 })
