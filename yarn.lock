@@ -2491,10 +2491,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@oasisprotocol/client-rt@0.2.0-alpha10":
-  version "0.2.0-alpha10"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/client-rt/-/client-rt-0.2.0-alpha10.tgz#72092a4676ecb2517fd0c64065def410868da1b1"
-  integrity sha512-Rl2UnqH4gehoZcfobUjzd96eDVRhWPuPBA5ewF6n9Q0jASUVvRd0d+HlvJFGn+6rcm5IwLLr33049OzCLG5YtA==
+"@oasisprotocol/client-rt@0.2.0-alpha9":
+  version "0.2.0-alpha9"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/client-rt/-/client-rt-0.2.0-alpha9.tgz#01aaf45a7f0aece54f868d8fd001a532c25f84c1"
+  integrity sha512-n6GC7Ov1lMBGE73qVOkRO46Lx/QMj5mzfUHdy4/+ufKpRwcFwa1sTGqpcLANBp90tg9pGblFaGOL3AkkyKwZ4A==
   dependencies:
     "@oasisprotocol/client" "^0.1.0-alpha7"
     elliptic "^6.5.3"
