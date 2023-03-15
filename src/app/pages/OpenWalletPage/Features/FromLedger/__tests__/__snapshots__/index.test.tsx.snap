@@ -199,9 +199,6 @@ exports[`<FromLedger /> should render component 1`] = `
       <li>
         ledger.instructionSteps.openOasisApp
       </li>
-      <li>
-        ledger.instructionSteps.confirmPendingReview
-      </li>
     </ol>
     <div
       class="c3"

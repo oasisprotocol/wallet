@@ -191,7 +191,6 @@
     },
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
-      "confirmPendingReview": "Press both buttons on Ledger device to confirm `Pending Ledger review`",
       "connectLedger": "Connect your Ledger device to the computer",
       "header": "Steps:",
       "openOasisApp": "Open the Oasis App on your Ledger device"

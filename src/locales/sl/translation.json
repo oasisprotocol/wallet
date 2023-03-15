@@ -178,7 +178,6 @@
   "ledger": {
     "instructionSteps": {
       "closeLedgerLive": "Zaprite Ledger Live app na računalniku.",
-      "confirmPendingReview": "Hkrati pritisnite oba gumba na Ledgerju za potrditev opozorila 'Pending Ledger review'.",
       "connectLedger": "Povežite vaš Ledger z računalnikom.",
       "header": "Koraki:",
       "openOasisApp": "Odprite Oasis App na vašem Ledgerju."
