@@ -1,6 +1,7 @@
 import browser from 'webextension-polyfill'
 
-type Dimensions = {
+type Props = {
+  path: string
   height: number
   width: number
 }
@@ -8,7 +9,7 @@ type Dimensions = {
 const getPopupUrl = (path: string) =>
   browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
 
-const openPopup = (path: string, dimensions: Dimensions) => {
+const openPopup = ({ path, height, width }: Props) => {
   const existingPopupWindow = browser.extension
     .getViews()
     .find(window => window.location.href === getPopupUrl(path))
@@ -19,9 +20,15 @@ const openPopup = (path: string, dimensions: Dimensions) => {
   browser.windows.create({
     url: getPopupUrl(path),
     type: 'popup',
-    width: dimensions.width,
-    height: dimensions.height,
+    width: width,
+    height: height,
   })
 }
 
-export const openLedgerAccessPopup = (path: string) => openPopup(path, { width: 500, height: 650 })
+export const openLedgerAccessPopup = (path: string) => {
+  openPopup({
+    path: path,
+    width: 500,
+    height: 650,
+  })
+}
