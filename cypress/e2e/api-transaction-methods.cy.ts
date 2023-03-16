@@ -1,9 +1,6 @@
-import * as monitor from 'vendors/monitor'
-import * as oasisscan from 'vendors/oasisscan'
 import {
   OperationsRowMethodEnum,
 } from 'vendors/oasisscan/index'
-
 
 function ignoreTimeoutError() {
   // Note: This is strongly discouraged. If it stops working, we converted to
@@ -25,12 +22,17 @@ describe('check all transaction methods from API are mapped in transactionMethod
       retryOnNetworkFailure: false,
       failOnStatusCode: false,
       timeout: 5000,
-    }).should(response => {
+    }).then(response => {
       if (!response.isOkStatusCode) return // Ignore if API is broken
 
-      response.body.forEach(transactionFromApi => {
-        const [parsedTransaction] = monitor.parseTransactionsList([transactionFromApi])
-        expect(parsedTransaction.type).to.be.a('string', `parse transaction type "${transactionFromApi.type}" to a string`)
+      cy.visit('/e2e')
+      cy.window()
+      .should('have.a.property', 'monitor')
+      .then((monitor) => {
+        response.body.forEach(transactionFromApi => {
+          const [parsedTransaction] = monitor.parseTransactionsList([transactionFromApi])
+          expect(parsedTransaction.type).to.be.a('string', `parse transaction type "${transactionFromApi.type}" to a string`)
+        })
       })
     })
   })
@@ -43,13 +45,17 @@ describe('check all transaction methods from API are mapped in transactionMethod
       retryOnNetworkFailure: false,
       failOnStatusCode: false,
       timeout: 5000,
-    }).should(response => {
+    }).then(response => {
       if (!response.isOkStatusCode) return // Ignore if API is broken
 
       const allApiMethods = response.body.data.list
-
       expect(allApiMethods).to.have.length(Object.keys(OperationsRowMethodEnum).length)
-      expect(oasisscan.transactionMethodMap).to.include.keys(allApiMethods)
+      cy.visit('/e2e')
+      cy.window()
+      .should('have.a.property', 'oasisscan')
+      .then((oasisscan) => {
+        expect(oasisscan.transactionMethodMap).to.include.keys(allApiMethods)
+      })
     })
   })
 })

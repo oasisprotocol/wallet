@@ -1,10 +1,29 @@
 import { Box, Button, Form, FormField, TextArea, TextInput } from 'grommet'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import * as monitor from 'vendors/monitor'
+import * as oasisscan from 'vendors/oasisscan'
+
+interface e2eWindow extends Window {
+  monitor: any
+  oasisscan: any
+}
+declare const window: e2eWindow
+window.monitor = monitor
+window.oasisscan = oasisscan
 
 export function E2EPage() {
   const navigate = useNavigate()
   const [showUnsafeInputs, setShowUnsafeInputs] = React.useState(false as false | 'firefox' | 'chrome')
+
+  useEffect(() => {
+    window.monitor = monitor
+    window.oasisscan = oasisscan
+    return () => {
+      window.monitor = undefined
+      window.oasisscan = undefined
+    }
+  }, [])
 
   return (
     <div>
