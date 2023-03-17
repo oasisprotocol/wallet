@@ -9,8 +9,6 @@ interface e2eWindow extends Window {
   oasisscan: any
 }
 declare const window: e2eWindow
-window.monitor = monitor
-window.oasisscan = oasisscan
 
 export function E2EPage() {
   const navigate = useNavigate()
