@@ -84,6 +84,8 @@ describe('Transaction Sagas', () => {
       address: 'oasis1qrnu9yhwzap7rqh6tdcdcpz0zf86hwhycchkhvt8',
       id: '000000000000000000000000000000000000000000000000e199119c992377cb',
       decimals: 9,
+      gasPrice: 5n,
+      feeGas: 500_000n,
     }
     const transaction = {
       amount: '10',

@@ -5,7 +5,7 @@ import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
 import { getEvmBech32Address } from 'app/lib/eth-helpers'
 import { isValidEthAddress } from 'app/lib/eth-helpers'
-import { ParaTimeTransaction, TransactionTypes } from 'app/state/paratimes/types'
+import { ParaTimeTransaction, Runtime, TransactionTypes } from 'app/state/paratimes/types'
 import { addressToPublicKey, parseRoseStringToBigNumber, shortPublicKey } from './helpers'
 import { consensusDecimals } from '../../config'
 
@@ -25,9 +25,6 @@ export type TW<T> = oasis.consensus.TransactionWrapper<T>
 /** Runtime Transaction Wrapper */
 type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
 
-// A wild guess: the minimum gas price on Emerald (100 nano ROSE) times the default loose
-// overestimate of the gas (15k).
-const defaultWithdrawFeeAmount = '1500000'
 const defaultDepositFeeAmount = '0'
 
 export class OasisTransaction {
@@ -130,12 +127,11 @@ export class OasisTransaction {
     signer: Signer,
     transaction: ParaTimeTransaction,
     fromAddress: string,
-    runtimeId: string,
-    runtimeDecimals: number,
+    runtime: Runtime,
   ): Promise<RTW<oasisRT.types.ConsensusDeposit | oasisRT.types.ConsensusWithdraw>> {
     const { amount, recipient: targetAddress, type } = transaction
     const isDepositing = type === TransactionTypes.Deposit
-    const consensusRuntimeId = oasis.misc.fromHex(runtimeId)
+    const consensusRuntimeId = oasis.misc.fromHex(runtime.id)
     const txWrapper = new oasisRT.consensusAccounts.Wrapper(consensusRuntimeId)[
       isDepositing ? 'callDeposit' : 'callWithdraw'
     ]()
@@ -150,13 +146,15 @@ export class OasisTransaction {
           ? transaction.feeAmount
           : isDepositing
           ? defaultDepositFeeAmount
-          : defaultWithdrawFeeAmount,
+          : // A wild guess: the minimum gas price times the default loose
+            // overestimate of the gas.
+            (runtime.gasPrice * runtime.feeGas).toString(),
       )
-        .shiftedBy(runtimeDecimals)
+        .shiftedBy(runtime.decimals)
         .shiftedBy(-consensusDecimals)
         .toFixed(0),
     )
-    const feeGas = transaction.feeGas ? BigInt(transaction.feeGas) : 15000n
+    const feeGas = transaction.feeGas ? BigInt(transaction.feeGas) : runtime.feeGas
     const signerInfo = {
       address_spec: {
         signature: { [transaction.ethPrivateKey ? 'secp256k1eth' : 'ed25519']: signer.public() },
@@ -167,7 +165,7 @@ export class OasisTransaction {
     txWrapper
       .setBody({
         amount: [
-          oasis.quantity.fromBigInt(BigInt(parseRoseStringToBigNumber(amount, runtimeDecimals).toFixed(0))),
+          oasis.quantity.fromBigInt(BigInt(parseRoseStringToBigNumber(amount, runtime.decimals).toFixed(0))),
           oasisRT.token.NATIVE_DENOMINATION,
         ],
         to: oasis.staking.addressFromBech32(

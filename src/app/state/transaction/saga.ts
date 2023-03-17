@@ -106,15 +106,7 @@ function* prepareParatimeTransfer(
     yield* call(assertSufficientBalance, BigInt(parseRoseStringToBaseUnitString(transaction.amount)))
   }
 
-  return yield* call(
-    OasisTransaction.buildParaTimeTransfer,
-    nic,
-    signer,
-    transaction,
-    from,
-    runtime.id,
-    runtime.decimals,
-  )
+  return yield* call(OasisTransaction.buildParaTimeTransfer, nic, signer, transaction, from, runtime)
 }
 
 function* prepareAddEscrow(signer: Signer, amount: bigint, validator: string) {

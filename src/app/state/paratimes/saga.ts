@@ -76,6 +76,8 @@ export function* submitTransaction() {
       address: paraTimeConfig[selectedNetwork].address!,
       id: paraTimeConfig[selectedNetwork].runtimeId!,
       decimals: paraTimeConfig.decimals,
+      gasPrice: paraTimeConfig.gasPrice,
+      feeGas: paraTimeConfig.feeGas,
     }
 
     yield* call(submitParaTimeTransaction, runtime, {

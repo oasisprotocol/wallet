@@ -42,6 +42,8 @@ export type Runtime = {
   address: string
   id: string
   decimals: number
+  gasPrice: bigint
+  feeGas: bigint
 }
 
 export type ParaTimeTransaction = Pick<
