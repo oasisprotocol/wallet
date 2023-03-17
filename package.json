@@ -97,7 +97,7 @@
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
     "@types/body-scroll-lock": "3.1.0",
-    "@types/jest": "29.4.4",
+    "@types/jest": "29.5.0",
     "@types/jest-when": "3.5.2",
     "@types/react": "17.0.53",
     "@types/react-dom": "18.0.11",
