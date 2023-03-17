@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v2.0/schema.json
+
 swagger: '2.0'
 info:
   title: OasisExplorer API
