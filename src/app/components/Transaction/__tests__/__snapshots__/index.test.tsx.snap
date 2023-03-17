@@ -302,7 +302,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 }
 
 .c17 {
-  margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
   color: lightText;
@@ -613,6 +612,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
           <span
             class="c17"
           >
+             
             TEST
           </span>
         </span>
@@ -958,7 +958,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 }
 
 .c17 {
-  margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
   color: lightText;
@@ -1269,6 +1268,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           <span
             class="c17"
           >
+             
             TEST
           </span>
         </span>

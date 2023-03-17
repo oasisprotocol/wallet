@@ -57,7 +57,8 @@ export const AmountFormatter = memo(
       <span>
         {amountString}
         {!hideTicker && (
-          <Text margin={{ left: 'xxsmall' }} size={size} {...tickerProps}>
+          <Text size={size} {...tickerProps}>
+            {' '}
             {ticker}
           </Text>
         )}

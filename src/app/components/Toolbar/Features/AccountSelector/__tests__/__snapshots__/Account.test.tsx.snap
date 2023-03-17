@@ -201,15 +201,14 @@ exports[`<Account  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
+.c16 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c14 {
   font-size: 14px;
   line-height: 20px;
-}
-
-.c16 {
-  margin-left: 3px;
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .c3 {
@@ -416,7 +415,9 @@ exports[`<Account  /> should match snapshot 1`] = `
                 0.000001
                 <span
                   class="c16"
-                />
+                >
+                   
+                </span>
               </span>
             </div>
           </div>

@@ -399,7 +399,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 .c14 {
-  margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
   color: #a3a3a3;
@@ -967,7 +966,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 100.000001111
                 <span
                   class="c14"
-                />
+                >
+                   
+                </span>
               </span>
             </dd>
             <dt>
@@ -978,7 +979,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 100.0
                 <span
                   class="c14"
-                />
+                >
+                   
+                </span>
               </span>
             </dd>
             <dt>
@@ -990,7 +993,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 0.000001111
                 <span
                   class="c14"
-                />
+                >
+                   
+                </span>
               </span>
             </dd>
             <dt>
@@ -1001,7 +1006,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 0.0
                 <span
                   class="c14"
-                />
+                >
+                   
+                </span>
               </span>
             </dd>
           </dl>
@@ -1168,6 +1175,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 </div>
 `;
 
-exports[`<AccountPage  /> with missing delegations 1`] = `"Total-Available100.0 Staked-Debonding-"`;
+exports[`<AccountPage  /> with missing delegations 1`] = `"Total-Available100.0  Staked-Debonding-"`;
 
 exports[`<AccountPage  /> with missing delegations 2`] = `"TransactionsDelegationsDebonding"`;
