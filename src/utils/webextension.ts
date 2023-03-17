@@ -1,14 +1,16 @@
 import browser from 'webextension-polyfill'
 
-type Dimensions = {
+type Props = {
+  path: string
   height: number
   width: number
+  type?: browser.Windows.CreateType
 }
 
 const getPopupUrl = (path: string) =>
   browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
 
-const openPopup = (path: string, dimensions: Dimensions) => {
+const openPopup = ({ path, height, width, type }: Props) => {
   const existingPopupWindow = browser.extension
     .getViews()
     .find(window => window.location.href === getPopupUrl(path))
@@ -18,10 +20,21 @@ const openPopup = (path: string, dimensions: Dimensions) => {
   }
   browser.windows.create({
     url: getPopupUrl(path),
-    type: 'popup',
-    width: dimensions.width,
-    height: dimensions.height,
+    type: type ?? 'popup',
+    width: width,
+    height: height,
   })
 }
 
-export const openLedgerAccessPopup = (path: string) => openPopup(path, { width: 500, height: 650 })
+export const openLedgerAccessPopup = (path: string) => {
+  openPopup({
+    path: path,
+    width: 600,
+    height: 850,
+
+    // Override type:popup because Chrome no longer shows permissions dialog in popups
+    // Mentioned in https://bugs.chromium.org/p/chromium/issues/detail?id=1415183#c14
+    // Maybe related to https://bugs.chromium.org/p/chromium/issues/detail?id=1360960
+    type: 'normal',
+  })
+}

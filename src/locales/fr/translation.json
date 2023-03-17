@@ -145,7 +145,6 @@
   "ledger": {
     "instructionSteps": {
       "closeLedgerLive": "Fermer l'application Ledger Live sur l'ordinateur",
-      "confirmPendingReview": "Appuyez sur les deux boutons du Ledger pour confirmer \"Pending Ledger review\"",
       "connectLedger": "Connectez votre matériel Ledger à l'ordinateur",
       "header": "Etapes",
       "openOasisApp": "Ouvrez l'application Oasis sur votre matériel Ledger"

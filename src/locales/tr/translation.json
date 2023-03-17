@@ -145,7 +145,6 @@
   "ledger": {
     "instructionSteps": {
       "closeLedgerLive": "Bilgisayarınızdan Ledger Live Uygulamasını kapatın.",
-      "confirmPendingReview": "\"Bekleyen Ledger incelemesini\"onaylamak için Ledger cihazınızdaki iki düğmeyede basın.",
       "connectLedger": "Lütfen Ledger cihazınızı bilgisayarınıza bağlayın",
       "header": "Adımlar:",
       "openOasisApp": "Oasis Uygulamasını, Ledger cihazınızda açınız."

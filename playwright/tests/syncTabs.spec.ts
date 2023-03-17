@@ -55,6 +55,7 @@ test.describe('syncTabs', () => {
 
       const tab2 = await context.newPage()
       await tab2.goto('/')
+      await expect(tab2.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
       await expect(tab2.getByRole('button', { name: 'Unlock' })).toBeHidden()
       await tab2.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(tab2, {
@@ -79,8 +80,10 @@ test.describe('syncTabs', () => {
 
       // Second tab should not get stuck on loading after first tab closes wallet
       await page.getByRole('button', { name: /(Close wallet)|(Lock profile)/ }).click()
+      await expect(page.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
       await expect(page.getByText('Loading account')).toBeHidden()
       await expect(page.getByTestId('account-selector')).toBeHidden()
+      await expect(tab2.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
       await expect(tab2.getByText('Loading account')).toBeHidden()
       await expect(tab2.getByTestId('account-selector')).toBeHidden()
     }

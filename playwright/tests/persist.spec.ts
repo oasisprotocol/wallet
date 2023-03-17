@@ -174,6 +174,7 @@ test.describe('Persist', () => {
     await expect(page.getByText('Loading account')).toBeHidden()
 
     await page.goto('/')
+    await expect(page.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
     await expect(page.getByPlaceholder('Enter your password here')).toBeHidden()
     await expect(page.getByTestId('account-selector')).toBeHidden()
   })
