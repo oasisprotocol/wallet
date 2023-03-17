@@ -78,6 +78,7 @@ type ParaTimeConfig = {
   testnet: ParaTimeNetwork
   local: ParaTimeNetwork
   decimals: number
+  displayOrder: number
   type: RuntimeTypes
 }
 
@@ -100,6 +101,7 @@ const emeraldConfig: ParaTimeConfig = {
     runtimeId: undefined,
   },
   decimals: 18,
+  displayOrder: 1,
   type: RuntimeTypes.Evm,
 }
 
@@ -117,13 +119,14 @@ const cipherConfig: ParaTimeConfig = {
     runtimeId: undefined,
   },
   decimals: 9,
+  displayOrder: 3,
   type: RuntimeTypes.Oasis,
 }
 
 const sapphireConfig: ParaTimeConfig = {
   mainnet: {
-    address: undefined,
-    runtimeId: undefined,
+    address: 'oasis1qrd3mnzhhgst26hsp96uf45yhq6zlax0cuzdgcfc',
+    runtimeId: '000000000000000000000000000000000000000000000000f80306c9858e7279',
   },
   testnet: {
     address: 'oasis1qqczuf3x6glkgjuf0xgtcpjjw95r3crf7y2323xd',
@@ -135,6 +138,7 @@ const sapphireConfig: ParaTimeConfig = {
   },
 
   decimals: 18,
+  displayOrder: 2,
   type: RuntimeTypes.Evm,
 }
 

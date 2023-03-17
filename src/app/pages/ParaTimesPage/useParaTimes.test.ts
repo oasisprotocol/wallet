@@ -35,12 +35,16 @@ describe('useParaTimes', () => {
 
       expect(result.current.availableParaTimesForSelectedNetwork).toEqual([
         {
-          isEvm: false,
-          value: 'cipher',
+          isEvm: true,
+          value: 'emerald',
         },
         {
           isEvm: true,
-          value: 'emerald',
+          value: 'sapphire',
+        },
+        {
+          isEvm: false,
+          value: 'cipher',
         },
       ])
     })
@@ -54,16 +58,16 @@ describe('useParaTimes', () => {
 
       expect(result.current.availableParaTimesForSelectedNetwork).toEqual([
         {
-          isEvm: false,
-          value: 'cipher',
-        },
-        {
           isEvm: true,
           value: 'emerald',
         },
         {
           isEvm: true,
           value: 'sapphire',
+        },
+        {
+          isEvm: false,
+          value: 'cipher',
         },
       ])
     })

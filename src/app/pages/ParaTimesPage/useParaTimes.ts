@@ -85,6 +85,7 @@ export const useParaTimes = (): ParaTimesHook => {
     Object.keys(paraTimesConfig) as ParaTime[]
   )
     .filter(paraTimeKey => paraTimesConfig[paraTimeKey][selectedNetwork].runtimeId)
+    .sort((a, b) => paraTimesConfig[a].displayOrder - paraTimesConfig[b].displayOrder)
     .map(paraTimeKey => ({
       isEvm: paraTimesConfig[paraTimeKey].type === RuntimeTypes.Evm,
       value: paraTimeKey,
