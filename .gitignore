@@ -5,6 +5,7 @@ coverage/
 build/
 build-ext/
 build-dev/
+build-vite/
 node_modules/
 stats.json
 .pnp
