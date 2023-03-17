@@ -38,6 +38,6 @@ describe('<AmountFormatter />', () => {
 
   it('should render without losing precision', () => {
     const { container } = renderComponent(store, { amount: 1563114365108133939632n.toString() })
-    expect(container.textContent).toEqual('1,563,114,365,108.133939632ROSE')
+    expect(container.textContent).toEqual('1,563,114,365,108.133939632 ROSE')
   })
 })

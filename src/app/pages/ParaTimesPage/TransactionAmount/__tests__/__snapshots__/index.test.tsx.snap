@@ -294,7 +294,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
 }
 
 .c15 {
-  margin-left: 3px;
   font-size: 12px;
   line-height: 18px;
   color: lightText;
@@ -702,7 +701,9 @@ exports[`<TransactionAmount /> should render component 1`] = `
                   1.0
                   <span
                     class="c15"
-                  />
+                  >
+                     
+                  </span>
                 </span>
               </span>
             </div>

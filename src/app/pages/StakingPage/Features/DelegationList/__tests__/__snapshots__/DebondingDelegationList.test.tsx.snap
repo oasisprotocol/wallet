@@ -51,7 +51,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 }
 
 .c17 {
-  margin-left: 3px;
   font-size: 18px;
   line-height: 24px;
 }
@@ -541,7 +540,9 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                     0.0000001
                     <span
                       class="c17"
-                    />
+                    >
+                       
+                    </span>
                   </span>
                 </div>
                 <div

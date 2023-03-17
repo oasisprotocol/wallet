@@ -83,7 +83,6 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
 }
 
 .c18 {
-  margin-left: 3px;
   font-size: 18px;
   line-height: 24px;
 }
@@ -556,7 +555,9 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                     0.0000001
                     <span
                       class="c18"
-                    />
+                    >
+                       
+                    </span>
                   </span>
                 </div>
                 <div
