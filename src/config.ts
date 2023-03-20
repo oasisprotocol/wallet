@@ -77,6 +77,8 @@ type ParaTimeConfig = {
   mainnet: ParaTimeNetwork
   testnet: ParaTimeNetwork
   local: ParaTimeNetwork
+  gasPrice: bigint
+  feeGas: bigint
   decimals: number
   displayOrder: number
   type: RuntimeTypes
@@ -100,6 +102,8 @@ const emeraldConfig: ParaTimeConfig = {
     address: undefined,
     runtimeId: undefined,
   },
+  gasPrice: 100n,
+  feeGas: 15_000n,
   decimals: 18,
   displayOrder: 1,
   type: RuntimeTypes.Evm,
@@ -118,6 +122,8 @@ const cipherConfig: ParaTimeConfig = {
     address: undefined,
     runtimeId: undefined,
   },
+  gasPrice: 5n,
+  feeGas: 500_000n,
   decimals: 9,
   displayOrder: 3,
   type: RuntimeTypes.Oasis,
@@ -136,7 +142,8 @@ const sapphireConfig: ParaTimeConfig = {
     address: undefined,
     runtimeId: undefined,
   },
-
+  gasPrice: 100n,
+  feeGas: 15_000n,
   decimals: 18,
   displayOrder: 2,
   type: RuntimeTypes.Evm,
