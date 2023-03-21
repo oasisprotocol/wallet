@@ -8,6 +8,7 @@ import {
   privateKeyAddressPretty,
   privateKey2,
   privateKey2AddressPretty,
+  mnemonic,
 } from '../utils/test-inputs'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
@@ -202,7 +203,44 @@ test.describe('syncTabs', () => {
     }
   })
 
-  test('TODO opening from private key and locking in second tab should not crash', async ({
+  test('sync 44 accounts in 10 tabs', async ({ page, context }) => {
+    test.slow()
+    await test.step('Import 44 accounts', async () => {
+      await page.goto('/open-wallet/mnemonic')
+      await page.getByTestId('network-selector').click()
+      await page.getByRole('menuitem', { name: 'Testnet' }).click()
+
+      await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+      await page.getByRole('button', { name: /Import my wallet/ }).click()
+      await page.getByRole('checkbox', { name: /oasis1/, checked: true }).uncheck()
+      for (let i = 0; i < 11; i++) {
+        const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })
+        await expect(uncheckedAccounts).toHaveCount(4)
+        for (const account of await uncheckedAccounts.elementHandles()) await account.click()
+        await page.getByRole('button', { name: /Next/ }).click()
+      }
+      await expect(page.getByText('44 accounts selected')).toBeVisible()
+      await page.getByRole('button', { name: /Open/ }).click()
+    })
+    await test.step('Test initial syncing of 10 tabs', async () => {
+      for (let i = 0; i < 10; i++) {
+        const newTab = await context.newPage()
+        await newTab.goto('/')
+      }
+      for (const tab of context.pages()) {
+        await expect(tab.getByTestId('network-selector')).toHaveText('Testnet')
+      }
+    })
+    await test.step('Test syncing actions to 10 tabs', async () => {
+      await page.getByTestId('network-selector').click()
+      await page.getByRole('menuitem', { name: 'Mainnet' }).click()
+      for (const tab of context.pages()) {
+        await expect(tab.getByTestId('network-selector')).toHaveText('Mainnet')
+      }
+    })
+  })
+
+  test('TODO opening from private key and quickly locking in second tab should not crash', async ({
     page,
     context,
   }) => {

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, Page } from '@playwright/test'
 import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
