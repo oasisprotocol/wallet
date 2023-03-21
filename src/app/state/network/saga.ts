@@ -66,7 +66,8 @@ export function* networkSaga() {
     }
   })
 
-  // Wait for tabs to sync state. >5ms should be enough.
+  // Wait for tabs to sync state.
+  // TODO: seems to take longer than 100ms when using multiple tabs
   const maybeSynced = yield* race({
     tabsSynced: take(RECEIVE_INIT_STATE),
     thereAreNoOtherTabs: delay(50),

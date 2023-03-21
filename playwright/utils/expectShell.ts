@@ -5,7 +5,7 @@ export function expectShell(cmd: string) {
   let output: string
   try {
     output = execSync(cmd, { encoding: 'utf-8' })
-  } catch (e) {
+  } catch (e: any) {
     output = `exit code ${e.status}: ${e.message}`
   }
   return expect(output)
