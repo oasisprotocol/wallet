@@ -42,6 +42,7 @@ export const whitelistTabSyncActions = [
   themeActions.changeTheme.type,
   walletActions.walletOpened.type,
   walletActions.updateBalance.type,
+  // NOT networkActions.initialNetworkSelected.type,
   networkActions.networkSelected.type,
   persistActions.setUnlockedRootState.type,
   persistActions.resetRootState.type,

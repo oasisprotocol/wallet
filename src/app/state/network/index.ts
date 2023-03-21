@@ -14,7 +14,11 @@ const slice = createSlice({
   name: 'network',
   initialState,
   reducers: {
+    initializeNetwork() {},
     selectNetwork(state, action: PayloadAction<NetworkType>) {},
+    initialNetworkSelected(state, action: PayloadAction<NetworkState>) {
+      Object.assign(state, action.payload)
+    },
     networkSelected(state, action: PayloadAction<NetworkState>) {
       Object.assign(state, action.payload)
     },
