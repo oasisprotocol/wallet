@@ -3,21 +3,17 @@ import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
 import { all, call, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
 
-import { accountActions as actions } from '.'
+import { accountActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { stakingActions } from '../staking'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress } from './selectors'
 
-/**
- * Waits for a fetchAccount action with a specific address,
- * and hydrate the state accordingly
- */
 export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
-  yield* put(actions.setLoading(true))
+  yield* put(accountActions.setLoading(true))
   const nic = yield* call(getOasisNic)
   const publicKey = yield* call(addressToPublicKey, address)
   const { getAccount, getTransactionsList } = yield* call(getExplorerAPIs)
@@ -27,14 +23,14 @@ export function* fetchAccount(action: PayloadAction<string>) {
       yield* fork(function* () {
         try {
           const account = yield* call(getAccount, address)
-          yield* put(actions.accountLoaded(account))
+          yield* put(accountActions.accountLoaded(account))
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
             const balance = parseRpcBalance(account)
             yield* put(
-              actions.accountLoaded({
+              accountActions.accountLoaded({
                 address,
                 available: balance.available,
                 delegations: null,
@@ -45,10 +41,10 @@ export function* fetchAccount(action: PayloadAction<string>) {
           } catch (rpcError) {
             console.error('get account with RPC failed, continuing without updated account.', rpcError)
             if (apiError instanceof WalletError) {
-              yield* put(actions.accountError({ code: apiError.type, message: apiError.message }))
+              yield* put(accountActions.accountError({ code: apiError.type, message: apiError.message }))
             } else {
               yield* put(
-                actions.accountError({
+                accountActions.accountError({
                   code: WalletErrors.UnknownError,
                   message: apiError.message,
                 }),
@@ -65,20 +61,22 @@ export function* fetchAccount(action: PayloadAction<string>) {
             accountId: address,
             limit: 20,
           })
-          yield* put(actions.transactionsLoaded(transactions))
+          yield* put(accountActions.transactionsLoaded(transactions))
         } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
           if (e instanceof WalletError) {
-            yield* put(actions.transactionsError({ code: e.type, message: e.message }))
+            yield* put(accountActions.transactionsError({ code: e.type, message: e.message }))
           } else {
-            yield* put(actions.transactionsError({ code: WalletErrors.UnknownError, message: e.message }))
+            yield* put(
+              accountActions.transactionsError({ code: WalletErrors.UnknownError, message: e.message }),
+            )
           }
         }
       }),
     ),
   ])
 
-  yield* put(actions.setLoading(false))
+  yield* put(accountActions.setLoading(false))
 }
 
 /**
@@ -112,7 +110,7 @@ function* refreshAccount(address: string) {
   const from = yield* select(selectAddress)
   const currentAccount = yield* select(selectAccountAddress)
   if (currentAccount === from || currentAccount === address) {
-    yield* put(actions.fetchAccount(currentAccount))
+    yield* put(accountActions.fetchAccount(currentAccount))
     yield* put(stakingActions.fetchAccount(currentAccount))
   }
 }
@@ -120,5 +118,5 @@ function* refreshAccount(address: string) {
 export function* accountSaga() {
   yield* fork(refreshAccountOnTransaction)
   yield* fork(refreshAccountOnParaTimeTransaction)
-  yield* takeLatest(actions.fetchAccount, fetchAccount)
+  yield* takeLatest(accountActions.fetchAccount, fetchAccount)
 }
