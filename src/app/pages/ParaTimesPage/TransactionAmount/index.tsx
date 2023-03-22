@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { Box, Button, Form, FormField, Text, TextInput } from 'grommet'
+import { Box, Button, Form, FormField, Text, TextInput, Tip } from 'grommet'
 import { Trans, useTranslation } from 'react-i18next'
 
 import {
@@ -17,6 +17,17 @@ import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
 import { FeesSection } from './FeesSection'
+import styled from 'styled-components'
+import { normalizeColor } from 'grommet/es6/utils'
+
+const StyledMaxButton = styled(Button)`
+  position: absolute;
+  top: 10px;
+  right: 0;
+  z-index: 2;
+  background-color: ${({ theme }) => normalizeColor('background-front', theme)};
+  font-weight: bold;
+`
 
 export const TransactionAmount = () => {
   const { t } = useTranslation()
@@ -120,21 +131,22 @@ export const TransactionAmount = () => {
                 />
               </FormField>
               {balance && (
-                <Button
-                  disabled={disabled}
-                  style={{
-                    fontWeight: 'bold',
-                    zIndex: 2,
-                    position: 'absolute',
-                    top: '15px',
-                    right: 0,
-                  }}
-                  plain
-                  label={t('paraTimes.amount.max', 'MAX')}
-                  onClick={() =>
-                    setTransactionForm({ ...transactionForm, amount: formatter(balance).replaceAll(',', '') })
-                  }
-                />
+                <Tip
+                  content={t('paraTimes.amount.tooltip', 'Max value may be decreased by the fee')}
+                  dropProps={{ align: { bottom: 'top' } }}
+                >
+                  <StyledMaxButton
+                    disabled={disabled}
+                    plain
+                    label={t('paraTimes.amount.max', 'MAX')}
+                    onClick={() =>
+                      setTransactionForm({
+                        ...transactionForm,
+                        amount: formatter(balance).replaceAll(',', ''),
+                      })
+                    }
+                  />
+                </Tip>
               )}
             </Box>
 
