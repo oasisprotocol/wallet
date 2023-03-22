@@ -24,7 +24,7 @@ export const TransactionAmount = () => {
   const {
     balance,
     balanceInBaseUnit,
-    decimals,
+    consensusDecimals,
     isDepositing,
     isEvmcParaTime,
     isLoading,
@@ -92,12 +92,12 @@ export const TransactionAmount = () => {
                 required
                 validate={[
                   (amount: string) =>
-                    !new RegExp(`^\\d*(?:[.][0-9]{0,${decimals}})?$`).test(amount)
+                    !new RegExp(`^\\d*(?:[.][0-9]{0,${consensusDecimals}})?$`).test(amount)
                       ? {
                           message: t(
                             'paraTimes.validation.invalidDecimalValue',
-                            'Maximum of {{token}} decimal places is allowed',
-                            { token: decimals },
+                            'Maximum of {{decimals}} decimal places is allowed',
+                            { decimals: consensusDecimals },
                           ),
                           status: 'error',
                         }
