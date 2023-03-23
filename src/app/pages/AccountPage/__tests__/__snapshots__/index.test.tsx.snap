@@ -217,25 +217,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c22 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-bottom: 12px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.c24 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -250,7 +232,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c28 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -269,7 +251,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c31 {
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -288,7 +270,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 75%;
 }
 
-.c32 {
+.c31 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -303,7 +285,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c33 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -365,7 +347,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-.c27 {
+.c26 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -375,7 +357,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c30 {
+.c29 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -416,7 +398,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c23 {
+.c22 {
   margin-left: 12px;
   margin-right: 12px;
   margin-top: 6px;
@@ -482,7 +464,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c29 {
+.c28 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -511,48 +493,48 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c29:hover {
+.c28:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c29:focus {
+.c28:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c29:focus > circle,
-.c29:focus > ellipse,
-.c29:focus > line,
-.c29:focus > path,
-.c29:focus > polygon,
-.c29:focus > polyline,
-.c29:focus > rect {
+.c28:focus > circle,
+.c28:focus > ellipse,
+.c28:focus > line,
+.c28:focus > path,
+.c28:focus > polygon,
+.c28:focus > polyline,
+.c28:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c29:focus::-moz-focus-inner {
+.c28:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c29:focus:not(:focus-visible) {
+.c28:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c29:focus:not(:focus-visible) > circle,.c29:focus:not(:focus-visible) > ellipse,
-.c29:focus:not(:focus-visible) > line,.c29:focus:not(:focus-visible) > path,
-.c29:focus:not(:focus-visible) > polygon,.c29:focus:not(:focus-visible) > polyline,
-.c29:focus:not(:focus-visible) > rect {
+.c28:focus:not(:focus-visible) > circle,.c28:focus:not(:focus-visible) > ellipse,
+.c28:focus:not(:focus-visible) > line,.c28:focus:not(:focus-visible) > path,
+.c28:focus:not(:focus-visible) > polygon,.c28:focus:not(:focus-visible) > polyline,
+.c28:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c29:focus:not(:focus-visible)::-moz-focus-inner {
+.c28:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c34 {
+.c33 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
@@ -560,7 +542,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c26 {
+.c25 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -578,33 +560,33 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: none;
 }
 
-.c26::-webkit-input-placeholder {
+.c25::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c26::-moz-placeholder {
+.c25::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c26:-ms-input-placeholder {
+.c25:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c26::-webkit-search-decoration {
+.c25::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c26::-moz-focus-inner {
+.c25::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c26:-moz-placeholder,
-.c26::-moz-placeholder {
+.c25:-moz-placeholder,
+.c25::-moz-placeholder {
   opacity: 1;
 }
 
-.c25 {
+.c24 {
   position: relative;
   width: 100%;
 }
@@ -770,37 +752,31 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c22 {
-    margin-bottom: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c24 {
+  .c23 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c28 {
+  .c27 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c32 {
+  .c31 {
     margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c33 {
+  .c32 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c33 {
+  .c32 {
     padding: 24px;
   }
 }
@@ -813,20 +789,20 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c27 {
+  .c26 {
     height: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c30 {
+  .c29 {
     width: auto;
     height: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c34 {
+  .c33 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1074,23 +1050,23 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               class="c21"
             >
               <div
-                class="c22 "
+                class="c2 "
               >
                 <label
-                  class="c23"
+                  class="c22"
                   for="recipient-id"
                 >
                   Recipient
                 </label>
                 <div
-                  class="c24 "
+                  class="c23 "
                 >
                   <div
-                    class="c25"
+                    class="c24"
                   >
                     <input
                       autocomplete="off"
-                      class="c26"
+                      class="c25"
                       id="recipient-id"
                       name="recipient"
                       placeholder="Enter an address"
@@ -1101,26 +1077,26 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c27"
+                class="c26"
               />
               <div
-                class="c22 "
+                class="c2 "
               >
                 <label
-                  class="c23"
+                  class="c22"
                   for="amount-id"
                 >
                   Amount
                 </label>
                 <div
-                  class="c24 "
+                  class="c23 "
                 >
                   <div
-                    class="c25"
+                    class="c24"
                   >
                     <input
                       autocomplete="off"
-                      class="c26"
+                      class="c25"
                       id="amount-id"
                       min="0"
                       name="amount"
@@ -1134,13 +1110,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c27"
+                class="c26"
               />
               <div
-                class="c28"
+                class="c27"
               >
                 <button
-                  class="c29"
+                  class="c28"
                   type="submit"
                 >
                   Send
@@ -1151,19 +1127,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c30"
+        class="c29"
       />
       <div
-        class="c31"
+        class="c30"
       >
         <div
-          class="c32"
+          class="c31"
         >
           <div
-            class="c33"
+            class="c32"
           >
             <h3
-              class="c34"
+              class="c33"
             >
               No transactions found.
             </h3>
