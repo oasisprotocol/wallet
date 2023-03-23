@@ -260,6 +260,7 @@
       "feeGasPlaceholder": "Fee Gas",
       "max": "MAX",
       "receiving": "to the receiving",
+      "tooltip": "Max value may be decreased by the fee",
       "withdrawing": "from the withdrawing"
     },
     "common": {
