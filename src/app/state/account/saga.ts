@@ -14,8 +14,6 @@ export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
   yield* put(accountActions.setLoading(true))
-  const nic = yield* call(getOasisNic)
-  const publicKey = yield* call(addressToPublicKey, address)
   const { getAccount, getTransactionsList } = yield* call(getExplorerAPIs)
 
   yield* all([
@@ -27,6 +25,8 @@ export function* fetchAccount(action: PayloadAction<string>) {
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
+            const nic = yield* call(getOasisNic)
+            const publicKey = yield* call(addressToPublicKey, address)
             const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
             const balance = parseRpcBalance(account)
             yield* put(
