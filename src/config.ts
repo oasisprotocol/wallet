@@ -73,7 +73,7 @@ type ParaTimeNetwork = {
   runtimeId: string | undefined
 }
 
-type ParaTimeConfig = {
+export type ParaTimeConfig = {
   mainnet: ParaTimeNetwork
   testnet: ParaTimeNetwork
   local: ParaTimeNetwork

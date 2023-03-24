@@ -10,7 +10,7 @@ import { selectAddress } from 'app/state/wallet/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { ErrorPayload, ExhaustedTypeError } from 'types/errors'
-import { consensusDecimals, paraTimesConfig, RuntimeTypes, ParaTime } from '../../../config'
+import { paraTimesConfig, RuntimeTypes, ParaTime, type ParaTimeConfig } from '../../../config'
 
 type AvailableParaTimesForNetwork = {
   isEvm: boolean
@@ -28,12 +28,11 @@ export type ParaTimesHook = {
   balance: StringifiedBigInt | null
   balanceInBaseUnit: boolean
   clearTransactionForm: () => void
-  consensusDecimals: number
-  decimals: number
   isDepositing: boolean
   isEvmcParaTime: boolean
   isLoading: boolean
   isWalletEmpty: boolean
+  paraTimeConfig: ParaTimeConfig
   paraTimeName: string
   setTransactionForm: (formValues: TransactionForm) => void
   submitTransaction: () => void
@@ -80,7 +79,6 @@ export const useParaTimes = (): ParaTimesHook => {
   const isEvmcParaTime = evmcParaTimes.includes(transactionForm.paraTime!)
   const needsEthAddress = isDepositing && isEvmcParaTime
   const balanceInBaseUnit = isDepositing || (!isDepositing && !isEvmcParaTime)
-  const decimals = balanceInBaseUnit ? consensusDecimals : paraTimesConfig[transactionForm.paraTime!].decimals
   const paraTimeName = transactionForm.paraTime ? getParaTimeName(t, transactionForm.paraTime) : ''
   const availableParaTimesForSelectedNetwork: AvailableParaTimesForNetwork[] = (
     Object.keys(paraTimesConfig) as ParaTime[]
@@ -92,6 +90,7 @@ export const useParaTimes = (): ParaTimesHook => {
       value: paraTimeKey,
     }))
   const walletBalance = !isDepositing ? balance : accountBalance
+  const paraTimeConfig = paraTimesConfig[transactionForm.paraTime!]
 
   return {
     accountAddress,
@@ -100,12 +99,11 @@ export const useParaTimes = (): ParaTimesHook => {
     balance: walletBalance,
     balanceInBaseUnit,
     clearTransactionForm,
-    consensusDecimals,
-    decimals,
     isDepositing,
     isEvmcParaTime,
     isLoading,
     isWalletEmpty: walletBalance === '0',
+    paraTimeConfig,
     paraTimeName,
     setTransactionForm,
     submitTransaction,

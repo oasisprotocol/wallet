@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Box, Button, Form, FormField, Text, TextInput, Tip } from 'grommet'
 import { Trans, useTranslation } from 'react-i18next'
-
 import {
   formatBaseUnitsAsRose,
   formatWeiAsWrose,
@@ -19,6 +18,7 @@ import { useParaTimesNavigation } from '../useParaTimesNavigation'
 import { FeesSection } from './FeesSection'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
+import { consensusDecimals } from '../../../../config'
 
 const StyledMaxButton = styled(Button)`
   position: absolute;
@@ -35,7 +35,6 @@ export const TransactionAmount = () => {
   const {
     balance,
     balanceInBaseUnit,
-    consensusDecimals,
     isDepositing,
     isEvmcParaTime,
     isLoading,
