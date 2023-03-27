@@ -15,6 +15,7 @@ export const TransactionRecipient = () => {
   const isMobile = useContext(ResponsiveContext) === 'small'
   const {
     accountAddress,
+    clearTransactionForm,
     isDepositing,
     isEvmcParaTime,
     paraTimeName,
@@ -22,7 +23,7 @@ export const TransactionRecipient = () => {
     transactionForm,
     usesOasisAddress,
   } = useParaTimes()
-  const { navigateToAmount, navigateToDeposit, navigateToWithdraw } = useParaTimesNavigation()
+  const { navigateToAmount } = useParaTimesNavigation()
   const addressValidator = usesOasisAddress ? isValidAddress : isValidEthAddress
 
   return (
@@ -104,7 +105,8 @@ export const TransactionRecipient = () => {
           </FormField>
         </Box>
         <ParaTimeFormFooter
-          secondaryAction={isDepositing ? navigateToDeposit : navigateToWithdraw}
+          secondaryAction={clearTransactionForm}
+          secondaryLabel={t('paraTimes.selection.cancel', 'Cancel transfer')}
           submitButton
           withNotice={isEvmcParaTime}
         />
