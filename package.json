@@ -109,8 +109,8 @@
     "@types/valid-url": "1.0.4",
     "@types/w3c-web-usb": "1.0.6",
     "@types/webextension-polyfill": "0.10.0",
-    "@typescript-eslint/eslint-plugin": "5.56.0",
-    "@typescript-eslint/parser": "5.56.0",
+    "@typescript-eslint/eslint-plugin": "5.57.0",
+    "@typescript-eslint/parser": "5.57.0",
     "babel-plugin-istanbul": "6.1.1",
     "cypress": "12.8.1",
     "eslint": "8.36.0",
@@ -144,7 +144,7 @@
   "resolutions": {
     "@ledgerhq/hw-transport": "^6.27.6",
     "@testing-library/dom": "9.2.0",
-    "@typescript-eslint/eslint-plugin": "5.56.0",
+    "@typescript-eslint/eslint-plugin": "5.57.0",
     "eslint-plugin-react": "7.32.2",
     "grommet-icons": "4.10.0",
     "typescript": "5.0.2"
