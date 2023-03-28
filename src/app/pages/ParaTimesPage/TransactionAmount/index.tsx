@@ -26,15 +26,17 @@ const StyledMaxButton = styled(Button)`
   font-weight: bold;
 `
 
-const getMaxAmount = (layerDecimals: number, balance: StringifiedBigInt, feeAmount: string) => {
-  const fee = parseConsensusToLayerBaseUnit(feeAmount, layerDecimals)
-  const maxAmount = new BigNumber(balance)
-    .minus(fee)
-    .shiftedBy(-layerDecimals)
-    .decimalPlaces(consensusDecimals, BigNumber.ROUND_DOWN)
-    .toFixed()
-
-  return maxAmount
+const getMaxAmount = (
+  isDepositing: boolean,
+  layerDecimals: number,
+  balance: StringifiedBigInt,
+  feeAmount: string,
+) => {
+  const shiftBy = isDepositing ? consensusDecimals : layerDecimals
+  const fee = parseConsensusToLayerBaseUnit(feeAmount, shiftBy)
+  const maxAmount = new BigNumber(balance).minus(fee).shiftedBy(-shiftBy)
+  // Make value valid for Consensus input
+  return maxAmount.decimalPlaces(consensusDecimals, BigNumber.ROUND_DOWN).toFixed()
 }
 
 export const TransactionAmount = () => {
@@ -127,7 +129,10 @@ export const TransactionAmount = () => {
                         }
                       : undefined,
                   (amount: string) =>
-                    isAmountGreaterThan(amount, getMaxAmount(paraTimeConfig.decimals, balance!, '0'))
+                    isAmountGreaterThan(
+                      amount,
+                      getMaxAmount(isDepositing, paraTimeConfig.decimals, balance!, '0'),
+                    )
                       ? {
                           message: t('errors.insufficientBalance', 'Insufficient balance'),
                           status: 'error',
@@ -137,6 +142,7 @@ export const TransactionAmount = () => {
                     isAmountGreaterThan(
                       amount,
                       getMaxAmount(
+                        isDepositing,
                         paraTimeConfig.decimals,
                         balance!,
                         transactionForm.feeAmount || defaultFeeAmount,
@@ -173,6 +179,7 @@ export const TransactionAmount = () => {
                       setTransactionForm({
                         ...transactionForm,
                         amount: getMaxAmount(
+                          isDepositing,
                           paraTimeConfig.decimals,
                           balance,
                           transactionForm.feeAmount || defaultFeeAmount,
