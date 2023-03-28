@@ -133,6 +133,23 @@ export const TransactionAmount = () => {
                           status: 'error',
                         }
                       : undefined,
+                  (amount: string) =>
+                    isAmountGreaterThan(
+                      amount,
+                      getMaxAmount(
+                        paraTimeConfig.decimals,
+                        balance!,
+                        transactionForm.feeAmount || defaultFeeAmount,
+                      ),
+                    )
+                      ? {
+                          message: t(
+                            'paraTimes.validation.insufficientBalanceToPayFee',
+                            'Insufficient balance to pay the fee',
+                          ),
+                          status: 'error',
+                        }
+                      : undefined,
                 ]}
               >
                 <TextInput
