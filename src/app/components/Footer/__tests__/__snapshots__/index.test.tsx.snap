@@ -351,6 +351,36 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
         </span>
       </span>
     </a>
+    <a
+      class=""
+      href="/account/dummy/fiat-onramp"
+    >
+      <span
+        class="c6"
+      >
+        <span
+          class="c7"
+        >
+          <svg
+            aria-label="Currency"
+            class="c8"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1 5h22v14H1V5zm1 4a3 3 0 0 0 3-3m-3 9a3 3 0 0 1 3 3m17-9a3 3 0 0 1-3-3m3 9a3 3 0 0 0-3 3m-7-2c1.657 0 3-1.79 3-4s-1.343-4-3-4-3 1.79-3 4 1.343 4 3 4z"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+        </span>
+        <span
+          class="c9"
+        >
+          Fiat on-ramp
+        </span>
+      </span>
+    </a>
   </nav>
 </footer>
 `;

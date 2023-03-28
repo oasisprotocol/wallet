@@ -21,6 +21,7 @@ import {
   Logout,
   Menu as MenuIcon,
   Money,
+  Currency,
 } from 'grommet-icons'
 import * as React from 'react'
 import { useContext } from 'react'
@@ -289,9 +290,16 @@ function SidebarMenuItems() {
         data-testid="nav-paratime"
       />
     ),
+    fiatOnramp: (
+      <SidebarButton
+        icon={<Currency />}
+        label={t('menu.fiatOnramp', 'Fiat on-ramp')}
+        needsWalletOpen={true}
+        route={`/account/${address}/fiat-onramp`}
+      />
+    ),
   }
 
-  // Normal
   return (
     <Nav gap="small" pad="none">
       {menu.home}
@@ -299,6 +307,7 @@ function SidebarMenuItems() {
       {menu.stake}
       {/* eslint-disable-next-line no-restricted-syntax -- menu.paraTimes is not a plain text node */}
       {canAccessParaTimesRoute && menu.paraTimes}
+      {menu.fiatOnramp}
     </Nav>
   )
 }

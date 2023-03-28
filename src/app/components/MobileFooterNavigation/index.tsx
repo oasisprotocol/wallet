@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box, Text } from 'grommet'
-import { LineChart, Inherit, Money } from 'grommet-icons'
+import { LineChart, Inherit, Money, Currency } from 'grommet-icons'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
@@ -48,15 +48,21 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
         Icon: LineChart,
         to: `/account/${address}/stake`,
       },
+      ...(canAccessParaTimesRoute
+        ? [
+            {
+              label: paraTimesRouteLabel,
+              Icon: Inherit,
+              to: getParaTimesRoutePath(address!),
+            },
+          ]
+        : []),
+      {
+        label: t('menu.fiatOnramp', 'Fiat on-ramp'),
+        Icon: Currency,
+        to: `/account/${address}/fiat-onramp`,
+      },
     ]
-
-    if (canAccessParaTimesRoute) {
-      menuItems.push({
-        label: paraTimesRouteLabel,
-        Icon: Inherit,
-        to: getParaTimesRoutePath(address!),
-      })
-    }
     return menuItems
   }, [address, canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel, t])
 
