@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react'
+import BigNumber from 'bignumber.js'
 import { useDispatch } from 'react-redux'
 import { Box, Button, Form, FormField, Text, TextInput, Tip } from 'grommet'
 import { Trans, useTranslation } from 'react-i18next'
-import {
-  formatBaseUnitsAsRose,
-  formatWeiAsWrose,
-  isAmountGreaterThan,
-  isEvmcAmountGreaterThan,
-} from 'app/lib/helpers'
+import { getDefaultFeeAmount, isAmountGreaterThan, parseConsensusToLayerBaseUnit } from 'app/lib/helpers'
 import { paraTimesActions } from 'app/state/paratimes'
 import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from '../../../components/AmountFormatter'
@@ -19,6 +15,7 @@ import { FeesSection } from './FeesSection'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { consensusDecimals } from '../../../../config'
+import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 const StyledMaxButton = styled(Button)`
   position: absolute;
@@ -28,6 +25,17 @@ const StyledMaxButton = styled(Button)`
   background-color: ${({ theme }) => normalizeColor('background-front', theme)};
   font-weight: bold;
 `
+
+const getMaxAmount = (layerDecimals: number, balance: StringifiedBigInt, feeAmount: string) => {
+  const fee = parseConsensusToLayerBaseUnit(feeAmount, layerDecimals)
+  const maxAmount = new BigNumber(balance)
+    .minus(fee)
+    .shiftedBy(-layerDecimals)
+    .decimalPlaces(consensusDecimals, BigNumber.ROUND_DOWN)
+    .toFixed()
+
+  return maxAmount
+}
 
 export const TransactionAmount = () => {
   const { t } = useTranslation()
@@ -39,15 +47,15 @@ export const TransactionAmount = () => {
     isEvmcParaTime,
     isLoading,
     isWalletEmpty,
+    paraTimeConfig,
     paraTimeName,
     setTransactionForm,
     ticker,
     transactionForm,
   } = useParaTimes()
   const { navigateToRecipient, navigateToConfirmation } = useParaTimesNavigation()
-  const formatter = balanceInBaseUnit ? formatBaseUnitsAsRose : formatWeiAsWrose
-  const balanceValidator = balanceInBaseUnit ? isAmountGreaterThan : isEvmcAmountGreaterThan
   const disabled = !isLoading && isWalletEmpty
+  const defaultFeeAmount = getDefaultFeeAmount(isDepositing, paraTimeConfig)
 
   useEffect(() => {
     if (isDepositing) {
@@ -91,7 +99,13 @@ export const TransactionAmount = () => {
           messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
           noValidate
           onChange={nextValue => setTransactionForm(nextValue)}
-          onSubmit={navigateToConfirmation}
+          onSubmit={() => {
+            setTransactionForm({
+              ...transactionForm,
+              defaultFeeAmount,
+            })
+            navigateToConfirmation()
+          }}
           value={transactionForm}
         >
           <Box margin={{ bottom: 'small' }}>
@@ -113,7 +127,7 @@ export const TransactionAmount = () => {
                         }
                       : undefined,
                   (amount: string) =>
-                    balanceValidator(amount, balance!)
+                    isAmountGreaterThan(amount, getMaxAmount(paraTimeConfig.decimals, balance!, '0'))
                       ? {
                           message: t('errors.insufficientBalance', 'Insufficient balance'),
                           status: 'error',
@@ -141,7 +155,11 @@ export const TransactionAmount = () => {
                     onClick={() =>
                       setTransactionForm({
                         ...transactionForm,
-                        amount: formatter(balance).replaceAll(',', ''),
+                        amount: getMaxAmount(
+                          paraTimeConfig.decimals,
+                          balance,
+                          transactionForm.feeAmount || defaultFeeAmount,
+                        ),
                       })
                     }
                   />

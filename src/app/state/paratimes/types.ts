@@ -22,6 +22,7 @@ export interface TransactionForm {
   confirmTransfer: boolean
   confirmTransferToValidator: boolean
   confirmTransferToForeignAccount: boolean
+  defaultFeeAmount: string
   ethPrivateKey: string
   feeAmount: string
   feeGas: string
@@ -42,7 +43,6 @@ export type Runtime = {
   address: string
   id: string
   decimals: number
-  gasPrice: bigint
   feeGas: bigint
 }
 
