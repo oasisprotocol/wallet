@@ -5,17 +5,52 @@ import { Header } from 'app/components/Header'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { useSelector } from 'react-redux'
 import { selectAddress } from 'app/state/wallet/selectors'
+import { AlertBox } from 'app/components/AlertBox'
+import { AnchorLink } from 'app/components/AnchorLink'
+import { selectSelectedNetwork } from '../../state/network/selectors'
+import { selectAccountIsLoading } from '../../state/account/selectors'
 
 export function FiatOnramp() {
   const { t } = useTranslation()
+  const selectedNetwork = useSelector(selectSelectedNetwork)
+  const accountIsLoading = useSelector(selectAccountIsLoading)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
+
+  if (selectedNetwork !== 'mainnet') {
+    return (
+      <Box pad="medium" background="background-front">
+        <Header>{t('menu.fiatOnramp', 'Fiat on-ramp')}</Header>
+        <p>{t('fiatOnramp.notMainnet', 'Not available. Switch to mainnet.')}</p>
+      </Box>
+    )
+  }
+  if (accountIsLoading) {
+    return (
+      <Box pad="medium" background="background-front">
+        <Header>{t('menu.fiatOnramp', 'Fiat on-ramp')}</Header>
+      </Box>
+    )
+  }
   if (!walletAddress || !isAddressInWallet) {
-    return <p>Not available</p>
+    return (
+      <Box pad="medium" background="background-front">
+        <Header>{t('menu.fiatOnramp', 'Fiat on-ramp')}</Header>
+        <p>{t('fiatOnramp.notYourAccount', 'Not available. Open your account.')}</p>
+      </Box>
+    )
   }
 
   return (
     <>
+      {window.location.hostname === 'localhost' && (
+        <AlertBox color="status-warning">
+          localhost is{' '}
+          <AnchorLink to="https://docs.transak.com/docs/user-journey#redirecturl">
+            not a valid redirectURL
+          </AnchorLink>
+        </AlertBox>
+      )}
       <Box pad="medium" background="background-front">
         <Header>{t('menu.fiatOnramp', 'Fiat on-ramp')}</Header>
         <Box direction="row-responsive" justify="start" gap="medium">

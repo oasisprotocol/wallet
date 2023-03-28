@@ -158,6 +158,12 @@
     "heading": "A fatal error occurred",
     "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallet to see if the issue persists. If the issue persists, please contact our support team via <Email/> email and attach the report below."
   },
+  "fiatOnramp": {
+    "buy": "Buy",
+    "notMainnet": "Not available. Switch to mainnet.",
+    "notYourAccount": "Not available. Open your account.",
+    "viewOrderHistory": "Order history"
+  },
   "footer": {
     "github": "Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
     "poweredBy": {
