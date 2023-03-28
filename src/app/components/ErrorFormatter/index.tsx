@@ -7,7 +7,8 @@ import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Anchor } from 'grommet'
 import { WalletErrors } from 'types/errors'
-import { backend, BackendAPIs } from 'vendors/backend'
+import { backend } from 'vendors/backend'
+import { BackendAPIs } from 'config'
 
 interface Props {
   code: WalletErrors

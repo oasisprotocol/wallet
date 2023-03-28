@@ -1,7 +1,12 @@
-import { BackendAPIs } from 'vendors/backend'
 import { NetworkType } from 'app/state/network/types'
 
 export const consensusDecimals = 9
+
+// Moved outside backend.ts to avoid circular dependency
+export enum BackendAPIs {
+  OasisMonitor = 'oasismonitor',
+  OasisScan = 'oasisscan',
+}
 
 type BackendApiUrls = {
   explorer: string

@@ -1,10 +1,6 @@
 import { getMonitorAPIs } from 'vendors/monitor'
 import { getOasisscanAPIs } from 'vendors/oasisscan'
-
-export enum BackendAPIs {
-  OasisMonitor = 'oasismonitor',
-  OasisScan = 'oasisscan',
-}
+import { BackendAPIs } from 'config'
 
 const backendNameToApi = {
   [BackendAPIs.OasisMonitor]: getMonitorAPIs,
