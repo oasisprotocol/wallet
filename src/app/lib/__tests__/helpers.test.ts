@@ -6,7 +6,7 @@ import {
   addressToPublicKey,
   isValidAddress,
   parseRpcBalance,
-} from './helpers'
+} from '../helpers'
 
 describe('parseRoseStringToBaseUnitString', () => {
   it('should parse stringified number of ROSEs to stringified base units', () => {

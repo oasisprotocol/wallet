@@ -1,4 +1,4 @@
-import { Ledger, LedgerSigner, requestDevice } from './ledger'
+import { Ledger, LedgerSigner, requestDevice } from '../ledger'
 import OasisApp from '@oasisprotocol/ledger'
 import { WalletError, WalletErrors } from 'types/errors'
 import { Wallet, WalletType } from 'app/state/wallet/types'
