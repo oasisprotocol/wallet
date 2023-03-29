@@ -88,7 +88,7 @@
     "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.10.0",
+    "@cypress/code-coverage": "3.10.1",
     "@parcel/config-webextension": "2.8.3",
     "@parcel/packager-raw-url": "2.8.3",
     "@parcel/transformer-webmanifest": "2.8.3",
@@ -112,7 +112,7 @@
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "babel-plugin-istanbul": "6.1.1",
-    "cypress": "12.8.1",
+    "cypress": "12.9.0",
     "eslint": "8.37.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-config-react-app": "7.0.1",
