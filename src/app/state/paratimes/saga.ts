@@ -76,14 +76,13 @@ export function* submitTransaction() {
       address: paraTimeConfig[selectedNetwork].address!,
       id: paraTimeConfig[selectedNetwork].runtimeId!,
       decimals: paraTimeConfig.decimals,
-      gasPrice: paraTimeConfig.gasPrice,
       feeGas: paraTimeConfig.feeGas,
     }
 
     yield* call(submitParaTimeTransaction, runtime, {
       amount: transactionForm.amount,
       ethPrivateKey: transactionForm.ethPrivateKey,
-      feeAmount: transactionForm.feeAmount,
+      feeAmount: transactionForm.feeAmount || transactionForm.defaultFeeAmount,
       feeGas: transactionForm.feeGas,
       recipient: transactionForm.recipient,
       type: transactionForm.type,

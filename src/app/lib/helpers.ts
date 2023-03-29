@@ -4,6 +4,7 @@ import { WalletBalance } from 'app/state/wallet/types'
 import { decode as base64decode } from 'base64-arraybuffer'
 import BigNumber from 'bignumber.js'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { consensusDecimals, type ParaTimeConfig } from '../../config'
 
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
@@ -73,12 +74,8 @@ function getRoseString(roseBN: BigNumber, minimumFractionDigits: number, maximum
   )
 }
 
-export function isAmountGreaterThan(amount: string, value: StringifiedBigInt) {
-  return parseRoseStringToBigNumber(amount).isGreaterThan(new BigNumber(value))
-}
-
-export function isEvmcAmountGreaterThan(amount: string, value: StringifiedBigInt) {
-  return parseRoseStringToBigNumber(amount, 18).isGreaterThan(new BigNumber(value))
+export function isAmountGreaterThan(amount: string, value: string) {
+  return parseRoseStringToBigNumber(amount).isGreaterThan(parseRoseStringToBigNumber(value))
 }
 
 export function formatBaseUnitsAsRose(
@@ -111,4 +108,19 @@ export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
 
 export function formatCommissionPercent(commission: number): string {
   return new BigNumber(commission).times(100).toFormat()
+}
+
+export function getFeeAmount(gasPrice: bigint, feeGas: bigint): string {
+  // A wild guess: the minimum gas price times the default loose
+  // overestimate of the gas.
+  return (gasPrice * feeGas).toString()
+}
+
+const defaultDepositFeeAmount = '0'
+export const getDefaultFeeAmount = (isDepositing: boolean, paraTimeConfig: ParaTimeConfig): string => {
+  return isDepositing ? defaultDepositFeeAmount : getFeeAmount(paraTimeConfig.feeGas, paraTimeConfig.gasPrice)
+}
+
+export function parseConsensusToLayerBaseUnit(feeAmount: string, decimals: number): BigNumber {
+  return new BigNumber(feeAmount).shiftedBy(decimals).shiftedBy(-consensusDecimals)
 }

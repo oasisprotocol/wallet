@@ -2,6 +2,7 @@ import * as React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { paraTimesActions } from 'app/state/paratimes'
+import { TransactionForm } from 'app/state/paratimes/types'
 import { useParaTimes, ParaTimesHook } from '../../useParaTimes'
 import { useParaTimesNavigation, ParaTimesNavigationHook } from '../../useParaTimesNavigation'
 import { TransactionAmount } from '..'
@@ -24,6 +25,7 @@ describe('<TransactionAmount />', () => {
     isEvmcParaTime: false,
     isWalletEmpty: false,
     paraTimeName: 'Cipher',
+    paraTimeConfig: { gasPrice: 5n, feeGas: 500_000n, decimals: 9 },
     ticker: 'ROSE',
     transactionForm: {
       amount: '',
@@ -137,12 +139,13 @@ describe('<TransactionAmount />', () => {
     expect(navigateToConfirmation).not.toHaveBeenCalled()
   })
 
-  it('should navigate to confirmation step when amount is valid', async () => {
+  it('should validate amount and fee on form submit', async () => {
     const navigateToConfirmation = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
       transactionForm: {
         amount: '1',
+        feeAmount: '2500000',
       },
     } as ParaTimesHook)
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -153,6 +156,30 @@ describe('<TransactionAmount />', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
+    expect(screen.getByText('Insufficient balance to pay the fee')).toBeInTheDocument()
+    expect(navigateToConfirmation).not.toHaveBeenCalled()
+  })
+
+  it('should navigate to confirmation step when amount is valid', async () => {
+    const setTransactionForm = jest.fn()
+    const navigateToConfirmation = jest.fn()
+    jest.mocked(useParaTimes).mockReturnValue({
+      ...mockUseParaTimesResult,
+      transactionForm: {
+        amount: '1',
+      } as TransactionForm,
+      setTransactionForm,
+    } as ParaTimesHook)
+    jest.mocked(useParaTimesNavigation).mockReturnValue({
+      ...mockUseParaTimesNavigationResult,
+      navigateToConfirmation,
+    })
+    render(<TransactionAmount />)
+
+    await userEvent.click(screen.getByRole('button', { name: 'Next' }))
+    expect(setTransactionForm).toHaveBeenCalledWith(
+      expect.objectContaining({ amount: '1', defaultFeeAmount: '0' }),
+    )
     expect(navigateToConfirmation).toHaveBeenCalled()
   })
 

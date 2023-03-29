@@ -1,13 +1,16 @@
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
-import BigNumber from 'bignumber.js'
 import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
 import { getEvmBech32Address } from 'app/lib/eth-helpers'
 import { isValidEthAddress } from 'app/lib/eth-helpers'
 import { ParaTimeTransaction, Runtime, TransactionTypes } from 'app/state/paratimes/types'
-import { addressToPublicKey, parseRoseStringToBigNumber, shortPublicKey } from './helpers'
-import { consensusDecimals } from '../../config'
+import {
+  addressToPublicKey,
+  parseRoseStringToBigNumber,
+  shortPublicKey,
+  parseConsensusToLayerBaseUnit,
+} from './helpers'
 
 type OasisClient = oasis.client.NodeInternal
 
@@ -24,8 +27,6 @@ export type TW<T> = oasis.consensus.TransactionWrapper<T>
 
 /** Runtime Transaction Wrapper */
 type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
-
-const defaultDepositFeeAmount = '0'
 
 export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
@@ -141,18 +142,7 @@ export class OasisTransaction {
       .setArgs({ address: oasis.staking.addressFromBech32(fromAddress) })
       .query(nic)
     const feeAmount = BigInt(
-      new BigNumber(
-        transaction.feeAmount
-          ? transaction.feeAmount
-          : isDepositing
-          ? defaultDepositFeeAmount
-          : // A wild guess: the minimum gas price times the default loose
-            // overestimate of the gas.
-            (runtime.gasPrice * runtime.feeGas).toString(),
-      )
-        .shiftedBy(runtime.decimals)
-        .shiftedBy(-consensusDecimals)
-        .toFixed(0),
+      parseConsensusToLayerBaseUnit(transaction.feeAmount, runtime.decimals).toFixed(0),
     )
     const feeGas = transaction.feeGas ? BigInt(transaction.feeGas) : runtime.feeGas
     const signerInfo = {
