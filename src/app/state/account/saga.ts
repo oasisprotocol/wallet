@@ -10,6 +10,22 @@ import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress } from './selectors'
 
+const TRANSACTIONS_LIMIT = 20
+
+function* getBalanceGRPC(address: string) {
+  const nic = yield* call(getOasisNic)
+  const publicKey = yield* call(addressToPublicKey, address)
+  const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
+  const balance = parseRpcBalance(account)
+  return {
+    address,
+    available: balance.available,
+    delegations: null,
+    debonding: null,
+    total: null,
+  }
+}
+
 export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
@@ -25,19 +41,8 @@ export function* fetchAccount(action: PayloadAction<string>) {
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
-            const nic = yield* call(getOasisNic)
-            const publicKey = yield* call(addressToPublicKey, address)
-            const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
-            const balance = parseRpcBalance(account)
-            yield* put(
-              accountActions.accountLoaded({
-                address,
-                available: balance.available,
-                delegations: null,
-                debonding: null,
-                total: null,
-              }),
-            )
+            const account = yield* call(getBalanceGRPC, address)
+            yield* put(accountActions.accountLoaded(account))
           } catch (rpcError) {
             console.error('get account with RPC failed, continuing without updated account.', rpcError)
             if (apiError instanceof WalletError) {
@@ -59,7 +64,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
         try {
           const transactions = yield* call(getTransactionsList, {
             accountId: address,
-            limit: 20,
+            limit: TRANSACTIONS_LIMIT,
           })
           yield* put(accountActions.transactionsLoaded(transactions))
         } catch (e: any) {
