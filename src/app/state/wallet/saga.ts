@@ -34,7 +34,7 @@ export function* rootWalletSaga() {
   // Reload balance of matching wallets when a transaction occurs
   yield* fork(refreshAccountOnTransaction)
   yield* fork(refreshAccountOnParaTimeTransaction)
-  yield* takeEvery(walletActions.fetchWallet, loadWallet)
+  yield* takeEvery(walletActions.fetchWallet, fetchWallet)
 
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
@@ -141,7 +141,7 @@ export function* addWallet(payload: AddWalletPayload) {
   }
 }
 
-function* loadWallet(action: PayloadAction<Wallet>) {
+function* fetchWallet(action: PayloadAction<Wallet>) {
   const wallet = action.payload
   const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
   yield* put(

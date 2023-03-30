@@ -40,16 +40,16 @@ export const commonRoutes: RouteObject[] = [
         element: <ValidatorList />,
       },
       {
-        path: 'paratimes',
-        element: <ParaTimes />,
-      },
-      {
         path: 'active-delegations',
         element: <ActiveDelegationList />,
       },
       {
         path: 'debonding-delegations',
         element: <DebondingDelegationList />,
+      },
+      {
+        path: 'paratimes',
+        element: <ParaTimes />,
       },
     ],
   },
