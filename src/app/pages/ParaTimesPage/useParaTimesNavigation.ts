@@ -25,7 +25,8 @@ export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
   const dispatch = useDispatch()
   const walletType = useSelector(selectType)
   const canAccessParaTimesRoute =
-    false && // Remove when we can officially show ParaTimes to users
+    process.env.NODE_ENV !== 'test' &&
+    !!process.env.REACT_APP_E2E_TEST && // Remove when we can officially show ParaTimes to users
     backend() === BackendAPIs.OasisScan &&
     walletType !== WalletType.Ledger
   const getParaTimesRoutePath = (address: string) => `/account/${address}/paratimes`

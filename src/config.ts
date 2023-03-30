@@ -104,8 +104,8 @@ const emeraldConfig: ParaTimeConfig = {
     runtimeId: '00000000000000000000000000000000000000000000000072c8215e60d5bca7',
   },
   local: {
-    address: undefined,
-    runtimeId: undefined,
+    address: process.env.REACT_APP_E2E_TEST,
+    runtimeId: process.env.REACT_APP_E2E_TEST,
   },
   gasPrice: 100n,
   feeGas: 15_000n,
@@ -124,8 +124,8 @@ const cipherConfig: ParaTimeConfig = {
     runtimeId: '0000000000000000000000000000000000000000000000000000000000000000',
   },
   local: {
-    address: undefined,
-    runtimeId: undefined,
+    address: process.env.REACT_APP_E2E_TEST,
+    runtimeId: process.env.REACT_APP_E2E_TEST,
   },
   gasPrice: 5n,
   feeGas: 500_000n,
