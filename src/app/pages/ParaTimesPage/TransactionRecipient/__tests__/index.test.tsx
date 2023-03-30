@@ -166,33 +166,17 @@ describe('<TransactionRecipient />', () => {
     expect(navigateToAmount).toHaveBeenCalled()
   })
 
-  it('should navigate back to deposit', async () => {
-    const navigateToDeposit = jest.fn()
-    jest.mocked(useParaTimesNavigation).mockReturnValue({
-      ...mockUseParaTimesNavigationResult,
-      navigateToDeposit,
-    })
-    render(<TransactionRecipient />)
-
-    await userEvent.click(screen.getByRole('button', { name: 'Previous' }))
-
-    expect(navigateToDeposit).toHaveBeenCalled()
-  })
-
-  it('should navigate back to withdraw', async () => {
-    const navigateToWithdraw = jest.fn()
+  it('should cancel transfer', async () => {
+    const clearTransactionForm = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
+      clearTransactionForm,
       isDepositing: false,
     } as ParaTimesHook)
-    jest.mocked(useParaTimesNavigation).mockReturnValue({
-      ...mockUseParaTimesNavigationResult,
-      navigateToWithdraw,
-    })
     render(<TransactionRecipient />)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Previous' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Cancel transfer' }))
 
-    expect(navigateToWithdraw).toHaveBeenCalled()
+    expect(clearTransactionForm).toHaveBeenCalled()
   })
 })
