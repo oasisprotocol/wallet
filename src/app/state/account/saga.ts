@@ -86,14 +86,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
 export function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
-    let otherAddress: string
-
-    if (payload.type === 'transfer') {
-      otherAddress = payload.to
-    } else {
-      otherAddress = payload.validator
-    }
-
+    const otherAddress = payload.type === 'transfer' ? payload.to : payload.validator
     yield* call(refreshAccount, otherAddress)
   }
 }
