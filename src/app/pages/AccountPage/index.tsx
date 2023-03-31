@@ -7,7 +7,6 @@ import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { TransactionModal } from 'app/components/TransactionModal'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
-import { stakingActions } from 'app/state/staking'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { walletActions } from 'app/state/wallet'
@@ -91,7 +90,7 @@ interface AccountPageParams {
 export function AccountPage(props: AccountPageProps) {
   const { t } = useTranslation()
   const isMobile = React.useContext(ResponsiveContext) === 'small'
-  const { address } = useParams<keyof AccountPageParams>()
+  const address = useParams<keyof AccountPageParams>().address!
   const dispatch = useDispatch()
 
   const account = useSelector(selectAccount)
@@ -119,12 +118,11 @@ export function AccountPage(props: AccountPageProps) {
         : (BigInt(account.available) + balanceDelegations + balanceDebondingDelegations).toString(),
   }
 
-  // Reload account balances if address or network changes
+  // Restart fetching account balances if address or network changes
   useEffect(() => {
-    dispatch(accountActions.fetchAccount(address!))
-    dispatch(stakingActions.fetchAccount(address!))
+    dispatch(accountActions.openAccountPage(address))
     return () => {
-      dispatch(accountActions.clearAccount())
+      dispatch(accountActions.closeAccountPage())
     }
   }, [dispatch, address, selectedNetwork])
 
@@ -212,7 +210,7 @@ export function AccountPage(props: AccountPageProps) {
 }
 
 export function validateRoute(params: AccountPageParams) {
-  const isValid = isValidAddress(params.address!)
+  const isValid = isValidAddress(params.address)
   if (!isValid) {
     throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
   }

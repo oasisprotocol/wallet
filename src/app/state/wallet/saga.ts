@@ -159,12 +159,8 @@ function* fetchWallet(action: PayloadAction<Wallet>) {
 function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
-    if (payload.type !== 'transfer') {
-      // @TODO: This should be done for other types of transactions too
-      return
-    }
-
-    yield* call(refreshAccount, payload.to)
+    const otherAddress = payload.type === 'transfer' ? payload.to : payload.validator
+    yield* call(refreshAccount, otherAddress)
   }
 }
 

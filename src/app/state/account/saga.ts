@@ -1,14 +1,33 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
-import { all, call, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
+import { all, call, delay, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { accountActions } from '.'
 import { getExplorerAPIs, getOasisNic } from '../network/saga'
+import { takeLatestCancelable } from '../takeLatestCancelable'
 import { stakingActions } from '../staking'
+import { fetchAccount as stakingFetchAccount } from '../staking/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
-import { selectAccountAddress } from './selectors'
+import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
+
+const ACCOUNT_REFETCHING_INTERVAL = 30 * 1000
+const TRANSACTIONS_LIMIT = 20
+
+function* getBalanceGRPC(address: string) {
+  const nic = yield* call(getOasisNic)
+  const publicKey = yield* call(addressToPublicKey, address)
+  const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
+  const balance = parseRpcBalance(account)
+  return {
+    address,
+    available: balance.available,
+    delegations: null,
+    debonding: null,
+    total: null,
+  }
+}
 
 export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
@@ -25,19 +44,8 @@ export function* fetchAccount(action: PayloadAction<string>) {
         } catch (apiError: any) {
           console.error('get account failed, continuing to RPC fallback.', apiError)
           try {
-            const nic = yield* call(getOasisNic)
-            const publicKey = yield* call(addressToPublicKey, address)
-            const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
-            const balance = parseRpcBalance(account)
-            yield* put(
-              accountActions.accountLoaded({
-                address,
-                available: balance.available,
-                delegations: null,
-                debonding: null,
-                total: null,
-              }),
-            )
+            const account = yield* call(getBalanceGRPC, address)
+            yield* put(accountActions.accountLoaded(account))
           } catch (rpcError) {
             console.error('get account with RPC failed, continuing without updated account.', rpcError)
             if (apiError instanceof WalletError) {
@@ -59,7 +67,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
         try {
           const transactions = yield* call(getTransactionsList, {
             accountId: address,
-            limit: 20,
+            limit: TRANSACTIONS_LIMIT,
           })
           yield* put(accountActions.transactionsLoaded(transactions))
         } catch (e: any) {
@@ -86,14 +94,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
 export function* refreshAccountOnTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.transactionSent)
-    let otherAddress: string
-
-    if (payload.type === 'transfer') {
-      otherAddress = payload.to
-    } else {
-      otherAddress = payload.validator
-    }
-
+    const otherAddress = payload.type === 'transfer' ? payload.to : payload.validator
     yield* call(refreshAccount, otherAddress)
   }
 }
@@ -115,7 +116,39 @@ function* refreshAccount(address: string) {
   }
 }
 
+export function* fetchingOnAccountPage() {
+  yield* takeLatestCancelable({
+    startOnAction: accountActions.openAccountPage,
+    cancelOnAction: accountActions.closeAccountPage,
+    task: function* refetchingInterval(startAction) {
+      const address = startAction.payload
+      try {
+        // Note: tasks triggered by `put` can't get canceled by closeAccountPage.
+        yield* put(accountActions.fetchAccount(address))
+        yield* put(stakingActions.fetchAccount(address))
+        yield* take(accountActions.accountLoaded)
+
+        // Start refetching balance. If balance changes then fetch transactions and staking too.
+        while (true) {
+          yield* delay(ACCOUNT_REFETCHING_INTERVAL)
+          if (document.hidden) continue
+          const { getAccount } = yield* call(getExplorerAPIs)
+          const refreshedAccount = yield* call(getAccount, address)
+          const staleAvailableBalance = yield* select(selectAccountAvailableBalance)
+          if (staleAvailableBalance !== refreshedAccount.available) {
+            yield* call(fetchAccount, startAction)
+            yield* call(stakingFetchAccount, startAction)
+          }
+        }
+      } finally {
+        yield* put(accountActions.clearAccount())
+      }
+    },
+  })
+}
+
 export function* accountSaga() {
+  yield* fork(fetchingOnAccountPage)
   yield* fork(refreshAccountOnTransaction)
   yield* fork(refreshAccountOnParaTimeTransaction)
   yield* takeLatest(accountActions.fetchAccount, fetchAccount)
