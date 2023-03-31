@@ -21,6 +21,8 @@ const slice = createSlice({
   name: 'account',
   initialState,
   reducers: {
+    openAccountPage(state, action: PayloadAction<string>) {},
+    closeAccountPage(state) {},
     clearAccount(state, action: PayloadAction<void>) {
       Object.assign(state, initialState)
     },

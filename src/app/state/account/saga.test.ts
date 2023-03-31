@@ -7,12 +7,15 @@ import {
   fetchAccount,
   refreshAccountOnTransaction,
   refreshAccountOnParaTimeTransaction,
+  fetchingOnAccountPage,
 } from './saga'
 import { DeepPartialRootState } from 'types/RootState'
 
 describe('Account Sagas', () => {
   test('accountSaga', () => {
     testSaga(accountSaga)
+      .next()
+      .fork(fetchingOnAccountPage)
       .next()
       .fork(refreshAccountOnTransaction)
       .next()
