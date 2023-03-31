@@ -44,8 +44,8 @@ test.describe('syncTabs', () => {
 
       const tab2 = await context.newPage()
       await testLockingIsSynced(page, tab2)
-      await expect(page.getByRole('button', { name: 'Unlock' })).toBeVisible()
-      await expect(tab2.getByRole('button', { name: 'Unlock' })).toBeVisible()
+      await expect(page.getByRole('button', { name: /^Unlock$/ })).toBeVisible()
+      await expect(tab2.getByRole('button', { name: /^Unlock$/ })).toBeVisible()
     })
 
     test('incognito', async ({ page, context }) => {
@@ -56,8 +56,8 @@ test.describe('syncTabs', () => {
 
       const tab2 = await context.newPage()
       await tab2.goto('/')
-      await expect(tab2.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
-      await expect(tab2.getByRole('button', { name: 'Unlock' })).toBeHidden()
+      await expect(tab2.getByRole('button', { name: /^(Open wallet)|(Unlock)$/ })).toBeVisible()
+      await expect(tab2.getByRole('button', { name: /^Unlock$/ })).toBeHidden()
       await tab2.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(tab2, {
         persistenceCheckboxChecked: false,
@@ -67,8 +67,8 @@ test.describe('syncTabs', () => {
       await expect(page.getByTestId('account-selector')).toBeVisible()
 
       await testLockingIsSynced(page, tab2)
-      await expect(page.getByRole('button', { name: 'Unlock' })).toBeVisible()
-      await expect(tab2.getByRole('button', { name: 'Unlock' })).toBeVisible()
+      await expect(page.getByRole('button', { name: /^Unlock$/ })).toBeVisible()
+      await expect(tab2.getByRole('button', { name: /^Unlock$/ })).toBeVisible()
     })
 
     async function testLockingIsSynced(page: Page, tab2: Page) {
@@ -80,11 +80,11 @@ test.describe('syncTabs', () => {
       await expect(tab2.getByTestId('account-balance-summary')).toContainText('ROSE')
 
       // Second tab should not get stuck on loading after first tab closes wallet
-      await page.getByRole('button', { name: /(Close wallet)|(Lock profile)/ }).click()
-      await expect(page.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
+      await page.getByRole('button', { name: /^(Close wallet)|(Unlock profile)|(Lock profile)$/ }).click()
+      await expect(page.getByRole('button', { name: /^(Open wallet)|(Unlock)$/ })).toBeVisible()
       await expect(page.getByText('Loading account')).toBeHidden()
       await expect(page.getByTestId('account-selector')).toBeHidden()
-      await expect(tab2.getByRole('button', { name: /(Open wallet)|(Unlock)/ })).toBeVisible()
+      await expect(tab2.getByRole('button', { name: /^(Open wallet)|(Unlock)$/ })).toBeVisible()
       await expect(tab2.getByText('Loading account')).toBeHidden()
       await expect(tab2.getByTestId('account-selector')).toBeHidden()
     }
@@ -189,9 +189,9 @@ test.describe('syncTabs', () => {
       await expect(page.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty)
       await expect(tab2.getByRole('checkbox', { checked: true })).toContainText(privateKeyAddressPretty) // Not synced
 
-      await page.getByRole('checkbox', { name: new RegExp(privateKeyAddressPretty) }).click()
+      await page.getByRole('checkbox', { name: privateKeyAddressPretty }).click()
       await page.getByTestId('account-selector').click()
-      await page.getByRole('checkbox', { name: new RegExp(privateKey2AddressPretty) }).click()
+      await page.getByRole('checkbox', { name: privateKey2AddressPretty }).click()
       await page.getByTestId('account-selector').click()
 
       await expect(page.getByRole('checkbox', { checked: true })).toContainText(privateKey2AddressPretty)
