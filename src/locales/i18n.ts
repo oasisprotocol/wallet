@@ -45,4 +45,9 @@ export const i18n = i18next
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
+    react: {
+      // Fix Google Translate issue: https://github.com/facebook/react/issues/11538#issuecomment-390386520
+      // Fix from https://react.i18next.com/latest/trans-component#i18next-options
+      transWrapTextNodes: 'span',
+    },
   })
