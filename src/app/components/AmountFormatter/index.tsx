@@ -36,7 +36,7 @@ export const AmountFormatter = memo(
   }: AmountFormatterProps) => {
     const ticker = useSelector(selectTicker)
     const isUsingBaseUnits = amountUnit === 'baseUnits'
-    if (amount == null) return <>-</>
+    if (amount == null) return <span>-</span>
 
     const formatter = isUsingBaseUnits ? formatBaseUnitsAsRose : formatWeiAsWrose
     const amountString = formatter(amount, {
@@ -55,7 +55,7 @@ export const AmountFormatter = memo(
 
     return (
       <span>
-        {amountString}
+        <span>{amountString}</span>
         {!hideTicker && (
           <Text size={size} {...tickerProps}>
             {' '}

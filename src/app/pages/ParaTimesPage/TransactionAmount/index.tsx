@@ -193,7 +193,7 @@ export const TransactionAmount = () => {
 
             <Box align="end">
               <Text weight="bolder" size="small">
-                {t('paraTimes.amount.available', 'Available:')}{' '}
+                <span>{t('paraTimes.amount.available', 'Available:')} </span>
                 <AmountFormatter
                   amount={balance}
                   smallTicker

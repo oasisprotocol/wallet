@@ -15,7 +15,7 @@ const ParaTimeOption = ({ label, isEvm }: ParaTimeOptionProps) => {
 
   return (
     <Box direction="row" justify="between" width="240px">
-      {label}
+      <span>{label}</span>
       {isEvm && <Text color="lightText">{t('paraTimes.selection.evmc', 'EVMc')}</Text>}
     </Box>
   )

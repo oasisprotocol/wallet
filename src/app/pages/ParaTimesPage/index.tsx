@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { TFunction } from 'i18next'
 import { Box } from 'grommet'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
@@ -18,7 +17,8 @@ import { TransactionSummary } from './TransactionSummary'
 import { TransactionError } from './TransactionError'
 import { useParaTimes } from './useParaTimes'
 
-const getActiveFormStepComponent = (t: TFunction, step: TransactionFormSteps) => {
+const ActiveFormStepComponent = ({ step }: { step: TransactionFormSteps }) => {
+  const { t } = useTranslation()
   switch (step) {
     case TransactionFormSteps.TransferType:
       return <ParaTimeTransferType />
@@ -40,7 +40,6 @@ const getActiveFormStepComponent = (t: TFunction, step: TransactionFormSteps) =>
 }
 
 export const ParaTimes = () => {
-  const { t } = useTranslation()
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { transactionFormStep } = useSelector(selectParaTimes)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
@@ -58,7 +57,11 @@ export const ParaTimes = () => {
 
   return (
     <Box pad="medium" background="background-front" align="center">
-      {isAddressInWallet ? getActiveFormStepComponent(t, transactionFormStep) : <ParaTimesPageInaccessible />}
+      {isAddressInWallet ? (
+        <ActiveFormStepComponent step={transactionFormStep} />
+      ) : (
+        <ParaTimesPageInaccessible />
+      )}
     </Box>
   )
 }

@@ -224,21 +224,23 @@ const SidebarFooter = (props: SidebarFooterProps) => {
             dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
             items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
           >
-            <Box direction="row">
+            {size === 'medium' ? (
               <Box pad="small">
                 <Language />
               </Box>
-              {size !== 'medium' && (
-                <>
-                  <Box pad="small" flex="grow">
-                    <Text>Language</Text>
-                  </Box>
-                  <Box pad="small">
-                    <FormDown />
-                  </Box>
-                </>
-              )}
-            </Box>
+            ) : (
+              <Box direction="row">
+                <Box pad="small">
+                  <Language />
+                </Box>
+                <Box pad="small" flex="grow">
+                  <Text>Language</Text>
+                </Box>
+                <Box pad="small">
+                  <FormDown />
+                </Box>
+              </Box>
+            )}
           </Menu>
         </Box>
       </SidebarTooltip>

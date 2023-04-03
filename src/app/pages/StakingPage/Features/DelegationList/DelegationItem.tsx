@@ -22,7 +22,7 @@ export const DelegationItem = memo((props: DelegationProps) => {
   return (
     <Box pad="medium" background="background-contrast" data-testid="validator-item">
       {validator && <ValidatorInformations validator={validator} details={details} />}
-      {!validator && <>{t('validator.unknownValidator', 'Unknown validator')}</>}
+      {!validator && <span>{t('validator.unknownValidator', 'Unknown validator')}</span>}
       {canReclaim && (
         <ReclaimEscrowForm
           address={delegation.validatorAddress}
