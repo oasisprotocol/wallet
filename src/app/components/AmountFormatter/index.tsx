@@ -36,14 +36,14 @@ export const AmountFormatter = memo(
   }: AmountFormatterProps) => {
     const ticker = useSelector(selectTicker)
     const isUsingBaseUnits = amountUnit === 'baseUnits'
-    if (amount == null) return <>-</>
-
     const formatter = isUsingBaseUnits ? formatBaseUnitsAsRose : formatWeiAsWrose
-    const amountString = formatter(amount, {
-      minimumFractionDigits: minimumFractionDigits ?? 1,
-      maximumFractionDigits:
-        typeof maximumFractionDigits !== 'undefined' ? maximumFractionDigits : isUsingBaseUnits ? 15 : 18,
-    })
+    const amountString = amount
+      ? formatter(amount, {
+          minimumFractionDigits: minimumFractionDigits ?? 1,
+          maximumFractionDigits:
+            typeof maximumFractionDigits !== 'undefined' ? maximumFractionDigits : isUsingBaseUnits ? 15 : 18,
+        })
+      : '-'
 
     const tickerProps = smallTicker
       ? {
@@ -56,7 +56,7 @@ export const AmountFormatter = memo(
     return (
       <span>
         {amountString}
-        {!hideTicker && (
+        {amount && !hideTicker && (
           <Text size={size} {...tickerProps}>
             {' '}
             {ticker}
