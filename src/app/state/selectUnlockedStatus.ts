@@ -4,7 +4,10 @@ import { selectIsOpen } from 'app/state/wallet/selectors'
 
 export const selectUnlockedStatus = createSelector([selectPersistSlice, selectIsOpen], (state, isOpen) => {
   if (state.hasPersistedProfiles) {
-    if (state.stringifiedEncryptionKey === 'skipped') return 'skippedUnlockingProfile'
+    if (state.stringifiedEncryptionKey === 'skipped') {
+      if (isOpen) return 'openSkippedUnlockingProfile'
+      return 'emptySkippedUnlockingProfile'
+    }
     if (state.stringifiedEncryptionKey) return 'unlockedProfile'
     return 'lockedProfile'
   } else {

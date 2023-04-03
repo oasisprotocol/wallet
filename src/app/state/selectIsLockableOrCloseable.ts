@@ -3,7 +3,8 @@ import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { ExhaustedTypeError } from 'types/errors'
 
 export const selectIsLockableOrCloseable = createSelector([selectUnlockedStatus], unlockedStatus => {
-  if (unlockedStatus === 'skippedUnlockingProfile') return 'closeable'
+  if (unlockedStatus === 'openSkippedUnlockingProfile') return 'closeable'
+  if (unlockedStatus === 'emptySkippedUnlockingProfile') return 'unlockable'
   if (unlockedStatus === 'unlockedProfile') return 'lockable'
   if (unlockedStatus === 'openUnpersisted') return 'closeable'
   if (unlockedStatus === 'lockedProfile') return false

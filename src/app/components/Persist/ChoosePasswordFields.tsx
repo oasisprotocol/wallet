@@ -26,7 +26,8 @@ export function ChoosePasswordFields() {
   const isChoiceDisabled =
     isPersistenceUnsupported ||
     unlockedStatus === 'unlockedProfile' ||
-    unlockedStatus === 'skippedUnlockingProfile'
+    unlockedStatus === 'emptySkippedUnlockingProfile' ||
+    unlockedStatus === 'openSkippedUnlockingProfile'
 
   const isChoosingPassword = !isChoiceDisabled && startPersisting
 

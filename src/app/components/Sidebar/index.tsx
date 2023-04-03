@@ -202,6 +202,13 @@ const SidebarFooter = (props: SidebarFooterProps) => {
           onClick={() => closeWallet()}
         />
       )}
+      {isLockableOrCloseable === 'unlockable' && (
+        <SidebarButton
+          icon={<Logout />}
+          label={t('menu.unlockProfile', 'Unlock profile')}
+          onClick={() => closeWallet()}
+        />
+      )}
       {isLockableOrCloseable === 'lockable' && (
         <SidebarButton
           icon={<Lock />}
