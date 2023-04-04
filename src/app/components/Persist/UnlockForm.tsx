@@ -62,9 +62,8 @@ export function UnlockForm() {
             <Button
               label={t('persist.loginToProfile.eraseProfile', 'Erase profile')}
               onClick={() => {
-                // TODO
-                // eslint-disable-next-line no-restricted-globals
-                if (confirm('Are you sure?')) {
+                // TODO: improve UX
+                if (window.confirm('Are you sure?')) {
                   navigate('/')
                   dispatch(persistActions.eraseAsync())
                 }
