@@ -26,9 +26,23 @@ const textBeforeAndOperator = (
       {!condition && <span>good</span>}
     </span>
     <span>
+      {!condition && (
+        // eslint-disable-next-line no-restricted-syntax
+        <>
+          bad <span>good</span>
+        </>
+      )}
+    </span>
+    <span>
       <span>good</span>
       <span>{good}</span>
       {!condition && <span>good</span>}
+      {!condition && (
+        <>
+          <span>good</span>
+          <span>good</span>
+        </>
+      )}
     </span>
     <span>
       <span aria-label={condition && good}>good</span>
@@ -126,11 +140,35 @@ const textInTernaryOperator = (
     </span>
     <span>
       <span>good</span>
+      {!condition ? (
+        // eslint-disable-next-line no-restricted-syntax
+        <>
+          bad
+          <span>good</span>
+        </>
+      ) : (
+        // eslint-disable-next-line no-restricted-syntax
+        <>
+          bad
+          <span>good</span>
+        </>
+      )}
     </span>
     <span>
       <span>good</span>
       {!condition ? <span>good</span> : <span>good</span>}
       {!condition ? <span>{good}</span> : <span>{good}</span>}
+      {!condition ? (
+        <>
+          <span>good</span>
+          <span>good</span>
+        </>
+      ) : (
+        <>
+          <span>good</span>
+          <span>good</span>
+        </>
+      )}
     </span>
   </div>
 )
