@@ -41,6 +41,7 @@ export function TransactionHistory(props: Props) {
         </p>
       )}
       {allTransactions.length ? (
+        // eslint-disable-next-line no-restricted-syntax -- transactionComponents is not a plain text node
         transactionComponents
       ) : (
         <Box

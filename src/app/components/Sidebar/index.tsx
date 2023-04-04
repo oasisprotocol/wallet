@@ -99,6 +99,7 @@ export const SidebarButton = ({
       gap="medium"
       justify={isMediumSize ? 'center' : 'start'}
     >
+      {/* eslint-disable-next-line no-restricted-syntax -- icon is not a plain text node */}
       {icon}
       {!isMediumSize && <Text>{label}</Text>}
     </Box>
@@ -295,6 +296,7 @@ function SidebarMenuItems() {
       {menu.home}
       {menu.wallet}
       {menu.stake}
+      {/* eslint-disable-next-line no-restricted-syntax -- menu.paraTimes is not a plain text node */}
       {canAccessParaTimesRoute && menu.paraTimes}
     </Nav>
   )
