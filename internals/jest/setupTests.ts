@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import 'dotenv/config'
 import 'react-app-polyfill/stable'
 
