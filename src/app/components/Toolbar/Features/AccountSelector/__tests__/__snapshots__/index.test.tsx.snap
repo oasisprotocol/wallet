@@ -510,11 +510,18 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                         class="c14"
                       >
                         <span>
-                          0.0000001
+                          <span>
+                            0.0000001
+                          </span>
                           <span
                             class="c15"
                           >
-                             
+                            <span
+                              class="notranslate"
+                              translate="no"
+                            >
+                               
+                            </span>
                           </span>
                         </span>
                       </div>

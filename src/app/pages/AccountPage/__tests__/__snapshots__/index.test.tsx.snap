@@ -939,11 +939,18 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               data-testid="account-balance-total"
             >
               <span>
-                100.000001111
+                <span>
+                  100.000001111
+                </span>
                 <span
                   class="c14"
                 >
-                   
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     
+                  </span>
                 </span>
               </span>
             </dd>
@@ -952,11 +959,18 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             </dt>
             <dd>
               <span>
-                100.0
+                <span>
+                  100.0
+                </span>
                 <span
                   class="c14"
                 >
-                   
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     
+                  </span>
                 </span>
               </span>
             </dd>
@@ -966,11 +980,18 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             </dt>
             <dd>
               <span>
-                0.000001111
+                <span>
+                  0.000001111
+                </span>
                 <span
                   class="c14"
                 >
-                   
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     
+                  </span>
                 </span>
               </span>
             </dd>
@@ -979,11 +1000,18 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             </dt>
             <dd>
               <span>
-                0.0
+                <span>
+                  0.0
+                </span>
                 <span
                   class="c14"
                 >
-                   
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     
+                  </span>
                 </span>
               </span>
             </dd>

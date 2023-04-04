@@ -63,17 +63,29 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
   class="c0"
   data-testid="paraTime-content-description"
 >
-  You are about to transfer 
+  <span>
+    You are about to transfer 
+  </span>
   <strong>
-    10 ROSE
+    <span>
+      10 ROSE
+    </span>
   </strong>
-   tokens from the withdrawing wallet on the 
+  <span>
+     tokens from the withdrawing wallet on the 
+  </span>
   <strong>
-    Emerald
+    <span>
+      Emerald
+    </span>
   </strong>
-   (EVMc) ParaTime to: 
+  <span>
+     (EVMc) ParaTime to: 
+  </span>
   <strong>
-    dummyAddress
+    <span>
+      dummyAddress
+    </span>
   </strong>
 </span>
 `;
@@ -517,17 +529,29 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        You are about to transfer 
+        <span>
+          You are about to transfer 
+        </span>
         <strong>
-          10 ROSE
+          <span>
+            10 ROSE
+          </span>
         </strong>
-         tokens into the receiving wallet on the 
+        <span>
+           tokens into the receiving wallet on the 
+        </span>
         <strong>
-          Cipher
+          <span>
+            Cipher
+          </span>
         </strong>
-          ParaTime to: 
+        <span>
+            ParaTime to: 
+        </span>
         <strong>
-          dummyAddress
+          <span>
+            dummyAddress
+          </span>
         </strong>
       </span>
     </div>
