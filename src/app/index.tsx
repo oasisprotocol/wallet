@@ -18,13 +18,11 @@ import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
 import { Toolbar } from './components/Toolbar'
 import { ModalProvider } from './components/Modal'
-import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
 import { BuildPreviewBanner } from 'app/components/BuildPreviewBanner'
 
 export function App() {
-  useRouteRedirects()
   const { i18n } = useTranslation()
   const isMobile = useContext(ResponsiveContext) === 'small'
 

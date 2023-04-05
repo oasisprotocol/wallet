@@ -156,10 +156,6 @@ describe('Wallet Sagas', () => {
     })
   })
 
-  it.skip('Should redirect user when selecting a wallet', () => {
-    // See `useRouteRedirects` tests for redirect after selectWallet.
-  })
-
   it('Should allow opening multiple wallets', () => {
     return expectSaga(rootWalletSaga)
       .provide(providers)

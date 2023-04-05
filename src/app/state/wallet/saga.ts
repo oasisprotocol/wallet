@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
+import { call, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
@@ -135,8 +135,6 @@ export function* addWallet(payload: AddWalletPayload) {
   }
 
   if (selectImmediately) {
-    yield* put(walletActions.selectWallet(undefined)) // Workaround so useRouteRedirects detects selecting the same account
-    yield* delay(1) // Workaround to avoid React batching state updates
     yield* put(walletActions.selectWallet(newWallet.address))
   }
 }
