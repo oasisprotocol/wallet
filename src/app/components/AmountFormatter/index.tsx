@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux'
 import { Text } from 'grommet'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { formatBaseUnitsAsRose, formatWeiAsWrose } from 'app/lib/helpers'
+import { NoTranslate } from '../NoTranslate'
 
 export interface AmountFormatterProps {
   amount: StringifiedBigInt | null
@@ -58,8 +59,7 @@ export const AmountFormatter = memo(
         <span>{amountString}</span>
         {!hideTicker && (
           <Text size={size} {...tickerProps}>
-            {' '}
-            {ticker}
+            <NoTranslate>{` ${ticker}`}</NoTranslate>
           </Text>
         )}
       </span>
