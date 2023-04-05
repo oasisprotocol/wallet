@@ -114,7 +114,7 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
               t={t}
               components={{ HomeLink: <AnchorLink to="/" /> }}
               values={{ ticker }}
-              defaults="To send, receive, stake and swap {{ ticker }} tokens, <HomeLink>open your wallet!</HomeLink>"
+              defaults="To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet!</HomeLink>"
             />
           </AlertBox>
         )}
