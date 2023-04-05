@@ -29,6 +29,7 @@ import {
   FormValue as ChoosePasswordFieldsFormValue,
 } from 'app/components/Persist/ChoosePasswordFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { useNavigate } from 'react-router-dom'
 
 interface ImportAccountsSelectorSelectorProps {
   accounts: ImportAccountsListAccount[]
@@ -74,6 +75,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const error = importAccounts.error
   const selectedAccounts = useSelector(selectSelectedAccounts)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const openAccounts = ({ value }: { value: FormValue }) => {
     dispatch(
@@ -81,6 +83,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
         ? walletActions.openWalletsFromLedger({ choosePassword: value.password2 })
         : walletActions.openWalletFromMnemonic({ choosePassword: value.password2 }),
     )
+    navigate('/account')
   }
 
   const isBusyImporting = importAccounts.step !== ImportAccountsStep.Idle

@@ -15,6 +15,7 @@ import {
   FormValue as ChoosePasswordFieldsFormValue,
 } from 'app/components/Persist/ChoosePasswordFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {}
 
@@ -34,6 +35,7 @@ const isValidKey = (privateKey: string) => {
 export function FromPrivateKey(props: Props) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const onSubmit = ({ value }: { value: FormValue }) => {
     const secret = OasisKey.fromBase64PrivateKey(value.privateKey)
@@ -43,6 +45,7 @@ export function FromPrivateKey(props: Props) {
         choosePassword: value.password2,
       }),
     )
+    navigate('/account')
   }
 
   return (
