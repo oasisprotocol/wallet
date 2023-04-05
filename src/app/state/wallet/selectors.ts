@@ -13,9 +13,6 @@ export const selectActiveWallet = createSelector([selectSlice], state => {
 })
 
 export const selectWallets = createSelector([selectSlice], state => state.wallets ?? {})
-export const selectWalletsPublicKeys = createSelector([selectWallets], wallets =>
-  Object.values(wallets).map(w => w.publicKey),
-)
 export const selectAddress = createSelector([selectActiveWallet], wallet => wallet?.address)
 export const selectWalletsAddresses = createSelector([selectWallets], wallets =>
   Object.values(wallets).map(w => w.address),
