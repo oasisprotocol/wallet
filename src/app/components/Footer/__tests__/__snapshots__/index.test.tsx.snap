@@ -222,16 +222,22 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   <span
     class="c1"
   >
-    Oasis Wallet is fully 
+    <span>
+      Oasis Wallet is fully 
+    </span>
     <a
       class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/"
       rel="noopener noreferrer"
       target="_blank"
     >
-      open source
+      <span>
+        open source
+      </span>
     </a>
-     - Feedback and issues are appreciated!
+    <span>
+       - Feedback and issues are appreciated!
+    </span>
   </span>
   <span
     class="c1"
@@ -242,13 +248,17 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       rel="noopener noreferrer"
       target="_blank"
     >
-      Terms and Conditions
+      <span>
+        Terms and Conditions
+      </span>
     </a>
   </span>
   <span
     class="c3"
   >
-    Version: 
+    <span>
+      Version: 
+    </span>
     <a
       class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/releases/tag/v1.0.0-dev.1"
@@ -257,7 +267,9 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     >
       1.0.0-dev.1
     </a>
-     (commit: 
+    <span>
+       (commit: 
+    </span>
     <a
       class="c2"
       href="https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000"
@@ -266,7 +278,9 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     >
       sha0000
     </a>
-    ) built at 1/1/1970, 12:00:00 AM
+    <span>
+      ) built at 1/1/1970, 12:00:00 AM
+    </span>
     <div
       class="c4"
     >

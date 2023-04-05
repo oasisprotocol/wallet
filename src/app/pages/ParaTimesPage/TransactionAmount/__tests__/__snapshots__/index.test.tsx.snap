@@ -47,11 +47,17 @@ exports[`<TransactionAmount /> should render EVMc withdraw variant component 1`]
   class="c0"
   data-testid="paraTime-content-description"
 >
-  Please enter the amount of ROSE tokens you wish to transfer from the withdrawing wallet on the 
+  <span>
+    Please enter the amount of ROSE tokens you wish to transfer from the withdrawing wallet on the 
+  </span>
   <strong>
-    Emerald
+    <span>
+      Emerald
+    </span>
   </strong>
-   (EVMc) ParaTime and then click "Next"
+  <span>
+     (EVMc) ParaTime and then click "Next"
+  </span>
 </span>
 `;
 
@@ -618,11 +624,17 @@ exports[`<TransactionAmount /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        Please enter the amount of ROSE tokens you wish to transfer to the receiving wallet on the 
+        <span>
+          Please enter the amount of ROSE tokens you wish to transfer to the receiving wallet on the 
+        </span>
         <strong>
-          Cipher
+          <span>
+            Cipher
+          </span>
         </strong>
-          ParaTime and then click "Next"
+        <span>
+            ParaTime and then click "Next"
+        </span>
       </span>
     </div>
     <div
@@ -675,14 +687,23 @@ exports[`<TransactionAmount /> should render component 1`] = `
               <span
                 class="c14"
               >
-                Available:
-                 
                 <span>
-                  1.0
+                  Available:
+                   
+                </span>
+                <span>
+                  <span>
+                    1.0
+                  </span>
                   <span
                     class="c15"
                   >
-                     
+                    <span
+                      class="notranslate"
+                      translate="no"
+                    >
+                       undefined
+                    </span>
                   </span>
                 </span>
               </span>

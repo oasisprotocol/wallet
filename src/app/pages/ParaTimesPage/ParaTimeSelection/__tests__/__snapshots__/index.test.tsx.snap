@@ -476,7 +476,9 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
                       <div
                         class="c12"
                       >
-                        paraTimes.common.cipher
+                        <span>
+                          paraTimes.common.cipher
+                        </span>
                       </div>
                       <input
                         class="c13"

@@ -31,17 +31,29 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
   class="c0"
   data-testid="paraTime-content-description"
 >
-  You have successfully transferred 
+  <span>
+    You have successfully transferred 
+  </span>
   <strong>
-    10 ROSE
+    <span>
+      10 ROSE
+    </span>
   </strong>
-   tokens from the following wallet on the 
+  <span>
+     tokens from the following wallet on the 
+  </span>
   <strong>
-    Emerald
+    <span>
+      Emerald
+    </span>
   </strong>
-   (EVMc) ParaTime: 
+  <span>
+     (EVMc) ParaTime: 
+  </span>
   <strong>
-    dummyAddress
+    <span>
+      dummyAddress
+    </span>
   </strong>
 </span>
 `;
@@ -310,17 +322,29 @@ exports[`<TransactionSummary /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        You have successfully transferred 
+        <span>
+          You have successfully transferred 
+        </span>
         <strong>
-          10 ROSE
+          <span>
+            10 ROSE
+          </span>
         </strong>
-         tokens into the following wallet on the 
+        <span>
+           tokens into the following wallet on the 
+        </span>
         <strong>
-          Cipher
+          <span>
+            Cipher
+          </span>
         </strong>
-          ParaTime: 
+        <span>
+            ParaTime: 
+        </span>
         <strong>
-          dummyAddress
+          <span>
+            dummyAddress
+          </span>
         </strong>
       </span>
     </div>

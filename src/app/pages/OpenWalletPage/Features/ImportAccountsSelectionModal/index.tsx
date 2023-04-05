@@ -141,10 +141,12 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               onClick={onPrev}
             />
             <Box>
-              {t('openWallet.importAccounts.pageNumber', 'Page {{ pageNum }} of {{ totalPages }}', {
-                pageNum: importAccounts.accountsSelectionPageNumber + 1,
-                totalPages: numberOfAccountPages,
-              })}
+              <span>
+                {t('openWallet.importAccounts.pageNumber', 'Page {{ pageNum }} of {{ totalPages }}', {
+                  pageNum: importAccounts.accountsSelectionPageNumber + 1,
+                  totalPages: numberOfAccountPages,
+                })}
+              </span>
             </Box>
             <Button
               disabled={!canGoNext}

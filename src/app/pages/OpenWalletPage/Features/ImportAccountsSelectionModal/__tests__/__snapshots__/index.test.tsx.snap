@@ -667,7 +667,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
                   <div
                     class="c10"
                   >
-                    openWallet.importAccounts.pageNumber
+                    <span>
+                      openWallet.importAccounts.pageNumber
+                    </span>
                   </div>
                   <div
                     class="c13"

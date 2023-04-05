@@ -608,19 +608,27 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         class="c16"
       >
         <span>
-          0.001
+          <span>
+            0.001
+          </span>
           <span
             class="c17"
           >
-             
-            TEST
+            <span
+              class="notranslate"
+              translate="no"
+            >
+               TEST
+            </span>
           </span>
         </span>
       </span>
       <span
         class="c18"
       >
-        account.transaction.successful
+        <span>
+          account.transaction.successful
+        </span>
       </span>
     </div>
   </div>
@@ -1264,19 +1272,27 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         class="c16"
       >
         <span>
-          0.001
+          <span>
+            0.001
+          </span>
           <span
             class="c17"
           >
-             
-            TEST
+            <span
+              class="notranslate"
+              translate="no"
+            >
+               TEST
+            </span>
           </span>
         </span>
       </span>
       <span
         class="c18"
       >
-        account.transaction.successful
+        <span>
+          account.transaction.successful
+        </span>
       </span>
     </div>
   </div>

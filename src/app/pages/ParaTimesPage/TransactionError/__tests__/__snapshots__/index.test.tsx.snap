@@ -51,17 +51,29 @@ exports[`<TransactionError /> should render EVMc withdraw variant component 1`] 
   class="c0"
   data-testid="paraTime-content-description"
 >
-  Transaction failed. We were not able to transfer 
+  <span>
+    Transaction failed. We were not able to transfer 
+  </span>
   <strong>
-    10 ROSE
+    <span>
+      10 ROSE
+    </span>
   </strong>
-   tokens from the following wallet on the 
+  <span>
+     tokens from the following wallet on the 
+  </span>
   <strong>
-    Emerald
+    <span>
+      Emerald
+    </span>
   </strong>
-   (EVMc) ParaTime: 
+  <span>
+     (EVMc) ParaTime: 
+  </span>
   <strong>
-    dummyAddress
+    <span>
+      dummyAddress
+    </span>
   </strong>
 </span>
 `;
@@ -417,17 +429,29 @@ exports[`<TransactionError /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        Transaction failed. We were not able to transfer 
+        <span>
+          Transaction failed. We were not able to transfer 
+        </span>
         <strong>
-          10 ROSE
+          <span>
+            10 ROSE
+          </span>
         </strong>
-         tokens into the following wallet on the 
+        <span>
+           tokens into the following wallet on the 
+        </span>
         <strong>
-          Cipher
+          <span>
+            Cipher
+          </span>
         </strong>
-          ParaTime: 
+        <span>
+            ParaTime: 
+        </span>
         <strong>
-          dummyAddress
+          <span>
+            dummyAddress
+          </span>
         </strong>
       </span>
     </div>

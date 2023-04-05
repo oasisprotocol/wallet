@@ -42,7 +42,7 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
 
       <Box justify="center">
         <Text weight="bold">{label}</Text>
-        <Text>{trimValue ? trimLongString(value) : value}</Text>
+        {trimValue ? <Text>{trimLongString(value)}</Text> : <Text>{value}</Text>}
       </Box>
       {notificationVisible && (
         <Notification

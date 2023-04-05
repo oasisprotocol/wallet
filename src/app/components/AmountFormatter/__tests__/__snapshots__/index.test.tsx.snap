@@ -8,12 +8,18 @@ exports[`<AmountFormatter /> should render component 1`] = `
 
 <div>
   <span>
-    456.542341274
+    <span>
+      456.542341274
+    </span>
     <span
       class="c0"
     >
-       
-      ROSE
+      <span
+        class="notranslate"
+        translate="no"
+      >
+         ROSE
+      </span>
     </span>
   </span>
 </div>
@@ -29,12 +35,18 @@ exports[`<AmountFormatter /> should render component with small ticker 1`] = `
 
 <div>
   <span>
-    456.542341274
+    <span>
+      456.542341274
+    </span>
     <span
       class="c0"
     >
-       
-      ROSE
+      <span
+        class="notranslate"
+        translate="no"
+      >
+         ROSE
+      </span>
     </span>
   </span>
 </div>

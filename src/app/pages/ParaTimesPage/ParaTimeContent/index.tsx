@@ -33,6 +33,7 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
         </Text>
       </Box>
       <Box align="center" fill="horizontal" gap="medium" margin={{ bottom: 'xlarge' }} responsive={false}>
+        {/* eslint-disable-next-line no-restricted-syntax -- children are not a plain text node */}
         {isLoading ? <Spinner data-testid="paraTime-content-loading" size="medium" /> : children}
       </Box>
     </Box>

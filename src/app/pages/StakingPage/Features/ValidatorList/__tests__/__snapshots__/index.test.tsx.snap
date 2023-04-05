@@ -741,12 +741,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               <span>
-                0
+                <span>
+                  0
+                </span>
                 <span
                   class="c19"
                 >
-                   
-                  ROSE
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     ROSE
+                  </span>
                 </span>
               </span>
             </div>
@@ -804,12 +810,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               <span>
-                0
+                <span>
+                  0
+                </span>
                 <span
                   class="c19"
                 >
-                   
-                  ROSE
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     ROSE
+                  </span>
                 </span>
               </span>
             </div>
@@ -867,12 +879,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               role="gridcell"
             >
               <span>
-                0
+                <span>
+                  0
+                </span>
                 <span
                   class="c19"
                 >
-                   
-                  ROSE
+                  <span
+                    class="notranslate"
+                    translate="no"
+                  >
+                     ROSE
+                  </span>
                 </span>
               </span>
             </div>

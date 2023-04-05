@@ -387,7 +387,11 @@ export function Transaction(props: TransactionProps) {
           {isMobile && (
             <Box pad={{ left: 'small' }}>
               <Text size="16px" margin={{ bottom: 'xsmall' }}>
-                {otherAddress ? trimLongString(otherAddress) : t('common.unavailable', 'Unavailable')}
+                {otherAddress ? (
+                  <span>{trimLongString(otherAddress)}</span>
+                ) : (
+                  <span>{t('common.unavailable', 'Unavailable')}</span>
+                )}
               </Text>
               <Text size="small">{intlDateTimeFormat(transaction.timestamp!)}</Text>
             </Box>
@@ -447,9 +451,11 @@ export function Transaction(props: TransactionProps) {
             size={isMobile ? 'xsmall' : 'small'}
             weight="bold"
           >
-            {transaction.status
-              ? t('account.transaction.successful', 'Successful')
-              : t('account.transaction.failed', 'Failed')}
+            {transaction.status ? (
+              <span>{t('account.transaction.successful', 'Successful')}</span>
+            ) : (
+              <span>{t('account.transaction.failed', 'Failed')}</span>
+            )}
           </Text>
         </Box>
       </StyledCardBody>

@@ -356,11 +356,17 @@ exports[`<TransactionRecipient /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        Please enter the address of the receiving wallet on the 
+        <span>
+          Please enter the address of the receiving wallet on the 
+        </span>
         <strong>
-          Cipher
+          <span>
+            Cipher
+          </span>
         </strong>
-          ParaTime and then click "Next"
+        <span>
+            ParaTime and then click "Next"
+        </span>
       </span>
     </div>
     <div
