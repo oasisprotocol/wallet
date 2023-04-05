@@ -26,7 +26,7 @@ export const commonRoutes: RouteObject[] = [
     element: <CreateWalletPage />,
   },
   {
-    path: 'account/:address/*',
+    path: 'account/:address?/*',
     element: <AccountPage />,
     errorElement: <ErrorBoundary></ErrorBoundary>,
     loader: async ({ params }) => {
