@@ -90,7 +90,7 @@ describe('<TransactionConfirmation />', () => {
       .mockReturnValue([{ address: 'validatorAddress' }])
     render(<TransactionConfirmation />)
 
-    expect(screen.getByText('I confirm I want to transfer tokens to a validator address')).toBeInTheDocument()
+    expect(screen.getByText('I confirm I want to transfer ROSE to a validator address')).toBeInTheDocument()
   })
 
   it('should render additional confirmation checkbox when transferring tokens to foreign account', async () => {
@@ -99,7 +99,9 @@ describe('<TransactionConfirmation />', () => {
       .mockReturnValue(['addressInAccount'])
     render(<TransactionConfirmation />)
 
-    expect(screen.getByText('I confirm I want to transfer tokens to a foreign account')).toBeInTheDocument()
+    expect(
+      screen.getByText('I confirm I want to directly withdraw to an external account'),
+    ).toBeInTheDocument()
   })
 
   it('should submit transaction', async () => {
@@ -129,7 +131,7 @@ describe('<TransactionConfirmation />', () => {
     })
     render(<TransactionConfirmation />)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Previous' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Back' }))
 
     expect(navigateToAmount).toHaveBeenCalled()
   })

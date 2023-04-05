@@ -79,7 +79,7 @@ describe('<TransactionAmount />', () => {
     } as ParaTimesHook)
     render(<TransactionAmount />)
 
-    expect(screen.getByText('The wallet is empty. There is nothing to withdraw.')).toBeInTheDocument()
+    expect(screen.getByText('The account is empty. There is nothing to withdraw.')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('0')).toBeDisabled()
     expect(screen.getByRole('button', { name: 'MAX' })).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Next' })).toBeDisabled()

@@ -32,7 +32,7 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
   data-testid="paraTime-content-description"
 >
   <span>
-    You have successfully transferred 
+    You have successfully withdrawn 
   </span>
   <strong>
     <span>
@@ -40,7 +40,7 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
     </span>
   </strong>
   <span>
-     tokens from the following wallet on the 
+     from 
   </span>
   <strong>
     <span>
@@ -48,7 +48,7 @@ exports[`<TransactionSummary /> should render EVMc withdraw variant component 1`
     </span>
   </strong>
   <span>
-     (EVMc) ParaTime: 
+     (EVMc) to 
   </span>
   <strong>
     <span>
@@ -323,7 +323,7 @@ exports[`<TransactionSummary /> should render component 1`] = `
         data-testid="paraTime-content-description"
       >
         <span>
-          You have successfully transferred 
+          You have successfully deposited 
         </span>
         <strong>
           <span>
@@ -331,7 +331,15 @@ exports[`<TransactionSummary /> should render component 1`] = `
           </span>
         </strong>
         <span>
-           tokens into the following wallet on the 
+           to 
+        </span>
+        <strong>
+          <span>
+            dummyAddress
+          </span>
+        </strong>
+        <span>
+           on 
         </span>
         <strong>
           <span>
@@ -339,13 +347,8 @@ exports[`<TransactionSummary /> should render component 1`] = `
           </span>
         </strong>
         <span>
-            ParaTime: 
+           
         </span>
-        <strong>
-          <span>
-            dummyAddress
-          </span>
-        </strong>
       </span>
     </div>
     <div
@@ -380,7 +383,7 @@ exports[`<TransactionSummary /> should render component 1`] = `
             class="c9"
             type="button"
           >
-            Navigate to ParaTimes Transfers
+            Navigate to ParaTime Transfers
           </button>
         </div>
       </div>

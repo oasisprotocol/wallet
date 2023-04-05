@@ -14,21 +14,33 @@ export const TransactionSummary = () => {
   return (
     <ParaTimeContent
       description={
-        <Trans
-          i18nKey="paraTimes.summary.description"
-          t={t}
-          values={{
-            address: transactionForm.recipient,
-            paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
-            paraTime: paraTimeName,
-            preposition: isDepositing
-              ? t('paraTimes.summary.into', 'into')
-              : t('paraTimes.summary.from', 'from'),
-            ticker,
-            value: transactionForm.amount,
-          }}
-          defaults="You have successfully transferred <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
-        />
+        isDepositing ? (
+          <Trans
+            i18nKey="paraTimes.summary.depositDescription"
+            t={t}
+            values={{
+              address: transactionForm.recipient,
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+              value: transactionForm.amount,
+            }}
+            defaults="You have successfully deposited <strong>{{value}} {{ticker}}</strong> to <strong>{{address}}</strong> on <strong>{{paraTime}}</strong> {{paratimeType}}"
+          />
+        ) : (
+          <Trans
+            i18nKey="paraTimes.summary.withdrawDescription"
+            t={t}
+            values={{
+              address: transactionForm.recipient,
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+              value: transactionForm.amount,
+            }}
+            defaults="You have successfully withdrawn <strong>{{value}} {{ticker}}</strong> from <strong>{{paraTime}}</strong> {{paratimeType}} to <strong>{{address}}</strong>"
+          />
+        )
       }
     >
       <Box margin={{ bottom: 'medium' }}>
@@ -36,7 +48,7 @@ export const TransactionSummary = () => {
       </Box>
 
       <ParaTimeFormFooter
-        primaryLabel={t('paraTimes.summary.navigate', 'Navigate to ParaTimes Transfers')}
+        primaryLabel={t('paraTimes.summary.navigate', 'Navigate to ParaTime Transfers')}
         primaryAction={clearTransactionForm}
         withNotice={isEvmcParaTime}
       />

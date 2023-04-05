@@ -48,15 +48,7 @@ exports[`<TransactionAmount /> should render EVMc withdraw variant component 1`]
   data-testid="paraTime-content-description"
 >
   <span>
-    Please enter the amount of ROSE tokens you wish to transfer from the withdrawing wallet on the 
-  </span>
-  <strong>
-    <span>
-      Emerald
-    </span>
-  </strong>
-  <span>
-     (EVMc) ParaTime and then click "Next"
+    Please enter the amount of ROSE to withdraw and then click "Next"
   </span>
 </span>
 `;
@@ -625,15 +617,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
         data-testid="paraTime-content-description"
       >
         <span>
-          Please enter the amount of ROSE tokens you wish to transfer to the receiving wallet on the 
-        </span>
-        <strong>
-          <span>
-            Cipher
-          </span>
-        </strong>
-        <span>
-            ParaTime and then click "Next"
+          Please enter the amount of ROSE to deposit and then click "Next"
         </span>
       </span>
     </div>

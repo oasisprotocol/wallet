@@ -59,7 +59,7 @@ describe('<TransactionError />', () => {
     })
     render(<TransactionError />)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Navigate to ParaTimes Transfers' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Navigate to ParaTime Transfers' }))
 
     expect(clearTransactionForm).toHaveBeenCalled()
   })
@@ -72,7 +72,7 @@ describe('<TransactionError />', () => {
     })
     render(<TransactionError />)
 
-    await userEvent.click(screen.getByRole('button', { name: 'Previous' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Back' }))
 
     expect(navigateToConfirmation).toHaveBeenCalled()
   })

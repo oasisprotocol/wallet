@@ -39,7 +39,7 @@ exports[`<TransactionRecipient /> should render EVMc withdraw variant component 
   class="c0"
   data-testid="paraTime-content-description"
 >
-  Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click "Next"
+  Please enter the private key of the account on ParaTime, the recipient address on consensus and click "Next"
 </span>
 `;
 
@@ -357,7 +357,7 @@ exports[`<TransactionRecipient /> should render component 1`] = `
         data-testid="paraTime-content-description"
       >
         <span>
-          Please enter the address of the receiving wallet on the 
+          Please enter the recipient address on 
         </span>
         <strong>
           <span>
@@ -365,7 +365,7 @@ exports[`<TransactionRecipient /> should render component 1`] = `
           </span>
         </strong>
         <span>
-            ParaTime and then click "Next"
+            and then click "Next"
         </span>
       </span>
     </div>
@@ -461,6 +461,6 @@ exports[`<TransactionRecipient /> should render withdraw variant component 1`] =
   class="c0"
   data-testid="paraTime-content-description"
 >
-  Please enter the receiving address on Consensus and then click "Next"
+  Please enter the recipient address on consensus and click "Next"
 </span>
 `;

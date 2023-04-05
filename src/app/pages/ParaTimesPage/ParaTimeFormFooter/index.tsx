@@ -39,7 +39,7 @@ export const ParaTimeFormFooter = ({
 
         {secondaryAction && (
           <Button
-            label={secondaryLabel || t('paraTimes.footer.previous', 'Previous')}
+            label={secondaryLabel || t('paraTimes.footer.back', 'Back')}
             onClick={secondaryAction}
             plain
             style={{ textAlign: 'center', fontSize: '14px', textDecoration: 'underline', color: 'brand' }}
@@ -49,7 +49,7 @@ export const ParaTimeFormFooter = ({
 
       {withNotice && (
         <Text size="small">
-          {t('paraTimes.footer.notice', '* EVMc - Ethereum Virtual Machine compatible')}
+          {t('paraTimes.footer.notice', '* EVMc - compatible with Ethereum Virtual Machine')}
         </Text>
       )}
     </>

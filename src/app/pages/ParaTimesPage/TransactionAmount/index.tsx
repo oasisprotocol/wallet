@@ -74,25 +74,35 @@ export const TransactionAmount = () => {
   return (
     <ParaTimeContent
       description={
-        <Trans
-          i18nKey="paraTimes.amount.description"
-          t={t}
-          values={{
-            actionType: isDepositing
-              ? t('paraTimes.amount.receiving', 'to the receiving')
-              : t('paraTimes.amount.withdrawing', 'from the withdrawing'),
-            paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
-            paraTime: paraTimeName,
-            ticker,
-          }}
-          defaults='Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click "Next"'
-        />
+        isDepositing ? (
+          <Trans
+            i18nKey="paraTimes.amount.depositDescription"
+            t={t}
+            values={{
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+            }}
+            defaults='Please enter the amount of {{ticker}} to deposit and then click "Next"'
+          />
+        ) : (
+          <Trans
+            i18nKey="paraTimes.amount.withdrawDescription"
+            t={t}
+            values={{
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+            }}
+            defaults='Please enter the amount of {{ticker}} to withdraw and then click "Next"'
+          />
+        )
       }
       isLoading={isLoading}
     >
       {disabled && (
         <AlertBox color="status-warning">
-          {t('paraTimes.amount.emptyWallet', 'The wallet is empty. There is nothing to withdraw.')}
+          {t('paraTimes.amount.emptyAccount', 'The account is empty. There is nothing to withdraw.')}
         </AlertBox>
       )}
 

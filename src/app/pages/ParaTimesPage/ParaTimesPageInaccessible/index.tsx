@@ -7,7 +7,7 @@ export const ParaTimesPageInaccessible = () => {
 
   return (
     <ParaTimeContent
-      header={t('paraTimes.common.header', 'ParaTimes Transfers')}
+      header={t('paraTimes.common.header', 'ParaTime Transfers')}
       description={t('paraTimes.pageInaccessible', 'Transfers are not available.')}
     />
   )
