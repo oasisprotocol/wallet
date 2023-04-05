@@ -235,6 +235,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
                   <Language />
                 </Box>
                 <Box pad="small" flex="grow">
+                  {/* Intentionally not translated */}
                   <Text>Language</Text>
                 </Box>
                 <Box pad="small">
