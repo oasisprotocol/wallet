@@ -19,7 +19,7 @@ jobs:
       - run: bash ./.github/dump_validators.sh
       - name: Create Pull Request with updated dumped validators
         # https://github.com/peter-evans/create-pull-request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           commit-message: 'Update dumped validators'
