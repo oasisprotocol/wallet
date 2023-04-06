@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "node ./internals/prod-web.js",
+    "build-preview": "REACT_APP_BUILD_PREVIEW=preview yarn run build",
     "build:ext": "node ./internals/prod-ext.js",
     "clean": "rm -rf build/ .parcel-cache",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
