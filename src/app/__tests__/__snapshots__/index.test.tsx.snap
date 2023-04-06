@@ -20,6 +20,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
     />
   </Helmet>
   <FatalErrorHandler />
+  <BuildPreviewBanner />
   <Box
     background="background-back"
     direction="row-responsive"
