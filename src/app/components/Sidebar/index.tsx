@@ -35,6 +35,7 @@ import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
+import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnramp'
 
 const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
   const size = useContext(ResponsiveContext)
@@ -307,7 +308,8 @@ function SidebarMenuItems() {
       {menu.stake}
       {/* eslint-disable-next-line no-restricted-syntax -- menu.paraTimes is not a plain text node */}
       {canAccessParaTimesRoute && menu.paraTimes}
-      {menu.fiatOnramp}
+      {/* eslint-disable-next-line no-restricted-syntax -- menu.fiatOnramp is not a plain text node */}
+      {IS_FIAT_ONRAMP_ENABLED && menu.fiatOnramp}
     </Nav>
   )
 }
