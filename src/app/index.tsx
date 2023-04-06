@@ -11,7 +11,6 @@ import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
-import styled from 'styled-components'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
@@ -20,15 +19,12 @@ import { ModalProvider } from './components/Modal'
 import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
-
-const AppMain = styled(Main)`
-  /* position: relative; */
-`
+import { BuildPreviewBanner } from 'app/components/BuildPreviewBanner'
 
 export function App() {
   useRouteRedirects()
   const { i18n } = useTranslation()
-  const size = useContext(ResponsiveContext)
+  const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
     <ModalProvider>
@@ -40,17 +36,19 @@ export function App() {
         <meta name="description" content="A wallet for Oasis" />
       </Helmet>
       <FatalErrorHandler />
+      {!isMobile && <BuildPreviewBanner />}
       <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
         <PersistLoadingGate>
           <UnlockGate>
             <Navigation />
-            <Box flex pad={{ top: size === 'small' ? '64px' : undefined }}>
-              <AppMain>
+            <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
+              <Main>
+                {isMobile && <BuildPreviewBanner />}
                 <FatalErrorHandler />
                 <Toolbar />
                 <Outlet />
                 <Footer />
-              </AppMain>
+              </Main>
             </Box>
           </UnlockGate>
         </PersistLoadingGate>
