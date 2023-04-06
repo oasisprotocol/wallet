@@ -42,12 +42,12 @@ exports[`<App /> should render and match the snapshot 1`] = `
             }
           }
         >
-          <Styled(Main)>
+          <Main>
             <FatalErrorHandler />
             <Toolbar />
             <Outlet />
             <Memo />
-          </Styled(Main)>
+          </Main>
         </Box>
       </UnlockGate>
     </PersistLoadingGate>

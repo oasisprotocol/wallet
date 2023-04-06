@@ -11,7 +11,6 @@ import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
-import styled from 'styled-components'
 import { FatalErrorHandler } from './components/FatalErrorHandler'
 import { Footer } from './components/Footer'
 import { Navigation } from './components/Sidebar'
@@ -21,10 +20,6 @@ import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
 import { BuildPreviewBanner } from 'app/components/BuildPreviewBanner'
-
-const AppMain = styled(Main)`
-  /* position: relative; */
-`
 
 export function App() {
   useRouteRedirects()
@@ -47,13 +42,13 @@ export function App() {
           <UnlockGate>
             <Navigation />
             <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
-              <AppMain>
+              <Main>
                 {isMobile && <BuildPreviewBanner />}
                 <FatalErrorHandler />
                 <Toolbar />
                 <Outlet />
                 <Footer />
-              </AppMain>
+              </Main>
             </Box>
           </UnlockGate>
         </PersistLoadingGate>
