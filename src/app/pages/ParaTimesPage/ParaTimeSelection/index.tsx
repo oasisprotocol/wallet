@@ -43,14 +43,14 @@ export const ParaTimeSelection = () => {
         isDepositing
           ? t(
               'paraTimes.selection.depositDescription',
-              'Please select which ParaTime you wish to transfer your {{ticker}} tokens to and then click "Next".',
+              'Please select which ParaTime you wish to deposit your {{ticker}} to and then click "Next".',
               {
                 ticker,
               },
             )
           : t(
               'paraTimes.selection.withdrawDescription',
-              'Please select which ParaTime you wish to withdraw your {{ticker}} tokens from and then click "Next".',
+              'Please select which ParaTime you wish to withdraw your {{ticker}} from and then click "Next".',
               {
                 ticker,
               },

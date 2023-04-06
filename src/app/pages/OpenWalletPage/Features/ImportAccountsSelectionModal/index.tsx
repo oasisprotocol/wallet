@@ -107,7 +107,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
       <Form<FormValue> onSubmit={openAccounts} {...preventSavingInputsToUserData}>
         <Box width="800px" pad="medium">
           <ModalSplitHeader
-            side={t('openWallet.importAccounts.accountCounter', '{{ count }} accounts selected', {
+            side={t('openWallet.importAccounts.accountCounter', '{{count}} accounts selected', {
               count: selectedAccounts.length,
             })}
           >
@@ -142,7 +142,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
             />
             <Box>
               <span>
-                {t('openWallet.importAccounts.pageNumber', 'Page {{ pageNum }} of {{ totalPages }}', {
+                {t('openWallet.importAccounts.pageNumber', 'Page {{pageNum}} of {{totalPages}}', {
                   pageNum: importAccounts.accountsSelectionPageNumber + 1,
                   totalPages: numberOfAccountPages,
                 })}

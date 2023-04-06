@@ -13,10 +13,10 @@ export const ParaTimeTransferType = () => {
 
   return (
     <ParaTimeContent
-      header={t('paraTimes.common.header', 'ParaTimes Transfers')}
+      header={t('paraTimes.common.header', 'ParaTime Transfers')}
       description={t(
         'paraTimes.transfers.description',
-        'Use the "Deposit" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or "Withdraw" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.',
+        'Click on the "Deposit" button to deposit your {{ticker}} from consensus to a ParaTime of your choice or "Withdraw" to withdraw your {{ticker}} from a ParaTime back to consensus.',
         {
           ticker,
         },

@@ -52,7 +52,7 @@ exports[`<TransactionError /> should render EVMc withdraw variant component 1`] 
   data-testid="paraTime-content-description"
 >
   <span>
-    Transaction failed. We were not able to transfer 
+    Transaction failed. We were not able to complete withdrawal of 
   </span>
   <strong>
     <span>
@@ -60,7 +60,7 @@ exports[`<TransactionError /> should render EVMc withdraw variant component 1`] 
     </span>
   </strong>
   <span>
-     tokens from the following wallet on the 
+     from 
   </span>
   <strong>
     <span>
@@ -68,7 +68,7 @@ exports[`<TransactionError /> should render EVMc withdraw variant component 1`] 
     </span>
   </strong>
   <span>
-     (EVMc) ParaTime: 
+     (EVMc) to 
   </span>
   <strong>
     <span>
@@ -430,7 +430,7 @@ exports[`<TransactionError /> should render component 1`] = `
         data-testid="paraTime-content-description"
       >
         <span>
-          Transaction failed. We were not able to transfer 
+          Transaction failed. We were not able to complete deposit of 
         </span>
         <strong>
           <span>
@@ -438,7 +438,15 @@ exports[`<TransactionError /> should render component 1`] = `
           </span>
         </strong>
         <span>
-           tokens into the following wallet on the 
+           to 
+        </span>
+        <strong>
+          <span>
+            dummyAddress
+          </span>
+        </strong>
+        <span>
+           on 
         </span>
         <strong>
           <span>
@@ -446,13 +454,8 @@ exports[`<TransactionError /> should render component 1`] = `
           </span>
         </strong>
         <span>
-            ParaTime: 
+           
         </span>
-        <strong>
-          <span>
-            dummyAddress
-          </span>
-        </strong>
       </span>
     </div>
     <div
@@ -500,7 +503,7 @@ exports[`<TransactionError /> should render component 1`] = `
             class="c13"
             type="button"
           >
-            Navigate to ParaTimes Transfers
+            Navigate to ParaTime Transfers
           </button>
         </div>
       </div>

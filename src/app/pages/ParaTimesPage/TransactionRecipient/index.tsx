@@ -37,17 +37,17 @@ export const TransactionRecipient = () => {
               paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
               paraTime: paraTimeName,
             }}
-            defaults='Please enter the address of the receiving wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click "Next"'
+            defaults='Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click "Next"'
           />
         ) : isEvmcParaTime ? (
           t(
             'paraTimes.recipient.evmcWithdrawDescription',
-            'Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click "Next"',
+            'Please enter the private key of the account on ParaTime, the recipient address on consensus and click "Next"',
           )
         ) : (
           t(
             'paraTimes.recipient.withdrawDescription',
-            'Please enter the receiving address on Consensus and then click "Next"',
+            'Please enter the recipient address on consensus and click "Next"',
           )
         )
       }

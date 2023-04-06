@@ -45,7 +45,7 @@
         "total": "Total"
       },
       "noTransactionFound": "No transactions found.",
-      "noWalletIsOpen": "To send, receive, stake and swap {{ ticker }} tokens, <HomeLink>open your wallet!</HomeLink>",
+      "noWalletIsOpen": "To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet!</HomeLink>",
       "notYourAccount": "This is not your account.",
       "yourAccount": "This is your account."
     },
@@ -179,7 +179,7 @@
     }
   },
   "infoBox": {
-    "valueCopied": "{{ label }} copied."
+    "valueCopied": "{{label}} copied."
   },
   "ledger": {
     "extension": {
@@ -217,13 +217,13 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
-      "accountCounter": "{{ count }} accounts selected",
+      "accountCounter": "{{count}} accounts selected",
       "accountCounter_one": "One account selected",
-      "accountCounter_plural": "{{ count }} accounts selected",
+      "accountCounter_plural": "{{count}} accounts selected",
       "accountCounter_zero": "No account selected",
       "next": "Next",
       "openWallets": "Open",
-      "pageNumber": "Page {{ pageNum }} of {{ totalPages }}",
+      "pageNumber": "Page {{pageNum}} of {{totalPages}}",
       "prev": "Prev",
       "selectWallets": "Select accounts to open"
     },
@@ -255,72 +255,70 @@
     "amount": {
       "advanced": "Advanced",
       "available": "Available:",
-      "description": "Please enter the amount of {{ticker}} tokens you wish to transfer {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
-      "emptyWallet": "The wallet is empty. There is nothing to withdraw.",
+      "depositDescription": "Please enter the amount of {{ticker}} to deposit and then click \"Next\"",
+      "emptyAccount": "The account is empty. There is nothing to withdraw.",
       "feeAmountPlaceholder": "Fee Amount (nano {{ticker}})",
       "feeGasPlaceholder": "Fee Gas",
       "max": "MAX",
-      "receiving": "to the receiving",
       "tooltip": "Max value may be decreased by the fee",
-      "withdrawing": "from the withdrawing"
+      "withdrawDescription": "Please enter the amount of {{ticker}} to withdraw and then click \"Next\""
     },
     "common": {
       "cipher": "Cipher",
       "depositHeader": "Deposit to ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
-      "header": "ParaTimes Transfers",
+      "header": "ParaTime Transfers",
       "sapphire": "Sapphire",
       "withdrawHeader": "Withdraw from ParaTime"
     },
     "confirmation": {
-      "confirmDepositDescription": "Please confirm the transferring amount and the receiving wallet's address are correct and then click \"Deposit\" to make the transfer.",
-      "confirmDepositToForeignAccountDescription": "Destination account is not in your wallet! We recommend you always deposit into your own ParaTime account, then transfer from there.",
+      "confirmDepositDescription": "Please confirm the deposit amount and the recipient address are correct and then click \"Deposit\".",
+      "confirmDepositToForeignAccountDescription": "Destination address does not match any of the accounts in your wallet! Some services such as exchanges, may not support direct deposits to fund your account. For better compatibility, we strongly recommend that you first deposit to your ParaTime account and then transfer {{ticker}} to the destination address.",
       "confirmTransferLabel": "I confirm the amount and the address are correct",
-      "confirmTransferToForeignAccount": "I confirm I want to transfer tokens to a foreign account",
-      "confirmTransferToValidatorDescription": "This is a validator wallet address. Transfers to this address do not stake your funds with the validator.",
-      "confirmTransferToValidatorLabel": "I confirm I want to transfer tokens to a validator address",
-      "confirmWithdrawDescription": "Please confirm the withdrawing amount and the withdrawing wallet's address are correct and then click \"Withdraw\" to make the transfer.",
-      "confirmWithdrawToForeignAccountDescription": "Destination account is not in your wallet! Some automated systems, e.g., those used for tracking exchange deposits, may be unable to accept funds through ParaTime withdrawals. For better compatibility, cancel, withdraw into your own account, and transfer from there.",
+      "confirmTransferToForeignAccount": "I confirm I want to directly withdraw to an external account",
+      "confirmTransferToValidatorDescription": "This is a validator wallet address. Transfers to this address do not stake your funds to the validator.",
+      "confirmTransferToValidatorLabel": "I confirm I want to transfer {{ticker}} to a validator address",
+      "confirmWithdrawDescription": "Please confirm the withdrawal amount and the recipient address are correct and then click \"Withdraw\".",
+      "confirmWithdrawToForeignAccountDescription": "Destination address does not match any of the accounts in your wallet! Some services such as exchanges, may not support direct withdrawals to fund the account. For better compatibility, we strongly recommend that you first withdraw to your consensus account and then transfer {{ticker}} to the destination address.",
+      "depositDescription": "You are about to deposit <strong>{{value}} {{ticker}}</strong> to <strong>{{address}}</strong> on <strong>{{paraTime}}</strong> {{paratimeType}}",
       "depositLabel": "Deposit",
-      "description": "You are about to transfer <strong>{{value}} {{ticker}}</strong> tokens {{actionType}} wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime to: <strong>{{address}}</strong>",
-      "receiving": "into the receiving",
-      "withdrawLabel": "Withdraw",
-      "withdrawing": "from the withdrawing"
+      "withdrawDescription": "You are about to withdraw <strong>{{value}} {{ticker}}</strong> from <strong>{{paraTime}}</strong> {{paratimeType}} to <strong>{{address}}</strong>",
+      "withdrawLabel": "Withdraw"
     },
     "error": {
-      "description": "Transaction failed. We were not able to transfer <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
+      "depositDescription": "Transaction failed. We were not able to complete deposit of <strong>{{value}} {{ticker}}</strong> to <strong>{{address}}</strong> on <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "withdrawDescription": "Transaction failed. We were not able to complete withdrawal of <strong>{{value}} {{ticker}}</strong> from <strong>{{paraTime}}</strong> {{paratimeType}} to <strong>{{address}}</strong>"
     },
     "footer": {
+      "back": "Back",
       "next": "Next",
-      "notice": "* EVMc - Ethereum Virtual Machine compatible",
-      "previous": "Previous"
+      "notice": "* EVMc - compatible with Ethereum Virtual Machine"
     },
     "pageInaccessible": "Transfers are not available.",
     "recipient": {
-      "depositDescription": "Please enter the address of the receiving wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime and then click \"Next\"",
-      "evmcWithdrawDescription": "Please enter the private key of the withdrawing wallet and the receiving address on Consensus, and then click \"Next\"",
+      "depositDescription": "Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click \"Next\"",
+      "evmcWithdrawDescription": "Please enter the private key of the account on ParaTime, the recipient address on consensus and click \"Next\"",
       "placeholder": "0x...",
       "privateKeyPlaceholder": "Enter Ethereum-compatible private key",
-      "withdrawDescription": "Please enter the receiving address on Consensus and then click \"Next\""
+      "withdrawDescription": "Please enter the recipient address on consensus and click \"Next\""
     },
     "selection": {
       "cancel": "Cancel transfer",
-      "depositDescription": "Please select which ParaTime you wish to transfer your {{ticker}} tokens to and then click \"Next\".",
+      "depositDescription": "Please select which ParaTime you wish to deposit your {{ticker}} to and then click \"Next\".",
       "evmc": "EVMc",
       "select": "Select a ParaTime",
-      "withdrawDescription": "Please select which ParaTime you wish to withdraw your {{ticker}} tokens from and then click \"Next\"."
+      "withdrawDescription": "Please select which ParaTime you wish to withdraw your {{ticker}} from and then click \"Next\"."
     },
     "summary": {
-      "description": "You have successfully transferred <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>",
-      "from": "from",
-      "into": "into",
-      "navigate": "Navigate to ParaTimes Transfers"
+      "depositDescription": "You have successfully deposited <strong>{{value}} {{ticker}}</strong> to <strong>{{address}}</strong> on <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "navigate": "Navigate to ParaTime Transfers",
+      "withdrawDescription": "You have successfully withdrawn <strong>{{value}} {{ticker}}</strong> from <strong>{{paraTime}}</strong> {{paratimeType}} to <strong>{{address}}</strong>"
     },
     "transfers": {
       "deposit": "Deposit to ParaTime",
       "depositDisabled": "You don't have any {{ticker}} tokens to transfer",
-      "description": "Use the \"Deposit\" option to transfer your {{ticker}} tokens from Consensus to a ParaTime of your choosing or \"Withdraw\" option to transfer your {{ticker}} tokens from a ParaTime back to Consensus.",
+      "description": "Click on the \"Deposit\" button to deposit your {{ticker}} from consensus to a ParaTime of your choice or \"Withdraw\" to withdraw your {{ticker}} from a ParaTime back to consensus.",
       "withdraw": "Withdraw from ParaTime"
     },
     "unsupportedFormStep": "Unsupported form step",

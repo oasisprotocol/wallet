@@ -25,21 +25,33 @@ export const TransactionError = () => {
   return (
     <ParaTimeContent
       description={
-        <Trans
-          i18nKey="paraTimes.error.description"
-          t={t}
-          values={{
-            address: transactionForm.recipient,
-            paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
-            paraTime: paraTimeName,
-            preposition: isDepositing
-              ? t('paraTimes.summary.into', 'into')
-              : t('paraTimes.summary.from', 'from'),
-            ticker,
-            value: transactionForm.amount,
-          }}
-          defaults="Transaction failed. We were not able to transfer <strong>{{value}} {{ticker}}</strong> tokens {{preposition}} the following wallet on the <strong>{{paraTime}}</strong> {{paratimeType}} ParaTime: <strong>{{address}}</strong>"
-        />
+        isDepositing ? (
+          <Trans
+            i18nKey="paraTimes.error.depositDescription"
+            t={t}
+            values={{
+              address: transactionForm.recipient,
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+              value: transactionForm.amount,
+            }}
+            defaults="Transaction failed. We were not able to complete deposit of <strong>{{value}} {{ticker}}</strong> to <strong>{{address}}</strong> on <strong>{{paraTime}}</strong> {{paratimeType}}"
+          />
+        ) : (
+          <Trans
+            i18nKey="paraTimes.error.withdrawDescription"
+            t={t}
+            values={{
+              address: transactionForm.recipient,
+              paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
+              paraTime: paraTimeName,
+              ticker,
+              value: transactionForm.amount,
+            }}
+            defaults="Transaction failed. We were not able to complete withdrawal of <strong>{{value}} {{ticker}}</strong> from <strong>{{paraTime}}</strong> {{paratimeType}} to <strong>{{address}}</strong>"
+          />
+        )
       }
     >
       {transactionError && (
@@ -52,7 +64,7 @@ export const TransactionError = () => {
       )}
 
       <ParaTimeFormFooter
-        primaryLabel={t('paraTimes.summary.navigate', 'Navigate to ParaTimes Transfers')}
+        primaryLabel={t('paraTimes.summary.navigate', 'Navigate to ParaTime Transfers')}
         primaryAction={clearTransactionForm}
         secondaryAction={navigateToConfirmation}
         withNotice={isEvmcParaTime}

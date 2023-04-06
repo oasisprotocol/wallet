@@ -64,7 +64,7 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
   data-testid="paraTime-content-description"
 >
   <span>
-    You are about to transfer 
+    You are about to withdraw 
   </span>
   <strong>
     <span>
@@ -72,7 +72,7 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
     </span>
   </strong>
   <span>
-     tokens from the withdrawing wallet on the 
+     from 
   </span>
   <strong>
     <span>
@@ -80,7 +80,7 @@ exports[`<TransactionConfirmation /> should render EVMc withdraw variant compone
     </span>
   </strong>
   <span>
-     (EVMc) ParaTime to: 
+     (EVMc) to 
   </span>
   <strong>
     <span>
@@ -530,7 +530,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
         data-testid="paraTime-content-description"
       >
         <span>
-          You are about to transfer 
+          You are about to deposit 
         </span>
         <strong>
           <span>
@@ -538,7 +538,15 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
           </span>
         </strong>
         <span>
-           tokens into the receiving wallet on the 
+           to 
+        </span>
+        <strong>
+          <span>
+            dummyAddress
+          </span>
+        </strong>
+        <span>
+           on 
         </span>
         <strong>
           <span>
@@ -546,13 +554,8 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
           </span>
         </strong>
         <span>
-            ParaTime to: 
+           
         </span>
-        <strong>
-          <span>
-            dummyAddress
-          </span>
-        </strong>
       </span>
     </div>
     <div
@@ -575,7 +578,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
                 <span
                   class="c3"
                 >
-                  Please confirm the transferring amount and the receiving wallet's address are correct and then click "Deposit" to make the transfer.
+                  Please confirm the deposit amount and the recipient address are correct and then click "Deposit".
                 </span>
               </span>
             </div>

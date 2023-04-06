@@ -48,7 +48,7 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
         <Notification
           toast
           status={'normal'}
-          title={t('infoBox.valueCopied', '{{ label }} copied.', { label })}
+          title={t('infoBox.valueCopied', '{{label}} copied.', { label })}
           onClose={hideNotification}
         />
       )}
