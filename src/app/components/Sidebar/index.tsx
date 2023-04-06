@@ -21,6 +21,7 @@ import {
   Logout,
   Menu as MenuIcon,
   Money,
+  Currency,
 } from 'grommet-icons'
 import * as React from 'react'
 import { useContext } from 'react'
@@ -34,6 +35,7 @@ import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
+import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnramp'
 
 const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
   const size = useContext(ResponsiveContext)
@@ -289,9 +291,16 @@ function SidebarMenuItems() {
         data-testid="nav-paratime"
       />
     ),
+    fiatOnramp: (
+      <SidebarButton
+        icon={<Currency />}
+        label={t('menu.fiatOnramp', 'Fiat on-ramp')}
+        needsWalletOpen={true}
+        route={`/account/${address}/fiat-onramp`}
+      />
+    ),
   }
 
-  // Normal
   return (
     <Nav gap="small" pad="none">
       {menu.home}
@@ -299,6 +308,8 @@ function SidebarMenuItems() {
       {menu.stake}
       {/* eslint-disable-next-line no-restricted-syntax -- menu.paraTimes is not a plain text node */}
       {canAccessParaTimesRoute && menu.paraTimes}
+      {/* eslint-disable-next-line no-restricted-syntax -- menu.fiatOnramp is not a plain text node */}
+      {IS_FIAT_ONRAMP_ENABLED && menu.fiatOnramp}
     </Nav>
   )
 }
