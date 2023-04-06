@@ -98,6 +98,7 @@
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
+  "buildPreview": "Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.",
   "common": {
     "amount": "Amount",
     "block": "Block",
