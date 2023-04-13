@@ -21,7 +21,6 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
   const hideNotification = () => setNotificationVisible(false)
 
   const copyValue = () => {
-    if (!copyToClipboard) return
     const wasCopied = copy(value)
     if (wasCopied) {
       setNotificationVisible(true)
@@ -34,12 +33,11 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
       gap="small"
       hoverIndicator={{ color: 'background-contrast' }}
       pad={{ horizontal: 'small', vertical: 'small' }}
-      onClick={copyValue}
+      onClick={copyToClipboard ? copyValue : undefined}
     >
       <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
         <IconComponent color="brand" size="20px" />
       </Box>
-
       <Box justify="center">
         <Text weight="bold">{label}</Text>
         {trimValue ? <Text>{trimLongString(value)}</Text> : <Text>{value}</Text>}
