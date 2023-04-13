@@ -191,11 +191,6 @@ Adding a new language:
 
 [Release process doc](docs/release-process.md)
 
-## License
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_large)
-
-
 [docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
 [oasis-monitor]: https://oasismonitor.com
