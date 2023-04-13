@@ -425,6 +425,6 @@
     "statusInactive": "Inactive",
     "statusUnknown": "Unknown",
     "totalEscrow": "Total escrow",
-    "unknownValidator": "Unknown validator"
+    "unknownValidator": "Unknown validator test"
   }
 }
