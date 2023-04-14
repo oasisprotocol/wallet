@@ -1,5 +1,74 @@
 // @ts-check
 
+// Find google translate issues: https://github.com/facebook/react/issues/11538#issuecomment-390386520
+const noGoogleTranslateCrashingSyntax = [
+  // Ban `condition && text node`
+  {
+    selector:
+      'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
+      '[right.type!="JSXElement"][right.type!="JSXFragment"]',
+    message:
+      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban `condition && <>text node</>`
+  {
+    selector:
+      'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+    message:
+      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban text nodes before or after a condition `text {condition && <span/>} text`
+  {
+    selector:
+      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      ' > JSXText[value!=/^\\s+$/]',
+    message:
+      'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban variables before or after `{var} {condition && <span/>} {var}` (just in case they return a string)
+  {
+    selector:
+      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
+    message:
+      'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
+  },
+
+  // Ban `condition ? text node : <span/>`
+  {
+    selector:
+      'JSXElement > JSXExpressionContainer > ConditionalExpression' +
+      ' > :matches(.consequent, .alternate):not(JSXElement, JSXFragment)',
+    message:
+      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban `condition ? <>text node</> : <span/>`
+  {
+    selector:
+      'JSXElement > JSXExpressionContainer > ConditionalExpression' +
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+    message:
+      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban text nodes before or after a condition `text {condition ? <span/> : <span/>} text`
+  {
+    selector:
+      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      ' > JSXText[value!=/^\\s+$/]',
+    message:
+      'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
+  },
+  // Ban variables before or after `{var} {condition ? <span/> : <span/>} {var}` (just in case they return a string)
+  {
+    selector:
+      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
+    message:
+      'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
+  },
+]
+
 /** @type { import('eslint').Linter.Config } */
 const config = {
   extends: [
@@ -67,76 +136,7 @@ const config = {
       },
     ],
     'prefer-template': 'error',
-    'no-restricted-syntax': [
-      // Find google translate issues: https://github.com/facebook/react/issues/11538#issuecomment-390386520
-      'error',
-
-      // Ban `condition && text node`
-      {
-        selector:
-          'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
-          '[right.type!="JSXElement"][right.type!="JSXFragment"]',
-        message:
-          'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban `condition && <>text node</>`
-      {
-        selector:
-          'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
-          ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
-        message:
-          'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban text nodes before or after a condition `text {condition && <span/>} text`
-      {
-        selector:
-          'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
-          ' > JSXText[value!=/^\\s+$/]',
-        message:
-          'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban variables before or after `{var} {condition && <span/>} {var}` (just in case they return a string)
-      {
-        selector:
-          'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
-          ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
-        message:
-          'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
-      },
-
-      // Ban `condition ? text node : <span/>`
-      {
-        selector:
-          'JSXElement > JSXExpressionContainer > ConditionalExpression' +
-          ' > :matches(.consequent, .alternate):not(JSXElement, JSXFragment)',
-        message:
-          'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban `condition ? <>text node</> : <span/>`
-      {
-        selector:
-          'JSXElement > JSXExpressionContainer > ConditionalExpression' +
-          ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
-        message:
-          'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban text nodes before or after a condition `text {condition ? <span/> : <span/>} text`
-      {
-        selector:
-          'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
-          ' > JSXText[value!=/^\\s+$/]',
-        message:
-          'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
-      },
-      // Ban variables before or after `{var} {condition ? <span/> : <span/>} {var}` (just in case they return a string)
-      {
-        selector:
-          'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
-          ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
-        message:
-          'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
-      },
-    ],
+    'no-restricted-syntax': ['error', ...noGoogleTranslateCrashingSyntax],
 
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17
