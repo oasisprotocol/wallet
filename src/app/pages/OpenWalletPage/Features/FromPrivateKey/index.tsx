@@ -6,7 +6,7 @@ import { Button } from 'grommet/es6/components/Button'
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { OasisKey } from 'app/lib/key'
-import { base64ToUint, uint2hex } from 'app/lib/helpers'
+import { uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
@@ -22,20 +22,9 @@ interface FormValue extends ChoosePasswordFieldsFormValue {
   privateKey: string
 }
 
-export const parseKey = (key: string) => {
-  const keyWithoutEnvelope = key
-    .replace(/\n/gm, '')
-    .replace(/ /g, '')
-    .replace(/^-----.*?-----/, '')
-    .replace(/-----.*?-----$/, '')
-
-  const key_bytes = base64ToUint(keyWithoutEnvelope)
-  return OasisKey.fromPrivateKey(key_bytes)
-}
-
 const isValidKey = (privateKey: string) => {
   try {
-    parseKey(privateKey)
+    OasisKey.fromBase64PrivateKey(privateKey)
     return true
   } catch (e) {
     return false
@@ -47,7 +36,7 @@ export function FromPrivateKey(props: Props) {
   const dispatch = useDispatch()
 
   const onSubmit = ({ value }: { value: FormValue }) => {
-    const secret = parseKey(value.privateKey)
+    const secret = OasisKey.fromBase64PrivateKey(value.privateKey)
     dispatch(
       walletActions.openWalletFromPrivateKey({
         privateKey: uint2hex(secret),
