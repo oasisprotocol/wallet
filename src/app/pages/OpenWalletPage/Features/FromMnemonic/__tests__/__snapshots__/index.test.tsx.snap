@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FromMnemonic/> should match snapshot 1`] = `
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -130,6 +143,20 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
+.c11 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+.c2 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(100%,1fr) );
+  grid-gap: 12px 12px;
+  padding: 0px;
+}
+
 .c14 {
   font-size: 18px;
   line-height: 24px;
@@ -205,6 +232,12 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   border: 0;
 }
 
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 432px;
+}
+
 .c3 {
   margin-top: 0px;
   font-size: 34px;
@@ -212,39 +245,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   max-width: 816px;
   font-weight: 600;
   overflow-wrap: break-word;
-}
-
-.c11 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
-}
-
-.c2 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fill,minmax(100%,1fr) );
-  grid-gap: 12px 12px;
-  padding: 0px;
-}
-
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-.c4 {
-  font-size: 18px;
-  line-height: 24px;
-  max-width: 432px;
 }
 
 .c7 {
@@ -373,6 +373,16 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
   .c3 {
     margin-top: 0px;
   }
@@ -383,16 +393,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-  .c2 {
-    padding: 0px;
   }
 }
 

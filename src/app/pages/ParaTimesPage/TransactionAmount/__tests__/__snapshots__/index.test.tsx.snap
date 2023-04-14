@@ -468,22 +468,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
   border: 0;
 }
 
-.c20 {
-  -webkit-transition: max-height 200ms,opacity 200ms;
-  transition: max-height 200ms,opacity 200ms;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.c1 {
-  margin-bottom: 48px;
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
 .c10 {
   box-sizing: border-box;
   font-size: inherit;
@@ -531,6 +515,22 @@ exports[`<TransactionAmount /> should render component 1`] = `
 .c9 {
   position: relative;
   width: 100%;
+}
+
+.c1 {
+  margin-bottom: 48px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.c20 {
+  -webkit-transition: max-height 200ms,opacity 200ms;
+  transition: max-height 200ms,opacity 200ms;
+  opacity: 0;
+  overflow: hidden;
 }
 
 .c12 {

@@ -269,6 +269,15 @@ exports[`<TransactionError /> should render component 1`] = `
   font-weight: bold;
 }
 
+.c1 {
+  margin-bottom: 48px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
 .c13 {
   display: inline-block;
   box-sizing: border-box;
@@ -337,15 +346,6 @@ exports[`<TransactionError /> should render component 1`] = `
 
 .c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  margin-bottom: 48px;
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
-  font-weight: 600;
-  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width:768px) {

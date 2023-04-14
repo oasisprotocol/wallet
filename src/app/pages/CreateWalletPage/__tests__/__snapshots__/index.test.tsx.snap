@@ -326,6 +326,20 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
+.c3 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+.c1 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: auto;
+  grid-gap: 12px 12px;
+  padding: 12px;
+}
+
 .c10 {
   display: inline-block;
   box-sizing: border-box;
@@ -471,20 +485,6 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   max-width: 816px;
   font-weight: 600;
   overflow-wrap: break-word;
-}
-
-.c3 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
-}
-
-.c1 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: auto;
-  grid-gap: 12px 12px;
-  padding: 12px;
 }
 
 .c21 {
@@ -647,6 +647,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
   .c15 {
     margin-top: 0px;
   }
@@ -657,16 +667,6 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 6px;
   }
 }
 

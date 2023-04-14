@@ -50,11 +50,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c17 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
 .c1 {
   margin-top: 0px;
   font-size: 34px;
@@ -62,6 +57,11 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   max-width: 816px;
   font-weight: 600;
   overflow-wrap: break-word;
+}
+
+.c17 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c4 {

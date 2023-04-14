@@ -33,6 +33,14 @@ exports[`<Navigation /> should match snapshot 1`] = `
   stroke: none;
 }
 
+.c4 {
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  overflow: hidden;
+  object-fit: contain;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -426,14 +434,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
 
 .c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
-}
-
-.c4 {
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-  overflow: hidden;
-  object-fit: contain;
 }
 
 @media only screen and (max-width:768px) {

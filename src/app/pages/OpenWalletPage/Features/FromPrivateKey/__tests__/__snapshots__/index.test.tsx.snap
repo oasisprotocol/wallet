@@ -33,6 +33,19 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   stroke: none;
 }
 
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -149,6 +162,12 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+}
+
+.c3 {
+  font-size: 18px;
+  line-height: 24px;
+  max-width: 432px;
 }
 
 .c10 {
@@ -278,15 +297,6 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c2 {
-  margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
 .c9 {
   box-sizing: border-box;
   font-size: inherit;
@@ -356,23 +366,13 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   width: 100%;
 }
 
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-.c3 {
-  font-size: 18px;
-  line-height: 24px;
-  max-width: 432px;
+.c2 {
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
+  font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width:768px) {

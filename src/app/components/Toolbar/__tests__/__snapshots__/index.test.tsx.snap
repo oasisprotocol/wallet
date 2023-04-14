@@ -33,6 +33,19 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   stroke: none;
 }
 
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -147,19 +160,6 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 
 .c4:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
-}
-
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 @media only screen and (max-width:768px) {

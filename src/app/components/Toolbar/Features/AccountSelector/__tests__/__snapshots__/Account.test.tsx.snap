@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Account  /> should match snapshot 1`] = `
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c9 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c16 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c14 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -195,22 +224,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c9 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.c16 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c14 {
-  font-size: 14px;
-  line-height: 20px;
-}
-
 .c3 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -251,19 +264,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-}
-
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
 }
 
 @media only screen and (max-width:768px) {

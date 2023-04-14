@@ -237,15 +237,6 @@ exports[`<TransactionRecipient /> should render component 1`] = `
   border: 0;
 }
 
-.c1 {
-  margin-bottom: 48px;
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
 .c9 {
   box-sizing: border-box;
   font-size: inherit;
@@ -293,6 +284,15 @@ exports[`<TransactionRecipient /> should render component 1`] = `
 .c8 {
   position: relative;
   width: 100%;
+}
+
+.c1 {
+  margin-bottom: 48px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
+  font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width:768px) {
