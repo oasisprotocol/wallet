@@ -1,7 +1,8 @@
 import { NewTransactionType } from 'app/state/transaction/types'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Box, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
 
 interface Props {
   type: NewTransactionType

@@ -5,7 +5,7 @@
  */
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Anchor } from 'grommet'
+import { Anchor } from 'grommet/es6/components/Anchor'
 import { WalletErrors } from 'types/errors'
 import { backend } from 'vendors/backend'
 import { BackendAPIs } from 'config'

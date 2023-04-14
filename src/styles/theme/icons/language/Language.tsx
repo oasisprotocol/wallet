@@ -1,5 +1,7 @@
 import React from 'react'
-import { Blank, IconProps } from 'grommet-icons'
+import { Blank } from 'grommet-icons/es6/icons/Blank'
+/* eslint-disable-next-line no-restricted-imports */
+import { IconProps } from 'grommet-icons/es6/icons'
 
 // From https://github.com/facebook/docusaurus/blob/6514f07/packages/docusaurus-theme-classic/src/theme/Icon/Language/index.tsx
 export const Language = (props: IconProps) => (

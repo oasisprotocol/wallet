@@ -1,4 +1,4 @@
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 
 describe('type-only test', () => {
   describe('styled-components.d.ts add types for css property', () => {

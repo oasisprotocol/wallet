@@ -4,8 +4,13 @@
  *
  */
 import { ValidatorMediaInfo as MediaInfo } from 'app/state/staking/types'
-import { Box, Button, Image, ResponsiveContext } from 'grommet'
-import { Home, MailOption, Twitter } from 'grommet-icons'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Image } from 'grommet/es6/components/Image'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Home } from 'grommet-icons/es6/icons/Home'
+import { MailOption } from 'grommet-icons/es6/icons/MailOption'
+import { Twitter } from 'grommet-icons/es6/icons/Twitter'
 import React, { memo, useContext } from 'react'
 import { isWebUri } from 'valid-url'
 

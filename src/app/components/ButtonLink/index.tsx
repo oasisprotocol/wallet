@@ -1,4 +1,4 @@
-import { Button, ButtonExtendedProps } from 'grommet'
+import { Button, ButtonExtendedProps } from 'grommet/es6/components/Button'
 import { Link, To } from 'react-router-dom'
 import React from 'react'
 

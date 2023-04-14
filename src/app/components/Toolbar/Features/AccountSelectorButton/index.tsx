@@ -3,7 +3,8 @@
  * AccountSelectorButton
  *
  */
-import { Button, ResponsiveContext } from 'grommet'
+import { Button } from 'grommet/es6/components/Button'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { staking } from '@oasisprotocol/client'

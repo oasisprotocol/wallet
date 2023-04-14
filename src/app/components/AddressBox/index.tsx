@@ -4,8 +4,11 @@
  *
  */
 import copy from 'copy-to-clipboard'
-import { Box, Button, Text, Notification } from 'grommet'
-import { Copy } from 'grommet-icons'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Text } from 'grommet/es6/components/Text'
+import { Notification } from 'grommet/es6/components/Notification'
+import { Copy } from 'grommet-icons/es6/icons/Copy'
 import React, { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 

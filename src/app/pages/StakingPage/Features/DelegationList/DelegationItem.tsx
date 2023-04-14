@@ -1,6 +1,6 @@
 import { ReclaimEscrowForm } from 'app/components/ReclaimEscrowForm'
 import { DebondingDelegation, Delegation, ValidatorDetails } from 'app/state/staking/types'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 

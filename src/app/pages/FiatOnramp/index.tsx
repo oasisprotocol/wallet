@@ -1,4 +1,4 @@
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { useTranslation } from 'react-i18next'
 import { Header } from 'app/components/Header'

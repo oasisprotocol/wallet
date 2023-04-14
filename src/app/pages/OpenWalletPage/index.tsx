@@ -3,7 +3,10 @@
  * OpenWalletPage
  *
  */
-import { Anchor, Box, Button, Text } from 'grommet'
+import { Anchor } from 'grommet/es6/components/Anchor'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Text } from 'grommet/es6/components/Text'
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'

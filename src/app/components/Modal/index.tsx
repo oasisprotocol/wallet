@@ -1,7 +1,12 @@
 import { createContext, useCallback, useContext, useState } from 'react'
-import { Box, Button, Layer, Paragraph } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Layer } from 'grommet/es6/components/Layer'
+import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { useTranslation } from 'react-i18next'
-import { Alert, Checkmark, Close } from 'grommet-icons'
+import { Alert } from 'grommet-icons/es6/icons/Alert'
+import { Checkmark } from 'grommet-icons/es6/icons/Checkmark'
+import { Close } from 'grommet-icons/es6/icons/Close'
 import { ModalHeader } from 'app/components/Header'
 
 interface Modal {

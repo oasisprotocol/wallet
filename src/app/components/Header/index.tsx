@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, Heading, HeadingProps, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Heading, HeadingProps } from 'grommet/es6/components/Heading'
+import { Text } from 'grommet/es6/components/Text'
 
 interface HeaderProps extends Pick<HeadingProps, 'level' | 'size' | 'margin' | 'textAlign'> {
   children: React.ReactNode

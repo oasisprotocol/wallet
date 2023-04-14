@@ -1,6 +1,6 @@
 import { Header } from 'app/components/Header'
 import { selectActiveDelegations } from 'app/state/staking/selectors'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

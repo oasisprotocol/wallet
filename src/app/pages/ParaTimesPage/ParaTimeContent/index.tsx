@@ -1,5 +1,9 @@
 import React, { useContext, ReactNode } from 'react'
-import { Box, Heading, ResponsiveContext, Spinner, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Heading } from 'grommet/es6/components/Heading'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Spinner } from 'grommet/es6/components/Spinner'
+import { Text } from 'grommet/es6/components/Text'
 import { useTranslation } from 'react-i18next'
 import { useParaTimes } from '../useParaTimes'
 

@@ -3,7 +3,7 @@
  * AccountDetails
  *
  */
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { SendTransaction } from '../SendTransaction'

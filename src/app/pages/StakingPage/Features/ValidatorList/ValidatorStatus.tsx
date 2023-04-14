@@ -1,6 +1,9 @@
 import React from 'react'
-import { Box, Text } from 'grommet'
-import { StatusCritical, StatusGood, StatusUnknown } from 'grommet-icons'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
+import { StatusCritical } from 'grommet-icons/es6/icons/StatusCritical'
+import { StatusGood } from 'grommet-icons/es6/icons/StatusGood'
+import { StatusUnknown } from 'grommet-icons/es6/icons/StatusUnknown'
 import { useTranslation } from 'react-i18next'
 import { Validator } from 'app/state/staking/types'
 

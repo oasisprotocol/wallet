@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useRef } from 'react'
 import jazzicon from '@metamask/jazzicon'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 
 interface JazzIconProps {
   diameter: number
