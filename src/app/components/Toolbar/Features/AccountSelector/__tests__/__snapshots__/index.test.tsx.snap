@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AccountSelector  /> should match snapshot 1`] = `
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.c11 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c15 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -163,15 +187,82 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c11 {
+.c1 {
+  font-family: Rubik;
   font-size: 18px;
   line-height: 24px;
-  font-weight: bold;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: transparent;
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+  outline: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
 }
 
-.c15 {
-  font-size: 18px;
-  line-height: 24px;
+.c2 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0,0,0,0.5);
+  color: #f8f8f8;
+  pointer-events: all;
+  will-change: transform;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 48px;
+  background-color: #FFFFFF;
+  color: #444444;
+  outline: none;
+  pointer-events: all;
+  z-index: 20;
+  position: absolute;
+  max-height: calc(100% - 0px - 0px);
+  max-width: calc(100% - 0px - 0px);
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  -webkit-animation: hWAzxx 0.2s ease-in-out forwards;
+  animation: hWAzxx 0.2s ease-in-out forwards;
+}
+
+.c4 {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.c6 {
+  margin-top: 0px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
+  font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .c17 {
@@ -244,97 +335,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c6 {
-  margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
-.c1 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  background: transparent;
-  position: relative;
-  z-index: 20;
-  pointer-events: none;
-  outline: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-.c2 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: rgba(0,0,0,0.5);
-  color: #f8f8f8;
-  pointer-events: all;
-  will-change: transform;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 48px;
-  background-color: #FFFFFF;
-  color: #444444;
-  outline: none;
-  pointer-events: all;
-  z-index: 20;
-  position: absolute;
-  max-height: calc(100% - 0px - 0px);
-  max-width: calc(100% - 0px - 0px);
-  border-radius: 4px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  -webkit-animation: hWAzxx 0.2s ease-in-out forwards;
-  animation: hWAzxx 0.2s ease-in-out forwards;
-}
-
-.c4 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: absolute;
-}
-
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
 @media only screen and (max-width:768px) {
   .c5 {
     margin: 12px;
@@ -392,20 +392,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
-    margin-top: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c6 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
-  }
-}
-
-@media only screen and (max-width:768px) {
   .c1 {
     position: fixed;
     width: 100%;
@@ -428,6 +414,20 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
     border-radius: 0;
     height: 100vh;
     width: 100vw;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c6 {
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c6 {
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 

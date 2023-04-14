@@ -5,7 +5,9 @@
  * This component is the skeleton around the actual pages, and should only
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
-import { Box, Main, ResponsiveContext } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Main } from 'grommet/es6/components/Main'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import * as React from 'react'
 import { useContext } from 'react'
 import { Helmet } from 'react-helmet-async'

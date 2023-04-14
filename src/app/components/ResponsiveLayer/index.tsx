@@ -1,5 +1,5 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
-import { Layer, LayerExtendedProps } from 'grommet'
+import { Layer, LayerExtendedProps } from 'grommet/es6/components/Layer'
 import { RefCallback, useCallback, useRef } from 'react'
 
 function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => void): RefCallback<T> {

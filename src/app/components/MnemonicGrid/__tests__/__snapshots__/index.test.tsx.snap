@@ -49,15 +49,15 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c3 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
 .c0 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
+}
+
+.c3 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 @media only screen and (max-width:768px) {

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
-import { Alert } from 'grommet-icons'
-import { Box, Text } from 'grommet'
+import { Alert } from 'grommet-icons/es6/icons/Alert'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
 import { AlertBox } from 'app/components/AlertBox'
 import { mobileHeaderZIndex } from '../Sidebar'
 

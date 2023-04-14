@@ -188,6 +188,15 @@ exports[`<TransactionSummary /> should render component 1`] = `
   height: 24px;
 }
 
+.c1 {
+  margin-bottom: 48px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
 .c3 {
   font-size: 18px;
   line-height: 24px;
@@ -262,15 +271,6 @@ exports[`<TransactionSummary /> should render component 1`] = `
 
 .c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
-}
-
-.c1 {
-  margin-bottom: 48px;
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
-  font-weight: 600;
-  overflow-wrap: break-word;
 }
 
 @media only screen and (max-width:768px) {

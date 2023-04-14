@@ -33,6 +33,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   stroke: none;
 }
 
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -407,6 +420,14 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
+.c33 {
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
 .c9 {
   display: inline-block;
   box-sizing: border-box;
@@ -534,12 +555,47 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c33 {
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
-  font-weight: 600;
-  overflow-wrap: break-word;
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-top: solid 1px #EDEDED;
+  margin: 6px 0 0;
+  padding: 12px 12px 6px;
+}
+
+.c12 dt,
+.c12 dd {
+  margin: 0;
+}
+
+.c12 dt:first-of-type,
+.c12 dd:first-of-type {
+  font-weight: bold;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  padding: 12px;
+}
+
+.c16:hover {
+  background-color: #11111108;
+}
+
+.c16.active {
+  background-color: #EFEFEF;
 }
 
 .c25 {
@@ -589,62 +645,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 .c24 {
   position: relative;
   width: 100%;
-}
-
-.c0 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #444444;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  border-top: solid 1px #EDEDED;
-  margin: 6px 0 0;
-  padding: 12px 12px 6px;
-}
-
-.c12 dt,
-.c12 dd {
-  margin: 0;
-}
-
-.c12 dt:first-of-type,
-.c12 dd:first-of-type {
-  font-weight: bold;
-}
-
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  padding: 12px;
-}
-
-.c16:hover {
-  background-color: #11111108;
-}
-
-.c16.active {
-  background-color: #EFEFEF;
 }
 
 @media only screen and (max-width:768px) {

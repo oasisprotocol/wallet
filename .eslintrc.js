@@ -37,15 +37,31 @@ const config = {
             importNames: ['default', 'DataTable', 'IDataTableColumn', 'IDataTableProps'],
             message: "Import 'TypeSafeDataTable' instead.",
           },
+          {
+            name: 'grommet',
+            message: "Import 'grommet/es6/*' instead.",
+          },
+          {
+            name: 'grommet/es6/components',
+            message: "Import 'grommet/es6/components/*' instead.",
+          },
+          {
+            name: 'grommet-icons',
+            message: "Import 'grommet-icons/es6/*' instead.",
+          },
+          {
+            name: 'grommet-icons/es6/icons',
+            message: "Import 'grommet-icons/es6/icons/*' instead.",
+          },
         ],
         patterns: [
           {
             group: ['grommet/*', '!grommet/es6'],
-            message: "Import 'grommet' or 'grommet/es6/*' instead.",
+            message: "Import 'grommet/es6/*' instead.",
           },
           {
             group: ['grommet-icons/*', '!grommet-icons/es6'],
-            message: "Import 'grommet-icons' or 'grommet-icons/es6/*' instead.",
+            message: "Import 'grommet-icons/es6/*' instead.",
           },
         ],
       },

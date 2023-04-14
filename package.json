@@ -24,6 +24,7 @@
     "lint:fix": "yarn run lint --fix",
     "lint:css": "stylelint src/**/*.css",
     "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
+    "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-csp": "node ./internals/scripts/print-csp.js",
     "print-extension-csp": "node ./internals/scripts/print-extension-csp.js"
   },
@@ -78,7 +79,6 @@
     "react-i18next": "12.2.0",
     "react-redux": "7.2.9",
     "react-router-dom": "6.10.0",
-    "react-test-renderer": "18.2.0",
     "redux-saga": "1.2.3",
     "redux-state-sync": "3.1.4",
     "styled-components": "5.3.9",
@@ -131,6 +131,7 @@
     "portable-fetch": "3.0.0",
     "prettier": "2.8.7",
     "process": "0.11.10",
+    "react-test-renderer": "18.2.0",
     "redux-saga-test-plan": "4.0.6",
     "sanitize.css": "13.0.0",
     "serve-handler": "6.1.5",
@@ -146,6 +147,7 @@
     "@ledgerhq/hw-transport": "^6.27.6",
     "@testing-library/dom": "9.2.0",
     "@typescript-eslint/eslint-plugin": "5.58.0",
+    "bip39": "3.1.0",
     "eslint-plugin-react": "7.32.2",
     "grommet-icons": "4.10.0",
     "typescript": "5.0.4"

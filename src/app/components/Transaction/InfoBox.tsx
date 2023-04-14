@@ -1,6 +1,9 @@
-import { Box, Text, Notification } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
+import { Notification } from 'grommet/es6/components/Notification'
 import * as React from 'react'
-import type { Icon } from 'grommet-icons'
+// eslint-disable-next-line no-restricted-imports
+import type { Icon } from 'grommet-icons/es6/icons'
 import copy from 'copy-to-clipboard'
 import { trimLongString } from '../ShortAddress'
 import { useState } from 'react'

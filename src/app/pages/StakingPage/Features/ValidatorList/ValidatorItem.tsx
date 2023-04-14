@@ -1,6 +1,6 @@
 import { AddEscrowForm } from 'app/components/AddEscrowForm'
 import { Validator, ValidatorDetails } from 'app/state/staking/types'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import React from 'react'
 
 import { ValidatorInformations } from './ValidatorInformations'

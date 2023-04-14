@@ -3,23 +3,31 @@
  * Transaction
  *
  */
-import { Anchor, Box, Card, CardBody, CardFooter, CardHeader, Grid, ResponsiveContext, Text } from 'grommet'
-import {
-  Package,
-  Clock,
-  ContactInfo,
-  Cube,
-  FormNext,
-  Money,
-  Inherit,
-  LineChart,
-  New,
-  LinkPrevious,
-  LinkNext,
-  Atm,
-  Alert,
-} from 'grommet-icons'
-import type { Icon } from 'grommet-icons'
+import { Anchor } from 'grommet/es6/components/Anchor'
+import { Box } from 'grommet/es6/components/Box'
+import { Card } from 'grommet/es6/components/Card'
+import { CardBody } from 'grommet/es6/components/CardBody'
+import { CardFooter } from 'grommet/es6/components/CardFooter'
+import { CardHeader } from 'grommet/es6/components/CardHeader'
+import { Grid } from 'grommet/es6/components/Grid'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Text } from 'grommet/es6/components/Text'
+
+import { Package } from 'grommet-icons/es6/icons/Package'
+import { Clock } from 'grommet-icons/es6/icons/Clock'
+import { ContactInfo } from 'grommet-icons/es6/icons/ContactInfo'
+import { Cube } from 'grommet-icons/es6/icons/Cube'
+import { FormNext } from 'grommet-icons/es6/icons/FormNext'
+import { Money } from 'grommet-icons/es6/icons/Money'
+import { Inherit } from 'grommet-icons/es6/icons/Inherit'
+import { LineChart } from 'grommet-icons/es6/icons/LineChart'
+import { New } from 'grommet-icons/es6/icons/New'
+import { LinkPrevious } from 'grommet-icons/es6/icons/LinkPrevious'
+import { LinkNext } from 'grommet-icons/es6/icons/LinkNext'
+import { Atm } from 'grommet-icons/es6/icons/Atm'
+import { Alert } from 'grommet-icons/es6/icons/Alert'
+// eslint-disable-next-line no-restricted-imports
+import type { Icon } from 'grommet-icons/es6/icons'
 import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'

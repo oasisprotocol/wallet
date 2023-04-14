@@ -1,4 +1,5 @@
-import { Box, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
 import React, { memo } from 'react'
 
 interface ResponsiveGridRowProps {

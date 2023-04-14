@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, Button, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Text } from 'grommet/es6/components/Text'
 import { useTranslation } from 'react-i18next'
 import { ParaTimeContent } from '../ParaTimeContent'
 import { useParaTimes } from '../useParaTimes'

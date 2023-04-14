@@ -3,7 +3,10 @@
  * TransactionPreview
  *
  */
-import { Box, Grid, ResponsiveContext, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Grid } from 'grommet/es6/components/Grid'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Text } from 'grommet/es6/components/Text'
 import React, { memo, useContext } from 'react'
 
 import { AmountFormatter } from '../AmountFormatter'

@@ -299,6 +299,29 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   width: 12px;
 }
 
+.c21 {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: inherit;
+  color: #7D4CDB;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c21:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c8 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fit,minmax(min(96px,100%),1fr) );
+  grid-gap: 0px 0px;
+}
+
 .c4 {
   font-size: 18px;
   line-height: 24px;
@@ -333,29 +356,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 .c22 {
   font-size: 14px;
   line-height: 20px;
-}
-
-.c21 {
-  box-sizing: border-box;
-  font-size: inherit;
-  line-height: inherit;
-  color: #7D4CDB;
-  font-weight: 600;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.c21:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c8 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fit,minmax(min(96px,100%),1fr) );
-  grid-gap: 0px 0px;
 }
 
 .c6 {
@@ -983,6 +983,29 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   width: 12px;
 }
 
+.c21 {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: inherit;
+  color: #7D4CDB;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c21:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c8 {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat( auto-fit,minmax(min(96px,100%),1fr) );
+  grid-gap: 0px 0px;
+}
+
 .c4 {
   font-size: 18px;
   line-height: 24px;
@@ -1017,29 +1040,6 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 .c22 {
   font-size: 14px;
   line-height: 20px;
-}
-
-.c21 {
-  box-sizing: border-box;
-  font-size: inherit;
-  line-height: inherit;
-  color: #7D4CDB;
-  font-weight: 600;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.c21:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c8 {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat( auto-fit,minmax(min(96px,100%),1fr) );
-  grid-gap: 0px 0px;
 }
 
 .c6 {

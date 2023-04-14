@@ -4,7 +4,8 @@
  *
  */
 import { Transaction } from 'app/components/Transaction'
-import { Box, Heading } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Heading } from 'grommet/es6/components/Heading'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

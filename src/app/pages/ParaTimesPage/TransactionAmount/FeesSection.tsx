@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { Box, Button, Collapsible, FormField, TextInput } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Collapsible } from 'grommet/es6/components/Collapsible'
+import { FormField } from 'grommet/es6/components/FormField'
+import { TextInput } from 'grommet/es6/components/TextInput'
 import { useTranslation } from 'react-i18next'
 
 type FeesSectionProps = {

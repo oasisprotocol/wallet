@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 

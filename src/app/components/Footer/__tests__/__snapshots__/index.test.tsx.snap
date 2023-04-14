@@ -118,6 +118,22 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   flex-direction: column;
 }
 
+.c2 {
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+  color: #0092f6;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c2:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
 .c1 {
   margin-bottom: 12px;
   font-size: 14px;
@@ -134,22 +150,6 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
 .c9 {
   font-size: 14px;
   line-height: 20px;
-}
-
-.c2 {
-  box-sizing: border-box;
-  font-size: 14px;
-  line-height: 20px;
-  color: #0092f6;
-  font-weight: 600;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.c2:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 .c5 {

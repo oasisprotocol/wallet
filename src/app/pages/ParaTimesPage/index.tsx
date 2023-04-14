@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { Box } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'

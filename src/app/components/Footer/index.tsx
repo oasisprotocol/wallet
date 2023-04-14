@@ -1,4 +1,7 @@
-import { Anchor, Box, ResponsiveContext, Text } from 'grommet'
+import { Anchor } from 'grommet/es6/components/Anchor'
+import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'

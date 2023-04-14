@@ -1,5 +1,7 @@
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
-import { Form, FormField, TextInput } from 'grommet'
+import { Form } from 'grommet/es6/components/Form'
+import { FormField } from 'grommet/es6/components/FormField'
+import { TextInput } from 'grommet/es6/components/TextInput'
 import * as React from 'react'
 import { PasswordField } from '..'
 

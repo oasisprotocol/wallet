@@ -16,7 +16,12 @@ import {
 } from 'app/state/importaccounts/selectors'
 import { ImportAccountsListAccount, ImportAccountsStep } from 'app/state/importaccounts/types'
 import { walletActions } from 'app/state/wallet'
-import { Box, Button, Form, ResponsiveContext, Spinner, Text } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Form } from 'grommet/es6/components/Form'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Spinner } from 'grommet/es6/components/Spinner'
+import { Text } from 'grommet/es6/components/Text'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
 import {

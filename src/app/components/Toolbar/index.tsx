@@ -4,7 +4,8 @@
  *
  */
 import { selectIsOpen } from 'app/state/wallet/selectors'
-import { Box, ResponsiveContext } from 'grommet'
+import { Box } from 'grommet/es6/components/Box'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import styled from 'styled-components'
 import * as React from 'react'
 import { useSelector } from 'react-redux'

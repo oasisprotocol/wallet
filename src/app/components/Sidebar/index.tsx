@@ -1,28 +1,24 @@
 import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
-import {
-  Avatar,
-  Box,
-  Button,
-  Layer,
-  Menu,
-  Nav,
-  ResponsiveContext,
-  Sidebar as GSidebar,
-  Text,
-  Tip,
-} from 'grommet'
-import {
-  Github,
-  FormDown,
-  Home,
-  Inherit,
-  LineChart,
-  Lock,
-  Logout,
-  Menu as MenuIcon,
-  Money,
-  Currency,
-} from 'grommet-icons'
+import { Avatar } from 'grommet/es6/components/Avatar'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { Layer } from 'grommet/es6/components/Layer'
+import { Menu } from 'grommet/es6/components/Menu'
+import { Nav } from 'grommet/es6/components/Nav'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Sidebar as GSidebar } from 'grommet/es6/components/Sidebar'
+import { Text } from 'grommet/es6/components/Text'
+import { Tip } from 'grommet/es6/components/Tip'
+import { Github } from 'grommet-icons/es6/icons/Github'
+import { FormDown } from 'grommet-icons/es6/icons/FormDown'
+import { Home } from 'grommet-icons/es6/icons/Home'
+import { Inherit } from 'grommet-icons/es6/icons/Inherit'
+import { LineChart } from 'grommet-icons/es6/icons/LineChart'
+import { Lock } from 'grommet-icons/es6/icons/Lock'
+import { Logout } from 'grommet-icons/es6/icons/Logout'
+import { Menu as MenuIcon } from 'grommet-icons/es6/icons/Menu'
+import { Money } from 'grommet-icons/es6/icons/Money'
+import { Currency } from 'grommet-icons/es6/icons/Currency'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'

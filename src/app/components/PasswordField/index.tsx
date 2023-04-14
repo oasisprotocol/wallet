@@ -1,6 +1,11 @@
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
-import { Box, FormField, Button, TextInput, Tip } from 'grommet'
-import { View, Hide } from 'grommet-icons'
+import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
+import { FormField } from 'grommet/es6/components/FormField'
+import { TextInput } from 'grommet/es6/components/TextInput'
+import { Tip } from 'grommet/es6/components/Tip'
+import { View } from 'grommet-icons/es6/icons/View'
+import { Hide } from 'grommet-icons/es6/icons/Hide'
 import * as React from 'react'
 
 interface Props<TFormValue> {

@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { FormField, TextArea } from 'grommet'
+import { FormField } from 'grommet/es6/components/FormField'
+import { TextArea } from 'grommet/es6/components/TextArea'
+
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {
