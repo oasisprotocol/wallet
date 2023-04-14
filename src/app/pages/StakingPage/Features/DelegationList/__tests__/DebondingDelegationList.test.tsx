@@ -7,11 +7,14 @@ import { Provider } from 'react-redux'
 import { DebondingDelegationList } from '../DebondingDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
+import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
 
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <DebondingDelegationList />
+      <ThemeProvider>
+        <DebondingDelegationList />
+      </ThemeProvider>
     </Provider>,
   )
 
