@@ -35,6 +35,9 @@ jobs:
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
       - run: yarn lint --max-warnings 0
+      - run: |
+          yarn fix-grommet-icons-types
+          git diff --exit-code
       - run: yarn checkTs
       - run: yarn build
 
