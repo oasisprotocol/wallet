@@ -3,7 +3,7 @@ import { Alert } from 'grommet-icons/es6/icons/Alert'
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { AlertBox } from 'app/components/AlertBox'
-import { mobileHeaderZIndex } from '../Sidebar'
+import { buildPreviewBannerZIndex } from '../../../styles/theme/elementSizes'
 
 export const BuildPreviewBanner = () => {
   const { t } = useTranslation()
@@ -18,7 +18,7 @@ export const BuildPreviewBanner = () => {
       style={{
         position: 'sticky',
         top: 0,
-        zIndex: mobileHeaderZIndex - 1,
+        zIndex: buildPreviewBannerZIndex,
       }}
     >
       <AlertBox color="status-warning">

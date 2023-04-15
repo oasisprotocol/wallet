@@ -11,7 +11,7 @@ import { selectAddress } from 'app/state/wallet/selectors'
 
 import { AccountSelector } from '../AccountSelector'
 import { JazzIcon } from '../../../JazzIcon'
-import { smallSizeLogo, mediumSizeLogo } from '../../../Sidebar'
+import { sidebarSmallSizeLogo, sidebarMediumSizeLogo } from '../../../../../styles/theme/elementSizes'
 import { addressToJazzIconSeed } from './addressToJazzIconSeed'
 
 export const AccountSelectorButton = memo(() => {
@@ -27,7 +27,7 @@ export const AccountSelectorButton = memo(() => {
     <>
       <Button onClick={() => setLayerVisibility(true)}>
         <JazzIcon
-          diameter={isMobile ? smallSizeLogo : mediumSizeLogo}
+          diameter={isMobile ? sidebarSmallSizeLogo : sidebarMediumSizeLogo}
           seed={addressToJazzIconSeed(address)}
         />
       </Button>

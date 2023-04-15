@@ -33,7 +33,7 @@ import {
   selectWallets,
   selectWalletsPublicKeys,
 } from 'app/state/wallet/selectors'
-import { mobileHeaderZIndex } from '../../components/Sidebar'
+import { tabBadgeCounterZIndex } from '../../../styles/theme/elementSizes'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
 
@@ -61,7 +61,6 @@ interface NavItemProps {
   route: string
 }
 
-const counterZIndex = mobileHeaderZIndex - 1
 const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
     <StyledNavItem end to={route}>
@@ -69,7 +68,7 @@ const NavItem = ({ counter, label, route }: NavItemProps) => {
       {!!counter && (
         <Box
           align="center"
-          style={{ position: 'absolute', top: '-3px', right: '-5px', zIndex: counterZIndex }}
+          style={{ position: 'absolute', top: '-3px', right: '-5px', zIndex: tabBadgeCounterZIndex }}
           responsive={false}
           background="brand"
           pad={{ horizontal: 'xsmall' }}

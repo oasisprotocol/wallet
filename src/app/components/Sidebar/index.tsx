@@ -32,6 +32,11 @@ import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
 import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnramp/isEnabled'
+import {
+  sidebarSmallSizeLogo,
+  sidebarMediumSizeLogo,
+  mobileToolbarZIndex,
+} from '../../../styles/theme/elementSizes'
 
 const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
   const size = useContext(ResponsiveContext)
@@ -144,14 +149,11 @@ interface SidebarFooterProps {
   size: Size
 }
 
-export const smallSizeLogo = 30
-export const mediumSizeLogo = 40
-
 const SidebarHeader = (props: SidebarHeaderProps) => {
   const size = props.size
   const sizeLogo = {
-    small: `${smallSizeLogo}px`,
-    medium: `${mediumSizeLogo}px`,
+    small: `${sidebarSmallSizeLogo}px`,
+    medium: `${sidebarMediumSizeLogo}px`,
     large: 'medium',
   }
 
@@ -327,8 +329,6 @@ export function Sidebar() {
   )
 }
 
-export const mobileHeaderZIndex = 3
-
 export function Navigation() {
   const size = useContext(ResponsiveContext)
   const [sidebarVisible, setSidebarVisible] = React.useState(false)
@@ -355,7 +355,7 @@ export function Navigation() {
             position: 'fixed',
             top: 0,
             width: '100%',
-            zIndex: mobileHeaderZIndex,
+            zIndex: mobileToolbarZIndex,
           }}
         >
           <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />

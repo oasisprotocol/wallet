@@ -9,7 +9,8 @@ import { selectIsOpen } from 'app/state/wallet/selectors'
 import { intlDateTimeFormat } from '../DateFormatter'
 import { backend } from 'vendors/backend'
 import { BackendAPIs } from 'config'
-import { MobileFooterNavigation, mobileFooterNavigationHeight } from '../MobileFooterNavigation'
+import { MobileFooterNavigation } from '../MobileFooterNavigation'
+import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes'
 
 const githubLink = 'https://github.com/oasisprotocol/oasis-wallet-web/'
 const githubReleaseLink = (tag: string) => `${githubLink}releases/tag/${tag}`
