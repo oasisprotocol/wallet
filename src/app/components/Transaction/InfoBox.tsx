@@ -5,7 +5,7 @@ import * as React from 'react'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
 import copy from 'copy-to-clipboard'
-import { trimLongString } from '../ShortAddress'
+import { trimLongString } from '../ShortAddress/trimLongString'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 

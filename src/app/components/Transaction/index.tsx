@@ -34,7 +34,7 @@ import styled from 'styled-components'
 
 import { AmountFormatter } from '../AmountFormatter'
 import { intlDateTimeFormat } from '../DateFormatter'
-import { trimLongString } from '../ShortAddress'
+import { trimLongString } from '../ShortAddress/trimLongString'
 import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
