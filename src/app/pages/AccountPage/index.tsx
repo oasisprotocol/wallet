@@ -35,8 +35,7 @@ import {
 } from 'app/state/wallet/selectors'
 import { mobileHeaderZIndex } from '../../components/Sidebar'
 import { AccountSummary } from './Features/AccountSummary'
-import { isValidAddress } from '../../lib/helpers'
-import { WalletError, WalletErrors } from 'types/errors'
+import { AccountPageParams } from './validateAccountPageRoute'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -87,10 +86,6 @@ const NavItem = ({ counter, label, route }: NavItemProps) => {
 }
 
 interface AccountPageProps {}
-
-interface AccountPageParams {
-  address: string
-}
 
 export function AccountPage(props: AccountPageProps) {
   const { t } = useTranslation()
@@ -212,13 +207,4 @@ export function AccountPage(props: AccountPageProps) {
       )}
     </Box>
   )
-}
-
-export function validateRoute(params: AccountPageParams) {
-  const isValid = isValidAddress(params.address)
-  if (!isValid) {
-    throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
-  }
-
-  return isValid
 }
