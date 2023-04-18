@@ -30,7 +30,7 @@ import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
 import { formatCommissionPercent } from 'app/lib/helpers'
-import { intlDateTimeFormat } from 'app/components/DateFormatter'
+import { intlDateTimeFormat } from 'app/components/DateFormatter/intlDateTimeFormat'
 
 interface Props {}
 

@@ -33,7 +33,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
 import { AmountFormatter } from '../AmountFormatter'
-import { intlDateTimeFormat } from '../DateFormatter'
+import { intlDateTimeFormat } from '../DateFormatter/intlDateTimeFormat'
 import { trimLongString } from '../ShortAddress/trimLongString'
 import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'

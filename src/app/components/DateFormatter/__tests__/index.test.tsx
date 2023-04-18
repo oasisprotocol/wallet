@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
-import { intlDateTimeFormat, DateFormatter } from '..'
+import { DateFormatter } from '..'
+import { intlDateTimeFormat } from '../intlDateTimeFormat'
 import { buildDatetime } from '../../../../../internals/getBuildData'
 
 describe('intlDateTimeFormat', () => {
