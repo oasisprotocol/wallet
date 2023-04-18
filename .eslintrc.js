@@ -69,41 +69,6 @@ const noGoogleTranslateCrashingSyntax = [
   },
 ]
 
-const warnExportsComponentsAndMixed =
-  'Exporting a mix of React components and other types of values could break React fast-refresh. Move non-component exports to a different file.'
-/** Find React fast-refresh issues: https://parceljs.org/recipes/react/#fast-refresh */
-const noHotReloadBreakingSyntax = [
-  // Ban `export const value = 1; export const Component`
-  {
-    // Determines if variables and functions are components by name capitalization.
-    selector:
-      'Program:has(ExportNamedDeclaration > VariableDeclaration > VariableDeclarator[id.name=/^[A-Z][a-z]/] JSXElement)' +
-      ' > ExportNamedDeclaration > VariableDeclaration > VariableDeclarator[id.name!=/^[A-Z][a-z]/]',
-    message: warnExportsComponentsAndMixed,
-  },
-  // Ban `export function util() {}; export const Component`
-  {
-    selector:
-      'Program:has(ExportNamedDeclaration > VariableDeclaration > VariableDeclarator[id.name=/^[A-Z][a-z]/] JSXElement)' +
-      ' > ExportNamedDeclaration > FunctionDeclaration[id.name!=/^[A-Z][a-z]/]',
-    message: warnExportsComponentsAndMixed,
-  },
-  // Ban `export const value = 1; export function Component`
-  {
-    selector:
-      'Program:has(ExportNamedDeclaration > FunctionDeclaration[id.name=/^[A-Z][a-z]/] JSXElement)' +
-      ' > ExportNamedDeclaration > VariableDeclaration > VariableDeclarator[id.name!=/^[A-Z][a-z]/]',
-    message: warnExportsComponentsAndMixed,
-  },
-  // Ban `export function util() {}; export function Component`
-  {
-    selector:
-      'Program:has(ExportNamedDeclaration > FunctionDeclaration[id.name=/^[A-Z][a-z]/] JSXElement)' +
-      ' > ExportNamedDeclaration > FunctionDeclaration[id.name!=/^[A-Z][a-z]/]',
-    message: warnExportsComponentsAndMixed,
-  },
-]
-
 /** @type { import('eslint').Linter.Config } */
 const config = {
   extends: [
@@ -113,6 +78,7 @@ const config = {
     'react-app', // https://github.com/facebook/create-react-app/blob/main/packages/eslint-config-react-app/index.js
     'plugin:prettier/recommended', // See .prettierrc
   ],
+  plugins: ['react-refresh'],
   parser: '@typescript-eslint/parser',
 
   settings: {
@@ -171,11 +137,13 @@ const config = {
       },
     ],
     'prefer-template': 'error',
-    'no-restricted-syntax': ['error', ...noGoogleTranslateCrashingSyntax, ...noHotReloadBreakingSyntax],
+    'no-restricted-syntax': ['error', ...noGoogleTranslateCrashingSyntax],
 
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     'react/react-in-jsx-scope': 'off', // Not needed after React v17
     'react/display-name': 'off', // TODO: Maybe enable
+
+    'react-refresh/only-export-components': 'error',
 
     '@typescript-eslint/no-empty-function': 'off', // Allow empty reducers for saga
     '@typescript-eslint/no-non-null-assertion': 'off',
