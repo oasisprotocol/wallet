@@ -17,7 +17,7 @@ import { Down } from 'grommet-icons/es6/icons/Down'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { dataTableStyles } from 'styles/theme/ThemeProvider'
+import { dataTableCustomStyles } from 'styles/theme/dataTableTheme'
 import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
 import { isWebUri } from 'valid-url'
 
@@ -151,7 +151,7 @@ export const DelegationList = memo((props: Props) => {
       defaultSortField={defaultSortField}
       keyField="uniqueKey"
       style={{}}
-      customStyles={dataTableStyles}
+      customStyles={dataTableCustomStyles}
       expandableRowsHideExpander
       expandableRows={true}
       expandableRowsComponent={

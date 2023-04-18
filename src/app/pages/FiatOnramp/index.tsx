@@ -10,8 +10,6 @@ import { AnchorLink } from 'app/components/AnchorLink'
 import { selectSelectedNetwork } from '../../state/network/selectors'
 import { selectAccountIsLoading } from '../../state/account/selectors'
 
-export const IS_FIAT_ONRAMP_ENABLED = !!process.env.REACT_APP_E2E_TEST
-
 export function FiatOnramp() {
   const { t } = useTranslation()
   const selectedNetwork = useSelector(selectSelectedNetwork)

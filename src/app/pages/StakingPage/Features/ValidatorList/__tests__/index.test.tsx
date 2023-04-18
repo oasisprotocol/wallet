@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
 import { ValidatorList } from '..'
+import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
 
 jest.mock('@oasisprotocol/client/dist/client')
 
@@ -50,7 +51,9 @@ const unknownValidator: Validator = {
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <ValidatorList />
+      <ThemeProvider>
+        <ValidatorList />
+      </ThemeProvider>
     </Provider>,
   )
 

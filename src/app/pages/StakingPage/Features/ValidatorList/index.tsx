@@ -24,13 +24,13 @@ import { Down } from 'grommet-icons/es6/icons/Down'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { dataTableStyles } from 'styles/theme/ThemeProvider'
+import { dataTableCustomStyles } from 'styles/theme/dataTableTheme'
 import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
 import { isWebUri } from 'valid-url'
 
 import { ValidatorItem } from './ValidatorItem'
 import { formatCommissionPercent } from 'app/lib/helpers'
-import { intlDateTimeFormat } from 'app/components/DateFormatter'
+import { intlDateTimeFormat } from 'app/components/DateFormatter/intlDateTimeFormat'
 
 interface Props {}
 
@@ -131,7 +131,7 @@ export const ValidatorList = memo((props: Props) => {
         data={validators}
         keyField="address"
         style={{}}
-        customStyles={dataTableStyles}
+        customStyles={dataTableCustomStyles}
         expandableRowsHideExpander
         expandableRows={true}
         expandableRowsComponent={

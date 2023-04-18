@@ -7,20 +7,12 @@ import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { staking } from '@oasisprotocol/client'
 import { selectAddress } from 'app/state/wallet/selectors'
 
 import { AccountSelector } from '../AccountSelector'
 import { JazzIcon } from '../../../JazzIcon'
-import { smallSizeLogo, mediumSizeLogo } from '../../../Sidebar'
-
-export const addressToNumber = (address: string) => {
-  // https://github.com/oasisprotocol/oasis-wallet-ext/blob/da7ad67/src/popup/component/AccountIcon/index.js#L26
-  const addressU8 = staking.addressFromBech32(address)
-  const seed = addressU8[20] | (addressU8[19] << 8) | (addressU8[18] << 16) | (addressU8[17] << 24)
-
-  return seed
-}
+import { sidebarSmallSizeLogo, sidebarMediumSizeLogo } from '../../../../../styles/theme/elementSizes'
+import { addressToJazzIconSeed } from './addressToJazzIconSeed'
 
 export const AccountSelectorButton = memo(() => {
   const address = useSelector(selectAddress)
@@ -34,7 +26,10 @@ export const AccountSelectorButton = memo(() => {
   return (
     <>
       <Button onClick={() => setLayerVisibility(true)}>
-        <JazzIcon diameter={isMobile ? smallSizeLogo : mediumSizeLogo} seed={addressToNumber(address)} />
+        <JazzIcon
+          diameter={isMobile ? sidebarSmallSizeLogo : sidebarMediumSizeLogo}
+          seed={addressToJazzIconSeed(address)}
+        />
       </Button>
       {layerVisibility && <AccountSelector closeHandler={() => setLayerVisibility(false)} />}
     </>

@@ -33,10 +33,9 @@ import {
   selectWallets,
   selectWalletsPublicKeys,
 } from 'app/state/wallet/selectors'
-import { mobileHeaderZIndex } from '../../components/Sidebar'
+import { tabBadgeCounterZIndex } from '../../../styles/theme/elementSizes'
 import { AccountSummary } from './Features/AccountSummary'
-import { isValidAddress } from '../../lib/helpers'
-import { WalletError, WalletErrors } from 'types/errors'
+import { AccountPageParams } from './validateAccountPageRoute'
 
 const StyledNavItem = styled(NavLink)`
   display: flex;
@@ -62,7 +61,6 @@ interface NavItemProps {
   route: string
 }
 
-const counterZIndex = mobileHeaderZIndex - 1
 const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
     <StyledNavItem end to={route}>
@@ -70,7 +68,7 @@ const NavItem = ({ counter, label, route }: NavItemProps) => {
       {!!counter && (
         <Box
           align="center"
-          style={{ position: 'absolute', top: '-3px', right: '-5px', zIndex: counterZIndex }}
+          style={{ position: 'absolute', top: '-3px', right: '-5px', zIndex: tabBadgeCounterZIndex }}
           responsive={false}
           background="brand"
           pad={{ horizontal: 'xsmall' }}
@@ -87,10 +85,6 @@ const NavItem = ({ counter, label, route }: NavItemProps) => {
 }
 
 interface AccountPageProps {}
-
-interface AccountPageParams {
-  address: string
-}
 
 export function AccountPage(props: AccountPageProps) {
   const { t } = useTranslation()
@@ -212,13 +206,4 @@ export function AccountPage(props: AccountPageProps) {
       )}
     </Box>
   )
-}
-
-export function validateRoute(params: AccountPageParams) {
-  const isValid = isValidAddress(params.address)
-  if (!isValid) {
-    throw new WalletError(WalletErrors.InvalidAddress, 'Invalid address')
-  }
-
-  return isValid
 }

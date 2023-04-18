@@ -5,11 +5,14 @@ import { Provider } from 'react-redux'
 import { ActiveDelegationList } from '../ActiveDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
+import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
 
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <ActiveDelegationList />
+      <ThemeProvider>
+        <ActiveDelegationList />
+      </ThemeProvider>
     </Provider>,
   )
 

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 
-import { trimLongString, ShortAddress } from '..'
+import { ShortAddress } from '..'
+import { trimLongString } from '../trimLongString'
 
 describe('trimLongString', () => {
   it('should return trimmed string', () => {

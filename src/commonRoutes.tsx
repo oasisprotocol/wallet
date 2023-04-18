@@ -5,7 +5,8 @@ import { HomePage } from 'app/pages/HomePage'
 import { FromLedger } from 'app/pages/OpenWalletPage/Features/FromLedger'
 import { FromMnemonic } from 'app/pages/OpenWalletPage/Features/FromMnemonic'
 import { FromPrivateKey } from 'app/pages/OpenWalletPage/Features/FromPrivateKey'
-import { AccountPage, validateRoute } from 'app/pages/AccountPage'
+import { AccountPage } from 'app/pages/AccountPage'
+import { validateAccountPageRoute } from 'app/pages/AccountPage/validateAccountPageRoute'
 import { AccountDetails } from 'app/pages/AccountPage/Features/AccountDetails'
 import { ValidatorList } from 'app/pages/StakingPage/Features/ValidatorList'
 import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationList/ActiveDelegationList'
@@ -29,7 +30,7 @@ export const commonRoutes: RouteObject[] = [
     element: <AccountPage />,
     errorElement: <ErrorBoundary></ErrorBoundary>,
     loader: async ({ params }) => {
-      return validateRoute(params as any)
+      return validateAccountPageRoute(params as any)
     },
     children: [
       {

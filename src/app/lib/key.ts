@@ -1,5 +1,5 @@
 import nacl from 'tweetnacl'
-import { uint2hex } from './helpers'
+import { base64ToUint, uint2hex } from './helpers'
 
 /**
  * Verify if a key pair is actually usable for signatures
@@ -13,6 +13,17 @@ function canSignWith(keyPair: nacl.SignKeyPair) {
 }
 
 export class OasisKey {
+  public static fromBase64PrivateKey(key: string): Uint8Array {
+    const keyWithoutEnvelope = key
+      .replace(/\n/gm, '')
+      .replace(/ /g, '')
+      .replace(/^-----.*?-----/, '')
+      .replace(/-----.*?-----$/, '')
+
+    const key_bytes = base64ToUint(keyWithoutEnvelope)
+    return OasisKey.fromPrivateKey(key_bytes)
+  }
+
   /**
    * @param key 32-bytes seed or 64-bytes secret (seed + public)
    * @returns 64-bytes secret

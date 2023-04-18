@@ -2,7 +2,7 @@ import { uint2hex } from './helpers'
 import { OasisTransaction, signerFromPrivateKey } from './transaction'
 import { NodeInternal } from '@oasisprotocol/client/dist/client'
 import { RpcError, StatusCode } from 'grpc-web'
-import { parseKey } from '../pages/OpenWalletPage/Features/FromPrivateKey'
+import { OasisKey } from './key'
 
 function wrapRpcError(method: string, grpcMessage: string) {
   const e = new RpcError(StatusCode.FAILED_PRECONDITION, 'RpcError: ..', {
@@ -21,7 +21,7 @@ jest.mock('@oasisprotocol/client/dist/client')
 describe('OasisTransaction', () => {
   const privateKey =
     'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg=='
-  const testSigner = signerFromPrivateKey(parseKey(privateKey))
+  const testSigner = signerFromPrivateKey(OasisKey.fromBase64PrivateKey(privateKey))
   const nic = new NodeInternal('http://0.0.0.0')
 
   it('Should build reclaimEscrow transactions', async () => {

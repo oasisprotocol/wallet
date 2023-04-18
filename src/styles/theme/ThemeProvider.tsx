@@ -2,44 +2,17 @@ import { Grommet } from 'grommet/es6/components/Grommet'
 import { grommet, ThemeType } from 'grommet/es6/themes'
 import { deepMerge } from 'grommet/es6/utils'
 import * as React from 'react'
-import { createTheme as dataTableCreateTheme, IDataTableStyles, ITheme } from 'react-data-table-component'
+import { createTheme as dataTableCreateTheme } from 'react-data-table-component'
 import { useSelector } from 'react-redux'
 
 import { selectTheme } from './slice/selectors'
+import { dataTableTheme } from './dataTableTheme'
 
 /**
  * React-data-table by default sets its own background and text colors
  * we make sure that they do not override grommet's
  */
-dataTableCreateTheme('blank', {
-  background: { default: 'false' },
-  highlightOnHover: {
-    default: '#88888833',
-    text: 'false',
-  },
-  text: {
-    primary: 'false',
-    secondary: 'false',
-    disabled: 'false',
-  },
-  sortFocus: {
-    default: 'false',
-  },
-  divider: { default: '#AAAAAAaa' },
-} as Partial<ITheme>)
-
-export const dataTableStyles: IDataTableStyles = {
-  headCells: {
-    style: {
-      fontSize: '18px',
-    },
-  },
-  rows: {
-    style: {
-      fontSize: '16x',
-    },
-  },
-}
+dataTableCreateTheme('blank', dataTableTheme)
 
 const grommetCustomTheme: ThemeType = {
   button: {

@@ -6,10 +6,11 @@ import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
 import { selectIsOpen } from 'app/state/wallet/selectors'
-import { intlDateTimeFormat } from '../DateFormatter'
+import { intlDateTimeFormat } from '../DateFormatter/intlDateTimeFormat'
 import { backend } from 'vendors/backend'
 import { BackendAPIs } from 'config'
-import { MobileFooterNavigation, mobileFooterNavigationHeight } from '../MobileFooterNavigation'
+import { MobileFooterNavigation } from '../MobileFooterNavigation'
+import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes'
 
 const githubLink = 'https://github.com/oasisprotocol/oasis-wallet-web/'
 const githubReleaseLink = (tag: string) => `${githubLink}releases/tag/${tag}`
