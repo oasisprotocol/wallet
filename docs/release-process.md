@@ -4,7 +4,7 @@
 
 Staging:
 - checkout `master` branch
-- build
+- `yarn install --frozen-lockfile && yarn build-preview`
 - deploy to <https://wallet.stg.oasis.io/>
 
 Production:
@@ -13,16 +13,8 @@ Production:
   - look at CSP errors (expect one error: blocked `eval` in `inquire`)
 - see the footer for what commit is deployed
 - update `stable` branch to that commit
-- build
+- `yarn install --frozen-lockfile && yarn build`
 - deploy to <https://wallet.oasis.io/>
-
-### Build
-
-```sh
-yarn install --frozen-lockfile
-yarn build  # uses oasisscan backend
-# or  REACT_APP_BACKEND=oasismonitor yarn build
-```
 
 ### Deploy
 
