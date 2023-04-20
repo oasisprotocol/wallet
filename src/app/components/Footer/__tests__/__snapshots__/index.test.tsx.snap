@@ -244,7 +244,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   >
     <a
       class="c2"
-      href="https://wallet.oasisprotocol.org/t-c"
+      href="https://wallet.oasis.io/t-c"
       rel="noopener noreferrer"
       target="_blank"
     >

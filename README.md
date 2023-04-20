@@ -24,8 +24,8 @@
 
 ## Deploys
 
-- `stable` branch: <https://wallet.oasisprotocol.org>
-- `master` branch: <https://wallet.stg.oasisprotocol.org>
+- `stable` branch: <https://wallet.oasis.io>
+- `master` branch: <https://wallet.stg.oasis.io>
 
 ## Features
 

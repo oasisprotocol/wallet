@@ -4,25 +4,17 @@
 
 Staging:
 - checkout `master` branch
-- build
-- deploy to <https://wallet.stg.oasisprotocol.org/>
+- `yarn install --frozen-lockfile && yarn build-preview`
+- deploy to <https://wallet.stg.oasis.io/>
 
 Production:
-- ensure <https://wallet.stg.oasisprotocol.org/> works
+- ensure <https://wallet.stg.oasis.io/> works
   - especially features related to changes
   - look at CSP errors (expect one error: blocked `eval` in `inquire`)
 - see the footer for what commit is deployed
 - update `stable` branch to that commit
-- build
-- deploy to <https://wallet.oasisprotocol.org/>
-
-### Build
-
-```sh
-yarn install --frozen-lockfile
-yarn build  # uses oasisscan backend
-# or  REACT_APP_BACKEND=oasismonitor yarn build
-```
+- `yarn install --frozen-lockfile && yarn build`
+- deploy to <https://wallet.oasis.io/>
 
 ### Deploy
 
@@ -36,8 +28,8 @@ Update Content-Security-Policy header.
 yarn print-csp
 
 # See old deployed CSP
-curl --head https://wallet.stg.oasisprotocol.org/ -s | grep content-security-policy
-curl --head https://wallet.oasisprotocol.org/ -s | grep content-security-policy
+curl --head https://wallet.stg.oasis.io/ -s | grep content-security-policy
+curl --head https://wallet.oasis.io/ -s | grep content-security-policy
 ```
 
 
