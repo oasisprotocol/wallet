@@ -98,6 +98,9 @@
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
+  "banner": {
+    "domainMoved": "Oasis Wallet has a new home at <NewLink />."
+  },
   "buildPreview": "Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.",
   "common": {
     "amount": "Amount",
