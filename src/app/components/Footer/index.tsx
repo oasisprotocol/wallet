@@ -15,6 +15,10 @@ import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes
 const githubLink = 'https://github.com/oasisprotocol/oasis-wallet-web/'
 const githubReleaseLink = (tag: string) => `${githubLink}releases/tag/${tag}`
 
+function NoReleaseLink() {
+  return <>-</>
+}
+
 export const Footer = memo(() => {
   const isAccountOpen = useSelector(selectIsOpen)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
@@ -78,7 +82,7 @@ export const Footer = memo(() => {
                   rel="noopener noreferrer"
                 />
               ) : (
-                <></>
+                <NoReleaseLink />
               ),
               CommitLink: (
                 <Anchor
