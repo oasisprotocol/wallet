@@ -1,18 +1,18 @@
 import { IDataTableStyles, ITheme } from 'react-data-table-component'
 
 export const dataTableTheme = {
-  background: { default: 'false' },
+  background: { default: 'unset' },
   highlightOnHover: {
     default: '#88888833',
-    text: 'false',
+    text: 'unset',
   },
   text: {
-    primary: 'false',
-    secondary: 'false',
-    disabled: 'false',
+    primary: 'unset',
+    secondary: 'unset',
+    disabled: 'unset',
   },
   sortFocus: {
-    default: 'false',
+    default: 'unset',
   },
   divider: { default: '#AAAAAAaa' },
 } as Partial<ITheme>

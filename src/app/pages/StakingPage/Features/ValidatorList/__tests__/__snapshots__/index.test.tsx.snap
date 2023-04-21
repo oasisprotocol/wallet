@@ -40,8 +40,8 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   max-width: 100%;
-  color: false;
-  background-color: false;
+  color: unset;
+  background-color: unset;
 }
 
 .c3 {
@@ -75,8 +75,8 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: false;
-  background-color: false;
+  color: unset;
+  background-color: unset;
 }
 
 .c0 {
@@ -291,8 +291,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   width: 100%;
   height: 100%;
   max-width: 100%;
-  color: false;
-  background-color: false;
+  color: unset;
+  background-color: unset;
 }
 
 .c6 {
@@ -313,7 +313,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   -ms-flex-align: stretch;
   align-items: stretch;
   width: 100%;
-  background-color: false;
+  background-color: unset;
   min-height: 56px;
   border-bottom-width: 1px;
   border-bottom-color: #AAAAAAaa;
@@ -334,7 +334,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   line-height: normal;
   font-size: 18px;
   font-weight: 500;
-  color: false;
+  color: unset;
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -439,8 +439,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   width: 100%;
   box-sizing: border-box;
   font-size: 16x;
-  color: false;
-  background-color: false;
+  color: unset;
+  background-color: unset;
   min-height: 48px;
 }
 
@@ -451,16 +451,16 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 }
 
 .c16:hover {
-  color: false;
+  color: unset;
   background-color: #88888833;
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   -webkit-transition-property: background-color;
   transition-property: background-color;
-  border-bottom-color: false;
+  border-bottom-color: unset;
   outline-style: solid;
   outline-width: 1px;
-  outline-color: false;
+  outline-color: unset;
 }
 
 .c16:hover {
@@ -486,11 +486,11 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 
 .c11:focus {
   outline: none;
-  color: false;
+  color: unset;
 }
 
 .c11:hover {
-  color: false;
+  color: unset;
 }
 
 .c11 span.__rdt_custom_sort_icon__ i,
