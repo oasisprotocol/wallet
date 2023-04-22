@@ -20,11 +20,11 @@ export const ValidatorStatus = (props: Props) => {
       label: t('validator.statusActive', 'Active'),
     }),
     inactive: () => ({
-      icon: <StatusCritical color="status-critical" />,
+      icon: <StatusCritical color="status-error" />,
       label: t('validator.statusInactive', 'Inactive'),
     }),
     unknown: () => ({
-      icon: <StatusUnknown color="status-critical" />,
+      icon: <StatusUnknown color="status-error" />,
       label: t('validator.statusUnknown', 'Unknown'),
     }),
   }
