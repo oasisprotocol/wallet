@@ -9,16 +9,22 @@ import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
 
+export function E2EPage() {
+  return (
+    <div>
+      <TestVendors></TestVendors>
+      <TestUnsafeInputs></TestUnsafeInputs>
+    </div>
+  )
+}
+
 interface e2eWindow extends Window {
   monitor: any
   oasisscan: any
 }
 declare const window: e2eWindow
 
-export function E2EPage() {
-  const navigate = useNavigate()
-  const [showUnsafeInputs, setShowUnsafeInputs] = React.useState(false as false | 'firefox' | 'chrome')
-
+function TestVendors() {
   useEffect(() => {
     window.monitor = monitor
     window.oasisscan = oasisscan
@@ -27,6 +33,12 @@ export function E2EPage() {
       window.oasisscan = undefined
     }
   }, [])
+  return <></>
+}
+
+function TestUnsafeInputs() {
+  const navigate = useNavigate()
+  const [showUnsafeInputs, setShowUnsafeInputs] = React.useState(false as false | 'firefox' | 'chrome')
 
   return (
     <div>
