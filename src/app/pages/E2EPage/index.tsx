@@ -8,12 +8,18 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
+import { useDispatch } from 'react-redux'
+import { walletActions } from '../../state/wallet'
 
 export function E2EPage() {
   return (
     <div>
       <TestVendors></TestVendors>
+      <br />
       <TestUnsafeInputs></TestUnsafeInputs>
+      <br />
+      <TriggerFatalError></TriggerFatalError>
+      <br />
     </div>
   )
 }
@@ -101,5 +107,19 @@ function UnsafePasswordField(props: {
         <Button label={props.toggleLabel} onClick={() => setPasswordIsVisible(!passwordIsVisible)} />
       </Box>
     </FormField>
+  )
+}
+
+function TriggerFatalError() {
+  const dispatch = useDispatch()
+  return (
+    <div>
+      <Button
+        label="Trigger fatal saga error"
+        onClick={() => {
+          dispatch(walletActions.openWalletFromPrivateKey({ privateKey: '0xAA', choosePassword: undefined }))
+        }}
+      />
+    </div>
   )
 }
