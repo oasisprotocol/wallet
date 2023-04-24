@@ -20,15 +20,17 @@ import { useSelector } from 'react-redux'
 
 import { ResponsiveLayer } from '../ResponsiveLayer'
 
-interface Props {}
+interface Props {
+  children?: React.ReactNode
+}
 
-export function FatalErrorHandler(props: Props) {
+export function FatalErrorHandler({ children }: Props) {
   const { t } = useTranslation()
   const fatalError = useSelector(selectFatalError)
   const [copied, setCopied] = useState(false)
 
   if (!fatalError) {
-    return null
+    return <>{children}</>
   }
 
   const combinedStacktrace = `${fatalError.message}\n\n${fatalError.sagaStack}\n\n${fatalError.stack}`
