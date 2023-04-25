@@ -203,6 +203,7 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  padding: 11px;
 }
 
 .c14 {
@@ -393,6 +394,12 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
 @media only screen and (max-width:768px) {
   .c8 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c12 {
+    padding: 11px;
   }
 }
 
