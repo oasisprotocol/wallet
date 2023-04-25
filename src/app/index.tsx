@@ -29,32 +29,32 @@ export function App() {
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <ModalProvider>
-      <Helmet
-        titleTemplate="%s - Oasis Wallet"
-        defaultTitle="Oasis Wallet"
-        htmlAttributes={{ lang: i18n.language }}
-      >
-        <meta name="description" content="A wallet for Oasis" />
-      </Helmet>
-      <FatalErrorHandler />
-      {!isMobile && <BuildPreviewBanner />}
-      <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
-        <PersistLoadingGate>
-          <UnlockGate>
-            <Navigation />
-            <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
-              <Main>
-                {isMobile && <BuildPreviewBanner />}
-                <FatalErrorHandler />
-                <Toolbar />
-                <Outlet />
-                <Footer />
-              </Main>
-            </Box>
-          </UnlockGate>
-        </PersistLoadingGate>
-      </Box>
-    </ModalProvider>
+    <FatalErrorHandler>
+      <ModalProvider>
+        <Helmet
+          titleTemplate="%s - Oasis Wallet"
+          defaultTitle="Oasis Wallet"
+          htmlAttributes={{ lang: i18n.language }}
+        >
+          <meta name="description" content="A wallet for Oasis" />
+        </Helmet>
+        {!isMobile && <BuildPreviewBanner />}
+        <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
+          <PersistLoadingGate>
+            <UnlockGate>
+              <Navigation />
+              <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
+                <Main>
+                  {isMobile && <BuildPreviewBanner />}
+                  <Toolbar />
+                  <Outlet />
+                  <Footer />
+                </Main>
+              </Box>
+            </UnlockGate>
+          </PersistLoadingGate>
+        </Box>
+      </ModalProvider>
+    </FatalErrorHandler>
   )
 }

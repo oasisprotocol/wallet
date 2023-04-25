@@ -1,56 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> should render and match the snapshot 1`] = `
-<ModalProvider>
-  <Helmet
-    defaultTitle="Oasis Wallet"
-    defer={true}
-    encodeSpecialCharacters={true}
-    htmlAttributes={
-      {
-        "lang": "en-US",
+<FatalErrorHandler>
+  <ModalProvider>
+    <Helmet
+      defaultTitle="Oasis Wallet"
+      defer={true}
+      encodeSpecialCharacters={true}
+      htmlAttributes={
+        {
+          "lang": "en-US",
+        }
       }
-    }
-    prioritizeSeoTags={false}
-    titleTemplate="%s - Oasis Wallet"
-  >
-    <meta
-      content="A wallet for Oasis"
-      name="description"
-    />
-  </Helmet>
-  <FatalErrorHandler />
-  <BuildPreviewBanner />
-  <Box
-    background="background-back"
-    direction="row-responsive"
-    fill={true}
-    style={
-      {
-        "minHeight": "100vh",
+      prioritizeSeoTags={false}
+      titleTemplate="%s - Oasis Wallet"
+    >
+      <meta
+        content="A wallet for Oasis"
+        name="description"
+      />
+    </Helmet>
+    <BuildPreviewBanner />
+    <Box
+      background="background-back"
+      direction="row-responsive"
+      fill={true}
+      style={
+        {
+          "minHeight": "100vh",
+        }
       }
-    }
-  >
-    <PersistLoadingGate>
-      <UnlockGate>
-        <Navigation />
-        <Box
-          flex={true}
-          pad={
-            {
-              "top": undefined,
+    >
+      <PersistLoadingGate>
+        <UnlockGate>
+          <Navigation />
+          <Box
+            flex={true}
+            pad={
+              {
+                "top": undefined,
+              }
             }
-          }
-        >
-          <Main>
-            <FatalErrorHandler />
-            <Toolbar />
-            <Outlet />
-            <Memo />
-          </Main>
-        </Box>
-      </UnlockGate>
-    </PersistLoadingGate>
-  </Box>
-</ModalProvider>
+          >
+            <Main>
+              <Toolbar />
+              <Outlet />
+              <Memo />
+            </Main>
+          </Box>
+        </UnlockGate>
+      </PersistLoadingGate>
+    </Box>
+  </ModalProvider>
+</FatalErrorHandler>
 `;

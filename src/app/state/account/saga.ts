@@ -120,7 +120,7 @@ export function* fetchingOnAccountPage() {
   yield* takeLatestCancelable({
     startOnAction: accountActions.openAccountPage,
     cancelOnAction: accountActions.closeAccountPage,
-    task: function* refetchingInterval(startAction) {
+    task: function* (startAction) {
       const address = startAction.payload
       try {
         // Note: tasks triggered by `put` can't get canceled by closeAccountPage.
@@ -132,8 +132,15 @@ export function* fetchingOnAccountPage() {
         while (true) {
           yield* delay(ACCOUNT_REFETCHING_INTERVAL)
           if (document.hidden) continue
-          const { getAccount } = yield* call(getExplorerAPIs)
-          const refreshedAccount = yield* call(getAccount, address)
+
+          let refreshedAccount
+          try {
+            const { getAccount } = yield* call(getExplorerAPIs)
+            refreshedAccount = yield* call(getAccount, address)
+          } catch (apiError: any) {
+            console.error('refetching account failed, continuing without updated account.', apiError)
+            continue // Ignore error when refetching, and don't fallback to more expensive gRPC
+          }
           const staleAvailableBalance = yield* select(selectAccountAvailableBalance)
           if (staleAvailableBalance !== refreshedAccount.available) {
             yield* call(fetchAccount, startAction)
