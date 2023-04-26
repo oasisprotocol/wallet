@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Box } from 'grommet/es6/components/Box'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
@@ -9,16 +9,20 @@ import { ParaTimeContent } from '../ParaTimeContent'
 import { ParaTimeFormFooter } from '../ParaTimeFormFooter'
 import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
+import { ThemeContext } from 'styled-components'
+import { ThemeType } from 'grommet/es6/themes'
 
 type ParaTimeOptionProps = {
   label: string
   isEvm?: boolean
 }
 const ParaTimeOption = ({ label, isEvm }: ParaTimeOptionProps) => {
+  const theme = useContext<ThemeType>(ThemeContext)
   const { t } = useTranslation()
+  const paddingToMatchPlaceholder = theme.global?.input?.padding
 
   return (
-    <Box direction="row" justify="between" width="240px">
+    <Box direction="row" justify="between" width="240px" pad={paddingToMatchPlaceholder}>
       <span>{label}</span>
       {isEvm && <Text color="lightText">{t('paraTimes.selection.evmc', 'EVMc')}</Text>}
     </Box>

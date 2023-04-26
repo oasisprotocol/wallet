@@ -34,6 +34,14 @@ const grommetCustomTheme: ThemeType = {
       elevation: 'none',
     },
   },
+  select: {
+    options: {
+      container: {
+        // Remove padding to match ParaTimeOption when displayed as value and as option
+        pad: 'none',
+      },
+    },
+  },
   global: {
     colors: {
       oasisIndigo: '#310081',
