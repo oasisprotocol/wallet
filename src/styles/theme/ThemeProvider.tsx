@@ -48,14 +48,22 @@ const grommetCustomTheme: ThemeType = {
       oasisMinty: '#4CD4A9',
       oasisLightGray: '#ececec',
       brand: {
-        light: '#0092f6',
         dark: '#0092f6bb',
+        light: '#0092f6',
       },
       oasisBlue2: '#4db3f9',
       oasisBlue3: '#26a2f8',
       'status-ok': '#4cd4a9',
-      'status-error': '#ff4212',
+      'status-ok-background': '#bae9de',
       'status-warning': '#f4ce4b',
+      'status-warning-background': '#f1e6c9',
+      'status-error': '#ff4212',
+      'status-error-background': '#ffe7d9',
+      'status-ok-weak': '#4cd4a9',
+      'status-ok-weak-background': {
+        dark: '#1b474c',
+        light: '#c6f5ea',
+      },
       'background-oasis-blue': {
         dark: '#0f477b',
         light: '#0092f6',
@@ -112,9 +120,6 @@ const grommetCustomTheme: ThemeType = {
     },
     font: {
       family: 'Rubik',
-    },
-    opacity: {
-      weak: 0.25,
     },
   },
   notification: {

@@ -102,7 +102,9 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
     <>
       <Box margin={{ bottom: 'small' }}>
         {walletIsOpen && walletAddress === address && (
-          <AlertBox color="status-ok">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
+          <AlertBox color="status-ok-weak">
+            {t('account.summary.yourAccount', 'This is your account.')}
+          </AlertBox>
         )}
         {walletIsOpen && walletAddress !== address && (
           <AlertBox color="status-warning">
@@ -116,7 +118,7 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
               t={t}
               components={{ HomeLink: <AnchorLink to="/" /> }}
               values={{ ticker }}
-              defaults="To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet!</HomeLink>"
+              defaults="To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>."
             />
           </AlertBox>
         )}
