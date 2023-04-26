@@ -26,7 +26,7 @@ export const TransactionStatus = memo((props: Props) => {
         </AlertBox>
       )}
       {success && (
-        <AlertBox color="status-ok">
+        <AlertBox color="status-ok-weak">
           {t(
             'account.sendTransaction.success',
             'Transaction successfully sent. The transaction might take up to a minute to appear on your account.',
