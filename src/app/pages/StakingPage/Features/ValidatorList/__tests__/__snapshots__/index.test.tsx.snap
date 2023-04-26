@@ -222,8 +222,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #FF4040;
-  stroke: #FF4040;
+  fill: #ff4212;
+  stroke: #ff4212;
 }
 
 .c21 g {
