@@ -31,7 +31,7 @@ import {
   selectAddress,
   selectIsOpen,
   selectWallets,
-  selectWalletsPublicKeys,
+  selectWalletsAddresses,
 } from 'app/state/wallet/selectors'
 import { tabBadgeCounterZIndex } from '../../../styles/theme/elementSizes'
 import { AccountSummary } from './Features/AccountSummary'
@@ -100,7 +100,7 @@ export function AccountPage(props: AccountPageProps) {
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
   const wallets = useSelector(selectWallets)
-  const walletsPublicKeys = useSelector(selectWalletsPublicKeys)
+  const walletsAddresses = useSelector(selectWalletsAddresses)
 
   const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + BigInt(v.amount), 0n)
   const balanceDebondingDelegations = stake.debondingDelegations?.reduce(
@@ -130,9 +130,9 @@ export function AccountPage(props: AccountPageProps) {
     for (const wallet of Object.values(wallets)) {
       dispatch(walletActions.fetchWallet(wallet))
     }
-    // Using `walletsPublicKeys` dependency instead of `wallets` to avoid infinite loop
+    // Using `walletsAddresses` dependency instead of `wallets` to avoid infinite loop
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, walletsPublicKeys.join(','), selectedNetwork])
+  }, [dispatch, walletsAddresses.join(','), selectedNetwork])
 
   return (
     <Box pad="small">
