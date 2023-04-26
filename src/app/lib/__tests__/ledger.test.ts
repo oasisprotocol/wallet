@@ -125,7 +125,7 @@ describe('Ledger Library', () => {
       expect(openWallet).toThrow(/ not a ledger wallet/)
     })
 
-    it('Should fail without USB transport', () => {
+    it('Should fail without USB transport', async () => {
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
@@ -133,7 +133,7 @@ describe('Ledger Library', () => {
         publicKey: '00',
       } as Wallet)
 
-      expect(signer.sign('', new Uint8Array())).rejects.toThrow(
+      await expect(signer.sign('', new Uint8Array())).rejects.toThrow(
         /Cannot sign using ledger without an active WebUSB transport/,
       )
     })
