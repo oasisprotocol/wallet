@@ -294,7 +294,7 @@ function SidebarMenuItems() {
         icon={<Currency />}
         label={t('menu.fiatOnramp', 'Fiat on-ramp')}
         needsWalletOpen={true}
-        route={`/account/${address}/fiat-onramp`}
+        route={`/account/${address}/fiat`}
       />
     ),
   }

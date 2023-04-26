@@ -54,7 +54,7 @@ export const commonRoutes: RouteObject[] = [
         element: <ParaTimes />,
       },
       {
-        path: 'fiat-onramp',
+        path: 'fiat',
         element: <FiatOnramp />,
       },
     ],

@@ -67,7 +67,7 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
             {
               label: t('menu.fiatOnramp', 'Fiat on-ramp'),
               Icon: Currency,
-              to: `/account/${address}/fiat-onramp`,
+              to: `/account/${address}/fiat`,
             },
           ]
         : []),
