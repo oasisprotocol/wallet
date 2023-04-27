@@ -18,7 +18,7 @@ import { Lock } from 'grommet-icons/es6/icons/Lock'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
 import { Menu as MenuIcon } from 'grommet-icons/es6/icons/Menu'
 import { Money } from 'grommet-icons/es6/icons/Money'
-import { Currency } from 'grommet-icons/es6/icons/Currency'
+import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -291,8 +291,8 @@ function SidebarMenuItems() {
     ),
     fiatOnramp: (
       <SidebarButton
-        icon={<Currency />}
-        label={t('menu.fiatOnramp', 'Fiat on-ramp')}
+        icon={<CreditCard />}
+        label={t('menu.fiatOnramp', 'Buy')}
         needsWalletOpen={true}
         route={`/account/${address}/fiat`}
       />
