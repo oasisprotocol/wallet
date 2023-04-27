@@ -11,7 +11,6 @@ import { selectSelectedNetwork } from '../../state/network/selectors'
 import { selectAccountIsLoading } from '../../state/account/selectors'
 import { Button } from 'grommet/es6/components/Button'
 import { networkActions } from '../../state/network'
-import { AnchorLink } from '../../components/AnchorLink'
 
 function Layout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
@@ -82,15 +81,6 @@ export function FiatOnramp() {
 
   return (
     <Layout>
-      {window.location.hostname === 'localhost' && (
-        <AlertBox color="status-warning">
-          localhost is{' '}
-          <AnchorLink to="https://docs.transak.com/docs/user-journey#redirecturl">
-            not a valid redirectURL
-          </AnchorLink>
-        </AlertBox>
-      )}
-
       <AlertBox color="status-error">
         <Box direction="row" gap="small" align="center">
           <CircleAlert size="24px" color="status-error" />
@@ -101,25 +91,29 @@ export function FiatOnramp() {
         </Box>
       </AlertBox>
 
-      <Box direction="row-responsive" justify="start" gap="medium">
-        <ButtonLink
-          to={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
-            apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
-            productsAvailed: 'BUY',
-            cryptoCurrencyCode: 'ROSE',
-            walletAddress: walletAddress,
-            disableWalletAddressForm: 'true',
-            redirectURL: new URL(`/account/${walletAddress}`, window.location.href).href,
-          }).toString()}`}
-          label={t('fiatOnramp.buy', 'Buy')}
-          primary
-        />
-        <ButtonLink
-          to={`${process.env.REACT_APP_TRANSAK_URL}/user/orders`}
-          label={t('fiatOnramp.viewOrderHistory', 'Order history')}
-        />
-      </Box>
-      <p>Powered by Transak</p>
+      <iframe
+        height="825"
+        title="Transak On/Off Ramp Widget"
+        allow="camera;microphone;fullscreen;payment"
+        // TODO: maybe restrict top-navigation with sandbox=""
+        src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
+          apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
+          productsAvailed: 'BUY',
+          cryptoCurrencyCode: 'ROSE',
+          walletAddress: walletAddress,
+          disableWalletAddressForm: 'true',
+
+          themeColor: '#18213c',
+        }).toString()}`}
+        style={{
+          display: 'block',
+          width: '100%',
+          maxHeight: '825px',
+          maxWidth: '500px',
+          borderRadius: '3px',
+          border: 'none',
+        }}
+      ></iframe>
     </Layout>
   )
 }
