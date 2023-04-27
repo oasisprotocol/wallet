@@ -168,6 +168,7 @@
     "notYourAccount": "You can only use this feature when your wallet is open.",
     "openYourWallet": "Open your wallet",
     "switchToMainnet": "Switch to Mainnet",
+    "thirdPartyAcknowledge": "I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.",
     "thirdPartyDisclaimer": "This service is provided by an external party. Oasis does not carry any responsibility."
   },
   "footer": {
