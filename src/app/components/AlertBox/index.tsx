@@ -39,9 +39,9 @@ export function AlertBox(props: Props) {
       background={{
         color: mapColor[props.color].background,
       }}
-      pad={{ horizontal: 'small', vertical: 'small' }}
+      pad={{ horizontal: 'small' }}
     >
-      <Text weight="bold" size="12px">
+      <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
         {props.children}
       </Text>
     </Box>

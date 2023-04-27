@@ -162,7 +162,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .c20 {
@@ -583,7 +584,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c18 {
-    padding: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 }
 
@@ -1441,6 +1443,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
       >
         <span
           class="c19"
+          style="line-height: 34px;"
         >
           createWallet.doNotShare
         </span>
