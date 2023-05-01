@@ -6,7 +6,7 @@ import { Text } from 'grommet/es6/components/Text'
 import { LineChart } from 'grommet-icons/es6/icons/LineChart'
 import { Inherit } from 'grommet-icons/es6/icons/Inherit'
 import { Money } from 'grommet-icons/es6/icons/Money'
-import { Currency } from 'grommet-icons/es6/icons/Currency'
+import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
@@ -65,9 +65,9 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
       ...(IS_FIAT_ONRAMP_ENABLED
         ? [
             {
-              label: t('menu.fiatOnramp', 'Fiat on-ramp'),
-              Icon: Currency,
-              to: `/account/${address}/fiat-onramp`,
+              label: t('menu.fiatOnramp', 'Buy'),
+              Icon: CreditCard,
+              to: `/account/${address}/fiat`,
             },
           ]
         : []),

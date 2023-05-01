@@ -162,10 +162,14 @@
     "instruction": "A fatal error has occurred and Oasis Wallet must stop. Try refreshing the page and reopening your wallet to see if the issue persists. If the issue persists, please contact our support team via <Email/> email and attach the report below."
   },
   "fiatOnramp": {
-    "buy": "Buy",
-    "notMainnet": "Not available. Switch to mainnet.",
-    "notYourAccount": "Not available. Open your account.",
-    "viewOrderHistory": "Order history"
+    "description": "This feature allows you to convert your fiat currency into cryptocurrency.",
+    "header": "Buy crypto to your wallet",
+    "notMainnet": "You can only use this feature when your are on the mainnet.",
+    "notYourAccount": "You can only use this feature when your wallet is open.",
+    "openYourWallet": "Open your wallet",
+    "switchToMainnet": "Switch to Mainnet",
+    "thirdPartyAcknowledge": "I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.",
+    "thirdPartyDisclaimer": "This service is provided by an external party. Oasis does not carry any responsibility."
   },
   "footer": {
     "github": "Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
@@ -214,7 +218,7 @@
   },
   "menu": {
     "closeWallet": "Close wallet",
-    "fiatOnramp": "Fiat on-ramp",
+    "fiatOnramp": "Buy",
     "home": "Home",
     "lockProfile": "Lock profile",
     "paraTimes": "ParaTimes",
