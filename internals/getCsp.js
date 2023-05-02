@@ -6,11 +6,10 @@
 
 const extensionCsp = {
   dappFrameAncestors: `
-    frame-ancestors
-      'self'
-      https:
-      http://localhost:*
-      http://127.0.0.1:*;
+    'self'
+    https:
+    http://localhost:*
+    http://127.0.0.1:*
   `,
   hmrWebsocket: `
     ws://localhost:2222
@@ -38,7 +37,8 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
       https://monitor.oasis.dev
       ${isExtension ? extensionCsp.hmrWebsocket : ''}
       ;
-    ${isExtension ? extensionCsp.dappFrameAncestors : ''}
+    frame-ancestors
+      ${isExtension ? extensionCsp.dappFrameAncestors : `'none'`};
     img-src 'self' data: https:;
     base-uri 'self';
     manifest-src 'self';
