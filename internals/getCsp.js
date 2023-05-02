@@ -40,7 +40,6 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
       ;
     ${isExtension ? extensionCsp.dappFrameAncestors : ''}
     img-src 'self' data: https:;
-    prefetch-src 'self';
     base-uri 'self';
     manifest-src 'self';
   `
