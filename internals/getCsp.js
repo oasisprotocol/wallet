@@ -39,6 +39,9 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
       ;
     frame-ancestors
       ${isExtension ? extensionCsp.dappFrameAncestors : `'none'`};
+    frame-src
+      https://global.transak.com
+      https://global-stg.transak.com;
     img-src 'self' data: https:;
     base-uri 'self';
     manifest-src 'self';
