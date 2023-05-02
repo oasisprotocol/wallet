@@ -88,8 +88,9 @@ export const TransactionAmount = () => {
               paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
               paraTime: paraTimeName,
               ticker,
+              nextButtonLabel: t('paraTimes.footer.next', 'Next'),
             }}
-            defaults='Please enter the amount of {{ticker}} to deposit and then click "Next"'
+            defaults='Please enter the amount of {{ticker}} to deposit and then click "{{nextButtonLabel}}"'
           />
         ) : (
           <Trans
@@ -99,8 +100,9 @@ export const TransactionAmount = () => {
               paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
               paraTime: paraTimeName,
               ticker,
+              nextButtonLabel: t('paraTimes.footer.next', 'Next'),
             }}
-            defaults='Please enter the amount of {{ticker}} to withdraw and then click "Next"'
+            defaults='Please enter the amount of {{ticker}} to withdraw and then click "{{nextButtonLabel}}"'
           />
         )
       }
