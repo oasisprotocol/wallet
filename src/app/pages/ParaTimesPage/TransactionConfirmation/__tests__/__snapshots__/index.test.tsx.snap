@@ -196,6 +196,28 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   margin-bottom: 12px;
   min-width: 0;
   min-height: 0;
@@ -204,7 +226,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -220,7 +242,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   padding: 12px;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -243,7 +265,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   justify-content: center;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -269,7 +291,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   border-radius: 4px;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -288,7 +310,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -310,11 +332,11 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   cursor: pointer;
 }
 
-.c11:hover input:not([disabled]) + div,.c11:hover input:not([disabled]) + span {
+.c12:hover input:not([disabled]) + div,.c12:hover input:not([disabled]) + span {
   border-color: #000000;
 }
 
-.c14 {
+.c15 {
   opacity: 0;
   -moz-appearance: none;
   width: 0;
@@ -323,12 +345,12 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   cursor: pointer;
 }
 
-.c14:checked + span > span {
+.c15:checked + span > span {
   left: calc( 48px - 24px );
   background: #7D4CDB;
 }
 
-.c13 {
+.c14 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -346,7 +368,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   font-weight: bold;
 }
 
-.c17 {
+.c18 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -375,44 +397,44 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   width: 100%;
 }
 
-.c17:hover {
+.c18:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c17:focus {
+.c18:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus > circle,
-.c17:focus > ellipse,
-.c17:focus > line,
-.c17:focus > path,
-.c17:focus > polygon,
-.c17:focus > polyline,
-.c17:focus > rect {
+.c18:focus > circle,
+.c18:focus > ellipse,
+.c18:focus > line,
+.c18:focus > path,
+.c18:focus > polygon,
+.c18:focus > polyline,
+.c18:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus::-moz-focus-inner {
+.c18:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c17:focus:not(:focus-visible) {
+.c18:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
-.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
-.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
-.c17:focus:not(:focus-visible) > rect {
+.c18:focus:not(:focus-visible) > circle,.c18:focus:not(:focus-visible) > ellipse,
+.c18:focus:not(:focus-visible) > line,.c18:focus:not(:focus-visible) > path,
+.c18:focus:not(:focus-visible) > polygon,.c18:focus:not(:focus-visible) > polyline,
+.c18:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible)::-moz-focus-inner {
+.c18:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -451,37 +473,37 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c9 {
+  .c10 {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     margin-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     border: solid 2px rgba(0,0,0,0.15);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     margin-bottom: 24px;
   }
 }
@@ -564,34 +586,40 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
                 class="c8"
                 style="line-height: 34px;"
               >
-                <span
-                  class="c3"
+                <div
+                  class="c9"
                 >
-                  Please confirm the deposit amount and the recipient address are correct and then click "Deposit".
-                </span>
+                  <span>
+                    <span
+                      class="c3"
+                    >
+                      Please confirm the deposit amount and the recipient address are correct and then click "Deposit".
+                    </span>
+                  </span>
+                </div>
               </span>
             </div>
           </div>
           <div
-            class="c9 "
+            class="c10 "
           >
             <div
-              class="c10 "
+              class="c11 "
             >
               <label
-                class="c11"
+                class="c12"
                 label="I confirm the amount and the address are correct"
               >
                 <div
-                  class="c12 c13"
+                  class="c13 c14"
                 >
                   <input
-                    class="c14"
+                    class="c15"
                     name="confirmTransfer"
                     type="checkbox"
                   />
                   <div
-                    class="c15 "
+                    class="c16 "
                   />
                 </div>
                 <span>
@@ -602,13 +630,13 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
           </div>
         </div>
         <div
-          class="c16"
+          class="c17"
         >
           <div
             class="c5"
           >
             <button
-              class="c17"
+              class="c18"
               type="submit"
             >
               Deposit

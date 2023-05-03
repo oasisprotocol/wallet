@@ -198,7 +198,29 @@ exports[`<TransactionError /> should render component 1`] = `
   padding-right: 12px;
 }
 
-.c11 {
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -217,7 +239,7 @@ exports[`<TransactionError /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -242,7 +264,7 @@ exports[`<TransactionError /> should render component 1`] = `
   height: 24px;
 }
 
-.c10 {
+.c11 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -273,7 +295,7 @@ exports[`<TransactionError /> should render component 1`] = `
   overflow-wrap: break-word;
 }
 
-.c13 {
+.c14 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -302,44 +324,44 @@ exports[`<TransactionError /> should render component 1`] = `
   width: 100%;
 }
 
-.c13:hover {
+.c14:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c13:focus {
+.c14:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus > circle,
-.c13:focus > ellipse,
-.c13:focus > line,
-.c13:focus > path,
-.c13:focus > polygon,
-.c13:focus > polyline,
-.c13:focus > rect {
+.c14:focus > circle,
+.c14:focus > ellipse,
+.c14:focus > line,
+.c14:focus > path,
+.c14:focus > polygon,
+.c14:focus > polyline,
+.c14:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus::-moz-focus-inner {
+.c14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c13:focus:not(:focus-visible) {
+.c14:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
-.c13:focus:not(:focus-visible) > rect {
+.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible)::-moz-focus-inner {
+.c14:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -369,13 +391,13 @@ exports[`<TransactionError /> should render component 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c12 {
     margin-bottom: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     margin-bottom: 12px;
   }
 }
@@ -475,21 +497,27 @@ exports[`<TransactionError /> should render component 1`] = `
             class="c9"
             style="line-height: 34px;"
           >
-            Unknown ParaTime error: error message
+            <div
+              class="c10"
+            >
+              <span>
+                Unknown ParaTime error: error message
+              </span>
+            </div>
           </span>
         </div>
       </div>
       <div
-        class="c10"
+        class="c11"
       />
       <div
-        class="c11"
+        class="c12"
       >
         <div
-          class="c12"
+          class="c13"
         >
           <button
-            class="c13"
+            class="c14"
             type="button"
           >
             Navigate to ParaTime Transfers
