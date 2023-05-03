@@ -50,7 +50,7 @@ export function FiatOnramp() {
   if (selectedNetwork !== 'mainnet') {
     return (
       <Layout>
-        <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
           {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
         </AlertBox>
 
@@ -68,7 +68,7 @@ export function FiatOnramp() {
   if (!walletAddress || !isAddressInWallet) {
     return (
       <Layout>
-        <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
           {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
         </AlertBox>
         <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
@@ -78,7 +78,7 @@ export function FiatOnramp() {
 
   return (
     <Layout>
-      <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+      <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
         {t(
           'fiatOnramp.thirdPartyDisclaimer',
           'This service is provided by an external party. Oasis does not carry any responsibility.',

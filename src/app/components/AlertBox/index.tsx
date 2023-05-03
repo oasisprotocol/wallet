@@ -2,30 +2,30 @@ import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import * as React from 'react'
 
-export type AlertBoxColor = 'status-error' | 'status-warning' | 'status-ok' | 'status-ok-weak'
+export type AlertBoxStatus = 'error' | 'warning' | 'ok' | 'ok-weak'
 
 interface Props {
-  color: AlertBoxColor
+  status: AlertBoxStatus
   center?: boolean
   /** Example `icon={<Info size="20px" color="currentColor" />}` */
   icon?: React.ReactNode
   children: React.ReactNode
 }
 
-const mapColor = {
-  'status-error': {
+const mapStatus = {
+  error: {
     color: 'status-error',
     background: 'status-error-background',
   },
-  'status-warning': {
+  warning: {
     color: 'status-warning',
     background: 'status-warning-background',
   },
-  'status-ok': {
+  ok: {
     color: 'status-ok',
     background: 'status-ok-background',
   },
-  'status-ok-weak': {
+  'ok-weak': {
     color: 'status-ok-weak',
     background: 'status-ok-weak-background',
   },
@@ -35,18 +35,18 @@ export function AlertBox(props: Props) {
   return (
     <Box
       border={{
-        color: mapColor[props.color].color,
+        color: mapStatus[props.status].color,
         side: 'left',
         size: '3px',
       }}
       background={{
-        color: mapColor[props.color].background,
+        color: mapStatus[props.status].background,
       }}
       pad={{ horizontal: 'small' }}
     >
       <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
         <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
-          {props.icon && <Text color={mapColor[props.color].color}>{props.icon}</Text>}
+          {props.icon && <Text color={mapStatus[props.status].color}>{props.icon}</Text>}
           <span>{props.children}</span>
         </Box>
       </Text>

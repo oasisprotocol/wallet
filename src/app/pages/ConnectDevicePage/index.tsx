@@ -117,7 +117,7 @@ export function ConnectDevicePage() {
                 label={t('ledger.extension.failed', 'Connection failed')}
                 withMargin
               />
-              <AlertBox color="status-error">
+              <AlertBox status="error">
                 <ErrorFormatter code={WalletErrors.LedgerNoDeviceSelected} />
               </AlertBox>
             </Box>

@@ -35,7 +35,7 @@ export const ConfirmationCheckbox = ({
   return (
     <Box margin={{ bottom: 'medium' }} style={{ maxWidth: '450px' }}>
       <Box margin={{ bottom: 'small' }} responsive={false}>
-        <AlertBox color={warning ? 'status-warning' : 'status-error'}>
+        <AlertBox status={warning ? 'warning' : 'error'}>
           <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
             {description}
           </Text>

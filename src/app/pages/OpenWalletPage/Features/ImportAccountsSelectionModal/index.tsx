@@ -132,7 +132,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               </Box>
             )}
             {error && (
-              <AlertBox color="status-error">
+              <AlertBox status="error">
                 <ErrorFormatter code={error.code} message={error.message} />
               </AlertBox>
             )}

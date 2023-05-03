@@ -18,7 +18,7 @@ export const BuildPreviewBanner = () => {
           zIndex: buildPreviewBannerZIndex,
         }}
       >
-        <AlertBox color="status-ok" center icon={<Info color="currentColor" size="20px" />}>
+        <AlertBox status="ok" center icon={<Info size="20px" color="currentColor" />}>
           <Trans
             i18nKey="banner.domainMoved"
             t={t}
@@ -40,7 +40,7 @@ export const BuildPreviewBanner = () => {
         zIndex: buildPreviewBannerZIndex,
       }}
     >
-      <AlertBox color="status-warning" center icon={<Alert color="currentColor" size="20px" />}>
+      <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
         {t(
           'buildPreview',
           'Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.',

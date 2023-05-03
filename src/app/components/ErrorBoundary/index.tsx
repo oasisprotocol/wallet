@@ -21,7 +21,7 @@ export function ErrorBoundary() {
 
   return (
     <Box pad={'small'}>
-      <AlertBox color="status-error">
+      <AlertBox status="error">
         <ErrorFormatter code={errorPayload.code} message={errorPayload.message} />
       </AlertBox>
     </Box>

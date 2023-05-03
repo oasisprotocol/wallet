@@ -109,7 +109,7 @@ export const TransactionAmount = () => {
       isLoading={isLoading}
     >
       {disabled && (
-        <AlertBox color="status-warning">
+        <AlertBox status="warning">
           {t('paraTimes.amount.emptyAccount', 'The account is empty. There is nothing to withdraw.')}
         </AlertBox>
       )}

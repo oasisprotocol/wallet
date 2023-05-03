@@ -102,17 +102,15 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
     <>
       <Box margin={{ bottom: 'small' }}>
         {walletIsOpen && walletAddress === address && (
-          <AlertBox color="status-ok-weak">
-            {t('account.summary.yourAccount', 'This is your account.')}
-          </AlertBox>
+          <AlertBox status="ok-weak">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
         )}
         {walletIsOpen && walletAddress !== address && (
-          <AlertBox color="status-warning">
+          <AlertBox status="warning">
             {t('account.summary.notYourAccount', 'This is not your account.')}
           </AlertBox>
         )}
         {!walletIsOpen && (
-          <AlertBox color="status-warning">
+          <AlertBox status="warning">
             <Trans
               i18nKey="account.summary.noWalletIsOpen"
               t={t}
