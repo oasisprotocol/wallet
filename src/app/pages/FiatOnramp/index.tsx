@@ -50,11 +50,8 @@ export function FiatOnramp() {
   if (selectedNetwork !== 'mainnet') {
     return (
       <Layout>
-        <AlertBox color="status-error">
-          <Box direction="row" gap="small" align="center">
-            <CircleAlert size="24px" color="status-error" />
-            {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
-          </Box>
+        <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+          {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
         </AlertBox>
 
         <Button
@@ -71,11 +68,8 @@ export function FiatOnramp() {
   if (!walletAddress || !isAddressInWallet) {
     return (
       <Layout>
-        <AlertBox color="status-error">
-          <Box direction="row" gap="small" align="center">
-            <CircleAlert size="24px" color="status-error" />
-            {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
-          </Box>
+        <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+          {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
         </AlertBox>
         <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
       </Layout>
@@ -84,14 +78,11 @@ export function FiatOnramp() {
 
   return (
     <Layout>
-      <AlertBox color="status-error">
-        <Box direction="row" gap="small" align="center">
-          <CircleAlert size="24px" color="status-error" />
-          {t(
-            'fiatOnramp.thirdPartyDisclaimer',
-            'This service is provided by an external party. Oasis does not carry any responsibility.',
-          )}
-        </Box>
+      <AlertBox color="status-error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        {t(
+          'fiatOnramp.thirdPartyDisclaimer',
+          'This service is provided by an external party. Oasis does not carry any responsibility.',
+        )}
       </AlertBox>
 
       {!thirdPartyAcknowledged ? (

@@ -18,20 +18,15 @@ export const BuildPreviewBanner = () => {
           zIndex: buildPreviewBannerZIndex,
         }}
       >
-        <AlertBox color="status-ok">
-          <Box direction="row" gap="small" align="center" justify="center">
-            <Info color="status-ok" size="20px" />
-            <span>
-              <Trans
-                i18nKey="banner.domainMoved"
-                t={t}
-                components={{
-                  NewLink: <AnchorLink to="https://wallet.oasis.io/" label="https://wallet.oasis.io/" />,
-                }}
-                defaults="Oasis Wallet has a new home at <NewLink />."
-              />
-            </span>
-          </Box>
+        <AlertBox color="status-ok" center icon={<Info color="currentColor" size="20px" />}>
+          <Trans
+            i18nKey="banner.domainMoved"
+            t={t}
+            components={{
+              NewLink: <AnchorLink to="https://wallet.oasis.io/" label="https://wallet.oasis.io/" />,
+            }}
+            defaults="Oasis Wallet has a new home at <NewLink />."
+          />
         </AlertBox>
       </Box>
     )
@@ -45,14 +40,11 @@ export const BuildPreviewBanner = () => {
         zIndex: buildPreviewBannerZIndex,
       }}
     >
-      <AlertBox color="status-warning">
-        <Box direction="row" gap="small" align="center" justify="center">
-          <Alert color="status-warning" size="20px" />
-          {t(
-            'buildPreview',
-            'Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.',
-          )}
-        </Box>
+      <AlertBox color="status-warning" center icon={<Alert color="currentColor" size="20px" />}>
+        {t(
+          'buildPreview',
+          'Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.',
+        )}
       </AlertBox>
     </Box>
   )

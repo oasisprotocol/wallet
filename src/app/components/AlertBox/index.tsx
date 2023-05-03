@@ -6,6 +6,9 @@ export type AlertBoxColor = 'status-error' | 'status-warning' | 'status-ok' | 's
 
 interface Props {
   color: AlertBoxColor
+  center?: boolean
+  /** Example `icon={<Info size="20px" color="currentColor" />}` */
+  icon?: React.ReactNode
   children: React.ReactNode
 }
 
@@ -42,7 +45,10 @@ export function AlertBox(props: Props) {
       pad={{ horizontal: 'small' }}
     >
       <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
-        {props.children}
+        <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
+          {props.icon && <Text color={mapColor[props.color].color}>{props.icon}</Text>}
+          <span>{props.children}</span>
+        </Box>
       </Text>
     </Box>
   )
