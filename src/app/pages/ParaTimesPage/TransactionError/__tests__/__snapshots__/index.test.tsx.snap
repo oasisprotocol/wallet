@@ -186,9 +186,9 @@ exports[`<TransactionError /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: status-error-background;
+  background-color: alert-box-error-background;
   color: #444444;
-  border-left: solid 3px #B30000;
+  border-left: solid 3px alert-box-error;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -379,7 +379,7 @@ exports[`<TransactionError /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c8 {
-    border-left: solid 3px #B30000;
+    border-left: solid 3px alert-box-error;
   }
 }
 

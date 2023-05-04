@@ -154,9 +154,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: rgba(241,230,201,1);
+  background-color: rgba(243,212,94,1);
   color: #444444;
-  border-left: solid 3px #f4ce4b;
+  border-left: solid 3px #f0e8cb;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -600,7 +600,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c18 {
-    border-left: solid 3px #f4ce4b;
+    border-left: solid 3px #f0e8cb;
   }
 }
 

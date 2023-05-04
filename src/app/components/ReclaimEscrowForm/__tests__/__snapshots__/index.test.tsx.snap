@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
-.c0 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16,7 +16,7 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   padding-top: 12px;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -32,7 +32,7 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c2 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -47,7 +47,7 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   width: 192px;
 }
 
-.c5 {
+.c6 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -55,75 +55,6 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   -ms-flex-item-align: stretch;
   align-self: stretch;
   width: 12px;
-}
-
-.c6 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #7D4CDB;
-  border-radius: 18px;
-  color: #444444;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #7D4CDB;
-  color: #f8f8f8;
-  border-radius: 18px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-}
-
-.c6:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
-}
-
-.c6:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c6:focus > circle,
-.c6:focus > ellipse,
-.c6:focus > line,
-.c6:focus > path,
-.c6:focus > polygon,
-.c6:focus > polyline,
-.c6:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c6:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible) > circle,.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,.c6:focus:not(:focus-visible) > polyline,
-.c6:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
 }
 
 .c7 {
@@ -137,22 +68,26 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #7D4CDB;
-  border-radius: 18px;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
   color: #444444;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
+  background-color: #0092f6;
+  color: #f8f8f8;
+  border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
 .c7:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
+  box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
 .c7:focus {
@@ -192,7 +127,74 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c4 {
+.c8 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
+  color: #444444;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c8:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c8:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c8:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c8:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c5 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -210,73 +212,87 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.c4:focus {
+.c5:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c4:focus > circle,
-.c4:focus > ellipse,
-.c4:focus > line,
-.c4:focus > path,
-.c4:focus > polygon,
-.c4:focus > polyline,
-.c4:focus > rect {
+.c5:focus > circle,
+.c5:focus > ellipse,
+.c5:focus > line,
+.c5:focus > path,
+.c5:focus > polygon,
+.c5:focus > polyline,
+.c5:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c4:focus::-moz-focus-inner {
+.c5:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c4::-webkit-input-placeholder {
+.c5::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c4::-moz-placeholder {
+.c5::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c4:-ms-input-placeholder {
+.c5:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c4::-webkit-search-decoration {
+.c5::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c4::-moz-focus-inner {
+.c5::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c4:-moz-placeholder,
-.c4::-moz-placeholder {
+.c5:-moz-placeholder,
+.c5::-moz-placeholder {
   opacity: 1;
 }
 
-.c3 {
+.c4 {
   position: relative;
   width: 100%;
 }
 
+.c0 {
+  font-family: Rubik;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #ffffff;
+  color: #444444;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 @media only screen and (max-width:768px) {
-  .c0 {
+  .c1 {
     padding-top: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c6 {
     width: 6px;
   }
 }
 
-<form>
-  <div
-    class="c0"
-  >
+<div
+  class="c0"
+  style="min-height: 100vh;"
+>
+  <form>
     <div
       class="c1"
     >
@@ -286,41 +302,45 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
         <div
           class="c3"
         >
-          <input
-            autocomplete="off"
+          <div
             class="c4"
-            data-testid="amount"
-            id="amount-id"
-            max="0.00000100000000000000"
-            min="0"
-            name="amount"
-            placeholder="common.amount"
-            required=""
-            step="any"
-            type="number"
-            value=""
-          />
+          >
+            <input
+              autocomplete="off"
+              class="c5"
+              data-testid="amount"
+              id="amount-id"
+              max="0.00000100000000000000"
+              min="0"
+              name="amount"
+              placeholder="common.amount"
+              required=""
+              step="any"
+              type="number"
+              value=""
+            />
+          </div>
         </div>
       </div>
+      <div
+        class="c6"
+      />
+      <button
+        class="c7"
+        type="submit"
+      >
+        account.reclaimEscrow.reclaim
+      </button>
+      <div
+        class="c6"
+      />
+      <button
+        class="c8"
+        type="button"
+      >
+        account.reclaimEscrow.reclaimAll
+      </button>
     </div>
-    <div
-      class="c5"
-    />
-    <button
-      class="c6"
-      type="submit"
-    >
-      account.reclaimEscrow.reclaim
-    </button>
-    <div
-      class="c5"
-    />
-    <button
-      class="c7"
-      type="button"
-    >
-      account.reclaimEscrow.reclaimAll
-    </button>
-  </div>
-</form>
+  </form>
+</div>
 `;

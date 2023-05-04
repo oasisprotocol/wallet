@@ -83,9 +83,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background-color: rgba(198,245,234,1);
+  background-color: rgba(194,245,234,1);
   color: #444444;
-  border-left: solid 3px #4cd4a9;
+  border-left: solid 3px #2ad5ab;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -682,7 +682,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c3 {
-    border-left: solid 3px #4cd4a9;
+    border-left: solid 3px #2ad5ab;
   }
 }
 
