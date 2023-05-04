@@ -160,11 +160,13 @@ export const TransactionConfirmation = () => {
             isDepositing
               ? t(
                   'paraTimes.confirmation.confirmDepositDescription',
-                  'Please confirm the deposit amount and the recipient address are correct and then click "Deposit".',
+                  'Please confirm the deposit amount and the recipient address are correct and then click "{{nextButtonLabel}}".',
+                  { nextButtonLabel: t('paraTimes.confirmation.depositLabel', 'Deposit') },
                 )
               : t(
                   'paraTimes.confirmation.confirmWithdrawDescription',
-                  'Please confirm the withdrawal amount and the recipient address are correct and then click "Withdraw".',
+                  'Please confirm the withdrawal amount and the recipient address are correct and then click "{{nextButtonLabel}}".',
+                  { nextButtonLabel: t('paraTimes.confirmation.withdrawLabel', 'Withdraw') },
                 )
           }
           label={t(

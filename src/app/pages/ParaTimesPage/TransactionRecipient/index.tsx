@@ -40,18 +40,21 @@ export const TransactionRecipient = () => {
             values={{
               paratimeType: isEvmcParaTime ? t('paraTimes.common.evmcType', '(EVMc)') : '',
               paraTime: paraTimeName,
+              nextButtonLabel: t('paraTimes.footer.next', 'Next'),
             }}
-            defaults='Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click "Next"'
+            defaults='Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click "{{nextButtonLabel}}"'
           />
         ) : isEvmcParaTime ? (
           t(
             'paraTimes.recipient.evmcWithdrawDescription',
-            'Please enter the private key of the account on ParaTime, the recipient address on consensus and click "Next"',
+            'Please enter the private key of the account on ParaTime, the recipient address on consensus and click "{{nextButtonLabel}}"',
+            { nextButtonLabel: t('paraTimes.footer.next', 'Next') },
           )
         ) : (
           t(
             'paraTimes.recipient.withdrawDescription',
-            'Please enter the recipient address on consensus and click "Next"',
+            'Please enter the recipient address on consensus and click "{{nextButtonLabel}}"',
+            { nextButtonLabel: t('paraTimes.footer.next', 'Next') },
           )
         )
       }

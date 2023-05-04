@@ -51,16 +51,18 @@ export const ParaTimeSelection = () => {
         isDepositing
           ? t(
               'paraTimes.selection.depositDescription',
-              'Please select which ParaTime you wish to deposit your {{ticker}} to and then click "Next".',
+              'Please select which ParaTime you wish to deposit your {{ticker}} to and then click "{{nextButtonLabel}}".',
               {
                 ticker,
+                nextButtonLabel: t('paraTimes.footer.next', 'Next'),
               },
             )
           : t(
               'paraTimes.selection.withdrawDescription',
-              'Please select which ParaTime you wish to withdraw your {{ticker}} from and then click "Next".',
+              'Please select which ParaTime you wish to withdraw your {{ticker}} from and then click "{{nextButtonLabel}}".',
               {
                 ticker,
+                nextButtonLabel: t('paraTimes.footer.next', 'Next'),
               },
             )
       }

@@ -18,9 +18,11 @@ export const ParaTimeTransferType = () => {
       header={t('paraTimes.common.header', 'ParaTime Transfers')}
       description={t(
         'paraTimes.transfers.description',
-        'Click on the "Deposit" button to deposit your {{ticker}} from consensus to a ParaTime of your choice or "Withdraw" to withdraw your {{ticker}} from a ParaTime back to consensus.',
+        'Click on the "{{depositButtonLabel}}" button to deposit your {{ticker}} from consensus to a ParaTime of your choice or "{{withdrawButtonLabel}}" to withdraw your {{ticker}} from a ParaTime back to consensus.',
         {
           ticker,
+          depositButtonLabel: t('paraTimes.transfers.deposit', 'Deposit to ParaTime'),
+          withdrawButtonLabel: t('paraTimes.transfers.withdraw', 'Withdraw from ParaTime'),
         },
       )}
     >
