@@ -1,6 +1,9 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
+import { normalizeColor } from 'grommet/es6/utils'
 import * as React from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
 export type AlertBoxStatus = 'error' | 'warning' | 'ok' | 'ok-weak'
 
@@ -14,39 +17,41 @@ interface Props {
 
 const mapStatus = {
   error: {
-    color: 'status-error',
-    background: 'status-error-background',
+    color: 'alert-box-error',
+    background: 'alert-box-error-background',
   },
   warning: {
-    color: 'status-warning',
-    background: 'status-warning-background',
+    color: 'alert-box-warning',
+    background: 'alert-box-warning-background',
   },
   ok: {
-    color: 'status-ok',
-    background: 'status-ok-background',
+    color: 'alert-box-ok',
+    background: 'alert-box-ok-background',
   },
   'ok-weak': {
-    color: 'status-ok-weak',
-    background: 'status-ok-weak-background',
+    color: 'alert-box-ok-weak',
+    background: 'alert-box-ok-weak-background',
   },
 }
 
 export function AlertBox(props: Props) {
+  const theme = useContext(ThemeContext)
+  // If we don't normalize upfront then grommet auto-detects darkness of background, and decides to use ['alert-box-warning'].dark with ['alert-box-warning-background'].dark
+  const color = normalizeColor(mapStatus[props.status].color, theme)
+
   return (
     <Box
       border={{
-        color: mapStatus[props.status].color,
+        color: color,
         side: 'left',
         size: '3px',
       }}
-      background={{
-        color: mapStatus[props.status].background,
-      }}
+      background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
       <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
         <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
-          {props.icon && <Text color={mapStatus[props.status].color}>{props.icon}</Text>}
+          {props.icon && <Text color={color}>{props.icon}</Text>}
           <span>{props.children}</span>
         </Box>
       </Text>

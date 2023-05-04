@@ -53,17 +53,46 @@ const grommetCustomTheme: ThemeType = {
       },
       oasisBlue2: '#4db3f9',
       oasisBlue3: '#26a2f8',
-      'status-ok': '#4cd4a9',
-      'status-ok-background': '#bae9de',
-      'status-warning': '#f4ce4b',
-      'status-warning-background': '#f1e6c9',
-      'status-error': '#ff4212',
-      'status-error-background': '#ffe7d9',
-      'status-ok-weak': '#4cd4a9',
-      'status-ok-weak-background': {
-        dark: '#1b474c',
-        light: '#c6f5ea',
+      'status-ok': '#2ad5ab',
+      'status-warning': {
+        dark: '#f3d45e',
+        light: '#e1a809',
       },
+      'status-error': '#d24c00',
+
+      'alert-box-ok-weak': {
+        dark: '#2ad5ab',
+        light: '#2ad5ab',
+      },
+      'alert-box-ok-weak-background': {
+        dark: '#17464b',
+        light: '#c2f5ea',
+      },
+      'alert-box-ok': {
+        dark: '#2ad5ab',
+        light: '#c2f5ea',
+      },
+      'alert-box-ok-background': {
+        dark: '#c2f5ea',
+        light: '#2ad5ab',
+      },
+      'alert-box-warning': {
+        dark: '#f3d45e',
+        light: '#f0e8cb',
+      },
+      'alert-box-warning-background': {
+        dark: '#f0e8cb',
+        light: '#f3d45e',
+      },
+      'alert-box-error': {
+        dark: '#f26111',
+        light: '#ffe7d9',
+      },
+      'alert-box-error-background': {
+        dark: '#ffe7d9',
+        light: '#f26111',
+      },
+
       'background-oasis-blue': {
         dark: '#0f477b',
         light: '#0092f6',

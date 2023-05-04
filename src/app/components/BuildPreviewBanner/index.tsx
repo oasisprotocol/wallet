@@ -23,7 +23,9 @@ export const BuildPreviewBanner = () => {
             i18nKey="banner.domainMoved"
             t={t}
             components={{
-              NewLink: <AnchorLink to="https://wallet.oasis.io/" label="https://wallet.oasis.io/" />,
+              NewLink: (
+                <AnchorLink to="https://wallet.oasis.io/" label="https://wallet.oasis.io/" color="text" />
+              ),
             }}
             defaults="Oasis Wallet has a new home at <NewLink />."
           />
