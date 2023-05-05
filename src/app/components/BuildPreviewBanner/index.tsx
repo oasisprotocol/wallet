@@ -44,7 +44,7 @@ export const BuildPreviewBanner = () => {
     >
       <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
         {t(
-          'buildPreview',
+          'banner.buildPreview',
           'Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.',
         )}
       </AlertBox>

@@ -12,13 +12,13 @@ describe('<BuildPreviewBanner />', () => {
     process.env.REACT_APP_BUILD_PREVIEW = 'preview'
     render(<BuildPreviewBanner />)
 
-    expect(screen.getByText('buildPreview')).toBeInTheDocument()
+    expect(screen.getByText('banner.buildPreview')).toBeInTheDocument()
   })
 
   it('should not render banner', () => {
     process.env.REACT_APP_BUILD_PREVIEW = undefined
     render(<BuildPreviewBanner />)
 
-    expect(screen.queryByText('buildPreview')).not.toBeInTheDocument()
+    expect(screen.queryByText('banner.buildPreview')).not.toBeInTheDocument()
   })
 })
