@@ -12,8 +12,5 @@ export const useRouteRedirects = () => {
     if (address) {
       navigate(`/account/${address}`)
     }
-    // omit navigate dependency as it is not stable
-    // https://github.com/remix-run/react-router/issues/7634
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address])
+  }, [address, navigate])
 }
