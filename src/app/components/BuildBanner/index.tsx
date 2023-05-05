@@ -9,7 +9,7 @@ import { AnchorLink } from '../AnchorLink'
 export const BuildBanner = () => {
   const { t } = useTranslation()
 
-  if (!process.env.REACT_APP_BUILD_PREVIEW) {
+  if (window.location.host === 'wallet.oasis.io') {
     return (
       <Box
         style={{
