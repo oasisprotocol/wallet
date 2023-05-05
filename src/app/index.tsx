@@ -21,7 +21,7 @@ import { ModalProvider } from './components/Modal'
 import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
-import { BuildPreviewBanner } from 'app/components/BuildPreviewBanner'
+import { BuildBanner } from 'app/components/BuildBanner'
 
 export function App() {
   useRouteRedirects()
@@ -38,14 +38,14 @@ export function App() {
         >
           <meta name="description" content="A wallet for Oasis" />
         </Helmet>
-        {!isMobile && <BuildPreviewBanner />}
+        {!isMobile && <BuildBanner />}
         <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
           <PersistLoadingGate>
             <UnlockGate>
               <Navigation />
               <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
                 <Main>
-                  {isMobile && <BuildPreviewBanner />}
+                  {isMobile && <BuildBanner />}
                   <Toolbar />
                   <Outlet />
                   <Footer />

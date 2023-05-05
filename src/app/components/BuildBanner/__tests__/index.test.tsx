@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { BuildPreviewBanner } from '..'
+import { BuildBanner } from '..'
 
-describe('<BuildPreviewBanner />', () => {
+describe('<BuildBanner />', () => {
   const env = process.env
 
   afterEach(() => {
@@ -10,14 +10,14 @@ describe('<BuildPreviewBanner />', () => {
 
   it('should render banner when env variable is provided', () => {
     process.env.REACT_APP_BUILD_PREVIEW = 'preview'
-    render(<BuildPreviewBanner />)
+    render(<BuildBanner />)
 
     expect(screen.getByText('banner.buildPreview')).toBeInTheDocument()
   })
 
   it('should not render banner', () => {
     process.env.REACT_APP_BUILD_PREVIEW = undefined
-    render(<BuildPreviewBanner />)
+    render(<BuildBanner />)
 
     expect(screen.queryByText('banner.buildPreview')).not.toBeInTheDocument()
   })

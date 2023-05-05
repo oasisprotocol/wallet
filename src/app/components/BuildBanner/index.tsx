@@ -3,10 +3,10 @@ import { Alert } from 'grommet-icons/es6/icons/Alert'
 import { Info } from 'grommet-icons/es6/icons/Info'
 import { Box } from 'grommet/es6/components/Box'
 import { AlertBox } from 'app/components/AlertBox'
-import { buildPreviewBannerZIndex } from '../../../styles/theme/elementSizes'
+import { buildBannerZIndex } from '../../../styles/theme/elementSizes'
 import { AnchorLink } from '../AnchorLink'
 
-export const BuildPreviewBanner = () => {
+export const BuildBanner = () => {
   const { t } = useTranslation()
 
   if (!process.env.REACT_APP_BUILD_PREVIEW) {
@@ -15,7 +15,7 @@ export const BuildPreviewBanner = () => {
         style={{
           position: 'sticky',
           top: 0,
-          zIndex: buildPreviewBannerZIndex,
+          zIndex: buildBannerZIndex,
         }}
       >
         <AlertBox status="ok" center icon={<Info size="20px" color="currentColor" />}>
@@ -39,7 +39,7 @@ export const BuildPreviewBanner = () => {
       style={{
         position: 'sticky',
         top: 0,
-        zIndex: buildPreviewBannerZIndex,
+        zIndex: buildBannerZIndex,
       }}
     >
       <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
