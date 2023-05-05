@@ -5,19 +5,20 @@ import { Box } from 'grommet/es6/components/Box'
 import { AlertBox } from 'app/components/AlertBox'
 import { buildBannerZIndex } from '../../../styles/theme/elementSizes'
 import { AnchorLink } from '../AnchorLink'
+import styled from 'styled-components'
+
+const StickyBanner = styled(Box)`
+  position: sticky;
+  top: 0;
+  z-index: ${buildBannerZIndex};
+`
 
 export const BuildBanner = () => {
   const { t } = useTranslation()
 
   if (window.location.host === 'wallet.oasis.io') {
     return (
-      <Box
-        style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: buildBannerZIndex,
-        }}
-      >
+      <StickyBanner>
         <AlertBox status="ok" center icon={<Info size="20px" color="currentColor" />}>
           <Trans
             i18nKey="banner.domainMoved"
@@ -30,24 +31,31 @@ export const BuildBanner = () => {
             defaults="Oasis Wallet has a new home at <NewLink />."
           />
         </AlertBox>
-      </Box>
+      </StickyBanner>
+    )
+  }
+
+  if (window.location.host === 'wallet.stg.oasis.io') {
+    return (
+      <StickyBanner>
+        <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
+          {t(
+            'banner.buildStaging',
+            'Please note this is the staging deployment of Oasis Wallet. ONLY USE IT FOR TESTING.',
+          )}
+        </AlertBox>
+      </StickyBanner>
     )
   }
 
   return (
-    <Box
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: buildBannerZIndex,
-      }}
-    >
+    <StickyBanner>
       <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
         {t(
           'banner.buildPreview',
-          'Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.',
+          'Please note this is an experimental build of Oasis Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.',
         )}
       </AlertBox>
-    </Box>
+    </StickyBanner>
   )
 }
