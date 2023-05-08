@@ -49,12 +49,12 @@ export function AlertBox(props: Props) {
       background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
-      <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
-        <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
-          {props.icon && <Text color={color}>{props.icon}</Text>}
-          <span>{props.children}</span>
-        </Box>
-      </Text>
+      <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
+        {props.icon && <Text color={color}>{props.icon}</Text>}
+        <Text weight="bold" size="12px" style={{ marginTop: 10, marginBottom: 10 }}>
+          {props.children}
+        </Text>
+      </Box>
     </Box>
   )
 }
