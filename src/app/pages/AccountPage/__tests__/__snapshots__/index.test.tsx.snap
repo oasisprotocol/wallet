@@ -95,7 +95,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c5 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -401,7 +401,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c4 {
+.c5 {
   font-size: 12px;
   line-height: normal;
   font-weight: bold;
@@ -890,18 +890,16 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
       <div
         class="c3"
       >
-        <span
+        <div
           class="c4"
-          style="line-height: 34px;"
         >
-          <div
+          <span
             class="c5"
+            style="margin-top: 10px; margin-bottom: 10px;"
           >
-            <span>
-              This is your account.
-            </span>
-          </div>
-        </span>
+            This is your account.
+          </span>
+        </div>
       </div>
     </div>
     <div

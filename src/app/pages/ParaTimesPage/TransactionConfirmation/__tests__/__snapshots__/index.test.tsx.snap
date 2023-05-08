@@ -189,7 +189,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   padding-right: 12px;
 }
 
-.c9 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -362,7 +362,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   text-align: center;
 }
 
-.c8 {
+.c9 {
   font-size: 12px;
   line-height: normal;
   font-weight: bold;
@@ -582,22 +582,20 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
             <div
               class="c7"
             >
-              <span
+              <div
                 class="c8"
-                style="line-height: 34px;"
               >
-                <div
+                <span
                   class="c9"
+                  style="margin-top: 10px; margin-bottom: 10px;"
                 >
-                  <span>
-                    <span
-                      class="c3"
-                    >
-                      Please confirm the deposit amount and the recipient address are correct and then click "Deposit".
-                    </span>
+                  <span
+                    class="c3"
+                  >
+                    Please confirm the deposit amount and the recipient address are correct and then click "Deposit".
                   </span>
-                </div>
-              </span>
+                </span>
+              </div>
             </div>
           </div>
           <div

@@ -166,7 +166,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -336,7 +336,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c19 {
+.c20 {
   font-size: 12px;
   line-height: normal;
   font-weight: bold;
@@ -1463,18 +1463,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
       <div
         class="c18"
       >
-        <span
+        <div
           class="c19"
-          style="line-height: 34px;"
         >
-          <div
+          <span
             class="c20"
+            style="margin-top: 10px; margin-bottom: 10px;"
           >
-            <span>
-              createWallet.doNotShare
-            </span>
-          </div>
-        </span>
+            createWallet.doNotShare
+          </span>
+        </div>
       </div>
       <div
         class="c21"

@@ -198,7 +198,7 @@ exports[`<TransactionError /> should render component 1`] = `
   padding-right: 12px;
 }
 
-.c10 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -280,7 +280,7 @@ exports[`<TransactionError /> should render component 1`] = `
   text-align: center;
 }
 
-.c9 {
+.c10 {
   font-size: 12px;
   line-height: normal;
   font-weight: bold;
@@ -493,18 +493,16 @@ exports[`<TransactionError /> should render component 1`] = `
         <div
           class="c8"
         >
-          <span
+          <div
             class="c9"
-            style="line-height: 34px;"
           >
-            <div
+            <span
               class="c10"
+              style="margin-top: 10px; margin-bottom: 10px;"
             >
-              <span>
-                Unknown ParaTime error: error message
-              </span>
-            </div>
-          </span>
+              Unknown ParaTime error: error message
+            </span>
+          </div>
         </div>
       </div>
       <div
