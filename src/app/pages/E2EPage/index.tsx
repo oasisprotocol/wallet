@@ -10,6 +10,9 @@ import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
 import { useDispatch } from 'react-redux'
 import { walletActions } from '../../state/wallet'
+import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
+import { Info } from 'grommet-icons/es6/icons/Info'
+import { Text } from 'grommet/es6/components/Text'
 
 export function E2EPage() {
   return (
@@ -20,6 +23,7 @@ export function E2EPage() {
       <br />
       <TriggerFatalError></TriggerFatalError>
       <br />
+      <DemoAlertBoxes></DemoAlertBoxes>
     </div>
   )
 }
@@ -121,5 +125,45 @@ function TriggerFatalError() {
         }}
       />
     </div>
+  )
+}
+
+function DemoAlertBoxes() {
+  return (
+    <Box direction="row">
+      <Box width={'400px'} background={{ dark: false }}>
+        <Box background="background-front" pad={'large'}>
+          <DemoAlertBox status="ok-weak" />
+          <DemoAlertBox status="ok" />
+          <DemoAlertBox status="warning" />
+          <DemoAlertBox status="error" />
+          <Text color="status-ok">status-ok</Text>
+          <Text color="status-warning">status-warning</Text>
+          <Text color="status-error">status-error</Text>
+        </Box>
+      </Box>
+      <Box width={'400px'} background={{ dark: true }}>
+        <Box background="background-front" pad={'large'}>
+          <DemoAlertBox status="ok-weak" />
+          <DemoAlertBox status="ok" />
+          <DemoAlertBox status="warning" />
+          <DemoAlertBox status="error" />
+          <Text color="status-ok">status-ok</Text>
+          <Text color="status-warning">status-warning</Text>
+          <Text color="status-error">status-error</Text>
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
+function DemoAlertBox({ status }: { status: AlertBoxStatus }) {
+  return (
+    <>
+      <AlertBox status={status} icon={<Info color="currentColor" />}>
+        LOREM {status}
+      </AlertBox>
+      <br />
+    </>
   )
 }

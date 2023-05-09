@@ -61,7 +61,7 @@ export function FatalErrorHandler({ children }: Props) {
             />
           </Text>
         </Box>
-        <AlertBox color="status-error">
+        <AlertBox status="error">
           <Text weight="normal">
             <pre data-testid="fatalerror-stacktrace">{combinedStacktrace}</pre>
           </Text>

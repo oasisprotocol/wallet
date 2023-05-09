@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { AddressBox } from 'app/components/AddressBox'
 import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
@@ -11,7 +11,6 @@ import * as React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
-import { selectTheme } from 'styles/theme/slice/selectors'
 
 import { BalanceDetails } from 'app/state/account/types'
 import { selectTicker } from 'app/state/network/selectors'
@@ -94,7 +93,7 @@ export interface AccountSummaryProps {
 
 export function AccountSummary({ address, balance, walletAddress, walletIsOpen }: AccountSummaryProps) {
   const { t } = useTranslation()
-  const theme = useSelector(selectTheme)
+  const { dark } = React.useContext<any>(ThemeContext)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const ticker = useSelector(selectTicker)
 
@@ -102,17 +101,15 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
     <>
       <Box margin={{ bottom: 'small' }}>
         {walletIsOpen && walletAddress === address && (
-          <AlertBox color="status-ok-weak">
-            {t('account.summary.yourAccount', 'This is your account.')}
-          </AlertBox>
+          <AlertBox status="ok-weak">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
         )}
         {walletIsOpen && walletAddress !== address && (
-          <AlertBox color="status-warning">
+          <AlertBox status="warning">
             {t('account.summary.notYourAccount', 'This is not your account.')}
           </AlertBox>
         )}
         {!walletIsOpen && (
-          <AlertBox color="status-warning">
+          <AlertBox status="warning">
             <Trans
               i18nKey="account.summary.noWalletIsOpen"
               t={t}
@@ -161,11 +158,7 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
 
           {!isMobile && (
             <Box align="end" flex>
-              <QRCodeCanvas
-                value={address}
-                fgColor={theme === 'light' ? '#333333' : '#e8e8e8'}
-                bgColor="#00000000"
-              />
+              <QRCodeCanvas value={address} fgColor={dark ? '#e8e8e8' : '#333333'} bgColor="#00000000" />
             </Box>
           )}
         </Box>

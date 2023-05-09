@@ -146,13 +146,13 @@ export function AccountPage(props: AccountPageProps) {
         </Layer>
       )}
       {account.accountError && (
-        <AlertBox color="status-error">
+        <AlertBox status="error">
           {t('account.loadingError', "Couldn't load account.")}{' '}
           <ErrorFormatter code={account.accountError.code} message={account.accountError.message} />
         </AlertBox>
       )}
       {stake.updateDelegationsError && (
-        <AlertBox color="status-error">
+        <AlertBox status="error">
           {t('delegations.loadingError', "Couldn't load delegations.")}{' '}
           <ErrorFormatter
             code={stake.updateDelegationsError.code}

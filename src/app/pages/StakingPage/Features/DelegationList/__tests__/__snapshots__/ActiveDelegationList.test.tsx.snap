@@ -40,8 +40,8 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #4cd4a9;
-  stroke: #4cd4a9;
+  fill: #2ad5ab;
+  stroke: #2ad5ab;
 }
 
 .c18 g {

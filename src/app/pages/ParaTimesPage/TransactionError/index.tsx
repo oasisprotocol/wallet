@@ -57,7 +57,7 @@ export const TransactionError = () => {
       {transactionError && (
         <Box margin={{ bottom: 'medium' }} align="center" gap="medium" style={{ maxWidth: '550px' }}>
           <StatusCritical size="80px" color="status-error" />
-          <AlertBox color="status-error">
+          <AlertBox status="error">
             <ErrorFormatter code={transactionError.code} message={transactionError.message} />
           </AlertBox>
         </Box>

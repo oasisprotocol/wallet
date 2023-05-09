@@ -71,7 +71,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
   return (
     <>
       {showMnemonicMismatch && (
-        <AlertBox color="status-error">
+        <AlertBox status="error">
           {t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}
         </AlertBox>
       )}
@@ -136,7 +136,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
               ></Trans>
             </Text>
           </Box>
-          <AlertBox color="status-warning">
+          <AlertBox status="warning">
             {t(
               'createWallet.doNotShare',
               'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',

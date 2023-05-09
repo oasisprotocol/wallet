@@ -1,49 +1,60 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
+import { normalizeColor } from 'grommet/es6/utils'
 import * as React from 'react'
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
 
-export type AlertBoxColor = 'status-error' | 'status-warning' | 'status-ok' | 'status-ok-weak'
+export type AlertBoxStatus = 'error' | 'warning' | 'ok' | 'ok-weak'
 
 interface Props {
-  color: AlertBoxColor
+  status: AlertBoxStatus
+  center?: boolean
+  /** Example `icon={<Info size="20px" color="currentColor" />}` */
+  icon?: React.ReactNode
   children: React.ReactNode
 }
 
-const mapColor = {
-  'status-error': {
-    color: 'status-error',
-    background: 'status-error-background',
+const mapStatus = {
+  error: {
+    color: 'alert-box-error',
+    background: 'alert-box-error-background',
   },
-  'status-warning': {
-    color: 'status-warning',
-    background: 'status-warning-background',
+  warning: {
+    color: 'alert-box-warning',
+    background: 'alert-box-warning-background',
   },
-  'status-ok': {
-    color: 'status-ok',
-    background: 'status-ok-background',
+  ok: {
+    color: 'alert-box-ok',
+    background: 'alert-box-ok-background',
   },
-  'status-ok-weak': {
-    color: 'status-ok-weak',
-    background: 'status-ok-weak-background',
+  'ok-weak': {
+    color: 'alert-box-ok-weak',
+    background: 'alert-box-ok-weak-background',
   },
 }
 
 export function AlertBox(props: Props) {
+  const theme = useContext(ThemeContext)
+  // If we don't normalize upfront then grommet auto-detects darkness of background, and decides to use ['alert-box-warning'].dark with ['alert-box-warning-background'].dark
+  const color = normalizeColor(mapStatus[props.status].color, theme)
+
   return (
     <Box
       border={{
-        color: mapColor[props.color].color,
+        color: color,
         side: 'left',
         size: '3px',
       }}
-      background={{
-        color: mapColor[props.color].background,
-      }}
+      background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
-      <Text weight="bold" size="12px" style={{ lineHeight: '34px' }}>
-        {props.children}
-      </Text>
+      <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
+        {props.icon && <Text color={color}>{props.icon}</Text>}
+        <Text weight="bold" size="12px" style={{ marginTop: 10, marginBottom: 10 }}>
+          {props.children}
+        </Text>
+      </Box>
     </Box>
   )
 }

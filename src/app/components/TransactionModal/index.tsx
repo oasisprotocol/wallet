@@ -56,7 +56,7 @@ export function TransactionModal() {
         <Box>
           <ModalHeader>{t('transaction.step.preview', 'Preview transaction')}</ModalHeader>
           <Box margin={{ vertical: 'small' }}>
-            <AlertBox color="status-warning">
+            <AlertBox status="warning">
               {t(
                 'transaction.preview.warning',
                 'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',

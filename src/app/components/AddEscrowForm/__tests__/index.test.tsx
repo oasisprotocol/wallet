@@ -8,13 +8,16 @@ import { configureAppStore } from 'store/configureStore'
 import { transactionActions } from 'app/state/transaction'
 import { WalletErrors } from 'types/errors'
 import { AddEscrowForm } from '..'
+import { ThemeProvider } from '../../../../styles/theme/ThemeProvider'
 
 const renderComponent = (store: any, address: string, validatorStatus: Validator['status']) =>
   render(
     <Provider store={store}>
-      <ModalProvider>
-        <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} validatorRank={21} />
-      </ModalProvider>
+      <ThemeProvider>
+        <ModalProvider>
+          <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} validatorRank={21} />
+        </ModalProvider>
+      </ThemeProvider>
     </Provider>,
   )
 

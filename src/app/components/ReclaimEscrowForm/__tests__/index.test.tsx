@@ -7,11 +7,14 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { WalletErrors } from 'types/errors'
 import { ReclaimEscrowForm } from '..'
+import { ThemeProvider } from '../../../../styles/theme/ThemeProvider'
 
 const renderComponent = (store: any, address: string, maxAmount: string, maxShares: string) =>
   render(
     <Provider store={store}>
-      <ReclaimEscrowForm address={address} maxAmount={maxAmount} maxShares={maxShares} />
+      <ThemeProvider>
+        <ReclaimEscrowForm address={address} maxAmount={maxAmount} maxShares={maxShares} />
+      </ThemeProvider>
     </Provider>,
   )
 
