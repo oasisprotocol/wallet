@@ -38,7 +38,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
-  color: #444444;
+  color: #16213E;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -87,7 +87,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: transparent;
-  color: #444444;
+  color: #16213E;
   border: solid none #EDEDED;
   min-width: 0;
   min-height: 0;

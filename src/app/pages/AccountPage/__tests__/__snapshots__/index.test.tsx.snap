@@ -38,7 +38,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
-  color: #444444;
+  color: #16213E;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -84,7 +84,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: rgba(194,245,234,1);
-  color: #444444;
+  color: #16213E;
   border-left: solid 3px #2ad5ab;
   min-width: 0;
   min-height: 0;
@@ -125,7 +125,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   border: solid 1px #EDEDED;
   min-width: 0;
   min-height: 0;
@@ -188,7 +188,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #0092f6;
-  color: #f8f8f8;
+  color: #F8F8F8;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -331,7 +331,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   border: solid 1px #EDEDED;
   min-width: 0;
   min-height: 0;
@@ -367,7 +367,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   margin-top: 12px;
   margin-bottom: 12px;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -599,12 +599,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   text-transform: none;
   border: 2px solid #0092f6;
   border-radius: 4px;
-  color: #444444;
+  color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
   background-color: #0092f6;
-  color: #f8f8f8;
+  color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;

@@ -24,7 +24,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -55,12 +55,12 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   text-transform: none;
   border: 2px solid #0092f6;
   border-radius: 4px;
-  color: #444444;
+  color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
   background-color: #0092f6;
-  color: #f8f8f8;
+  color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
@@ -184,7 +184,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
-  color: #444444;
+  color: #16213E;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
