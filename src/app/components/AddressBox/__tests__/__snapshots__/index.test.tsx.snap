@@ -63,6 +63,11 @@ exports[`<AddressBox /> should render address properly 1`] = `
   word-break: break-word;
 }
 
+.c4 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c1 {
   display: inline-block;
   box-sizing: border-box;
@@ -152,10 +157,15 @@ exports[`<AddressBox /> should render address properly 1`] = `
       class="c3"
     >
       <span
-        class="notranslate"
-        translate="no"
+        class="c4"
+        style="font-family: Roboto mono;"
       >
-        oasis1 qqur xkga vtcj jytn eume clx5 9ds3 avja qg7f tqph
+        <span
+          class="notranslate"
+          translate="no"
+        >
+          oasis1 qqur xkga vtcj jytn eume clx5 9ds3 avja qg7f tqph
+        </span>
       </span>
     </span>
   </div>
