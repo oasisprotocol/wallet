@@ -25,6 +25,7 @@ a {
 
 html {
   cursor: initial;
+  letter-spacing: 0.05em;
 }
 
 * {

@@ -1012,7 +1012,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c13"
-                style="font-family: Roboto mono;"
+                style="font-family: Roboto mono; letter-spacing: 0;"
               >
                 <span
                   class="notranslate"

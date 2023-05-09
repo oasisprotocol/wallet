@@ -29,7 +29,7 @@ export const PrettyAddress = memo((props: Props) => {
     const prettyAddress = `${hrp}1 ${publicKey}`
 
     return (
-      <Text style={{ fontFamily: 'Roboto mono' }}>
+      <Text style={{ fontFamily: 'Roboto mono', letterSpacing: 0 }}>
         <NoTranslate>{prettyAddress}</NoTranslate>
       </Text>
     )
