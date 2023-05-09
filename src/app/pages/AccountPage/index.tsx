@@ -33,13 +33,11 @@ import {
   selectWallets,
   selectWalletsAddresses,
 } from 'app/state/wallet/selectors'
-import { tabBadgeCounterZIndex } from '../../../styles/theme/elementSizes'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
+import { Button } from 'grommet/es6/components/Button'
 
 const StyledNavItem = styled(NavLink)`
-  display: flex;
-  position: relative;
   padding: ${({ theme }) => theme.global?.edgeSize?.small};
 
   :hover {
@@ -64,22 +62,9 @@ interface NavItemProps {
 const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
     <StyledNavItem end to={route}>
-      <Text>{label}</Text>
-      {!!counter && (
-        <Box
-          align="center"
-          style={{ position: 'absolute', top: '-3px', right: '-5px', zIndex: tabBadgeCounterZIndex }}
-          responsive={false}
-          background="brand"
-          pad={{ horizontal: 'xsmall' }}
-          width="20px"
-          round
-        >
-          <Text size="small" weight="bold">
-            {counter}
-          </Text>
-        </Box>
-      )}
+      <Button badge={counter} tabIndex={-1}>
+        {label}
+      </Button>
     </StyledNavItem>
   )
 }
