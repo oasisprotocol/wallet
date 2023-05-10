@@ -6,7 +6,6 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Grid } from 'grommet/es6/components/Grid'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { Text } from 'grommet/es6/components/Text'
 import React, { memo, useContext } from 'react'
 
 import { AmountFormatter } from '../AmountFormatter'
@@ -35,30 +34,18 @@ export const TransactionPreview = memo((props: Props) => {
       />
       <ResponsiveGridRow
         label={t('transaction.preview.from', 'From')}
-        value={
-          <Text style={{ fontFamily: 'Roboto mono' }}>
-            <PrettyAddress address={walletAddress} />
-          </Text>
-        }
+        value={<PrettyAddress address={walletAddress} />}
       />
       {preview.transaction.type === 'transfer' && (
         <ResponsiveGridRow
           label={t('transaction.preview.to', 'To')}
-          value={
-            <Text style={{ fontFamily: 'Roboto mono' }}>
-              <PrettyAddress address={preview.transaction.to} />
-            </Text>
-          }
+          value={<PrettyAddress address={preview.transaction.to} />}
         />
       )}
       {(preview.transaction.type === 'addEscrow' || preview.transaction.type === 'reclaimEscrow') && (
         <ResponsiveGridRow
           label={t('transaction.preview.validator', 'Validator')}
-          value={
-            <Text style={{ fontFamily: 'Roboto mono' }}>
-              <PrettyAddress address={preview.transaction.validator} />
-            </Text>
-          }
+          value={<PrettyAddress address={preview.transaction.validator} />}
         />
       )}
       <ResponsiveGridRow

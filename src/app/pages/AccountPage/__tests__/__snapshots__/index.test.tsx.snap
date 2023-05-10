@@ -38,7 +38,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
-  color: #444444;
+  color: #16213E;
   box-sizing: border-box;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -84,7 +84,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: rgba(194,245,234,1);
-  color: #444444;
+  color: #16213E;
   border-left: solid 3px #2ad5ab;
   min-width: 0;
   min-height: 0;
@@ -125,7 +125,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   border: solid 1px #EDEDED;
   min-width: 0;
   min-height: 0;
@@ -188,7 +188,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #0092f6;
-  color: #f8f8f8;
+  color: #F8F8F8;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -331,7 +331,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   border: solid 1px #EDEDED;
   min-width: 0;
   min-height: 0;
@@ -367,7 +367,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   margin-top: 12px;
   margin-bottom: 12px;
   background-color: #FFFFFF;
-  color: #444444;
+  color: #16213E;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -418,6 +418,11 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   word-break: break-word;
 }
 
+.c13 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .c15 {
   font-size: 12px;
   line-height: 18px;
@@ -437,11 +442,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   margin-right: 12px;
   margin-top: 6px;
   margin-bottom: 6px;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-.c14 {
   font-size: 18px;
   line-height: 24px;
 }
@@ -599,12 +599,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   text-transform: none;
   border: 2px solid #0092f6;
   border-radius: 4px;
-  color: #444444;
+  color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
   background-color: #0092f6;
-  color: #f8f8f8;
+  color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
@@ -656,7 +656,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -672,13 +672,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 12px 12px 6px;
 }
 
-.c13 dt,
-.c13 dd {
+.c14 dt,
+.c14 dd {
   margin: 0;
 }
 
-.c13 dt:first-of-type,
-.c13 dd:first-of-type {
+.c14 dt:first-of-type,
+.c14 dd:first-of-type {
   font-weight: bold;
 }
 
@@ -899,20 +899,20 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .c13 dt {
+  .c14 dt {
     width: 40%;
   }
 
-  .c13 dd {
+  .c14 dd {
     width: 60%;
   }
 
-  .c13 dt:not(:last-of-type),.c13 dd:not(:last-of-type) {
+  .c14 dt:not(:last-of-type),.c14 dd:not(:last-of-type) {
     margin-bottom: 6px;
   }
 
-  .c13 dt:first-of-type,
-  .c13 dd:first-of-type {
+  .c14 dt:first-of-type,
+  .c14 dd:first-of-type {
     font-size: 22px;
     line-height: 28px;
     margin-bottom: 12px;
@@ -920,26 +920,26 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c13 dt {
+  .c14 dt {
     width: 30%;
   }
 
-  .c13 dd {
+  .c14 dd {
     width: 70%;
     text-align: right;
   }
 
-  .c13 dt,
-  .c13 dd {
+  .c14 dt,
+  .c14 dd {
     font-size: 16px;
   }
 
-  .c13 dt:not(:last-of-type),.c13 dd:not(:last-of-type) {
+  .c14 dt:not(:last-of-type),.c14 dd:not(:last-of-type) {
     margin-bottom: 3px;
   }
 
-  .c13 dt:first-of-type,
-  .c13 dd:first-of-type {
+  .c14 dt:first-of-type,
+  .c14 dd:first-of-type {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 6px;
@@ -1011,20 +1011,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               class="c12"
             >
               <span
-                class="notranslate"
-                translate="no"
+                class="c13"
+                style="font-family: Roboto mono; letter-spacing: 0;"
               >
-                oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
+                <span
+                  class="notranslate"
+                  translate="no"
+                >
+                  oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
+                </span>
               </span>
             </span>
           </div>
           <dl
-            class="c13"
+            class="c14"
             data-testid="account-balance-summary"
           >
             <dt>
               <span
-                class="c14"
+                class="c13"
               >
                 Total
               </span>

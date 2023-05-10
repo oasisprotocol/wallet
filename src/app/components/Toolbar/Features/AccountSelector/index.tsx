@@ -43,13 +43,7 @@ export const Account = memo((props: AccountProps) => {
   const size = useContext(ResponsiveContext)
 
   const address =
-    size === 'small' ? (
-      <ShortAddress address={props.address} />
-    ) : (
-      <Text style={{ fontFamily: 'Roboto mono' }}>
-        <PrettyAddress address={props.address} />
-      </Text>
-    )
+    size === 'small' ? <ShortAddress address={props.address} /> : <PrettyAddress address={props.address} />
 
   const walletTypes: { [type in WalletType]: string } = {
     [WalletType.Ledger]: t('toolbar.wallets.type.ledger', 'Ledger'),
