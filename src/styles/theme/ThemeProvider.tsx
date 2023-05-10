@@ -25,6 +25,15 @@ const grommetCustomTheme: ThemeType = {
     border: {
       radius: '4px',
     },
+    badge: {
+      size: { medium: '20px' },
+      container: {
+        extend: `
+          margin-top: -10px;
+          margin-right: -10px;
+        `,
+      },
+    },
   },
   tip: {
     content: {
