@@ -99,9 +99,10 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
+    "buildPreview": "Please note this is an experimental build of Oasis Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
+    "buildStaging": "Please note this is the staging deployment of Oasis Wallet. ONLY USE IT FOR TESTING.",
     "domainMoved": "Oasis Wallet has a new home at <NewLink />."
   },
-  "buildPreview": "Please note this is an experimental build of Oasis Wallet and that data that is shown might be incorrect.",
   "common": {
     "amount": "Amount",
     "block": "Block",

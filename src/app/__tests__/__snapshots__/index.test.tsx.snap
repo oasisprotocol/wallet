@@ -20,7 +20,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
         name="description"
       />
     </Helmet>
-    <BuildPreviewBanner />
+    <BuildBanner />
     <Box
       background="background-back"
       direction="row-responsive"
