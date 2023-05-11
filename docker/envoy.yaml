@@ -18,21 +18,21 @@ static_resources:
                       domains: ['*']
                       routes:
                         - match:
-                          safe_regex:
-                            regex: '/oasis-core\.(NodeController/WaitReady|Registry/(GetNodes)|Staking/(TokenSymbol|ConsensusParameters|Account|DelegationsTo|DelegationsFor|DelegationInfosFor|DebondingDelegationInfosFor|GetEvents)|Beacon/(GetEpoch)|Consensus/(SubmitTx|EstimateGas|GetBlock|GetChainContext|GetTransactionsWithResults|GetGenesisDocument|WatchBlocks|GetSignerNonce))'
+                            safe_regex:
+                              regex: '/oasis-core\.(NodeController/WaitReady|Registry/(GetNodes)|Staking/(TokenSymbol|ConsensusParameters|Account|DelegationsTo|DelegationsFor|DelegationInfosFor|DebondingDelegationInfosFor|GetEvents)|Beacon/(GetEpoch)|Consensus/(SubmitTx|EstimateGas|GetBlock|GetChainContext|GetTransactionsWithResults|GetGenesisDocument|WatchBlocks|GetSignerNonce))'
                           route:
                             cluster: oasis_node_grpc
                             timeout: 0s
                             max_stream_duration:
                               grpc_timeout_header_max: 0s
                         - match:
-                          prefix: '/oasis-core'
+                            prefix: '/oasis-core'
                           direct_response:
                             status: 404
                             body:
                               inline_string: 'You have to list every method you use in the envoy matcher.'
                         - match:
-                          prefix: '/'
+                            prefix: '/'
                           route:
                             cluster: dev_static
                       cors:
