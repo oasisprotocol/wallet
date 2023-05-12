@@ -2,9 +2,11 @@
 const path = require('path')
 const http = require('http')
 const serveHandler = require('serve-handler')
-const { getCsp } = require('../getPermissionHeaders.js')
+const { getCsp, getPermissionsPolicy } = require('../getPermissionHeaders.js')
 const csp = getCsp()
+const permissionsPolicy = getPermissionsPolicy()
 console.log(`Content-Security-Policy: ${csp}\n`)
+console.log(`Permissions-Policy: ${permissionsPolicy}\n`)
 
 const root = path.resolve(__dirname, '../..')
 
@@ -26,6 +28,10 @@ const server = http.createServer((request, response) => {
           {
             key: 'Content-Security-Policy',
             value: csp,
+          },
+          {
+            key: 'Permissions-Policy',
+            value: permissionsPolicy,
           },
         ],
       },
