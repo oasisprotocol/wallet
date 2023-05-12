@@ -2,7 +2,7 @@
 const path = require('path')
 const http = require('http')
 const serveHandler = require('serve-handler')
-const { getCsp } = require('../getCsp.js')
+const { getCsp } = require('../getPermissionHeaders.js')
 const csp = getCsp()
 console.log(`Content-Security-Policy: ${csp}\n`)
 
