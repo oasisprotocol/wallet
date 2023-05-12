@@ -59,7 +59,7 @@ const getPermissionsPolicy = () =>
     accelerometer=(),
     ambient-light-sensor=(),
     autoplay=(),
-    battery=(),
+    bluetooth=(self),
     camera=(),
     cross-origin-isolated=(),
     display-capture=(),
@@ -67,7 +67,7 @@ const getPermissionsPolicy = () =>
     encrypted-media=(),
     execution-while-not-rendered=(),
     execution-while-out-of-viewport=(),
-    fullscreen=(),
+    fullscreen=(self),
     geolocation=(),
     gyroscope=(),
     keyboard-map=(),
@@ -80,7 +80,7 @@ const getPermissionsPolicy = () =>
     publickey-credentials-get=(),
     screen-wake-lock=(),
     sync-xhr=(),
-    usb=(),
+    usb=(self),
     web-share=(),
     xr-spatial-tracking=()
   `
