@@ -11,6 +11,7 @@ import { ImportAccountsListAccount, ImportAccountsStep } from './types'
 import { WalletErrors } from 'types/errors'
 import { OasisTransaction } from 'app/lib/transaction'
 import { WalletType } from 'app/state/wallet/types'
+import delayP from '@redux-saga/delay-p'
 
 describe('importAccounts Sagas', () => {
   describe('enumerateAccountsFromLedger', () => {
@@ -123,6 +124,7 @@ describe('importAccounts Sagas', () => {
           ],
           [matchers.call.fn(publicKeyToAddress), mockAddress],
           [matchers.call.fn(getBalance), {}],
+          [matchers.call.fn(delayP), null], // https://github.com/jfairbank/redux-saga-test-plan/issues/257
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromMnemonic('mnemonic'))
         .put(importAccountsActions.setStep(ImportAccountsStep.LoadingAccounts))

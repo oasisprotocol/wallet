@@ -4,7 +4,7 @@ import * as oasis from '@oasisprotocol/client'
 import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
-import { all, call, fork, put, select, takeEvery } from 'typed-redux-saga'
+import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
@@ -66,6 +66,7 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
 
   try {
     yield* setStep(ImportAccountsStep.LoadingAccounts)
+    // Pre-derive all pages of accounts so we don't need to store mnemonic in redux.
     for (let i = 0; i < accountsPerPage * numberOfAccountPages; i++) {
       const signer = yield* call(oasis.hdkey.HDKey.getAccountSigner, mnemonic, i)
       const address = yield* call(publicKeyToAddress, signer.publicKey)
@@ -79,6 +80,8 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
         selected: i === 0,
         type: WalletType.Mnemonic,
       })
+      // Prevent freezing UI rendering. Especially noticeable on a phone.
+      yield* delay(0)
     }
     yield* put(importAccountsActions.accountsListed(wallets))
     yield* setStep(ImportAccountsStep.Idle)
