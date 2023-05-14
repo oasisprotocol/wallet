@@ -4,7 +4,7 @@
 
 Staging:
 - checkout `master` branch
-- `yarn install --frozen-lockfile && yarn build-preview`
+- `yarn install --frozen-lockfile && yarn build`
 - deploy to <https://wallet.stg.oasis.io/>
 
 Production:

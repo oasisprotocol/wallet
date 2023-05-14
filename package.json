@@ -9,7 +9,6 @@
   },
   "scripts": {
     "build": "node ./internals/scripts/build-web.js",
-    "build-preview": "yarn run build",
     "build:ext": "node ./internals/scripts/build-ext.js",
     "clean": "rm -rf build/ .parcel-cache",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
