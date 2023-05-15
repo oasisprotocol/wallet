@@ -23,7 +23,7 @@ function Layout(props: { children?: React.ReactNode }) {
       background="background-front"
       pad="medium"
     >
-      <Header>{t('fiatOnramp.header', 'Buy crypto to your wallet')}</Header>
+      <Header>{t('fiatOnramp.header', 'Buy ROSE')}</Header>
       <p>
         {t(
           'fiatOnramp.description',
@@ -81,7 +81,7 @@ export function FiatOnramp() {
       <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
         {t(
           'fiatOnramp.thirdPartyDisclaimer',
-          'This service is provided by an external party. Oasis does not carry any responsibility.',
+          'This service is provided by an external party. Oasis does not carry any responsibility. All fees charged by Transak.',
         )}
       </AlertBox>
 
@@ -103,12 +103,15 @@ export function FiatOnramp() {
           allow="camera;microphone;fullscreen;payment"
           // TODO: maybe restrict top-navigation with sandbox=""
           src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
+            // https://docs.transak.com/docs/query-parameters
             apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
             productsAvailed: 'BUY',
             cryptoCurrencyCode: 'ROSE',
             walletAddress: walletAddress,
             disableWalletAddressForm: 'true',
+            isFeeCalculationHidden: 'false',
 
+            exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
             themeColor: '#18213c',
           }).toString()}`}
           style={{

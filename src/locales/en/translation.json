@@ -164,13 +164,14 @@
   },
   "fiatOnramp": {
     "description": "This feature allows you to convert your fiat currency into cryptocurrency.",
-    "header": "Buy crypto to your wallet",
+    "header": "Buy ROSE",
+    "headerInWidget": "Purchase ROSE to your wallet",
     "notMainnet": "You can only use this feature when your are on the mainnet.",
     "notYourAccount": "You can only use this feature when your wallet is open.",
     "openYourWallet": "Open your wallet",
     "switchToMainnet": "Switch to Mainnet",
     "thirdPartyAcknowledge": "I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.",
-    "thirdPartyDisclaimer": "This service is provided by an external party. Oasis does not carry any responsibility."
+    "thirdPartyDisclaimer": "This service is provided by an external party. Oasis does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
     "github": "Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
