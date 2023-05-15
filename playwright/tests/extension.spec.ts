@@ -1,5 +1,7 @@
 import { test as base, expect, BrowserContext, chromium } from '@playwright/test'
 import path from 'path'
+import { warnSlowApi } from '../utils/warnSlowApi'
+import { mockApi } from '../utils/mockApi'
 
 // Test dev build by default, but also allow testing production
 const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '../build-dev/')
@@ -34,6 +36,11 @@ export const test = base.extend<{
     const extensionId = background.url().split('/')[2]
     await use(extensionId)
   },
+})
+
+test.beforeEach(async ({ context }) => {
+  await warnSlowApi(context)
+  await mockApi(context, 0)
 })
 
 test.describe('The extension popup should load', () => {
