@@ -28,8 +28,26 @@ function tryToGetEffectDescription(effect: any) {
   return
 }
 
+function getEffectChain(triggeredOptions: any, effectIdToTriggered: Record<number, any>) {
+  let currentTriggered = triggeredOptions
+  const chain = [tryToGetEffectDescription(currentTriggered.effect) ?? currentTriggered.effect]
+  while (currentTriggered?.parentEffectId) {
+    currentTriggered = effectIdToTriggered[currentTriggered.parentEffectId]
+    chain.unshift('->')
+    chain.unshift(tryToGetEffectDescription(currentTriggered?.effect) ?? currentTriggered?.effect)
+  }
+  return chain
+}
+
 export function configureAppStore(state?: Partial<RootState>) {
+  const effectIdToTriggered: Record<number, any> = {}
   const sagaMiddleware = createSagaMiddleware({
+    sagaMonitor: {
+      effectTriggered(triggeredOptions) {
+        effectIdToTriggered[triggeredOptions.effectId] = triggeredOptions
+        console.log(...getEffectChain(triggeredOptions, effectIdToTriggered))
+      },
+    },
     effectMiddlewares: [
       next => effect => {
         const stacktraceName = `== SAGA: ${tryToGetEffectDescription(effect)}`
