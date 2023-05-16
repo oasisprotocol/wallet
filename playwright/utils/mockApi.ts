@@ -1,4 +1,5 @@
 import { BrowserContext, Page } from '@playwright/test'
+import type { AccountsRow } from '../../src/vendors/oasisscan/index'
 
 export async function mockApi(context: BrowserContext | Page, balance: number) {
   await context.route('**/chain/account/info/*', route => {
@@ -14,7 +15,7 @@ export async function mockApi(context: BrowserContext | Page, balance: number) {
           total: '0',
           nonce: 1,
           allowances: [],
-        },
+        } satisfies AccountsRow,
       }),
     })
   })
