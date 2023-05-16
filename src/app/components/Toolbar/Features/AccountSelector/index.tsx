@@ -28,7 +28,7 @@ interface Props {
 
 interface AccountProps {
   address: string
-  balance?: StringifiedBigInt
+  balance: StringifiedBigInt | null
   type: WalletType
   onClick: (address: string) => void
   path?: number[]

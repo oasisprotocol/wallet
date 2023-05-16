@@ -1,10 +1,11 @@
 import { ErrorPayload } from 'types/errors'
-import { WalletBalance, WalletType } from '../wallet/types'
+import { WalletType } from '../wallet/types'
+import { BalanceDetails } from '../account/types'
 
 /* --- STATE --- */
 export interface ImportAccountsListAccount {
   address: string
-  balance?: WalletBalance
+  balance?: BalanceDetails
   path: number[]
   pathDisplay: string
   privateKey?: string

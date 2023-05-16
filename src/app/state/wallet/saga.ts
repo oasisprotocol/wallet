@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { hex2uint, parseRpcBalance, publicKeyToAddress, shortPublicKey, uint2hex } from 'app/lib/helpers'
+import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
 import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
 import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
@@ -7,7 +7,6 @@ import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
 import { walletActions } from '.'
 import { importAccountsActions } from '../importaccounts'
 import { ImportAccountsListAccount } from '../importaccounts/types'
-import { getOasisNic } from '../network/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress, selectWallets } from './selectors'
 import {
@@ -18,6 +17,7 @@ import {
   WalletType,
 } from './types'
 import { persistActions } from 'app/state/persist'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
 /**
  * Opened wallet saga
@@ -38,17 +38,6 @@ export function* rootWalletSaga() {
 
   // Start the wallet saga in parallel
   yield* fork(walletSaga)
-}
-
-export function* getBalance(publicKey: Uint8Array) {
-  const nic = yield* call(getOasisNic)
-  const short = yield* call(shortPublicKey, publicKey)
-  const account = yield* call([nic, nic.stakingAccount], {
-    height: 0,
-    owner: short,
-  })
-
-  return parseRpcBalance(account)
 }
 
 function* getWalletByAddress(address: string) {
@@ -85,7 +74,7 @@ export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPri
   const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(payload.privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
-  const balance = yield* call(getBalance, publicKeyBytes)
+  const balance = yield* call(getAccountBalanceWithFallback, walletAddress)
 
   yield* call(addWallet, {
     address: walletAddress,
@@ -143,7 +132,7 @@ export function* addWallet(payload: AddWalletPayload) {
 
 function* fetchWallet(action: PayloadAction<Wallet>) {
   const wallet = action.payload
-  const balance = yield* call(getBalance, hex2uint(wallet.publicKey))
+  const balance = yield* call(getAccountBalanceWithFallback, wallet.address)
   yield* put(
     walletActions.updateBalance({
       address: wallet.address,

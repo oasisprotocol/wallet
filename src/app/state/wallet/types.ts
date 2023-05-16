@@ -1,4 +1,4 @@
-import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { BalanceDetails } from '../account/types'
 
 export enum WalletType {
   Ledger = 'ledger',
@@ -6,24 +6,9 @@ export enum WalletType {
   Mnemonic = 'mnemonic',
 }
 
-/**
- * WalletBalance
- *
- * We stock the amounts as strings to work around
- * poor bigint support in JS
- *
- */
-export interface WalletBalance {
-  available: StringifiedBigInt
-  validator: {
-    escrow: StringifiedBigInt
-    escrow_debonding: StringifiedBigInt
-  }
-}
-
 export interface BalanceUpdatePayload {
   address: string
-  balance: WalletBalance
+  balance: BalanceDetails
 }
 
 export interface Wallet {
@@ -33,7 +18,7 @@ export interface Wallet {
   path?: number[]
   pathDisplay?: string
   privateKey?: string
-  balance: WalletBalance
+  balance: BalanceDetails
 }
 
 export interface AddWalletPayload extends Wallet {
