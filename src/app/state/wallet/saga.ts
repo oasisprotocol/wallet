@@ -74,14 +74,19 @@ export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPri
   const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(payload.privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
-  const balance = yield* call(getAccountBalanceWithFallback, walletAddress)
 
   yield* call(addWallet, {
     address: walletAddress,
     publicKey,
     privateKey: payload.privateKey,
     type: type!,
-    balance,
+    balance: {
+      // Balance will be fetched after redirect
+      available: null,
+      debonding: null,
+      delegations: null,
+      total: null,
+    },
     selectImmediately: true,
   })
 
