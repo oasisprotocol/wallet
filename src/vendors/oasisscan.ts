@@ -91,9 +91,9 @@ export function parseAccount(account: AccountsRow): Account {
       amount: parseRoseStringToBaseUnitString(allowance.amount),
     })),
     available: parseRoseStringToBaseUnitString(account.available),
-    delegations: null,
-    debonding: null,
-    total: null,
+    delegations: parseRoseStringToBaseUnitString(account.escrow),
+    debonding: parseRoseStringToBaseUnitString(account.debonding),
+    total: parseRoseStringToBaseUnitString(account.total),
   }
 }
 
