@@ -1,63 +1,42 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import { addressToPublicKey, parseRpcBalance } from 'app/lib/helpers'
 import { all, call, delay, fork, join, put, select, take, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { accountActions } from '.'
-import { getExplorerAPIs, getOasisNic } from '../network/saga'
+import { getExplorerAPIs } from '../network/saga'
 import { takeLatestCancelable } from '../takeLatestCancelable'
 import { stakingActions } from '../staking'
 import { fetchAccount as stakingFetchAccount } from '../staking/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
 const ACCOUNT_REFETCHING_INTERVAL = 30 * 1000
 const TRANSACTIONS_LIMIT = 20
-
-function* getBalanceGRPC(address: string) {
-  const nic = yield* call(getOasisNic)
-  const publicKey = yield* call(addressToPublicKey, address)
-  const account = yield* call([nic, nic.stakingAccount], { owner: publicKey, height: 0 })
-  const balance = parseRpcBalance(account)
-  return {
-    address,
-    available: balance.available,
-    delegations: null,
-    debonding: null,
-    total: null,
-  }
-}
 
 export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
   yield* put(accountActions.setLoading(true))
-  const { getAccount, getTransactionsList } = yield* call(getExplorerAPIs)
+  const { getTransactionsList } = yield* call(getExplorerAPIs)
 
   yield* all([
     join(
       yield* fork(function* () {
         try {
-          const account = yield* call(getAccount, address)
+          const account = yield* call(getAccountBalanceWithFallback, address)
           yield* put(accountActions.accountLoaded(account))
         } catch (apiError: any) {
-          console.error('get account failed, continuing to RPC fallback.', apiError)
-          try {
-            const account = yield* call(getBalanceGRPC, address)
-            yield* put(accountActions.accountLoaded(account))
-          } catch (rpcError) {
-            console.error('get account with RPC failed, continuing without updated account.', rpcError)
-            if (apiError instanceof WalletError) {
-              yield* put(accountActions.accountError({ code: apiError.type, message: apiError.message }))
-            } else {
-              yield* put(
-                accountActions.accountError({
-                  code: WalletErrors.UnknownError,
-                  message: apiError.message,
-                }),
-              )
-            }
+          if (apiError instanceof WalletError) {
+            yield* put(accountActions.accountError({ code: apiError.type, message: apiError.message }))
+          } else {
+            yield* put(
+              accountActions.accountError({
+                code: WalletErrors.UnknownError,
+                message: apiError.message,
+              }),
+            )
           }
         }
       }),
