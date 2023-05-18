@@ -77,53 +77,64 @@ export function FiatOnramp() {
   }
 
   return (
-    <HeaderLayout>
-      <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
-        {t(
-          'fiatOnramp.thirdPartyDisclaimer',
-          'This service is provided by an external party. Oasis does not carry any responsibility. All fees charged by Transak.',
+    <Box gap="small">
+      <HeaderLayout></HeaderLayout>
+
+      <Box
+        round="5px"
+        border={{ color: 'background-front-border', size: '1px' }}
+        background="background-front"
+        pad="medium"
+        alignSelf="center"
+        width="601px" // Transak threshold for >mobile layout
+        style={{ boxSizing: 'content-box' }}
+      >
+        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
+          {t(
+            'fiatOnramp.thirdPartyDisclaimer',
+            'This service is provided by an external party. Oasis does not carry any responsibility. All fees charged by Transak.',
+          )}
+        </AlertBox>
+
+        {!thirdPartyAcknowledged ? (
+          <Box margin={{ top: '20px', bottom: '400px' }}>
+            <CheckBox
+              label={t(
+                'fiatOnramp.thirdPartyAcknowledge',
+                'I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.',
+              )}
+              checked={thirdPartyAcknowledged}
+              onChange={event => setThirdPartyAcknowledged(event.target.checked)}
+            />
+          </Box>
+        ) : (
+          <iframe
+            height="825"
+            title="Transak On/Off Ramp Widget"
+            allow="camera;microphone;fullscreen;payment"
+            // TODO: maybe restrict top-navigation with sandbox=""
+            src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
+              // https://docs.transak.com/docs/query-parameters
+              apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
+              productsAvailed: 'BUY',
+              cryptoCurrencyCode: 'ROSE',
+              walletAddress: walletAddress,
+              disableWalletAddressForm: 'true',
+              isFeeCalculationHidden: 'false',
+
+              exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
+              themeColor: '#18213c',
+            }).toString()}`}
+            style={{
+              display: 'block',
+              width: '100%',
+              maxHeight: '825px',
+              borderRadius: '3px',
+              border: 'none',
+            }}
+          ></iframe>
         )}
-      </AlertBox>
-
-      {!thirdPartyAcknowledged ? (
-        <Box style={{ height: 825 }}>
-          <CheckBox
-            label={t(
-              'fiatOnramp.thirdPartyAcknowledge',
-              'I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.',
-            )}
-            checked={thirdPartyAcknowledged}
-            onChange={event => setThirdPartyAcknowledged(event.target.checked)}
-          />
-        </Box>
-      ) : (
-        <iframe
-          height="825"
-          title="Transak On/Off Ramp Widget"
-          allow="camera;microphone;fullscreen;payment"
-          // TODO: maybe restrict top-navigation with sandbox=""
-          src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
-            // https://docs.transak.com/docs/query-parameters
-            apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
-            productsAvailed: 'BUY',
-            cryptoCurrencyCode: 'ROSE',
-            walletAddress: walletAddress,
-            disableWalletAddressForm: 'true',
-            isFeeCalculationHidden: 'false',
-
-            exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
-            themeColor: '#18213c',
-          }).toString()}`}
-          style={{
-            display: 'block',
-            width: '100%',
-            maxHeight: '825px',
-            maxWidth: '500px',
-            borderRadius: '3px',
-            border: 'none',
-          }}
-        ></iframe>
-      )}
-    </HeaderLayout>
+      </Box>
+    </Box>
   )
 }
