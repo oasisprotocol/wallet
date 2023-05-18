@@ -14,7 +14,7 @@ import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { useState } from 'react'
 
-function Layout(props: { children?: React.ReactNode }) {
+function HeaderLayout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
   return (
     <Box
@@ -49,7 +49,7 @@ export function FiatOnramp() {
 
   if (selectedNetwork !== 'mainnet') {
     return (
-      <Layout>
+      <HeaderLayout>
         <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
           {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
         </AlertBox>
@@ -59,25 +59,25 @@ export function FiatOnramp() {
           label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
           primary
         />
-      </Layout>
+      </HeaderLayout>
     )
   }
   if (accountIsLoading) {
-    return <Layout />
+    return <HeaderLayout />
   }
   if (!walletAddress || !isAddressInWallet) {
     return (
-      <Layout>
+      <HeaderLayout>
         <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
           {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
         </AlertBox>
         <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
-      </Layout>
+      </HeaderLayout>
     )
   }
 
   return (
-    <Layout>
+    <HeaderLayout>
       <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
         {t(
           'fiatOnramp.thirdPartyDisclaimer',
@@ -124,6 +124,6 @@ export function FiatOnramp() {
           }}
         ></iframe>
       )}
-    </Layout>
+    </HeaderLayout>
   )
 }
