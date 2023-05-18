@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Oasisscan API
- * https://github.com/bitcat365/oasisscan-backend#readme
+ * https://github.com/bitcat365/oasisscan-backend#readme https://api.oasisscan.com/mainnet/swagger-ui/#/ https://api.oasisscan.com/mainnet/v2/api-docs 
  *
  * The version of the OpenAPI document: 1
  * 

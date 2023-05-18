@@ -4,7 +4,10 @@ openapi: '3.0.1'
 info:
   title: Oasisscan API
   version: '1'
-  description: https://github.com/bitcat365/oasisscan-backend#readme
+  description: |
+    https://github.com/bitcat365/oasisscan-backend#readme
+    https://api.oasisscan.com/mainnet/swagger-ui/#/
+    https://api.oasisscan.com/mainnet/v2/api-docs
 paths:
   '/chain/account/info/{account_id}':
     get:
