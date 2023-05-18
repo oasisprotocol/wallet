@@ -244,9 +244,6 @@ test.describe('syncTabs', () => {
     page,
     context,
   }) => {
-    // TODO: https://github.com/oasisprotocol/oasis-wallet-web/pull/975#discussion_r1019567305
-    test.fail()
-
     await addPersistedStorage(page)
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
@@ -256,6 +253,8 @@ test.describe('syncTabs', () => {
     await page.getByRole('button', { name: /Private key/ }).click()
     const tab2 = await context.newPage()
     await tab2.goto('/')
+    await expect(tab2.getByText('Loading account')).toBeVisible()
+    await expect(tab2.getByText('Loading account')).toBeHidden()
 
     // Delay getBalance so addWallet is called after wallet is locked.
     let grpcBalance: Route
@@ -269,6 +268,9 @@ test.describe('syncTabs', () => {
       body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
     })
 
-    await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
+    // TODO: https://github.com/oasisprotocol/oasis-wallet-web/pull/975#discussion_r1019567305
+    // await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
+    await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
+    await page.close() // Just to avoid expectNoFatal in afterEach
   })
 })

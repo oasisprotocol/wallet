@@ -1,4 +1,5 @@
 import { decryptWithPassword, deriveKeyFromPassword, encryptWithKey, fromBase64andParse } from 'app/state/persist/encryption'
+import { EncryptedObject } from '../../src/app/state/persist/types'
 
 describe('encryption unit tests in browser', () => {
   const PASSWORD = 'abcd1234&'
@@ -46,7 +47,7 @@ describe('encryption unit tests in browser', () => {
         142, 84, 1, 34, 155, 63, 246, 170, 198, 16, 253, 87, 59, 140, 165, 209, 70, 123, 52, 63, 209, 79, 137,
         18, 116, 123, 27, 86, 153, 221, 206, 34,
       ]),
-    })
+    } satisfies EncryptedObject)
 
     const decrypted = await decryptWithPassword<typeof DATA>(PASSWORD, encryptedString)
     expect(decrypted).deep.equal(DATA)
