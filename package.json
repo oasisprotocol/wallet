@@ -88,7 +88,7 @@
     "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.10.5",
+    "@cypress/code-coverage": "3.10.6",
     "@parcel/config-webextension": "2.8.3",
     "@parcel/packager-raw-url": "2.8.3",
     "@parcel/transformer-webmanifest": "2.8.3",
