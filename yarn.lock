@@ -3645,10 +3645,10 @@
     "@types/react" "*"
     csstype "^3.0.2"
 
-"@types/testing-library__jest-dom@5.14.5":
-  version "5.14.5"
-  resolved "https://registry.yarnpkg.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.14.5.tgz#d113709c90b3c75fdb127ec338dad7d5f86c974f"
-  integrity sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==
+"@types/testing-library__jest-dom@5.14.6":
+  version "5.14.6"
+  resolved "https://registry.yarnpkg.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.14.6.tgz#4887f6e1af11215428ab02777873bcede98a53b0"
+  integrity sha512-FkHXCb+ikSoUP4Y4rOslzTdX5sqYwMxfefKh1GmZ8ce1GOkEHntSp6b5cGadmNfp5e4BMEWOMx+WSKd5/MqlDA==
   dependencies:
     "@types/jest" "*"
 
@@ -5123,10 +5123,10 @@ csstype@^3.0.2:
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.0.7.tgz"
   integrity sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==
 
-cypress@12.12.0:
-  version "12.12.0"
-  resolved "https://registry.yarnpkg.com/cypress/-/cypress-12.12.0.tgz#0da622a34c970d8699ca6562d8e905ed7ce33c77"
-  integrity sha512-UU5wFQ7SMVCR/hyKok/KmzG6fpZgBHHfrXcHzDmPHWrT+UUetxFzQgt7cxCszlwfozckzwkd22dxMwl/vNkWRw==
+cypress@12.13.0:
+  version "12.13.0"
+  resolved "https://registry.yarnpkg.com/cypress/-/cypress-12.13.0.tgz#725b6617ea19e41e5c59cc509fc3e08097142b01"
+  integrity sha512-QJlSmdPk+53Zhy69woJMySZQJoWfEWun3X5OOenGsXjRPVfByVTHorxNehbzhZrEzH9RDUDqVcck0ahtlS+N/Q==
   dependencies:
     "@cypress/request" "^2.88.10"
     "@cypress/xvfb" "^1.2.4"
