@@ -5,13 +5,13 @@ import { importAccountsActions } from '.'
 import { accountsPerPage, importAccountsSaga, numberOfAccountPages, sign } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
-import { getBalance } from '../wallet/saga'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
 import { WalletErrors } from 'types/errors'
 import { OasisTransaction } from 'app/lib/transaction'
 import { WalletType } from 'app/state/wallet/types'
 import delayP from '@redux-saga/delay-p'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
 describe('importAccounts Sagas', () => {
   describe('enumerateAccountsFromLedger', () => {
@@ -29,7 +29,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
           [matchers.call.fn(Ledger.getOasisApp), undefined],
           [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), validAccount],
-          [matchers.call.fn(getBalance), {}],
+          [matchers.call.fn(getAccountBalanceWithFallback), {}],
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromLedger())
         .put.actionType(importAccountsActions.accountGenerated.type)
@@ -123,7 +123,7 @@ describe('importAccounts Sagas', () => {
             },
           ],
           [matchers.call.fn(publicKeyToAddress), mockAddress],
-          [matchers.call.fn(getBalance), {}],
+          [matchers.call.fn(getAccountBalanceWithFallback), {}],
           [matchers.call.fn(delayP), null], // https://github.com/jfairbank/redux-saga-test-plan/issues/257
         ])
         .dispatch(importAccountsActions.enumerateAccountsFromMnemonic('mnemonic'))

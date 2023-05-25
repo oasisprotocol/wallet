@@ -1,6 +1,5 @@
 import { bech32 } from 'bech32'
 import { quantity, staking, types } from '@oasisprotocol/client'
-import { WalletBalance } from 'app/state/wallet/types'
 import { decode as base64decode } from 'base64-arraybuffer'
 import BigNumber from 'bignumber.js'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
@@ -94,7 +93,7 @@ export function formatWeiAsWrose(
   return getRoseString(roseBN, minimumFractionDigits, maximumFractionDigits)
 }
 
-export function parseRpcBalance(account: types.StakingAccount): WalletBalance {
+export function parseRpcBalance(account: types.StakingAccount) {
   const zero = stringBigint2uint('0')
 
   return {

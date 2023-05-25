@@ -5,9 +5,10 @@ import { DeepPartialRootState } from 'types/RootState'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { addWallet, getBalance, rootWalletSaga, walletSaga } from './saga'
+import { addWallet, rootWalletSaga, walletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
 import { importAccountsActions } from '../importaccounts'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
 describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
@@ -15,13 +16,15 @@ describe('Wallet Sagas', () => {
   const addressHex = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
   // const addressMnemonic = 'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l'
 
-  const providers: (EffectProviders | StaticProvider)[] = [[matchers.call.fn(getBalance), {}]]
+  const providers: (EffectProviders | StaticProvider)[] = [
+    [matchers.call.fn(getAccountBalanceWithFallback), {}],
+  ]
   const state: DeepPartialRootState = {
     importAccounts: {
       accounts: [
         {
           address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-          balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+          balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
           path: [44, 474, 0],
           pathDisplay: `m/44'/474'/0'`,
           privateKey: '00',
@@ -53,10 +56,7 @@ describe('Wallet Sagas', () => {
         .put(importAccountsActions.clear())
         .call(addWallet, {
           address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-          balance: {
-            available: '0',
-            validator: { escrow: '0', escrow_debonding: '0' },
-          },
+          balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
           path: [44, 474, 0],
           pathDisplay: `m/44'/474'/0'`,
           privateKey: '00',
@@ -110,7 +110,7 @@ describe('Wallet Sagas', () => {
           accounts: [
             {
               address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
-              balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+              balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
               path: [44, 474, 0, 0, 0],
               pathDisplay: `m/44'/474'/0'/0'/0'`,
               publicKey: '00',
@@ -118,7 +118,7 @@ describe('Wallet Sagas', () => {
             },
             {
               address: 'oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l',
-              balance: { available: '0', validator: { escrow: '0', escrow_debonding: '0' } },
+              balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
               path: [44, 474, 0, 0, 0],
               pathDisplay: `m/44'/474'/0'/0'/0'`,
               publicKey: '00',
@@ -190,7 +190,7 @@ describe('Wallet Sagas', () => {
       .dispatch(
         transactionActions.transactionSent({ amount: '1000000000', type: 'transfer', to: 'receiver' }),
       )
-      .call.fn(getBalance)
+      .call.fn(getAccountBalanceWithFallback)
       .put.actionType(walletActions.updateBalance.type)
       .silentRun(50)
   })
@@ -206,7 +206,7 @@ describe('Wallet Sagas', () => {
         },
       })
       .dispatch(transactionActions.paraTimeTransactionSent('dummyAddress'))
-      .call.fn(getBalance)
+      .call.fn(getAccountBalanceWithFallback)
       .put.actionType(walletActions.updateBalance.type)
       .silentRun(50)
   })

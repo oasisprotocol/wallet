@@ -20,7 +20,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { StringifiedBigInt } from 'types/StringifiedBigInt'
+import { BalanceDetails } from '../../../../state/account/types'
 
 interface Props {
   closeHandler: () => any
@@ -28,7 +28,7 @@ interface Props {
 
 interface AccountProps {
   address: string
-  balance?: StringifiedBigInt
+  balance: BalanceDetails | undefined
   type: WalletType
   onClick: (address: string) => void
   path?: number[]
@@ -91,7 +91,7 @@ export const Account = memo((props: AccountProps) => {
             {walletTypes[props.type]} {props.pathDisplay && <Text size="small">({props.pathDisplay})</Text>}
           </Box>
           <Box height={'24px'}>
-            {props.balance ? <AmountFormatter amount={props.balance} /> : <Spinner />}
+            {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}
           </Box>
         </Box>
       </Box>
@@ -115,7 +115,7 @@ export const AccountSelector = memo((props: Props) => {
     <Account
       key={wallet.address}
       address={wallet.address}
-      balance={wallet.balance?.available} // TODO: get total balance
+      balance={wallet.balance}
       type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}

@@ -71,9 +71,14 @@ export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
     available: BigInt(account.liquid_balance).toString(),
-    delegations: null,
-    debonding: null,
-    total: null,
+    delegations: BigInt(account.delegations_balance).toString(),
+    debonding: BigInt(account.debonding_delegations_balance).toString(),
+    // Note: can't use `account.total_balance` because it includes escrow balance in validator accounts
+    total: (
+      BigInt(account.liquid_balance) +
+      BigInt(account.delegations_balance) +
+      BigInt(account.debonding_delegations_balance)
+    ).toString(),
   }
 }
 

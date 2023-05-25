@@ -944,6 +944,10 @@ definitions:
       - liquid_balance
       - escrow_balance
       - escrow_debonding_balance
+      - delegations_balance
+      - debonding_delegations_balance
+      - self_delegation_balance
+      - total_balance
     type: object
   ValidatorRow:
     properties:

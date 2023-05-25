@@ -12,6 +12,7 @@ import {
 } from '../utils/test-inputs'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
+import type { AccountsRow } from '../../src/vendors/oasisscan/index'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
@@ -256,17 +257,29 @@ test.describe('syncTabs', () => {
     await expect(tab2.getByText('Loading account')).toBeVisible()
     await expect(tab2.getByText('Loading account')).toBeHidden()
 
-    // Delay getBalance so addWallet is called after wallet is locked.
-    let grpcBalance: Route
-    await page.route('**/oasis-core.Staking/Account', route => (grpcBalance = route))
+    // Delay getAccountBalanceWithFallback so addWallet is called after wallet is locked.
+    let apiBalance: Route
+    await context.route('**/chain/account/info/*', route => (apiBalance = route))
 
     await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
     await page.keyboard.press('Enter')
     await tab2.getByRole('button', { name: /Lock profile/ }).click()
-    await grpcBalance!.fulfill({
-      contentType: 'application/grpc-web-text+proto',
-      body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
+    await apiBalance!.fulfill({
+      body: JSON.stringify({
+        code: 0,
+        data: {
+          rank: 0,
+          address: '',
+          available: '0',
+          escrow: '0',
+          debonding: '0',
+          total: '0',
+          nonce: 1,
+          allowances: [],
+        } satisfies AccountsRow,
+      }),
     })
+    await page.waitForTimeout(100)
 
     // TODO: https://github.com/oasisprotocol/oasis-wallet-web/pull/975#discussion_r1019567305
     // await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()

@@ -55,25 +55,25 @@ export interface AccountsRow {
      * @type {number}
      * @memberof AccountsRow
      */
-    total_balance?: number;
+    total_balance: number;
     /**
      * 
      * @type {number}
      * @memberof AccountsRow
      */
-    delegations_balance?: number;
+    delegations_balance: number;
     /**
      * 
      * @type {number}
      * @memberof AccountsRow
      */
-    debonding_delegations_balance?: number;
+    debonding_delegations_balance: number;
     /**
      * 
      * @type {number}
      * @memberof AccountsRow
      */
-    self_delegation_balance?: number;
+    self_delegation_balance: number;
     /**
      * 
      * @type {string}
@@ -126,10 +126,10 @@ export function AccountsRowFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'liquid_balance': json['liquid_balance'],
         'escrow_balance': json['escrow_balance'],
         'escrow_debonding_balance': json['escrow_debonding_balance'],
-        'total_balance': !exists(json, 'total_balance') ? undefined : json['total_balance'],
-        'delegations_balance': !exists(json, 'delegations_balance') ? undefined : json['delegations_balance'],
-        'debonding_delegations_balance': !exists(json, 'debonding_delegations_balance') ? undefined : json['debonding_delegations_balance'],
-        'self_delegation_balance': !exists(json, 'self_delegation_balance') ? undefined : json['self_delegation_balance'],
+        'total_balance': json['total_balance'],
+        'delegations_balance': json['delegations_balance'],
+        'debonding_delegations_balance': json['debonding_delegations_balance'],
+        'self_delegation_balance': json['self_delegation_balance'],
         'created_at': !exists(json, 'created_at') ? undefined : json['created_at'],
         'last_active': !exists(json, 'last_active') ? undefined : json['last_active'],
         'nonce': !exists(json, 'nonce') ? undefined : json['nonce'],

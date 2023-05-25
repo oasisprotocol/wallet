@@ -4,9 +4,9 @@ exports[`monitor parse account 1`] = `
 {
   "address": "oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty",
   "available": "7791547645377",
-  "debonding": null,
-  "delegations": null,
-  "total": null,
+  "debonding": "0",
+  "delegations": "312240929087242",
+  "total": "320032476732619",
 }
 `;
 

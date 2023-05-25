@@ -10,9 +10,9 @@ exports[`oasisscan parse account 1`] = `
     },
   ],
   "available": "7791547645364",
-  "debonding": null,
-  "delegations": null,
-  "total": null,
+  "debonding": "0",
+  "delegations": "312240929087243",
+  "total": "320032476732607",
 }
 `;
 

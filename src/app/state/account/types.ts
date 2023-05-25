@@ -4,8 +4,11 @@ import { StringifiedBigInt } from 'types/StringifiedBigInt'
 
 export interface BalanceDetails {
   available: StringifiedBigInt | null
+  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
   debonding: StringifiedBigInt | null
+  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
   delegations: StringifiedBigInt | null
+  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
   total: StringifiedBigInt | null
 }
 

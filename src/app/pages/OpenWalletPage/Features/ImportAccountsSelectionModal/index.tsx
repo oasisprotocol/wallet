@@ -43,7 +43,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
       {accounts.map(a => (
         <Account
           address={a.address}
-          balance={a.balance?.available} // TODO: get total balance
+          balance={a.balance}
           type={a.type}
           onClick={toggleAccount}
           isActive={a.selected}

@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
-import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
+import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
 import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
@@ -9,7 +9,6 @@ import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
 import { selectChainContext } from '../network/selectors'
-import { getBalance } from '../wallet/saga'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
 import type Transport from '@ledgerhq/hw-transport'
 import {
@@ -19,6 +18,7 @@ import {
   selectImportAccountsFullList,
   selectImportAccountsPageNumber,
 } from './selectors'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
@@ -103,7 +103,7 @@ function* fetchBalanceForAccount(account: ImportAccountsListAccount) {
   if (currentStep === ImportAccountsStep.Idle) {
     yield* setStep(ImportAccountsStep.LoadingBalances)
   }
-  const balance = yield* call(getBalance, hex2uint(account.publicKey))
+  const balance = yield* call(getAccountBalanceWithFallback, account.address)
   yield* put(
     importAccountsActions.updateAccountBalance({
       address: account.address,
