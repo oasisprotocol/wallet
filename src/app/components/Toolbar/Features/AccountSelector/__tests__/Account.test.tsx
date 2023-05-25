@@ -13,7 +13,7 @@ const renderComponent = (store: any) =>
       <ThemeProvider>
         <Account
           address="oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe"
-          balance={1000n.toString()}
+          balance={{ available: '200', debonding: '0', delegations: '800', total: '1000' }}
           type={WalletType.Mnemonic}
           onClick={() => {}}
           isActive={false}
