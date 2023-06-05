@@ -19,9 +19,31 @@ import {
   selectImportAccountsPageNumber,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+import BleTransport from 'ionic-hw-transport-ble/lib'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
+}
+
+function* getBluetoothTransport() {
+  const isSupported = yield* call([BleTransport, BleTransport.isSupported])
+  if (!isSupported) {
+    throw new WalletError(WalletErrors.BluetoothTransportNotSupported, 'BleTransport unsupported')
+  }
+
+  try {
+    const devices = yield call(BleTransport.list)
+    console.log('devices', devices)
+    const [firstDevice] = devices
+    const transport = yield* call(BleTransport.open, firstDevice)
+    return transport
+  } catch (e: any) {
+    if (e.message.match(/No device selected/)) {
+      throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
+    } else {
+      throw new WalletError(WalletErrors.USBTransportError, e.message)
+    }
+  }
 }
 
 function* getUSBTransport() {
@@ -135,7 +157,7 @@ function* enumerateAccountsFromLedger() {
   yield* setStep(ImportAccountsStep.OpeningUSB)
   let transport: Transport | undefined
   try {
-    transport = yield* getUSBTransport()
+    transport = yield* getBluetoothTransport()
     const existingAccounts = yield* select(selectImportAccountsFullList)
     const start = existingAccounts.length
 
@@ -179,7 +201,7 @@ function* enumerateAccountsFromLedger() {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  const transport = yield* getUSBTransport()
+  const transport = yield* getBluetoothTransport()
   const chainContext = yield* select(selectChainContext)
 
   signer.setTransport(transport)

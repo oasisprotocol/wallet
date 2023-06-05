@@ -22,7 +22,7 @@ type SelectOpenMethodProps = {
 
 export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
-  const [supportsWebUsb, setSupportsWebUsb] = React.useState<boolean | undefined>(false)
+  const [supportsWebUsb, setSupportsWebUsb] = React.useState<boolean | undefined>(true)
   const navigate = useNavigate()
   const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
 
@@ -34,7 +34,7 @@ export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodP
 
   useEffect(() => {
     async function getWebUsb() {
-      setSupportsWebUsb(await canAccessNavigatorUsb())
+      // setSupportsWebUsb(await canAccessNavigatorUsb())
     }
 
     getWebUsb()
