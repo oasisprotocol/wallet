@@ -92,7 +92,7 @@ export function FiatOnramp() {
         <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
           {t(
             'fiatOnramp.thirdPartyDisclaimer',
-            'This service is provided by an external party. Oasis does not carry any responsibility. All fees charged by Transak.',
+            'This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
           )}
         </AlertBox>
 
@@ -101,7 +101,7 @@ export function FiatOnramp() {
             <CheckBox
               label={t(
                 'fiatOnramp.thirdPartyAcknowledge',
-                'I understand that I’m using a third-party solution and Oasis does not carry any responsibility over the usage of this solution.',
+                'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
               )}
               checked={thirdPartyAcknowledged}
               onChange={event => setThirdPartyAcknowledged(event.target.checked)}
@@ -134,6 +134,19 @@ export function FiatOnramp() {
             }}
           ></iframe>
         )}
+
+        <br />
+        <AlertBox status="info">
+          <Box direction="row" gap="xsmall">
+            <span>*</span>
+            <span>
+              {t(
+                'fiatOnramp.astarFootnote',
+                'It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the Oasis Wallet.',
+              )}
+            </span>
+          </Box>
+        </AlertBox>
       </Box>
     </Box>
   )
