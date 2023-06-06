@@ -176,4 +176,5 @@ export const runtimeIs = (window as any).chrome?.runtime?.id ? 'extension' : 'we
 export const deploys = {
   production: 'https://wallet.oasis.io',
   staging: 'https://wallet.stg.oasis.io',
+  extension: 'chrome-extension://ppdadbejkmjnefldpcdjhnkpbjkikoip',
 }
