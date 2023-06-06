@@ -6,6 +6,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { buildBannerZIndex } from '../../../styles/theme/elementSizes'
 import { AnchorLink } from '../AnchorLink'
 import styled from 'styled-components'
+import { deploys } from '../../../config'
 
 const StickyBanner = styled(Box)`
   position: sticky;
@@ -16,7 +17,7 @@ const StickyBanner = styled(Box)`
 export const BuildBanner = () => {
   const { t } = useTranslation()
 
-  if (window.location.host === 'wallet.oasis.io') {
+  if (window.location.origin === deploys.production) {
     return (
       <StickyBanner>
         <AlertBox status="ok" center icon={<Info size="20px" color="currentColor" />}>
@@ -35,7 +36,7 @@ export const BuildBanner = () => {
     )
   }
 
-  if (window.location.host === 'wallet.stg.oasis.io') {
+  if (window.location.origin === deploys.staging) {
     return (
       <StickyBanner>
         <AlertBox status="warning" center icon={<Alert size="20px" color="currentColor" />}>
