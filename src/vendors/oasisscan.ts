@@ -124,7 +124,6 @@ export const transactionMethodMap: {
   [k in OperationsRowMethodEnum | ParaTimeCtxRowMethodEnum]: TransactionType
 } = {
   [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
-  [OperationsRowMethodEnum.StakingTransfer]: TransactionType.StakingTransfer,
   [OperationsRowMethodEnum.StakingAddEscrow]: TransactionType.StakingAddEscrow,
   [OperationsRowMethodEnum.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
   [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
