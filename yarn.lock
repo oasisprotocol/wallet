@@ -2278,16 +2278,6 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@ledgerhq/devices@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.0.2.tgz#8086e9be0185f4925fa611d4d71dc9c141b9b089"
-  integrity sha512-Qnc9hgGae4YNr/4NUU/5l3xGc5fx6t2k1su6ASu4wsV/p49xmaU/iBO6PtFHqb3QCwsrkieXASU932Ac2WTw0g==
-  dependencies:
-    "@ledgerhq/errors" "^6.12.5"
-    "@ledgerhq/logs" "^6.10.1"
-    rxjs "6"
-    semver "^7.3.5"
-
 "@ledgerhq/devices@^8.0.3":
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.0.3.tgz#bca76789b9dec2353ea8b089f7bd183ed3047afd"
@@ -2297,11 +2287,6 @@
     "@ledgerhq/logs" "^6.10.1"
     rxjs "6"
     semver "^7.3.5"
-
-"@ledgerhq/errors@^6.12.5":
-  version "6.12.5"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.12.5.tgz#f112b548ab3c4f21bb7fbe77e6cb62998a050992"
-  integrity sha512-wQlDyKD2lG4hiFmSPvWfuzhbH8wxWG4ugesM17HdZgxUt8g0SluwaBfFJ7Nx0Ym44VIhbsGMUzyBp0hHyCkVqA==
 
 "@ledgerhq/errors@^6.12.6":
   version "6.12.6"
@@ -2319,12 +2304,12 @@
     "@ledgerhq/logs" "^6.10.1"
 
 "@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.28.4":
-  version "6.28.3"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.28.3.tgz#1108ceb8bfb9dc949f6178b17dd1bcb76dba11f0"
-  integrity sha512-YFPh9n51V4TfPZov7iAUbtez0cyNEVR1+49RG8tYvmsmk8ihvya2rR90U8KO2MnrT2jR4k2rlgQ3IcZJO9dBcw==
+  version "6.28.4"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.28.4.tgz#c2fc5bff4fca71ac44f069b775d33d0b1b5d9000"
+  integrity sha512-fB2H92YQjidmae2GFCmOGPwkZWk0lvTu0tlLlzfiY0wRheAG+DEgjnqhdU8wmydkPLIj0WUjRgldtnJtg/a2iQ==
   dependencies:
-    "@ledgerhq/devices" "^8.0.2"
-    "@ledgerhq/errors" "^6.12.5"
+    "@ledgerhq/devices" "^8.0.3"
+    "@ledgerhq/errors" "^6.12.6"
     events "^3.3.0"
 
 "@ledgerhq/logs@^6.10.1":
@@ -10002,9 +9987,9 @@ semver@^7.3.4:
     lru-cache "^6.0.0"
 
 semver@^7.3.5:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.0.tgz#ed8c5dc8efb6c629c88b23d41dc9bf40c1d96cd0"
-  integrity sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.1.tgz#c90c4d631cf74720e46b21c1d37ea07edfab91ec"
+  integrity sha512-Wvss5ivl8TMRZXXESstBA4uR5iXgEN/VC5/sOcuXdVLzcdkz4HWetIoRfG5gb5X+ij/G9rw9YoGn3QoQ8OCSpw==
   dependencies:
     lru-cache "^6.0.0"
 
