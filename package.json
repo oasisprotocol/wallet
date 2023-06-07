@@ -88,7 +88,7 @@
     "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.10.6",
+    "@cypress/code-coverage": "3.10.7",
     "@parcel/config-webextension": "2.9.1",
     "@parcel/packager-raw-url": "2.9.1",
     "@parcel/transformer-webmanifest": "2.9.1",
@@ -97,7 +97,7 @@
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.4.3",
     "@types/body-scroll-lock": "3.1.0",
-    "@types/jest": "29.5.1",
+    "@types/jest": "29.5.2",
     "@types/jest-when": "3.5.2",
     "@types/react": "17.0.60",
     "@types/react-dom": "18.2.4",

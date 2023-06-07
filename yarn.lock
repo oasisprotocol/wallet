@@ -1815,10 +1815,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@cypress/code-coverage@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.10.6.tgz#85ac787ed968cc9e6e899683ce52927f52d67d0e"
-  integrity sha512-ewsNEqEFmirSGeWraOrrn/S64/jCsoA1tVwQ6ySFO+gUhOsaWveoPy8oeX5jzKS2HpqAihuuO3kXSEvVQoPTkw==
+"@cypress/code-coverage@3.10.7":
+  version "3.10.7"
+  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.10.7.tgz#7c281c5c058988e414190fd92871b62f9f6e78bd"
+  integrity sha512-kQFB8GemDAAk6JBINsR9MLEgCw2AKb3FcdHQjIJ3KV4ZER6ZF0NGdO8SRj5oTVp28oqfOab4cgoBdecRiOE3qA==
   dependencies:
     "@cypress/webpack-preprocessor" "^5.11.0"
     chalk "4.1.2"
@@ -3556,10 +3556,10 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/jest@29.5.1":
-  version "29.5.1"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.1.tgz#83c818aa9a87da27d6da85d3378e5a34d2f31a47"
-  integrity sha512-tEuVcHrpaixS36w7hpsfLBLpjtMRJUE09/MHXn923LOVojDwyC14cWcfc0rDs0VEfUyYmt/+iX1kxxp+gZMcaQ==
+"@types/jest@29.5.2":
+  version "29.5.2"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.2.tgz#86b4afc86e3a8f3005b297ed8a72494f89e6395b"
+  integrity sha512-mSoZVJF5YzGVCk+FsDxzDuH7s+SCkzrgKZzf0Z0T2WudhBUPoF6ktoTPC4R0ZoCPCV5xUvuU6ias5NvxcBcMMg==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
