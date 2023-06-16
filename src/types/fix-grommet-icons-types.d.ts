@@ -742,14 +742,14 @@ declare module 'grommet-icons/es6/icons/Disc' {
   export declare const Disc: Icon
 }
 
-declare module 'grommet-icons/es6/icons/Dislike' {
-  import { Icon } from 'grommet-icons/es6/icons'
-  export declare const Dislike: Icon
-}
-
 declare module 'grommet-icons/es6/icons/DislikeFill' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const DislikeFill: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Dislike' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Dislike: Icon
 }
 
 declare module 'grommet-icons/es6/icons/Docker' {
@@ -1377,6 +1377,11 @@ declare module 'grommet-icons/es6/icons/Halt' {
   export declare const Halt: Icon
 }
 
+declare module 'grommet-icons/es6/icons/HelpBook' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const HelpBook: Icon
+}
+
 declare module 'grommet-icons/es6/icons/HelpOption' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const HelpOption: Icon
@@ -1587,14 +1592,14 @@ declare module 'grommet-icons/es6/icons/License' {
   export declare const License: Icon
 }
 
-declare module 'grommet-icons/es6/icons/Like' {
-  import { Icon } from 'grommet-icons/es6/icons'
-  export declare const Like: Icon
-}
-
 declare module 'grommet-icons/es6/icons/LikeFill' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const LikeFill: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Like' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Like: Icon
 }
 
 declare module 'grommet-icons/es6/icons/LineChart' {
@@ -2442,14 +2447,14 @@ declare module 'grommet-icons/es6/icons/StarHalf' {
   export declare const StarHalf: Icon
 }
 
-declare module 'grommet-icons/es6/icons/Star' {
-  import { Icon } from 'grommet-icons/es6/icons'
-  export declare const Star: Icon
-}
-
 declare module 'grommet-icons/es6/icons/StarOutline' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const StarOutline: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Star' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Star: Icon
 }
 
 declare module 'grommet-icons/es6/icons/StatusCriticalSmall' {

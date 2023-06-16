@@ -17,18 +17,18 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   stroke: inherit;
 }
 
-.c12 *:not([stroke])[fill="none"] {
+.c12 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c12 *[stroke*="#"],.c12 *[STROKE*="#"] {
+.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*="#"],.c12 *[FILL*="#"] {
+.c12 *[fill*='#'],.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
