@@ -167,18 +167,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: inherit;
 }
 
-.c12 *:not([stroke])[fill="none"] {
+.c12 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c12 *[stroke*="#"],.c12 *[STROKE*="#"] {
+.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*="#"],.c12 *[FILL*="#"] {
+.c12 *[fill*='#'],.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -199,18 +199,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: inherit;
 }
 
-.c19 *:not([stroke])[fill="none"] {
+.c19 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c19 *[stroke*="#"],.c19 *[STROKE*="#"] {
+.c19 *[stroke*='#'],.c19 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c19 *[fill-rule],
 .c19 *[FILL-RULE],
-.c19 *[fill*="#"],.c19 *[FILL*="#"] {
+.c19 *[fill*='#'],.c19 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -231,18 +231,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: inherit;
 }
 
-.c21 *:not([stroke])[fill="none"] {
+.c21 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c21 *[stroke*="#"],.c21 *[STROKE*="#"] {
+.c21 *[stroke*='#'],.c21 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c21 *[fill-rule],
 .c21 *[FILL-RULE],
-.c21 *[fill*="#"],.c21 *[FILL*="#"] {
+.c21 *[fill*='#'],.c21 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }

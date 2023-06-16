@@ -17,18 +17,18 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
   stroke: inherit;
 }
 
-.c15 *:not([stroke])[fill="none"] {
+.c15 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c15 *[stroke*="#"],.c15 *[STROKE*="#"] {
+.c15 *[stroke*='#'],.c15 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c15 *[fill-rule],
 .c15 *[FILL-RULE],
-.c15 *[fill*="#"],.c15 *[FILL*="#"] {
+.c15 *[fill*='#'],.c15 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
