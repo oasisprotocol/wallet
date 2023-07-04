@@ -10542,10 +10542,10 @@ styled-components@5.3.11:
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
 
-stylelint-config-recommended@12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-12.0.0.tgz#d0993232fca017065fd5acfcb52dd8a188784ef4"
-  integrity sha512-x6x8QNARrGO2sG6iURkzqL+Dp+4bJorPMMRNPScdvaUK8PsynriOcMW7AFDKqkWAS5wbue/u8fUT/4ynzcmqdQ==
+stylelint-config-recommended@13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-13.0.0.tgz#c48a358cc46b629ea01f22db60b351f703e00597"
+  integrity sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==
 
 stylelint@15.9.0:
   version "15.9.0"
