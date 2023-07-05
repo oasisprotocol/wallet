@@ -140,7 +140,7 @@
     "stream-browserify": "3.0.0",
     "string_decoder": "1.3.0",
     "stylelint": "15.9.0",
-    "stylelint-config-recommended": "12.0.0",
+    "stylelint-config-recommended": "13.0.0",
     "ts-jest": "29.1.1",
     "typescript": "5.1.6",
     "util": "0.12.5",
