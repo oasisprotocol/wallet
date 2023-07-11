@@ -41,7 +41,7 @@ import { NetworkType } from 'app/state/network/types'
 import { config } from 'config'
 import { backend } from 'vendors/backend'
 
-export enum TransactionSide {
+enum TransactionSide {
   Sent = 'sent',
   Received = 'received',
 }
