@@ -89,7 +89,7 @@
     "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.10.9",
+    "@cypress/code-coverage": "3.11.0",
     "@parcel/config-webextension": "2.9.3",
     "@parcel/packager-raw-url": "2.9.3",
     "@parcel/transformer-webmanifest": "2.9.3",
@@ -107,7 +107,7 @@
     "@types/react-test-renderer": "18.0.0",
     "@types/redux-state-sync": "3.1.5",
     "@types/styled-components": "5.1.26",
-    "@types/testing-library__jest-dom": "5.14.7",
+    "@types/testing-library__jest-dom": "5.14.8",
     "@types/valid-url": "1.0.4",
     "@types/w3c-web-usb": "1.0.6",
     "@types/webextension-polyfill": "0.10.1",
