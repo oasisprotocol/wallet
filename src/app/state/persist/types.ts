@@ -1,5 +1,5 @@
 import { RootState } from 'types'
-
+// eslint-disable-next-line @typescript-eslint/ban-types
 interface PreserveAliasName extends String {}
 
 export interface KeyWithSalt {
