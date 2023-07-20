@@ -25,7 +25,7 @@ jest.mock('react-i18next', () => ({
       i18n: {
         changeLanguage: () => new Promise(() => {}),
       },
-    } as UseTranslationResponse<'translation'>
+    } as UseTranslationResponse<'translation', 'translation'>
   },
 }))
 
