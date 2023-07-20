@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@ethereumjs/util": "8.0.3",
-    "@ledgerhq/hw-transport-webusb": "6.27.16",
+    "@ledgerhq/hw-transport-webusb": "6.27.17",
     "@metamask/jazzicon": "2.0.0",
     "@oasisprotocol/client": "0.1.1-alpha.2",
     "@oasisprotocol/client-rt": "0.2.1-alpha.2",
