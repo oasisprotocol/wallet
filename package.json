@@ -130,7 +130,6 @@
     "jest-when": "3.5.2",
     "parcel": "2.9.3",
     "parcel-transformer-env-variables-injection": "0.1.2",
-    "portable-fetch": "3.0.0",
     "prettier": "3.0.0",
     "process": "0.11.10",
     "react-test-renderer": "18.2.0",
