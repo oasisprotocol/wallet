@@ -67,7 +67,7 @@
     "copy-to-clipboard": "3.3.3",
     "grommet": "2.33.1",
     "grommet-icons": "4.11.0",
-    "i18next": "23.2.11",
+    "i18next": "23.3.0",
     "i18next-browser-languagedetector": "7.1.0",
     "lodash": "4.17.21",
     "qrcode.react": "3.1.0",
@@ -152,7 +152,8 @@
     "bip39": "3.1.0",
     "eslint-plugin-react": "7.33.0",
     "grommet-icons": "4.11.0",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "protobufjs": "7.2.4"
   },
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",
   "alias": {
