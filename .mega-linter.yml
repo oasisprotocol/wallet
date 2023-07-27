@@ -37,4 +37,3 @@ REPOSITORY_CHECKOV_ARGUMENTS:
   - --skip-path
   - src/vendors/oasisscan/swagger.yml
 REPOSITORY_GITLEAKS_CONFIG_FILE: ./.github/.gitleaks.toml
-REPOSITORY_TRUFFLEHOG_ARGUMENTS: '--only-verified'
