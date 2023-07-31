@@ -1,0 +1,27 @@
+# towncrier configuration.
+
+# For more information, see: https://github.com/oasisprotocol/towncrier/.
+
+[tool.towncrier]
+filename = "CHANGELOG.md"
+directory = ".changelog"
+# Ignore certain files when running towncrier check.
+check_ignore_files = [
+  # File where we store app version.
+  "package.json",
+]
+issue_format = "[#{issue}](https://github.com/oasisprotocol/explorer/issues/{issue})"
+start_string = "<!-- TOWNCRIER -->\n"
+# Custom Jinja2 template for preparing a new section of the Change Log.
+template = ".changelog/template.md.j2"
+# Custom definition of Change Log fragment types.
+type = [
+  { name = "Process Changes", directory = "process", showcontent = true },
+  { name = "Removals and Breaking Changes", directory = "breaking", showcontent = true },
+  { name = "Configuration Changes", directory = "cfg", showcontent = true },
+  { name = "Features", directory = "feature", showcontent = true },
+  { name = "Bug Fixes and Improvements", directory = "bugfix", showcontent = true },
+  { name = "Documentation Improvements", directory = "doc", showcontent = true },
+  { name = "Internal Changes", directory = "internal", showcontent = true },
+  { name = "Trivial Changes", directory = "trivial", showcontent = false },
+]
