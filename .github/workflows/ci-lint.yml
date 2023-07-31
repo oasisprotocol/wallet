@@ -34,20 +34,44 @@ jobs:
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Checkout pull request HEAD commit instead of merge commit.
+          ref: ${{ github.event.pull_request.head.sha }}
+          # Fetch all history so gitlint can check the relevant commits.
+          fetch-depth: '0'
+      - name: Set up Python 3
+        uses: actions/setup-python@v4.2.0
+        with:
+          python-version: '3.x'
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           cache: 'yarn'
+      - name: Install gitlint
+        run: |
+          python -m pip install gitlint
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Lint git commits
+        run: |
+          yarn gitlint
+        # Always run this step so that all linting errors can be seen at once.
+        if: always()
       - name: ESLint
         # Disallow warnings and always throw errors.
         run: yarn lint --max-warnings 0
+        # Always run this step so that all linting errors can be seen at once.
+        if: always()
       - name: Validate Grommet icons types
         run: |
           yarn fix-grommet-icons-types
           git diff --exit-code
+        # Always run this step so that all linting errors can be seen at once.
+        if: always()
       - name: Validate TypeScript
         run: yarn checkTs
+        # Always run this step so that all linting errors can be seen at once.
+        if: always()
