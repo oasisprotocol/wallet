@@ -45,6 +45,11 @@ jobs:
           python -m pip install gitlint
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: Lint documentation
+        run: |
+          yarn lint-docs
+        # Always run this step so that all linting errors can be seen at once.
+        if: always()
       - name: Lint git commits
         run: |
           yarn lint-git
