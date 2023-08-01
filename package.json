@@ -114,7 +114,7 @@
     "@typescript-eslint/eslint-plugin": "6.2.1",
     "@typescript-eslint/parser": "6.2.1",
     "babel-plugin-istanbul": "6.1.1",
-    "cypress": "12.17.2",
+    "cypress": "12.17.3",
     "eslint": "8.46.0",
     "eslint-config-prettier": "8.9.0",
     "eslint-config-react-app": "7.0.1",
