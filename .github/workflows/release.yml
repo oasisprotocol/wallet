@@ -1,0 +1,60 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: release
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched tags.
+  push:
+    tags:
+      # Pattern that roughly matches Oasis Core's version tags.
+      # For more details on GitHub Actions' pattern match syntax, see:
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags.
+      - 'v[0-9]+.[0-9]+*'
+
+# disable secrets.GITHUB_TOKEN permissions
+permissions: {}
+
+jobs:
+  release:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: prepare-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build app
+        run: yarn build
+      - name: Set workflow variables
+        # Id is needed to access output in a next step.
+        id: vars
+        # We want to show version without the leading 'v'
+        # and use short SHA of the commit for file name.
+        run: |
+          echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')" >> "$GITHUB_OUTPUT"
+      - name: Create zip file
+        run: |
+          cd build/
+          zip -r ../oasis-wallet-web-${{ steps.vars.outputs.VERSION }}.zip .
+      - name: Parse CHANGELOG.md file and extract changes for the given version
+        uses: buberdds/extract-changelog-action@v1
+        id: changelog
+        with:
+          version: ${{ steps.vars.outputs.VERSION }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            oasis-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
+          name: Oasis Wallet ${{ steps.vars.outputs.VERSION }}
+          body: ${{ steps.changelog.outputs.content }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
