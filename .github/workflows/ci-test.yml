@@ -1,9 +1,13 @@
-name: Build and test
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: ci-test
 
 on:
+  # Trigger the workflow when:
   push:
     branches: [stable, master]
   pull_request:
+    # Or when a pull request event occurs for a pull request against one of the
+    # matched branches.
     branches: [stable, master]
 
 # disable secrets.GITHUB_TOKEN permissions
@@ -23,25 +27,9 @@ jobs:
       - if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-  build:
-    needs: [yarn_cache]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint --max-warnings 0
-      - run: |
-          yarn fix-grommet-icons-types
-          git diff --exit-code
-      - run: yarn checkTs
-      - run: yarn build
-
   jest:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: jest
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
@@ -49,9 +37,10 @@ jobs:
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18.x'
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - run: yarn test --coverage
       - name: 'Upload coverage report'
         uses: actions/upload-artifact@v3
@@ -61,6 +50,8 @@ jobs:
           retention-days: 5
 
   playwright:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: playwright
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
@@ -68,9 +59,10 @@ jobs:
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18.x'
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - run: REACT_APP_E2E_TEST=1 yarn build:ext
       - run: REACT_APP_E2E_TEST=1 yarn start:prod &
       - name: Install playwright's npm dependencies
@@ -92,6 +84,8 @@ jobs:
           retention-days: 5
 
   cypress:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: cypress
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
@@ -99,9 +93,10 @@ jobs:
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18.x'
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - run: docker-compose pull
       - uses: satackey/action-docker-layer-caching@v0.0.11
         # Ignore the failure of a step and avoid terminating the job.
@@ -118,6 +113,8 @@ jobs:
           retention-days: 5
 
   upload-coverage:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: coverage
     needs: [cypress, jest]
     runs-on: ubuntu-latest
     steps:

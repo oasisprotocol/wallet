@@ -1,0 +1,53 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: ci-lint
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched branches.
+  push:
+    branches: [stable, master]
+  pull_request:
+    # Or when a pull request event occurs for a pull request against one of the
+    # matched branches.
+    branches: [stable, master]
+
+# disable secrets.GITHUB_TOKEN permissions
+permissions: {}
+
+jobs:
+  yarn_cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        id: yarn-cache
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+      - if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+
+  lint:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: lint
+    needs: [yarn_cache]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: ESLint
+        # Disallow warnings and always throw errors.
+        run: yarn lint --max-warnings 0
+      - name: Validate Grommet icons types
+        run: |
+          yarn fix-grommet-icons-types
+          git diff --exit-code
+      - name: Validate TypeScript
+        run: yarn checkTs

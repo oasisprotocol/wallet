@@ -1,10 +1,11 @@
 # Oasis Wallet
 
+[![CI build status][github-ci-build-badge]][github-ci-build-link]
+[![CI test status][github-ci-test-badge]][github-ci-test-link]
+[![CI lint status][github-ci-lint-badge]][github-ci-lint-link]
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![codecov](https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg)](https://codecov.io/gh/oasisprotocol/oasis-wallet-web)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
-[![Build status](https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/build-test.yaml/badge.svg)](https://github.com/oasisprotocol/oasis-wallet-web/actions)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FEsya%2Foasis-wallet?ref=badge_shield)
 
 > :warning: **NEVER use the private keys and mnemonics given as example in this repository.**
 
@@ -208,3 +209,9 @@ Adding a new language:
 [useTranslation hook]: https://react.i18next.com/latest/usetranslation-hook
 [English translation.json]: src/locales/en/translation.json
 [i18n.ts]: src/locales/i18n.ts
+[github-ci-build-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-build.yml/badge.svg
+[github-ci-build-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-build+branch:master
+[github-ci-test-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-test.yml/badge.svg
+[github-ci-test-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-test+branch:master
+[github-ci-lint-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-lint.yml/badge.svg
+[github-ci-lint-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-lint+branch:master
