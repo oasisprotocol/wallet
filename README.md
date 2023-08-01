@@ -3,6 +3,7 @@
 [![CI build status][github-ci-build-badge]][github-ci-build-link]
 [![CI test status][github-ci-test-badge]][github-ci-test-link]
 [![CI lint status][github-ci-lint-badge]][github-ci-lint-link]
+[![Release status][github-release-badge]][github-release-link]
 [![License][license-badge]][license-link]
 [![codecov][codecov-badge]][codecov-link]
 [![Renovate enabled][github-renovate-badge]][github-renovate-link]
@@ -216,6 +217,8 @@ and download the translation file there,
 [github-ci-test-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-test+branch:master
 [github-ci-lint-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-lint.yml/badge.svg
 [github-ci-lint-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-lint+branch:master
+[github-release-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/release.yml/badge.svg
+[github-release-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:release
 [github-renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
 [github-renovate-link]: https://www.mend.io/renovate/
 [license-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
