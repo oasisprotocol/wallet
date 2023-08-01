@@ -22,7 +22,8 @@
     "lint": "eslint --ext js,ts,tsx ./",
     "lint:fix": "yarn run lint --fix",
     "lint:css": "stylelint src/**/*.css",
-    "gitlint": "node ./internals/scripts/gitlint.js",
+    "lint-git": "node ./internals/scripts/gitlint.js",
+    "lint-docs": "markdownlint --ignore '**/node_modules/**' '**/*.md'",
     "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-extension-dev-csp": "node ./internals/scripts/print-extension-dev-csp.js"
@@ -129,6 +130,7 @@
     "jest-environment-jsdom": "29.6.4",
     "jest-styled-components": "7.1.1",
     "jest-when": "3.6.0",
+    "markdownlint-cli": "0.35.0",
     "parcel": "2.9.3",
     "parcel-transformer-env-variables-injection": "0.1.2",
     "prettier": "3.0.3",
