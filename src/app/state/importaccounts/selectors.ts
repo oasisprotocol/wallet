@@ -28,3 +28,10 @@ export const selectImportAccountHasMissingBalances = createSelector(
 export const selectSelectedAccounts = createSelector([selectImportAccountsFullList], state =>
   state.filter(a => a.selected),
 )
+export const selectBleDevices = createSelector([selectSlice], state => state.bleDevices)
+export const selectSelectedBleDevice = createSelector([selectSlice], state => state.selectedBleDevice)
+export const selectImportAccountsStep = createSelector([selectSlice], state => state.step)
+export const selectShowBleLedgerDevicesModal = createSelector(
+  [selectSlice],
+  state => state.showBleLedgerDevicesModal,
+)

@@ -22,7 +22,7 @@ import { Form } from 'grommet/es6/components/Form'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
-import { numberOfAccountPages } from 'app/state/importaccounts/saga'
+import { numberOfAccountPages, TransportType } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
 import { ChoosePasswordFields } from 'app/components/Persist/ChoosePasswordFields'
 import { FormValue as ChoosePasswordFieldsFormValue } from 'app/components/Persist/ChoosePasswordInputFields'
@@ -45,10 +45,17 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
   )
 }
 
-interface ImportAccountsSelectionModalProps {
+type ImportAccountsSelectionModalProps = {
   abort: () => void
-  type: WalletType.Mnemonic | WalletType.Ledger
-}
+} & (
+  | {
+      type: WalletType.Mnemonic
+    }
+  | {
+      type: WalletType.Ledger
+      transportType: TransportType
+    }
+)
 
 interface FormValue extends ChoosePasswordFieldsFormValue {}
 
@@ -84,7 +91,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const onNext = () => {
     dispatch(importAccountsActions.setPage(pageNum + 1))
     if (props.type === 'ledger') {
-      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger())
+      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(props.transportType))
     }
   }
 

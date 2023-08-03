@@ -14,29 +14,42 @@ import type Transport from '@ledgerhq/hw-transport'
 import {
   selectImportAccountHasMissingBalances,
   selectImportAccounts,
-  selectImportAccountsOnCurrentPage,
   selectImportAccountsFullList,
-  selectImportAccountsPageNumber,
+  selectImportAccountsOnCurrentPage,
+  selectImportAccountsPageNumber, selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import BleTransport from 'ionic-hw-transport-ble/lib'
+import { ScanResult } from '@capacitor-community/bluetooth-le'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
 }
 
-function* getBluetoothTransport() {
+function* isBluetoothSupported() {
   const isSupported = yield* call([BleTransport, BleTransport.isSupported])
+  // https://github.com/WebBluetoothCG/web-bluetooth/blob/main/implementation-status.md#scanning-api
+  // !navigator.bluetooth
   if (!isSupported) {
     throw new WalletError(WalletErrors.BluetoothTransportNotSupported, 'BleTransport unsupported')
   }
+}
+
+function* getBluetoothDevices() {
+  yield* call(isBluetoothSupported)
+
+  const devices = yield* call(BleTransport.list)
+
+  console.log('devices', devices)
+
+  return devices
+}
+
+function* getBluetoothTransport(device: ScanResult) {
+  yield* call(isBluetoothSupported)
 
   try {
-    const devices = yield call(BleTransport.list)
-    console.log('devices', devices)
-    const [firstDevice] = devices
-    const transport = yield* call(BleTransport.open, firstDevice)
-    return transport
+    return yield* call(BleTransport.open, device)
   } catch (e: any) {
     if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
@@ -52,8 +65,7 @@ function* getUSBTransport() {
     throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
   }
   try {
-    const transport = yield* call([TransportWebUSB, TransportWebUSB.create])
-    return transport
+    return yield* call([TransportWebUSB, TransportWebUSB.create])
   } catch (e: any) {
     if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
@@ -144,20 +156,38 @@ function* ensureAllBalancesArePresentOnCurrentPage() {
   yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
 }
 
+function* enumerateDevicesFromBleLedger() {
+  yield* setStep(ImportAccountsStep.LoadingBleDevices)
+  const devices = yield* getBluetoothDevices()
+  yield* put(importAccountsActions.setBleDevices(devices))
+  yield* setStep(ImportAccountsStep.Idle)
+}
+
+export enum TransportType {
+  USB,
+  BLE,
+}
+
 /**
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
-function* enumerateAccountsFromLedger() {
+function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
   const existingAccounts = yield* select(selectImportAccountsFullList)
   const pageNumber = yield* select(selectImportAccountsPageNumber)
   if (existingAccounts.length >= (pageNumber + 1) * accountsPerPage) {
     // Selected page was already enumerated.
     return
   }
-  yield* setStep(ImportAccountsStep.OpeningUSB)
+  yield* setStep(ImportAccountsStep.AccessingLedger)
   let transport: Transport | undefined
   try {
-    transport = yield* getBluetoothTransport()
+    if (action.payload === TransportType.BLE) {
+      const device = yield* select(selectSelectedBleDevice)
+      transport = yield* getBluetoothTransport(device)
+    } else {
+      transport = yield* getUSBTransport()
+    }
+
     const existingAccounts = yield* select(selectImportAccountsFullList)
     const start = existingAccounts.length
 
@@ -181,6 +211,7 @@ function* enumerateAccountsFromLedger() {
     }
     yield* setStep(ImportAccountsStep.LoadingBalances)
   } catch (e: any) {
+    console.error(e)
     let payload: ErrorPayload
     if (e instanceof WalletError) {
       payload = { code: e.type, message: e.message }
@@ -217,4 +248,5 @@ export function* importAccountsSaga() {
   yield* takeEvery(importAccountsActions.enumerateMoreAccountsFromLedger, enumerateAccountsFromLedger)
   yield* takeEvery(importAccountsActions.enumerateAccountsFromMnemonic, enumerateAccountsFromMnemonic)
   yield* takeEvery(importAccountsActions.setPage, ensureAllBalancesArePresentOnCurrentPage)
+  yield* takeEvery(importAccountsActions.enumerateDevicesFromBleLedger, enumerateDevicesFromBleLedger)
 }

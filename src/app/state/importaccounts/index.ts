@@ -2,12 +2,16 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
+import { ScanResult } from '@capacitor-community/bluetooth-le'
+import {TransportType} from "./saga";
 
 export const initialState: ImportAccountsState = {
   accounts: [],
   showAccountsSelectionModal: false,
   accountsSelectionPageNumber: 0,
   step: ImportAccountsStep.Idle,
+  bleDevices: [],
+  showBleLedgerDevicesModal: false,
 }
 
 const slice = createSlice({
@@ -19,14 +23,23 @@ const slice = createSlice({
       state.error = undefined
       state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
+      state.bleDevices = []
+      state.selectedDevice = undefined
+      state.showBleLedgerDevicesModal = false
     },
-    enumerateAccountsFromLedger(state) {
+    enumerateDevicesFromBleLedger(state) {
+      state.devices = []
+      state.selectedDevice = undefined
+      state.step = ImportAccountsStep.Idle
+      state.showBleLedgerDevicesModal = true
+    },
+    enumerateAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
       state.accounts = []
       state.accountsSelectionPageNumber = 0
       state.showAccountsSelectionModal = true
       state.step = ImportAccountsStep.Idle
     },
-    enumerateMoreAccountsFromLedger(state) {
+    enumerateMoreAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
       state.step = ImportAccountsStep.Idle
     },
     enumerateAccountsFromMnemonic(state, _action: PayloadAction<string>) {
@@ -62,6 +75,12 @@ const slice = createSlice({
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload
       state.step = ImportAccountsStep.Idle
+    },
+    setBleDevices(state, { payload }: PayloadAction<ScanResult[]>) {
+      state.bleDevices = payload
+    },
+    setSelectedBleDevice(state, { payload }: PayloadAction<ScanResult>) {
+      state.selectedBleDevice = payload
     },
   },
 })

@@ -28,7 +28,7 @@
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-extension-dev-csp": "node ./internals/scripts/print-extension-dev-csp.js",
     "android": "yarn build && yarn cap run android -l --external",
-    "ios": "yarn build && yarn cap run ios"
+    "ios": "yarn build && yarn cap run ios -l --external"
   },
   "browserslist": {
     "production": [

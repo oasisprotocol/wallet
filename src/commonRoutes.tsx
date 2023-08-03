@@ -15,6 +15,8 @@ import { ParaTimes } from 'app/pages/ParaTimesPage'
 import { FiatOnramp } from 'app/pages/FiatOnrampPage'
 import { E2EPage } from 'app/pages/E2EPage'
 import { ErrorBoundary } from 'app/components/ErrorBoundary'
+import {FromBleLedger} from "./app/pages/OpenWalletPage/Features/FromBleLedger";
+import {FromUsbLedger} from "./app/pages/OpenWalletPage/Features/FromUsbLedger";
 
 export const commonRoutes: RouteObject[] = [
   {
@@ -70,6 +72,14 @@ export const commonRoutes: RouteObject[] = [
   {
     path: 'open-wallet/ledger',
     element: <FromLedger />,
+  },
+  {
+    path: 'open-wallet/ledger/usb',
+    element: <FromUsbLedger />,
+  },
+  {
+    path: 'open-wallet/ledger/ble',
+    element: <FromBleLedger />,
   },
   {
     path: 'e2e',
