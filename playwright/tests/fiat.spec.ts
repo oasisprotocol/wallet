@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
   })
   await expect(page.getByTestId('account-selector')).toBeVisible()
   await page.getByRole('link', { name: 'Buy' }).click()
-  await expect(page.getByText('Buy ROSE')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Buy ROSE' })).toBeVisible()
 })
 
 test.describe('Fiat on-ramp', () => {
@@ -93,5 +93,32 @@ test.describe('Fiat on-ramp', () => {
       )
       .click()
     await expect(page).toHaveURL('https://phishing-wallet.com/')
+  })
+
+  test('Permissions-Policy should contain Transak permissions', async ({ page, baseURL }) => {
+    expect(baseURL).toBe('http://localhost:5000')
+    expect((await page.request.head('/')).headers()).toHaveProperty('permissions-policy')
+    const permissionsPolicy = (await page.request.head('/'))
+      .headers()
+      ['permissions-policy'].split(',')
+      .map(rule => rule.trim())
+
+    await page
+      .getByText(
+        'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
+      )
+      .click()
+
+    const transakPermissions = await page.locator('iframe').getAttribute('allow')
+    expect(transakPermissions).toBeTruthy()
+
+    for (const permission of transakPermissions!.split(';').map(permission => permission.trim())) {
+      expect(permissionsPolicy.find(rule => rule.startsWith(`${permission}=`))).toContain(
+        'https://global.transak.com',
+      )
+      expect(permissionsPolicy.find(rule => rule.startsWith(`${permission}=`))).toContain(
+        'https://global-stg.transak.com',
+      )
+    }
   })
 })
