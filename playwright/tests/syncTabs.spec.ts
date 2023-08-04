@@ -253,8 +253,7 @@ test.describe('syncTabs', () => {
     await page.getByRole('button', { name: /Open wallet/ }).click()
     await page.getByRole('button', { name: /Private key/ }).click()
     const tab2 = await context.newPage()
-    await tab2.goto('/')
-    await expect(tab2.getByText('Loading account')).toBeVisible()
+    await Promise.all([tab2.goto('/'), expect(tab2.getByText('Loading account')).toBeVisible()])
     await expect(tab2.getByText('Loading account')).toBeHidden()
 
     // Delay getAccountBalanceWithFallback so addWallet is called after wallet is locked.

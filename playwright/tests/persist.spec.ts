@@ -97,9 +97,11 @@ test.describe('Persist', () => {
       await page.keyboard.press('Enter')
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
       await page.getByPlaceholder('Re-enter your password').fill(password)
-      await page.keyboard.press('Enter')
-      await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await expect(page.getByText('Loading account')).toBeVisible()
+      await Promise.all([
+        page.keyboard.press('Enter'),
+        expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`)),
+        expect(page.getByText('Loading account')).toBeVisible(),
+      ])
       await expect(page.getByText('Loading account')).toBeHidden()
     })
     await test.step('Expect correct password is required to unlock', async () => {
@@ -168,9 +170,11 @@ test.describe('Persist', () => {
     await page.getByPlaceholder('Re-enter your password').fill(password)
     await page.getByText('Store private keys locally, protected by a password').uncheck()
 
-    await page.getByRole('button', { name: /Open/ }).click()
-    await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-    await expect(page.getByText('Loading account')).toBeVisible()
+    await Promise.all([
+      page.getByRole('button', { name: /Open/ }).click(),
+      expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`)),
+      expect(page.getByText('Loading account')).toBeVisible(),
+    ])
     await expect(page.getByText('Loading account')).toBeHidden()
 
     await page.goto('/')
