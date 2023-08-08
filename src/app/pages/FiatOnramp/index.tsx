@@ -109,7 +109,7 @@ export function FiatOnramp() {
           </Box>
         ) : (
           <iframe
-            height="825"
+            height="875"
             title="Transak On/Off Ramp Widget"
             allow="camera;microphone;fullscreen;payment"
             // TODO: maybe restrict top-navigation with sandbox=""
@@ -128,7 +128,7 @@ export function FiatOnramp() {
             style={{
               display: 'block',
               width: '100%',
-              maxHeight: '825px',
+              maxHeight: '875px',
               borderRadius: '3px',
               border: 'none',
             }}
