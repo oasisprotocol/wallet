@@ -116,7 +116,7 @@
     "babel-plugin-istanbul": "6.1.1",
     "cypress": "12.17.3",
     "eslint": "8.46.0",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-config-react-app": "7.0.1",
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "7.33.1",
