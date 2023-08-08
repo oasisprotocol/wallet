@@ -2320,16 +2320,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@ledgerhq/devices@^8.0.5":
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.0.5.tgz#2c9b7bb3f8497795851b24c7ffd08c1261cd0783"
-  integrity sha512-Cy4LOfcYhYGWLd2nRA/CY/AneJT+Q3RyNwzoRx28gqAN21vF3+IZtL0jqs1n78rZ2bTEHyBS1GMOX13s5Y+O4g==
-  dependencies:
-    "@ledgerhq/errors" "^6.13.0"
-    "@ledgerhq/logs" "^6.10.1"
-    rxjs "6"
-    semver "^7.3.5"
-
 "@ledgerhq/devices@^8.0.6":
   version "8.0.6"
   resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.0.6.tgz#c318a3d5c756e20065370539a395f3024f0fac43"
@@ -2340,27 +2330,22 @@
     rxjs "6"
     semver "^7.3.5"
 
-"@ledgerhq/errors@^6.13.0":
-  version "6.13.0"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.13.0.tgz#f6d335d6f5c4267a1a8b20668df956a99dfb23ad"
-  integrity sha512-cMFNX2AN6Gdj4RVIizI/7vWb+JYRu5na0rQSjybf7xGW5MSVdFVRcOg90VvqnDRsNfgFBbJzhpf7o4D7S3yFgg==
-
 "@ledgerhq/errors@^6.13.1":
   version "6.13.1"
   resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-6.13.1.tgz#fd9570c1806824de734aed21df1a3d643ba8ed0c"
   integrity sha512-y5qOFiX7ILACF7GvCAB67S5nCABEP5rm8lxK66qKIBRApcLlTplbjUACDRfKQbAIwf0SJPuR31rtTKB92ykwKQ==
 
-"@ledgerhq/hw-transport-webusb@6.27.17":
-  version "6.27.17"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.17.tgz#1a8e71282e2c7ef47ea723f70f3f84b61c996eb4"
-  integrity sha512-HRh3PWwAHqfuibAif15H2X5ZbH8nNisDX49IxBoexBz/fM5ivP95kZZQsXLxzPxey5ima49B7AjWY3LyGBytqA==
+"@ledgerhq/hw-transport-webusb@6.27.18":
+  version "6.27.18"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport-webusb/-/hw-transport-webusb-6.27.18.tgz#4a0e54d1905cb68074f3dd56bbaa8e2471b57e4a"
+  integrity sha512-kRd+t6IcNHW6Pilk3QsuVmQvyuW44uc7sHxnV+3CFlbQwxzvF1P0DiFLEFy+dS2v/+3ESvDynOim525MyfwTeQ==
   dependencies:
-    "@ledgerhq/devices" "^8.0.5"
-    "@ledgerhq/errors" "^6.13.0"
-    "@ledgerhq/hw-transport" "^6.28.6"
+    "@ledgerhq/devices" "^8.0.6"
+    "@ledgerhq/errors" "^6.13.1"
+    "@ledgerhq/hw-transport" "^6.28.7"
     "@ledgerhq/logs" "^6.10.1"
 
-"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.28.6":
+"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.27.6", "@ledgerhq/hw-transport@^6.28.7":
   version "6.28.7"
   resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.28.7.tgz#17120f0ea8bdd34632010ed4e284a1c57f1bd41d"
   integrity sha512-P6XWv/Blb3AvzNH/33ouqFvsUwjCsQN5iMTLuVJqxVKwj91QmdYZfYR9U9FB0gBKrIQ7BONUgTX/ko9EnDV6/g==
