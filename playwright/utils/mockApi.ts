@@ -75,4 +75,10 @@ export async function mockApi(context: BrowserContext | Page, balance: number) {
       body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
     })
   })
+
+  // Inside Transak iframe
+  await context.route('https://sentry.io/**', route => route.fulfill({ body: '' }))
+  await context.route('https://cdn.segment.com/**', route => route.fulfill({ body: '' }))
+  await context.route('https://api.segment.io/**', route => route.fulfill({ body: '' }))
+  await context.route('https://api.sardine.ai/**', route => route.fulfill({ body: '' }))
 }
