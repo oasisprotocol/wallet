@@ -4,6 +4,7 @@
 
 import { AnyAction, combineReducers } from '@reduxjs/toolkit'
 import createWalletReducer from 'app/pages/CreateWalletPage/slice'
+import fiatOnrampReducer from 'app/pages/FiatOnrampPage/slice'
 import accountReducer from 'app/state/account'
 import fatalErrorReducer from 'app/state/fatalerror'
 import importAccountsReducer from 'app/state/importaccounts'
@@ -20,6 +21,7 @@ function createRootReducer() {
   const rootReducer = combineReducers({
     account: accountReducer,
     createWallet: createWalletReducer,
+    fiatOnramp: fiatOnrampReducer,
     fatalError: fatalErrorReducer,
     importAccounts: importAccountsReducer,
     network: networkReducer,
