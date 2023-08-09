@@ -12,7 +12,7 @@ import { ValidatorList } from 'app/pages/StakingPage/Features/ValidatorList'
 import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
-import { FiatOnramp } from 'app/pages/FiatOnramp'
+import { FiatOnramp } from 'app/pages/FiatOnrampPage'
 import { E2EPage } from 'app/pages/E2EPage'
 import { ErrorBoundary } from 'app/components/ErrorBoundary'
 

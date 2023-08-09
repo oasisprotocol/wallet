@@ -31,7 +31,7 @@ import logotype from '../../../../public/logo192.png'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
-import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnramp/isEnabled'
+import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import {
   sidebarSmallSizeLogo,
   sidebarMediumSizeLogo,
