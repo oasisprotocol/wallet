@@ -12,7 +12,8 @@ import { selectAccountIsLoading } from '../../state/account/selectors'
 import { Button } from 'grommet/es6/components/Button'
 import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
-import { useState } from 'react'
+import { selectThirdPartyAcknowledged } from './slice/selectors'
+import { fiatOnrampActions } from './slice'
 
 function HeaderLayout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
@@ -45,7 +46,7 @@ export function FiatOnramp() {
   const accountIsLoading = useSelector(selectAccountIsLoading)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
-  const [thirdPartyAcknowledged, setThirdPartyAcknowledged] = useState(false)
+  const thirdPartyAcknowledged = useSelector(selectThirdPartyAcknowledged)
 
   if (selectedNetwork !== 'mainnet') {
     return (
@@ -104,7 +105,7 @@ export function FiatOnramp() {
                 'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
               )}
               checked={thirdPartyAcknowledged}
-              onChange={event => setThirdPartyAcknowledged(event.target.checked)}
+              onChange={event => dispatch(fiatOnrampActions.setThirdPartyAcknowledged(event.target.checked))}
             />
           </Box>
         ) : (
