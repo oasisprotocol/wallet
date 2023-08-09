@@ -113,7 +113,22 @@ export function FiatOnramp() {
             height="875"
             title="Transak On/Off Ramp Widget"
             allow="camera;microphone;fullscreen;payment"
-            // TODO: maybe restrict top-navigation with sandbox=""
+            // Restrict top-navigation
+            sandbox={[
+              'allow-downloads',
+              'allow-forms',
+              'allow-modals',
+              'allow-orientation-lock',
+              'allow-pointer-lock',
+              'allow-popups',
+              'allow-popups-to-escape-sandbox',
+              'allow-presentation',
+              'allow-same-origin',
+              'allow-scripts',
+              // 'allow-storage-access-by-user-activation',
+              // 'allow-top-navigation',
+              // 'allow-top-navigation-by-user-activation',
+            ].join(' ')}
             src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
               // https://docs.transak.com/docs/query-parameters
               apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,

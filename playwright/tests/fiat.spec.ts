@@ -63,15 +63,35 @@ test.describe('Fiat on-ramp', () => {
       route.fulfill({
         status: 301,
         headers: {
-          Location: 'https://example.com/',
+          Location: 'https://phishing-transak.com/',
         },
       }),
     )
+    await page.route('https://phishing-transak.com/', route => route.fulfill({ body: `phishing` }))
 
     await page
       .getByText(
         'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
       )
       .click()
+  })
+
+  test('Sandbox should block top-navigation from iframe and fail', async ({ page, baseURL }) => {
+    test.fail()
+    expect(baseURL).toBe('http://localhost:5000')
+    expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
+    await page.route('https://global.transak.com/*', route =>
+      route.fulfill({
+        body: `<script>window.top.location = 'https://phishing-wallet.com/';</script>`,
+      }),
+    )
+    await page.route('https://phishing-wallet.com/', route => route.fulfill({ body: `phishing` }))
+
+    await page
+      .getByText(
+        'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
+      )
+      .click()
+    await expect(page).toHaveURL('https://phishing-wallet.com/')
   })
 })
