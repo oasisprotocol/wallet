@@ -12,7 +12,7 @@ import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
-import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnramp/isEnabled'
+import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes'
 
 const StyledMobileFooterNavigation = styled.nav`
