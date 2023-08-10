@@ -8,6 +8,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
+import * as oasis from '@oasisprotocol/client'
 import { useDispatch } from 'react-redux'
 import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
@@ -31,6 +32,7 @@ export function E2EPage() {
 interface e2eWindow extends Window {
   monitor: any
   oasisscan: any
+  oasis: any
 }
 declare const window: e2eWindow
 
@@ -38,9 +40,11 @@ function TestVendors() {
   useEffect(() => {
     window.monitor = monitor
     window.oasisscan = oasisscan
+    window.oasis = oasis
     return () => {
       window.monitor = undefined
       window.oasisscan = undefined
+      window.oasis = undefined
     }
   }, [])
   return <></>
