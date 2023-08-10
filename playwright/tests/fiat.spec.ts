@@ -111,12 +111,11 @@ test.describe('Fiat on-ramp', () => {
     expect(transakPermissions).toBeTruthy()
 
     for (const permission of transakPermissions!.split(';').map(permission => permission.trim())) {
-      expect(permissionsPolicy.find(rule => rule.startsWith(`${permission}=`))).toContain(
-        'https://global.transak.com',
-      )
-      expect(permissionsPolicy.find(rule => rule.startsWith(`${permission}=`))).toContain(
-        'https://global-stg.transak.com',
-      )
+      const rule = permissionsPolicy.find(rule => rule.startsWith(`${permission}=`))!
+      expect(
+        rule.endsWith('=*') ||
+          (rule.includes('https://global.transak.com') && rule.includes('https://global-stg.transak.com')),
+      ).toBeTruthy()
     }
   })
 })
