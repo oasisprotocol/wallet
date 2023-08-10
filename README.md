@@ -129,7 +129,7 @@ docker-compose up -d
 REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start
 yarn cypress:run
 
-# Manually check that content-security-policy in ./internals/getCsp.js doesn't
+# Manually check that content-security-policy in getPermissionHeaders.js doesn't
 # break any functionality
 yarn --silent print-csp
 yarn start:prod

@@ -22,14 +22,12 @@ Manually deploy `./build/` folder by following <https://github.com/oasisprotocol
 
 Verify deployed version by opening the page in incognito (no cache) - it is displayed in the footer.
 
-Update Content-Security-Policy header.
+Update Content-Security-Policy and Permissions-Policy headers.
 
 ```sh
-yarn print-csp
-
-# See old deployed CSP
-curl --head https://wallet.stg.oasis.io/ -s | grep content-security-policy
-curl --head https://wallet.oasis.io/ -s | grep content-security-policy
+# See old deployed headers
+curl --head https://wallet.stg.oasis.io/ -s | grep "content-security-policy\|permissions-policy"
+curl --head https://wallet.oasis.io/ -s | grep "content-security-policy\|permissions-policy"
 ```
 
 

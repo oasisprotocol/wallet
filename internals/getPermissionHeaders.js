@@ -53,4 +53,42 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
     .join(' ')
     .replace(/ ;/g, ';')
 
-module.exports = { getCsp }
+// Generated with https://www.permissionspolicy.com/
+const getPermissionsPolicy = () =>
+  `
+    accelerometer=*,
+    ambient-light-sensor=*,
+    autoplay=(),
+    bluetooth=(self),
+    camera=*,
+    cross-origin-isolated=(),
+    display-capture=(),
+    document-domain=(),
+    encrypted-media=*,
+    execution-while-not-rendered=(),
+    execution-while-out-of-viewport=(),
+    fullscreen=(self "https://global.transak.com" "https://global-stg.transak.com"),
+    geolocation=(),
+    gyroscope=*,
+    keyboard-map=(),
+    magnetometer=*,
+    microphone=*,
+    midi=(),
+    navigation-override=(),
+    payment=("https://global.transak.com" "https://global-stg.transak.com"),
+    picture-in-picture=(),
+    publickey-credentials-get=*,
+    screen-wake-lock=(),
+    sync-xhr=(),
+    usb=(self),
+    web-share=*,
+    xr-spatial-tracking=()
+  `
+    .trim()
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => !!line)
+    .join(' ')
+    .replace(/ ,/g, ',')
+
+module.exports = { getCsp, getPermissionsPolicy }

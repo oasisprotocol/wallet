@@ -1,6 +1,6 @@
 // @ts-check
 const execSync = require('child_process').execSync
-const { getCsp } = require('../getCsp.js')
+const { getCsp } = require('../getPermissionHeaders.js')
 const { buildDatetime, buildSha, buildVersion } = require('../getBuildData')
 
 process.env.REACT_APP_BUILD_DATETIME = buildDatetime
