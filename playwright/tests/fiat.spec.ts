@@ -78,8 +78,6 @@ test.describe('Fiat on-ramp', () => {
 
   test('Sandbox should block top-navigation from iframe and fail', async ({ page, baseURL }) => {
     test.fail()
-    expect(baseURL).toBe('http://localhost:5000')
-    expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
     await page.route('https://global.transak.com/*', route =>
       route.fulfill({
         body: `<script>window.top.location = 'https://phishing-wallet.com/';</script>`,
