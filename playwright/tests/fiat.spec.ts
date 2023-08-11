@@ -1,14 +1,13 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, Page } from '@playwright/test'
 import { privateKey, privateKeyAddress } from '../utils/test-inputs'
 import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
 import { expectNoErrorsInConsole } from '../utils/expectNoErrorsInConsole'
 
-test.beforeEach(async ({ page }) => {
+async function setup(page: Page) {
   await warnSlowApi(page)
   await mockApi(page, 500000000000)
-  await expectNoErrorsInConsole(page)
 
   await page.goto('/open-wallet/private-key')
   await fillPrivateKeyWithoutPassword(page, {
@@ -20,12 +19,14 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByTestId('account-selector')).toBeVisible()
   await page.getByRole('link', { name: 'Buy' }).click()
   await expect(page.getByRole('heading', { name: 'Buy ROSE' })).toBeVisible()
-})
+}
 
 test.describe('Fiat on-ramp', () => {
   test('Content-Security-Policy should allow embedded Transak widget', async ({ page, baseURL }) => {
     expect(baseURL).toBe('http://localhost:5000')
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
+    await expectNoErrorsInConsole(page)
+    await setup(page)
     await page
       .getByText(
         'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
@@ -39,6 +40,8 @@ test.describe('Fiat on-ramp', () => {
   test('Content-Security-Policy should also allow Transak staging iframe', async ({ page, baseURL }) => {
     expect(baseURL).toBe('http://localhost:5000')
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
+    await expectNoErrorsInConsole(page)
+    await setup(page)
     await page.route('https://global.transak.com/*', route =>
       route.fulfill({
         status: 301,
@@ -59,6 +62,8 @@ test.describe('Fiat on-ramp', () => {
     test.fail()
     expect(baseURL).toBe('http://localhost:5000')
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
+    await expectNoErrorsInConsole(page)
+    await setup(page)
     await page.route('https://global.transak.com/*', route =>
       route.fulfill({
         status: 301,
@@ -78,6 +83,8 @@ test.describe('Fiat on-ramp', () => {
 
   test('Sandbox should block top-navigation from iframe and fail', async ({ page, baseURL }) => {
     test.fail()
+    await expectNoErrorsInConsole(page)
+    await setup(page)
     await page.route('https://global.transak.com/*', route =>
       route.fulfill({
         body: `<script>window.top.location = 'https://phishing-wallet.com/';</script>`,
@@ -96,6 +103,8 @@ test.describe('Fiat on-ramp', () => {
   test('Permissions-Policy should contain Transak permissions', async ({ page, baseURL }) => {
     expect(baseURL).toBe('http://localhost:5000')
     expect((await page.request.head('/')).headers()).toHaveProperty('permissions-policy')
+    await expectNoErrorsInConsole(page)
+    await setup(page)
     const permissionsPolicy = (await page.request.head('/'))
       .headers()
       ['permissions-policy'].split(',')
