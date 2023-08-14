@@ -1,3 +1,3 @@
 // @ts-check
-const { getCsp } = require('../getPermissionHeaders.js')
+const { getCsp } = require('../getSecurityHeaders.js')
 console.log(getCsp({ isExtension: true }))

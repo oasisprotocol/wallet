@@ -1,6 +1,6 @@
 // @ts-check
 const execSync = require('child_process').execSync
-const { getCsp, getPermissionsPolicy } = require('../getPermissionHeaders.js')
+const { getCsp, getPermissionsPolicy } = require('../getSecurityHeaders.js')
 const { buildDatetime, buildSha, buildVersion } = require('../getBuildData')
 
 const csp = getCsp()
