@@ -30,8 +30,8 @@ export function FromUsbLedger() {
         {t('ledger.instructionSteps.header', 'Steps:')}
       </Heading>
       <ol>
-        <li>{t('ledger.instructionSteps.connectLedger', 'Connect your Ledger device to the computer')}</li>
-        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the computer')}</li>
+        <li>{t('ledger.instructionSteps.connectLedger', 'Connect your Ledger device to the device')}</li>
+        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the device')}</li>
         <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis App on your Ledger device')}</li>
       </ol>
       <Box direction="row" margin={{ top: 'medium' }}>

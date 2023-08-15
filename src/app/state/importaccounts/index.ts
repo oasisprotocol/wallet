@@ -3,7 +3,7 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
-import {TransportType} from "./saga";
+import { TransportType } from './saga'
 
 export const initialState: ImportAccountsState = {
   accounts: [],
@@ -32,6 +32,8 @@ const slice = createSlice({
       state.selectedDevice = undefined
       state.step = ImportAccountsStep.Idle
       state.showBleLedgerDevicesModal = true
+      state.bleDevices = []
+      state.selectedDevice = undefined
     },
     enumerateAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
       state.accounts = []

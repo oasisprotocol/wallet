@@ -16,7 +16,8 @@ import {
   selectImportAccounts,
   selectImportAccountsFullList,
   selectImportAccountsOnCurrentPage,
-  selectImportAccountsPageNumber, selectSelectedBleDevice,
+  selectImportAccountsPageNumber,
+  selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import BleTransport from 'ionic-hw-transport-ble/lib'
@@ -37,12 +38,7 @@ function* isBluetoothSupported() {
 
 function* getBluetoothDevices() {
   yield* call(isBluetoothSupported)
-
-  const devices = yield* call(BleTransport.list)
-
-  console.log('devices', devices)
-
-  return devices
+  return yield* call(BleTransport.list)
 }
 
 function* getBluetoothTransport(device: ScanResult) {
@@ -232,7 +228,13 @@ function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  const transport = yield* getBluetoothTransport()
+  const bleDevice = yield* select(selectSelectedBleDevice)
+  let transport
+  if (bleDevice) {
+    transport = yield* getBluetoothTransport(bleDevice)
+  } else {
+    transport = yield* getUSBTransport()
+  }
   const chainContext = yield* select(selectChainContext)
 
   signer.setTransport(transport)
