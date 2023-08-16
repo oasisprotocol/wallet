@@ -121,7 +121,7 @@ yarn test
 yarn start
 (cd playwright; yarn; npx playwright install --with-deps)
 (cd playwright; yarn test)
-# Or set BASE_URL and EXTENSION_PATH to test production builds and test security headers.
+# Or set BASE_URL and EXTENSION_PATH to test production builds.
 # Or `xvfb-run yarn test` to prevent browser windows opening.
 
 # Run cypress tests
