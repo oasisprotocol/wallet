@@ -52,7 +52,7 @@
     "report-dir": "cypress-coverage"
   },
   "dependencies": {
-    "@ethereumjs/util": "8.0.3",
+    "@ethereumjs/util": "8.1.0",
     "@ledgerhq/hw-transport-webusb": "6.27.18",
     "@metamask/jazzicon": "2.0.0",
     "@oasisprotocol/client": "0.1.1-alpha.2",
