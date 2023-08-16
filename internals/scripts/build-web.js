@@ -1,10 +1,12 @@
 // @ts-check
 const execSync = require('child_process').execSync
-const { getCsp } = require('../getPermissionHeaders.js')
+const { getCsp, getPermissionsPolicy } = require('../getPermissionHeaders.js')
 const { buildDatetime, buildSha, buildVersion } = require('../getBuildData')
 
 const csp = getCsp()
+const permissionsPolicy = getPermissionsPolicy()
 console.log(`Content-Security-Policy: ${csp}\n`)
+console.log(`Permissions-Policy: ${permissionsPolicy}\n`)
 
 process.env.REACT_APP_BUILD_DATETIME = buildDatetime
 process.env.REACT_APP_BUILD_SHA = buildSha
