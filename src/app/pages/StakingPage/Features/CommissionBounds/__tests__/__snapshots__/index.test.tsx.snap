@@ -141,9 +141,7 @@ exports[`<CommissionBounds  /> should match snapshot with provided bounds 1`] = 
         <span
           class="c2"
         >
-          <span>
-            10% - 20% starting from Epoch 0
-          </span>
+          10% - 20% starting from Epoch 0
         </span>
       </li>
     </ul>

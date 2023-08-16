@@ -47,9 +47,7 @@ exports[`<TransactionAmount /> should render EVMc withdraw variant component 1`]
   class="c0"
   data-testid="paraTime-content-description"
 >
-  <span>
-    Please enter the amount of ROSE to withdraw and then click "Next"
-  </span>
+  Please enter the amount of ROSE to withdraw and then click "Next"
 </span>
 `;
 
@@ -616,9 +614,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        <span>
-          Please enter the amount of ROSE to deposit and then click "Next"
-        </span>
+        Please enter the amount of ROSE to deposit and then click "Next"
       </span>
     </div>
     <div
