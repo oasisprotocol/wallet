@@ -24,7 +24,6 @@
     "lint:css": "stylelint src/**/*.css",
     "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
-    "print-csp": "node ./internals/scripts/print-csp.js",
     "print-extension-csp": "node ./internals/scripts/print-extension-csp.js"
   },
   "browserslist": {

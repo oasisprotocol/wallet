@@ -131,7 +131,6 @@ yarn cypress:run
 
 # Manually check that content-security-policy in getSecurityHeaders.js doesn't
 # break any functionality
-yarn --silent print-csp
 yarn start:prod
 # Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake
 # and switch to testnet. This exercises at least: fonts, grpc, testnet grpc, API,
