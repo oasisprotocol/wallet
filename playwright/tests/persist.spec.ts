@@ -31,6 +31,7 @@ test.describe('Persist', () => {
       await page.goto('/open-wallet/mnemonic')
       await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
       await page.getByRole('button', { name: /Import my wallet/ }).click()
+      await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
       const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })
       await expect(uncheckedAccounts).toHaveCount(3)
       for (const account of await uncheckedAccounts.elementHandles()) await account.click()
@@ -161,6 +162,7 @@ test.describe('Persist', () => {
 
     await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
+    await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
 
     await page.getByText('Store private keys locally, protected by a password').check()
     await page.getByPlaceholder('Enter your password here').fill(password)
