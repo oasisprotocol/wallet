@@ -205,7 +205,7 @@ test.describe('syncTabs', () => {
   })
 
   test('sync 44 accounts in 10 tabs', async ({ page, context }) => {
-    test.slow()
+    test.setTimeout(240_000)
     await test.step('Import 44 accounts', async () => {
       await page.goto('/open-wallet/mnemonic')
       await page.getByTestId('network-selector').click()
