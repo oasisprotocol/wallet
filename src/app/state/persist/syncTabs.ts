@@ -37,6 +37,9 @@ export function receiveInitialTabSyncState(
 
 /**
  * When interacting with a second tab it syncs these actions.
+ *
+ * See caveat in {@link walletActions.updateBalance} about actions being synced
+ * before {@link receiveInitialTabSyncState}!
  */
 export const whitelistTabSyncActions = [
   themeActions.changeTheme.type,
