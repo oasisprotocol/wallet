@@ -44,7 +44,7 @@ export function Toolbar() {
       </Box>
 
       {isOpen && (
-        <Box justify="center" data-testid="account-selector">
+        <Box justify="center">
           <AccountSelectorButton />
         </Box>
       )}
