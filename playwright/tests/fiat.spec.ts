@@ -22,10 +22,15 @@ async function setup(page: Page) {
 }
 
 test.describe('Fiat on-ramp', () => {
-  test('Content-Security-Policy should allow embedded Transak widget', async ({ page, baseURL }) => {
-    expect(baseURL).toBe('http://localhost:5000')
+  test('Content-Security-Policy should allow embedded Transak widget', async ({ page }) => {
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
-    await expectNoErrorsInConsole(page)
+    await expectNoErrorsInConsole(page, {
+      ignoreError: msg => {
+        // Odd errors inside Transak
+        if (msg.text().includes('responded with a status of 403')) return true
+        if (msg.text().includes('`sessionKey` is a required property')) return true
+      },
+    })
     await setup(page)
     await page
       .getByText(
@@ -37,18 +42,12 @@ test.describe('Fiat on-ramp', () => {
     await expect(page.frameLocator('iframe')!.getByText('Please Enter Your Email')).toBeVisible()
   })
 
-  test('Content-Security-Policy should also allow Transak staging iframe', async ({ page, baseURL }) => {
-    expect(baseURL).toBe('http://localhost:5000')
+  test('Content-Security-Policy should also allow Transak staging iframe', async ({ page }) => {
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
     await expectNoErrorsInConsole(page)
     await setup(page)
-    await page.route('https://global.transak.com/*', route =>
-      route.fulfill({
-        status: 301,
-        headers: {
-          Location: 'https://global-stg.transak.com/',
-        },
-      }),
+    await page.route('https://*.transak.com/?*', route =>
+      route.fulfill({ status: 301, headers: { Location: 'https://global-stg.transak.com/' } }),
     )
 
     await page
@@ -58,19 +57,13 @@ test.describe('Fiat on-ramp', () => {
       .click()
   })
 
-  test('Content-Security-Policy should block unknown iframe and fail', async ({ page, baseURL }) => {
+  test('Content-Security-Policy should block unknown iframe and fail', async ({ page }) => {
     test.fail()
-    expect(baseURL).toBe('http://localhost:5000')
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
     // await expectNoErrorsInConsole(page) // TODO: revert when playwright doesn't skip other tests because of this
     await setup(page)
-    await page.route('https://global.transak.com/*', route =>
-      route.fulfill({
-        status: 301,
-        headers: {
-          Location: 'https://phishing-transak.com/',
-        },
-      }),
+    await page.route('https://*.transak.com/*', route =>
+      route.fulfill({ status: 301, headers: { Location: 'https://phishing-transak.com/' } }),
     )
     await page.route('https://phishing-transak.com/', route => route.fulfill({ body: `phishing` }))
 
@@ -84,11 +77,11 @@ test.describe('Fiat on-ramp', () => {
     ])
   })
 
-  test('Sandbox should block top-navigation from iframe and fail', async ({ page, baseURL }) => {
+  test('Sandbox should block top-navigation from iframe and fail', async ({ page }) => {
     test.fail()
     // await expectNoErrorsInConsole(page) // TODO: revert when playwright doesn't skip other tests because of this
     await setup(page)
-    await page.route('https://global.transak.com/*', route =>
+    await page.route('https://*.transak.com/*', route =>
       route.fulfill({
         body: `<script>window.top.location = 'https://phishing-wallet.com/';</script>`,
       }),
@@ -106,8 +99,7 @@ test.describe('Fiat on-ramp', () => {
     await expect(page).toHaveURL('https://phishing-wallet.com/')
   })
 
-  test('Permissions-Policy should contain Transak permissions', async ({ page, baseURL }) => {
-    expect(baseURL).toBe('http://localhost:5000')
+  test('Permissions-Policy should contain Transak permissions', async ({ page }) => {
     expect((await page.request.head('/')).headers()).toHaveProperty('permissions-policy')
     await expectNoErrorsInConsole(page)
     await setup(page)

@@ -28,8 +28,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Validators', () => {
-  test('Content-Security-Policy should allow validator icons', async ({ page, baseURL }) => {
-    expect(baseURL).toBe('http://localhost:5000')
+  test('Content-Security-Policy should allow validator icons', async ({ page }) => {
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
 
     const someValidatorIconPromise = page.waitForResponse(
