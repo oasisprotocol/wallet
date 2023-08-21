@@ -25,7 +25,7 @@ export const AccountSelectorButton = memo(() => {
 
   return (
     <>
-      <Button onClick={() => setLayerVisibility(true)}>
+      <Button onClick={() => setLayerVisibility(true)} data-testid="account-selector">
         <JazzIcon
           diameter={isMobile ? sidebarSmallSizeLogo : sidebarMediumSizeLogo}
           seed={addressToJazzIconSeed(address)}

@@ -205,7 +205,7 @@ test.describe('syncTabs', () => {
   })
 
   test('sync 44 accounts in 10 tabs', async ({ page, context }) => {
-    test.slow()
+    test.setTimeout(240_000)
     await test.step('Import 44 accounts', async () => {
       await page.goto('/open-wallet/mnemonic')
       await page.getByTestId('network-selector').click()
@@ -213,6 +213,7 @@ test.describe('syncTabs', () => {
 
       await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
       await page.getByRole('button', { name: /Import my wallet/ }).click()
+      await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
       await page.getByRole('checkbox', { name: /oasis1/, checked: true }).uncheck()
       for (let i = 0; i < 11; i++) {
         const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })
