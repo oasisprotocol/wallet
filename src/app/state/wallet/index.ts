@@ -27,7 +27,24 @@ const slice = createSlice({
     },
     fetchWallet(state, action: PayloadAction<Wallet>) {},
     updateBalance(state, action: PayloadAction<BalanceUpdatePayload>) {
-      Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
+      // We simply ignore the updateBalance action in rare cases when opening a
+      // second tab while account is loading:
+      // - tab2 initializes
+      // - tab1 dispatches updateBalance
+      // - tab2 asks to sync state
+      // - tab2 receives updateBalance for an account it doesn't have
+      // - tab1 responds with state
+      // - tab2 receives synced state with the account it didn't have
+      //
+      // Alternatives:
+      // - Remove updateBalance from whitelistTabSyncActions and have an
+      //   outdated balance in case tab2 makes a transaction.
+      // - Refactor redux-state-sync to ignore actions until tab2 receives
+      //   synced state. But tab1 needs to listen to actions too, even tho it
+      //   never asks for synced state.
+      if (state.wallets[action.payload.address]?.balance) {
+        Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
+      }
     },
     walletOpened(state, action: PayloadAction<Wallet>) {
       const newWallet = action.payload
