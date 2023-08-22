@@ -2,6 +2,9 @@ import { test as base, expect, BrowserContext, chromium } from '@playwright/test
 import path from 'path'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
+import { expectNoErrorsInConsole } from '../utils/expectNoErrorsInConsole'
+import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
+import { privateKey, privateKeyAddress } from '../utils/test-inputs'
 
 // Test dev build by default, but also allow testing production
 const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '../build-dev/')
@@ -68,6 +71,29 @@ test.describe('The extension popup should load', () => {
     await popup.getByRole('button', { name: /Connect Ledger device/i }).click()
     await popup.waitForTimeout(100)
     // Expect not to crash, nor auto-reject permissions dialog
-    await expect(popup.getByText('Connection failed')).toBeHidden()
+    await expect(popup.getByText('error').or(popup.getByText('fail'))).toBeHidden()
+  })
+
+  test('should allow embedded Transak widget', async ({ page, extensionId }) => {
+    await expectNoErrorsInConsole(page)
+    await page.goto(`chrome-extension://${extensionId}/${popupFile}#/open-wallet/private-key`)
+    await fillPrivateKeyWithoutPassword(page, {
+      privateKey: privateKey,
+      privateKeyAddress: privateKeyAddress,
+      persistenceCheckboxChecked: false,
+      persistenceCheckboxDisabled: false,
+    })
+    await expect(page.getByTestId('account-selector')).toBeVisible()
+    await page.getByRole('link', { name: 'Buy' }).click()
+    await expect(page.getByRole('heading', { name: 'Buy ROSE' })).toBeVisible()
+
+    await page
+      .getByText(
+        'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
+      )
+      .click()
+    await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
+    await page.frameLocator('iframe')!.getByText('Buy now').click()
+    await expect(page.frameLocator('iframe')!.getByText('Please Enter Your Email')).toBeVisible()
   })
 })
