@@ -122,6 +122,7 @@ yarn start
 (cd playwright; yarn; npx playwright install --with-deps)
 (cd playwright; yarn test)
 # Or set BASE_URL and EXTENSION_PATH to test production builds and test security headers.
+# Or `xvfb-run yarn test` to prevent browser windows opening.
 
 # Run cypress tests
 docker-compose up -d
@@ -129,9 +130,8 @@ docker-compose up -d
 REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start
 yarn cypress:run
 
-# Manually check that content-security-policy in getPermissionHeaders.js doesn't
+# Manually check that content-security-policy in getSecurityHeaders.js doesn't
 # break any functionality
-yarn --silent print-csp
 yarn start:prod
 # Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake
 # and switch to testnet. This exercises at least: fonts, grpc, testnet grpc, API,

@@ -4,20 +4,22 @@
 // - remove 'unsafe-inline' style by precomputing theme hash
 // - add report-uri to gather errors if anything was missed
 
-const extensionCsp = {
-  dappFrameAncestors: `
-    'self'
-    https:
-    http://localhost:*
-    http://127.0.0.1:*
-  `,
-  hmrWebsocket: `
-    ws://localhost:2222
-  `,
-}
+const dappFrameAncestors = `
+  'self'
+  https:
+  http://localhost:*
+  http://127.0.0.1:*
+`
+const hmrWebsocket = `
+  ws://localhost:2222
+`
 
-// Keep synced with deployment
-const getCsp = ({ isExtension } = { isExtension: false }) =>
+/**
+ * Keep this synced with deployment headers
+ *
+ * @param {{ isExtension: boolean, isDev: boolean }} param
+ */
+const getCsp = ({ isExtension, isDev }) =>
   `
     default-src 'none';
     script-src
@@ -35,10 +37,10 @@ const getCsp = ({ isExtension } = { isExtension: false }) =>
       https://testnet.grpc.oasis.dev
       https://api.oasisscan.com
       https://monitor.oasis.dev
-      ${isExtension ? extensionCsp.hmrWebsocket : ''}
+      ${isDev ? hmrWebsocket : ''}
       ;
     frame-ancestors
-      ${isExtension ? extensionCsp.dappFrameAncestors : `'none'`};
+      ${isExtension ? dappFrameAncestors : `'none'`};
     frame-src
       https://global.transak.com
       https://global-stg.transak.com;
