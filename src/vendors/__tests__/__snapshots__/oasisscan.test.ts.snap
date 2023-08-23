@@ -255,21 +255,6 @@ exports[`oasisscan parse validators 1`] = `
     "status": "active",
   },
   {
-    "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
-    "current_rate": 0.15,
-    "escrow": "261889743040000000",
-    "media": {
-      "email_address": "go@staking.fund",
-      "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d48739023a250815c4ac564c9870ec05_360_360.jpg",
-      "twitter_acc": "StakingFund",
-      "website_link": "https://staking.fund",
-    },
-    "name": "Staking Fund",
-    "nodeAddress": "oasis1qp0lt6y2kq8g7ffzy49acga2l8uefngz0yf9v0jk",
-    "rank": 3,
-    "status": "active",
-  },
-  {
     "address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
     "current_rate": 0.1,
     "escrow": "326477290610000000",
@@ -283,6 +268,21 @@ exports[`oasisscan parse validators 1`] = `
     "nodeAddress": "oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k",
     "rank": 2,
     "status": "inactive",
+  },
+  {
+    "address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
+    "current_rate": 0.15,
+    "escrow": "261889743040000000",
+    "media": {
+      "email_address": "go@staking.fund",
+      "logotype": "https://s3.amazonaws.com/keybase_processed_uploads/d48739023a250815c4ac564c9870ec05_360_360.jpg",
+      "twitter_acc": "StakingFund",
+      "website_link": "https://staking.fund",
+    },
+    "name": "Staking Fund",
+    "nodeAddress": "oasis1qp0lt6y2kq8g7ffzy49acga2l8uefngz0yf9v0jk",
+    "rank": 3,
+    "status": "active",
   },
 ]
 `;

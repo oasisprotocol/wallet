@@ -5,7 +5,6 @@ import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
-import { sortByStatus } from 'vendors/helpers'
 import { parseValidatorsList } from 'vendors/oasisscan'
 
 import { stakingActions } from '.'
@@ -132,14 +131,12 @@ function* getFallbackValidators(network: NetworkType, errorApi: Error) {
   }
   fallbackValidators = {
     ...fallbackValidators,
-    list: fallbackValidators.list
-      .map(v => {
-        return {
-          ...v,
-          status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
-        }
-      })
-      .sort(sortByStatus),
+    list: fallbackValidators.list.map(v => {
+      return {
+        ...v,
+        status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
+      }
+    }),
   }
   return {
     error: errorApi,

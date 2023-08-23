@@ -18,7 +18,7 @@ import {
   RuntimeTransactionInfoRow,
 } from 'vendors/oasisscan/index'
 
-import { throwAPIErrors, sortByStatus } from './helpers'
+import { throwAPIErrors } from './helpers'
 
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
   const explorerConfig = new Configuration({
@@ -98,26 +98,24 @@ export function parseAccount(account: AccountsRow): Account {
 }
 
 export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
-  return validators
-    .map(v => {
-      const parsed: Validator = {
-        address: v.entityAddress,
-        name: v.name ?? undefined,
-        nodeAddress: v.nodeAddress,
-        escrow: parseRoseStringToBaseUnitString(v.escrow),
-        current_rate: v.commission,
-        status: v.status ? 'active' : 'inactive',
-        media: {
-          email_address: v.email ?? undefined,
-          logotype: v.icon ?? undefined,
-          twitter_acc: v.twitter ?? undefined,
-          website_link: v.website ?? undefined,
-        },
-        rank: v.rank,
-      }
-      return parsed
-    })
-    .sort(sortByStatus)
+  return validators.map(v => {
+    const parsed: Validator = {
+      address: v.entityAddress,
+      name: v.name ?? undefined,
+      nodeAddress: v.nodeAddress,
+      escrow: parseRoseStringToBaseUnitString(v.escrow),
+      current_rate: v.commission,
+      status: v.status ? 'active' : 'inactive',
+      media: {
+        email_address: v.email ?? undefined,
+        logotype: v.icon ?? undefined,
+        twitter_acc: v.twitter ?? undefined,
+        website_link: v.website ?? undefined,
+      },
+      rank: v.rank,
+    }
+    return parsed
+  })
 }
 
 export const transactionMethodMap: {

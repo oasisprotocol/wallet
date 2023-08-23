@@ -4,6 +4,7 @@ import { createSlice } from 'utils/@reduxjs/toolkit'
 
 import { DebondingDelegation, Delegation, StakingState, Validators, ValidatorDetails } from './types'
 import shuffle from 'lodash/shuffle'
+import { sortByStatus } from '../../../vendors/helpers'
 
 export const initialState: StakingState = {
   debondingDelegations: null,
@@ -28,14 +29,14 @@ const slice = createSlice({
       state.updateValidatorsError = undefined
       state.validators = {
         ...action.payload,
-        list: shuffle(action.payload.list),
+        list: shuffle(action.payload.list).sort(sortByStatus),
       }
     },
     updateValidatorsError(state, action: PayloadAction<{ error: ErrorPayload; validators: Validators }>) {
       state.updateValidatorsError = action.payload.error
       state.validators = {
         ...action.payload.validators,
-        list: shuffle(action.payload.validators.list),
+        list: shuffle(action.payload.validators.list).sort(sortByStatus),
       }
     },
     updateDelegations(
