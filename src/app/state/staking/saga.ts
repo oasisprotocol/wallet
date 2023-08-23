@@ -13,7 +13,6 @@ import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
-import shuffle from 'lodash/shuffle'
 
 function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
@@ -59,7 +58,7 @@ export function* refreshValidators() {
       stakingActions.updateValidators({
         timestamp: yield* call(now),
         network: network,
-        list: shuffle(validators),
+        list: validators,
       }),
     )
   } catch (errorApi: any) {

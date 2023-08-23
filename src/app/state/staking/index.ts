@@ -3,6 +3,7 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 
 import { DebondingDelegation, Delegation, StakingState, Validators, ValidatorDetails } from './types'
+import shuffle from 'lodash/shuffle'
 
 export const initialState: StakingState = {
   debondingDelegations: null,
@@ -25,11 +26,17 @@ const slice = createSlice({
     fetchAccount(state, action: PayloadAction<string>) {},
     updateValidators(state, action: PayloadAction<Validators>) {
       state.updateValidatorsError = undefined
-      state.validators = action.payload
+      state.validators = {
+        ...action.payload,
+        list: shuffle(action.payload.list),
+      }
     },
     updateValidatorsError(state, action: PayloadAction<{ error: ErrorPayload; validators: Validators }>) {
       state.updateValidatorsError = action.payload.error
-      state.validators = action.payload.validators
+      state.validators = {
+        ...action.payload.validators,
+        list: shuffle(action.payload.validators.list),
+      }
     },
     updateDelegations(
       state,
