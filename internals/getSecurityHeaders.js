@@ -78,7 +78,7 @@ const getPermissionsPolicy = () =>
     camera=*,
     cross-origin-isolated=(),
     display-capture=(),
-    document-domain=(),
+    document-domain=(self),
     encrypted-media=*,
     execution-while-not-rendered=(),
     execution-while-out-of-viewport=(),
