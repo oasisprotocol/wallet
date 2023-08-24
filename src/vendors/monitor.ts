@@ -16,7 +16,7 @@ import {
 } from 'vendors/explorer'
 import { addressToPublicKey } from 'app/lib/helpers'
 
-import { sortByStatus, throwAPIErrors } from './helpers'
+import { throwAPIErrors } from './helpers'
 
 export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
   const explorerConfig = new Configuration({
@@ -101,7 +101,6 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
         }
         return parsed
       })
-      .sort(sortByStatus)
   )
 }
 

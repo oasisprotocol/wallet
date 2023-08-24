@@ -802,75 +802,6 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
             </div>
             <div
               class="c16 rdt_TableRow"
-              id="row-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-              role="row"
-            >
-              <div
-                class="c17 c9 c18 rdt_TableCell"
-                data-tag="allowRowEvents"
-                id="cell-icon-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-                role="gridcell"
-              />
-              <div
-                class="c17 c9 c18 rdt_TableCell"
-                data-tag="allowRowEvents"
-                id="cell-status-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-                role="gridcell"
-              >
-                <svg
-                  aria-label="Status is critical"
-                  class="c21"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
-              </div>
-              <div
-                class="c17 c10 c18 rdt_TableCell"
-                data-tag="allowRowEvents"
-                id="cell-name-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-                role="gridcell"
-              >
-                test-validator2
-              </div>
-              <div
-                class="c17 c13 c18 rdt_TableCell"
-                data-tag="allowRowEvents"
-                id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-                role="gridcell"
-              >
-                <span>
-                  <span>
-                    0
-                  </span>
-                  <span
-                    class="c20"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
-                    >
-                       ROSE
-                    </span>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="c17 c14 c18 rdt_TableCell"
-                data-tag="allowRowEvents"
-                id="cell-fee-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
-                role="gridcell"
-              >
-                20%
-              </div>
-            </div>
-            <div
-              class="c16 rdt_TableRow"
               id="row-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
               role="row"
             >
@@ -933,6 +864,75 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 class="c17 c14 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-fee-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
+                role="gridcell"
+              >
+                20%
+              </div>
+            </div>
+            <div
+              class="c16 rdt_TableRow"
+              id="row-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+              role="row"
+            >
+              <div
+                class="c17 c9 c18 rdt_TableCell"
+                data-tag="allowRowEvents"
+                id="cell-icon-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+                role="gridcell"
+              />
+              <div
+                class="c17 c9 c18 rdt_TableCell"
+                data-tag="allowRowEvents"
+                id="cell-status-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+                role="gridcell"
+              >
+                <svg
+                  aria-label="Status is critical"
+                  class="c21"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="2"
+                  />
+                </svg>
+              </div>
+              <div
+                class="c17 c10 c18 rdt_TableCell"
+                data-tag="allowRowEvents"
+                id="cell-name-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+                role="gridcell"
+              >
+                test-validator2
+              </div>
+              <div
+                class="c17 c13 c18 rdt_TableCell"
+                data-tag="allowRowEvents"
+                id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
+                role="gridcell"
+              >
+                <span>
+                  <span>
+                    0
+                  </span>
+                  <span
+                    class="c20"
+                  >
+                    <span
+                      class="notranslate"
+                      translate="no"
+                    >
+                       ROSE
+                    </span>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="c17 c14 c18 rdt_TableCell"
+                data-tag="allowRowEvents"
+                id="cell-fee-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               >
                 20%

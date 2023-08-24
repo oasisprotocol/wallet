@@ -5,7 +5,6 @@ import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
-import { sortByStatus } from 'vendors/helpers'
 import { parseValidatorsList } from 'vendors/oasisscan'
 
 import { stakingActions } from '.'
@@ -13,7 +12,6 @@ import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { selectEpoch, selectSelectedNetwork } from '../network/selectors'
 import { selectValidators, selectValidatorsNetwork } from './selectors'
 import { CommissionBound, DebondingDelegation, Delegation, Validators } from './types'
-import shuffle from 'lodash/shuffle'
 
 function* loadDelegations(address: string) {
   const nic = yield* call(getOasisNic)
@@ -59,7 +57,7 @@ export function* refreshValidators() {
       stakingActions.updateValidators({
         timestamp: yield* call(now),
         network: network,
-        list: shuffle(validators),
+        list: validators,
       }),
     )
   } catch (errorApi: any) {
@@ -133,14 +131,12 @@ function* getFallbackValidators(network: NetworkType, errorApi: Error) {
   }
   fallbackValidators = {
     ...fallbackValidators,
-    list: fallbackValidators.list
-      .map(v => {
-        return {
-          ...v,
-          status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
-        }
-      })
-      .sort(sortByStatus),
+    list: fallbackValidators.list.map(v => {
+      return {
+        ...v,
+        status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
+      }
+    }),
   }
   return {
     error: errorApi,
