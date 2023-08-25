@@ -3,7 +3,7 @@ import OasisApp, { successOrThrow } from '@oasisprotocol/ledger'
 import { Response } from '@oasisprotocol/ledger/dist/types'
 import { Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
-import { hex2uint } from './helpers'
+import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
 
@@ -74,6 +74,24 @@ export class Ledger {
     }
     return accounts
   }
+
+  public static async validateAccountDerivation(
+    app: OasisApp,
+    path: number[],
+    expectedPublicKey: Uint8Array,
+  ) {
+    const expectedAddress = await publicKeyToAddress(expectedPublicKey)
+
+    const publicKeyResponse = successOrThrowWalletError(await app.publicKey(path), 'ledger public key')
+    const publicKey = new Uint8Array(publicKeyResponse.pk)
+    const reDerivedAddress = await publicKeyToAddress(publicKey)
+    if (expectedAddress !== reDerivedAddress) {
+      throw new WalletError(
+        WalletErrors.LedgerDerivedDifferentAccount,
+        `expected to derive ${expectedAddress} but ledger derived ${reDerivedAddress}`,
+      )
+    }
+  }
 }
 
 export class LedgerSigner implements ContextSigner {
@@ -104,6 +122,7 @@ export class LedgerSigner implements ContextSigner {
     }
 
     const app = new OasisApp(this.transport)
+    await Ledger.validateAccountDerivation(app, this.path, this.publicKey)
     const response = successOrThrowWalletError(
       await app.sign(this.path, context, Buffer.from(message)),
       'ledger sign',

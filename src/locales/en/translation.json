@@ -135,6 +135,7 @@
     "reclaimedAmount": "Amount to reclaim"
   },
   "errors": {
+    "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "cannotSendToSelf": "Cannot send to yourself",
     "disconnectedError": "Lost connection.",
