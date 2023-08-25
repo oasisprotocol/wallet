@@ -140,7 +140,7 @@
     "stylelint": "15.10.3",
     "stylelint-config-recommended": "13.0.0",
     "ts-jest": "29.1.1",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "util": "0.12.5",
     "wait-on": "7.0.1"
   },
@@ -151,7 +151,7 @@
     "bip39": "3.1.0",
     "eslint-plugin-react": "7.33.2",
     "grommet-icons": "4.11.0",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "protobufjs": "7.2.4"
   },
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",
