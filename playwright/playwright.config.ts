@@ -1,6 +1,8 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import { devices } from '@playwright/test'
 
+const doubleIfDev = (time: number) => (process.env.BASE_URL ? time : time * 2)
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -13,13 +15,13 @@ import { devices } from '@playwright/test'
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   /* Maximum time one test can run for. */
-  timeout: 30 * 1000,
+  timeout: doubleIfDev(30 * 1000),
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 8000,
+    timeout: doubleIfDev(8000),
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -34,7 +36,7 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 3000,
+    actionTimeout: doubleIfDev(3000),
     /* Base URL to use in actions like `await page.goto('/')`. */
     /* Test dev server by default, but also allow testing `start:prod`. */
     baseURL: process.env.BASE_URL ?? 'http://localhost:3000',

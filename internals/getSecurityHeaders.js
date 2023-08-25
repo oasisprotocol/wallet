@@ -10,8 +10,16 @@ const dappFrameAncestors = `
   http://localhost:*
   http://127.0.0.1:*
 `
+const localnet = `
+  http://localhost:42280
+  http://localhost:9001
+`
 const hmrWebsocket = `
   ws://localhost:2222
+`
+const reactErrorOverlay = `'sha256-RV6I4HWPb71LvA27WVD3cEz8GsJrHlfcM/2X2Q5gV00='`
+const hmrScripts = `
+  'unsafe-eval'
 `
 
 /**
@@ -24,6 +32,8 @@ const getCsp = ({ isExtension, isDev }) =>
     default-src 'none';
     script-src
       'self'
+      ${isDev ? reactErrorOverlay : ''}
+      ${isDev ? hmrScripts : ''}
       'report-sample';
     style-src
       'self'
@@ -37,6 +47,7 @@ const getCsp = ({ isExtension, isDev }) =>
       https://testnet.grpc.oasis.dev
       https://api.oasisscan.com
       https://monitor.oasis.dev
+      ${isDev ? localnet : ''}
       ${isDev ? hmrWebsocket : ''}
       ;
     frame-ancestors
@@ -65,7 +76,7 @@ const getPermissionsPolicy = () =>
     camera=*,
     cross-origin-isolated=(),
     display-capture=(),
-    document-domain=(),
+    document-domain=(self),
     encrypted-media=*,
     execution-while-not-rendered=(),
     execution-while-out-of-viewport=(),
@@ -93,4 +104,4 @@ const getPermissionsPolicy = () =>
     .join(' ')
     .replace(/ ,/g, ',')
 
-module.exports = { getCsp, getPermissionsPolicy }
+module.exports = { getCsp, getPermissionsPolicy, reactErrorOverlay }

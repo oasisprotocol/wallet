@@ -22,7 +22,7 @@ export function E2EPage() {
       <br />
       <TestUnsafeInputs></TestUnsafeInputs>
       <br />
-      <TriggerFatalError></TriggerFatalError>
+      <TriggerError></TriggerError>
       <br />
       <DemoAlertBoxes></DemoAlertBoxes>
     </div>
@@ -118,7 +118,7 @@ function UnsafePasswordField(props: {
   )
 }
 
-function TriggerFatalError() {
+function TriggerError() {
   const dispatch = useDispatch()
   return (
     <div>
@@ -126,6 +126,13 @@ function TriggerFatalError() {
         label="Trigger fatal saga error"
         onClick={() => {
           dispatch(walletActions.openWalletFromPrivateKey({ privateKey: '0xAA', choosePassword: undefined }))
+        }}
+      />
+      <Button
+        label="Trigger uncaught error"
+        onClick={() => {
+          // @ts-expect-error Function does not exist
+          functionDoesNotExist()
         }}
       />
     </div>

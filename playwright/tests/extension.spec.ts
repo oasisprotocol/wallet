@@ -75,7 +75,13 @@ test.describe('The extension popup should load', () => {
   })
 
   test('should allow embedded Transak widget', async ({ page, extensionId }) => {
-    await expectNoErrorsInConsole(page)
+    await expectNoErrorsInConsole(page, {
+      ignoreError: msg => {
+        // Odd errors inside Transak
+        if (msg.text().includes('responded with a status of 403')) return true
+        if (msg.text().includes('`sessionKey` is a required property')) return true
+      },
+    })
     await page.goto(`chrome-extension://${extensionId}/${popupFile}#/open-wallet/private-key`)
     await fillPrivateKeyWithoutPassword(page, {
       privateKey: privateKey,
