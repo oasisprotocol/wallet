@@ -17,9 +17,7 @@ const localnet = `
 const hmrWebsocket = `
   ws://localhost:2222
 `
-const reactErrorOverlay = `
-  'sha256-RV6I4HWPb71LvA27WVD3cEz8GsJrHlfcM/2X2Q5gV00='
-`
+const reactErrorOverlay = `'sha256-RV6I4HWPb71LvA27WVD3cEz8GsJrHlfcM/2X2Q5gV00='`
 const hmrScripts = `
   'unsafe-eval'
 `
@@ -106,4 +104,4 @@ const getPermissionsPolicy = () =>
     .join(' ')
     .replace(/ ,/g, ',')
 
-module.exports = { getCsp, getPermissionsPolicy }
+module.exports = { getCsp, getPermissionsPolicy, reactErrorOverlay }
