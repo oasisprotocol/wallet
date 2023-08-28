@@ -139,13 +139,6 @@ describe('Ledger Library', () => {
     })
 
     it('Should return the public key', () => {
-      const sign = jest.mocked(OasisApp.prototype.sign)
-      sign.mockResolvedValueOnce({
-        return_code: 0x9000,
-        signature: Buffer.from(new Uint8Array([1, 2, 3])),
-        error_message: '',
-      })
-
       const signer = new LedgerSigner({
         type: WalletType.Ledger,
         path: [44, 474, 0, 0, 0],
@@ -157,6 +150,12 @@ describe('Ledger Library', () => {
     })
 
     it('Should throw if the transaction was rejected', async () => {
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
+      pubKey.mockResolvedValueOnce({
+        return_code: 0x9000,
+        pk: Buffer.from(new Uint8Array([0])),
+        error_message: '',
+      })
       const sign = jest.mocked(OasisApp.prototype.sign)
       sign.mockResolvedValueOnce({ return_code: 0x6986, error_message: '' })
 
@@ -174,6 +173,12 @@ describe('Ledger Library', () => {
     })
 
     it('Should return the signature', async () => {
+      const pubKey = jest.mocked(OasisApp.prototype.publicKey)
+      pubKey.mockResolvedValueOnce({
+        return_code: 0x9000,
+        pk: Buffer.from(new Uint8Array([0])),
+        error_message: '',
+      })
       const sign = jest.mocked(OasisApp.prototype.sign)
       sign.mockResolvedValueOnce({
         return_code: 0x9000,

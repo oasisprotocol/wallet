@@ -76,6 +76,10 @@ export function ErrorFormatter(props: Props) {
       'errors.LedgerOasisAppIsNotOpen',
       'Oasis App on Ledger is closed.',
     ),
+    [WalletErrors.LedgerDerivedDifferentAccount]: t(
+      'errors.LedgerDerivedDifferentAccount',
+      'This account does not belong to the currently connected Ledger.',
+    ),
     [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error: {{message}}', {
       message,
     }),

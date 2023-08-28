@@ -26,6 +26,7 @@ export enum WalletErrors {
   LedgerNoDeviceSelected = 'no_device_selected',
   LedgerTransactionRejected = 'transaction_rejected',
   LedgerAppVersionNotSupported = 'ledger_version_not_supported',
+  LedgerDerivedDifferentAccount = 'ledger_derived_different_account',
   IndexerAPIError = 'indexer_api_error',
   DisconnectedError = 'disconnected_error',
   ParaTimesUnknownError = 'para_times_unknown_error',
