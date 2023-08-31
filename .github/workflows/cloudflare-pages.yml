@@ -1,0 +1,106 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: cloudflare-pages
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched branches.
+  push:
+    branches: [master]
+  # Or when a pull request event occurs for a pull request against one of the
+  # matched branches.
+  pull_request:
+    branches: [master]
+
+permissions: # Limit secrets.GITHUB_TOKEN permissions
+  contents: read
+  pull-requests: write
+
+jobs:
+  cloudflare-pages:
+    # This name appears in GitHub's Checks API.
+    name: cloudflare-pages
+    # Do not trigger job for dependency update bot.
+    if: github.actor != 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      # In progress comment will be updated with a deploy status.
+      - name: Add in progress comment to PR
+        # We want to add in progress comment on a pull request event only.
+        if: github.event_name == 'pull_request'
+        uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            ## Deploying with <a href="https://pages.dev">Cloudflare Pages</a>
+            <table>
+              <tr>
+                <td><strong>Latest commit:</strong></td>
+                <td><code>${{ github.event.pull_request.head.sha }}</code></td>
+              </tr>
+              <tr>
+                <td><strong>Status:</strong></td><td>⏳ In progress</td>
+              </tr>
+            </table>
+      - name: Checkout code
+        uses: actions/checkout@v3
+        # Checkout pull request HEAD commit instead of merge commit.
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build app
+        run: yarn build
+      - name: Publish to Cloudflare Pages
+        # Id is needed to access output in a next step.
+        id: cloudflare
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Project name created via Cloudflare dashboard.
+          projectName: oasis-wallet
+          # Use output directory of build command.
+          directory: build
+      # On a subsequent run the original comment will be updated.
+      - name: Update PR comment
+        uses: mshick/add-pr-comment@v2
+        # We want to update a comment on a pull request event only.
+        if: github.event_name == 'pull_request' && always()
+        with:
+          message: |
+            ## Deployed to <a href="https://pages.dev">Cloudflare Pages</a>
+            <table>
+              <tr>
+                <td><strong>Latest commit:</strong></td>
+                <td><code>${{ github.event.pull_request.head.sha }}</code></td>
+              </tr>
+              <tr>
+                <td><strong>Status:</strong></td><td>✅ Deploy successful!</td>
+              </tr>
+              <tr>
+                <td><strong>Preview URL:</strong></td>
+                <td><a href="${{ steps.cloudflare.outputs.url }}">${{ steps.cloudflare.outputs.url }}</a></td>
+              </tr>
+            </table>
+          message-failure: |
+            ## Deployed to <a href="https://pages.dev">Cloudflare Pages</a>
+            <table>
+              <tr>
+                <td><strong>Latest commit:</strong></td>
+                <td><code>${{ github.event.pull_request.head.sha }}</code></td>
+              </tr>
+              <tr>
+                <td><strong>Status:</strong></td><td>🚫 Deploy failed!</td>
+              </tr>
+            </table>
+          message-cancelled: |
+            ## Deployed to <a href="https://pages.dev">Cloudflare Pages</a>
+            <table>
+              <tr>
+                <td><strong>Status:</strong></td><td>✖️ Deploy cancelled!</td>
+              </tr>
+            </table>
