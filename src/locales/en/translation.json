@@ -382,9 +382,11 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
+    "settings": {
+      "myAccountsTab": "My Accounts"
+    },
     "wallets": {
-      "close": "Close",
-      "switchOtherWallet": "Switch to another account",
+      "select": "Select",
       "type": {
         "ledger": "Ledger",
         "mnemonic": "Mnemonic",

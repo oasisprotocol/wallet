@@ -6,7 +6,6 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
 import { ShortAddress } from 'app/components/ShortAddress'
-import { ModalHeader } from 'app/components/Header'
 import { walletActions } from 'app/state/wallet'
 import { selectAddress, selectWallets } from 'app/state/wallet/selectors'
 import { WalletType } from 'app/state/wallet/types'
@@ -124,7 +123,6 @@ export const AccountSelector = memo((props: Props) => {
 
   return (
     <>
-      <ModalHeader>{t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}</ModalHeader>
       <Box
         gap="small"
         pad={{ vertical: 'medium', right: 'small' }}
@@ -134,7 +132,7 @@ export const AccountSelector = memo((props: Props) => {
         {accounts}
       </Box>
       <Box align="end" pad={{ top: 'medium' }}>
-        <Button primary label={t('toolbar.wallets.close', 'Close')} onClick={props.closeHandler} />
+        <Button primary label={t('toolbar.wallets.select', 'Select')} onClick={props.closeHandler} />
       </Box>
     </>
   )

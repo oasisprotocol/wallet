@@ -16,8 +16,12 @@ import { sidebarSmallSizeLogo, sidebarMediumSizeLogo } from '../../../../../styl
 import { addressToJazzIconSeed } from './addressToJazzIconSeed'
 import { UserSettings } from 'grommet-icons/es6/icons/UserSettings'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
+import { Tabs } from 'grommet/es6/components/Tabs'
+import { Tab } from 'grommet/es6/components/Tab'
+import { useTranslation } from 'react-i18next'
 
 export const SettingsButton = memo(() => {
+  const { t } = useTranslation()
   const walletHasAccounts = useSelector(selectHasAccounts)
   const address = useSelector(selectAddress)
   const [layerVisibility, setLayerVisibility] = useState(false)
@@ -46,9 +50,15 @@ export const SettingsButton = memo(() => {
           animation="slide"
           background="background-front"
           modal
+          position="top"
+          margin={isMobile ? 'none' : 'xlarge'}
         >
           <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
-            <AccountSelector closeHandler={() => setLayerVisibility(false)} />
+            <Tabs alignControls="start">
+              <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
+                <AccountSelector closeHandler={() => setLayerVisibility(false)} />
+              </Tab>
+            </Tabs>
           </Box>
         </ResponsiveLayer>
       )}
