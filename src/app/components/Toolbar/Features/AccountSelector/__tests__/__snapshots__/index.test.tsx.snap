@@ -14,34 +14,18 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c11 {
+.c6 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
 }
 
-.c15 {
+.c10 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c5 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin: 24px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: auto;
-}
-
-.c7 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -60,7 +44,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c8 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -82,12 +66,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c8:hover {
+.c3:hover {
   background-color: #0092f6;
   color: #FFFFFF;
 }
 
-.c9 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,7 +88,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c10 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,7 +102,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c12 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -132,7 +116,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c13 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -153,7 +137,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c14 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -168,7 +152,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c16 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -188,75 +172,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c1 {
-  font-family: Rubik;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #16213E;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  background: transparent;
-  position: relative;
-  z-index: 20;
-  pointer-events: none;
-  outline: none;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-}
-
-.c2 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  background-color: rgba(0,0,0,0.5);
-  color: #F8F8F8;
-  pointer-events: all;
-  will-change: transform;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 48px;
-  background-color: #FFFFFF;
-  color: #16213E;
-  outline: none;
-  pointer-events: all;
-  z-index: 20;
-  position: absolute;
-  max-height: calc(100% - 0px - 0px);
-  max-width: calc(100% - 0px - 0px);
-  border-radius: 4px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  -webkit-animation: hWAzxx 0.2s ease-in-out forwards;
-  animation: hWAzxx 0.2s ease-in-out forwards;
-}
-
-.c4 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: absolute;
-}
-
-.c6 {
   margin-top: 0px;
   font-size: 34px;
   line-height: 40px;
@@ -265,7 +180,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c17 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -294,80 +209,74 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c17:hover {
+.c12:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c17:focus {
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus > circle,
-.c17:focus > ellipse,
-.c17:focus > line,
-.c17:focus > path,
-.c17:focus > polygon,
-.c17:focus > polyline,
-.c17:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c17:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c17:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
-.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
-.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
-.c17:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c17:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
-    margin: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c7 {
+  .c2 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c2 {
     padding-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c3 {
     border: solid 1px #0092f6;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c3 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c7 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -386,162 +295,108 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c11 {
     padding-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
   .c1 {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c2 {
-    position: relative;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c3 {
-    position: relative;
-    max-height: none;
-    max-width: none;
-    border-radius: 0;
-    height: 100vh;
-    width: 100vw;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c6 {
     margin-top: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c1 {
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
   }
 }
 
-<body
-  style=""
->
+<body>
   <div>
     <div
       class="c0"
       style="min-height: 100vh;"
-    />
-  </div>
-  <div>
-    <div
-      aria-hidden="false"
     >
-      <div
+      <h2
         class="c1"
-        tabindex="-1"
+      >
+        toolbar.wallets.switchOtherWallet
+      </h2>
+      <div
+        class="c2"
       >
         <div
-          class="c2"
-        />
-        <div
+          aria-checked="false"
           class="c3"
-          data-g-portal-id="0"
-          style="overflow-y: auto;"
+          data-testid="account-choice"
+          role="checkbox"
+          tabindex="0"
         >
-          <a
-            aria-hidden="true"
+          <div
             class="c4"
-            tabindex="-1"
-          />
-          <div>
+          >
             <div
               class="c5"
             >
-              <h2
+              <span
                 class="c6"
               >
-                toolbar.wallets.switchOtherWallet
-              </h2>
-              <div
-                class="c7"
-              >
-                <div
-                  aria-checked="false"
-                  class="c8"
-                  data-testid="account-choice"
-                  role="checkbox"
-                  tabindex="0"
+                <span
+                  class="notranslate"
+                  translate="no"
                 >
-                  <div
-                    class="c9"
-                  >
-                    <div
-                      class="c10"
-                    >
-                      <span
-                        class="c11"
-                      >
-                        <span
-                          class="notranslate"
-                          translate="no"
-                        >
-                          oasis1qq3x...rscnlwxe
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      class="c12"
-                    >
-                      <div
-                        class="c13"
-                      >
-                        toolbar.wallets.type.ledger
-                         
-                      </div>
-                      <div
-                        class="c14"
-                      >
-                        <span>
-                          <span>
-                            0.0000001
-                          </span>
-                          <span
-                            class="c15"
-                          >
-                            <span
-                              class="notranslate"
-                              translate="no"
-                            >
-                               
-                            </span>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  oasis1qq3x...rscnlwxe
+                </span>
+              </span>
+            </div>
+            <div
+              class="c7"
+            >
+              <div
+                class="c8"
+              >
+                toolbar.wallets.type.ledger
+                 
               </div>
               <div
-                class="c16"
+                class="c9"
               >
-                <button
-                  class="c17"
-                  type="button"
-                >
-                  toolbar.wallets.close
-                </button>
+                <span>
+                  <span>
+                    0.0000001
+                  </span>
+                  <span
+                    class="c10"
+                  >
+                    <span
+                      class="notranslate"
+                      translate="no"
+                    >
+                       
+                    </span>
+                  </span>
+                </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div
+        class="c11"
+      >
+        <button
+          class="c12"
+          type="button"
+        >
+          toolbar.wallets.close
+        </button>
       </div>
     </div>
   </div>

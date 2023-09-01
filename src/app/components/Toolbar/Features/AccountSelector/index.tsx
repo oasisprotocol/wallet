@@ -5,7 +5,6 @@
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
-import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ModalHeader } from 'app/components/Header'
 import { walletActions } from 'app/state/wallet'
@@ -17,7 +16,7 @@ import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import React, { memo, useContext } from 'react'
+import { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { BalanceDetails } from '../../../../state/account/types'
@@ -100,7 +99,6 @@ export const Account = memo((props: AccountProps) => {
 })
 
 export const AccountSelector = memo((props: Props) => {
-  const size = useContext(ResponsiveContext)
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const wallets = useSelector(selectWallets)
@@ -125,27 +123,19 @@ export const AccountSelector = memo((props: Props) => {
   ))
 
   return (
-    <ResponsiveLayer
-      onClickOutside={props.closeHandler}
-      onEsc={props.closeHandler}
-      animation="slide"
-      background="background-front"
-      modal
-    >
-      <Box margin="medium" width={size === 'small' ? 'auto' : '700px'}>
-        <ModalHeader>{t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}</ModalHeader>
-        <Box
-          gap="small"
-          pad={{ vertical: 'medium', right: 'small' }}
-          overflow={{ vertical: 'auto' }}
-          height={{ max: '400px' }}
-        >
-          {accounts}
-        </Box>
-        <Box align="end" pad={{ top: 'medium' }}>
-          <Button primary label={t('toolbar.wallets.close', 'Close')} onClick={props.closeHandler} />
-        </Box>
+    <>
+      <ModalHeader>{t('toolbar.wallets.switchOtherWallet', 'Switch to another account')}</ModalHeader>
+      <Box
+        gap="small"
+        pad={{ vertical: 'medium', right: 'small' }}
+        overflow={{ vertical: 'auto' }}
+        height={{ max: '400px' }}
+      >
+        {accounts}
       </Box>
-    </ResponsiveLayer>
+      <Box align="end" pad={{ top: 'medium' }}>
+        <Button primary label={t('toolbar.wallets.close', 'Close')} onClick={props.closeHandler} />
+      </Box>
+    </>
   )
 })
