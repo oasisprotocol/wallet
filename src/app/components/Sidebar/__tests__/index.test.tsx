@@ -48,7 +48,6 @@ describe('<Navigation />', () => {
     renderComponent(
       configureAppStore({
         wallet: {
-          isOpen: true,
           selectedWallet: 'dummy',
           wallets: {
             dummy: {

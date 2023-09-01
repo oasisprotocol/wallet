@@ -16,7 +16,6 @@ const makeState = (wallet: Partial<Wallet>): DeepPartialRootState => {
     wallet: {
       wallets: { [wallet.address!]: wallet },
       selectedWallet: wallet.address,
-      isOpen: true,
     },
   }
 }

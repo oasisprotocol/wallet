@@ -36,7 +36,6 @@ export interface OpenSelectedAccountsPayload {
 
 /* --- STATE --- */
 export interface WalletState {
-  isOpen: boolean
   selectedWallet?: string
   wallets: { [address: string]: Wallet }
 }

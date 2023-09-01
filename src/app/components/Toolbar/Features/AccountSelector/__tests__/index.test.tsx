@@ -22,7 +22,6 @@ describe('<AccountSelector  />', () => {
   beforeEach(() => {
     store = configureAppStore({
       wallet: {
-        isOpen: true,
         wallets: {
           oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe: {
             address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',

@@ -134,7 +134,6 @@ describe('Wallet Sagas', () => {
         .withState<DeepPartialRootState>({
           ...state,
           wallet: {
-            isOpen: true,
             selectedWallet: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
             wallets: {
               oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk: {

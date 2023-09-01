@@ -3,7 +3,7 @@
  * Toolbar
  *
  */
-import { selectIsOpen } from 'app/state/wallet/selectors'
+import { selectHasAccounts } from 'app/state/wallet/selectors'
 import { Box } from 'grommet/es6/components/Box'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import styled from 'styled-components'
@@ -29,7 +29,7 @@ const StyledToolbar = styled(Box)`
 `
 
 export function Toolbar() {
-  const isOpen = useSelector(selectIsOpen)
+  const hasAccounts = useSelector(selectHasAccounts)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
 
   return (
@@ -43,7 +43,7 @@ export function Toolbar() {
         <NetworkSelector />
       </Box>
 
-      {isOpen && (
+      {hasAccounts && (
         <Box justify="center">
           <AccountSelectorButton />
         </Box>

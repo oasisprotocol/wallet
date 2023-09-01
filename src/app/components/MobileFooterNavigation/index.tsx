@@ -33,11 +33,11 @@ const StyledMobileFooterNavigation = styled.nav`
 `
 
 export interface MobileFooterNavigationProps {
-  isAccountOpen: boolean
+  walletHasAccounts: boolean
   isMobile: boolean
 }
 
-export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooterNavigationProps) => {
+export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFooterNavigationProps) => {
   const { t } = useTranslation()
   const address = useSelector(selectAddress)
   const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
@@ -75,7 +75,7 @@ export const MobileFooterNavigation = ({ isAccountOpen, isMobile }: MobileFooter
     return menuItems
   }, [address, canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel, t])
 
-  if (!isMobile || !isAccountOpen) {
+  if (!isMobile || !walletHasAccounts) {
     return null
   }
 
