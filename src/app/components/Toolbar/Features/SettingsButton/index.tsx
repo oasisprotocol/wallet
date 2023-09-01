@@ -1,6 +1,6 @@
 /**
  *
- * AccountSelectorButton
+ * SettingsButton
  *
  */
 import { Button } from 'grommet/es6/components/Button'
@@ -15,7 +15,7 @@ import { sidebarSmallSizeLogo, sidebarMediumSizeLogo } from '../../../../../styl
 import { addressToJazzIconSeed } from './addressToJazzIconSeed'
 import { UserSettings } from 'grommet-icons/es6/icons/UserSettings'
 
-export const AccountSelectorButton = memo(() => {
+export const SettingsButton = memo(() => {
   const walletHasAccounts = useSelector(selectHasAccounts)
   const address = useSelector(selectAddress)
   const [layerVisibility, setLayerVisibility] = useState(false)

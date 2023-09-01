@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 
-import { AccountSelectorButton } from './Features/AccountSelectorButton'
+import { SettingsButton } from './Features/SettingsButton'
 import { NetworkSelector } from './Features/NetworkSelector'
 import { mobileToolbarButtonsZIndex } from '../../../styles/theme/elementSizes'
 
@@ -45,7 +45,7 @@ export function Toolbar() {
 
       {hasAccounts && (
         <Box justify="center">
-          <AccountSelectorButton />
+          <SettingsButton />
         </Box>
       )}
     </StyledToolbar>
