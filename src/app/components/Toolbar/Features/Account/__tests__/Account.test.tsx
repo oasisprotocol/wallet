@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
-import { Account } from '..'
+import { Account } from '../Account'
 
 const renderComponent = (store: any) =>
   render(

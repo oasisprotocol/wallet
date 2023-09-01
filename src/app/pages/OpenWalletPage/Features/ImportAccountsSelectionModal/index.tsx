@@ -6,7 +6,7 @@ import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ModalSplitHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
-import { Account } from 'app/components/Toolbar/Features/AccountSelector'
+import { Account } from 'app/components/Toolbar/Features/Account/Account'
 import { importAccountsActions } from 'app/state/importaccounts'
 import {
   selectImportAccounts,

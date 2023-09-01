@@ -14,17 +14,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c5 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.c9 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -169,6 +158,17 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding-top: 24px;
+}
+
+.c5 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c9 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c11 {
