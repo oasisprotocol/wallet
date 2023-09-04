@@ -49,7 +49,7 @@ export const ManageableAccount = ({
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <Box margin={{ vertical: 'medium' }}>
-                  <AddressBox address={wallet.address} />
+                  <AddressBox address={wallet.address} border />
                 </Box>
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
