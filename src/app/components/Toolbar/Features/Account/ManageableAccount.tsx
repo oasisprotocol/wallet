@@ -1,6 +1,7 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Tab } from 'grommet/es6/components/Tab'
+import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -50,6 +51,9 @@ export const ManageableAccount = ({
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <Box margin={{ vertical: 'medium' }}>
                   <AddressBox address={wallet.address} border />
+                  <Text size="small" margin={'small'}>
+                    <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
+                  </Text>
                 </Box>
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
