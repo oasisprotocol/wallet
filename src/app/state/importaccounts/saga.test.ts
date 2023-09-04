@@ -1,8 +1,8 @@
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
-import {expectSaga} from 'redux-saga-test-plan'
+import { expectSaga } from 'redux-saga-test-plan'
 import * as oasis from '@oasisprotocol/client'
-import {importAccountsActions} from '.'
-import {accountsPerPage, importAccountsSaga, numberOfAccountPages, sign, TransportType} from './saga'
+import { importAccountsActions } from '.'
+import { accountsPerPage, importAccountsSaga, numberOfAccountPages, sign, TransportType } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
@@ -77,9 +77,7 @@ describe('importAccounts Sagas', () => {
     it('should handle unsupported ble', async () => {
       return expectSaga(importAccountsSaga)
         .withState({})
-        .provide([
-          [matchers.call.fn(BleTransport.isSupported), false],
-        ])
+        .provide([[matchers.call.fn(BleTransport.isSupported), false]])
         .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.BLE))
         .put.like({ action: { payload: { code: WalletErrors.BluetoothTransportNotSupported } } })
         .silentRun(50)

@@ -217,7 +217,7 @@
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
       "connectLedger": "Connect your Ledger device to the computer",
-      "instructionSteps": "Make sure your Ledger is paired with the device",
+      "deviceIsPaired": "Make sure your Ledger is paired with the device",
       "header": "Steps:",
       "openOasisApp": "Open the Oasis App on your Ledger device"
     },
