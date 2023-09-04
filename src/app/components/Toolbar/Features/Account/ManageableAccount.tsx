@@ -10,6 +10,7 @@ import { Wallet } from '../../../../state/wallet/types'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { DerivationFormatter } from './DerivationFormatter'
+import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { AddressBox } from '../../../AddressBox'
 
 export const ManageableAccount = ({
@@ -55,6 +56,16 @@ export const ManageableAccount = ({
                     <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
                   </Text>
                 </Box>
+                <Button
+                  label={t('toolbar.settings.exportPrivateKey', 'Export Private Key')}
+                  disabled={!wallet.privateKey}
+                  onClick={() => {
+                    prompt(
+                      t('toolbar.settings.exportPrivateKey', 'Export Private Key'),
+                      uintToBase64(hex2uint(wallet.privateKey!)),
+                    )
+                  }}
+                />
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
                     secondary

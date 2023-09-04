@@ -1,6 +1,6 @@
 import { bech32 } from 'bech32'
 import { quantity, staking, types } from '@oasisprotocol/client'
-import { decode as base64decode } from 'base64-arraybuffer'
+import { decode as base64decode, encode as base64encode } from 'base64-arraybuffer'
 import BigNumber from 'bignumber.js'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { consensusDecimals, type ParaTimeConfig } from '../../config'
@@ -8,6 +8,7 @@ import { consensusDecimals, type ParaTimeConfig } from '../../config'
 export const uint2hex = (uint: Uint8Array) => Buffer.from(uint).toString('hex')
 export const hex2uint = (hex: string) => new Uint8Array(Buffer.from(hex, 'hex'))
 export const base64ToUint = (value: string) => new Uint8Array(base64decode(value))
+export const uintToBase64 = (value: Uint8Array) => base64encode(value)
 
 export const shortPublicKey = async (publicKey: Uint8Array) => {
   return await staking.addressFromPublicKey(publicKey)

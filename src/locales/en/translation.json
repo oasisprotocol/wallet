@@ -384,6 +384,7 @@
     },
     "settings": {
       "cancel": "Cancel",
+      "exportPrivateKey": "Export Private Key",
       "manageAccount": "Manage",
       "myAccountsTab": "My Accounts"
     },
