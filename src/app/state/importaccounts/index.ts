@@ -24,16 +24,15 @@ const slice = createSlice({
       state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
       state.bleDevices = []
-      state.selectedDevice = undefined
+      state.selectedBleDevice = undefined
       state.showBleLedgerDevicesModal = false
     },
     enumerateDevicesFromBleLedger(state) {
-      state.devices = []
-      state.selectedDevice = undefined
+      state.bleDevices = []
       state.step = ImportAccountsStep.Idle
       state.showBleLedgerDevicesModal = true
       state.bleDevices = []
-      state.selectedDevice = undefined
+      state.selectedBleDevice = undefined
     },
     enumerateAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
       state.accounts = []

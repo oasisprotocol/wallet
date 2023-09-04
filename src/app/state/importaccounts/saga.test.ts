@@ -55,10 +55,10 @@ describe('importAccounts Sagas', () => {
       for (let i = 0; i < 3; i++) {
         bleDevices.push({
           device: {
-            deviceId: 'XX:XX:XX:XX:XX:XX',
-            name: 'Nano X BXAX',
+            deviceId: `${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}`,
+            name: `Nano X ABC${i}`,
           },
-          localName: 'Nano X BXAX',
+          localName: `Nano X ABC${i}`,
           rssi: -50,
           txPower: 100,
         })
@@ -71,6 +71,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(BleTransport.list), bleDevices],
         ])
         .dispatch(importAccountsActions.enumerateDevicesFromBleLedger)
+        .put.like({ action: { payload: bleDevices } })
         .silentRun(50)
     })
 
@@ -107,7 +108,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
         .silentRun(50)
     })

@@ -65,75 +65,6 @@ exports[`<FromLedger /> should render component 1`] = `
   text-align: center;
 }
 
-.c6 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #7D4CDB;
-  border-radius: 18px;
-  color: #444444;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #7D4CDB;
-  color: #f8f8f8;
-  border-radius: 18px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-}
-
-.c6:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
-}
-
-.c6:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c6:focus > circle,
-.c6:focus > ellipse,
-.c6:focus > line,
-.c6:focus > path,
-.c6:focus > polygon,
-.c6:focus > polyline,
-.c6:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c6:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c6:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible) > circle,.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,.c6:focus:not(:focus-visible) > polyline,
-.c6:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
 .c3 {
   display: inline-block;
   box-sizing: border-box;
@@ -305,19 +236,25 @@ exports[`<FromLedger /> should render component 1`] = `
         class="c5"
       />
       <div>
-        <span>
+        <div>
           <a
             aria-label="openWallet.importAccounts.bleLedger"
             href="/ble"
           >
             <button
-              class="c6"
+              class="c3"
+              disabled=""
               tabindex="-1"
               type="button"
             >
               openWallet.importAccounts.bleLedger
             </button>
           </a>
+        </div>
+        <span
+          class="c4"
+        >
+          errors.bleTransportNotSupported
         </span>
       </div>
     </div>

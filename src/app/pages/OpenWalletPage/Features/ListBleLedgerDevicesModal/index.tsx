@@ -102,7 +102,7 @@ export function ListBleLedgerDevicesModal(props: ListBleLedgerDevicesModalProps)
             </Box>
           )}
           {error && (
-            <AlertBox color="status-error">
+            <AlertBox status="error">
               <ErrorFormatter code={error.code} message={error.message} />
             </AlertBox>
           )}
