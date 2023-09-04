@@ -1,7 +1,6 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { PrettyAddress } from 'app/components/PrettyAddress'
 import { ShortAddress } from 'app/components/ShortAddress'
-import { WalletType } from 'app/state/wallet/types'
 import { Box } from 'grommet/es6/components/Box'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Spinner } from 'grommet/es6/components/Spinner'
@@ -11,6 +10,7 @@ import { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BalanceDetails } from '../../../../state/account/types'
 import { Button } from 'grommet/es6/components/Button'
+import { DerivationFormatter, DerivationFormatterProps } from './DerivationFormatter'
 
 interface AccountProps {
   address: string
@@ -20,10 +20,7 @@ interface AccountProps {
   isActive: boolean
   displayCheckbox?: boolean
   displayAccountNumber?: boolean
-  displayDerivation?: {
-    type: WalletType
-    pathDisplay: string | undefined
-  }
+  displayDerivation?: DerivationFormatterProps
   displayManageButton?: {
     onClickManage: (address: string) => void
   }
@@ -35,12 +32,6 @@ export const Account = memo((props: AccountProps) => {
 
   const address =
     size === 'small' ? <ShortAddress address={props.address} /> : <PrettyAddress address={props.address} />
-
-  const walletTypes: { [type in WalletType]: string } = {
-    [WalletType.Ledger]: t('toolbar.wallets.type.ledger', 'Ledger'),
-    [WalletType.Mnemonic]: t('toolbar.wallets.type.mnemonic', 'Mnemonic'),
-    [WalletType.PrivateKey]: t('toolbar.wallets.type.privateKey', 'Private key'),
-  }
 
   const accountNumber = props.path ? props.path.at(-1) : '?'
 
@@ -79,14 +70,7 @@ export const Account = memo((props: AccountProps) => {
         </Box>
         <Box direction="row-responsive">
           <Box flex="grow">
-            {props.displayDerivation && (
-              <Box align="start" direction="row">
-                {walletTypes[props.displayDerivation.type]}{' '}
-                {props.displayDerivation.pathDisplay && (
-                  <Text size="small">({props.displayDerivation.pathDisplay})</Text>
-                )}
-              </Box>
-            )}
+            {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
             {props.displayManageButton && (
               <Box direction="row">
                 <Button
