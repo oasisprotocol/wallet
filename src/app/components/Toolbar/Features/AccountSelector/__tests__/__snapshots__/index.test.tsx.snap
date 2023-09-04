@@ -121,9 +121,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
 }
 
 .c8 {
@@ -332,10 +329,14 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
               class="c6"
             >
               <div
-                class="c7"
+                class="c3"
               >
-                toolbar.wallets.type.ledger
-                 
+                <div
+                  class="c7"
+                >
+                  toolbar.wallets.type.ledger
+                   
+                </div>
               </div>
               <div
                 class="c8"

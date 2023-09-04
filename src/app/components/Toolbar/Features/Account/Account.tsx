@@ -14,13 +14,15 @@ import { BalanceDetails } from '../../../../state/account/types'
 interface AccountProps {
   address: string
   balance: BalanceDetails | undefined
-  type: WalletType
   onClick: (address: string) => void
   path?: number[]
-  pathDisplay?: string
   isActive: boolean
   displayCheckbox?: boolean
   displayAccountNumber?: boolean
+  displayDerivation?: {
+    type: WalletType
+    pathDisplay: string | undefined
+  }
 }
 
 export const Account = memo((props: AccountProps) => {
@@ -72,8 +74,15 @@ export const Account = memo((props: AccountProps) => {
           <Text weight="bold">{address}</Text>
         </Box>
         <Box direction="row-responsive">
-          <Box align="start" flex="grow" direction="row">
-            {walletTypes[props.type]} {props.pathDisplay && <Text size="small">({props.pathDisplay})</Text>}
+          <Box flex="grow">
+            {props.displayDerivation && (
+              <Box align="start" direction="row">
+                {walletTypes[props.displayDerivation.type]}{' '}
+                {props.displayDerivation.pathDisplay && (
+                  <Text size="small">({props.displayDerivation.pathDisplay})</Text>
+                )}
+              </Box>
+            )}
           </Box>
           <Box height={'24px'}>
             {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}

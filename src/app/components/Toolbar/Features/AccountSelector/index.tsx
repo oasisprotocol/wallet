@@ -32,11 +32,13 @@ export const AccountSelector = memo((props: Props) => {
       key={wallet.address}
       address={wallet.address}
       balance={wallet.balance}
-      type={wallet.type}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}
       path={wallet.path}
-      pathDisplay={wallet.pathDisplay}
+      displayDerivation={{
+        type: wallet.type,
+        pathDisplay: wallet.pathDisplay,
+      }}
     />
   ))
 

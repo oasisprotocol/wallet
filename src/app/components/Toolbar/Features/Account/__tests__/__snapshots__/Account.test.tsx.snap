@@ -204,9 +204,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
 }
 
 .c15 {
@@ -396,17 +393,21 @@ exports[`<Account  /> should match snapshot 1`] = `
             class="c12"
           >
             <div
-              class="c13"
+              class="c10"
             >
-              toolbar.wallets.type.mnemonic
-               
-              <span
-                class="c14"
+              <div
+                class="c13"
               >
-                (
-                m/44'/474'/0'/0'/0'
-                )
-              </span>
+                toolbar.wallets.type.mnemonic
+                 
+                <span
+                  class="c14"
+                >
+                  (
+                  m/44'/474'/0'/0'/0'
+                  )
+                </span>
+              </div>
             </div>
             <div
               class="c15"

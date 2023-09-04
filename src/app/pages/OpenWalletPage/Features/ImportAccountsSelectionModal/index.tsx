@@ -6,7 +6,7 @@ import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ModalSplitHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
 import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
-import { Account } from 'app/components/Toolbar/Features/Account/Account'
+import { ImportableAccount } from 'app/components/Toolbar/Features/Account/ImportableAccount'
 import { importAccountsActions } from 'app/state/importaccounts'
 import {
   selectImportAccounts,
@@ -41,18 +41,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
   return (
     <Box gap="small">
       {accounts.map(a => (
-        <Account
-          address={a.address}
-          balance={a.balance}
-          type={a.type}
-          onClick={toggleAccount}
-          isActive={a.selected}
-          displayCheckbox={true}
-          displayAccountNumber={true}
-          path={a.path}
-          pathDisplay={a.pathDisplay}
-          key={a.address}
-        />
+        <ImportableAccount account={a} onClick={toggleAccount} key={a.address} />
       ))}
     </Box>
   )
