@@ -1,4 +1,4 @@
-import { selectAddress, selectIsOpen } from 'app/state/wallet/selectors'
+import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
 import { Avatar } from 'grommet/es6/components/Avatar'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
@@ -83,13 +83,13 @@ export const SidebarButton = ({
   onClick,
   ...rest
 }: SidebarButtonProps) => {
-  const walletIsOpen = useSelector(selectIsOpen)
+  const walletHasAccounts = useSelector(selectHasAccounts)
   const size = useContext(ResponsiveContext)
   const location = useLocation()
   const isActive = route ? route === location.pathname : false
   const isMediumSize = size === 'medium'
 
-  if (!walletIsOpen && needsWalletOpen) {
+  if (!walletHasAccounts && needsWalletOpen) {
     return null
   }
 

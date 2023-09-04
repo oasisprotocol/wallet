@@ -11,7 +11,6 @@ import {
 
 export const initialState: WalletState = {
   wallets: {},
-  isOpen: false,
   selectedWallet: undefined,
 }
 
@@ -50,7 +49,6 @@ const slice = createSlice({
       const newWallet = action.payload
       state.wallets[newWallet.address] = newWallet
       state.selectedWallet ??= newWallet.address
-      state.isOpen = true
     },
   },
 })

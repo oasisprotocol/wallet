@@ -31,7 +31,6 @@ describe('<Footer />', () => {
 
     store = configureAppStore({
       wallet: {
-        isOpen: true,
         selectedWallet: 'dummy',
         wallets: {
           dummy: {

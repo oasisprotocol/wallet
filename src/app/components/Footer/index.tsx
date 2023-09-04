@@ -5,7 +5,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
-import { selectIsOpen } from 'app/state/wallet/selectors'
+import { selectHasAccounts } from 'app/state/wallet/selectors'
 import { intlDateTimeFormat } from '../DateFormatter/intlDateTimeFormat'
 import { backend } from 'vendors/backend'
 import { BackendAPIs } from 'config'
@@ -20,7 +20,7 @@ function NoReleaseLink() {
 }
 
 export const Footer = memo(() => {
-  const isAccountOpen = useSelector(selectIsOpen)
+  const walletHasAccounts = useSelector(selectHasAccounts)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const { t } = useTranslation()
 
@@ -44,7 +44,7 @@ export const Footer = memo(() => {
       pad={{
         horizontal: 'medium',
         top: isMobile ? '1rem' : 'medium',
-        bottom: isMobile && isAccountOpen ? mobileFooterNavigationHeight : 'none',
+        bottom: isMobile && walletHasAccounts ? mobileFooterNavigationHeight : 'none',
       }}
       margin={{ bottom: 'large' }}
     >
@@ -102,7 +102,7 @@ export const Footer = memo(() => {
         </Text>
       )}
 
-      <MobileFooterNavigation isAccountOpen={isAccountOpen} isMobile={isMobile} />
+      <MobileFooterNavigation walletHasAccounts={walletHasAccounts} isMobile={isMobile} />
     </Box>
   )
 })

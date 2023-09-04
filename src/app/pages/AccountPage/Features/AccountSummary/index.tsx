@@ -87,11 +87,11 @@ const StyledDescriptionList = styled.dl`
 export interface AccountSummaryProps {
   address: string
   balance: BalanceDetails
-  walletIsOpen?: boolean
+  walletHasAccounts?: boolean
   walletAddress?: string
 }
 
-export function AccountSummary({ address, balance, walletAddress, walletIsOpen }: AccountSummaryProps) {
+export function AccountSummary({ address, balance, walletAddress, walletHasAccounts }: AccountSummaryProps) {
   const { t } = useTranslation()
   const { dark } = React.useContext<any>(ThemeContext)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
@@ -100,15 +100,15 @@ export function AccountSummary({ address, balance, walletAddress, walletIsOpen }
   return (
     <>
       <Box margin={{ bottom: 'small' }}>
-        {walletIsOpen && walletAddress === address && (
+        {walletHasAccounts && walletAddress === address && (
           <AlertBox status="ok-weak">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
         )}
-        {walletIsOpen && walletAddress !== address && (
+        {walletHasAccounts && walletAddress !== address && (
           <AlertBox status="warning">
             {t('account.summary.notYourAccount', 'This is not your account.')}
           </AlertBox>
         )}
-        {!walletIsOpen && (
+        {!walletHasAccounts && (
           <AlertBox status="warning">
             <Trans
               i18nKey="account.summary.noWalletIsOpen"

@@ -12,11 +12,11 @@ import { MobileFooterNavigation, MobileFooterNavigationProps } from '..'
 
 jest.mock('../../../pages/ParaTimesPage/useParaTimesNavigation')
 
-const renderComponent = (store: any, { isAccountOpen, isMobile }: MobileFooterNavigationProps) =>
+const renderComponent = (store: any, { walletHasAccounts, isMobile }: MobileFooterNavigationProps) =>
   render(
     <Provider store={store}>
       <MemoryRouter>
-        <MobileFooterNavigation isAccountOpen={isAccountOpen} isMobile={isMobile} />
+        <MobileFooterNavigation walletHasAccounts={walletHasAccounts} isMobile={isMobile} />
       </MemoryRouter>
     </Provider>,
   )
@@ -33,7 +33,6 @@ describe('<MobileFooterNavigation />', () => {
     jest.mocked(useParaTimesNavigation).mockReturnValue(mockUseParaTimesNavigationResult)
     store = configureAppStore({
       wallet: {
-        isOpen: true,
         selectedWallet: 'dummy',
         wallets: {
           dummy: {
@@ -45,20 +44,20 @@ describe('<MobileFooterNavigation />', () => {
   })
 
   it('should render component for mobile and when account is open', () => {
-    renderComponent(store, { isAccountOpen: true, isMobile: true })
+    renderComponent(store, { walletHasAccounts: true, isMobile: true })
 
     expect(screen.getByTestId('mobile-footer-navigation')).toBeInTheDocument()
     expect(screen.queryByText('MockParaTimesLabel')).not.toBeInTheDocument()
   })
 
   it('should not render component for non mobile', () => {
-    renderComponent(store, { isAccountOpen: true, isMobile: false })
+    renderComponent(store, { walletHasAccounts: true, isMobile: false })
 
     expect(screen.queryByTestId('mobile-footer-navigation')).not.toBeInTheDocument()
   })
 
   it('should not render component when account is not open', () => {
-    renderComponent(store, { isAccountOpen: false, isMobile: true })
+    renderComponent(store, { walletHasAccounts: false, isMobile: true })
 
     expect(screen.queryByTestId('mobile-footer-navigation')).not.toBeInTheDocument()
   })
@@ -68,7 +67,7 @@ describe('<MobileFooterNavigation />', () => {
       ...mockUseParaTimesNavigationResult,
       canAccessParaTimesRoute: true,
     })
-    renderComponent(store, { isAccountOpen: true, isMobile: true })
+    renderComponent(store, { walletHasAccounts: true, isMobile: true })
 
     expect(screen.getByText('MockParaTimesLabel')).toBeInTheDocument()
     expect(screen.getByLabelText('Inherit')).toBeInTheDocument()

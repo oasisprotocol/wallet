@@ -29,7 +29,7 @@ import { selectAccount } from 'app/state/account/selectors'
 import { BalanceDetails } from 'app/state/account/types'
 import {
   selectAddress,
-  selectIsOpen,
+  selectHasAccounts,
   selectWallets,
   selectWalletsAddresses,
 } from 'app/state/wallet/selectors'
@@ -80,7 +80,7 @@ export function AccountPage(props: AccountPageProps) {
   const account = useSelector(selectAccount)
   const stake = useSelector(selectStaking)
 
-  const walletIsOpen = useSelector(selectIsOpen)
+  const walletHasAccounts = useSelector(selectHasAccounts)
   const walletAddress = useSelector(selectAddress)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
@@ -151,7 +151,7 @@ export function AccountPage(props: AccountPageProps) {
             address={address}
             balance={balance}
             walletAddress={walletAddress}
-            walletIsOpen={walletIsOpen}
+            walletHasAccounts={walletHasAccounts}
           />
           <Nav
             background="background-front"
