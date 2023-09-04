@@ -383,6 +383,8 @@
       "testnet": "Testnet"
     },
     "settings": {
+      "cancel": "Cancel",
+      "manageAccount": "Manage",
       "myAccountsTab": "My Accounts"
     },
     "wallets": {

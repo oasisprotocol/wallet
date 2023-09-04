@@ -10,6 +10,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BalanceDetails } from '../../../../state/account/types'
+import { Button } from 'grommet/es6/components/Button'
 
 interface AccountProps {
   address: string
@@ -22,6 +23,9 @@ interface AccountProps {
   displayDerivation?: {
     type: WalletType
     pathDisplay: string | undefined
+  }
+  displayManageButton?: {
+    onClickManage: (address: string) => void
   }
 }
 
@@ -81,6 +85,17 @@ export const Account = memo((props: AccountProps) => {
                 {props.displayDerivation.pathDisplay && (
                   <Text size="small">({props.displayDerivation.pathDisplay})</Text>
                 )}
+              </Box>
+            )}
+            {props.displayManageButton && (
+              <Box direction="row">
+                <Button
+                  label={t('toolbar.settings.manageAccount', 'Manage')}
+                  onClick={e => {
+                    props.displayManageButton?.onClickManage(props.address)
+                    e.stopPropagation()
+                  }}
+                />
               </Box>
             )}
           </Box>

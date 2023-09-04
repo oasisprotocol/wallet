@@ -10,7 +10,7 @@ import { Button } from 'grommet/es6/components/Button'
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { Account } from '../Account/Account'
+import { ManageableAccount } from '../Account/ManageableAccount'
 
 interface Props {
   closeHandler: () => any
@@ -28,17 +28,11 @@ export const AccountSelector = memo((props: Props) => {
   }
 
   const accounts = Object.values(wallets).map(wallet => (
-    <Account
+    <ManageableAccount
       key={wallet.address}
-      address={wallet.address}
-      balance={wallet.balance}
+      wallet={wallet}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}
-      path={wallet.path}
-      displayDerivation={{
-        type: wallet.type,
-        pathDisplay: wallet.pathDisplay,
-      }}
     />
   ))
 
