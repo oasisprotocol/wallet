@@ -20,7 +20,7 @@ import {
   selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-import BleTransport from 'ionic-hw-transport-ble/lib'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
 
 function* setStep(step: ImportAccountsStep) {

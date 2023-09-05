@@ -13,7 +13,7 @@ import { WalletType } from 'app/state/wallet/types'
 import delayP from '@redux-saga/delay-p'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
-import BleTransport from 'ionic-hw-transport-ble/lib'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 describe('importAccounts Sagas', () => {
   describe('enumerateAccountsFromLedger', () => {
