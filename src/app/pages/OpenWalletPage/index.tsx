@@ -26,7 +26,7 @@ export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodP
 
   useEffect(() => {
     if (webExtensionLedgerAccess && showAccountsSelectionModal) {
-      navigate('/open-wallet/ledger')
+      navigate('/open-wallet/ledger/usb')
     }
   }, [navigate, showAccountsSelectionModal, webExtensionLedgerAccess])
 

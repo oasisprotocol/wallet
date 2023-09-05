@@ -43,6 +43,6 @@ describe('<SelectOpenMethod />', () => {
 
     renderComponent(() => {})
 
-    expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger')
+    expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger/usb')
   })
 })
