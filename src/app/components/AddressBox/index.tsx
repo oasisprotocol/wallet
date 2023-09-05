@@ -16,6 +16,7 @@ import { PrettyAddress } from '../PrettyAddress'
 
 interface Props {
   address: string
+  border?: boolean
 }
 
 export const AddressBox = memo((props: Props) => {
@@ -34,7 +35,14 @@ export const AddressBox = memo((props: Props) => {
   }
 
   return (
-    <Box direction="row" align="center" round="5px" pad={{ right: 'small' }} width="fit-content">
+    <Box
+      direction="row"
+      align="center"
+      round="5px"
+      pad={{ right: 'small' }}
+      width="fit-content"
+      border={props.border && { color: 'brand' }}
+    >
       <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
       <Text weight="bold" size="medium" wordBreak="break-word">
         <PrettyAddress address={address} />

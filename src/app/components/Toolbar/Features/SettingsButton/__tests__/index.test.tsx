@@ -1,12 +1,12 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
 
-import { AccountSelectorButton } from '..'
+import { SettingsButton } from '..'
 import { addressToJazzIconSeed } from '../addressToJazzIconSeed'
 
-describe('<AccountSelectorButton  />', () => {
+describe('<SettingsButton  />', () => {
   it.skip('should match snapshot', () => {
-    const component = render(<AccountSelectorButton />)
+    const component = render(<SettingsButton />)
     expect(component.container.firstChild).toMatchSnapshot()
   })
 

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
-import { Account } from '..'
+import { Account } from '../Account'
 
 const renderComponent = (store: any) =>
   render(
@@ -14,13 +14,15 @@ const renderComponent = (store: any) =>
         <Account
           address="oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe"
           balance={{ available: '200', debonding: '0', delegations: '800', total: '1000' }}
-          type={WalletType.Mnemonic}
           onClick={() => {}}
           isActive={false}
           displayCheckbox={true}
           displayAccountNumber={true}
           path={[44, 474, 0, 0, 0]}
-          pathDisplay="m/44'/474'/0'/0'/0'"
+          displayDerivation={{
+            type: WalletType.Mnemonic,
+            pathDisplay: "m/44'/474'/0'/0'/0'",
+          }}
         />
       </ThemeProvider>
     </Provider>,

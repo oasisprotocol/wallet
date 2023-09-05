@@ -115,7 +115,7 @@ test.describe('Persist', () => {
 
       await page.getByTestId('account-selector').click({ timeout: 15_000 })
       await expect(page.getByTestId('account-choice')).toHaveCount(1)
-      await page.getByRole('button', { name: /Close/ }).click()
+      await page.getByRole('button', { name: /Select/ }).click()
     })
     await test.step('Add another account after reloading and unlocking and it should persist', async () => {
       await page.getByRole('link', { name: /Home/ }).click()
