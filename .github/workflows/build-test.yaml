@@ -13,7 +13,7 @@ jobs:
   yarn_cache:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         id: yarn-cache
@@ -27,7 +27,7 @@ jobs:
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -45,7 +45,7 @@ jobs:
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -64,7 +64,7 @@ jobs:
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -95,7 +95,7 @@ jobs:
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -121,7 +121,7 @@ jobs:
     needs: [cypress, jest]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download coverage reports
         uses: actions/download-artifact@v3
       - uses: codecov/codecov-action@v3
