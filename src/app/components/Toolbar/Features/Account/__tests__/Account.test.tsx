@@ -16,6 +16,7 @@ const renderComponent = (store: any) =>
           balance={{ available: '200', debonding: '0', delegations: '800', total: '1000' }}
           onClick={() => {}}
           isActive={false}
+          displayBalance={true}
           displayCheckbox={true}
           displayAccountNumber={true}
           path={[44, 474, 0, 0, 0]}
