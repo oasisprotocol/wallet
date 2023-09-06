@@ -24,12 +24,7 @@ export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const walletType = useSelector(selectType)
-  const canAccessParaTimesRoute =
-    // Remove process envs when we can officially show ParaTimes to users
-    process.env.NODE_ENV !== 'test' &&
-    !!process.env.REACT_APP_E2E_TEST &&
-    backend() === BackendAPIs.OasisScan &&
-    walletType !== WalletType.Ledger
+  const canAccessParaTimesRoute = backend() === BackendAPIs.OasisScan && walletType !== WalletType.Ledger
   const getParaTimesRoutePath = (address: string) => `/account/${address}/paratimes`
   const navigateToDeposit = useCallback(() => dispatch(paraTimesActions.navigateToDeposit()), [dispatch])
   const navigateToWithdraw = useCallback(() => dispatch(paraTimesActions.navigateToWithdraw()), [dispatch])
