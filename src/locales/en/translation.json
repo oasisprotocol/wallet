@@ -385,7 +385,17 @@
   },
   "toolbar": {
     "contacts": {
-      "emptyList": "You have no contacts yet."
+      "address": "Address",
+      "cancel": "Cancel",
+      "emptyList": "You have no contacts yet.",
+      "name": "Name",
+      "save": "Save",
+      "validation": {
+        "addressError": "Please enter a valid wallet address",
+        "addressNotUniqueError": "Address already exists",
+        "nameLengthError": "No more than 16 characters",
+        "required": "Field is required"
+      }
     },
     "networks": {
       "local": "Local",
