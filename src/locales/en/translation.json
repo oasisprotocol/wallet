@@ -384,6 +384,9 @@
     "lightMode": "Light mode"
   },
   "toolbar": {
+    "contacts": {
+      "emptyList": "You have no contacts yet."
+    },
     "networks": {
       "local": "Local",
       "mainnet": "Mainnet",
@@ -391,6 +394,7 @@
     },
     "settings": {
       "cancel": "Cancel",
+      "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
       "manageAccount": "Manage",
       "myAccountsTab": "My Accounts"

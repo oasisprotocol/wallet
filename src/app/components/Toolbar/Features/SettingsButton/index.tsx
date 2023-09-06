@@ -19,6 +19,7 @@ import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Tab } from 'grommet/es6/components/Tab'
 import { useTranslation } from 'react-i18next'
+import { Contacts } from '../Contacts'
 
 export const SettingsButton = memo(() => {
   const { t } = useTranslation()
@@ -57,6 +58,9 @@ export const SettingsButton = memo(() => {
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <AccountSelector closeHandler={() => setLayerVisibility(false)} />
+              </Tab>
+              <Tab title={t('toolbar.settings.contacts', 'Contacts')}>
+                <Contacts />
               </Tab>
             </Tabs>
           </Box>
