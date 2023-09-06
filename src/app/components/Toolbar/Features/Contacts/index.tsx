@@ -1,8 +1,11 @@
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
+import { Button } from 'grommet/es6/components/Button'
 import { Inbox } from 'grommet-icons/es6/icons/Inbox'
 import { selectContactsList } from 'app/state/contacts/selectors'
+import { AddContact } from './AddContact'
 
 const ContactsListEmptyState = () => {
   const { t } = useTranslation()
@@ -16,6 +19,8 @@ const ContactsListEmptyState = () => {
 }
 
 export const Contacts = () => {
+  const { t } = useTranslation()
+  const [layerVisibility, setLayerVisibility] = useState(false)
   const contacts = useSelector(selectContactsList)
 
   return (
@@ -30,6 +35,14 @@ export const Contacts = () => {
           <ContactsListEmptyState />
         </Box>
       )}
+      <Box align="center">
+        <Button
+          primary
+          label={t('toolbar.contacts.add', 'Add contact')}
+          onClick={() => setLayerVisibility(true)}
+        />
+      </Box>
+      {layerVisibility && <AddContact setLayerVisibility={setLayerVisibility} />}
     </Box>
   )
 }

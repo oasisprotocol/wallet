@@ -385,6 +385,7 @@
   },
   "toolbar": {
     "contacts": {
+      "add": "Add contact",
       "address": "Address",
       "cancel": "Cancel",
       "emptyList": "You have no contacts yet.",
