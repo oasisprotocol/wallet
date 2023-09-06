@@ -21,6 +21,7 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
   const isMobile = useContext(ResponsiveContext) === 'small'
   const dispatch = useDispatch()
   const submitHandler = (contact: Contact) => dispatch(contactsActions.update(contact))
+  const deleteHandler = (address: string) => dispatch(contactsActions.delete(address))
 
   return (
     <Box>
@@ -57,6 +58,7 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
                 >
                   <ContactAccountForm
                     contact={contact}
+                    deleteHandler={deleteHandler}
                     setLayerVisibility={setLayerVisibility}
                     submitHandler={submitHandler}
                   />

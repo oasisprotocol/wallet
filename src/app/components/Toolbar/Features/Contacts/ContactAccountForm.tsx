@@ -11,9 +11,11 @@ import { selectContactsList } from 'app/state/contacts/selectors'
 import { isValidAddress } from 'app/lib/helpers'
 import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
+import { DeleteContact } from './DeleteContact'
 
 interface ContactAccountFormProps {
   contact?: Contact
+  deleteHandler?: (address: string) => ReturnType<typeof contactsActions.delete>
   setLayerVisibility: (isVisible: boolean) => void
   submitHandler: (contact: Contact) => ReturnType<typeof contactsActions.add | typeof contactsActions.update>
 }
@@ -25,10 +27,12 @@ interface FormValue {
 
 export const ContactAccountForm = ({
   contact,
+  deleteHandler,
   setLayerVisibility,
   submitHandler,
 }: ContactAccountFormProps) => {
   const { t } = useTranslation()
+  const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
   const [value, setValue] = useState({ name: contact?.name || '', address: contact?.address || '' })
   const contacts = useSelector(selectContactsList)
 
@@ -86,6 +90,24 @@ export const ContactAccountForm = ({
             placeholder={t('toolbar.contacts.address', 'Address')}
           />
         </FormField>
+        {contact && deleteHandler && (
+          <Box align="end">
+            <Button
+              style={{ fontSize: '14px', fontWeight: 600 }}
+              margin={{ vertical: 'medium' }}
+              color="status-error"
+              label={t('toolbar.contacts.delete.button', 'Delete contact')}
+              onClick={() => setDeleteLayerVisibility(true)}
+              plain
+            ></Button>
+            {deleteLayerVisibility && (
+              <DeleteContact
+                deleteHandler={() => deleteHandler(contact.address)}
+                setLayerVisibility={setDeleteLayerVisibility}
+              />
+            )}
+          </Box>
+        )}
       </Box>
       <Box direction="row" align="center" justify="between" pad={{ top: 'medium' }}>
         <Button label={t('toolbar.contacts.cancel', 'Cancel')} onClick={() => setLayerVisibility(false)} />

@@ -388,6 +388,12 @@
       "add": "Add Contact",
       "address": "Address",
       "cancel": "Cancel",
+      "delete": {
+        "button": "Delete contact",
+        "confirm": "Yes, delete",
+        "description": "Are you sure you want to delete this contact?",
+        "title": "Delete Contact"
+      },
       "emptyList": "You have no contacts yet.",
       "manage": "Manage Contact",
       "name": "Name",
