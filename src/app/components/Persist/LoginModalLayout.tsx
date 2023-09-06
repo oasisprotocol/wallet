@@ -12,7 +12,9 @@ export function LoginModalLayout(props: {
   return (
     <Layer modal background="background-front" onClickOutside={props.onClickOutside} onEsc={props.onEsc}>
       <Box pad="medium">
-        <Header>{props.title}</Header>
+        <Header level={2} textAlign="center" margin={{ top: 'medium' }}>
+          {props.title}
+        </Header>
 
         {props.children}
       </Box>

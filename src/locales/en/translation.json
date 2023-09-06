@@ -361,7 +361,14 @@
     },
     "loading": "Loading",
     "loginToProfile": {
-      "deleteProfile": "Delete profile",
+      "deleteProfile": {
+        "button": "Delete profile",
+        "confirm": "Yes, delete",
+        "confirmationKeyword": "delete",
+        "confirmationKeywordInvalid": "Type 'delete'",
+        "description": "Are you sure you want to delete this profile? This action cannot be undone and will <strong>erase your private keys</strong>.<br/><br/>To continue please enter '{{confirmationKeyword}}' below.",
+        "title": "Delete Profile"
+      },
       "description": "Log into your existing user profile on this computer to access the wallets you already added.",
       "enterPasswordHere": "Enter your password here",
       "hidePassword": "Hide password",
