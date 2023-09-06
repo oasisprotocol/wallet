@@ -12,6 +12,7 @@ import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { useNavigate } from 'react-router-dom'
+import { EraseProfileButton } from './EraseProfileButton'
 
 export function UnlockForm() {
   const { t } = useTranslation()
@@ -63,17 +64,7 @@ export function UnlockForm() {
           </Box>
 
           <Box direction="row" margin={{ top: 'large' }}>
-            <Button
-              label={t('persist.loginToProfile.eraseProfile', 'Erase profile')}
-              onClick={() => {
-                // TODO: improve UX
-                if (window.confirm('Are you sure?')) {
-                  navigate('/')
-                  dispatch(persistActions.eraseAsync())
-                }
-              }}
-              plain
-            />
+            <EraseProfileButton />
           </Box>
         </Form>
       </Box>
