@@ -81,7 +81,7 @@ const persistSlice = createSlice({
     /**
      * Remove encrypted state from localStorage and reload.
      */
-    eraseAsync(state) {
+    deleteProfileAsync(state) {
       state.loading = true
     },
   },

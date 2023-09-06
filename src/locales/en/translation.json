@@ -361,9 +361,9 @@
     },
     "loading": "Loading",
     "loginToProfile": {
+      "deleteProfile": "Delete profile",
       "description": "Log into your existing user profile on this computer to access the wallets you already added.",
       "enterPasswordHere": "Enter your password here",
-      "eraseProfile": "Erase profile",
       "hidePassword": "Hide password",
       "showPassword": "Show password",
       "skipUnlocking": "Continue without the profile",

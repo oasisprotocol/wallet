@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 
-export function EraseProfileButton() {
+export function DeleteProfileButton() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -12,12 +12,12 @@ export function EraseProfileButton() {
   return (
     <>
       <Button
-        label={t('persist.loginToProfile.eraseProfile', 'Erase profile')}
+        label={t('persist.loginToProfile.deleteProfile', 'Delete profile')}
         onClick={() => {
           // TODO: improve UX
           if (window.confirm('Are you sure?')) {
             navigate('/')
-            dispatch(persistActions.eraseAsync())
+            dispatch(persistActions.deleteProfileAsync())
           }
         }}
         plain

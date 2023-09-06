@@ -12,7 +12,7 @@ import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { useNavigate } from 'react-router-dom'
-import { EraseProfileButton } from './EraseProfileButton'
+import { DeleteProfileButton } from './DeleteProfileButton'
 
 export function UnlockForm() {
   const { t } = useTranslation()
@@ -64,7 +64,7 @@ export function UnlockForm() {
           </Box>
 
           <Box direction="row" margin={{ top: 'large' }}>
-            <EraseProfileButton />
+            <DeleteProfileButton />
           </Box>
         </Form>
       </Box>
