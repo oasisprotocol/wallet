@@ -59,11 +59,11 @@ export function UnlockForm() {
             plain
           />
         </Box>
-
-        <Box direction="row" margin={{ top: 'large' }}>
-          <DeleteProfileButton />
-        </Box>
       </Form>
+      <Box direction="row" margin={{ top: 'large' }}>
+        {/* Must be outside the Form otherwise submit button in DeleteProfileButton submits parent Form too */}
+        <DeleteProfileButton />
+      </Box>
     </LoginModalLayout>
   )
 }
