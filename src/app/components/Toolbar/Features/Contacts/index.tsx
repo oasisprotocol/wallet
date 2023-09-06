@@ -5,6 +5,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Inbox } from 'grommet-icons/es6/icons/Inbox'
 import { selectContactsList } from 'app/state/contacts/selectors'
+import { ContactAccount } from './ContactAccount'
 import { AddContact } from './AddContact'
 
 const ContactsListEmptyState = () => {
@@ -33,6 +34,13 @@ export const Contacts = () => {
       {!contacts.length && (
         <Box justify="center" flex="grow">
           <ContactsListEmptyState />
+        </Box>
+      )}
+      {!!contacts.length && (
+        <Box flex="grow" gap="small">
+          {contacts.map(contact => (
+            <ContactAccount key={contact.address} contact={contact} />
+          ))}
         </Box>
       )}
       <Box align="center">

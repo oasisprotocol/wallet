@@ -385,10 +385,11 @@
   },
   "toolbar": {
     "contacts": {
-      "add": "Add contact",
+      "add": "Add Contact",
       "address": "Address",
       "cancel": "Cancel",
       "emptyList": "You have no contacts yet.",
+      "manage": "Manage Contact",
       "name": "Name",
       "save": "Save",
       "validation": {
