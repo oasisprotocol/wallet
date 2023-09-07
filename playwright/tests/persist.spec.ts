@@ -210,23 +210,28 @@ test.describe('Persist', () => {
     await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
   })
 
-  test.describe('Opening a wallet after erasing a profile should NOT crash', () => {
-    test('erasing newly created', async ({ page }) => {
+  test.describe('Opening a wallet after deleting a profile should NOT crash', () => {
+    test('deleting newly created', async ({ page }) => {
       await page.goto('/open-wallet/private-key')
       await fillPrivateKeyAndPassword(page)
       await page.getByRole('button', { name: /Lock profile/ }).click()
-      await testErasingAndCreatingNew(page)
+      await testDeletingAndCreatingNew(page)
     })
 
-    test('erasing stored', async ({ page }) => {
+    test('deleting stored', async ({ page }) => {
       await addPersistedStorage(page)
       await page.goto('/')
-      await testErasingAndCreatingNew(page)
+      await testDeletingAndCreatingNew(page)
     })
 
-    async function testErasingAndCreatingNew(page: Page) {
-      page.once('dialog', dialog => dialog.accept())
-      await page.getByRole('button', { name: /Erase profile/ }).click()
+    async function testDeletingAndCreatingNew(page: Page) {
+      await page.getByRole('button', { name: 'Delete profile' }).click()
+      await page
+        .getByLabel(
+          "Are you sure you want to delete this profile? This action cannot be undone and will erase your private keys.To continue please enter 'delete' below.",
+        )
+        .fill('delete')
+      await page.getByRole('button', { name: 'Yes, delete' }).click()
 
       await page.getByRole('button', { name: /Open wallet/ }).click()
       await page.getByRole('button', { name: /Private key/ }).click()

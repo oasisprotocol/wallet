@@ -39,8 +39,8 @@ function* handleAsyncPersistActions(action: AnyAction) {
     yield* call(unlockAsync, action)
   } else if (persistActions.lockAsync.match(action)) {
     yield* call(lockAsync, action)
-  } else if (persistActions.eraseAsync.match(action)) {
-    yield* call(eraseAsync, action)
+  } else if (persistActions.deleteProfileAsync.match(action)) {
+    yield* call(deleteProfileAsync, action)
   } else if (persistActions.setUnlockedRootState.match(action)) {
     // Skip encrypting the same state
   } else if (persistActions.resetRootState.match(action)) {
@@ -94,7 +94,7 @@ function* lockAsync(action: ReturnType<typeof persistActions.lockAsync>) {
   // Implies state.loading = false
 }
 
-function* eraseAsync(action: ReturnType<typeof persistActions.eraseAsync>) {
+function* deleteProfileAsync(action: ReturnType<typeof persistActions.deleteProfileAsync>) {
   yield* call([window.localStorage, window.localStorage.removeItem], STORAGE_FIELD)
   yield* put(persistActions.resetRootState())
   // Implies state.loading = false
