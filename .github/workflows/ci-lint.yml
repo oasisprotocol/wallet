@@ -1,0 +1,44 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: ci-lint
+
+# Trigger the workflow when:
+on:
+  # A push occurs to one of the matched branches.
+  push:
+    branches:
+      - master
+      - stable/*
+  # Or when a pull request event occurs for a pull request against one of the
+  # matched branches.
+  pull_request:
+    branches:
+      - master
+      - stable/*
+
+# Explicitly disable secrets.GITHUB_TOKEN permissions.
+permissions: {}
+
+jobs:
+  lint:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: ESLint
+        # Disallow warnings and always throw errors.
+        run: yarn lint --max-warnings 0
+      - name: Validate Grommet icons types
+        run: |
+          yarn fix-grommet-icons-types
+          git diff --exit-code
+      - name: Validate TypeScript
+        run: yarn checkTs
