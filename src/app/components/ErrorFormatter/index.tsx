@@ -99,7 +99,7 @@ export function ErrorFormatter(props: Props) {
       },
     ),
     [WalletErrors.BluetoothTransportNotSupported]: t(
-      'errors.bleTransportNotSupported',
+      'errors.bluetoothTransportNotSupported',
       'Your device does not support Bluetooth.',
     ),
   }

@@ -32,7 +32,7 @@ function* isBluetoothSupported() {
   // https://github.com/WebBluetoothCG/web-bluetooth/blob/main/implementation-status.md#scanning-api
   // !navigator.bluetooth
   if (!isSupported) {
-    throw new WalletError(WalletErrors.BluetoothTransportNotSupported, 'BleTransport unsupported')
+    throw new WalletError(WalletErrors.BluetoothTransportNotSupported, 'Bluetooth Transport unsupported')
   }
 }
 

@@ -40,7 +40,7 @@ describe('<FromLedger />', () => {
     expect(container).toMatchSnapshot()
 
     expect(screen.getByText('errors.usbTransportNotSupported')).toBeInTheDocument()
-    expect(screen.getByText('errors.bleTransportNotSupported')).toBeInTheDocument()
+    expect(screen.getByText('errors.bluetoothTransportNotSupported')).toBeInTheDocument()
   })
 
   it('should render component with an ledger access button', async () => {
@@ -49,6 +49,6 @@ describe('<FromLedger />', () => {
     await act(() => Promise.resolve())
 
     expect(screen.queryByText('openWallet.importAccounts.usbLedger')).toBeInTheDocument()
-    expect(screen.queryByText('openWallet.importAccounts.bleLedger')).toBeInTheDocument()
+    expect(screen.queryByText('openWallet.importAccounts.bluetoothLedger')).toBeInTheDocument()
   })
 })

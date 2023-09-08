@@ -238,7 +238,7 @@ exports[`<FromLedger /> should render component 1`] = `
       <div>
         <div>
           <a
-            aria-label="openWallet.importAccounts.bleLedger"
+            aria-label="openWallet.importAccounts.bluetoothLedger"
             href="/ble"
           >
             <button
@@ -247,14 +247,14 @@ exports[`<FromLedger /> should render component 1`] = `
               tabindex="-1"
               type="button"
             >
-              openWallet.importAccounts.bleLedger
+              openWallet.importAccounts.bluetoothLedger
             </button>
           </a>
         </div>
         <span
           class="c4"
         >
-          errors.bleTransportNotSupported
+          errors.bluetoothTransportNotSupported
         </span>
       </div>
     </div>
