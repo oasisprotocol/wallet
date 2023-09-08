@@ -54,7 +54,7 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
                 <Box
                   flex="grow"
                   justify="center"
-                  height={{ min: layerOverlayMinHeight }}
+                  height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
                   pad={{ vertical: 'medium' }}
                 >
                   <ContactAccountForm

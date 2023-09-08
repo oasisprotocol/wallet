@@ -37,7 +37,7 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
             <Box
               flex="grow"
               justify="center"
-              height={{ min: layerOverlayMinHeight }}
+              height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
               pad={{ vertical: 'medium' }}
             >
               <ContactAccountForm setLayerVisibility={setLayerVisibility} submitHandler={submitHandler} />
