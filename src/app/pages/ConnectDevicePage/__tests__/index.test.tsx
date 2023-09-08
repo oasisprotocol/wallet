@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { requestDevice } from 'app/lib/ledger'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { ConnectDevicePage } from '..'
-import { TransportType } from '../../../state/importaccounts/saga'
+import { WalletType } from '../../../state/wallet/types'
 
 jest.mock('app/lib/ledger')
 
@@ -32,7 +32,7 @@ describe('<ConnectDevicePage />', () => {
     expect(screen.getByLabelText('Status is okay')).toBeInTheDocument()
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
     expect(mockDispatch).toHaveBeenCalledWith({
-      payload: TransportType.USB,
+      payload: WalletType.UsbLedger,
       type: importAccountsActions.enumerateAccountsFromLedger.type,
     })
   })

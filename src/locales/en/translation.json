@@ -454,9 +454,10 @@
     "wallets": {
       "select": "Select",
       "type": {
-        "ledger": "Ledger",
+        "bluetoothLedger": "Bluetooth Ledger",
         "mnemonic": "Mnemonic",
-        "privateKey": "Private key"
+        "privateKey": "Private key",
+        "usbLedger": "USB Ledger"
       }
     }
   },

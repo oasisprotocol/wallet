@@ -1,22 +1,21 @@
 import { client, misc } from '@oasisprotocol/client'
 import { Signer } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { hex2uint, isValidAddress, uint2bigintString, parseRoseStringToBaseUnitString } from 'app/lib/helpers'
+import { hex2uint, isValidAddress, parseRoseStringToBaseUnitString, uint2bigintString } from 'app/lib/helpers'
 import { LedgerSigner } from 'app/lib/ledger'
-import { OasisTransaction, signerFromPrivateKey, signerFromEthPrivateKey, TW } from 'app/lib/transaction'
+import { OasisTransaction, signerFromEthPrivateKey, signerFromPrivateKey, TW } from 'app/lib/transaction'
 import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
 import { call, delay, put, race, select, take, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 import { transactionActions } from '.'
 import { sign } from '../importaccounts/saga'
 import { getOasisNic } from '../network/saga'
-import { selectAccountAddress } from '../account/selectors'
-import { selectAccountAllowances } from '../account/selectors'
+import { selectAccountAddress, selectAccountAllowances } from '../account/selectors'
 import { selectChainContext } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
 import { TransactionPayload, TransactionStep } from './types'
-import { Runtime, ParaTimeTransaction, TransactionTypes } from '../paratimes/types'
+import { ParaTimeTransaction, Runtime, TransactionTypes } from '../paratimes/types'
 
 export function* transactionSaga() {
   yield* takeEvery(transactionActions.sendTransaction, doTransaction)
@@ -60,7 +59,7 @@ function* getSigner() {
   if (wallet.type === WalletType.PrivateKey || wallet.type === WalletType.Mnemonic) {
     const bytes = hex2uint(privateKey!)
     signer = yield* call(signerFromPrivateKey, bytes)
-  } else if (wallet.type === WalletType.Ledger) {
+  } else if (wallet.type === WalletType.UsbLedger || wallet.type === WalletType.BleLedger) {
     signer = new LedgerSigner(wallet)
   } else {
     throw new ExhaustedTypeError('Invalid wallet type', wallet.type)
@@ -191,7 +190,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     yield* setStep(TransactionStep.Signing)
 
-    if (activeWallet.type === WalletType.Ledger) {
+    if (activeWallet.type === WalletType.UsbLedger || activeWallet.type === WalletType.BleLedger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
       yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)

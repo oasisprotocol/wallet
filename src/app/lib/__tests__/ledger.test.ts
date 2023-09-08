@@ -120,14 +120,14 @@ describe('Ledger Library', () => {
 
     it('Should fail if the wallet does not have a path', () => {
       const openWallet = () => {
-        new LedgerSigner({ type: WalletType.Ledger } as Wallet)
+        new LedgerSigner({ type: WalletType.UsbLedger } as Wallet)
       }
       expect(openWallet).toThrow(/ not a ledger wallet/)
     })
 
     it('Should fail without USB transport', async () => {
       const signer = new LedgerSigner({
-        type: WalletType.Ledger,
+        type: WalletType.UsbLedger,
         path: [44, 474, 0, 0, 0],
         pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',
@@ -140,7 +140,7 @@ describe('Ledger Library', () => {
 
     it('Should return the public key', () => {
       const signer = new LedgerSigner({
-        type: WalletType.Ledger,
+        type: WalletType.UsbLedger,
         path: [44, 474, 0, 0, 0],
         pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: 'aabbcc',
@@ -160,7 +160,7 @@ describe('Ledger Library', () => {
       sign.mockResolvedValueOnce({ return_code: 0x6986, error_message: '' })
 
       const signer = new LedgerSigner({
-        type: WalletType.Ledger,
+        type: WalletType.UsbLedger,
         path: [44, 474, 0, 0, 0],
         pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',
@@ -187,7 +187,7 @@ describe('Ledger Library', () => {
       })
 
       const signer = new LedgerSigner({
-        type: WalletType.Ledger,
+        type: WalletType.UsbLedger,
         path: [44, 474, 0, 0, 0],
         pathDisplay: `m/44'/474'/0'/0'/0'`,
         publicKey: '00',

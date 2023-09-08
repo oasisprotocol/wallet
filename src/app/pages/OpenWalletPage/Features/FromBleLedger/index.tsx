@@ -13,7 +13,6 @@ import { Header } from 'app/components/Header'
 import { ListBleLedgerDevicesModal } from '../ListBleLedgerDevicesModal'
 import { ImportAccountsSelectionModal } from '../ImportAccountsSelectionModal'
 import { WalletType } from '../../../../state/wallet/types'
-import { TransportType } from '../../../../state/importaccounts/saga'
 
 export function FromBleLedger() {
   const { t } = useTranslation()
@@ -63,7 +62,7 @@ export function FromBleLedger() {
             dispatch(importAccountsActions.clear())
           }}
           next={() => {
-            dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.BLE))
+            dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.BleLedger))
           }}
         />
       )}
@@ -72,8 +71,7 @@ export function FromBleLedger() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type={WalletType.Ledger}
-          transportType={TransportType.BLE}
+          type={WalletType.BleLedger}
         />
       )}
     </Box>

@@ -3,7 +3,7 @@ import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
-import { TransportType } from './saga'
+import { LedgerWalletType } from '../wallet/types'
 
 export const initialState: ImportAccountsState = {
   accounts: [],
@@ -34,13 +34,13 @@ const slice = createSlice({
       state.bleDevices = []
       state.selectedBleDevice = undefined
     },
-    enumerateAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
+    enumerateAccountsFromLedger(state, _action: PayloadAction<LedgerWalletType>) {
       state.accounts = []
       state.accountsSelectionPageNumber = 0
       state.showAccountsSelectionModal = true
       state.step = ImportAccountsStep.Idle
     },
-    enumerateMoreAccountsFromLedger(state, _action: PayloadAction<TransportType>) {
+    enumerateMoreAccountsFromLedger(state, _action: PayloadAction<LedgerWalletType>) {
       state.step = ImportAccountsStep.Idle
     },
     enumerateAccountsFromMnemonic(state, _action: PayloadAction<string>) {

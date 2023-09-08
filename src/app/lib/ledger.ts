@@ -1,7 +1,7 @@
 import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 import OasisApp, { successOrThrow } from '@oasisprotocol/ledger'
 import { Response } from '@oasisprotocol/ledger/dist/types'
-import { Wallet, WalletType } from 'app/state/wallet/types'
+import { LedgerWalletType, Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
@@ -114,13 +114,15 @@ export class LedgerSigner implements ContextSigner {
   protected transport?: Transport
   protected path: number[]
   protected publicKey: Uint8Array
+  transportType: LedgerWalletType
 
   constructor(wallet: Wallet) {
-    if (!wallet.path || wallet.type !== WalletType.Ledger) {
+    if (!wallet.path || (wallet.type !== WalletType.UsbLedger && wallet.type !== WalletType.BleLedger)) {
       throw new Error('Given wallet is not a ledger wallet')
     }
     this.path = wallet.path
     this.publicKey = hex2uint(wallet.publicKey)
+    this.transportType = wallet.type
   }
 
   public setTransport(transport: Transport) {

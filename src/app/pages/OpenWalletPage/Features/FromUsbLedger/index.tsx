@@ -9,7 +9,6 @@ import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { Header } from 'app/components/Header'
 import { WalletType } from 'app/state/wallet/types'
-import { TransportType } from '../../../../state/importaccounts/saga'
 
 export function FromUsbLedger() {
   const { t } = useTranslation()
@@ -41,7 +40,7 @@ export function FromUsbLedger() {
           type="submit"
           label={t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
           onClick={() => {
-            dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
+            dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
           }}
           primary
         />
@@ -51,8 +50,7 @@ export function FromUsbLedger() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type={WalletType.Ledger}
-          transportType={TransportType.USB}
+          type={WalletType.UsbLedger}
         />
       )}
     </Box>
