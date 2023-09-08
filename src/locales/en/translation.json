@@ -216,7 +216,8 @@
     },
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
-      "connectLedger": "Connect your Ledger device to the computer",
+      "connectBluetoothLedger": "Connect your Bluetooth Ledger device to the device",
+      "connectUsbLedger": "Connect your USB Ledger device to the computer",
       "deviceIsPaired": "Make sure your Ledger is paired with the device",
       "header": "Steps:",
       "openOasisApp": "Open the Oasis App on your Ledger device"

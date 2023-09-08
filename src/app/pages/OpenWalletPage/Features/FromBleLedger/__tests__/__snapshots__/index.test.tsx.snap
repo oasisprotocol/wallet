@@ -191,7 +191,7 @@ exports[`<FromLedger /> should render component 1`] = `
     </h3>
     <ol>
       <li>
-        ledger.instructionSteps.connectLedger
+        ledger.instructionSteps.connectBluetoothLedger
       </li>
       <li>
         ledger.instructionSteps.deviceIsPaired

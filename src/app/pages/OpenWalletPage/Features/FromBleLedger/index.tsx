@@ -35,7 +35,12 @@ export function FromBleLedger() {
         {t('ledger.instructionSteps.header', 'Steps:')}
       </Heading>
       <ol>
-        <li>{t('ledger.instructionSteps.connectLedger', 'Connect your Ledger device to the device')}</li>
+        <li>
+          {t(
+            'ledger.instructionSteps.connectBluetoothLedger',
+            'Connect your Bluetooth Ledger device to the device',
+          )}
+        </li>
         <li>
           {t('ledger.instructionSteps.deviceIsPaired', 'Make sure your Ledger is paired with the device')}
         </li>
