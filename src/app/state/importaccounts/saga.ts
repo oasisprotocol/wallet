@@ -6,7 +6,7 @@ import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
 import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
-import { WalletType } from 'app/state/wallet/types'
+import { LedgerWalletType, WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
 import { selectChainContext } from '../network/selectors'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
@@ -163,15 +163,10 @@ function* enumerateDevicesFromBleLedger() {
   yield* setStep(ImportAccountsStep.Idle)
 }
 
-export enum TransportType {
-  USB,
-  BLE,
-}
-
 /**
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
-function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
+function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
   const existingAccounts = yield* select(selectImportAccountsFullList)
   const pageNumber = yield* select(selectImportAccountsPageNumber)
   if (existingAccounts.length >= (pageNumber + 1) * accountsPerPage) {
@@ -181,7 +176,7 @@ function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
   yield* setStep(ImportAccountsStep.AccessingLedger)
   let transport: Transport | undefined
   try {
-    if (action.payload === TransportType.BLE) {
+    if (action.payload === WalletType.BleLedger) {
       const device = yield* select(selectSelectedBleDevice)
       transport = yield* getBluetoothTransport(device)
     } else {
@@ -204,14 +199,13 @@ function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
         address,
         // We select the first account by default
         selected: index === 0,
-        type: WalletType.Ledger,
+        type: action.payload,
       } as ImportAccountsListAccount
       yield* put(importAccountsActions.accountGenerated(wallet))
       yield* fork(fetchBalanceForAccount, wallet)
     }
     yield* setStep(ImportAccountsStep.LoadingBalances)
   } catch (e: any) {
-    console.error(e)
     let payload: ErrorPayload
     if (e instanceof WalletError) {
       payload = { code: e.type, message: e.message }
@@ -232,9 +226,9 @@ function* enumerateAccountsFromLedger(action: PayloadAction<TransportType>) {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  const bleDevice = yield* select(selectSelectedBleDevice)
   let transport
-  if (bleDevice) {
+  if (signer.transportType === WalletType.BleLedger) {
+    const bleDevice = yield* select(selectSelectedBleDevice)
     transport = yield* getBluetoothTransport(bleDevice)
   } else {
     transport = yield* getUSBTransport()

@@ -38,7 +38,7 @@ export function FromLedger() {
           type="submit"
           label={t('openWallet.importAccounts.selectWallets', 'Select accounts to open')}
           onClick={() => {
-            dispatch(importAccountsActions.enumerateAccountsFromLedger())
+            dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
           }}
           primary
         />

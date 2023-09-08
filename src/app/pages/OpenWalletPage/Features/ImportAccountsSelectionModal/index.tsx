@@ -84,7 +84,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const onNext = () => {
     dispatch(importAccountsActions.setPage(pageNum + 1))
     if (props.type === 'ledger') {
-      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger())
+      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(WalletType.Ledger))
     }
   }
 
