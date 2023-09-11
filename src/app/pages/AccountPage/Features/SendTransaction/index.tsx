@@ -3,6 +3,7 @@ import { useModal } from 'app/components/Modal'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { selectValidators } from 'app/state/staking/selectors'
+import { selectContactsList } from 'app/state/contacts/selectors'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
@@ -28,6 +29,7 @@ export function SendTransaction(props: SendTransactionProps) {
   const { launchModal } = useModal()
   const { error, success } = useSelector(selectTransaction)
   const validators = useSelector(selectValidators)
+  const contacts = useSelector(selectContactsList)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
   const sendTransaction = () =>
@@ -83,6 +85,10 @@ export function SendTransaction(props: SendTransactionProps) {
           >
             <TextInput
               id="recipient-id"
+              suggestions={contacts.map(contact => contact.name)}
+              onSuggestionSelect={event =>
+                setRecipient(contacts.find(contact => contact.name === event.suggestion)?.address || '')
+              }
               name="recipient"
               value={recipient}
               placeholder={t('account.sendTransaction.enterAddress', 'Enter an address')}
