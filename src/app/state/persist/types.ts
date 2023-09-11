@@ -33,5 +33,6 @@ export interface PersistState {
   enteredWrongPassword: boolean
 }
 
-export interface PersistedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network'> {}
-export interface SyncedRootState extends Pick<RootState, 'theme' | 'wallet' | 'network' | 'persist'> {}
+export interface PersistedRootState extends Pick<RootState, 'contacts' | 'theme' | 'wallet' | 'network'> {}
+export interface SyncedRootState
+  extends Pick<RootState, 'contacts' | 'theme' | 'wallet' | 'network' | 'persist'> {}

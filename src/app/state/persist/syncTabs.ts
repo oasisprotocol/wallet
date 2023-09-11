@@ -9,6 +9,7 @@ import {
 import { networkActions } from 'app/state/network'
 import { isSyncingTabsSupported, needsSyncingTabs, persistActions } from 'app/state/persist'
 import { walletActions } from 'app/state/wallet'
+import { contactsActions } from 'app/state/contacts'
 import { themeActions } from 'styles/theme/slice'
 import {
   createStateSyncMiddleware,
@@ -42,6 +43,9 @@ export function receiveInitialTabSyncState(
  * before {@link receiveInitialTabSyncState}!
  */
 export const whitelistTabSyncActions = [
+  contactsActions.add.type,
+  contactsActions.update.type,
+  contactsActions.delete.type,
   themeActions.changeTheme.type,
   walletActions.walletOpened.type,
   walletActions.updateBalance.type,
@@ -59,7 +63,13 @@ const stateSyncConfig: StateSyncConfig = {
   },
   whitelist: whitelistTabSyncActions,
   prepareState: (state: RootState): SyncedRootState => {
-    return { theme: state.theme, wallet: state.wallet, network: state.network, persist: state.persist }
+    return {
+      contacts: state.contacts,
+      theme: state.theme,
+      wallet: state.wallet,
+      network: state.network,
+      persist: state.persist,
+    }
   },
 }
 

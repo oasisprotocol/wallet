@@ -18,12 +18,14 @@ interface AccountProps {
   onClick: (address: string) => void
   path?: number[]
   isActive: boolean
+  displayBalance: boolean
   displayCheckbox?: boolean
   displayAccountNumber?: boolean
   displayDerivation?: DerivationFormatterProps
   displayManageButton?: {
     onClickManage: (address: string) => void
   }
+  name?: string
 }
 
 export const Account = memo((props: AccountProps) => {
@@ -64,7 +66,13 @@ export const Account = memo((props: AccountProps) => {
           </Text>
         </Box>
       )}
+
       <Box flex="grow" gap={size === 'small' ? undefined : 'xsmall'}>
+        {props.name && (
+          <Box>
+            <Text weight="bold">{props.name}</Text>
+          </Box>
+        )}
         <Box>
           <Text weight="bold">{address}</Text>
         </Box>
@@ -83,9 +91,11 @@ export const Account = memo((props: AccountProps) => {
               </Box>
             )}
           </Box>
-          <Box height={'24px'}>
-            {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}
-          </Box>
+          {props.displayBalance && (
+            <Box height="24px">
+              {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

@@ -4,6 +4,7 @@ import { WalletState } from 'app/state/wallet/types'
 import { CreateWalletState } from 'app/pages/CreateWalletPage/slice/types'
 import { FiatOnrampState } from 'app/pages/FiatOnrampPage/slice/types'
 import { AccountState } from 'app/state/account/types'
+import { ContactsState } from 'app/state/contacts/types'
 import { NetworkState } from 'app/state/network/types'
 import { TransactionState } from 'app/state/transaction/types'
 import { ImportAccountsState } from 'app/state/importaccounts/types'
@@ -20,6 +21,7 @@ import { receiveInitialTabSyncState, whitelistTabSyncActions } from 'app/state/p
 
 export interface RootState {
   /** Stored slices, see {@link receivePersistedRootState} */
+  contacts: ContactsState
   theme: ThemeState
   wallet: WalletState
   network: NetworkState

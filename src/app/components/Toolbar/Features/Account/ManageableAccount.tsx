@@ -33,6 +33,7 @@ export const ManageableAccount = ({
         onClick={onClick}
         isActive={isActive}
         path={wallet.path}
+        displayBalance={true}
         displayManageButton={{
           onClickManage: () => setLayerVisibility(true),
         }}

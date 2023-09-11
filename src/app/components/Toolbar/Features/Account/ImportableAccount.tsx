@@ -14,6 +14,7 @@ export const ImportableAccount = ({
       balance={account.balance}
       onClick={onClick}
       isActive={account.selected}
+      displayBalance={true}
       displayCheckbox={true}
       displayAccountNumber={true}
       displayDerivation={{

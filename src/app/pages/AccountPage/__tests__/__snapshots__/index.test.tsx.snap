@@ -1211,12 +1211,15 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                     class="c30"
                   >
                     <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
                       autocomplete="off"
                       class="c31"
                       id="recipient-id"
                       name="recipient"
                       placeholder="Enter an address"
                       required=""
+                      role="combobox"
                       value=""
                     />
                   </div>
