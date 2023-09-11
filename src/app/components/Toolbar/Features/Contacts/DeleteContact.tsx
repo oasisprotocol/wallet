@@ -22,7 +22,6 @@ export const DeleteContact = ({ deleteHandler, setLayerVisibility }: DeleteConta
       animation="none"
       background="background-front"
       modal
-      position="top"
       margin={isMobile ? 'none' : 'xlarge'}
     >
       <Box margin="medium">

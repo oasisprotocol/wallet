@@ -9,6 +9,7 @@ import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { ContactAccountForm } from './ContactAccountForm'
+import { layerOverlayMinHeight } from './layer'
 
 interface AddContactProps {
   setLayerVisibility: (isVisible: boolean) => void
@@ -34,10 +35,10 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
         <Tabs alignControls="start">
           <Tab title={t('toolbar.contacts.add', 'Add Contact')} style={{ textTransform: 'capitalize' }}>
             <Box
-              gap="small"
-              pad={{ vertical: 'medium', right: 'small' }}
-              overflow={{ vertical: 'auto' }}
-              height="400px"
+              flex="grow"
+              justify="center"
+              height={{ min: layerOverlayMinHeight }}
+              pad={{ vertical: 'medium' }}
             >
               <ContactAccountForm setLayerVisibility={setLayerVisibility} submitHandler={submitHandler} />
             </Box>

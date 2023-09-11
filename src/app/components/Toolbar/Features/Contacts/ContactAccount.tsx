@@ -10,6 +10,7 @@ import { Contact } from 'app/state/contacts/types'
 import { Account } from '../Account/Account'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { ContactAccountForm } from './ContactAccountForm'
+import { layerOverlayMinHeight } from './layer'
 
 interface ContactAccountProps {
   contact: Contact
@@ -51,10 +52,10 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
             <Tabs alignControls="start">
               <Tab title={t('toolbar.contacts.manage', 'Manage Contact')}>
                 <Box
-                  gap="small"
-                  pad={{ vertical: 'medium', right: 'small' }}
-                  overflow={{ vertical: 'auto' }}
-                  height="400px"
+                  flex="grow"
+                  justify="center"
+                  height={{ min: layerOverlayMinHeight }}
+                  pad={{ vertical: 'medium' }}
                 >
                   <ContactAccountForm
                     contact={contact}
