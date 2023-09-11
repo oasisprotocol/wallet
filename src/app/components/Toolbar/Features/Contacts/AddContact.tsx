@@ -40,7 +40,13 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
               height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
               pad={{ vertical: 'medium' }}
             >
-              <ContactAccountForm setLayerVisibility={setLayerVisibility} submitHandler={submitHandler} />
+              <ContactAccountForm
+                onCancel={() => setLayerVisibility(false)}
+                onSave={contract => {
+                  submitHandler(contract)
+                  setLayerVisibility(false)
+                }}
+              />
             </Box>
           </Tab>
         </Tabs>

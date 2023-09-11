@@ -59,9 +59,15 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
                 >
                   <ContactAccountForm
                     contact={contact}
-                    deleteHandler={deleteHandler}
-                    setLayerVisibility={setLayerVisibility}
-                    submitHandler={submitHandler}
+                    onDelete={address => {
+                      deleteHandler(address)
+                      setLayerVisibility(false)
+                    }}
+                    onCancel={() => setLayerVisibility(false)}
+                    onSave={contract => {
+                      submitHandler(contract)
+                      setLayerVisibility(false)
+                    }}
                   />
                 </Box>
               </Tab>

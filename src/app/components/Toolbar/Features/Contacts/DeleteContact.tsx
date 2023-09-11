@@ -7,18 +7,18 @@ import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 
 interface DeleteContactProps {
-  deleteHandler: () => void
-  setLayerVisibility: (isVisible: boolean) => void
+  onDelete: () => void
+  onCancel: () => void
 }
 
-export const DeleteContact = ({ deleteHandler, setLayerVisibility }: DeleteContactProps) => {
+export const DeleteContact = ({ onCancel, onDelete }: DeleteContactProps) => {
   const { t } = useTranslation()
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
     <ResponsiveLayer
-      onClickOutside={() => setLayerVisibility(false)}
-      onEsc={() => setLayerVisibility(false)}
+      onClickOutside={onCancel}
+      onEsc={onCancel}
       animation="none"
       background="background-front"
       modal
@@ -34,9 +34,9 @@ export const DeleteContact = ({ deleteHandler, setLayerVisibility }: DeleteConta
           </Text>
         </Box>
         <Box direction="row" align="center" justify="between" pad={{ top: 'medium' }}>
-          <Button label={t('toolbar.contacts.cancel', 'Cancel')} onClick={() => setLayerVisibility(false)} />
+          <Button label={t('toolbar.contacts.cancel', 'Cancel')} onClick={onCancel} />
           <Button
-            onClick={deleteHandler}
+            onClick={onDelete}
             label={t('toolbar.contacts.delete.confirm', 'Yes, delete')}
             color="status-error"
             primary

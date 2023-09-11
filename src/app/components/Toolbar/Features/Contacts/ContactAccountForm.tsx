@@ -9,15 +9,14 @@ import { TextInput } from 'grommet/es6/components/TextInput'
 import { TextArea } from 'grommet/es6/components/TextArea'
 import { selectContactsList } from 'app/state/contacts/selectors'
 import { isValidAddress } from 'app/lib/helpers'
-import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
 import { DeleteContact } from './DeleteContact'
 
 interface ContactAccountFormProps {
   contact?: Contact
-  deleteHandler?: (address: string) => ReturnType<typeof contactsActions.delete>
-  setLayerVisibility: (isVisible: boolean) => void
-  submitHandler: (contact: Contact) => ReturnType<typeof contactsActions.add | typeof contactsActions.update>
+  onDelete?: (address: string) => void
+  onCancel: () => void
+  onSave: (contact: Contact) => void
 }
 
 interface FormValue {
@@ -25,12 +24,7 @@ interface FormValue {
   name: string
 }
 
-export const ContactAccountForm = ({
-  contact,
-  deleteHandler,
-  setLayerVisibility,
-  submitHandler,
-}: ContactAccountFormProps) => {
+export const ContactAccountForm = ({ contact, onDelete, onCancel, onSave }: ContactAccountFormProps) => {
   const { t } = useTranslation()
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
   const [value, setValue] = useState({ name: contact?.name || '', address: contact?.address || '' })
@@ -41,10 +35,9 @@ export const ContactAccountForm = ({
       style={{ display: 'flex', flex: 1, flexDirection: 'column' }}
       messages={{ required: t('toolbar.contacts.validation.required', 'Field is required') }}
       onChange={nextValue => setValue(nextValue)}
-      onSubmit={({ value }) => {
-        submitHandler({ address: value.address.replaceAll(' ', ''), name: value.name.trim() })
-        setLayerVisibility(false)
-      }}
+      onSubmit={({ value }) =>
+        onSave({ address: value.address.replaceAll(' ', ''), name: value.name.trim() })
+      }
       value={value}
     >
       <Box flex="grow">
@@ -90,7 +83,7 @@ export const ContactAccountForm = ({
             placeholder={t('toolbar.contacts.address', 'Address')}
           />
         </FormField>
-        {contact && deleteHandler && (
+        {contact && onDelete && (
           <Box align="end">
             <Button
               style={{ fontSize: '14px', fontWeight: 600 }}
@@ -102,15 +95,15 @@ export const ContactAccountForm = ({
             ></Button>
             {deleteLayerVisibility && (
               <DeleteContact
-                deleteHandler={() => deleteHandler(contact.address)}
-                setLayerVisibility={setDeleteLayerVisibility}
+                onDelete={() => onDelete(contact.address)}
+                onCancel={() => setDeleteLayerVisibility(false)}
               />
             )}
           </Box>
         )}
       </Box>
       <Box direction="row" align="center" justify="between" pad={{ top: 'medium' }}>
-        <Button label={t('toolbar.contacts.cancel', 'Cancel')} onClick={() => setLayerVisibility(false)} />
+        <Button label={t('toolbar.contacts.cancel', 'Cancel')} onClick={onCancel} />
         <Button type="submit" label={t('toolbar.contacts.save', 'Save')} primary />
       </Box>
     </Form>
