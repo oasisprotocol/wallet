@@ -182,6 +182,19 @@ const grommetCustomTheme: ThemeType = {
       },
     },
   },
+  tab: {
+    color: 'text',
+    active: {
+      color: 'brand',
+    },
+    border: {
+      side: 'bottom',
+      color: 'transparent',
+      active: {
+        color: 'brand',
+      },
+    },
+  },
 }
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const theme = deepMerge(grommet, grommetCustomTheme)
