@@ -59,7 +59,7 @@ export const SettingsButton = memo(() => {
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <AccountSelector closeHandler={() => setLayerVisibility(false)} />
               </Tab>
-              <Tab title={t('toolbar.settings.contacts', 'Contacts')}>
+              <Tab data-testid="toolbar-contacts-tab" title={t('toolbar.settings.contacts', 'Contacts')}>
                 <Contacts />
               </Tab>
             </Tabs>

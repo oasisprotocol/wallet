@@ -377,6 +377,16 @@ exports[`<Account  /> should match snapshot 1`] = `
         >
           <div
             class="c11"
+            data-testid="account-name"
+          >
+            <span
+              class="c9"
+            >
+              My Account
+            </span>
+          </div>
+          <div
+            class="c11"
           >
             <span
               class="c9"

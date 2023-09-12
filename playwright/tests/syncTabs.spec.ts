@@ -142,6 +142,70 @@ test.describe('syncTabs', () => {
     }
   })
 
+  test.describe('adding and removing contacts in tabs', () => {
+    test('unpersisted', async ({ page, context }) => {
+      await page.goto('/open-wallet/private-key')
+      await fillPrivateKeyWithoutPassword(page, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: false,
+      })
+      const tab2 = await context.newPage()
+      await testSyncingContacts(page, tab2)
+    })
+
+    test('persisted', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.keyboard.press('Enter')
+      const tab2 = await context.newPage()
+      await testSyncingContacts(page, tab2)
+    })
+
+    test('incognito', async ({ page, context }) => {
+      await addPersistedStorage(page)
+      await page.goto('/')
+      await page.getByRole('button', { name: 'Continue without the profile' }).click()
+      const tab2 = await context.newPage()
+      await tab2.goto('/open-wallet/private-key')
+      await fillPrivateKeyWithoutPassword(tab2, {
+        persistenceCheckboxChecked: false,
+        persistenceCheckboxDisabled: true,
+      })
+      await testSyncingContacts(page, tab2)
+    })
+
+    async function testSyncingContacts(page: Page, tab2: Page) {
+      await page.getByTestId('account-selector').click()
+      await page.getByTestId('toolbar-contacts-tab').click()
+      await page.getByText('You have no contacts yet.')
+
+      await tab2.goto('/')
+      await tab2.getByTestId('account-selector').click()
+      await tab2.getByTestId('toolbar-contacts-tab').click()
+      await tab2.getByRole('button', { name: 'Add Contact' }).click()
+      await tab2.getByPlaceholder('Name').fill('Foo')
+      await tab2
+        .getByPlaceholder('Address', { exact: true })
+        .fill('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4')
+      await tab2.getByRole('button', { name: 'Save' }).click()
+      await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
+      await expect(page.getByTestId('account-choice')).toHaveCount(1)
+
+      await page.getByRole('button', { name: 'Manage' }).click()
+      await page.getByPlaceholder('Name').fill('Bar')
+      await page.getByRole('button', { name: 'Cancel' }).click()
+      await expect(page.getByTestId('account-name')).toHaveText('Foo')
+      await expect(tab2.getByTestId('account-name')).toHaveText('Foo')
+
+      await page.getByRole('button', { name: 'Manage' }).click()
+      await page.getByRole('button', { name: 'Delete contact' }).click()
+      await page.getByRole('button', { name: 'Yes, delete' }).click()
+      await expect(page.getByText('You have no contacts yet.')).toBeVisible()
+      await expect(tab2.getByText('You have no contacts yet.')).toBeVisible()
+    }
+  })
+
   test.describe('switching account should not sync', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')

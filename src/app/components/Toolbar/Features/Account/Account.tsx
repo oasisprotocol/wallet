@@ -12,7 +12,7 @@ import { BalanceDetails } from '../../../../state/account/types'
 import { Button } from 'grommet/es6/components/Button'
 import { DerivationFormatter, DerivationFormatterProps } from './DerivationFormatter'
 
-interface AccountProps {
+export interface AccountProps {
   address: string
   balance: BalanceDetails | undefined
   onClick: (address: string) => void
@@ -69,7 +69,7 @@ export const Account = memo((props: AccountProps) => {
 
       <Box flex="grow" gap={size === 'small' ? undefined : 'xsmall'}>
         {props.name && (
-          <Box>
+          <Box data-testid="account-name">
             <Text weight="bold">{props.name}</Text>
           </Box>
         )}
