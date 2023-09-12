@@ -193,10 +193,16 @@ test.describe('syncTabs', () => {
       await expect(page.getByTestId('account-choice')).toHaveCount(1)
 
       await page.getByRole('button', { name: 'Manage' }).click()
+      await page.getByPlaceholder('Name').fill('Bar')
+      await page.getByRole('button', { name: 'Cancel' }).click()
+      await expect(page.getByTestId('account-name')).toHaveText('Foo')
+      await expect(tab2.getByTestId('account-name')).toHaveText('Foo')
+
+      await page.getByRole('button', { name: 'Manage' }).click()
       await page.getByRole('button', { name: 'Delete contact' }).click()
       await page.getByRole('button', { name: 'Yes, delete' }).click()
-      await page.getByText('You have no contacts yet.')
-      await tab2.getByText('You have no contacts yet.')
+      await expect(page.getByText('You have no contacts yet.')).toBeVisible()
+      await expect(tab2.getByText('You have no contacts yet.')).toBeVisible()
     }
   })
 

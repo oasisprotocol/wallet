@@ -358,6 +358,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
         >
           <div
             class="c2"
+            data-testid="account-name"
           >
             <span
               class="c5"
