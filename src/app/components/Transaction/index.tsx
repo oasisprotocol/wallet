@@ -40,6 +40,7 @@ import * as transactionTypes from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
 import { config } from 'config'
 import { backend } from 'vendors/backend'
+import { AddressFormatter } from '../AddressFormatter'
 
 enum TransactionSide {
   Sent = 'sent',
@@ -396,7 +397,7 @@ export function Transaction(props: TransactionProps) {
             <Box pad={{ left: 'small' }}>
               <Text size="16px" margin={{ bottom: 'xsmall' }}>
                 {otherAddress ? (
-                  <span>{trimLongString(otherAddress)}</span>
+                  <AddressFormatter address={otherAddress} />
                 ) : (
                   <span>{t('common.unavailable', 'Unavailable')}</span>
                 )}
@@ -410,7 +411,7 @@ export function Transaction(props: TransactionProps) {
               <Box pad="none">
                 <InfoBox copyToClipboardValue={otherAddress} icon={ContactInfo} label={destination}>
                   {otherAddress ? (
-                    <Text>{trimLongString(otherAddress)}</Text>
+                    <AddressFormatter address={otherAddress} />
                   ) : (
                     <span>{t('common.unavailable', 'Unavailable')}</span>
                   )}
