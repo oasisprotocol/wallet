@@ -1,10 +1,16 @@
-import { Ledger, LedgerSigner, requestDevice } from '../ledger'
+import { canAccessBle, Ledger, LedgerSigner, requestDevice } from '../ledger'
 import OasisApp from '@oasisprotocol/ledger'
 import { WalletError, WalletErrors } from 'types/errors'
 import { Wallet, WalletType } from 'app/state/wallet/types'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 jest.mock('@ledgerhq/hw-transport-webusb/lib-es/webusb')
+jest.mock('@oasisprotocol/ionic-ledger-hw-transport-ble/lib', () => {
+  return {
+    isEnabled: jest.fn(),
+  }
+})
 
 jest.mock('@oasisprotocol/ledger', () => ({
   ...(jest.createMockFromModule('@oasisprotocol/ledger') as any),
@@ -29,6 +35,28 @@ describe('Extension access', () => {
 describe('Ledger Library', () => {
   afterEach(() => {
     jest.resetAllMocks()
+  })
+
+  describe('BLE Ledger', () => {
+    it('should support Bluetooth', async () => {
+      jest.mocked(BleTransport.isEnabled).mockResolvedValue(true)
+      Object.defineProperty(window.navigator, 'bluetooth', {
+        writable: true,
+        value: {
+          requestLEScan: jest.fn(),
+        },
+      })
+
+      const canAccessBluetooth = await canAccessBle()
+      expect(canAccessBluetooth).toBe(true)
+    })
+
+    it('should not throw if platform does not support Bluetooth', async () => {
+      jest.mocked(BleTransport.isEnabled).mockRejectedValue(new Error('Platform does not support Bluetooth'))
+
+      const canAccessBluetooth = await canAccessBle()
+      expect(canAccessBluetooth).toBe(false)
+    })
   })
 
   describe('Ledger', () => {
