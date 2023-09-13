@@ -7,16 +7,22 @@ import { DeepPartialRootState } from 'types/RootState'
 import { WalletErrors } from 'types/errors'
 import { transactionActions as actions } from '.'
 import { TransactionTypes } from '../paratimes/types'
-import { selectAddress, selectActiveWallet } from '../wallet/selectors'
+import { selectActiveWallet, selectAddress } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
-import { doTransaction, submitParaTimeTransaction, getAllowanceDifference, setAllowance } from './saga'
+import { doTransaction, getAllowanceDifference, setAllowance, submitParaTimeTransaction } from './saga'
+import { addressToPublicKey } from '../../lib/helpers'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
-const makeState = (wallet: Partial<Wallet>): DeepPartialRootState => {
+const makeState = (
+  wallet: Partial<Wallet>,
+  rootState: Partial<DeepPartialRootState> = {},
+): DeepPartialRootState => {
   return {
     wallet: {
       wallets: { [wallet.address!]: wallet },
       selectedWallet: wallet.address,
     },
+    ...rootState,
   }
 }
 
@@ -52,6 +58,7 @@ describe('Transaction Sagas', () => {
     [matchers.call.fn(OasisTransaction.sign), {}],
     [matchers.call.fn(OasisTransaction.signParaTime), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
+    [matchers.call.fn(OasisTransaction.signUsingLedger), {}],
   ]
 
   const providers: (EffectProviders | StaticProvider)[] = [
@@ -73,6 +80,52 @@ describe('Transaction Sagas', () => {
         .withState(makeState(wallet))
         .provide(providers)
         .provide(sendProviders)
+        .dispatch(actions.sendTransaction({ type: 'transfer', amount: '123000000000', to: 'testaddress' }))
+        .dispatch(actions.confirmTransaction())
+        .put.actionType(actions.transactionSent.type)
+        .run()
+    })
+
+    it('Should send transactions from a Bluetooth Ledger Wallet', async () => {
+      const wallet = {
+        ...validKeyWallet,
+        type: WalletType.BleLedger,
+        path: [44, 474, 0, 0, 0],
+        publicKey: (await addressToPublicKey(matchingAddress)).toString(),
+      } as Partial<Wallet>
+
+      const selectedBleDevice = {
+        device: {
+          deviceId: 'xx:xx:xx:xx:xx:xx',
+          name: 'Nano X ABCD',
+        },
+        localName: 'Nano X ABCD',
+        rssi: -50,
+        txPower: 100,
+      }
+
+      return expectSaga(
+        doTransaction,
+        actions.sendTransaction({ type: 'transfer', amount: '10000000000', to: validAddress }),
+      )
+        .withState(
+          makeState(wallet, {
+            importAccounts: {
+              selectedBleDevice,
+            },
+          }),
+        )
+        .provide(providers)
+        .provide([
+          ...sendProviders,
+          [matchers.call.fn(BleTransport.isSupported), true],
+          [
+            matchers.call.fn(BleTransport.open),
+            {
+              close: () => {},
+            },
+          ],
+        ])
         .dispatch(actions.sendTransaction({ type: 'transfer', amount: '123000000000', to: 'testaddress' }))
         .dispatch(actions.confirmTransaction())
         .put.actionType(actions.transactionSent.type)
