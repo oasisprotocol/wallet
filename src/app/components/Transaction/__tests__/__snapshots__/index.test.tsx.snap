@@ -227,7 +227,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   justify-content: center;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -242,7 +242,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   padding: 12px;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -263,7 +263,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   padding-right: 12px;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -299,7 +299,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   width: 12px;
 }
 
-.c21 {
+.c22 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -310,7 +310,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   cursor: pointer;
 }
 
-.c21:hover {
+.c22:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -331,29 +331,36 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 .c14 {
   font-size: 18px;
   line-height: 24px;
+  color: grayMedium;
+  font-weight: bold;
 }
 
-.c17 {
+.c15 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c18 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c18 {
+.c19 {
   font-size: 12px;
   line-height: 18px;
   color: lightText;
   font-weight: 600;
 }
 
-.c19 {
+.c20 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c22 {
+.c23 {
   font-size: 14px;
   line-height: 20px;
 }
@@ -419,19 +426,19 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     margin-top: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     padding-right: 6px;
   }
 }
@@ -524,12 +531,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 account.transaction.unrecognizedTransaction.destination
               </span>
               <span
-                class="c14"
+                class="c15"
               >
                 source
               </span>
@@ -562,12 +570,13 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 common.hash
               </span>
               <span
-                class="c14"
+                class="c15"
               >
                 ff1234
               </span>
@@ -578,7 +587,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
           class="c9"
         >
           <div
-            class="c15"
+            class="c16"
           >
             <div
               class="c11"
@@ -607,32 +616,29 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 common.time
               </span>
-              <span
-                class="c14"
-              >
-                4/10/2021, 1:30:55 AM
-              </span>
+              4/10/2021, 1:30:55 AM
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="c16"
+      class="c17"
     >
       <span
-        class="c17"
+        class="c18"
       >
         <span>
           <span>
             0.001
           </span>
           <span
-            class="c18"
+            class="c19"
           >
             <span
               class="notranslate"
@@ -644,7 +650,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         </span>
       </span>
       <span
-        class="c19"
+        class="c20"
       >
         <span>
           account.transaction.successful
@@ -653,17 +659,17 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
     </div>
   </div>
   <footer
-    class="c20"
+    class="c21"
   >
     <a
-      class="c21"
+      class="c22"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c22"
+        class="c23"
       >
         account.transaction.explorerLink
       </span>
@@ -911,7 +917,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -926,7 +932,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -947,7 +953,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -983,7 +989,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c21 {
+.c22 {
   box-sizing: border-box;
   font-size: inherit;
   line-height: inherit;
@@ -994,7 +1000,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c21:hover {
+.c22:hover {
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
@@ -1015,29 +1021,36 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 .c14 {
   font-size: 18px;
   line-height: 24px;
+  color: grayMedium;
+  font-weight: bold;
 }
 
-.c17 {
+.c15 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c18 {
   font-size: 26px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.c18 {
+.c19 {
   font-size: 12px;
   line-height: 18px;
   color: lightText;
   font-weight: 600;
 }
 
-.c19 {
+.c20 {
   font-size: 14px;
   line-height: 20px;
   color: successful-label;
   font-weight: bold;
 }
 
-.c22 {
+.c23 {
   font-size: 14px;
   line-height: 20px;
 }
@@ -1103,19 +1116,19 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     margin-top: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     padding-right: 6px;
   }
 }
@@ -1208,12 +1221,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 common.from
               </span>
               <span
-                class="c14"
+                class="c15"
               >
                 source
               </span>
@@ -1246,12 +1260,13 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 common.hash
               </span>
               <span
-                class="c14"
+                class="c15"
               >
                 ff1234
               </span>
@@ -1262,7 +1277,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
           class="c9"
         >
           <div
-            class="c15"
+            class="c16"
           >
             <div
               class="c11"
@@ -1291,32 +1306,29 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               class="c13"
             >
               <span
-                class="c4"
+                class="c14"
+                style="opacity: 0.5;"
               >
                 common.time
               </span>
-              <span
-                class="c14"
-              >
-                4/10/2021, 1:30:55 AM
-              </span>
+              4/10/2021, 1:30:55 AM
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="c16"
+      class="c17"
     >
       <span
-        class="c17"
+        class="c18"
       >
         <span>
           <span>
             0.001
           </span>
           <span
-            class="c18"
+            class="c19"
           >
             <span
               class="notranslate"
@@ -1328,7 +1340,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         </span>
       </span>
       <span
-        class="c19"
+        class="c20"
       >
         <span>
           account.transaction.successful
@@ -1337,17 +1349,17 @@ exports[`<Transaction  /> should match snapshot 1`] = `
     </div>
   </div>
   <footer
-    class="c20"
+    class="c21"
   >
     <a
-      class="c21"
+      class="c22"
       data-testid="explorer-link"
       href="https://oasisscan.com/transactions/ff1234"
       rel="noopener"
       target="_blank"
     >
       <span
-        class="c22"
+        class="c23"
       >
         account.transaction.explorerLink
       </span>

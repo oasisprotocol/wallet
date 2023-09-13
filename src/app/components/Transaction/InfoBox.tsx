@@ -1,30 +1,29 @@
+import { ReactNode } from 'react'
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { Notification } from 'grommet/es6/components/Notification'
-import * as React from 'react'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
 import copy from 'copy-to-clipboard'
-import { trimLongString } from '../ShortAddress/trimLongString'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface InfoBoxProps {
-  copyToClipboard?: boolean
+  copyToClipboardValue?: string
   icon: Icon
   label: string
-  value: string
-  trimValue?: boolean
+  children: ReactNode
 }
 
-export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue, value }: InfoBoxProps) {
+export function InfoBox({ children, copyToClipboardValue, icon: IconComponent, label }: InfoBoxProps) {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
-
   const hideNotification = () => setNotificationVisible(false)
-
   const copyValue = () => {
-    const wasCopied = copy(value)
+    if (!copyToClipboardValue) {
+      return
+    }
+    const wasCopied = copy(copyToClipboardValue)
     if (wasCopied) {
       setNotificationVisible(true)
     }
@@ -36,14 +35,16 @@ export function InfoBox({ copyToClipboard, icon: IconComponent, label, trimValue
       gap="small"
       hoverIndicator={{ color: 'background-contrast' }}
       pad={{ horizontal: 'small', vertical: 'small' }}
-      onClick={copyToClipboard ? copyValue : undefined}
+      onClick={copyToClipboardValue ? copyValue : undefined}
     >
       <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
         <IconComponent color="brand" size="20px" />
       </Box>
       <Box justify="center">
-        <Text weight="bold">{label}</Text>
-        {trimValue ? <Text>{trimLongString(value)}</Text> : <Text>{value}</Text>}
+        <Text weight="bold" color="grayMedium" style={{ opacity: 0.5 }}>
+          {label}
+        </Text>
+        {children}
       </Box>
       {notificationVisible && (
         <Notification
