@@ -381,7 +381,8 @@
   },
   "theme": {
     "darkMode": "Dark mode",
-    "lightMode": "Light mode"
+    "lightMode": "Light mode",
+    "title": "Theme"
   },
   "toolbar": {
     "contacts": {
