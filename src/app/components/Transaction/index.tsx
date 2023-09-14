@@ -40,6 +40,7 @@ import * as transactionTypes from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
 import { config } from 'config'
 import { backend } from 'vendors/backend'
+import { AddressFormatter } from '../AddressFormatter'
 
 enum TransactionSide {
   Sent = 'sent',
@@ -396,7 +397,7 @@ export function Transaction(props: TransactionProps) {
             <Box pad={{ left: 'small' }}>
               <Text size="16px" margin={{ bottom: 'xsmall' }}>
                 {otherAddress ? (
-                  <span>{trimLongString(otherAddress)}</span>
+                  <AddressFormatter address={otherAddress} />
                 ) : (
                   <span>{t('common.unavailable', 'Unavailable')}</span>
                 )}
@@ -408,43 +409,37 @@ export function Transaction(props: TransactionProps) {
           {!isMobile && (
             <Grid columns={{ count: 'fit', size: 'xsmall' }} gap="none">
               <Box pad="none">
+                <InfoBox copyToClipboardValue={otherAddress} icon={ContactInfo} label={destination}>
+                  {otherAddress ? (
+                    <AddressFormatter address={otherAddress} />
+                  ) : (
+                    <span>{t('common.unavailable', 'Unavailable')}</span>
+                  )}
+                </InfoBox>
                 <InfoBox
-                  copyToClipboard={!!otherAddress}
-                  icon={ContactInfo}
-                  label={destination}
-                  trimValue={!!otherAddress}
-                  value={otherAddress || t('common.unavailable', 'Unavailable')}
-                />
-                <InfoBox
-                  copyToClipboard={true}
+                  copyToClipboardValue={transaction.hash}
                   icon={Package}
                   label={t('common.hash', 'Tx Hash')}
-                  trimValue={true}
-                  value={transaction.hash}
-                />
+                >
+                  <Text>{trimLongString(transaction.hash)}</Text>
+                </InfoBox>
               </Box>
 
               <Box pad="none">
-                <InfoBox
-                  icon={Clock}
-                  label={t('common.time', 'Time')}
-                  value={intlDateTimeFormat(transaction.timestamp!)}
-                />
+                <InfoBox icon={Clock} label={t('common.time', 'Time')}>
+                  {intlDateTimeFormat(transaction.timestamp!)}
+                </InfoBox>
 
                 {!transaction.runtimeId && transaction.level && (
-                  <InfoBox
-                    icon={Cube}
-                    label={t('common.block', 'Block')}
-                    value={transaction.level.toString()}
-                  />
+                  <InfoBox icon={Cube} label={t('common.block', 'Block')}>
+                    {transaction.level.toString()}
+                  </InfoBox>
                 )}
 
                 {transaction.runtimeId && transaction.round && (
-                  <InfoBox
-                    icon={Cube}
-                    label={t('common.round', 'Round')}
-                    value={transaction.round.toString()}
-                  />
+                  <InfoBox icon={Cube} label={t('common.round', 'Round')}>
+                    {transaction.round.toString()}
+                  </InfoBox>
                 )}
               </Box>
             </Grid>

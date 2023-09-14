@@ -62,6 +62,10 @@ const grommetCustomTheme: ThemeType = {
       },
       oasisBlue2: '#4db3f9',
       oasisBlue3: '#26a2f8',
+      grayMedium: {
+        dark: '#d5d6d7',
+        light: '#565b61',
+      },
       'status-ok': '#2ad5ab',
       'status-warning': {
         dark: '#f3d45e',
