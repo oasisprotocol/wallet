@@ -195,7 +195,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
 
   return (
     <Nav gap="small">
-      <ThemeSwitcher />
+      {!isLockableOrCloseable && <ThemeSwitcher />}
       {isLockableOrCloseable === 'closeable' && (
         <SidebarButton
           icon={<Logout />}
