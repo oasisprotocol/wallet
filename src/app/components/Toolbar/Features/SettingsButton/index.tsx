@@ -22,6 +22,7 @@ import { Tab } from 'grommet/es6/components/Tab'
 import { useTranslation } from 'react-i18next'
 import { Contacts } from '../Contacts'
 import { Profile } from '../Profile'
+import { Settings } from '../Settings'
 
 export const SettingsButton = memo(() => {
   const { t } = useTranslation()
@@ -77,6 +78,9 @@ export const SettingsButton = memo(() => {
               </Tab>
               <Tab data-testid="toolbar-profile-tab" title={t('toolbar.settings.profile', 'Profile')}>
                 <Profile closeHandler={hideLayer} />
+              </Tab>
+              <Tab data-testid="toolbar-contacts-settings" title={t('toolbar.settings.settings', 'Settings')}>
+                <Settings />
               </Tab>
             </Tabs>
           </Box>
