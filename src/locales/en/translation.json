@@ -199,6 +199,7 @@
   "infoBox": {
     "valueCopied": "{{label}} copied."
   },
+  "language": "Language",
   "ledger": {
     "extension": {
       "connect": "Connect Ledger device",
