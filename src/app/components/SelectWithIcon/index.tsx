@@ -35,7 +35,7 @@ export function SelectWithIcon<T>({
   value,
 }: SelectWithIconProps<T>) {
   return (
-    <FormField name={name} label={label} contentProps={{ border: false }}>
+    <FormField name={name} label={label} contentProps={{ border: false }} style={{ margin: 0 }}>
       <StyledBox>
         <StyledIconContainer>{icon}</StyledIconContainer>
         <Select

@@ -10,14 +10,18 @@ const languageOptions: { value: keyof typeof translationsJson; label: string }[]
   }),
 )
 
-export const LanguageSelect = () => {
+type LanguageSelectProps = {
+  withLabel?: boolean
+}
+
+export const LanguageSelect = ({ withLabel }: LanguageSelectProps) => {
   const { t, i18n } = useTranslation()
 
   return (
     <SelectWithIcon
       icon={<Language />}
       id="language"
-      label={t('language', 'Language')}
+      label={withLabel ? t('language', 'Language') : ''}
       name="language"
       onChange={option => i18n.changeLanguage(option)}
       options={languageOptions}

@@ -9,8 +9,8 @@ export const Settings = () => {
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <Box height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
-      <LanguageSelect />
+    <Box height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }} gap="small">
+      <LanguageSelect withLabel />
       <ThemeSelect />
     </Box>
   )
