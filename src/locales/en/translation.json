@@ -397,6 +397,7 @@
       "emptyList": "You have no contacts yet.",
       "manage": "Manage Contact",
       "name": "Name",
+      "notAvailable": "To start adding contacts create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "save": "Save",
       "validation": {
         "addressError": "Please enter a valid wallet address",

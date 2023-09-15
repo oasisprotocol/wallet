@@ -143,35 +143,12 @@ test.describe('syncTabs', () => {
   })
 
   test.describe('adding and removing contacts in tabs', () => {
-    test('unpersisted', async ({ page, context }) => {
-      await page.goto('/open-wallet/private-key')
-      await fillPrivateKeyWithoutPassword(page, {
-        persistenceCheckboxChecked: false,
-        persistenceCheckboxDisabled: false,
-      })
-      const tab2 = await context.newPage()
-      await testSyncingContacts(page, tab2)
-    })
-
     test('persisted', async ({ page, context }) => {
       await addPersistedStorage(page)
       await page.goto('/')
       await page.getByPlaceholder('Enter your password here').fill(password)
       await page.keyboard.press('Enter')
       const tab2 = await context.newPage()
-      await testSyncingContacts(page, tab2)
-    })
-
-    test('incognito', async ({ page, context }) => {
-      await addPersistedStorage(page)
-      await page.goto('/')
-      await page.getByRole('button', { name: 'Continue without the profile' }).click()
-      const tab2 = await context.newPage()
-      await tab2.goto('/open-wallet/private-key')
-      await fillPrivateKeyWithoutPassword(tab2, {
-        persistenceCheckboxChecked: false,
-        persistenceCheckboxDisabled: true,
-      })
       await testSyncingContacts(page, tab2)
     })
 
