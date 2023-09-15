@@ -393,7 +393,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
                   class="c8"
                   type="button"
                 >
-                  toolbar.settings.manageAccount
+                  Manage
                 </button>
               </div>
             </div>
@@ -409,7 +409,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
       class="c10"
       type="button"
     >
-      toolbar.contacts.add
+      Add Contact
     </button>
   </div>
 </div>

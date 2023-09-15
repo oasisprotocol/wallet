@@ -66,6 +66,10 @@ const grommetCustomTheme: ThemeType = {
         dark: '#d5d6d7',
         light: '#565b61',
       },
+      link: {
+        dark: '#6FFFB0',
+        light: '#0092f6',
+      },
       'status-ok': '#2ad5ab',
       'status-warning': {
         dark: '#f3d45e',
