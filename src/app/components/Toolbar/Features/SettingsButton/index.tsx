@@ -6,6 +6,7 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { Close } from 'grommet-icons/es6/icons/Close'
 import React, { memo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
@@ -28,7 +29,7 @@ export const SettingsButton = memo(() => {
   const address = useSelector(selectAddress)
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
-
+  const hideLayer = () => setLayerVisibility(false)
   if (!walletHasAccounts) {
     return null
   }
@@ -47,21 +48,32 @@ export const SettingsButton = memo(() => {
       </Button>
       {layerVisibility && (
         <ResponsiveLayer
-          onClickOutside={() => setLayerVisibility(false)}
-          onEsc={() => setLayerVisibility(false)}
+          onClickOutside={hideLayer}
+          onEsc={hideLayer}
           animation="slide"
           background="background-front"
           modal
           position="top"
           margin={isMobile ? 'none' : 'xlarge'}
         >
-          <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
+          <Box
+            margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}
+            width={isMobile ? 'auto' : '700px'}
+          >
+            <Box align="end">
+              <Button
+                data-testid="close-settings-modal"
+                onClick={hideLayer}
+                secondary
+                icon={<Close size="18px" />}
+              />
+            </Box>
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-                <AccountSelector closeHandler={() => setLayerVisibility(false)} />
+                <AccountSelector closeHandler={hideLayer} />
               </Tab>
               <Tab data-testid="toolbar-contacts-tab" title={t('toolbar.settings.contacts', 'Contacts')}>
-                <Contacts closeHandler={() => setLayerVisibility(false)} />
+                <Contacts closeHandler={hideLayer} />
               </Tab>
               <Tab title={t('toolbar.settings.profile', 'Profile')}>
                 <Profile />
