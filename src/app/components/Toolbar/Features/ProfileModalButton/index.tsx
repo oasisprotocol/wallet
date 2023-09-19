@@ -1,6 +1,6 @@
 /**
  *
- * SettingsButton
+ * ProfileModalButton
  *
  */
 import { useNavigate } from 'react-router-dom'
@@ -26,7 +26,7 @@ import { Contacts } from '../Contacts'
 import { Profile } from '../Profile'
 import { Settings } from '../Settings'
 
-export const SettingsButton = memo(() => {
+export const ProfileModalButton = memo(() => {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -38,7 +38,7 @@ export const SettingsButton = memo(() => {
   const hideLayer = () => setLayerVisibility(false)
   const handleOnActive = (index: number) => {
     // when Lock/Close tab is clicked
-    if (index === 3) {
+    if (index === 4) {
       navigate('/')
       dispatch(persistActions.lockAsync())
     }
