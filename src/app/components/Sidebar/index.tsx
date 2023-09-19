@@ -218,18 +218,17 @@ const SidebarFooter = (props: SidebarFooterProps) => {
         />
       )}
 
-      <SidebarTooltip label="Language" isActive={false}>
-        <Box pad="small" align={size === 'medium' ? 'center' : 'start'}>
-          <Menu
-            hoverIndicator={false}
-            dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
-            items={languageLabels.map(([key, label]) => ({ label: label, onClick: () => setLanguage(key) }))}
-          >
-            {size === 'medium' ? (
-              <Box pad="small">
-                <Language />
-              </Box>
-            ) : (
+      {size === 'small' && (
+        <SidebarTooltip label="Language" isActive={false}>
+          <Box pad="small" align="start">
+            <Menu
+              hoverIndicator={false}
+              dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
+              items={languageLabels.map(([key, label]) => ({
+                label: label,
+                onClick: () => setLanguage(key),
+              }))}
+            >
               <Box direction="row">
                 <Box pad="small">
                   <Language />
@@ -242,10 +241,10 @@ const SidebarFooter = (props: SidebarFooterProps) => {
                   <FormDown />
                 </Box>
               </Box>
-            )}
-          </Menu>
-        </Box>
-      </SidebarTooltip>
+            </Menu>
+          </Box>
+        </SidebarTooltip>
+      )}
       <SidebarButton
         icon={<Github />}
         label="GitHub"
