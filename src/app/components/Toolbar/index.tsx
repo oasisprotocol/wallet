@@ -36,7 +36,7 @@ export function Toolbar() {
 
   return (
     <StyledToolbar direction="row" gap="small" justify="end">
-      {(!isLockableOrCloseable || isLockableOrCloseable === 'unlockable') && (
+      {(!isLockableOrCloseable || isLockableOrCloseable === 'unlockable') && !isMobile && (
         <Box style={{ marginTop: '2px', width: '220px' }}>
           <LanguageSelect />
         </Box>
