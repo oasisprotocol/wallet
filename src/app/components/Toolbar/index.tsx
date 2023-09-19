@@ -35,7 +35,15 @@ export function Toolbar() {
   const isMobile = React.useContext(ResponsiveContext) === 'small'
 
   return (
-    <StyledToolbar direction="row" gap="small" justify="end">
+    <StyledToolbar
+      direction="row"
+      gap="small"
+      justify="end"
+      margin={{
+        right:
+          (!isLockableOrCloseable || isLockableOrCloseable === 'unlockable') && isMobile ? '30px' : 'none',
+      }}
+    >
       {(!isLockableOrCloseable || isLockableOrCloseable === 'unlockable') && !isMobile && (
         <Box style={{ marginTop: '2px', width: '220px' }}>
           <LanguageSelect />

@@ -317,7 +317,7 @@ export function Sidebar() {
   return (
     <GSidebar
       background="component-sidebar"
-      header={<SidebarHeader size={size} />}
+      header={size !== 'small' ? <SidebarHeader size={size} /> : undefined}
       footer={<SidebarFooter size={size} />}
       pad={{ left: 'none', right: 'none', vertical: 'medium' }}
       gap="small"
@@ -331,6 +331,7 @@ export function Sidebar() {
 export function Navigation() {
   const size = useContext(ResponsiveContext)
   const [sidebarVisible, setSidebarVisible] = React.useState(false)
+  const isLockableOrCloseable = useSelector(selectIsLockableOrCloseable)
   const toggleSidebar = () => {
     setSidebarVisible(!sidebarVisible)
   }
@@ -340,6 +341,7 @@ export function Navigation() {
     // If the location changed, hide the sidebar
     setSidebarVisible(false)
   }, [location])
+  const hasMenuOnRightSide = !isLockableOrCloseable || isLockableOrCloseable === 'unlockable'
 
   return (
     <>
@@ -355,9 +357,13 @@ export function Navigation() {
             top: 0,
             width: '100%',
             zIndex: mobileToolbarZIndex,
+            flexDirection: hasMenuOnRightSide ? 'row-reverse' : 'row',
+            justifyContent: hasMenuOnRightSide ? 'space-between' : 'flex-start',
           }}
         >
-          <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
+          {hasMenuOnRightSide && (
+            <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
+          )}
           <Box justify="center">
             <SidebarHeader size="small" />
           </Box>
@@ -365,7 +371,7 @@ export function Navigation() {
       )}
       {size === 'small' && sidebarVisible && (
         <Layer
-          position="left"
+          position="right"
           onClickOutside={toggleSidebar}
           onEsc={toggleSidebar}
           full="vertical"

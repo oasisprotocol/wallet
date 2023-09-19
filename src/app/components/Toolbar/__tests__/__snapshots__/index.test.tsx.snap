@@ -46,24 +46,6 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
 .c5 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -77,6 +59,25 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 12px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-right: 30px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c3 {
@@ -172,6 +173,16 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
 
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    margin-right: 30px;
+  }
 }
 
 @media only screen and (max-width:768px) {
