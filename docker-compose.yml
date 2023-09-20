@@ -37,7 +37,7 @@ services:
       - oasis-node-data:/node/data:z
       - ./docker/envoy.yaml:/etc/envoy/envoy.yaml:z
   explorer-postgres:
-    image: docker.io/library/postgres:15.1-alpine
+    image: docker.io/library/postgres:16.0-alpine
     restart: always
     volumes:
       - explorer-postgres-data:/var/lib/postgresql/data
