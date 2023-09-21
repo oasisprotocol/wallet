@@ -41,6 +41,8 @@ function* handleAsyncPersistActions(action: AnyAction) {
     yield* call(lockAsync, action)
   } else if (persistActions.deleteProfileAsync.match(action)) {
     yield* call(deleteProfileAsync, action)
+  } else if (persistActions.updatePasswordAsync.match(action)) {
+    yield* call(updatePasswordAsync, action)
   } else if (persistActions.setUnlockedRootState.match(action)) {
     // Skip encrypting the same state
   } else if (persistActions.resetRootState.match(action)) {
@@ -80,6 +82,22 @@ function* unlockAsync(action: ReturnType<typeof persistActions.unlockAsync>) {
   try {
     const unlockedPayload = yield* call(decryptState, encryptedState, action.payload.password)
     yield* put(persistActions.setUnlockedRootState(unlockedPayload))
+  } catch (error) {
+    if (error instanceof PasswordWrongError) {
+      yield* put(persistActions.setWrongPassword())
+    } else {
+      throw error
+    }
+  }
+}
+
+function* updatePasswordAsync(action: ReturnType<typeof persistActions.updatePasswordAsync>) {
+  const encryptedState: EncryptedString | null = window.localStorage.getItem(STORAGE_FIELD)
+  if (!encryptedState) throw new Error('Unexpected update password action while no state is locked')
+  try {
+    // used only for a current password validation, doesn't use decrypted result
+    yield* call(decryptState, encryptedState, action.payload.currentPassword)
+    yield* put(persistActions.setPasswordAsync({ password: action.payload.password }))
   } catch (error) {
     if (error instanceof PasswordWrongError) {
       yield* put(persistActions.setWrongPassword())

@@ -24,6 +24,11 @@ export interface SetUnlockedRootStatePayload {
   stringifiedEncryptionKey: StringifiedKeyWithSalt
 }
 
+export interface UpdatePasswordPayload {
+  currentPassword: string
+  password: string
+}
+
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean

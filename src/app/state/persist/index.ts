@@ -5,6 +5,7 @@ import {
   PersistState,
   SetUnlockedRootStatePayload,
   StringifiedKeyWithSalt,
+  UpdatePasswordPayload,
 } from './types'
 import { RootState } from 'types'
 import { runtimeIs } from 'config'
@@ -83,6 +84,9 @@ const persistSlice = createSlice({
      */
     deleteProfileAsync(state) {
       state.loading = true
+    },
+    updatePasswordAsync(state, action: PayloadAction<UpdatePasswordPayload>) {
+      return
     },
   },
 })
