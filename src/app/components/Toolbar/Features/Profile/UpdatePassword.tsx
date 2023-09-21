@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
@@ -12,16 +12,24 @@ import {
 import { PasswordField } from 'app/components/PasswordField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { persistActions } from 'app/state/persist'
-import { selectEnteredWrongPassword } from 'app/state/persist/selectors'
+import { selectEnteredWrongPassword, selectLoading } from 'app/state/persist/selectors'
 
 interface FormValue extends ChoosePasswordFieldsFormValue {
   currentPassword?: string
+}
+
+const defaultFormValue: FormValue = {
+  currentPassword: '',
+  password1: '',
+  password2: '',
 }
 
 export const UpdatePassword = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
+  const isProfileReloadingAfterPasswordUpdate = useSelector(selectLoading)
+  const [value, setValue] = useState(defaultFormValue)
   const onSubmit = ({ value }: { value: FormValue }) => {
     if (!value.currentPassword || !value.password1) {
       return
@@ -40,8 +48,20 @@ export const UpdatePassword = () => {
     }
   }, [dispatch])
 
+  useEffect(() => {
+    // reloading occurs after successful password update
+    if (isProfileReloadingAfterPasswordUpdate) {
+      setValue(defaultFormValue)
+    }
+  }, [isProfileReloadingAfterPasswordUpdate])
+
   return (
-    <Form<FormValue> onSubmit={onSubmit} {...preventSavingInputsToUserData}>
+    <Form<FormValue>
+      onSubmit={onSubmit}
+      {...preventSavingInputsToUserData}
+      onChange={nextValue => setValue(nextValue)}
+      value={value}
+    >
       <Paragraph>
         <label htmlFor="password1">{t('toolbar.profile.setPassword', 'Set a new password')}</label>
       </Paragraph>
