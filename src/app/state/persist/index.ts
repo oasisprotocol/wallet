@@ -40,6 +40,9 @@ const persistSlice = createSlice({
       state.enteredWrongPassword = true
       state.loading = false
     },
+    resetWrongPassword(state) {
+      state.enteredWrongPassword = false
+    },
     setUnlockedRootState(state, action: PayloadAction<SetUnlockedRootStatePayload>) {
       /**
        * Handled in {@link createPersistedRootReducer} and {@link receivePersistedRootState}.

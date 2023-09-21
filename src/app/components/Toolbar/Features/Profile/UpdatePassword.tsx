@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
@@ -32,6 +33,12 @@ export const UpdatePassword = () => {
       }),
     )
   }
+
+  useEffect(() => {
+    return () => {
+      dispatch(persistActions.resetWrongPassword())
+    }
+  }, [dispatch])
 
   return (
     <Form<FormValue> onSubmit={onSubmit} {...preventSavingInputsToUserData}>
