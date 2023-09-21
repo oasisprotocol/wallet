@@ -424,7 +424,8 @@
       "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
       "manageAccount": "Manage",
-      "myAccountsTab": "My Accounts"
+      "myAccountsTab": "My Accounts",
+      "profile": "Profile"
     },
     "wallets": {
       "select": "Select",
