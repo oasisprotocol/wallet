@@ -19,8 +19,8 @@ test.describe('Profile tab', () => {
     await page.getByTestId('toolbar-profile-tab').click()
     // use wrong password
     await page.getByPlaceholder('Current password').fill('wrongPassword')
-    await page.getByPlaceholder('Enter your password here').fill(tempPassword)
-    await page.getByPlaceholder('Re-enter your password').fill(tempPassword)
+    await page.getByPlaceholder('New password', { exact: true }).fill(tempPassword)
+    await page.getByPlaceholder('Re-enter new password').fill(tempPassword)
     await page.keyboard.press('Enter')
     await expect(page.getByText('Wrong password')).toBeVisible()
     // set temp password
@@ -39,8 +39,8 @@ test.describe('Profile tab', () => {
     await page.getByTestId('account-selector').click()
     await page.getByTestId('toolbar-profile-tab').click()
     await page.getByPlaceholder('Current password').fill(tempPassword)
-    await page.getByPlaceholder('Enter your password here').fill(password)
-    await page.getByPlaceholder('Re-enter your password').fill(password)
+    await page.getByPlaceholder('New password', { exact: true }).fill(password)
+    await page.getByPlaceholder('Re-enter new password').fill(password)
     await page.keyboard.press('Enter')
     await expect(page.getByText('Password updated.')).toBeVisible()
 

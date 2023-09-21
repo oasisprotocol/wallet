@@ -12,13 +12,21 @@ export interface FormValue {
   password2?: string
 }
 
-export function ChoosePasswordInputFields() {
+interface ChoosePasswordInputFieldsProps {
+  password1Placeholder?: string
+  password2Placeholder?: string
+}
+
+export function ChoosePasswordInputFields({
+  password1Placeholder,
+  password2Placeholder,
+}: ChoosePasswordInputFieldsProps) {
   const { t } = useTranslation()
 
   return (
     <>
       <PasswordField<FormValue>
-        placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')}
+        placeholder={password1Placeholder}
         inputElementId="password1"
         name="password1"
         validate={value =>
@@ -31,7 +39,7 @@ export function ChoosePasswordInputFields() {
       />
 
       <PasswordField<FormValue>
-        placeholder={t('persist.createProfile.repeatPassword', 'Re-enter your password')}
+        placeholder={password2Placeholder}
         inputElementId="password2"
         name="password2"
         validate={(value, form) =>

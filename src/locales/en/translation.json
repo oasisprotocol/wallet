@@ -415,6 +415,8 @@
       "password": {
         "current": "Current password",
         "enterCurrent": "Enter your current password",
+        "enterNewPassword": "New password",
+        "reenterNewPassword": "Re-enter new password",
         "submit": "Update password",
         "success": "Password updated.",
         "title": "Set a new password"
