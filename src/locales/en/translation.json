@@ -412,13 +412,13 @@
       "testnet": "Testnet"
     },
     "profile": {
-      "currentPassword": "Current password",
-      "enterCurrentPassword": "Enter your current password",
-      "hidePassword": "Hide password",
-      "setPassword": "Set a new password",
-      "showPassword": "Show password",
-      "update": "Update password",
-      "updateSuccessful": "Password updated."
+      "password": {
+        "current": "Current password",
+        "enterCurrent": "Enter your current password",
+        "submit": "Update password",
+        "success": "Password updated.",
+        "title": "Set a new password"
+      }
     },
     "settings": {
       "cancel": "Cancel",

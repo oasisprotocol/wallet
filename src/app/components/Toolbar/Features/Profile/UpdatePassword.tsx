@@ -66,30 +66,30 @@ export const UpdatePassword = () => {
       value={value}
     >
       <Paragraph>
-        <label htmlFor="password1">{t('toolbar.profile.setPassword', 'Set a new password')}</label>
+        <label htmlFor="password1">{t('toolbar.profile.password.title', 'Set a new password')}</label>
       </Paragraph>
       <PasswordField<FormValue>
-        placeholder={t('toolbar.profile.currentPassword', 'Current password')}
+        placeholder={t('toolbar.profile.password.current', 'Current password')}
         inputElementId="currentPassword"
         name="currentPassword"
         validate={value =>
-          value ? undefined : t('toolbar.profile.enterCurrentPassword', 'Enter your current password')
+          value ? undefined : t('toolbar.profile.password.enterCurrent', 'Enter your current password')
         }
         error={enteredWrongPassword ? t('persist.loginToProfile.wrongPassword', 'Wrong password') : false}
         required
-        showTip={t('toolbar.profile.showPassword', 'Show password')}
-        hideTip={t('toolbar.profile.hidePassword', 'Hide password')}
+        showTip={t('persist.loginToProfile.showPassword', 'Show password')}
+        hideTip={t('persist.loginToProfile.hidePassword', 'Hide password')}
         width="medium"
       />
       <ChoosePasswordInputFields />
       <Box direction="row" justify="end" margin={{ top: 'medium' }}>
-        <Button primary type="submit" label={t('toolbar.profile.update', 'Update password')} />
+        <Button primary type="submit" label={t('toolbar.profile.password.submit', 'Update password')} />
       </Box>
       {notificationVisible && (
         <Notification
           toast
           status={'normal'}
-          title={t('toolbar.profile.updateSuccessful', 'Password updated.')}
+          title={t('toolbar.profile.password.success', 'Password updated.')}
           onClose={() => setNotificationVisible(false)}
         />
       )}
