@@ -10,10 +10,8 @@ import { uint2hex } from 'app/lib/helpers'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { Header } from 'app/components/Header'
-import {
-  ChoosePasswordFields,
-  FormValue as ChoosePasswordFieldsFormValue,
-} from 'app/components/Persist/ChoosePasswordFields'
+import { ChoosePasswordFields } from 'app/components/Persist/ChoosePasswordFields'
+import { FormValue as ChoosePasswordFieldsFormValue } from 'app/components/Persist/ChoosePasswordInputFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {}

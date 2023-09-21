@@ -24,10 +24,8 @@ import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
 import { WalletType } from 'app/state/wallet/types'
-import {
-  ChoosePasswordFields,
-  FormValue as ChoosePasswordFieldsFormValue,
-} from 'app/components/Persist/ChoosePasswordFields'
+import { ChoosePasswordFields } from 'app/components/Persist/ChoosePasswordFields'
+import { FormValue as ChoosePasswordFieldsFormValue } from 'app/components/Persist/ChoosePasswordInputFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface ImportAccountsSelectorSelectorProps {
