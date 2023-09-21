@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
@@ -9,6 +10,8 @@ import {
 } from 'app/components/Persist/ChoosePasswordInputFields'
 import { PasswordField } from 'app/components/PasswordField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { persistActions } from 'app/state/persist'
+import { selectEnteredWrongPassword } from 'app/state/persist/selectors'
 
 interface FormValue extends ChoosePasswordFieldsFormValue {
   currentPassword?: string
@@ -16,7 +19,19 @@ interface FormValue extends ChoosePasswordFieldsFormValue {
 
 export const UpdatePassword = () => {
   const { t } = useTranslation()
-  const onSubmit = ({ value }: { value: FormValue }) => {}
+  const dispatch = useDispatch()
+  const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
+  const onSubmit = ({ value }: { value: FormValue }) => {
+    if (!value.currentPassword || !value.password1) {
+      return
+    }
+    dispatch(
+      persistActions.updatePasswordAsync({
+        currentPassword: value.currentPassword,
+        password: value.password1,
+      }),
+    )
+  }
 
   return (
     <Form<FormValue> onSubmit={onSubmit} {...preventSavingInputsToUserData}>
@@ -30,6 +45,7 @@ export const UpdatePassword = () => {
         validate={value =>
           value ? undefined : t('toolbar.profile.enterCurrentPassword', 'Enter your current password')
         }
+        error={enteredWrongPassword ? t('persist.loginToProfile.wrongPassword', 'Wrong password') : false}
         required
         showTip={t('toolbar.profile.showPassword', 'Show password')}
         hideTip={t('toolbar.profile.hidePassword', 'Hide password')}
