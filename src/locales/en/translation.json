@@ -417,7 +417,8 @@
       "hidePassword": "Hide password",
       "setPassword": "Set a new password",
       "showPassword": "Show password",
-      "update": "Update password"
+      "update": "Update password",
+      "updateSuccessful": "Password updated."
     },
     "settings": {
       "cancel": "Cancel",

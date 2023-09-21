@@ -5,6 +5,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
+import { Notification } from 'grommet/es6/components/Notification'
 import {
   ChoosePasswordInputFields,
   FormValue as ChoosePasswordFieldsFormValue,
@@ -27,6 +28,7 @@ const defaultFormValue: FormValue = {
 export const UpdatePassword = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
+  const [notificationVisible, setNotificationVisible] = useState(false)
   const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
   const isProfileReloadingAfterPasswordUpdate = useSelector(selectLoading)
   const [value, setValue] = useState(defaultFormValue)
@@ -51,6 +53,7 @@ export const UpdatePassword = () => {
   useEffect(() => {
     // reloading occurs after successful password update
     if (isProfileReloadingAfterPasswordUpdate) {
+      setNotificationVisible(true)
       setValue(defaultFormValue)
     }
   }, [isProfileReloadingAfterPasswordUpdate])
@@ -82,6 +85,14 @@ export const UpdatePassword = () => {
       <Box direction="row" justify="end" margin={{ top: 'medium' }}>
         <Button primary type="submit" label={t('toolbar.profile.update', 'Update password')} />
       </Box>
+      {notificationVisible && (
+        <Notification
+          toast
+          status={'normal'}
+          title={t('toolbar.profile.updateSuccessful', 'Password updated.')}
+          onClose={() => setNotificationVisible(false)}
+        />
+      )}
     </Form>
   )
 }
