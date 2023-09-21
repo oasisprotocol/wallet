@@ -411,6 +411,14 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
+    "profile": {
+      "currentPassword": "Current password",
+      "enterCurrentPassword": "Enter your current password",
+      "hidePassword": "Hide password",
+      "setPassword": "Set a new password",
+      "showPassword": "Show password",
+      "update": "Update password"
+    },
     "settings": {
       "cancel": "Cancel",
       "contacts": "Contacts",
