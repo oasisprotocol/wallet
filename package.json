@@ -130,7 +130,7 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-styled-components": "7.1.1",
     "jest-when": "3.6.0",
-    "markdownlint-cli": "0.36.0",
+    "markdownlint-cli": "0.37.0",
     "parcel": "2.9.3",
     "parcel-transformer-env-variables-injection": "0.1.2",
     "prettier": "3.0.3",
