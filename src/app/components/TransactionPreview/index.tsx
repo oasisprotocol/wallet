@@ -9,8 +9,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo, useContext } from 'react'
 
 import { AmountFormatter } from '../AmountFormatter'
-import { PrettyAddress } from '../PrettyAddress'
-import { ResponsiveGridRow } from '../ResponsiveGridRow'
+import { ResponsiveGridRow, ResponsiveGridAddressRow } from '../ResponsiveGridRow'
 import { TransactionPreview as Preview } from 'app/state/transaction/types'
 import { useTranslation } from 'react-i18next'
 import { TransactionTypeFormatter } from '../TransactionTypeFormatter'
@@ -32,20 +31,14 @@ export const TransactionPreview = memo((props: Props) => {
         label={t('transaction.preview.type', 'Type')}
         value={<TransactionTypeFormatter type={preview.transaction.type} />}
       />
-      <ResponsiveGridRow
-        label={t('transaction.preview.from', 'From')}
-        value={<PrettyAddress address={walletAddress} />}
-      />
+      <ResponsiveGridAddressRow label={t('transaction.preview.from', 'From')} value={walletAddress} />
       {preview.transaction.type === 'transfer' && (
-        <ResponsiveGridRow
-          label={t('transaction.preview.to', 'To')}
-          value={<PrettyAddress address={preview.transaction.to} />}
-        />
+        <ResponsiveGridAddressRow label={t('transaction.preview.to', 'To')} value={preview.transaction.to} />
       )}
       {(preview.transaction.type === 'addEscrow' || preview.transaction.type === 'reclaimEscrow') && (
-        <ResponsiveGridRow
+        <ResponsiveGridAddressRow
           label={t('transaction.preview.validator', 'Validator')}
-          value={<PrettyAddress address={preview.transaction.validator} />}
+          value={preview.transaction.validator}
         />
       )}
       <ResponsiveGridRow
