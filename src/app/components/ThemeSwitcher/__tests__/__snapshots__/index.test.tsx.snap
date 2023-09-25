@@ -338,7 +338,7 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
           class="c3 c5"
         >
           <svg
-            aria-label="Sun"
+            aria-label="theme.lightMode"
             class="c6"
             viewBox="0 0 24 24"
           >

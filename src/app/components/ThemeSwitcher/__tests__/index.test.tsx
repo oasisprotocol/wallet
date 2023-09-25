@@ -33,7 +33,7 @@ describe('<ThemeSelect  />', () => {
       },
     })
     renderComponent(store)
-    expect(screen.getByLabelText('Moon')).toBeInTheDocument() // dark theme icon
+    expect(screen.getByLabelText('theme.darkMode')).toBeInTheDocument() // dark theme icon
     expect(screen.getByLabelText(/Selected: dark/)).toBeInTheDocument()
     expect(screen.getByDisplayValue('theme.darkMode')).toBeInTheDocument()
   })

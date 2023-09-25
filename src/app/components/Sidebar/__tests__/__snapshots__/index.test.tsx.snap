@@ -464,7 +464,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
         class="c15"
       >
         <svg
-          aria-label="Moon"
+          aria-label="theme.darkMode"
           class="c11"
           viewBox="0 0 24 24"
         >
