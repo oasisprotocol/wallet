@@ -172,14 +172,6 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
   .c1 {
     margin-right: 30px;
   }

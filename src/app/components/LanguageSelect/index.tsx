@@ -17,6 +17,10 @@ type LanguageSelectProps = {
 export const LanguageSelect = ({ withLabel }: LanguageSelectProps) => {
   const { t, i18n } = useTranslation()
 
+  if (!i18n.resolvedLanguage) {
+    return null
+  }
+
   return (
     <SelectWithIcon
       icon={<Language />}
@@ -25,7 +29,7 @@ export const LanguageSelect = ({ withLabel }: LanguageSelectProps) => {
       name="language"
       onChange={option => i18n.changeLanguage(option)}
       options={languageOptions}
-      value={i18n.language}
+      value={i18n.resolvedLanguage}
     />
   )
 }
