@@ -11,7 +11,7 @@ import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { LanguageSelect } from 'app/components/LanguageSelect'
-import { SettingsButton } from './Features/SettingsButton'
+import { ProfileModalButton } from './Features/ProfileModalButton'
 import { NetworkSelector } from './Features/NetworkSelector'
 import { mobileToolbarButtonsZIndex } from '../../../styles/theme/elementSizes'
 
@@ -60,7 +60,7 @@ export function Toolbar() {
 
       {hasAccounts && (
         <Box justify="center">
-          <SettingsButton />
+          <ProfileModalButton />
         </Box>
       )}
     </StyledToolbar>

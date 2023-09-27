@@ -1,12 +1,11 @@
-import * as React from 'react'
 import { render } from '@testing-library/react'
 
-import { SettingsButton } from '..'
+import { ProfileModalButton } from '..'
 import { addressToJazzIconSeed } from '../addressToJazzIconSeed'
 
-describe('<SettingsButton  />', () => {
+describe('<ProfileModalButton  />', () => {
   it.skip('should match snapshot', () => {
-    const component = render(<SettingsButton />)
+    const component = render(<ProfileModalButton />)
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
