@@ -75,7 +75,7 @@ export const SettingsButton = memo(() => {
               <Tab data-testid="toolbar-contacts-tab" title={t('toolbar.settings.contacts', 'Contacts')}>
                 <Contacts closeHandler={hideLayer} />
               </Tab>
-              <Tab title={t('toolbar.settings.profile', 'Profile')}>
+              <Tab data-testid="toolbar-profile-tab" title={t('toolbar.settings.profile', 'Profile')}>
                 <Profile />
               </Tab>
             </Tabs>
