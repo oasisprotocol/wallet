@@ -110,7 +110,7 @@
     "@types/redux-state-sync": "3.1.5",
     "@types/styled-components": "5.1.28",
     "@types/testing-library__jest-dom": "5.14.9",
-    "@types/valid-url": "1.0.4",
+    "@types/valid-url": "1.0.5",
     "@types/w3c-web-usb": "1.0.7",
     "@types/webextension-polyfill": "0.10.4",
     "@typescript-eslint/eslint-plugin": "6.7.3",
