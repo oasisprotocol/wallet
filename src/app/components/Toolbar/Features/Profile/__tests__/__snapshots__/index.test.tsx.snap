@@ -398,7 +398,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         <label
           for="password1"
         >
-          toolbar.profile.password.title
+          Set a new password
         </label>
       </p>
       <div
@@ -423,7 +423,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
                   class="c8"
                   id="currentPassword"
                   name="currentPassword"
-                  placeholder="toolbar.profile.password.current"
+                  placeholder="Current password"
                   required=""
                   spellcheck="false"
                   type="password"
@@ -431,7 +431,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
                 />
               </div>
               <button
-                aria-label="persist.loginToProfile.showPassword"
+                aria-label="Show password"
                 class="c9"
                 type="button"
               >
@@ -474,7 +474,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
                   class="c8"
                   id="password1"
                   name="password1"
-                  placeholder="toolbar.profile.password.enterNewPassword"
+                  placeholder="New password"
                   required=""
                   spellcheck="false"
                   type="password"
@@ -482,7 +482,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
                 />
               </div>
               <button
-                aria-label="persist.loginToProfile.showPassword"
+                aria-label="Show password"
                 class="c9"
                 type="button"
               >
@@ -525,14 +525,14 @@ exports[`<Profile  /> should render unavailable state 1`] = `
                   class="c8"
                   id="password2"
                   name="password2"
-                  placeholder="toolbar.profile.password.reenterNewPassword"
+                  placeholder="Re-enter new password"
                   spellcheck="false"
                   type="password"
                   value=""
                 />
               </div>
               <button
-                aria-label="persist.loginToProfile.showPassword"
+                aria-label="Show password"
                 class="c9"
                 type="button"
               >
@@ -560,7 +560,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
           class="c12"
           type="submit"
         >
-          toolbar.profile.password.submit
+          Update password
         </button>
       </div>
     </form>

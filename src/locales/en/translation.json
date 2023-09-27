@@ -412,6 +412,7 @@
       "testnet": "Testnet"
     },
     "profile": {
+      "notAvailable": "You can setup your profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "password": {
         "current": "Current password",
         "enterCurrent": "Enter your current password",
