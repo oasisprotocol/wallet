@@ -3718,10 +3718,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-redux@7.1.26":
-  version "7.1.26"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.26.tgz#84149f5614e40274bb70fcbe8f7cae6267d548b1"
-  integrity sha512-UKPo7Cm7rswYU6PH6CmTNCRv5NYF3HrgKuHEYTK8g/3czYLrUux50gQ2pkxc9c7ZpQZi+PNhgmI8oNIRoiVIxg==
+"@types/react-redux@7.1.27":
+  version "7.1.27"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.27.tgz#1afb31f7354bf787e162c10ff3fa19bafa9e6b57"
+  integrity sha512-xj7d9z32p1K/eBmO+OEy+qfaWXtcPlN8f1Xk3Ne0p/ZRQ867RI5bQ/bpBtxbqU1AHNhKJSgGvld/P2myU2uYkg==
   dependencies:
     "@types/hoist-non-react-statics" "^3.3.0"
     "@types/react" "*"
@@ -3763,10 +3763,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/redux-state-sync@3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@types/redux-state-sync/-/redux-state-sync-3.1.5.tgz#e2a6da46a6d6606f7bb3b5837215299d42554248"
-  integrity sha512-NtcV94bmZNFMmcjgYzjK9WHN/0NVHyH4OO/a4sAd4WG1ywcVZA5vdczjPQZLC1IVMRBi693b3FWsWB7wELL+tg==
+"@types/redux-state-sync@3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@types/redux-state-sync/-/redux-state-sync-3.1.6.tgz#ec75a42b1fce4a531ec683ba53f09bc609c04b7f"
+  integrity sha512-vYd8fb3tZOtZimz1irsF8t1gaEKywhGjujG/I9KTnGdViWZRWG7GyJ6spULKXG1YpxCxrnLGYREaNyOMgAjZzw==
   dependencies:
     broadcast-channel "^2.1.8"
     redux "^4.0.1"
