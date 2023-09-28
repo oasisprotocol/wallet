@@ -13,7 +13,7 @@ import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
-const ACCOUNT_REFETCHING_INTERVAL = 30 * 1000
+const ACCOUNT_REFETCHING_INTERVAL = process.env.REACT_APP_E2E_TEST ? 5 * 1000 : 30 * 1000
 const TRANSACTIONS_LIMIT = 20
 
 export function* fetchAccount(action: PayloadAction<string>) {
