@@ -19,12 +19,6 @@ import {
 import { persistActions } from 'app/state/persist'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
-/**
- * Opened wallet saga
- * Will later be used to sign arbitrary messages
- */
-export function* walletSaga() {}
-
 export function* rootWalletSaga() {
   // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
   yield* takeEvery(walletActions.openWalletFromPrivateKey, openWalletFromPrivateKey)
@@ -36,8 +30,6 @@ export function* rootWalletSaga() {
   yield* fork(refreshAccountOnParaTimeTransaction)
   yield* takeEvery(walletActions.fetchWallet, fetchWallet)
 
-  // Start the wallet saga in parallel
-  yield* fork(walletSaga)
 }
 
 function* getWalletByAddress(address: string) {
