@@ -7,6 +7,7 @@ import { getExplorerAPIs } from '../network/saga'
 import { takeLatestCancelable } from '../takeLatestCancelable'
 import { stakingActions } from '../staking'
 import { fetchAccount as stakingFetchAccount } from '../staking/saga'
+import { refreshAccount as walletRefreshAccount } from '../wallet/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
@@ -124,6 +125,7 @@ export function* fetchingOnAccountPage() {
           if (staleAvailableBalance !== refreshedAccount.available) {
             yield* call(fetchAccount, startAction)
             yield* call(stakingFetchAccount, startAction)
+            yield* call(walletRefreshAccount, address)
           }
         }
       } finally {
