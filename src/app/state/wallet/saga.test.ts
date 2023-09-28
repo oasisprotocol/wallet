@@ -5,7 +5,7 @@ import { DeepPartialRootState } from 'types/RootState'
 
 import { walletActions } from '.'
 import { transactionActions } from '../transaction'
-import { addWallet, rootWalletSaga, walletSaga } from './saga'
+import { addWallet, rootWalletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
 import { importAccountsActions } from '../importaccounts'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
@@ -43,7 +43,6 @@ describe('Wallet Sagas', () => {
         .withState(state)
         .provide(providers)
         .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
-        .fork(walletSaga)
         .silentRun(50)
     })
 
@@ -52,7 +51,6 @@ describe('Wallet Sagas', () => {
         .provide(providers)
         .withState(state)
         .dispatch(walletActions.openWalletFromMnemonic({ choosePassword: undefined }))
-        .fork(walletSaga)
         .put(importAccountsActions.clear())
         .call(addWallet, {
           address: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',
@@ -79,7 +77,6 @@ describe('Wallet Sagas', () => {
             choosePassword: undefined,
           }),
         )
-        .fork(walletSaga)
         .call.like({
           fn: addWallet,
           args: [
@@ -98,7 +95,6 @@ describe('Wallet Sagas', () => {
         .provide(providers)
         .withState(state)
         .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
-        .fork(walletSaga)
         .put(importAccountsActions.clear())
         .put.actionType(walletActions.selectWallet.type)
         .silentRun(50)
@@ -146,7 +142,6 @@ describe('Wallet Sagas', () => {
           },
         })
         .dispatch(walletActions.openWalletsFromLedger({ choosePassword: undefined }))
-        .fork(walletSaga)
         .put({
           type: walletActions.selectWallet.type,
           payload: 'oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4',

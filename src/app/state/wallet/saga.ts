@@ -18,12 +18,7 @@ import {
 } from './types'
 import { persistActions } from 'app/state/persist'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-
-/**
- * Opened wallet saga
- * Will later be used to sign arbitrary messages
- */
-export function* walletSaga() {}
+import { networkActions } from '../network'
 
 export function* rootWalletSaga() {
   // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
@@ -36,8 +31,8 @@ export function* rootWalletSaga() {
   yield* fork(refreshAccountOnParaTimeTransaction)
   yield* takeEvery(walletActions.fetchWallet, fetchWallet)
 
-  // Start the wallet saga in parallel
-  yield* fork(walletSaga)
+  // Reload wallet balances if network changes
+  yield* takeEvery(networkActions.networkSelected, refreshOnNetworkChange)
 }
 
 function* getWalletByAddress(address: string) {
@@ -168,6 +163,13 @@ function* refreshAccount(address: string) {
     wallet => wallet.address === address || wallet.address === from,
   )
   for (const wallet of matchingWallets) {
+    yield* put(walletActions.fetchWallet(wallet))
+  }
+}
+
+function* refreshOnNetworkChange() {
+  const wallets = yield* select(selectWallets)
+  for (const wallet of Object.values(wallets)) {
     yield* put(walletActions.fetchWallet(wallet))
   }
 }
