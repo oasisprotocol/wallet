@@ -411,12 +411,25 @@
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
+    "profile": {
+      "notAvailable": "You can setup your profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
+      "password": {
+        "current": "Current password",
+        "enterCurrent": "Enter your current password",
+        "enterNewPassword": "New password",
+        "reenterNewPassword": "Re-enter new password",
+        "submit": "Update password",
+        "success": "Password updated.",
+        "title": "Set a new password"
+      }
+    },
     "settings": {
       "cancel": "Cancel",
       "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
       "manageAccount": "Manage",
-      "myAccountsTab": "My Accounts"
+      "myAccountsTab": "My Accounts",
+      "profile": "Profile"
     },
     "wallets": {
       "select": "Select",

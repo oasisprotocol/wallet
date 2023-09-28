@@ -9,7 +9,7 @@ import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { ContactAccountForm } from './ContactAccountForm'
-import { layerOverlayMinHeight } from './layer'
+import { layerOverlayMinHeight } from '../layer'
 
 interface AddContactProps {
   setLayerVisibility: (isVisible: boolean) => void

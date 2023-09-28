@@ -10,7 +10,7 @@ import { selectContactsList } from 'app/state/contacts/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { ContactAccount } from './ContactAccount'
 import { AddContact } from './AddContact'
-import { layerScrollableAreaHeight } from './layer'
+import { layerScrollableAreaHeight } from '../layer'
 
 type ContactsListEmptyStateProps = {
   children: ReactNode

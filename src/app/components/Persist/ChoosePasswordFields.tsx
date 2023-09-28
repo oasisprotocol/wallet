@@ -1,24 +1,13 @@
-import { PasswordField } from 'app/components/PasswordField'
 import { selectIsPersistenceUnsupported } from 'app/state/persist/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { Box } from 'grommet/es6/components/Box'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { FormField } from 'grommet/es6/components/FormField'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-
-export interface FormValue {
-  password1?: string
-  /**
-   * Undefined if:
-   * - persistence is unsupported
-   * - or is already persisting (unlocked) or skipped unlocking
-   * - or didn't opt to start persisting
-   */
-  password2?: string
-}
+import { ChoosePasswordInputFields } from './ChoosePasswordInputFields'
 
 export function ChoosePasswordFields() {
   const { t } = useTranslation()
@@ -65,33 +54,10 @@ export function ChoosePasswordFields() {
               {t('persist.createProfile.choosePassword', 'Choose a password')}
             </label>
           </Paragraph>
-
-          <PasswordField<FormValue>
-            placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')}
-            inputElementId="password1"
-            name="password1"
-            validate={value =>
-              value ? undefined : t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')
-            }
-            required
-            showTip={t('persist.loginToProfile.showPassword', 'Show password')}
-            hideTip={t('persist.loginToProfile.hidePassword', 'Hide password')}
-            width="medium"
-          ></PasswordField>
-
-          <PasswordField<FormValue>
-            placeholder={t('persist.createProfile.repeatPassword', 'Re-enter your password')}
-            inputElementId="password2"
-            name="password2"
-            validate={(value, form) =>
-              form.password1 !== form.password2
-                ? t('persist.createProfile.passwordMismatch', 'Entered password does not match')
-                : undefined
-            }
-            showTip={t('persist.loginToProfile.showPassword', 'Show password')}
-            hideTip={t('persist.loginToProfile.hidePassword', 'Hide password')}
-            width="medium"
-          ></PasswordField>
+          <ChoosePasswordInputFields
+            password1Placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')}
+            password2Placeholder={t('persist.createProfile.repeatPassword', 'Re-enter your password')}
+          />
         </>
       )}
     </Box>

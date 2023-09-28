@@ -10,7 +10,7 @@ import { Contact } from 'app/state/contacts/types'
 import { Account } from '../Account/Account'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { ContactAccountForm } from './ContactAccountForm'
-import { layerOverlayMinHeight } from './layer'
+import { layerOverlayMinHeight } from '../layer'
 
 interface ContactAccountProps {
   contact: Contact
