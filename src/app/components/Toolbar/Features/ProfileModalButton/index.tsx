@@ -8,6 +8,8 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Close } from 'grommet-icons/es6/icons/Close'
+import { Lock } from 'grommet-icons/es6/icons/Lock'
+import { Logout } from 'grommet-icons/es6/icons/Logout'
 import React, { memo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
@@ -36,13 +38,14 @@ export const ProfileModalButton = memo(() => {
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const hideLayer = () => setLayerVisibility(false)
-  const handleOnActive = (index: number) => {
-    // when Lock/Close tab is clicked
-    if (index === 4) {
-      navigate('/')
-      dispatch(persistActions.lockAsync())
-    }
+  const closeWallet = () => {
+    navigate('/')
+    dispatch(persistActions.lockAsync())
   }
+  const lockProfile = () => {
+    dispatch(persistActions.lockAsync())
+  }
+
   if (!walletHasAccounts) {
     return null
   }
@@ -81,7 +84,7 @@ export const ProfileModalButton = memo(() => {
                 icon={<Close size="18px" />}
               />
             </Box>
-            <Tabs alignControls="start" onActive={handleOnActive}>
+            <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <AccountSelector closeHandler={hideLayer} />
               </Tab>
@@ -94,18 +97,30 @@ export const ProfileModalButton = memo(() => {
               <Tab data-testid="toolbar-contacts-settings" title={t('toolbar.settings.settings', 'Settings')}>
                 <Settings />
               </Tab>
-              {(isLockableOrCloseable === 'closeable' || isLockableOrCloseable === 'lockable') &&
-                isMobile && (
-                  <Tab
-                    title={
-                      isLockableOrCloseable === 'closeable'
-                        ? t('toolbar.settings.closeWallet', 'Close Wallet')
-                        : t('toolbar.settings.lock', 'Lock')
-                    }
-                  ></Tab>
-                )}
             </Tabs>
           </Box>
+          {isMobile && (
+            <Box direction="row" justify="center" align="end" pad="large" flex="grow">
+              {isLockableOrCloseable === 'closeable' && (
+                <Button
+                  data-testid="profile-modal-close-wallet"
+                  primary
+                  icon={<Logout />}
+                  label={t('menu.closeWallet', 'Close wallet')}
+                  onClick={() => closeWallet()}
+                />
+              )}
+              {isLockableOrCloseable === 'lockable' && (
+                <Button
+                  data-testid="profile-modal-lock-wallet"
+                  primary
+                  icon={<Lock />}
+                  label={t('menu.lockProfile', 'Lock profile')}
+                  onClick={() => lockProfile()}
+                />
+              )}
+            </Box>
+          )}
         </ResponsiveLayer>
       )}
     </>
