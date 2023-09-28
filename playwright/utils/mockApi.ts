@@ -12,7 +12,7 @@ export async function mockApi(context: BrowserContext | Page, balance: number) {
           available: balance.toString(),
           escrow: '0',
           debonding: '0',
-          total: '0',
+          total: balance.toString(),
           nonce: 1,
           allowances: [],
         } satisfies AccountsRow,

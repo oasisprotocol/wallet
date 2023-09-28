@@ -9,7 +9,6 @@ import { TransactionModal } from 'app/components/TransactionModal'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { selectStaking } from 'app/state/staking/selectors'
 import { selectTransaction } from 'app/state/transaction/selectors'
-import { walletActions } from 'app/state/wallet'
 import { Box } from 'grommet/es6/components/Box'
 import { Layer } from 'grommet/es6/components/Layer'
 import { Nav } from 'grommet/es6/components/Nav'
@@ -27,12 +26,7 @@ import { normalizeColor } from 'grommet/es6/utils'
 import { accountActions } from 'app/state/account'
 import { selectAccount } from 'app/state/account/selectors'
 import { BalanceDetails } from 'app/state/account/types'
-import {
-  selectAddress,
-  selectHasAccounts,
-  selectWallets,
-  selectWalletsAddresses,
-} from 'app/state/wallet/selectors'
+import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
 import { Button } from 'grommet/es6/components/Button'
@@ -84,8 +78,6 @@ export function AccountPage(props: AccountPageProps) {
   const walletAddress = useSelector(selectAddress)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
-  const wallets = useSelector(selectWallets)
-  const walletsAddresses = useSelector(selectWalletsAddresses)
 
   const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + BigInt(v.amount), 0n)
   const balanceDebondingDelegations = stake.debondingDelegations?.reduce(
@@ -109,15 +101,6 @@ export function AccountPage(props: AccountPageProps) {
       dispatch(accountActions.closeAccountPage())
     }
   }, [dispatch, address, selectedNetwork])
-
-  // Reload wallet balances if network changes
-  useEffect(() => {
-    for (const wallet of Object.values(wallets)) {
-      dispatch(walletActions.fetchWallet(wallet))
-    }
-    // Using `walletsAddresses` dependency instead of `wallets` to avoid infinite loop
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, walletsAddresses.join(','), selectedNetwork])
 
   return (
     <Box pad="small">
