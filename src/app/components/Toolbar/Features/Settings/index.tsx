@@ -10,7 +10,7 @@ export const Settings = () => {
 
   return (
     <Box height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }} gap="small">
-      <LanguageSelect withLabel />
+      <LanguageSelect />
       <ThemeSelect />
     </Box>
   )

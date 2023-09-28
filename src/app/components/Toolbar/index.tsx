@@ -10,7 +10,7 @@ import styled from 'styled-components'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
-import { LanguageSelect } from 'app/components/LanguageSelect'
+import { LanguageMenu } from 'app/components/LanguageSelect'
 import { ProfileModalButton } from './Features/ProfileModalButton'
 import { NetworkSelector } from './Features/NetworkSelector'
 import { mobileToolbarButtonsZIndex } from '../../../styles/theme/elementSizes'
@@ -46,7 +46,7 @@ export function Toolbar() {
     >
       {(!isLockableOrCloseable || isLockableOrCloseable === 'unlockable') && !isMobile && (
         <Box style={{ marginTop: '2px', width: '220px' }}>
-          <LanguageSelect />
+          <LanguageMenu />
         </Box>
       )}
       <Box
