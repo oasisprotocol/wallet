@@ -7,12 +7,13 @@ import { getExplorerAPIs } from '../network/saga'
 import { takeLatestCancelable } from '../takeLatestCancelable'
 import { stakingActions } from '../staking'
 import { fetchAccount as stakingFetchAccount } from '../staking/saga'
+import { refreshAccount as walletRefreshAccount } from '../wallet/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 
-const ACCOUNT_REFETCHING_INTERVAL = 30 * 1000
+const ACCOUNT_REFETCHING_INTERVAL = process.env.REACT_APP_E2E_TEST ? 5 * 1000 : 30 * 1000
 const TRANSACTIONS_LIMIT = 20
 
 export function* fetchAccount(action: PayloadAction<string>) {
@@ -124,6 +125,7 @@ export function* fetchingOnAccountPage() {
           if (staleAvailableBalance !== refreshedAccount.available) {
             yield* call(fetchAccount, startAction)
             yield* call(stakingFetchAccount, startAction)
+            yield* call(walletRefreshAccount, address)
           }
         }
       } finally {

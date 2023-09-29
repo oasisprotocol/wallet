@@ -32,3 +32,14 @@ test('Account selector should refresh balances on network change', async ({ page
   await expect(page.getByTestId('account-choice')).toContainText('456.0')
   await page.getByRole('button', { name: /Select/ }).click()
 })
+
+test('Accounts page should continuously refresh balance', async ({ page }) => {
+  await page.getByTestId('account-selector').click()
+  await expect(page.getByTestId('account-balance-summary')).toContainText('123.0')
+  await expect(page.getByTestId('account-choice')).toContainText('123.0')
+  await mockApi(page, 456)
+  await page.waitForRequest('**/chain/account/info/*', { timeout: 60_000 })
+  await expect(page.getByTestId('account-balance-summary')).toContainText('456.0')
+  await expect(page.getByTestId('account-choice')).toContainText('456.0')
+  // If balance in AccountSelector is not refreshed then making transactions with new balance will fail.
+})

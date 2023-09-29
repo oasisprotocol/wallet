@@ -156,7 +156,7 @@ function* refreshAccountOnParaTimeTransaction() {
   }
 }
 
-function* refreshAccount(address: string) {
+export function* refreshAccount(address: string) {
   const from = yield* select(selectAddress)
   const wallets = yield* select(selectWallets)
   const matchingWallets = Object.values(wallets).filter(
