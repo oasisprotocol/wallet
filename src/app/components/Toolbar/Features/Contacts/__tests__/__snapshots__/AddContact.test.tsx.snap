@@ -21,6 +21,22 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   margin: 24px;
   min-width: 0;
   min-height: 0;
@@ -30,7 +46,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   width: auto;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44,7 +60,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -64,7 +80,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 0 0 auto;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,7 +102,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   overflow: visible;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,7 +122,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding-bottom: 6px;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -130,7 +146,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding-bottom: 24px;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -147,7 +163,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -162,7 +178,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -177,7 +193,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c21 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -200,13 +216,13 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c12 {
+.c13 {
   font-size: 18px;
   line-height: 24px;
   color: #0092f6;
 }
 
-.c9 {
+.c10 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -224,107 +240,40 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   text-align: inherit;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c10:focus > circle,
+.c10:focus > ellipse,
+.c10:focus > line,
+.c10:focus > path,
+.c10:focus > polygon,
+.c10:focus > polyline,
+.c10:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c9:focus::-moz-focus-inner {
+.c10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9:focus:not(:focus-visible) {
+.c10:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
+.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c22 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #0092f6;
-  border-radius: 4px;
-  color: #16213E;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
-}
-
-.c22:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
-}
-
-.c22:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c22:focus > circle,
-.c22:focus > ellipse,
-.c22:focus > line,
-.c22:focus > path,
-.c22:focus > polygon,
-.c22:focus > polyline,
-.c22:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c22:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c22:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c22:focus:not(:focus-visible) > circle,.c22:focus:not(:focus-visible) > ellipse,
-.c22:focus:not(:focus-visible) > line,.c22:focus:not(:focus-visible) > path,
-.c22:focus:not(:focus-visible) > polygon,.c22:focus:not(:focus-visible) > polyline,
-.c22:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c22:focus:not(:focus-visible)::-moz-focus-inner {
+.c10:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -345,9 +294,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
-  color: #F8F8F8;
-  border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -398,11 +344,81 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c13 {
+.c24 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #0092f6;
+  color: #F8F8F8;
+  border-radius: 4px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c24:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c24:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c24:focus > circle,
+.c24:focus > ellipse,
+.c24:focus > line,
+.c24:focus > path,
+.c24:focus > polygon,
+.c24:focus > polyline,
+.c24:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c24:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c24:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c24:focus:not(:focus-visible) > circle,.c24:focus:not(:focus-visible) > ellipse,
+.c24:focus:not(:focus-visible) > line,.c24:focus:not(:focus-visible) > path,
+.c24:focus:not(:focus-visible) > polygon,.c24:focus:not(:focus-visible) > polyline,
+.c24:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c24:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c14 {
   min-height: 0;
 }
 
-.c11 {
+.c12 {
   white-space: nowrap;
   margin-left: 12px;
   margin-right: 12px;
@@ -410,11 +426,11 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   margin-bottom: 3px;
 }
 
-.c11:hover {
+.c12:hover {
   color: #000000;
 }
 
-.c11:focus {
+.c12:focus {
   z-index: 1;
 }
 
@@ -485,55 +501,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   position: absolute;
 }
 
-.c19 {
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  border: none;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
-  width: 100%;
-  padding: 11px;
-  font-weight: 600;
-  margin: 0;
-  border: 1px solid rgba(0,0,0,0.33);
-  border-radius: 4px;
-  outline: none;
-  border: none;
-}
-
-.c19::-webkit-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c19::-moz-placeholder {
-  color: #AAAAAA;
-}
-
-.c19:-ms-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c19::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-.c19::-moz-focus-inner {
-  border: none;
-  outline: none;
-}
-
-.c19:-moz-placeholder,
-.c19::-moz-placeholder {
-  opacity: 1;
-}
-
-.c18 {
-  position: relative;
-  width: 100%;
-}
-
 .c20 {
   box-sizing: border-box;
   font-size: inherit;
@@ -550,9 +517,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border-radius: 4px;
   outline: none;
   border: none;
-  width: 100%;
-  -webkit-appearance: none;
-  max-width: 100%;
 }
 
 .c20::-webkit-input-placeholder {
@@ -581,59 +545,111 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c19 {
+  position: relative;
+  width: 100%;
+}
+
+.c21 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  width: 100%;
+  -webkit-appearance: none;
+  max-width: 100%;
+}
+
+.c21::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c21::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c21:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c21::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c21::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c21:-moz-placeholder,
+.c21::-moz-placeholder {
+  opacity: 1;
+}
+
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c6 {
     margin: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     margin-left: 6px;
     margin-right: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     margin-top: 2px;
     margin-bottom: 2px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     border-bottom: solid 2px #0092f6;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     padding-bottom: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c14 {
+  .c15 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c16 {
+  .c17 {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
+  .c18 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c21 {
+  .c22 {
     padding-top: 12px;
   }
 }
@@ -694,33 +710,35 @@ exports[`<AddContact  /> should match snapshot 1`] = `
             class="c4"
             tabindex="-1"
           />
-          <div>
+          <div
+            class="c5"
+          >
             <div
-              class="c5"
+              class="c6"
             >
               <div
-                class="c6 "
+                class="c7 "
               >
                 <div
-                  class="c7"
+                  class="c8"
                   role="tablist"
                 >
                   <div
-                    class="c8 "
+                    class="c9 "
                   >
                     <button
                       aria-expanded="true"
                       aria-selected="true"
-                      class="c9"
+                      class="c10"
                       role="tab"
                       style="text-transform: capitalize;"
                       type="button"
                     >
                       <div
-                        class="c10 c11"
+                        class="c11 c12"
                       >
                         <span
-                          class="c12"
+                          class="c13"
                         >
                           toolbar.contacts.add
                         </span>
@@ -730,30 +748,30 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                 </div>
                 <div
                   aria-label="toolbar.contacts.add Tab Contents"
-                  class="c13"
+                  class="c14"
                   role="tabpanel"
                 >
                   <div
-                    class="c14"
+                    class="c15"
                   >
                     <form
                       style="display: flex; flex: 1; flex-direction: column;"
                     >
                       <div
-                        class="c15"
+                        class="c16"
                       >
                         <div
-                          class="c16 "
+                          class="c17 "
                         >
                           <div
-                            class="c17 "
+                            class="c18 "
                           >
                             <div
-                              class="c18"
+                              class="c19"
                             >
                               <input
                                 autocomplete="off"
-                                class="c19"
+                                class="c20"
                                 name="name"
                                 placeholder="toolbar.contacts.name"
                                 value=""
@@ -762,13 +780,13 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="c16 "
+                          class="c17 "
                         >
                           <div
-                            class="c17 "
+                            class="c18 "
                           >
                             <textarea
-                              class="c20"
+                              class="c21"
                               name="address"
                               placeholder="toolbar.contacts.address"
                               rows="3"
@@ -777,16 +795,16 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="c21"
+                        class="c22"
                       >
                         <button
-                          class="c22"
+                          class="c23"
                           type="button"
                         >
                           toolbar.contacts.cancel
                         </button>
                         <button
-                          class="c23"
+                          class="c24"
                           type="submit"
                         >
                           toolbar.contacts.save

@@ -1,6 +1,8 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { Layer, LayerExtendedProps } from 'grommet/es6/components/Layer'
-import { RefCallback, useCallback, useRef } from 'react'
+import { RefCallback, useCallback, useContext, useRef } from 'react'
+import { Box } from 'grommet/es6/components/Box'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 
 function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => void): RefCallback<T> {
   const nodeRef = useRef<T | null>(null)
@@ -26,6 +28,7 @@ function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => v
  * @param props Grommet Layer props
  */
 export function ResponsiveLayer(props: LayerExtendedProps) {
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const layerRef = useRefWithCallback<HTMLDivElement>(
     useCallback(node => disableBodyScroll(node), []),
     useCallback(node => enableBodyScroll(node), []),
@@ -33,7 +36,7 @@ export function ResponsiveLayer(props: LayerExtendedProps) {
 
   return (
     <Layer {...props} ref={layerRef} style={{ overflowY: 'auto', ...props.style }}>
-      <div>{props.children}</div>
+      <Box fill={isMobile}>{props.children}</Box>
     </Layer>
   )
 }

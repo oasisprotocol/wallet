@@ -1,16 +1,20 @@
 /**
  *
- * SettingsButton
+ * ProfileModalButton
  *
  */
+import { useNavigate } from 'react-router-dom'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Close } from 'grommet-icons/es6/icons/Close'
+import { Lock } from 'grommet-icons/es6/icons/Lock'
+import { Logout } from 'grommet-icons/es6/icons/Logout'
 import React, { memo, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
-
+import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
+import { persistActions } from 'app/state/persist'
 import { AccountSelector } from '../AccountSelector'
 import { JazzIcon } from '../../../JazzIcon'
 import { sidebarSmallSizeLogo, sidebarMediumSizeLogo } from '../../../../../styles/theme/elementSizes'
@@ -22,14 +26,26 @@ import { Tab } from 'grommet/es6/components/Tab'
 import { useTranslation } from 'react-i18next'
 import { Contacts } from '../Contacts'
 import { Profile } from '../Profile'
+import { Settings } from '../Settings'
 
-export const SettingsButton = memo(() => {
+export const ProfileModalButton = memo(() => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const isLockableOrCloseable = useSelector(selectIsLockableOrCloseable)
   const walletHasAccounts = useSelector(selectHasAccounts)
   const address = useSelector(selectAddress)
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const hideLayer = () => setLayerVisibility(false)
+  const closeWallet = () => {
+    navigate('/')
+    dispatch(persistActions.lockAsync())
+  }
+  const lockProfile = () => {
+    dispatch(persistActions.lockAsync())
+  }
+
   if (!walletHasAccounts) {
     return null
   }
@@ -78,8 +94,33 @@ export const SettingsButton = memo(() => {
               <Tab data-testid="toolbar-profile-tab" title={t('toolbar.settings.profile', 'Profile')}>
                 <Profile closeHandler={hideLayer} />
               </Tab>
+              <Tab data-testid="toolbar-contacts-settings" title={t('toolbar.settings.settings', 'Settings')}>
+                <Settings />
+              </Tab>
             </Tabs>
           </Box>
+          {isMobile && (
+            <Box direction="row" justify="center" align="end" pad="large" flex="grow">
+              {isLockableOrCloseable === 'closeable' && (
+                <Button
+                  data-testid="profile-modal-close-wallet"
+                  primary
+                  icon={<Logout />}
+                  label={t('menu.closeWallet', 'Close wallet')}
+                  onClick={() => closeWallet()}
+                />
+              )}
+              {isLockableOrCloseable === 'lockable' && (
+                <Button
+                  data-testid="profile-modal-lock-wallet"
+                  primary
+                  icon={<Lock />}
+                  label={t('menu.lockProfile', 'Lock profile')}
+                  onClick={() => lockProfile()}
+                />
+              )}
+            </Box>
+          )}
         </ResponsiveLayer>
       )}
     </>

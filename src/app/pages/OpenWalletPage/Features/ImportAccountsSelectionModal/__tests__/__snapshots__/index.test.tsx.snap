@@ -26,11 +26,27 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   width: 800px;
   padding: 24px;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52,7 +68,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -66,7 +82,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -89,7 +105,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -108,7 +124,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c8 {
+.c9 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -118,7 +134,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   width: 24px;
 }
 
-.c13 {
+.c14 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -128,7 +144,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   width: 48px;
 }
 
-.c17 {
+.c18 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -138,13 +154,13 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c9 {
+.c10 {
   font-size: 18px;
   line-height: 24px;
   font-weight: normal;
 }
 
-.c6 {
+.c7 {
   margin-top: 0px;
   font-size: 34px;
   line-height: 40px;
@@ -222,7 +238,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   position: absolute;
 }
 
-.c12 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -250,44 +266,44 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus > circle,
-.c12:focus > ellipse,
-.c12:focus > line,
-.c12:focus > path,
-.c12:focus > polygon,
-.c12:focus > polyline,
-.c12:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c12:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
-.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
-.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
-.c12:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c14 {
+.c15 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -313,48 +329,48 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c14:hover {
+.c15:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c14:focus {
+.c15:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus > circle,
-.c14:focus > ellipse,
-.c14:focus > line,
-.c14:focus > path,
-.c14:focus > polygon,
-.c14:focus > polyline,
-.c14:focus > rect {
+.c15:focus > circle,
+.c15:focus > ellipse,
+.c15:focus > line,
+.c15:focus > path,
+.c15:focus > polygon,
+.c15:focus > polyline,
+.c15:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus::-moz-focus-inner {
+.c15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c14:focus:not(:focus-visible) {
+.c15:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
-.c14:focus:not(:focus-visible) > rect {
+.c15:focus:not(:focus-visible) > circle,.c15:focus:not(:focus-visible) > ellipse,
+.c15:focus:not(:focus-visible) > line,.c15:focus:not(:focus-visible) > path,
+.c15:focus:not(:focus-visible) > polygon,.c15:focus:not(:focus-visible) > polyline,
+.c15:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible)::-moz-focus-inner {
+.c15:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c16 {
+.c17 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -380,48 +396,48 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c16:hover {
+.c17:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c16:focus {
+.c17:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c17:focus > circle,
+.c17:focus > ellipse,
+.c17:focus > line,
+.c17:focus > path,
+.c17:focus > polygon,
+.c17:focus > polyline,
+.c17:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c16:focus::-moz-focus-inner {
+.c17:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c17:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
+.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
+.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
+.c17:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c17:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c18 {
+.c19 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -452,51 +468,51 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c18:focus {
+.c19:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c18:focus > circle,
-.c18:focus > ellipse,
-.c18:focus > line,
-.c18:focus > path,
-.c18:focus > polygon,
-.c18:focus > polyline,
-.c18:focus > rect {
+.c19:focus > circle,
+.c19:focus > ellipse,
+.c19:focus > line,
+.c19:focus > path,
+.c19:focus > polygon,
+.c19:focus > polyline,
+.c19:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c18:focus::-moz-focus-inner {
+.c19:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c18:focus:not(:focus-visible) {
+.c19:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c18:focus:not(:focus-visible) > circle,.c18:focus:not(:focus-visible) > ellipse,
-.c18:focus:not(:focus-visible) > line,.c18:focus:not(:focus-visible) > path,
-.c18:focus:not(:focus-visible) > polygon,.c18:focus:not(:focus-visible) > polyline,
-.c18:focus:not(:focus-visible) > rect {
+.c19:focus:not(:focus-visible) > circle,.c19:focus:not(:focus-visible) > ellipse,
+.c19:focus:not(:focus-visible) > line,.c19:focus:not(:focus-visible) > path,
+.c19:focus:not(:focus-visible) > polygon,.c19:focus:not(:focus-visible) > polyline,
+.c19:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c18:focus:not(:focus-visible)::-moz-focus-inner {
+.c19:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c6 {
     padding: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -515,44 +531,44 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c12 {
     padding-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c16 {
     padding-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c9 {
     width: auto;
     height: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     width: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
+  .c18 {
     width: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     margin-top: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
@@ -615,7 +631,9 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
             class="c4"
             tabindex="-1"
           />
-          <div>
+          <div
+            class="c5"
+          >
             <form
               autocapitalize="off"
               autocomplete="off"
@@ -623,60 +641,60 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
               spellcheck="false"
             >
               <div
-                class="c5"
+                class="c6"
               >
                 <h2
-                  class="c6"
+                  class="c7"
                 >
                   <div
-                    class="c7"
+                    class="c8"
                   >
                     openWallet.importAccounts.selectWallets
                     <div
-                      class="c8"
+                      class="c9"
                     />
                     <span
-                      class="c9"
+                      class="c10"
                     >
                       openWallet.importAccounts.accountCounter
                     </span>
                   </div>
                 </h2>
                 <div
-                  class="c10"
+                  class="c11"
                   style="min-height: 362px;"
                 >
                   <div
-                    class="c10"
+                    class="c11"
                   />
                 </div>
                 <div
-                  class="c11"
+                  class="c12"
                 >
                   <button
                     aria-label="openWallet.importAccounts.prev"
-                    class="c12"
+                    class="c13"
                     disabled=""
                     type="button"
                   >
                     &lt;
                   </button>
                   <div
-                    class="c13"
+                    class="c14"
                   />
                   <div
-                    class="c10"
+                    class="c11"
                   >
                     <span>
                       openWallet.importAccounts.pageNumber
                     </span>
                   </div>
                   <div
-                    class="c13"
+                    class="c14"
                   />
                   <button
                     aria-label="openWallet.importAccounts.next"
-                    class="c14"
+                    class="c15"
                     type="button"
                   >
                     &gt;
@@ -686,19 +704,19 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
                   persist.createProfile.unsupported
                 </p>
                 <div
-                  class="c15"
+                  class="c16"
                 >
                   <button
-                    class="c16"
+                    class="c17"
                     type="button"
                   >
                     common.cancel
                   </button>
                   <div
-                    class="c17"
+                    class="c18"
                   />
                   <button
-                    class="c18"
+                    class="c19"
                     data-testid="ledger-open-accounts"
                     disabled=""
                     type="submit"

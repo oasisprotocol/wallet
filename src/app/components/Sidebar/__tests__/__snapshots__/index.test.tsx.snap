@@ -224,72 +224,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c16 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 12px;
-}
-
-.c18 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.c19 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding: 12px;
-}
-
-.c20 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  padding: 12px;
-}
-
 .c5 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -381,61 +315,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c17 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  color: inherit;
-  outline: none;
-  border: none;
-  padding: 0;
-  text-align: inherit;
-}
-
-.c17:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c17:focus > circle,
-.c17:focus > ellipse,
-.c17:focus > line,
-.c17:focus > path,
-.c17:focus > polygon,
-.c17:focus > polyline,
-.c17:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c17:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c17:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c17:focus:not(:focus-visible) > circle,.c17:focus:not(:focus-visible) > ellipse,
-.c17:focus:not(:focus-visible) > line,.c17:focus:not(:focus-visible) > path,
-.c17:focus:not(:focus-visible) > polygon,.c17:focus:not(:focus-visible) > polyline,
-.c17:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c17:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
 @media only screen and (max-width:768px) {
   .c0 {
     padding-top: 12px;
@@ -470,24 +349,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
 @media only screen and (max-width:768px) {
   .c9 {
     padding: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c16 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c19 {
-    padding: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c20 {
-    padding: 6px;
   }
 }
 
@@ -603,7 +464,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
         class="c15"
       >
         <svg
-          aria-label="Moon"
+          aria-label="theme.darkMode"
           class="c11"
           viewBox="0 0 24 24"
         >
@@ -625,64 +486,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
         </span>
       </div>
     </button>
-    <div
-      class="c7"
-    />
-    <div
-      class="c16"
-    >
-      <button
-        aria-expanded="false"
-        aria-haspopup="menu"
-        aria-label="Open Menu"
-        class="c17"
-        type="button"
-      >
-        <div
-          class="c18"
-        >
-          <div
-            class="c19"
-          >
-            <svg
-              aria-label="Language"
-              class="c11"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"
-                fill="#333"
-              />
-            </svg>
-          </div>
-          <div
-            class="c20"
-          >
-            <span
-              class="c6"
-            >
-              Language
-            </span>
-          </div>
-          <div
-            class="c19"
-          >
-            <svg
-              aria-label="FormDown"
-              class="c11"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="m18 9-6 6-6-6"
-                fill="none"
-                stroke="#000"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
-        </div>
-      </button>
-    </div>
     <div
       class="c7"
     />

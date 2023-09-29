@@ -199,6 +199,7 @@
   "infoBox": {
     "valueCopied": "{{label}} copied."
   },
+  "language": "Language",
   "ledger": {
     "extension": {
       "connect": "Connect Ledger device",
@@ -381,7 +382,8 @@
   },
   "theme": {
     "darkMode": "Dark mode",
-    "lightMode": "Light mode"
+    "lightMode": "Light mode",
+    "title": "Theme"
   },
   "toolbar": {
     "contacts": {
@@ -427,9 +429,11 @@
       "cancel": "Cancel",
       "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
+      "lock": "Lock",
       "manageAccount": "Manage",
       "myAccountsTab": "My Accounts",
-      "profile": "Profile"
+      "profile": "Profile",
+      "settings": "Settings"
     },
     "wallets": {
       "select": "Select",
