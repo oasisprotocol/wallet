@@ -429,9 +429,10 @@
       "cancel": "Cancel",
       "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
-      "lock": "Lock",
       "manageAccount": "Manage",
       "myAccountsTab": "My Accounts",
+      "nameLengthError": "No more than 16 characters",
+      "optionalName": "Name (optional)",
       "profile": "Profile",
       "settings": "Settings"
     },

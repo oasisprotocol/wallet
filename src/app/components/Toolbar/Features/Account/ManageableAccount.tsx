@@ -1,7 +1,9 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
+import { FormField } from 'grommet/es6/components/FormField'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Text } from 'grommet/es6/components/Text'
+import { TextInput } from 'grommet/es6/components/TextInput'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -51,6 +53,25 @@ export const ManageableAccount = ({
           <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
+                <Box margin={{ vertical: 'medium' }}>
+                  <FormField
+                    name="name"
+                    required
+                    validate={(name: string) =>
+                      name.trim().length > 16
+                        ? {
+                            message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
+                            status: 'error',
+                          }
+                        : undefined
+                    }
+                  >
+                    <TextInput
+                      name="name"
+                      placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
+                    />
+                  </FormField>
+                </Box>
                 <Box margin={{ vertical: 'medium' }}>
                   <AddressBox address={wallet.address} border />
                   <Text size="small" margin={'small'}>
