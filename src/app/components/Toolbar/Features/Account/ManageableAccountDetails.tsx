@@ -2,11 +2,13 @@ import { useContext, useState } from 'react'
 import copy from 'copy-to-clipboard'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
+import { FormField } from 'grommet/es6/components/FormField'
 import { Notification } from 'grommet/es6/components/Notification'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Text } from 'grommet/es6/components/Text'
+import { TextInput } from 'grommet/es6/components/TextInput'
 import { Tip } from 'grommet/es6/components/Tip'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation'
@@ -46,11 +48,26 @@ export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAc
 
   return (
     <>
-      <Box>
-        <AddressBox address={wallet.address} border />
-        <Text size="small" margin={'small'}>
-          <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-        </Text>
+      <Box gap="medium">
+        <FormField
+          name="name"
+          validate={(name: string) =>
+            name.trim().length > 16
+              ? {
+                  message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
+                  status: 'error',
+                }
+              : undefined
+          }
+        >
+          <TextInput name="name" placeholder={t('toolbar.settings.optionalName', 'Name (optional)')} />
+        </FormField>
+        <Box>
+          <AddressBox address={wallet.address} border />
+          <Text size="small" margin={'small'}>
+            <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
+          </Text>
+        </Box>
         <Box justify="between" direction="row">
           <Button
             alignSelf="start"
