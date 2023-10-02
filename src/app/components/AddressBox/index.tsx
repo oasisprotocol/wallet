@@ -18,6 +18,7 @@ interface Props {
   address: string
   border?: boolean
   editHandler?: () => void
+  name?: string
 }
 
 export const AddressBox = memo((props: Props) => {
@@ -42,11 +43,33 @@ export const AddressBox = memo((props: Props) => {
       pad={{ right: 'small' }}
       border={props.border && { color: 'brand' }}
     >
-      <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
-      <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
-        <PrettyAddress address={address} />
-      </Text>
-      {props.editHandler && <Button onClick={props.editHandler} icon={<Edit color="link" size="16px" />} />}
+      <Box
+        direction="row"
+        align="center"
+        border={{
+          color: 'background-front-border',
+          side: 'bottom',
+        }}
+        margin={{ right: 'xlarge' }}
+      >
+        {!props.name && (
+          <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
+        )}
+        <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
+          {props.name ? <span>{props.name}</span> : <PrettyAddress address={address} />}
+        </Text>
+        {props.editHandler && <Button onClick={props.editHandler} icon={<Edit color="link" size="16px" />} />}
+      </Box>
+      {props.name && (
+        <Button
+          label="oasis1... c6hae7"
+          onClick={() => copyAddress()}
+          icon={<Copy size="18px" />}
+          data-testid="copy-address"
+          reverse
+          style={{ backgroundColor: '#E8F5FF', borderWidth: '1px' }}
+        />
+      )}
       {notificationVisible && (
         <Notification
           toast

@@ -19,8 +19,9 @@ const StyledDescriptionList = styled.dl`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border-top: solid
-    ${({ theme }) => `${theme.global?.edgeSize?.hair} ${normalizeColor('background-front-border', theme)}`};
+  /* border-top: solid
+    ${({ theme }) =>
+    `${theme.global?.edgeSize?.hair} ${normalizeColor('background-front-border', theme)}`}; */
   margin: ${({ theme }) => theme.global?.edgeSize?.xsmall} 0 0;
   padding: ${({ theme }) =>
     `${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.xsmall}`};
@@ -90,6 +91,7 @@ export interface AccountSummaryProps {
   editHandler: () => void
   walletHasAccounts?: boolean
   walletAddress?: string
+  walletName?: string
 }
 
 export function AccountSummary({
@@ -98,6 +100,7 @@ export function AccountSummary({
   editHandler,
   walletAddress,
   walletHasAccounts,
+  walletName,
 }: AccountSummaryProps) {
   const { t } = useTranslation()
   const { dark } = React.useContext<any>(ThemeContext)
@@ -134,7 +137,7 @@ export function AccountSummary({
       >
         <Box pad="small" direction="row-responsive" flex>
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            <AddressBox address={address} editHandler={editHandler} />
+            <AddressBox address={address} editHandler={editHandler} name={walletName} />
 
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>

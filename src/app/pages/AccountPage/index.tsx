@@ -25,6 +25,7 @@ import { normalizeColor } from 'grommet/es6/utils'
 import { profileActions } from 'app/state/profile'
 import { accountActions } from 'app/state/account'
 import { selectAccount } from 'app/state/account/selectors'
+import { selectName } from 'app/state/wallet/selectors'
 import { BalanceDetails } from 'app/state/account/types'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
 import { AccountSummary } from './Features/AccountSummary'
@@ -76,6 +77,7 @@ export function AccountPage(props: AccountPageProps) {
 
   const walletHasAccounts = useSelector(selectHasAccounts)
   const walletAddress = useSelector(selectAddress)
+  const walletName = useSelector(selectName)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
 
@@ -135,6 +137,7 @@ export function AccountPage(props: AccountPageProps) {
             balance={balance}
             editHandler={() => dispatch(profileActions.setProfileModalOpen(true))}
             walletAddress={walletAddress}
+            walletName={walletName}
             walletHasAccounts={walletHasAccounts}
           />
           <Nav
