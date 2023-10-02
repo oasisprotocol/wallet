@@ -9,7 +9,8 @@ import { Button } from 'grommet/es6/components/Button'
 import { Text } from 'grommet/es6/components/Text'
 import { Notification } from 'grommet/es6/components/Notification'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
-import React, { memo, useState } from 'react'
+import { Edit } from 'grommet-icons/es6/icons/Edit'
+import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { PrettyAddress } from '../PrettyAddress'
@@ -40,13 +41,13 @@ export const AddressBox = memo((props: Props) => {
       align="center"
       round="5px"
       pad={{ right: 'small' }}
-      width="fit-content"
       border={props.border && { color: 'brand' }}
     >
       <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
-      <Text weight="bold" size="medium" wordBreak="break-word">
+      <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
         <PrettyAddress address={address} />
       </Text>
+      <Button onClick={() => {}} icon={<Edit color="link" size="16 px" />} />
       {notificationVisible && (
         <Notification
           toast
