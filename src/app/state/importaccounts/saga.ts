@@ -206,7 +206,6 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
     }
     yield* setStep(ImportAccountsStep.LoadingBalances)
   } catch (e: any) {
-    console.error(e)
     let payload: ErrorPayload
     if (e instanceof WalletError) {
       payload = { code: e.type, message: e.message }
