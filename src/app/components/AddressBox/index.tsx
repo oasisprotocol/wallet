@@ -12,18 +12,17 @@ import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { Edit } from 'grommet-icons/es6/icons/Edit'
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-
 import { PrettyAddress } from '../PrettyAddress'
 
 interface Props {
   address: string
   border?: boolean
+  editHandler?: () => void
 }
 
 export const AddressBox = memo((props: Props) => {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
-
   const hideNotification = () => setNotificationVisible(false)
 
   const address = props.address
@@ -47,7 +46,7 @@ export const AddressBox = memo((props: Props) => {
       <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
         <PrettyAddress address={address} />
       </Text>
-      <Button onClick={() => {}} icon={<Edit color="link" size="16 px" />} />
+      {props.editHandler && <Button onClick={props.editHandler} icon={<Edit color="link" size="16px" />} />}
       {notificationVisible && (
         <Notification
           toast

@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, Outlet, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
-
+import { profileActions } from 'app/state/profile'
 import { accountActions } from 'app/state/account'
 import { selectAccount } from 'app/state/account/selectors'
 import { BalanceDetails } from 'app/state/account/types'
@@ -133,6 +133,7 @@ export function AccountPage(props: AccountPageProps) {
           <AccountSummary
             address={address}
             balance={balance}
+            editHandler={() => dispatch(profileActions.setProfileModalOpen(true))}
             walletAddress={walletAddress}
             walletHasAccounts={walletHasAccounts}
           />

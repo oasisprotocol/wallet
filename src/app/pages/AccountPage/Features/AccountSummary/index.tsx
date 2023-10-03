@@ -87,11 +87,18 @@ const StyledDescriptionList = styled.dl`
 export interface AccountSummaryProps {
   address: string
   balance: BalanceDetails
+  editHandler: () => void
   walletHasAccounts?: boolean
   walletAddress?: string
 }
 
-export function AccountSummary({ address, balance, walletAddress, walletHasAccounts }: AccountSummaryProps) {
+export function AccountSummary({
+  address,
+  balance,
+  editHandler,
+  walletAddress,
+  walletHasAccounts,
+}: AccountSummaryProps) {
   const { t } = useTranslation()
   const { dark } = React.useContext<any>(ThemeContext)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
@@ -127,7 +134,7 @@ export function AccountSummary({ address, balance, walletAddress, walletHasAccou
       >
         <Box pad="small" direction="row-responsive" flex>
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            <AddressBox address={address} />
+            <AddressBox address={address} editHandler={editHandler} />
 
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>

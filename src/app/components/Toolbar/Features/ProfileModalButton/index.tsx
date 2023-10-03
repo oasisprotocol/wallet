@@ -10,10 +10,12 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Close } from 'grommet-icons/es6/icons/Close'
 import { Lock } from 'grommet-icons/es6/icons/Lock'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { selectProfile } from 'app/state/profile/selectors'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
+import { profileActions } from 'app/state/profile'
 import { persistActions } from 'app/state/persist'
 import { AccountSelector } from '../AccountSelector'
 import { JazzIcon } from '../../../JazzIcon'
@@ -35,9 +37,9 @@ export const ProfileModalButton = memo(() => {
   const isLockableOrCloseable = useSelector(selectIsLockableOrCloseable)
   const walletHasAccounts = useSelector(selectHasAccounts)
   const address = useSelector(selectAddress)
-  const [layerVisibility, setLayerVisibility] = useState(false)
+  const { profileModalOpen } = useSelector(selectProfile)
   const isMobile = React.useContext(ResponsiveContext) === 'small'
-  const hideLayer = () => setLayerVisibility(false)
+  const hideLayer = () => dispatch(profileActions.setProfileModalOpen(false))
   const closeWallet = () => {
     navigate('/')
     dispatch(persistActions.lockAsync())
@@ -52,7 +54,10 @@ export const ProfileModalButton = memo(() => {
 
   return (
     <>
-      <Button onClick={() => setLayerVisibility(true)} data-testid="account-selector">
+      <Button
+        onClick={() => dispatch(profileActions.setProfileModalOpen(true))}
+        data-testid="account-selector"
+      >
         {address ? (
           <JazzIcon
             diameter={isMobile ? sidebarSmallSizeLogo : sidebarMediumSizeLogo}
@@ -62,7 +67,7 @@ export const ProfileModalButton = memo(() => {
           <UserSettings />
         )}
       </Button>
-      {layerVisibility && (
+      {profileModalOpen && (
         <ResponsiveLayer
           onClickOutside={hideLayer}
           onEsc={hideLayer}
