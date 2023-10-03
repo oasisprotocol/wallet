@@ -150,6 +150,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   padding: 12px;
 }
 
@@ -180,7 +184,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-right: 96px;
+  margin-right: 48px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -191,6 +195,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  width: 680px;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
 }
 
 .c23 {
@@ -823,7 +831,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c10 {
-    margin-right: 48px;
+    margin-right: 24px;
   }
 }
 
@@ -1040,7 +1048,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               </button>
               <span
                 class="c13"
-                style="flex: 1;"
+                style="flex: 1; width: 680px;"
               >
                 <span
                   class="c14"

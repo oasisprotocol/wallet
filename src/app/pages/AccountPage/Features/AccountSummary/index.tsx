@@ -137,7 +137,7 @@ export function AccountSummary({
         border={{ color: 'background-front-border', size: '1px' }}
         background="background-front"
       >
-        <Box pad="small" direction="row-responsive" flex>
+        <Box pad="small" direction="row-responsive" flex justify="between">
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
             <AddressBox
               address={address}
@@ -173,7 +173,7 @@ export function AccountSummary({
           </Box>
 
           {!isMobile && (
-            <Box align="end" flex>
+            <Box align="end">
               <QRCodeCanvas value={address} fgColor={dark ? '#e8e8e8' : '#333333'} bgColor="#00000000" />
             </Box>
           )}

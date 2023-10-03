@@ -60,7 +60,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-right: 96px;
+  margin-right: 48px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -71,6 +71,10 @@ exports[`<AddressBox /> should render address properly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  width: 680px;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
 }
 
 .c4 {
@@ -150,7 +154,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    margin-right: 48px;
+    margin-right: 24px;
   }
 }
 
@@ -187,7 +191,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
       </button>
       <span
         class="c4"
-        style="flex: 1;"
+        style="flex: 1; width: 680px;"
       >
         <span
           class="c5"

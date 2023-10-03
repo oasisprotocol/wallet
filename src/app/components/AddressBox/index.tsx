@@ -21,6 +21,8 @@ interface Props {
   name?: string
 }
 
+const textWidth = '680px'
+
 export const AddressBox = memo((props: Props) => {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
@@ -50,12 +52,14 @@ export const AddressBox = memo((props: Props) => {
           color: 'background-front-border',
           side: 'bottom',
         }}
-        margin={{ right: 'xlarge' }}
+        margin={{ right: 'large' }}
+        flex
+        width={textWidth}
       >
         {!props.name && (
           <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
         )}
-        <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
+        <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1, width: textWidth }}>
           {props.name ? <span>{props.name}</span> : <PrettyAddress address={address} />}
         </Text>
         {props.editHandler && <Button onClick={props.editHandler} icon={<Edit color="link" size="16px" />} />}
