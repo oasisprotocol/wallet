@@ -12,6 +12,7 @@ import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
 import { PersistState } from 'app/state/persist/types'
+import { ProfileState } from 'app/state/profile/types'
 // [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,6 +37,7 @@ export interface RootState {
   paraTimes: ParaTimesState
   staking: StakingState
   fatalError: FatalErrorState
+  profile: ProfileState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }
 

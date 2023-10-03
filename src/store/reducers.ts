@@ -15,6 +15,7 @@ import contactsReducer from 'app/state/contacts'
 import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
 import themeReducer from 'styles/theme/slice'
+import profileReducer from 'app/state/profile'
 import persistReducer, { persistActions, receivePersistedRootState } from 'app/state/persist'
 import { RootState } from 'types'
 
@@ -33,6 +34,7 @@ function createRootReducer() {
     transaction: transactionReducer,
     wallet: walletReducer,
     persist: persistReducer,
+    profile: profileReducer,
   })
 
   return rootReducer

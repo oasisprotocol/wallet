@@ -17,5 +17,6 @@ describe('reducer', () => {
     expect(newState).toHaveProperty('transaction')
     expect(newState).toHaveProperty('wallet')
     expect(newState).toHaveProperty('persist')
+    expect(newState).toHaveProperty('profile')
   })
 })
