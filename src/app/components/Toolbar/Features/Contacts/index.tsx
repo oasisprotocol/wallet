@@ -10,6 +10,7 @@ import { selectContactsList } from 'app/state/contacts/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { ContactAccount } from './ContactAccount'
 import { AddContact } from './AddContact'
+import { ScrollableContainer } from '../ScrollableContainer'
 import { layerScrollableAreaHeight } from '../layer'
 
 type ContactsListEmptyStateProps = {
@@ -71,16 +72,11 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
         </Box>
       )}
       {!!contacts.length && (
-        <Box
-          gap="small"
-          pad={{ vertical: 'medium', right: 'small' }}
-          overflow={{ vertical: 'auto' }}
-          height={isMobile ? 'auto' : layerScrollableAreaHeight}
-        >
+        <ScrollableContainer>
           {contacts.map(contact => (
             <ContactAccount key={contact.address} contact={contact} />
           ))}
-        </Box>
+        </ScrollableContainer>
       )}
       <Box align="center">
         <Button

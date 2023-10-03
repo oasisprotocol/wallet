@@ -11,6 +11,7 @@ import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { ManageableAccount } from '../Account/ManageableAccount'
+import { ScrollableContainer } from '../ScrollableContainer'
 
 interface Props {
   closeHandler: () => any
@@ -38,14 +39,7 @@ export const AccountSelector = memo((props: Props) => {
 
   return (
     <>
-      <Box
-        gap="small"
-        pad={{ vertical: 'medium', right: 'small' }}
-        overflow={{ vertical: 'auto' }}
-        height={{ max: '400px' }}
-      >
-        {accounts}
-      </Box>
+      <ScrollableContainer>{accounts}</ScrollableContainer>
       <Box align="end" pad={{ top: 'medium' }}>
         <Button primary label={t('toolbar.wallets.select', 'Select')} onClick={props.closeHandler} />
       </Box>

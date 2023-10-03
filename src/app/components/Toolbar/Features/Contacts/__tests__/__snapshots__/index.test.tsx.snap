@@ -130,7 +130,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: auto;
+  height: 90%;
   padding-top: 24px;
   padding-bottom: 24px;
   padding-right: 12px;
