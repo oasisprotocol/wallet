@@ -245,6 +245,7 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
+      "NoBLEDevicesFound": "No Bluetooth devices found",
       "accountCounter": "{{count}} accounts selected",
       "accountCounter_one": "One account selected",
       "accountCounter_plural": "{{count}} accounts selected",
@@ -256,6 +257,7 @@
       "pageNumber": "Page {{pageNum}} of {{totalPages}}",
       "prev": "Prev",
       "selectDevice": "Select device",
+      "selectLedgerDevice": "Select Ledger device",
       "selectWallets": "Select accounts to open",
       "usbLedger": "USB Ledger"
     },
@@ -454,7 +456,7 @@
     "wallets": {
       "select": "Select",
       "type": {
-        "bluetoothLedger": "Bluetooth Ledger",
+        "bluetoothLedger": "BLE Ledger",
         "mnemonic": "Mnemonic",
         "privateKey": "Private key",
         "usbLedger": "USB Ledger"

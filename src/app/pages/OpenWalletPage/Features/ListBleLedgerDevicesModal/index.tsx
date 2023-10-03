@@ -80,7 +80,7 @@ export function ListBleLedgerDevicesModal(props: ListBleLedgerDevicesModalProps)
   return (
     <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="800px" pad="medium">
-        <ModalHeader>Select Ledger device</ModalHeader>
+        <ModalHeader>{t('openWallet.importAccounts.selectLedgerDevice', 'Select Ledger device')}</ModalHeader>
 
         <Box style={{ minHeight: '525px' }}>
           <DevicesSelector devices={bleDevices} />
@@ -97,7 +97,9 @@ export function ListBleLedgerDevicesModal(props: ListBleLedgerDevicesModalProps)
           {![ImportAccountsStep.LoadingBleDevices].includes(step) && !bleDevices.length && (
             <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
               <Box alignSelf="center">
-                <Text size="xlarge">No BLE devices found</Text>
+                <Text size="xlarge">
+                  {t('openWallet.importAccounts.NoBLEDevicesFound', 'No Bluetooth devices found')}
+                </Text>
               </Box>
             </Box>
           )}
