@@ -44,7 +44,7 @@ export const Account = memo((props: AccountProps) => {
       background={props.isActive ? 'neutral-2' : undefined}
       border={{ color: props.isActive ? 'neutral-2' : 'brand' }}
       pad="small"
-      flex="grow"
+      flex={{ shrink: 0 }}
       fill="horizontal"
       role="checkbox"
       aria-checked={props.isActive}
