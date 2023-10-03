@@ -138,7 +138,7 @@ export function AccountPage(props: AccountPageProps) {
           <AccountSummary
             address={address}
             balance={balance}
-            editHandler={() => dispatch(profileActions.setProfileModalOpen(true))}
+            editHandler={() => dispatch(profileActions.setManageAccountModalId(address))}
             hasProfile={hasProfile}
             walletAddress={walletAddress}
             walletName={walletName}

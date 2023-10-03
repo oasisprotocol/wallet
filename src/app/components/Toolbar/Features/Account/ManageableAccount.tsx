@@ -12,6 +12,7 @@ import { useContext, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Account } from './Account'
 import { walletActions } from 'app/state/wallet'
+import { selectProfile } from 'app/state/profile/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { Wallet } from '../../../../state/wallet/types'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
@@ -19,6 +20,7 @@ import { Tabs } from 'grommet/es6/components/Tabs'
 import { DerivationFormatter } from './DerivationFormatter'
 import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { AddressBox } from '../../../AddressBox'
+import { profileActions } from 'app/state/profile'
 
 interface FormValue {
   name: string
@@ -38,11 +40,12 @@ export const ManageableAccount = ({
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [layerVisibility, setLayerVisibility] = useState(false)
+  const { manageAccountModalId } = useSelector(selectProfile)
   const isMobile = useContext(ResponsiveContext) === 'small'
+  const hideLayer = () => dispatch(profileActions.setManageAccountModalId(''))
   const handleSave = (name: string) => {
     dispatch(walletActions.setWalletName({ address: wallet.address, name }))
-    setLayerVisibility(false)
+    hideLayer()
   }
   const unlockedStatus = useSelector(selectUnlockedStatus)
   const hasProfile = unlockedStatus === 'unlockedProfile'
@@ -58,14 +61,14 @@ export const ManageableAccount = ({
         path={wallet.path}
         displayBalance={true}
         displayManageButton={{
-          onClickManage: () => setLayerVisibility(true),
+          onClickManage: () => dispatch(profileActions.setManageAccountModalId(wallet.address)),
         }}
         name={wallet.name}
       />
-      {layerVisibility && (
+      {manageAccountModalId === wallet.address && (
         <ResponsiveLayer
-          onClickOutside={() => setLayerVisibility(false)}
-          onEsc={() => setLayerVisibility(false)}
+          onClickOutside={hideLayer}
+          onEsc={hideLayer}
           animation="none"
           background="background-front"
           modal
@@ -143,11 +146,7 @@ export const ManageableAccount = ({
                     }}
                   />
                   <Box direction="row" justify="between" pad={{ top: 'large' }}>
-                    <Button
-                      secondary
-                      label={t('toolbar.settings.cancel', 'Cancel')}
-                      onClick={() => setLayerVisibility(false)}
-                    />
+                    <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
                     <Button primary label={t('toolbar.settings.save', 'Save')} type="submit" />
                   </Box>
                 </Form>
