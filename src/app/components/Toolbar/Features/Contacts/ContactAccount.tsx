@@ -25,7 +25,7 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
   const deleteHandler = (address: string) => dispatch(contactsActions.delete(address))
 
   return (
-    <Box>
+    <>
       <Account
         address={contact.address}
         balance={undefined}
@@ -75,6 +75,6 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
           </Box>
         </ResponsiveLayer>
       )}
-    </Box>
+    </>
   )
 }
