@@ -26,6 +26,7 @@ import { profileActions } from 'app/state/profile'
 import { accountActions } from 'app/state/account'
 import { selectAccount } from 'app/state/account/selectors'
 import { selectName } from 'app/state/wallet/selectors'
+import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { BalanceDetails } from 'app/state/account/types'
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
 import { AccountSummary } from './Features/AccountSummary'
@@ -79,6 +80,8 @@ export function AccountPage(props: AccountPageProps) {
   const walletAddress = useSelector(selectAddress)
   const walletName = useSelector(selectName)
   const selectedNetwork = useSelector(selectSelectedNetwork)
+  const unlockedStatus = useSelector(selectUnlockedStatus)
+  const hasProfile = unlockedStatus === 'unlockedProfile'
   const { active } = useSelector(selectTransaction)
 
   const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + BigInt(v.amount), 0n)
@@ -136,6 +139,7 @@ export function AccountPage(props: AccountPageProps) {
             address={address}
             balance={balance}
             editHandler={() => dispatch(profileActions.setProfileModalOpen(true))}
+            hasProfile={hasProfile}
             walletAddress={walletAddress}
             walletName={walletName}
             walletHasAccounts={walletHasAccounts}

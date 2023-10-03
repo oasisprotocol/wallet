@@ -426,6 +426,7 @@
       }
     },
     "settings": {
+      "accountNamingNotAvailable": "To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "cancel": "Cancel",
       "contacts": "Contacts",
       "exportPrivateKey": "Export Private Key",
@@ -433,7 +434,9 @@
       "myAccountsTab": "My Accounts",
       "nameLengthError": "No more than 16 characters",
       "optionalName": "Name (optional)",
+      "optionalNameDisabled": "Name (optional)",
       "profile": "Profile",
+      "save": "Save",
       "settings": "Settings"
     },
     "wallets": {

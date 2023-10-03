@@ -89,6 +89,7 @@ export interface AccountSummaryProps {
   address: string
   balance: BalanceDetails
   editHandler: () => void
+  hasProfile: boolean
   walletHasAccounts?: boolean
   walletAddress?: string
   walletName?: string
@@ -98,6 +99,7 @@ export function AccountSummary({
   address,
   balance,
   editHandler,
+  hasProfile,
   walletAddress,
   walletHasAccounts,
   walletName,
@@ -137,7 +139,11 @@ export function AccountSummary({
       >
         <Box pad="small" direction="row-responsive" flex>
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            <AddressBox address={address} editHandler={editHandler} name={walletName} />
+            <AddressBox
+              address={address}
+              editHandler={hasProfile ? editHandler : undefined}
+              name={walletName}
+            />
 
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>

@@ -31,6 +31,7 @@ export const AccountSelector = memo((props: Props) => {
   const accounts = Object.values(wallets).map(wallet => (
     <ManageableAccount
       key={wallet.address}
+      closeHandler={props.closeHandler}
       wallet={wallet}
       onClick={switchAccount}
       isActive={wallet.address === activeAddress}
