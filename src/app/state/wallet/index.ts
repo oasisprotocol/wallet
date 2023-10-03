@@ -50,6 +50,9 @@ const slice = createSlice({
       state.wallets[newWallet.address] = newWallet
       state.selectedWallet ??= newWallet.address
     },
+    setWalletName(state, action: PayloadAction<{ address: string; name: string }>) {
+      state.wallets[action.payload.address].name = action.payload.name
+    },
   },
 })
 
