@@ -7,6 +7,7 @@ import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
+import { Capacitor } from '@capacitor/core'
 
 interface LedgerAccount {
   publicKey: Uint8Array
@@ -19,17 +20,10 @@ export async function canAccessNavigatorUsb(): Promise<boolean> {
 }
 
 export async function canAccessBle(): Promise<boolean> {
-  let isSupportedOnMobile = false
-  try {
-    // Returns always true on web
-    isSupportedOnMobile = await BleTransport.isEnabled()
-  } catch (ex) {
-    /* ignore */
-  }
+  const hasBLE = await BleTransport.isEnabled().catch(() => false)
   // Scan depends on requestLEScan method, which is not available on the web(feature flag)
-  const isSupportedOnDesktop = !!navigator?.bluetooth?.requestLEScan
-
-  return isSupportedOnMobile && isSupportedOnDesktop
+  const hasLEScan = Capacitor.isNativePlatform() || !!navigator?.bluetooth?.requestLEScan
+  return hasBLE && hasLEScan
 }
 
 export async function requestDevice(): Promise<USBDevice | undefined> {
