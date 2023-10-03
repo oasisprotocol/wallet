@@ -24,7 +24,6 @@ const slice = createSlice({
       state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
       state.bleDevices = []
-      state.selectedBleDevice = undefined
       state.showBleLedgerDevicesModal = false
     },
     enumerateDevicesFromBleLedger(state) {

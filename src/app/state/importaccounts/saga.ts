@@ -199,7 +199,7 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
         address,
         // We select the first account by default
         selected: index === 0,
-        type: WalletType.UsbLedger,
+        type: action.payload,
       } as ImportAccountsListAccount
       yield* put(importAccountsActions.accountGenerated(wallet))
       yield* fork(fetchBalanceForAccount, wallet)
