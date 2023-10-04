@@ -21,6 +21,7 @@ import { DerivationFormatter } from './DerivationFormatter'
 import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { AddressBox } from '../../../AddressBox'
 import { profileActions } from 'app/state/profile'
+import { layerOverlayMinHeight } from '../layer'
 
 interface FormValue {
   name: string
@@ -78,78 +79,80 @@ export const ManageableAccount = ({
           <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-                <Form<FormValue>
-                  onSubmit={({ value }) => handleSave(value.name)}
-                  value={value}
-                  onChange={nextValue => setValue(nextValue)}
-                >
-                  <Box margin={{ vertical: 'medium' }}>
-                    <FormField
-                      disabled={!hasProfile}
-                      info={
-                        !hasProfile ? (
-                          <Box style={{ display: 'block' }}>
-                            <Trans
-                              i18nKey="toolbar.settings.accountNamingNotAvailable"
-                              t={t}
-                              components={{
-                                OpenWalletButton: (
-                                  <Button
-                                    color="link"
-                                    onClick={() => {
-                                      closeHandler()
-                                      navigate('/open-wallet')
-                                    }}
-                                  />
-                                ),
-                              }}
-                              defaults="To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>."
-                            />
-                          </Box>
-                        ) : undefined
-                      }
-                      name="name"
-                      validate={(name: string) =>
-                        name.trim().length > 16
-                          ? {
-                              message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
-                              status: 'error',
-                            }
-                          : undefined
-                      }
-                    >
-                      <TextInput
+                <Box height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
+                  <Form<FormValue>
+                    onSubmit={({ value }) => handleSave(value.name)}
+                    value={value}
+                    onChange={nextValue => setValue(nextValue)}
+                  >
+                    <Box margin={{ vertical: 'medium' }}>
+                      <FormField
                         disabled={!hasProfile}
-                        name="name"
-                        placeholder={
-                          hasProfile
-                            ? t('toolbar.settings.optionalName', 'Name (optional)')
-                            : t('toolbar.settings.optionalNameDisabled', 'Name (optional)')
+                        info={
+                          !hasProfile ? (
+                            <Box style={{ display: 'block' }}>
+                              <Trans
+                                i18nKey="toolbar.settings.accountNamingNotAvailable"
+                                t={t}
+                                components={{
+                                  OpenWalletButton: (
+                                    <Button
+                                      color="link"
+                                      onClick={() => {
+                                        closeHandler()
+                                        navigate('/open-wallet')
+                                      }}
+                                    />
+                                  ),
+                                }}
+                                defaults="To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>."
+                              />
+                            </Box>
+                          ) : undefined
                         }
-                      />
-                    </FormField>
-                  </Box>
-                  <Box margin={{ vertical: 'medium' }}>
-                    <AddressBox address={wallet.address} border />
-                    <Text size="small" margin={'small'}>
-                      <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-                    </Text>
-                  </Box>
-                  <Button
-                    label={t('toolbar.settings.exportPrivateKey', 'Export Private Key')}
-                    disabled={!wallet.privateKey}
-                    onClick={() => {
-                      prompt(
-                        t('toolbar.settings.exportPrivateKey', 'Export Private Key'),
-                        uintToBase64(hex2uint(wallet.privateKey!)),
-                      )
-                    }}
-                  />
-                  <Box direction="row" justify="between" pad={{ top: 'large' }}>
-                    <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
-                    <Button primary label={t('toolbar.settings.save', 'Save')} type="submit" />
-                  </Box>
-                </Form>
+                        name="name"
+                        validate={(name: string) =>
+                          name.trim().length > 16
+                            ? {
+                                message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
+                                status: 'error',
+                              }
+                            : undefined
+                        }
+                      >
+                        <TextInput
+                          disabled={!hasProfile}
+                          name="name"
+                          placeholder={
+                            hasProfile
+                              ? t('toolbar.settings.optionalName', 'Name (optional)')
+                              : t('toolbar.settings.optionalNameDisabled', 'Name (optional)')
+                          }
+                        />
+                      </FormField>
+                    </Box>
+                    <Box margin={{ vertical: 'medium' }}>
+                      <AddressBox address={wallet.address} border />
+                      <Text size="small" margin={'small'}>
+                        <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
+                      </Text>
+                    </Box>
+                    <Button
+                      label={t('toolbar.settings.exportPrivateKey', 'Export Private Key')}
+                      disabled={!wallet.privateKey}
+                      onClick={() => {
+                        prompt(
+                          t('toolbar.settings.exportPrivateKey', 'Export Private Key'),
+                          uintToBase64(hex2uint(wallet.privateKey!)),
+                        )
+                      }}
+                    />
+                    <Box direction="row" justify="between" pad={{ top: 'large' }}>
+                      <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
+                      <Button primary label={t('toolbar.settings.save', 'Save')} type="submit" />
+                    </Box>
+                  </Form>
+                </Box>
               </Tab>
             </Tabs>
           </Box>
