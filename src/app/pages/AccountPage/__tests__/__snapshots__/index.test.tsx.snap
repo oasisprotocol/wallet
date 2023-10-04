@@ -157,50 +157,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c9 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  padding-right: 12px;
-  border-radius: 5px;
-}
-
-.c10 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-right: 48px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-bottom: solid 1px #EDEDED;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 680px;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-}
-
 .c23 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -380,6 +336,49 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   max-width: 100%;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-right: 12px;
+  border-radius: 5px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-bottom: solid 1px #EDEDED;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 680px;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
 }
 
 .c17 {
@@ -824,21 +823,15 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c9 {
-    padding-right: 6px;
-  }
+
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
-    margin-right: 24px;
-  }
+
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
-    border-bottom: solid 1px #EDEDED;
-  }
+
 }
 
 @media only screen and (max-width:768px) {
@@ -903,6 +896,18 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 @media only screen and (max-width:768px) {
   .c39 {
     padding: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    padding-right: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
+    border-bottom: solid 1px #EDEDED;
   }
 }
 

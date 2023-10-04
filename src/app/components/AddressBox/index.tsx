@@ -3,11 +3,13 @@
  * AddressBox
  *
  */
+import { useContext } from 'react'
 import copy from 'copy-to-clipboard'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Text } from 'grommet/es6/components/Text'
 import { Notification } from 'grommet/es6/components/Notification'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { Edit } from 'grommet-icons/es6/icons/Edit'
 import { memo, useState } from 'react'
@@ -27,7 +29,7 @@ export const AddressBox = memo((props: Props) => {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
   const hideNotification = () => setNotificationVisible(false)
-
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const address = props.address
 
   const copyAddress = () => {
@@ -39,11 +41,12 @@ export const AddressBox = memo((props: Props) => {
 
   return (
     <Box
-      direction="row"
+      direction={isMobile ? 'column' : 'row'}
       align="center"
       round="5px"
       pad={{ right: 'small' }}
       border={props.border && { color: 'brand' }}
+      gap={isMobile ? 'medium' : undefined}
     >
       <Box
         direction="row"
@@ -52,7 +55,7 @@ export const AddressBox = memo((props: Props) => {
           color: 'background-front-border',
           side: 'bottom',
         }}
-        margin={{ right: 'large' }}
+        margin={{ right: isMobile ? undefined : 'large' }}
         flex
         width={textWidth}
       >
