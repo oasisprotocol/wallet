@@ -30,13 +30,14 @@ interface AddressBoxProps {
   address: string
   border?: boolean
   children?: ReactNode
+  separator?: boolean
 }
 
 interface ContainerProps extends AddressBoxProps {
   copyToClipboard: 'icon' | 'button'
 }
 
-const Container = ({ address, border, children, copyToClipboard }: ContainerProps) => {
+const Container = ({ address, border, children, copyToClipboard, separator }: ContainerProps) => {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
@@ -59,10 +60,14 @@ const Container = ({ address, border, children, copyToClipboard }: ContainerProp
     >
       <Box
         align="center"
-        border={{
-          color: 'background-front-border',
-          side: 'bottom',
-        }}
+        border={
+          separator
+            ? {
+                color: 'background-front-border',
+                side: 'bottom',
+              }
+            : undefined
+        }
         direction="row"
         flex
         pad={{ bottom: isMobile ? 'small' : 'xsmall' }}
@@ -116,7 +121,12 @@ const TextWrapper = ({ children }: { children: ReactNode }) => (
 
 export const AddressBox = memo((props: AddressBoxProps) => {
   return (
-    <Container address={props.address} border={props.border} copyToClipboard="icon">
+    <Container
+      address={props.address}
+      border={props.border}
+      copyToClipboard="icon"
+      separator={props.separator}
+    >
       <TextWrapper>
         <PrettyAddress address={props.address} />
         {props.children}
@@ -135,7 +145,7 @@ export const EditableAddressBox = ({ openEditModal, wallet }: EditableBoxProps) 
     return null
   }
   return (
-    <AddressBox address={wallet.address}>
+    <AddressBox address={wallet.address} separator>
       <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
     </AddressBox>
   )
@@ -146,7 +156,7 @@ export const EditableNameBox = ({ openEditModal, wallet }: EditableBoxProps) => 
     return null
   }
   return (
-    <Container address={wallet.address} copyToClipboard="button">
+    <Container address={wallet.address} copyToClipboard="button" separator>
       <TextWrapper>{wallet.name}</TextWrapper>
       <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
     </Container>
