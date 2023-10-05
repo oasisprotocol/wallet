@@ -76,9 +76,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
         {copyToClipboard === 'icon' && (
           <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address-icon" />
         )}
-        <Box direction="row" flex={{ grow: 1 }}>
-          {children}
-        </Box>
+        <Box flex>{children}</Box>
       </Box>
 
       {copyToClipboard === 'button' && (
@@ -155,10 +153,12 @@ interface EditableNameBoxProps extends EditableAddressBoxProps {
 
 export const EditableNameBox = ({ address, openEditModal, name }: EditableNameBoxProps) => (
   <Container address={address} copyToClipboard="button" separator>
-    <TextWrapper>{name}</TextWrapper>
-    <Button
-      onClick={openEditModal}
-      icon={<Edit color="link" size="16px" data-testid="editable-name-edit-button" />}
-    />
+    <Box direction="row" pad={{ left: 'small' }}>
+      <TextWrapper>{name}</TextWrapper>
+      <Button
+        onClick={openEditModal}
+        icon={<Edit color="link" size="16px" data-testid="editable-name-edit-button" />}
+      />
+    </Box>
   </Container>
 )

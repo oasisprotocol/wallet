@@ -66,6 +66,19 @@ test.describe('Profile tab', () => {
 })
 
 test.describe('My Accounts tab', () => {
+  test('should set custom name', async ({ page }) => {
+    await page.goto('/open-wallet/private-key')
+    await fillPrivateKeyAndPassword(page)
+    await page.getByTestId('account-selector').click()
+    await page.getByText('Manage').click()
+    await page.getByPlaceholder('Name (Optional)').fill('My Custom Name')
+    await page.keyboard.press('Enter')
+    await page.getByTestId('close-settings-modal').first().click()
+    await expect(page.getByTestId('close-settings-modal')).not.toBeVisible()
+    await expect(page.getByText('My Custom Name')).toBeVisible()
+    await expect(page.getByText('oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk')).not.toBeVisible()
+  })
+
   test('should get a private key', async ({ page }) => {
     await page.goto('/open-wallet/private-key')
     await fillPrivateKeyAndPassword(page)
@@ -102,10 +115,10 @@ test.describe('My Accounts tab', () => {
     await openAccountSelectorWithMultipleItems(page)
     await page.getByText('Manage').nth(0).click()
     await page.getByText('Delete Account').click()
-    await page.getByRole('textbox').fill('foo')
+    await page.getByTestId('account-delete-confirmation-input').fill('foo')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
     expect(page.getByText("Type 'delete'")).toBeVisible()
-    await page.getByRole('textbox').fill('delete')
+    await page.getByTestId('account-delete-confirmation-input').fill('delete')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
     await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
     await expect(page.getByTestId('account-choice')).toHaveCount(3)
@@ -115,7 +128,7 @@ test.describe('My Accounts tab', () => {
     await openAccountSelectorWithMultipleItems(page)
     await page.getByText('Manage').nth(1).click()
     await page.getByText('Delete Account').click()
-    await page.getByRole('textbox').fill('delete')
+    await page.getByTestId('account-delete-confirmation-input').fill('delete')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
     await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
     await expect(page.getByTestId('account-choice')).toHaveCount(3)
