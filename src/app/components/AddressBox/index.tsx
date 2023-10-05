@@ -16,7 +16,6 @@ import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { Edit } from 'grommet-icons/es6/icons/Edit'
 import { memo, useState, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Wallet } from 'app/state/wallet/types'
 import { trimLongString } from '../ShortAddress/trimLongString'
 import { PrettyAddress } from '../PrettyAddress'
 
@@ -75,7 +74,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
         width="690px" // keep the same width for address and name variants
       >
         {copyToClipboard === 'icon' && (
-          <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address" />
+          <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address-icon" />
         )}
         <Box direction="row" flex={{ grow: 1 }}>
           {children}
@@ -87,7 +86,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
           label={trimLongString(address, 8, 6)}
           onClick={() => copyAddress()}
           icon={<Copy size="18px" color="currentColor" />}
-          data-testid="copy-address"
+          data-testid="copy-address-button"
           reverse
         />
       )}
@@ -135,30 +134,31 @@ export const AddressBox = memo((props: AddressBoxProps) => {
   )
 })
 
-interface EditableBoxProps {
+interface EditableAddressBoxProps {
   openEditModal: () => void
-  wallet: Wallet | undefined
+  address: string
 }
 
-export const EditableAddressBox = ({ openEditModal, wallet }: EditableBoxProps) => {
-  if (!wallet) {
-    return null
-  }
-  return (
-    <AddressBox address={wallet.address} separator>
-      <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
-    </AddressBox>
-  )
+export const EditableAddressBox = ({ address, openEditModal }: EditableAddressBoxProps) => (
+  <AddressBox address={address} separator>
+    <Button
+      onClick={openEditModal}
+      icon={<Edit color="link" size="16px" />}
+      data-testid="editable-address-edit-button"
+    />
+  </AddressBox>
+)
+
+interface EditableNameBoxProps extends EditableAddressBoxProps {
+  name: string
 }
 
-export const EditableNameBox = ({ openEditModal, wallet }: EditableBoxProps) => {
-  if (!wallet) {
-    return null
-  }
-  return (
-    <Container address={wallet.address} copyToClipboard="button" separator>
-      <TextWrapper>{wallet.name}</TextWrapper>
-      <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
-    </Container>
-  )
-}
+export const EditableNameBox = ({ address, openEditModal, name }: EditableNameBoxProps) => (
+  <Container address={address} copyToClipboard="button" separator>
+    <TextWrapper>{name}</TextWrapper>
+    <Button
+      onClick={openEditModal}
+      icon={<Edit color="link" size="16px" data-testid="editable-name-edit-button" />}
+    />
+  </Container>
+)

@@ -33,7 +33,7 @@ export const AccountSelector = memo((props: Props) => {
 
   const accounts = Object.values(wallets).map(wallet => (
     <ManageableAccount
-      editHandler={
+      editWallet={
         unlockedProfile
           ? (name: string) => {
               dispatch(walletActions.setWalletName({ address: wallet.address, name }))

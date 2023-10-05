@@ -33,7 +33,7 @@ interface ManageableAccountDetailsProps {
   closeHandler: () => void
   /** If undefined: delete button is disabled */
   deleteAccount: undefined | ((address: string) => void)
-  editHandler?: (name: string) => void
+  editAccount?: (name: string) => void
   wallet: Wallet
 }
 
@@ -41,7 +41,7 @@ export const ManageableAccountDetails = ({
   animation,
   closeHandler,
   deleteAccount,
-  editHandler,
+  editAccount,
   wallet,
 }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
@@ -76,10 +76,10 @@ export const ManageableAccountDetails = ({
             >
               <Form<FormValue>
                 onSubmit={({ value }) => {
-                  if (!editHandler) {
+                  if (!editAccount) {
                     return
                   }
-                  editHandler(value.name)
+                  editAccount(value.name)
                   closeHandler()
                 }}
                 value={value}
@@ -87,9 +87,9 @@ export const ManageableAccountDetails = ({
               >
                 <Box gap="medium">
                   <FormField
-                    disabled={!editHandler}
+                    disabled={!editAccount}
                     info={
-                      !editHandler ? (
+                      !editAccount ? (
                         <span>
                           <Trans
                             i18nKey="toolbar.settings.accountNamingNotAvailable"
@@ -121,7 +121,7 @@ export const ManageableAccountDetails = ({
                     }
                   >
                     <TextInput
-                      disabled={!editHandler}
+                      disabled={!editAccount}
                       name="name"
                       placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
                     />

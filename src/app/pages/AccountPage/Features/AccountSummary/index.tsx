@@ -107,7 +107,7 @@ export function AccountSummary({
   const ticker = useSelector(selectTicker)
   const unlockedStatus = useSelector(selectUnlockedStatus)
   const unlockedProfile = unlockedStatus === 'unlockedProfile'
-  const editHandler = (name: string) => {
+  const editAccount = (name: string) => {
     if (!wallet) {
       throw new Error('Wallet not provided')
     }
@@ -145,10 +145,14 @@ export function AccountSummary({
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
             {!unlockedProfile && <AddressBox address={address} separator />}
             {unlockedProfile && !wallet?.name && (
-              <EditableAddressBox wallet={wallet} openEditModal={() => setLayerVisibility(true)} />
+              <EditableAddressBox address={address} openEditModal={() => setLayerVisibility(true)} />
             )}
             {unlockedProfile && wallet?.name && (
-              <EditableNameBox wallet={wallet} openEditModal={() => setLayerVisibility(true)} />
+              <EditableNameBox
+                address={address}
+                openEditModal={() => setLayerVisibility(true)}
+                name={wallet.name}
+              />
             )}
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>
@@ -196,7 +200,7 @@ export function AccountSummary({
                 }
               : undefined
           }
-          editHandler={editHandler}
+          editAccount={editAccount}
           wallet={wallet}
         />
       )}

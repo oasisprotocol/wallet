@@ -4,13 +4,13 @@ import { ManageableAccountDetails } from './ManageableAccountDetails'
 import { Wallet } from '../../../../state/wallet/types'
 
 export const ManageableAccount = ({
-  editHandler,
+  editWallet,
   wallet,
   isActive,
   deleteWallet,
   selectWallet,
 }: {
-  editHandler?: (name: string) => void
+  editWallet?: (name: string) => void
   wallet: Wallet
   isActive: boolean
   deleteWallet?: (address: string) => void
@@ -42,7 +42,7 @@ export const ManageableAccount = ({
         <ManageableAccountDetails
           closeHandler={() => setLayerVisibility(false)}
           deleteAccount={handleDelete}
-          editHandler={editHandler}
+          editAccount={editWallet}
           wallet={wallet}
         />
       )}
