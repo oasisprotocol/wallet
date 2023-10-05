@@ -23,6 +23,7 @@ import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { DeleteAccount } from './DeleteAccount'
 
 interface ManageableAccountDetailsProps {
+  animation?: boolean
   closeHandler: () => void
   /** If undefined: delete button is disabled */
   deleteAccount: undefined | ((address: string) => void)
@@ -30,6 +31,7 @@ interface ManageableAccountDetailsProps {
 }
 
 export const ManageableAccountDetails = ({
+  animation,
   closeHandler,
   deleteAccount,
   wallet,
@@ -53,7 +55,7 @@ export const ManageableAccountDetails = ({
 
   return (
     <>
-      <LayerContainer hideLayer={closeHandler}>
+      <LayerContainer animation={animation} hideLayer={closeHandler}>
         <Tabs alignControls="start">
           <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
             <Box

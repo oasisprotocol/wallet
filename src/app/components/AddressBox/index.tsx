@@ -10,17 +10,18 @@ import { Text } from 'grommet/es6/components/Text'
 import { Notification } from 'grommet/es6/components/Notification'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { Edit } from 'grommet-icons/es6/icons/Edit'
-import { memo, useState } from 'react'
+import { memo, useState, ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
-
+import { Wallet } from 'app/state/wallet/types'
 import { PrettyAddress } from '../PrettyAddress'
 
-interface Props {
+interface AddressBoxProps {
   address: string
   border?: boolean
+  children?: ReactNode
 }
 
-export const AddressBox = memo((props: Props) => {
+export const AddressBox = memo((props: AddressBoxProps) => {
   const { t } = useTranslation()
   const [notificationVisible, setNotificationVisible] = useState(false)
 
@@ -47,7 +48,7 @@ export const AddressBox = memo((props: Props) => {
       <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
         <PrettyAddress address={address} />
       </Text>
-      <Button onClick={() => {}} icon={<Edit color="link" size="16 px" />} />
+      {props.children}
       {notificationVisible && (
         <Notification
           toast
@@ -59,3 +60,19 @@ export const AddressBox = memo((props: Props) => {
     </Box>
   )
 })
+
+interface EditableAddressBoxProps {
+  editHandler: () => void
+  wallet: Wallet | undefined
+}
+
+export const EditableAddressBox = ({ editHandler, wallet }: EditableAddressBoxProps) => {
+  if (!wallet) {
+    return null
+  }
+  return (
+    <AddressBox address={wallet.address}>
+      <Button onClick={editHandler} icon={<Edit color="link" size="16 px" />} />
+    </AddressBox>
+  )
+}
