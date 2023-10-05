@@ -1,5 +1,5 @@
 import styled, { ThemeContext } from 'styled-components'
-import { EditableAddressBox } from 'app/components/AddressBox'
+import { EditableAddressBox, EditableNameBox } from 'app/components/AddressBox'
 import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { AnchorLink } from 'app/components/AnchorLink'
@@ -10,7 +10,6 @@ import { QRCodeCanvas } from 'qrcode.react'
 import { useContext, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { normalizeColor } from 'grommet/es6/utils'
 
 import { BalanceDetails } from 'app/state/account/types'
 import { selectTicker } from 'app/state/network/selectors'
@@ -21,8 +20,6 @@ const StyledDescriptionList = styled.dl`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border-top: solid
-    ${({ theme }) => `${theme.global?.edgeSize?.hair} ${normalizeColor('background-front-border', theme)}`};
   margin: ${({ theme }) => theme.global?.edgeSize?.xsmall} 0 0;
   padding: ${({ theme }) =>
     `${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.xsmall}`};
@@ -139,8 +136,11 @@ export function AccountSummary({
       >
         <Box pad="small" direction="row-responsive" flex>
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            <EditableAddressBox wallet={wallet} editHandler={() => setLayerVisibility(true)} />
-
+            {wallet?.name ? (
+              <EditableNameBox wallet={wallet} editHandler={() => setLayerVisibility(true)} />
+            ) : (
+              <EditableAddressBox wallet={wallet} editHandler={() => setLayerVisibility(true)} />
+            )}
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>
                 <Text size={isMobile ? 'medium' : 'large'}>
