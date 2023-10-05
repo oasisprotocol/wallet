@@ -23,12 +23,17 @@ import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { DeleteAccount } from './DeleteAccount'
 
 interface ManageableAccountDetailsProps {
+  closeHandler: () => void
   /** If undefined: delete button is disabled */
   deleteAccount: undefined | ((address: string) => void)
   wallet: Wallet
 }
 
-export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAccountDetailsProps) => {
+export const ManageableAccountDetails = ({
+  closeHandler,
+  deleteAccount,
+  wallet,
+}: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
@@ -48,63 +53,82 @@ export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAc
 
   return (
     <>
-      <Box gap="medium">
-        <FormField
-          name="name"
-          validate={(name: string) =>
-            name.trim().length > 16
-              ? {
-                  message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
-                  status: 'error',
-                }
-              : undefined
-          }
-        >
-          <TextInput name="name" placeholder={t('toolbar.settings.optionalName', 'Name (optional)')} />
-        </FormField>
-        <Box>
-          <AddressBox address={wallet.address} border />
-          <Text size="small" margin={'small'}>
-            <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-          </Text>
-        </Box>
-        <Box justify="between" direction="row">
-          <Button
-            alignSelf="start"
-            label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
-            disabled={!wallet.privateKey}
-            onClick={() => setLayerVisibility(true)}
-          />
-
-          {deleteAccount ? (
-            <Button
-              plain
-              color="status-error"
-              label={t('toolbar.settings.delete.title', 'Delete Account')}
-              onClick={() => setDeleteLayerVisibility(true)}
-            />
-          ) : (
-            <Tip
-              content={t(
-                'toolbar.settings.delete.tooltip',
-                'You must have at least one account at all times.',
-              )}
-              dropProps={{ align: { bottom: 'top' } }}
+      <LayerContainer hideLayer={closeHandler}>
+        <Tabs alignControls="start">
+          <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
+            <Box
+              flex="grow"
+              justify="between"
+              height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
+              pad={{ vertical: 'medium' }}
             >
-              <Box>
-                <Button
-                  icon={<CircleInformation size="18px" color="status-error" />}
-                  disabled={true}
-                  plain
-                  color="status-error"
-                  label={t('toolbar.settings.delete.title', 'Delete Account')}
-                  onClick={() => setDeleteLayerVisibility(true)}
-                />
+              <Box gap="medium">
+                <FormField
+                  name="name"
+                  validate={(name: string) =>
+                    name.trim().length > 16
+                      ? {
+                          message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
+                          status: 'error',
+                        }
+                      : undefined
+                  }
+                >
+                  <TextInput
+                    name="name"
+                    placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
+                  />
+                </FormField>
+                <Box>
+                  <AddressBox address={wallet.address} border />
+                  <Text size="small" margin={'small'}>
+                    <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
+                  </Text>
+                </Box>
+                <Box justify="between" direction="row">
+                  <Button
+                    alignSelf="start"
+                    label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
+                    disabled={!wallet.privateKey}
+                    onClick={() => setLayerVisibility(true)}
+                  />
+
+                  {deleteAccount ? (
+                    <Button
+                      plain
+                      color="status-error"
+                      label={t('toolbar.settings.delete.title', 'Delete Account')}
+                      onClick={() => setDeleteLayerVisibility(true)}
+                    />
+                  ) : (
+                    <Tip
+                      content={t(
+                        'toolbar.settings.delete.tooltip',
+                        'You must have at least one account at all times.',
+                      )}
+                      dropProps={{ align: { bottom: 'top' } }}
+                    >
+                      <Box>
+                        <Button
+                          icon={<CircleInformation size="18px" color="status-error" />}
+                          disabled={true}
+                          plain
+                          color="status-error"
+                          label={t('toolbar.settings.delete.title', 'Delete Account')}
+                          onClick={() => setDeleteLayerVisibility(true)}
+                        />
+                      </Box>
+                    </Tip>
+                  )}
+                </Box>
               </Box>
-            </Tip>
-          )}
-        </Box>
-      </Box>
+              <Box direction="row" justify="between" pad={{ top: 'large' }}>
+                <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={closeHandler} />
+              </Box>
+            </Box>
+          </Tab>
+        </Tabs>
+      </LayerContainer>
       {layerVisibility && (
         <LayerContainer hideLayer={hideLayer}>
           <Tabs alignControls="start">
