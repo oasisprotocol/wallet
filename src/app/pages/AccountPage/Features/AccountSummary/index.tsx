@@ -90,6 +90,7 @@ export interface AccountSummaryProps {
   address: string
   balance: BalanceDetails
   deleteWallet?: (address: string) => void
+  editHandler: (name: string) => void
   walletHasAccounts?: boolean
   wallet?: Wallet
 }
@@ -98,6 +99,7 @@ export function AccountSummary({
   address,
   balance,
   deleteWallet,
+  editHandler,
   wallet,
   walletHasAccounts,
 }: AccountSummaryProps) {
@@ -185,6 +187,7 @@ export function AccountSummary({
                 }
               : undefined
           }
+          editHandler={editHandler}
           wallet={wallet}
         />
       )}

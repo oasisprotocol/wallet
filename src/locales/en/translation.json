@@ -449,6 +449,7 @@
       "nameLengthError": "No more than 16 characters",
       "optionalName": "Name (optional)",
       "profile": "Profile",
+      "save": "Save",
       "settings": "Settings"
     },
     "wallets": {

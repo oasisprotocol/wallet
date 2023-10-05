@@ -4,11 +4,13 @@ import { ManageableAccountDetails } from './ManageableAccountDetails'
 import { Wallet } from '../../../../state/wallet/types'
 
 export const ManageableAccount = ({
+  editHandler,
   wallet,
   isActive,
   deleteWallet,
   selectWallet,
 }: {
+  editHandler: (name: string) => void
   wallet: Wallet
   isActive: boolean
   deleteWallet?: (address: string) => void
@@ -34,11 +36,13 @@ export const ManageableAccount = ({
         displayManageButton={{
           onClickManage: () => setLayerVisibility(true),
         }}
+        name={wallet.name}
       />
       {layerVisibility && (
         <ManageableAccountDetails
           closeHandler={() => setLayerVisibility(false)}
           deleteAccount={handleDelete}
+          editHandler={editHandler}
           wallet={wallet}
         />
       )}
