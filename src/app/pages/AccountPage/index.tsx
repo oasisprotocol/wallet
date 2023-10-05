@@ -94,12 +94,7 @@ export function AccountPage(props: AccountPageProps) {
         ? null
         : (BigInt(account.available) + balanceDelegations + balanceDebondingDelegations).toString(),
   }
-  const editWalletHandler = (name: string) => {
-    if (!wallet) {
-      return
-    }
-    dispatch(walletActions.setWalletName({ address: wallet.address, name }))
-  }
+
   // Restart fetching account balances if address or network changes
   useEffect(() => {
     dispatch(accountActions.openAccountPage(address))
@@ -147,7 +142,6 @@ export function AccountPage(props: AccountPageProps) {
                     wallet!.address === address && dispatch(walletActions.selectFirstWallet())
                   }
             }
-            editHandler={editWalletHandler}
             wallet={wallet}
             walletHasAccounts={walletHasAccounts}
           />

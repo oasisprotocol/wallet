@@ -100,28 +100,23 @@ export const AddressBox = memo((props: AddressBoxProps) => {
   )
 })
 
-interface EditableAddressBoxProps {
-  editHandler: () => void
+interface EditableBoxProps {
+  openEditModal: () => void
   wallet: Wallet | undefined
 }
 
-export const EditableAddressBox = ({ editHandler, wallet }: EditableAddressBoxProps) => {
+export const EditableAddressBox = ({ openEditModal, wallet }: EditableBoxProps) => {
   if (!wallet) {
     return null
   }
   return (
     <AddressBox address={wallet.address}>
-      <Button onClick={editHandler} icon={<Edit color="link" size="16px" />} />
+      <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
     </AddressBox>
   )
 }
 
-interface EditableNameBoxProps {
-  editHandler: () => void
-  wallet: Wallet | undefined
-}
-
-export const EditableNameBox = ({ editHandler, wallet }: EditableNameBoxProps) => {
+export const EditableNameBox = ({ openEditModal, wallet }: EditableBoxProps) => {
   if (!wallet) {
     return null
   }
@@ -130,7 +125,7 @@ export const EditableNameBox = ({ editHandler, wallet }: EditableNameBoxProps) =
       <Text weight="bold" size="medium" wordBreak="break-word" style={{ flex: 1 }}>
         {wallet.name}
       </Text>
-      <Button onClick={editHandler} icon={<Edit color="link" size="16px" />} />
+      <Button onClick={openEditModal} icon={<Edit color="link" size="16px" />} />
     </Container>
   )
 }

@@ -429,6 +429,7 @@
       }
     },
     "settings": {
+      "accountNamingNotAvailable": "To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "cancel": "Cancel",
       "contacts": "Contacts",
       "delete": {

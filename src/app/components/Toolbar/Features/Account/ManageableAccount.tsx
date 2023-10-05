@@ -10,7 +10,7 @@ export const ManageableAccount = ({
   deleteWallet,
   selectWallet,
 }: {
-  editHandler: (name: string) => void
+  editHandler?: (name: string) => void
   wallet: Wallet
   isActive: boolean
   deleteWallet?: (address: string) => void

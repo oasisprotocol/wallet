@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import copy from 'copy-to-clipboard'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
@@ -13,7 +14,7 @@ import { TextInput } from 'grommet/es6/components/TextInput'
 import { Tip } from 'grommet/es6/components/Tip'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { NoTranslate } from 'app/components/NoTranslate'
 import { Wallet } from '../../../../state/wallet/types'
 import { DerivationFormatter } from './DerivationFormatter'
@@ -32,7 +33,7 @@ interface ManageableAccountDetailsProps {
   closeHandler: () => void
   /** If undefined: delete button is disabled */
   deleteAccount: undefined | ((address: string) => void)
-  editHandler: (name: string) => void
+  editHandler?: (name: string) => void
   wallet: Wallet
 }
 
@@ -44,6 +45,7 @@ export const ManageableAccountDetails = ({
   wallet,
 }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
@@ -74,6 +76,9 @@ export const ManageableAccountDetails = ({
             >
               <Form<FormValue>
                 onSubmit={({ value }) => {
+                  if (!editHandler) {
+                    return
+                  }
                   editHandler(value.name)
                   closeHandler()
                 }}
@@ -82,6 +87,29 @@ export const ManageableAccountDetails = ({
               >
                 <Box gap="medium">
                   <FormField
+                    disabled={!editHandler}
+                    info={
+                      !editHandler ? (
+                        <span>
+                          <Trans
+                            i18nKey="toolbar.settings.accountNamingNotAvailable"
+                            t={t}
+                            components={{
+                              OpenWalletButton: (
+                                <Button
+                                  color="link"
+                                  onClick={() => {
+                                    closeHandler()
+                                    navigate('/open-wallet')
+                                  }}
+                                />
+                              ),
+                            }}
+                            defaults="To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>."
+                          />
+                        </span>
+                      ) : undefined
+                    }
                     name="name"
                     validate={(name: string) =>
                       name.trim().length > 16
@@ -93,6 +121,7 @@ export const ManageableAccountDetails = ({
                     }
                   >
                     <TextInput
+                      disabled={!editHandler}
                       name="name"
                       placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
                     />
