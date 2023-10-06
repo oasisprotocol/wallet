@@ -39,7 +39,7 @@ export function App() {
           <meta name="description" content="A wallet for Oasis" />
         </Helmet>
         {!isMobile && <BuildBanner />}
-        <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100vh' }}>
+        <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100dvh' }}>
           <PersistLoadingGate>
             <UnlockGate>
               <Navigation />
