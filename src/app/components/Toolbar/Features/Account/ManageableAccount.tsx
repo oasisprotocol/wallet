@@ -5,12 +5,14 @@ import { Wallet } from '../../../../state/wallet/types'
 
 export const ManageableAccount = ({
   editWallet,
+  closeHandler,
   wallet,
   isActive,
   deleteWallet,
   selectWallet,
 }: {
   editWallet?: (name: string) => void
+  closeHandler: () => any
   wallet: Wallet
   isActive: boolean
   deleteWallet?: (address: string) => void
@@ -40,6 +42,7 @@ export const ManageableAccount = ({
       />
       {layerVisibility && (
         <ManageableAccountDetails
+          closeParentHandler={closeHandler}
           closeHandler={() => setLayerVisibility(false)}
           deleteAccount={handleDelete}
           editAccount={editWallet}

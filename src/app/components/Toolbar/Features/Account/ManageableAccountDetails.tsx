@@ -31,6 +31,7 @@ interface FormValue {
 interface ManageableAccountDetailsProps {
   animation?: boolean
   closeHandler: () => void
+  closeParentHandler?: () => void
   /** If undefined: delete button is disabled */
   deleteAccount: undefined | ((address: string) => void)
   editAccount?: (name: string) => void
@@ -40,6 +41,7 @@ interface ManageableAccountDetailsProps {
 export const ManageableAccountDetails = ({
   animation,
   closeHandler,
+  closeParentHandler,
   deleteAccount,
   editAccount,
   wallet,
@@ -99,7 +101,7 @@ export const ManageableAccountDetails = ({
                                 <Button
                                   color="link"
                                   onClick={() => {
-                                    closeHandler()
+                                    closeParentHandler ? closeParentHandler() : closeHandler()
                                     navigate('/open-wallet')
                                   }}
                                 />
