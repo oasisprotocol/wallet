@@ -131,7 +131,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-top: 24px;
 }
 
 .c1 {
@@ -341,12 +340,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c11 {
-    padding-top: 12px;
   }
 }
 
