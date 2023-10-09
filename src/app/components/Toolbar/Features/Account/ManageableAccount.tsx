@@ -1,5 +1,6 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
+import { Close } from 'grommet-icons/es6/icons/Close'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
@@ -48,7 +49,18 @@ export const ManageableAccount = ({
           position="top"
           margin={isMobile ? 'none' : 'xlarge'}
         >
-          <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
+          <Box
+            margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}
+            width={isMobile ? 'auto' : '700px'}
+          >
+            <Box align="end">
+              <Button
+                data-testid="close-settings-modal"
+                onClick={() => setLayerVisibility(false)}
+                secondary
+                icon={<Close size="18px" />}
+              />
+            </Box>
             <Tabs alignControls="start">
               <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
                 <Box margin={{ vertical: 'medium' }}>
