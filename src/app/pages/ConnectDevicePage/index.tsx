@@ -62,7 +62,7 @@ export function ConnectDevicePage() {
 
   return (
     <Box
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: '100dvh' }}
       justify="center"
       align="center"
       pad="medium"

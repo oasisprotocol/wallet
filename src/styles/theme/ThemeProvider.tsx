@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 
 import { selectTheme } from './slice/selectors'
 import { dataTableTheme } from './dataTableTheme'
+import { css } from 'styled-components'
 
 /**
  * React-data-table by default sets its own background and text colors
@@ -203,13 +204,57 @@ const grommetCustomTheme: ThemeType = {
       },
     },
   },
+  layer: {
+    /**
+     * Replace 100vh with 100dvh in https://github.com/grommet/grommet/blob/9e1ef40/src/js/components/Layer/StyledLayer.js
+     * to fix scrolling to bottom despite URL bar on phones. Note: doesn't reliably reproduce on dev server.
+     */
+    extend: props => {
+      if (props.responsive && props.theme!.layer!.responsiveBreakpoint) {
+        const breakpoint = props.theme!.global!.breakpoints![props.theme!.layer!.responsiveBreakpoint]!
+        return css`
+          @media only screen and (max-width: ${breakpoint.value}px) {
+            min-height: 100dvh;
+          }
+        `
+      }
+      return css``
+    },
+    container: {
+      extend: props => {
+        if (props.responsive && props.theme!.layer!.responsiveBreakpoint) {
+          const breakpoint = props.theme!.global!.breakpoints![props.theme!.layer!.responsiveBreakpoint]!
+          return css`
+            @media only screen and (max-width: ${breakpoint.value}px) {
+              height: 100dvh;
+            }
+          `
+        }
+        return css``
+      },
+    },
+  },
+  grommet: {
+    /**
+     * Replace 100vh with 100dvh in https://github.com/grommet/grommet/blob/9e1ef40/src/js/components/Grommet/StyledGrommet.js
+     * to fix scrolling to bottom despite URL bar on phones. Note: doesn't reliably reproduce on dev server.
+     */
+    extend: props => {
+      if (props.full) {
+        return css`
+          height: 100dvh;
+        `
+      }
+      return css``
+    },
+  },
 }
 export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const theme = deepMerge(grommet, grommetCustomTheme)
   const mode = useSelector(selectTheme)
 
   return (
-    <Grommet theme={theme} themeMode={mode} style={{ minHeight: '100vh' }}>
+    <Grommet theme={theme} themeMode={mode} style={{ minHeight: '100dvh' }}>
       {React.Children.only(props.children)}
     </Grommet>
   )

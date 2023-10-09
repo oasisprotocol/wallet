@@ -27,7 +27,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
       fill={true}
       style={
         {
-          "minHeight": "100vh",
+          "minHeight": "100dvh",
         }
       }
     >

@@ -664,6 +664,12 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+  .c1 {
+    min-height: 100dvh;
+  }
+}
+
+@media only screen and (max-width:768px) {
   .c2 {
     position: relative;
   }
@@ -680,13 +686,19 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   }
 }
 
+@media only screen and (max-width:768px) {
+  .c3 {
+    height: 100dvh;
+  }
+}
+
 <body
   style=""
 >
   <div>
     <div
       class="c0"
-      style="min-height: 100vh;"
+      style="min-height: 100dvh;"
     />
   </div>
   <div>

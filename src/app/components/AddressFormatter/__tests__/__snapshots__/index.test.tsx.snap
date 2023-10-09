@@ -62,7 +62,7 @@ exports[`<AddressFormatter  /> should match snapshot 1`] = `
 
 <div
   class="c0"
-  style="min-height: 100vh;"
+  style="min-height: 100dvh;"
 >
   <div
     class="c1 c2"

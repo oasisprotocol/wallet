@@ -332,7 +332,7 @@ exports[`<Account  /> should match snapshot 1`] = `
   <div>
     <div
       class="c0"
-      style="min-height: 100vh;"
+      style="min-height: 100dvh;"
     >
       <div
         aria-checked="false"
