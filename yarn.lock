@@ -3822,10 +3822,10 @@
   resolved "https://registry.yarnpkg.com/@types/valid-url/-/valid-url-1.0.5.tgz#452a8d2aa8206cd3c9f658496d8370d3a54f4f2a"
   integrity sha512-B7W2w+MHjn/lZB6WmCedyQgpIWa81dpEJD/rXkoYKOGJk0xsxgNWRXeGYMgY6ESvMxIPGfPq4lYbAgbj3hbLew==
 
-"@types/w3c-web-usb@1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@types/w3c-web-usb/-/w3c-web-usb-1.0.7.tgz#eca6346e80ec5eb1eb89778ebc4cf0bb709e4d51"
-  integrity sha512-PCKxgvnJ8wo2gCW8o96CmxDqG2okgsNDfa2xBCbHKvdmPRBTBLz6ClyRXtU+ylwvsqTYaLtJoxnGRG8nkcjd9A==
+"@types/w3c-web-usb@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@types/w3c-web-usb/-/w3c-web-usb-1.0.8.tgz#c593fef468b6e6051209c8aa89d1ead08005e23d"
+  integrity sha512-ouEoUTyB27wFXUUyl0uKIE6VkeCczDtazWTiZGD1M4onceJnp8KnHDf7CzLbpwzek2ZFWXTC5KrNDRc9q/Jf6Q==
 
 "@types/webextension-polyfill@0.10.4":
   version "0.10.4"
