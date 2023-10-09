@@ -3,16 +3,13 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
-import { Text } from 'grommet/es6/components/Text'
 import { useTranslation } from 'react-i18next'
 import { Account } from './Account'
 import { Wallet } from '../../../../state/wallet/types'
 import { Tabs } from 'grommet/es6/components/Tabs'
-import { DerivationFormatter } from './DerivationFormatter'
-import { uintToBase64, hex2uint } from '../../../../lib/helpers'
-import { AddressBox } from '../../../AddressBox'
 import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
+import { ManageableAccountDetails } from './ManageableAccountDetails'
 
 export const ManageableAccount = ({
   wallet,
@@ -50,23 +47,7 @@ export const ManageableAccount = ({
                 height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
                 pad={{ vertical: 'medium' }}
               >
-                <Box>
-                  <AddressBox address={wallet.address} border />
-                  <Text size="small" margin={'small'}>
-                    <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-                  </Text>
-                  <Button
-                    alignSelf="start"
-                    label={t('toolbar.settings.exportPrivateKey', 'Export Private Key')}
-                    disabled={!wallet.privateKey}
-                    onClick={() => {
-                      prompt(
-                        t('toolbar.settings.exportPrivateKey', 'Export Private Key'),
-                        uintToBase64(hex2uint(wallet.privateKey!)),
-                      )
-                    }}
-                  />
-                </Box>
+                <ManageableAccountDetails wallet={wallet} />
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
                     secondary
