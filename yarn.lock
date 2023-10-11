@@ -3763,10 +3763,10 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/redux-state-sync@3.1.6":
-  version "3.1.6"
-  resolved "https://registry.yarnpkg.com/@types/redux-state-sync/-/redux-state-sync-3.1.6.tgz#ec75a42b1fce4a531ec683ba53f09bc609c04b7f"
-  integrity sha512-vYd8fb3tZOtZimz1irsF8t1gaEKywhGjujG/I9KTnGdViWZRWG7GyJ6spULKXG1YpxCxrnLGYREaNyOMgAjZzw==
+"@types/redux-state-sync@3.1.7":
+  version "3.1.7"
+  resolved "https://registry.yarnpkg.com/@types/redux-state-sync/-/redux-state-sync-3.1.7.tgz#1cc577abb6d18421779a4fbfb4b9f827bf332e9f"
+  integrity sha512-4DUjIjp264D+N4p7fCEbUV+DkGgzt4qgyPaj2ONGn0ZA2E8xVrRhmW4bnF/ga+G+GoYIN9XtkEUJ5VT9N0lplg==
   dependencies:
     broadcast-channel "^2.1.8"
     redux "^4.0.1"
