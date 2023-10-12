@@ -19,6 +19,7 @@ import {
 } from 'redux-state-sync'
 import { RootState } from 'types'
 import { SyncedRootState } from 'app/state/persist/types'
+import { evmAccountsActions } from '../evmAccounts'
 
 /**
  * When opening a second tab it initially syncs these state slices.
@@ -48,6 +49,8 @@ export const whitelistTabSyncActions = [
   contactsActions.add.type,
   contactsActions.update.type,
   contactsActions.delete.type,
+  evmAccountsActions.add.type,
+  evmAccountsActions.delete.type,
   themeActions.changeTheme.type,
   walletActions.walletOpened.type,
   walletActions.updateBalance.type,
