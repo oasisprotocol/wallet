@@ -36,7 +36,15 @@ export function ResponsiveLayer(props: LayerExtendedProps) {
 
   return (
     <Layer {...props} ref={layerRef} style={{ overflowY: 'auto', ...props.style }}>
-      <Box fill={isMobile}>{props.children}</Box>
+      <Box
+        // Prevents Grommet flex overlap issue in smaller viewport
+        flex={{ shrink: 0 }}
+        style={{
+          minHeight: isMobile ? '100dvh' : 'auto',
+        }}
+      >
+        {props.children}
+      </Box>
     </Layer>
   )
 }

@@ -1,7 +1,7 @@
 import { useContext, ReactNode } from 'react'
 import { Box } from 'grommet/es6/components/Box'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { mobileScrollableAreaHeight, layerScrollableAreaHeight } from '../layer'
+import { layerScrollableAreaHeight } from '../layer'
 
 interface ScrollableContainerProps {
   children: ReactNode
@@ -15,7 +15,8 @@ export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
       gap="small"
       pad={{ vertical: 'medium', right: 'small' }}
       overflow={{ vertical: 'auto' }}
-      height={isMobile ? mobileScrollableAreaHeight : layerScrollableAreaHeight}
+      style={{ maxHeight: layerScrollableAreaHeight }}
+      margin={{ bottom: isMobile ? 'large' : 'none' }}
     >
       {children}
     </Box>
