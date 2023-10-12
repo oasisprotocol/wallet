@@ -109,6 +109,7 @@ export function receivePersistedRootState(
   return {
     ...prevState,
     contacts: persistedRootState.contacts,
+    evmAccounts: persistedRootState.evmAccounts,
     theme: persistedRootState.theme,
     wallet: persistedRootState.wallet,
     network: persistedRootState.network,

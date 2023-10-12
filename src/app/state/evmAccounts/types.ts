@@ -1,0 +1,3 @@
+/* --- STATE --- */
+export interface EvmAccounts {
+}

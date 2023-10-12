@@ -31,6 +31,7 @@ export function receiveInitialTabSyncState(
     ...prevState,
     theme: initialSyncState.theme,
     wallet: initialSyncState.wallet,
+    evmAccounts: initialSyncState.evmAccounts,
     contacts: initialSyncState.contacts,
     network: initialSyncState.network,
     persist: initialSyncState.persist,
@@ -66,6 +67,7 @@ const stateSyncConfig: StateSyncConfig = {
   prepareState: (state: RootState): SyncedRootState => {
     return {
       contacts: state.contacts,
+      evmAccounts: state.evmAccounts,
       theme: state.theme,
       wallet: state.wallet,
       network: state.network,
