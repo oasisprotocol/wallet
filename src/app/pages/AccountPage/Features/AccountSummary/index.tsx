@@ -106,7 +106,7 @@ export function AccountSummary({
   const isMobile = useContext(ResponsiveContext) === 'small'
   const ticker = useSelector(selectTicker)
   const unlockedStatus = useSelector(selectUnlockedStatus)
-  const unlockedProfile = unlockedStatus === 'unlockedProfile'
+  const canEditName = unlockedStatus === 'unlockedProfile' && address === wallet?.address
   const editAccount = (name: string) => {
     if (!wallet) {
       throw new Error('Wallet not provided')
@@ -143,11 +143,11 @@ export function AccountSummary({
       >
         <Box pad="small" direction="row-responsive" flex justify="between">
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            {!unlockedProfile && <AddressBox address={address} separator />}
-            {unlockedProfile && !wallet?.name && (
+            {!canEditName && <AddressBox address={address} separator />}
+            {canEditName && !wallet?.name && (
               <EditableAddressBox address={address} openEditModal={() => setLayerVisibility(true)} />
             )}
-            {unlockedProfile && wallet?.name && (
+            {canEditName && wallet?.name && (
               <EditableNameBox
                 address={address}
                 openEditModal={() => setLayerVisibility(true)}
@@ -188,7 +188,7 @@ export function AccountSummary({
           )}
         </Box>
       </Box>
-      {layerVisibility && wallet && unlockedProfile && (
+      {layerVisibility && wallet && canEditName && (
         <ManageableAccountDetails
           animation
           closeHandler={() => setLayerVisibility(false)}
