@@ -1825,14 +1825,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-3.0.0.tgz#798622546b63847e82389e473fd67f2707d82247"
   integrity sha512-hBI9tfBtuPIi885ZsZ32IMEU/5nlZH/KOVYJCOh7gyMxaVLGmLedYqFN6Ui1LXkI8JlC8IsuC0rF0btcRZKd5g==
 
-"@cypress/code-coverage@3.12.3":
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.12.3.tgz#55cd019585bea7e80f75e3a266a0367f9e5b66f7"
-  integrity sha512-XPz25Z6BShSkLpfvFX3dNJSSM/98d2vN0H4MM1hA0PMjKW1QzdsczY6p+gVFyeDBoogFdSdNf8pbMTohCXYJFQ==
+"@cypress/code-coverage@3.12.4":
+  version "3.12.4"
+  resolved "https://registry.yarnpkg.com/@cypress/code-coverage/-/code-coverage-3.12.4.tgz#f4824be6827bc27626eaa2c7375609654834b05f"
+  integrity sha512-5uwsZpUd4iMCHESZLHZmnWhLFws3LKhto1VsdfXTiI8NPlDxpXF93k2ixehG9uQr7SSYEUJmdKipHSQmn4CidQ==
   dependencies:
     "@cypress/webpack-preprocessor" "^6.0.0"
     chalk "4.1.2"
-    dayjs "1.11.9"
+    dayjs "1.11.10"
     debug "4.3.4"
     execa "4.1.0"
     globby "11.0.4"
@@ -5412,10 +5412,10 @@ data-urls@^3.0.2:
     whatwg-mimetype "^3.0.0"
     whatwg-url "^11.0.0"
 
-dayjs@1.11.9:
-  version "1.11.9"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.9.tgz#9ca491933fadd0a60a2c19f6c237c03517d71d1a"
-  integrity sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==
+dayjs@1.11.10:
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 dayjs@^1.10.4:
   version "1.11.7"
