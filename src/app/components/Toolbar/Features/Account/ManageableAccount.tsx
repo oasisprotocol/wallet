@@ -1,17 +1,15 @@
+import { useContext, useState } from 'react'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
-import { Tab } from 'grommet/es6/components/Tab'
-import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { useContext, useState } from 'react'
+import { Tab } from 'grommet/es6/components/Tab'
 import { useTranslation } from 'react-i18next'
 import { Account } from './Account'
 import { Wallet } from '../../../../state/wallet/types'
-import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { Tabs } from 'grommet/es6/components/Tabs'
-import { DerivationFormatter } from './DerivationFormatter'
-import { uintToBase64, hex2uint } from '../../../../lib/helpers'
-import { AddressBox } from '../../../AddressBox'
+import { layerOverlayMinHeight } from '../layer'
+import { LayerContainer } from './../LayerContainer'
+import { ManageableAccountDetails } from './ManageableAccountDetails'
 
 export const ManageableAccount = ({
   wallet,
@@ -25,6 +23,7 @@ export const ManageableAccount = ({
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
+
   return (
     <>
       <Account
@@ -39,34 +38,16 @@ export const ManageableAccount = ({
         }}
       />
       {layerVisibility && (
-        <ResponsiveLayer
-          onClickOutside={() => setLayerVisibility(false)}
-          onEsc={() => setLayerVisibility(false)}
-          animation="none"
-          background="background-front"
-          modal
-          position="top"
-          margin={isMobile ? 'none' : 'xlarge'}
-        >
-          <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
-            <Tabs alignControls="start">
-              <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-                <Box margin={{ vertical: 'medium' }}>
-                  <AddressBox address={wallet.address} border />
-                  <Text size="small" margin={'small'}>
-                    <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-                  </Text>
-                </Box>
-                <Button
-                  label={t('toolbar.settings.exportPrivateKey', 'Export Private Key')}
-                  disabled={!wallet.privateKey}
-                  onClick={() => {
-                    prompt(
-                      t('toolbar.settings.exportPrivateKey', 'Export Private Key'),
-                      uintToBase64(hex2uint(wallet.privateKey!)),
-                    )
-                  }}
-                />
+        <LayerContainer hideLayer={() => setLayerVisibility(false)}>
+          <Tabs alignControls="start">
+            <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
+              <Box
+                flex="grow"
+                justify="between"
+                height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
+                pad={{ vertical: 'medium' }}
+              >
+                <ManageableAccountDetails wallet={wallet} />
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
                     secondary
@@ -74,10 +55,10 @@ export const ManageableAccount = ({
                     onClick={() => setLayerVisibility(false)}
                   />
                 </Box>
-              </Tab>
-            </Tabs>
-          </Box>
-        </ResponsiveLayer>
+              </Box>
+            </Tab>
+          </Tabs>
+        </LayerContainer>
       )}
     </>
   )

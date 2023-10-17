@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { password } from '../utils/test-inputs'
+import { password, privateKey } from '../utils/test-inputs'
 import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
@@ -51,5 +51,17 @@ test.describe('Profile tab', () => {
     await page.getByRole('button', { name: /Unlock/ }).click()
     await expect(page.getByText('Loading', { exact: true })).toBeVisible()
     await expect(page.getByText('Loading', { exact: true })).toBeHidden()
+  })
+})
+
+test.describe('My Accounts tab', () => {
+  test('should get a private key', async ({ page }) => {
+    await page.goto('/open-wallet/private-key')
+    await fillPrivateKeyAndPassword(page)
+    await page.getByTestId('account-selector').click()
+    await page.getByText('Manage').click()
+    await page.getByText('Export Private Key').click()
+    await page.getByText('I understand, reveal my private key').click()
+    await expect(page.getByText(privateKey)).toBeVisible()
   })
 })

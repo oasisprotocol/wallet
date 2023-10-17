@@ -7,9 +7,9 @@ import { Tab } from 'grommet/es6/components/Tab'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
-import { ResponsiveLayer } from '../../../ResponsiveLayer'
 import { ContactAccountForm } from './ContactAccountForm'
 import { layerOverlayMinHeight } from '../layer'
+import { LayerContainer } from '../LayerContainer'
 
 interface AddContactProps {
   setLayerVisibility: (isVisible: boolean) => void
@@ -22,35 +22,25 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
   const submitHandler = (contact: Contact) => dispatch(contactsActions.add(contact))
 
   return (
-    <ResponsiveLayer
-      onClickOutside={() => setLayerVisibility(false)}
-      onEsc={() => setLayerVisibility(false)}
-      animation="none"
-      background="background-front"
-      modal
-      position="top"
-      margin={isMobile ? 'none' : 'xlarge'}
-    >
-      <Box margin="medium" width={isMobile ? 'auto' : '700px'}>
-        <Tabs alignControls="start">
-          <Tab title={t('toolbar.contacts.add', 'Add Contact')} style={{ textTransform: 'capitalize' }}>
-            <Box
-              flex="grow"
-              justify="center"
-              height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
-              pad={{ vertical: 'medium' }}
-            >
-              <ContactAccountForm
-                onCancel={() => setLayerVisibility(false)}
-                onSave={contract => {
-                  submitHandler(contract)
-                  setLayerVisibility(false)
-                }}
-              />
-            </Box>
-          </Tab>
-        </Tabs>
-      </Box>
-    </ResponsiveLayer>
+    <LayerContainer hideLayer={() => setLayerVisibility(false)}>
+      <Tabs alignControls="start">
+        <Tab title={t('toolbar.contacts.add', 'Add Contact')} style={{ textTransform: 'capitalize' }}>
+          <Box
+            flex="grow"
+            justify="center"
+            height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
+            pad={{ vertical: 'medium' }}
+          >
+            <ContactAccountForm
+              onCancel={() => setLayerVisibility(false)}
+              onSave={contract => {
+                submitHandler(contract)
+                setLayerVisibility(false)
+              }}
+            />
+          </Box>
+        </Tab>
+      </Tabs>
+    </LayerContainer>
   )
 }

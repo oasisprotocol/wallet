@@ -78,7 +78,7 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
           ))}
         </ScrollableContainer>
       )}
-      <Box align="center">
+      <Box align="end">
         <Button
           primary
           label={t('toolbar.contacts.add', 'Add contact')}

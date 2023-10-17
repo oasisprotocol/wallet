@@ -30,6 +30,11 @@
       "send": "Send",
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account."
     },
+    "settings": {
+      "exportPrivateKey": {
+        "copied": "Private key copied."
+      }
+    },
     "subnavigation": {
       "activeDelegations": "Active delegations",
       "debondingDelegations": "Debonding delegations",
@@ -428,8 +433,12 @@
     "settings": {
       "cancel": "Cancel",
       "contacts": "Contacts",
-      "exportPrivateKey": "Export Private Key",
-      "lock": "Lock",
+      "exportPrivateKey": {
+        "confirm": "I understand, reveal my private key",
+        "hint1": "The private key consists of a string of characters, and owning the private key is equivalent to owning the asset ownership.",
+        "hint2": "Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.",
+        "title": "Export Private Key"
+      },
       "manageAccount": "Manage",
       "myAccountsTab": "My Accounts",
       "profile": "Profile",
