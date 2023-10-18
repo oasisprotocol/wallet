@@ -66,7 +66,7 @@ export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsPro
                   <Text>
                     {t(
                       'toolbar.settings.exportPrivateKey.hint1',
-                      'The private key consists of a string of characters, and owning the private key is equivalent to owning the asset ownership.',
+                      'The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.',
                     )}
                   </Text>
                   <Text>

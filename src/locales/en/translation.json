@@ -435,7 +435,7 @@
       "contacts": "Contacts",
       "exportPrivateKey": {
         "confirm": "I understand, reveal my private key",
-        "hint1": "The private key consists of a string of characters, and owning the private key is equivalent to owning the asset ownership.",
+        "hint1": "The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.",
         "hint2": "Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.",
         "title": "Export Private Key"
       },
