@@ -3617,10 +3617,10 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-when@3.5.3":
-  version "3.5.3"
-  resolved "https://registry.yarnpkg.com/@types/jest-when/-/jest-when-3.5.3.tgz#c5568ac23e39e8a11e9efbd0844a3b96d0a9f3be"
-  integrity sha512-gJWLSCRWEkPHYXYjjrxEMfWopoA2bl9nUbwDomxIzRXfe0gLkmSDPD0lLcoAiO2RDpXDoHSeigy/rNa/ja0MfQ==
+"@types/jest-when@3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@types/jest-when/-/jest-when-3.5.4.tgz#141e091104309d4016f510a67a7715a9c99ef826"
+  integrity sha512-4oMnD6AVq1WL+RhVDKgRH5K8+S8q/8bXsLN6LBMqhK/JL54YDRNpMLBN+prjcdNuBVGCKxQ3VUWa/50JG7TWIA==
   dependencies:
     "@types/jest" "*"
 
@@ -3632,10 +3632,10 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/jest@29.5.5":
-  version "29.5.5"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.5.tgz#727204e06228fe24373df9bae76b90f3e8236a2a"
-  integrity sha512-ebylz2hnsWR9mYvmBFbXJXr+33UPc4+ZdxyDXh5w0FlPBTfCVN3wPL+kuOiQt3xvrK419v7XWeAs+AeOksafXg==
+"@types/jest@29.5.6":
+  version "29.5.6"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.6.tgz#f4cf7ef1b5b0bfc1aa744e41b24d9cc52533130b"
+  integrity sha512-/t9NnzkOpXb4Nfvg17ieHE6EeSjDS2SGSpNYfoLbUAeL/EOueU/RSdOWFpfQTXBEM7BguYW1XQ0EbM+6RlIh6w==
   dependencies:
     expect "^29.0.0"
     pretty-format "^29.0.0"
