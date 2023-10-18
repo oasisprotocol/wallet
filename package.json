@@ -24,6 +24,7 @@
     "lint:css": "stylelint src/**/*.css",
     "lint-git": "node ./internals/scripts/gitlint.js",
     "lint-docs": "markdownlint --ignore '**/node_modules/**' '**/*.md'",
+    "release-tag": "node ./internals/scripts/release-tag.js",
     "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-extension-dev-csp": "node ./internals/scripts/print-extension-dev-csp.js"
