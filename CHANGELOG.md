@@ -12,6 +12,134 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.8.0 (2023-10-18)
+
+### Process Changes
+
+- Add Change Log and the Change Log fragments process for assembling it
+  ([#1645](https://github.com/oasisprotocol/oasis-wallet-web/issues/1645))
+
+  This follows the same Change Log fragments process as is used by [Oasis Core].
+
+  For more details, see [Change Log fragments].
+
+  [Oasis Core]: https://github.com/oasisprotocol/oasis-core
+  [Change Log fragments]: .changelog/README.md
+
+### Features
+
+- Enable ParaTimes transfers
+  ([#1636](https://github.com/oasisprotocol/oasis-wallet-web/issues/1636))
+- Address Book
+  ([#1635](https://github.com/oasisprotocol/oasis-wallet-web/issues/1635),
+  [#1657](https://github.com/oasisprotocol/oasis-wallet-web/issues/1657),
+  [#1661](https://github.com/oasisprotocol/oasis-wallet-web/issues/1661),
+  [#1668](https://github.com/oasisprotocol/oasis-wallet-web/issues/1668),
+  [#1674](https://github.com/oasisprotocol/oasis-wallet-web/issues/1674),
+  [#1696](https://github.com/oasisprotocol/oasis-wallet-web/issues/1696))
+- Password Change
+  ([#1675](https://github.com/oasisprotocol/oasis-wallet-web/issues/1675))
+- Settings Page
+  ([#1666](https://github.com/oasisprotocol/oasis-wallet-web/issues/1666),
+  [#1630](https://github.com/oasisprotocol/oasis-wallet-web/issues/1630),
+  [#1655](https://github.com/oasisprotocol/oasis-wallet-web/issues/1655),
+  [#1713](https://github.com/oasisprotocol/oasis-wallet-web/issues/1713))
+- Delete profile modal
+  ([#1641](https://github.com/oasisprotocol/oasis-wallet-web/issues/1641))
+
+### Bug Fixes and Improvements
+
+- Export private key re-design
+  ([#1704](https://github.com/oasisprotocol/oasis-wallet-web/issues/1704),
+  [#1720](https://github.com/oasisprotocol/oasis-wallet-web/issues/1720))
+- Adjust gas cost for Sapphire and Emerald
+  ([#1712](https://github.com/oasisprotocol/oasis-wallet-web/issues/1712))
+- Fix refreshing balances on Home page after switching network
+  ([#1691](https://github.com/oasisprotocol/oasis-wallet-web/issues/1691))
+- Fix continuously refreshing balances in wallet slice
+  ([#1692](https://github.com/oasisprotocol/oasis-wallet-web/issues/1692))
+- Fix scrolling modals on phone by replacing 100vh with 100dvh
+  ([#1702](https://github.com/oasisprotocol/oasis-wallet-web/issues/1702))
+
+### Internal Changes
+
+- Miscellaneous improvements
+  ([#1614](https://github.com/oasisprotocol/oasis-wallet-web/issues/1614),
+  [#1623](https://github.com/oasisprotocol/oasis-wallet-web/issues/1623),
+  [#1624](https://github.com/oasisprotocol/oasis-wallet-web/issues/1624),
+  [#1621](https://github.com/oasisprotocol/oasis-wallet-web/issues/1621),
+  [#1637](https://github.com/oasisprotocol/oasis-wallet-web/issues/1637),
+  [#1639](https://github.com/oasisprotocol/oasis-wallet-web/issues/1639),
+  [#1640](https://github.com/oasisprotocol/oasis-wallet-web/issues/1640))
+- Dependency updates
+  ([#1617](https://github.com/oasisprotocol/oasis-wallet-web/issues/1617),
+  [#1618](https://github.com/oasisprotocol/oasis-wallet-web/issues/1618),
+  [#1620](https://github.com/oasisprotocol/oasis-wallet-web/issues/1620),
+  [#1619](https://github.com/oasisprotocol/oasis-wallet-web/issues/1619),
+  [#1601](https://github.com/oasisprotocol/oasis-wallet-web/issues/1601),
+  [#1622](https://github.com/oasisprotocol/oasis-wallet-web/issues/1622),
+  [#1626](https://github.com/oasisprotocol/oasis-wallet-web/issues/1626),
+  [#1625](https://github.com/oasisprotocol/oasis-wallet-web/issues/1625),
+  [#1629](https://github.com/oasisprotocol/oasis-wallet-web/issues/1629),
+  [#1628](https://github.com/oasisprotocol/oasis-wallet-web/issues/1628),
+  [#1631](https://github.com/oasisprotocol/oasis-wallet-web/issues/1631),
+  [#1634](https://github.com/oasisprotocol/oasis-wallet-web/issues/1634),
+  [#1632](https://github.com/oasisprotocol/oasis-wallet-web/issues/1632),
+  [#1633](https://github.com/oasisprotocol/oasis-wallet-web/issues/1633),
+  [#1636](https://github.com/oasisprotocol/oasis-wallet-web/issues/1636),
+  [#1643](https://github.com/oasisprotocol/oasis-wallet-web/issues/1643),
+  [#1649](https://github.com/oasisprotocol/oasis-wallet-web/issues/1649),
+  [#1642](https://github.com/oasisprotocol/oasis-wallet-web/issues/1642),
+  [#1652](https://github.com/oasisprotocol/oasis-wallet-web/issues/1652),
+  [#1650](https://github.com/oasisprotocol/oasis-wallet-web/issues/1650),
+  [#1653](https://github.com/oasisprotocol/oasis-wallet-web/issues/1653),
+  [#1656](https://github.com/oasisprotocol/oasis-wallet-web/issues/1656),
+  [#1654](https://github.com/oasisprotocol/oasis-wallet-web/issues/1654),
+  [#1658](https://github.com/oasisprotocol/oasis-wallet-web/issues/1658),
+  [#1659](https://github.com/oasisprotocol/oasis-wallet-web/issues/1659),
+  [#1660](https://github.com/oasisprotocol/oasis-wallet-web/issues/1660),
+  [#1664](https://github.com/oasisprotocol/oasis-wallet-web/issues/1664),
+  [#1662](https://github.com/oasisprotocol/oasis-wallet-web/issues/1662),
+  [#1663](https://github.com/oasisprotocol/oasis-wallet-web/issues/1663),
+  [#1667](https://github.com/oasisprotocol/oasis-wallet-web/issues/1667),
+  [#1671](https://github.com/oasisprotocol/oasis-wallet-web/issues/1671),
+  [#1672](https://github.com/oasisprotocol/oasis-wallet-web/issues/1672),
+  [#1669](https://github.com/oasisprotocol/oasis-wallet-web/issues/1669),
+  [#1670](https://github.com/oasisprotocol/oasis-wallet-web/issues/1670),
+  [#1677](https://github.com/oasisprotocol/oasis-wallet-web/issues/1677),
+  [#1676](https://github.com/oasisprotocol/oasis-wallet-web/issues/1676),
+  [#1678](https://github.com/oasisprotocol/oasis-wallet-web/issues/1678),
+  [#1679](https://github.com/oasisprotocol/oasis-wallet-web/issues/1679),
+  [#1680](https://github.com/oasisprotocol/oasis-wallet-web/issues/1680),
+  [#1681](https://github.com/oasisprotocol/oasis-wallet-web/issues/1681),
+  [#1685](https://github.com/oasisprotocol/oasis-wallet-web/issues/1685),
+  [#1684](https://github.com/oasisprotocol/oasis-wallet-web/issues/1684),
+  [#1683](https://github.com/oasisprotocol/oasis-wallet-web/issues/1683),
+  [#1682](https://github.com/oasisprotocol/oasis-wallet-web/issues/1682),
+  [#1687](https://github.com/oasisprotocol/oasis-wallet-web/issues/1687),
+  [#1686](https://github.com/oasisprotocol/oasis-wallet-web/issues/1686),
+  [#1690](https://github.com/oasisprotocol/oasis-wallet-web/issues/1690),
+  [#1688](https://github.com/oasisprotocol/oasis-wallet-web/issues/1688),
+  [#1689](https://github.com/oasisprotocol/oasis-wallet-web/issues/1689),
+  [#1695](https://github.com/oasisprotocol/oasis-wallet-web/issues/1695),
+  [#1698](https://github.com/oasisprotocol/oasis-wallet-web/issues/1698),
+  [#1701](https://github.com/oasisprotocol/oasis-wallet-web/issues/1701),
+  [#1703](https://github.com/oasisprotocol/oasis-wallet-web/issues/1703),
+  [#1705](https://github.com/oasisprotocol/oasis-wallet-web/issues/1705),
+  [#1707](https://github.com/oasisprotocol/oasis-wallet-web/issues/1707),
+  [#1706](https://github.com/oasisprotocol/oasis-wallet-web/issues/1706),
+  [#1711](https://github.com/oasisprotocol/oasis-wallet-web/issues/1711),
+  [#1709](https://github.com/oasisprotocol/oasis-wallet-web/issues/1709),
+  [#1715](https://github.com/oasisprotocol/oasis-wallet-web/issues/1715),
+  [#1716](https://github.com/oasisprotocol/oasis-wallet-web/issues/1716),
+  [#1717](https://github.com/oasisprotocol/oasis-wallet-web/issues/1717),
+  [#1718](https://github.com/oasisprotocol/oasis-wallet-web/issues/1718),
+  [#1719](https://github.com/oasisprotocol/oasis-wallet-web/issues/1719),
+  [#1722](https://github.com/oasisprotocol/oasis-wallet-web/issues/1722),
+  [#1721](https://github.com/oasisprotocol/oasis-wallet-web/issues/1721),
+  [#1723](https://github.com/oasisprotocol/oasis-wallet-web/issues/1723),
+  [#1724](https://github.com/oasisprotocol/oasis-wallet-web/issues/1724))
+
 ## 1.7.3 (2023-08-28)
 
 ### Bug Fixes and Improvements
