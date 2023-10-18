@@ -1,0 +1,48 @@
+# NOTE: This name appears in GitHub's Checks API and in workflow's status badge.
+name: ci-renovate
+
+# Trigger the workflow when:
+on:
+  # When a pull request event occurs for a pull request against one of the
+  # matched branches.
+  pull_request:
+    branches: [master]
+
+jobs:
+  add-changelog:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: add-changelog
+    # Trigger job only for dependency update bot.
+    if: github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    # Permissions needed to update PR.
+    permissions:
+      # Enable creating, updating files.
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # Needed for correct git commit --amend.
+          fetch-depth: 0
+          # Checkout pull request HEAD commit instead of merge commit.
+          ref: ${{ github.event.pull_request.head.sha }}
+          # Needed to enable checks re-run.
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+      - name: Set workflow variables
+        # Id is needed to access output in a next step.
+        id: vars
+        run: |
+          echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
+      - name: Create and commit Change Log fragment if it does not exist
+        run: |
+          if [[ ! -f "${{ steps.vars.outputs.FILE_NAME }}" ]]; then
+            echo "${{ github.event.pull_request.title }}" > ${{ steps.vars.outputs.FILE_NAME }}
+            # Set git user email and name to match author of the last commit.
+            git config --local user.email "$(git log --pretty='%ae' -1)"
+            git config --local user.name "$(git log --pretty=format:'%an' -1)"
+            git add ${{ steps.vars.outputs.FILE_NAME }}
+            git commit --amend --no-edit
+            git push --force-with-lease origin HEAD:refs/heads/${{ github.head_ref }}
+            echo "FILE_EXISTS=false" >> $GITHUB_OUTPUT
+          fi
