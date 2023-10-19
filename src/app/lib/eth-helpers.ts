@@ -4,16 +4,16 @@ import { bytesToHex, isValidPrivate, privateToAddress, toChecksumAddress } from 
 export { isValidAddress as isValidEthAddress } from '@ethereumjs/util'
 
 export const hexToBuffer = (value: string): Buffer => Buffer.from(value, 'hex')
-export const isValidEthPrivateKey = (value: string): boolean => {
+export const isValidEthPrivateKey = (ethPrivateKey: string): boolean => {
   try {
-    return isValidPrivate(hexToBuffer(value))
+    return isValidPrivate(hexToBuffer(ethPrivateKey))
   } catch {
     return false
   }
 }
-export const isValidEthPrivateKeyLength = (value: string) => value.length === 64
-export const privateToEthAddress = (value: string): string =>
-  toChecksumAddress(bytesToHex(privateToAddress(hexToBuffer(value))))
+export const isValidEthPrivateKeyLength = (ethPrivateKey: string) => ethPrivateKey.length === 64
+export const privateToEthAddress = (ethPrivateKey: string): string =>
+  toChecksumAddress(bytesToHex(privateToAddress(hexToBuffer(ethPrivateKey))))
 
 export async function getEvmBech32Address(evmAddress: string) {
   const evmBytes = oasis.misc.fromHex(evmAddress.replace('0x', ''))
