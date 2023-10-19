@@ -85,9 +85,11 @@ export function SendTransaction(props: SendTransactionProps) {
           >
             <TextInput
               id="recipient-id"
-              suggestions={contacts.map(contact => contact.name)}
+              suggestions={contacts.map(contact => ({ label: contact.name, value: contact.address }))}
               onSuggestionSelect={event =>
-                setRecipient(contacts.find(contact => contact.name === event.suggestion)?.address || '')
+                setRecipient(
+                  contacts.find(contact => contact.address === event.suggestion?.value)?.address || '',
+                )
               }
               name="recipient"
               value={recipient}
