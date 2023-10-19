@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
 import * as oasis from '@oasisprotocol/client'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useStore } from 'react-redux'
 import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
 import { Info } from 'grommet-icons/es6/icons/Info'
@@ -18,7 +18,7 @@ import { Text } from 'grommet/es6/components/Text'
 export function E2EPage() {
   return (
     <div>
-      <TestVendors></TestVendors>
+      <ExposeInternals></ExposeInternals>
       <br />
       <TestUnsafeInputs></TestUnsafeInputs>
       <br />
@@ -33,20 +33,24 @@ interface e2eWindow extends Window {
   monitor: any
   oasisscan: any
   oasis: any
+  store: any
 }
 declare const window: e2eWindow
 
-function TestVendors() {
+function ExposeInternals() {
+  const store = useStore()
   useEffect(() => {
     window.monitor = monitor
     window.oasisscan = oasisscan
     window.oasis = oasis
+    window.store = store
     return () => {
       window.monitor = undefined
       window.oasisscan = undefined
       window.oasis = undefined
+      window.store = undefined
     }
-  }, [])
+  }, [store])
   return <></>
 }
 

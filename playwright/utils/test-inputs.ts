@@ -26,3 +26,101 @@ export const privateKeyPersistedState = JSON.stringify({
   nonce: { $Uint8Array$: 'uTf/3wnfC1PnWEoJrmULoMg0qffau4MM' },
   salt: { $Uint8Array$: 'dQSGvwmyAqxs/vECZ2eIAkphq0pNKG+w69jNz/lIpKI=' },
 })
+
+export const privateKeyUnlockedState = {
+  account: {
+    address: '',
+    available: null,
+    debonding: null,
+    delegations: null,
+    total: null,
+    accountError: undefined,
+    transactions: [],
+    transactionsError: undefined,
+    loading: true,
+  },
+  contacts: {},
+  evmAccounts: {},
+  createWallet: { checkbox: false, mnemonic: [] },
+  fiatOnramp: { thirdPartyAcknowledged: false },
+  fatalError: {},
+  importAccounts: {
+    accounts: [],
+    showAccountsSelectionModal: false,
+    accountsSelectionPageNumber: 0,
+    step: 'idle',
+  },
+  network: {
+    ticker: 'ROSE',
+    chainContext: 'b11b369e0da5bb230b220127f5e7b242d385ef8c6f54906243f30af63c815535',
+    selectedNetwork: 'mainnet',
+    epoch: 18372,
+    minimumStakingAmount: 100,
+  },
+  paraTimes: {
+    balance: '',
+    isLoading: false,
+    transactionForm: {
+      amount: '',
+      confirmTransfer: false,
+      confirmTransferToValidator: false,
+      confirmTransferToForeignAccount: false,
+      defaultFeeAmount: '',
+      ethPrivateKey: '',
+      feeAmount: '',
+      feeGas: '',
+      paraTime: undefined,
+      recipient: '',
+      type: undefined,
+    },
+    transactionFormStep: 'transferType',
+  },
+  staking: {
+    debondingDelegations: null,
+    delegations: null,
+    updateDelegationsError: undefined,
+    validators: null,
+    updateValidatorsError: undefined,
+    selectedValidatorDetails: null,
+    selectedValidator: null,
+    loading: false,
+  },
+  theme: { selected: 'dark' },
+  transaction: { success: false, active: false },
+  wallet: {
+    wallets: {
+      oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk: {
+        address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+        balance: {
+          address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+          allowances: [],
+          available: '0',
+          debonding: '0',
+          delegations: '0',
+          total: '0',
+          validator: {
+            escrow: '0',
+            escrow_debonding: '0',
+          },
+        },
+        privateKey:
+          '5f48e5a6fb243f5abc13aac7c56449afbc93be90ae38f10a0465bc82db954f17e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132',
+        publicKey: 'e75624c8d2cd9f062ce0331373a3be50ef0eccc5d257b4e2dea83a05506c7132',
+        type: 'private_key',
+      },
+    },
+    isOpen: true,
+    selectedWallet: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+  },
+  persist: {
+    hasPersistedProfiles: true,
+    isPersistenceUnsupported: false,
+    loading: false,
+    stringifiedEncryptionKey: JSON.stringify({
+      // Varies
+      key: { $Uint8Array$: 'tZVWIC8qNX4pBAFHUBeDTHppyH1Z4uwqRilH27kx+Us=' },
+      salt: { $Uint8Array$: 'dQSGvwmyAqxs/vECZ2eIAkphq0pNKG+w69jNz/lIpKI=' },
+    }),
+    enteredWrongPassword: false,
+  },
+}
