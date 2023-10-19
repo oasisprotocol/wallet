@@ -13,6 +13,12 @@ jest.mock('../../useParaTimesNavigation')
 describe('<TransactionRecipient />', () => {
   const mockUseParaTimesResult = {
     accountAddress: 'accountAddress',
+    evmAccounts: [
+      {
+        ethAddress: '0xFed5547859F9948d2C85F0516E3944377F88046f',
+        ethPrivateKey: '414bba7f242e9054f9fc119fe32d322a7d9bbe0cb8c75173a6826cc8b1af1370',
+      },
+    ],
     isDepositing: true,
     isEvmcParaTime: false,
     paraTimeName: 'Cipher',
@@ -24,6 +30,12 @@ describe('<TransactionRecipient />', () => {
     usesOasisAddress: true,
   } as ParaTimesHook
   const mockUseParaTimesEVMcResult = {
+    evmAccounts: [
+      {
+        ethAddress: '0xFed5547859F9948d2C85F0516E3944377F88046f',
+        ethPrivateKey: '414bba7f242e9054f9fc119fe32d322a7d9bbe0cb8c75173a6826cc8b1af1370',
+      },
+    ],
     isDepositing: false,
     isEvmcParaTime: true,
     paraTimeName: 'Emerald',
