@@ -4,6 +4,7 @@ import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
 import { password, privateKeyUnlockedState } from '../utils/test-inputs'
+import { RootState } from '../../src/types/RootState'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
@@ -26,7 +27,7 @@ test.describe('Migrating persisted state', () => {
     await tab2.goto('/e2e')
     const decryptedStateV1 = await tab2.evaluate(() => {
       const store: any = window['store']
-      return store.getState()
+      return store.getState() as RootState
     })
     expect(decryptedStateV1).toEqual({
       ...privateKeyUnlockedState,
@@ -34,6 +35,6 @@ test.describe('Migrating persisted state', () => {
         ...privateKeyUnlockedState.persist,
         stringifiedEncryptionKey: expect.any(String),
       },
-    })
+    } satisfies RootState)
   })
 })
