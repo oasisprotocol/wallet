@@ -86,7 +86,7 @@ export const TransactionRecipient = () => {
                   : undefined
               }
               placeholder={t(
-                'paraTimes.recipient.privateKeyPlaceholder',
+                'paraTimes.recipient.ethPrivateKeyPlaceholder',
                 'Enter Ethereum-compatible private key',
               )}
               value={transactionForm.ethPrivateKey}
