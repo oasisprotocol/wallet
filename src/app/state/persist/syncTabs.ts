@@ -31,6 +31,7 @@ export function receiveInitialTabSyncState(
     ...prevState,
     theme: initialSyncState.theme,
     wallet: initialSyncState.wallet,
+    contacts: initialSyncState.contacts,
     network: initialSyncState.network,
     persist: initialSyncState.persist,
   }
