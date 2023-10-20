@@ -62,7 +62,15 @@ export const TransactionRecipient = () => {
     >
       <Form
         messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
-        onChange={nextValue => setTransactionForm(nextValue)}
+        onChange={nextValue =>
+          setTransactionForm({
+            ...nextValue,
+            ethPrivateKey:
+              typeof nextValue.ethPrivateKey === 'object'
+                ? (nextValue.ethPrivateKey as any).value // from suggestions
+                : nextValue.ethPrivateKey,
+          })
+        }
         onSubmit={navigateToAmount}
         value={transactionForm}
         style={{ width: isMobile ? '100%' : '465px' }}
@@ -94,20 +102,6 @@ export const TransactionRecipient = () => {
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
               suggestions={evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey }))}
-              onSuggestionSelect={event => {
-                // Add timeout because grommet reassigns value after onSuggestionSelect
-                // https://github.com/grommet/grommet/blob/7ad63c7/src/js/components/TextInput/TextInput.js#L279-L281
-                // But why is timeout is not needed in SendTransaction??
-                // https://github.com/oasisprotocol/oasis-wallet-web/blob/fa173f7/src/app/pages/AccountPage/Features/SendTransaction/index.tsx#L89-L91
-                setTimeout(() => {
-                  setTransactionForm({
-                    ...transactionForm,
-                    ethPrivateKey:
-                      evmAccounts.find(acc => acc.ethPrivateKey === event.suggestion?.value)?.ethPrivateKey ||
-                      '',
-                  })
-                }, 0)
-              }}
             />
           )}
 
