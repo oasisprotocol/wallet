@@ -12,6 +12,24 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.8.1 (2023-10-20)
+
+### Bug Fixes and Improvements
+
+- Fix contacts syncing to new tab
+  ([#1735](https://github.com/oasisprotocol/oasis-wallet-web/issues/1735))
+
+### Internal Changes
+
+- Update redux dependencies
+  ([#1726](https://github.com/oasisprotocol/oasis-wallet-web/issues/1726))
+
+- Update dependency i18next to v23.6.0
+  ([#1729](https://github.com/oasisprotocol/oasis-wallet-web/issues/1729))
+
+- Update dependency @types/styled-components to v5.1.29
+  ([#1731](https://github.com/oasisprotocol/oasis-wallet-web/issues/1731))
+
 ## 1.8.0 (2023-10-18)
 
 ### Process Changes
