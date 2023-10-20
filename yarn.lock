@@ -3817,10 +3817,10 @@
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-4.0.2.tgz#6286b4c7228d58ab7866d19716f3696e03a09397"
   integrity sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==
 
-"@types/valid-url@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@types/valid-url/-/valid-url-1.0.5.tgz#452a8d2aa8206cd3c9f658496d8370d3a54f4f2a"
-  integrity sha512-B7W2w+MHjn/lZB6WmCedyQgpIWa81dpEJD/rXkoYKOGJk0xsxgNWRXeGYMgY6ESvMxIPGfPq4lYbAgbj3hbLew==
+"@types/valid-url@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@types/valid-url/-/valid-url-1.0.6.tgz#9fec8b1fdb00814602cfa45c99865d85dc7c2952"
+  integrity sha512-+mF9njchWnlEtXzX5lIPLkMVeIeoT5Iso4bAu2Gxpsy/9wZr8cNeR47ViOjZ+F6GvQeQH4KVwLa3stS+CvMVRQ==
 
 "@types/w3c-web-usb@1.0.8":
   version "1.0.8"
