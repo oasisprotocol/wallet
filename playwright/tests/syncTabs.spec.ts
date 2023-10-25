@@ -157,17 +157,30 @@ test.describe('syncTabs', () => {
       await page.getByTestId('toolbar-contacts-tab').click()
       await page.getByText('You have no contacts yet.')
 
+      await page.getByRole('button', { name: 'Add Contact' }).click()
+      await page.getByPlaceholder('Name').fill('stakefish')
+      await page
+        .getByPlaceholder('Address', { exact: true })
+        .fill('oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe')
+      await page.getByRole('button', { name: 'Save' }).click()
+      await expect(page.getByTestId('account-choice')).toHaveCount(1)
+
       await tab2.goto('/')
       await tab2.getByTestId('account-selector').click()
       await tab2.getByTestId('toolbar-contacts-tab').click()
+      await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
       await tab2.getByRole('button', { name: 'Add Contact' }).click()
       await tab2.getByPlaceholder('Name').fill('Foo')
       await tab2
         .getByPlaceholder('Address', { exact: true })
         .fill('oasis1qq2vzcvxn0js5unsch5me2xz4kr43vcasv0d5eq4')
       await tab2.getByRole('button', { name: 'Save' }).click()
-      await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
-      await expect(page.getByTestId('account-choice')).toHaveCount(1)
+      await expect(tab2.getByTestId('account-choice')).toHaveCount(2)
+      await expect(page.getByTestId('account-choice')).toHaveCount(2)
+
+      await page.getByRole('button', { name: 'Manage' }).first().click()
+      await page.getByRole('button', { name: 'Delete contact' }).click()
+      await page.getByRole('button', { name: 'Yes, delete' }).click()
 
       await page.getByRole('button', { name: 'Manage' }).click()
       await page.getByPlaceholder('Name').fill('Bar')
