@@ -7,7 +7,7 @@ export async function clearPersistedStorage(page: Page) {
   await page.evaluate(() => window.localStorage.clear())
 }
 
-export async function addPersistedStorage(page: Page) {
+export async function addPersistedStorageV1(page: Page) {
   // Move to the right domain, but don't needlessly load HTML and JS.
   await page.goto('/app.webmanifest')
   await page.evaluate(
