@@ -20,14 +20,15 @@ export const Header = ({
   </Heading>
 )
 
-interface ModalHeaderProps {
-  children: React.ReactNode
+export const ModalHeader = ({ children, ...props }: HeaderProps) => {
+  const { level, ...rest } = props
+
+  return (
+    <Header level={level || 2} size="medium" {...rest}>
+      {children}
+    </Header>
+  )
 }
-export const ModalHeader = ({ children, ...props }: ModalHeaderProps) => (
-  <Header level={2} size="medium" {...props}>
-    {children}
-  </Header>
-)
 
 interface ModalSplitHeaderProps {
   children: React.ReactNode

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
-import { ResponsiveGridRow, ResponsiveGridAddressRow } from '..'
+import { ResponsiveGridRow, PreviewRow, AddressPreviewRow } from '..'
 
 describe('<ResponsiveGridRow />', () => {
   it('should render component', () => {
@@ -17,12 +17,20 @@ const renderComponent = (store: any, address: string) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ResponsiveGridAddressRow label="To" value={address} />
+        <AddressPreviewRow label="To" value={address} />
       </ThemeProvider>
     </Provider>,
   )
 
-describe('<ResponsiveGridAddressRow  />', () => {
+describe('<PreviewRow />', () => {
+  it('should render component', () => {
+    const { container } = render(<PreviewRow label="Type" value="addEscrow" />)
+
+    expect(container).toMatchSnapshot()
+  })
+})
+
+describe('<AddressPreviewRow  />', () => {
   let store: ReturnType<typeof configureAppStore>
 
   beforeEach(() => {

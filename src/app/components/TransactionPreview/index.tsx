@@ -4,12 +4,11 @@
  *
  */
 import { Box } from 'grommet/es6/components/Box'
-import { Grid } from 'grommet/es6/components/Grid'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import React, { memo, useContext } from 'react'
-
+import { memo, useContext } from 'react'
+import { Text } from 'grommet/es6/components/Text'
 import { AmountFormatter } from '../AmountFormatter'
-import { ResponsiveGridRow, ResponsiveGridAddressRow } from '../ResponsiveGridRow'
+import { AddressPreviewRow, PreviewRow } from '../ResponsiveGridRow'
 import { TransactionPreview as Preview } from 'app/state/transaction/types'
 import { useTranslation } from 'react-i18next'
 import { TransactionTypeFormatter } from '../TransactionTypeFormatter'
@@ -22,63 +21,64 @@ interface Props {
 
 export const TransactionPreview = memo((props: Props) => {
   const { t } = useTranslation()
-  const size = useContext(ResponsiveContext)
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const { preview, walletAddress, chainContext } = props
 
   return (
-    <Grid columns={size !== 'small' ? ['auto', 'auto'] : ['auto']} gap={{ column: 'small', row: 'xsmall' }}>
-      <ResponsiveGridRow
+    <Box gap={isMobile ? 'medium' : 'xsmall'}>
+      <PreviewRow
         label={t('transaction.preview.type', 'Type')}
         value={<TransactionTypeFormatter type={preview.transaction.type} />}
       />
-      <ResponsiveGridAddressRow label={t('transaction.preview.from', 'From')} value={walletAddress} />
+      <AddressPreviewRow label={t('transaction.preview.from', 'From')} value={walletAddress} />
       {preview.transaction.type === 'transfer' && (
-        <ResponsiveGridAddressRow label={t('transaction.preview.to', 'To')} value={preview.transaction.to} />
+        <AddressPreviewRow label={t('transaction.preview.to', 'To')} value={preview.transaction.to} />
       )}
       {(preview.transaction.type === 'addEscrow' || preview.transaction.type === 'reclaimEscrow') && (
-        <ResponsiveGridAddressRow
+        <AddressPreviewRow
           label={t('transaction.preview.validator', 'Validator')}
           value={preview.transaction.validator}
         />
       )}
-      <ResponsiveGridRow
+      <PreviewRow
         label={t('transaction.preview.amount', 'Amount')}
-        value={<AmountFormatter amount={preview.transaction.amount} />}
+        value={<AmountFormatter amount={preview.transaction.amount} size="inherit" />}
       />
       {preview.transaction.type === 'reclaimEscrow' && (
-        <ResponsiveGridRow
+        <PreviewRow
           label={t('transaction.preview.shares', 'Gigashares')}
           value={<AmountFormatter amount={preview.transaction.shares} hideTicker />}
         />
       )}
-      <ResponsiveGridRow
+      <PreviewRow
         label={t('transaction.preview.fee', 'Fee')}
-        value={<AmountFormatter amount={preview.fee!} />}
+        value={<AmountFormatter amount={preview.fee!} size="inherit" />}
       />
-      <ResponsiveGridRow
+      <PreviewRow
         label={t('transaction.preview.gas', 'Gas')}
         value={<AmountFormatter amount={preview.gas!} hideTicker />}
       />
-      <ResponsiveGridRow
+      <PreviewRow
         label={t('transaction.preview.genesisHash', 'Genesis hash')}
         value={
           <Box
             border={{
               color: 'background-contrast-2',
               side: 'left',
-              size: '3px',
+              size: '6px',
             }}
             background={{
               color: 'background-contrast',
               opacity: 0.04,
             }}
-            width="75%"
-            pad="xsmall"
+            pad={{ vertical: 'xsmall', horizontal: 'small' }}
           >
-            {chainContext}
+            <Text color="grayMedium" size="small" style={{ fontFamily: 'Roboto mono', letterSpacing: 0 }}>
+              {chainContext}
+            </Text>
           </Box>
         }
       />
-    </Grid>
+    </Box>
   )
 })

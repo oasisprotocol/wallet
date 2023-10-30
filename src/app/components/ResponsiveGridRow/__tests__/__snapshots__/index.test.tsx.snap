@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ResponsiveGridAddressRow  /> should match snapshot 1`] = `
+exports[`<AddressPreviewRow  /> should match snapshot 1`] = `
 .c0 {
   font-family: Rubik;
   font-size: 18px;
@@ -28,29 +28,32 @@ exports[`<ResponsiveGridAddressRow  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
 .c2 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
   font-weight: bold;
 }
 
+.c3 {
+  font-size: 14px;
+  line-height: 20px;
+  color: #565b61;
+}
+
 .c4 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #16213E;
+  font-weight: bold;
+}
+
+.c5 {
+  font-size: inherit;
+  line-height: normal;
+}
+
+@media only screen and (max-width:768px) {
+
 }
 
 <div
@@ -65,36 +68,74 @@ exports[`<ResponsiveGridAddressRow  /> should match snapshot 1`] = `
     >
       To
     </span>
-  </div>
-  <div
-    class="c3"
-  >
     <span
-      class="c2"
+      class="c3"
     >
-      My Contact
+      <div
+        class="c1"
+      >
+        <span
+          class="c4"
+        >
+          My Contact
+        </span>
+        <span
+          class="c5"
+          style="font-family: Roboto mono; letter-spacing: 0;"
+        >
+          <span
+            class="notranslate"
+            translate="no"
+          >
+            oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4
+          </span>
+        </span>
+      </div>
     </span>
   </div>
+</div>
+`;
+
+exports[`<PreviewRow /> should render component 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.c2 {
+  font-size: 14px;
+  line-height: 20px;
+  color: grayMedium;
+}
+
+<div>
   <div
-    class="c1"
+    class="c0"
   >
+    <span
+      class="c1"
+    >
+      Type
+    </span>
     <span
       class="c2"
-    />
-  </div>
-  <div
-    class="c3"
-  >
-    <span
-      class="c4"
-      style="font-family: Roboto mono; letter-spacing: 0;"
     >
-      <span
-        class="notranslate"
-        translate="no"
-      >
-        oasis1 qq2v zcvx n0js 5uns ch5m e2xz 4kr4 3vca sv0d 5eq4
-      </span>
+      addEscrow
     </span>
   </div>
 </div>

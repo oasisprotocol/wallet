@@ -2,8 +2,8 @@
 
 exports[`<PrettyAddress  /> should match snapshot 1`] = `
 .c0 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 <span
@@ -21,8 +21,8 @@ exports[`<PrettyAddress  /> should match snapshot 1`] = `
 
 exports[`<PrettyAddress  /> should split the address 1`] = `
 .c0 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 <span
