@@ -5,7 +5,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 
-export type AlertBoxStatus = 'error' | 'warning' | 'ok' | 'ok-weak' | 'info'
+export type AlertBoxStatus = 'error' | 'warning' | 'warning-weak' | 'ok' | 'ok-weak' | 'info'
 
 interface Props {
   status: AlertBoxStatus
@@ -23,6 +23,10 @@ const mapStatus = {
   warning: {
     color: 'alert-box-warning',
     background: 'alert-box-warning-background',
+  },
+  'warning-weak': {
+    color: 'alert-box-warning',
+    background: 'alert-box-warning-weak-background',
   },
   ok: {
     color: 'alert-box-ok',
@@ -45,11 +49,15 @@ export function AlertBox(props: Props) {
 
   return (
     <Box
-      border={{
-        color: color,
-        side: 'left',
-        size: '3px',
-      }}
+      border={
+        props.status === 'warning-weak'
+          ? undefined
+          : {
+              color: color,
+              side: 'left',
+              size: '3px',
+            }
+      }
       background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
