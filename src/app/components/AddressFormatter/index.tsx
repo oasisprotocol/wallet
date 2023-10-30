@@ -32,7 +32,7 @@ export const AddressFormatter = ({ address }: AddressFormatterProps) => {
       {contactAddress?.name && (
         <StyledText data-testid="address-formatter-name">{contactAddress.name}</StyledText>
       )}
-      <Text color="grayMedium">{trimLongString(address)}</Text>
+      <Text>{trimLongString(address)}</Text>
     </StyledBox>
   )
 }

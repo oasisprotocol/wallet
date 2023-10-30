@@ -33,12 +33,6 @@ exports[`<AddressFormatter  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c5 {
-  font-size: 18px;
-  line-height: 24px;
-  color: #565b61;
-}
-
 .c2 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -74,7 +68,7 @@ exports[`<AddressFormatter  /> should match snapshot 1`] = `
       My Contact
     </span>
     <span
-      class="c5"
+      class="c3"
     >
       oasis1qq2v...sv0d5eq4
     </span>
