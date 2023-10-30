@@ -475,9 +475,9 @@
       "submitting": "Submitting transaction"
     },
     "types": {
-      "addEscrow": "Delegating your tokens to a validator and generate rewards",
-      "reclaimEscrow": "Reclaiming your tokens delegated to a validator",
-      "transfer": "Transferring tokens from your account to another"
+      "addEscrow": "delegating your tokens to a validator and generate rewards",
+      "reclaimEscrow": "reclaiming your tokens delegated to a validator",
+      "transfer": "sending tokens from your account to another"
     }
   },
   "validator": {

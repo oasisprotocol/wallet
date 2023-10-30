@@ -13,16 +13,20 @@ export const TransactionTypeFormatter = memo((props: Props) => {
   const type = props.type
 
   const typeMap: { [type in NewTransactionType]: string } = {
-    addEscrow: t('transaction.types.addEscrow', 'Delegating your tokens to a validator and generate rewards'),
-    reclaimEscrow: t('transaction.types.reclaimEscrow', 'Reclaiming your tokens delegated to a validator'),
-    transfer: t('transaction.types.transfer', 'Transferring tokens from your account to another'),
+    addEscrow: t('transaction.types.addEscrow', 'delegating your tokens to a validator and generate rewards'),
+    reclaimEscrow: t('transaction.types.reclaimEscrow', 'reclaiming your tokens delegated to a validator'),
+    transfer: t('transaction.types.transfer', 'sending tokens from your account to another'),
   }
 
   const typeMessage = typeMap[type]
   return (
-    <Box>
-      <Text>{type}</Text>
-      <Text size="small">({typeMessage})</Text>
+    <Box direction="row" align="center" gap="xsmall">
+      <Text color="grayMedium" size="small" style={{ textTransform: 'capitalize', fontWeight: 600 }}>
+        {type}
+      </Text>
+      <Text color="grayMedium" size="xsmall" style={{ letterSpacing: 0 }}>
+        ({typeMessage})
+      </Text>
     </Box>
   )
 })
