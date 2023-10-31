@@ -17,6 +17,7 @@ interface Props<TFormValue> {
   autoFocus?: boolean
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  suggestions?: Array<{ label: string; value: any }>
   validate?: (password: string, form: TFormValue) => string | undefined
   error?: string | false
   required?: boolean
@@ -49,6 +50,7 @@ export function PasswordField<TFormValue = any>(props: Props<TFormValue>) {
             required={props.required}
             autoFocus={props.autoFocus}
             plain
+            suggestions={props.suggestions}
             {...preventSavingInputsToUserData}
           />
           <Tip content={passwordIsVisible ? props.hideTip : props.showTip}>

@@ -11,6 +11,8 @@ import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { ErrorPayload, ExhaustedTypeError } from 'types/errors'
 import { paraTimesConfig, RuntimeTypes, ParaTime, type ParaTimeConfig } from '../../../config'
+import { selectEvmAccounts } from 'app/state/evmAccounts/selectors'
+import { EvmAccount } from 'app/state/evmAccounts/types'
 
 type AvailableParaTimesForNetwork = {
   isEvm: boolean
@@ -28,6 +30,7 @@ export type ParaTimesHook = {
   balance: StringifiedBigInt | null
   balanceInBaseUnit: boolean
   clearTransactionForm: () => void
+  evmAccounts: EvmAccount[]
   isDepositing: boolean
   isEvmcParaTime: boolean
   isLoading: boolean
@@ -73,6 +76,7 @@ export const useParaTimes = (): ParaTimesHook => {
   const accountBalance = useSelector(selectAccountAvailableBalance)
   const accountIsLoading = useSelector(selectAccountIsLoading)
   const accountAddress = useSelector(selectAddress)
+  const evmAccounts = useSelector(selectEvmAccounts)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const ticker = useSelector(selectTicker)
   const isDepositing = transactionForm.type !== TransactionTypes.Withdraw
@@ -99,6 +103,7 @@ export const useParaTimes = (): ParaTimesHook => {
     balance: walletBalance,
     balanceInBaseUnit,
     clearTransactionForm,
+    evmAccounts,
     isDepositing,
     isEvmcParaTime,
     isLoading,

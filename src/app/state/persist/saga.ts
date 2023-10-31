@@ -135,6 +135,7 @@ function* resetRootState(action: ReturnType<typeof persistActions.resetRootState
 async function encryptState(state: RootState, keyWithSalt: KeyWithSalt): Promise<EncryptedString> {
   const persistedRootState: PersistedRootState = {
     contacts: state.contacts,
+    evmAccounts: state.evmAccounts,
     theme: state.theme,
     wallet: state.wallet,
     network: state.network,

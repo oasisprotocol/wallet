@@ -11,6 +11,7 @@ import { paraTimesActions } from '.'
 import { Runtime } from './types'
 import { selectParaTimes } from './selectors'
 import { paraTimesConfig, ParaTime } from '../../../config'
+import { evmAccountsActions } from '../evmAccounts'
 
 export async function getRuntimeBalance(address: string, runtimeId: string, nic: oasis.client.NodeInternal) {
   const accountsWrapper = new accounts.Wrapper(oasis.misc.fromHex(runtimeId))
@@ -79,6 +80,9 @@ export function* submitTransaction() {
       feeGas: paraTimeConfig.feeGas,
     }
 
+    if (transactionForm.ethPrivateKey) {
+      yield* put(evmAccountsActions.add({ ethPrivateKey: transactionForm.ethPrivateKey }))
+    }
     yield* call(submitParaTimeTransaction, runtime, {
       amount: transactionForm.amount,
       ethPrivateKey: transactionForm.ethPrivateKey,

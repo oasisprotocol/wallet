@@ -12,6 +12,7 @@ import networkReducer from 'app/state/network'
 import paraTimesReducer from 'app/state/paratimes'
 import stakingReducer from 'app/state/staking'
 import contactsReducer from 'app/state/contacts'
+import evmAccountsReducer from 'app/state/evmAccounts'
 import transactionReducer from 'app/state/transaction'
 import walletReducer from 'app/state/wallet'
 import themeReducer from 'styles/theme/slice'
@@ -22,6 +23,7 @@ function createRootReducer() {
   const rootReducer = combineReducers({
     account: accountReducer,
     contacts: contactsReducer,
+    evmAccounts: evmAccountsReducer,
     createWallet: createWalletReducer,
     fiatOnramp: fiatOnrampReducer,
     fatalError: fatalErrorReducer,

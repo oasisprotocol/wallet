@@ -20,6 +20,7 @@ export const TransactionRecipient = () => {
   const {
     accountAddress,
     clearTransactionForm,
+    evmAccounts,
     isDepositing,
     isEvmcParaTime,
     paraTimeName,
@@ -61,7 +62,15 @@ export const TransactionRecipient = () => {
     >
       <Form
         messages={{ required: t('paraTimes.validation.required', 'Field is required') }}
-        onChange={nextValue => setTransactionForm(nextValue)}
+        onChange={nextValue =>
+          setTransactionForm({
+            ...nextValue,
+            ethPrivateKey:
+              typeof nextValue.ethPrivateKey === 'object'
+                ? (nextValue.ethPrivateKey as any).value // from suggestions
+                : nextValue.ethPrivateKey,
+          })
+        }
         onSubmit={navigateToAmount}
         value={transactionForm}
         style={{ width: isMobile ? '100%' : '465px' }}
@@ -92,6 +101,7 @@ export const TransactionRecipient = () => {
               value={transactionForm.ethPrivateKey}
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
+              suggestions={evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey }))}
             />
           )}
 
@@ -106,6 +116,7 @@ export const TransactionRecipient = () => {
           >
             <TextInput
               name="recipient"
+              suggestions={usesOasisAddress ? [] : evmAccounts.map(acc => acc.ethAddress)}
               placeholder={usesOasisAddress ? accountAddress : t('paraTimes.recipient.placeholder', '0x...')}
               value={transactionForm.recipient}
             />
