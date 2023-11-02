@@ -10,7 +10,6 @@ import { Button } from 'grommet/es6/components/Button'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { Checkmark } from 'grommet-icons/es6/icons/Checkmark'
-import { Close } from 'grommet-icons/es6/icons/Close'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
@@ -72,12 +71,7 @@ export function TransactionModal() {
           )}
           {step === TransactionStep.Preview && (
             <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
-              <Button
-                secondary
-                label={t('transaction.abort', 'Abort')}
-                icon={<Close size="18px" />}
-                onClick={abortTransaction}
-              />
+              <Button secondary label={t('transaction.cancel', 'Cancel')} onClick={abortTransaction} />
               <Button
                 primary
                 label={t('transaction.confirm', 'Confirm')}
