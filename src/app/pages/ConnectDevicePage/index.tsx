@@ -14,6 +14,7 @@ import { WalletErrors } from 'types/errors'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { requestDevice } from 'app/lib/ledger'
 import logotype from '../../../../public/logo192.png'
+import { TransportType } from '../../state/importaccounts/saga'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {
@@ -53,7 +54,7 @@ export function ConnectDevicePage() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
-        dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
       }
     } catch {
       setConnection('error')

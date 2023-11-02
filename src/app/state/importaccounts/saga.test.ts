@@ -2,7 +2,7 @@ import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as oasis from '@oasisprotocol/client'
 import { importAccountsActions } from '.'
-import { accountsPerPage, importAccountsSaga, numberOfAccountPages, sign } from './saga'
+import { accountsPerPage, importAccountsSaga, numberOfAccountPages, sign, TransportType } from './saga'
 import * as matchers from 'redux-saga-test-plan/matchers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
@@ -12,6 +12,8 @@ import { OasisTransaction } from 'app/lib/transaction'
 import { WalletType } from 'app/state/wallet/types'
 import delayP from '@redux-saga/delay-p'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+import { ScanResult } from '@capacitor-community/bluetooth-le'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 describe('importAccounts Sagas', () => {
   describe('enumerateAccountsFromLedger', () => {
@@ -26,12 +28,17 @@ describe('importAccounts Sagas', () => {
         .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
-          [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
+          [
+            matchers.call.fn(TransportWebUSB.create),
+            {
+              close: () => {},
+            },
+          ],
           [matchers.call.fn(Ledger.getOasisApp), undefined],
           [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), validAccount],
           [matchers.call.fn(getAccountBalanceWithFallback), {}],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
@@ -43,14 +50,53 @@ describe('importAccounts Sagas', () => {
         .silentRun(50)
     })
 
+    it('should list ble devices', async () => {
+      const bleDevices: ScanResult[] = []
+      for (let i = 0; i < 3; i++) {
+        bleDevices.push({
+          device: {
+            deviceId: `${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}`,
+            name: `Nano X ABC${i}`,
+          },
+          localName: `Nano X ABC${i}`,
+          rssi: -50,
+          txPower: 100,
+        })
+      }
+
+      return expectSaga(importAccountsSaga)
+        .withState({})
+        .provide([
+          [matchers.call.fn(BleTransport.isSupported), true],
+          [matchers.call.fn(BleTransport.list), bleDevices],
+        ])
+        .dispatch(importAccountsActions.enumerateDevicesFromBleLedger)
+        .put.like({ action: { payload: bleDevices } })
+        .silentRun(50)
+    })
+
+    it('should handle unsupported ble', async () => {
+      return expectSaga(importAccountsSaga)
+        .withState({})
+        .provide([[matchers.call.fn(BleTransport.isSupported), false]])
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.BLE))
+        .put.like({ action: { payload: { code: WalletErrors.BluetoothTransportNotSupported } } })
+        .silentRun(50)
+    })
+
     it('should handle unsupported browsers', async () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), false],
-          [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
+          [
+            matchers.call.fn(TransportWebUSB.create),
+            {
+              close: () => {},
+            },
+          ],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
         .silentRun(50)
     })
@@ -62,7 +108,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
         .silentRun(50)
     })
@@ -74,7 +120,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
         .silentRun(50)
     })
@@ -84,11 +130,16 @@ describe('importAccounts Sagas', () => {
         .withState({})
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
-          [matchers.call.fn(TransportWebUSB.create), { close: () => {} }],
+          [
+            matchers.call.fn(TransportWebUSB.create),
+            {
+              close: () => {},
+            },
+          ],
           [matchers.call.fn(Ledger.getOasisApp), undefined],
           [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), Promise.reject(new Error('Dummy error'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger())
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(TransportType.USB))
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })
         .silentRun(50)
     })

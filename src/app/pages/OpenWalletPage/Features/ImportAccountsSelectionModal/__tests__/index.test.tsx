@@ -9,6 +9,7 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { WalletType } from 'app/state/wallet/types'
 import { ImportAccountsSelectionModal } from '..'
+import { TransportType } from '../../../../../state/importaccounts/saga'
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
@@ -19,7 +20,11 @@ const renderComponent = (store: any, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ImportAccountsSelectionModal abort={abortFunction} type={WalletType.Ledger} />
+        <ImportAccountsSelectionModal
+          abort={abortFunction}
+          type={WalletType.Ledger}
+          transportType={TransportType.USB}
+        />
       </ThemeProvider>
     </Provider>,
   )

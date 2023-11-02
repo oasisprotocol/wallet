@@ -98,6 +98,10 @@ export function ErrorFormatter(props: Props) {
         message,
       },
     ),
+    [WalletErrors.BluetoothTransportNotSupported]: t(
+      'errors.bluetoothTransportNotSupported',
+      'Your device does not support Bluetooth.',
+    ),
   }
 
   const error = errorMap[props.code]

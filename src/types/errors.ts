@@ -20,6 +20,7 @@ export enum WalletErrors {
   NoOpenWallet = 'no_open_wallet',
   USBTransportError = 'usb_transport_error',
   USBTransportNotSupported = 'usb_transport_not_supported',
+  BluetoothTransportNotSupported = 'bluetooth_transport_not_supported',
   LedgerUnknownError = 'unknown_ledger_error',
   LedgerCannotOpenOasisApp = 'cannot_open_oasis_app',
   LedgerOasisAppIsNotOpen = 'oasis_app_is_not_open',
