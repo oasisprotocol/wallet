@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
-import React, { memo } from 'react'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import React, { memo, useContext } from 'react'
 import { selectContact } from 'app/state/contacts/selectors'
 import { PrettyAddress } from '../PrettyAddress'
 
@@ -21,20 +22,39 @@ export const ResponsiveGridRow = memo(({ label, value }: ResponsiveGridRowProps)
   )
 })
 
-interface ResponsiveGridAddressRowProps {
+export const PreviewRow = ({ label, value }: ResponsiveGridRowProps) => (
+  <Box>
+    <Text weight="bold" size="small">
+      {label}
+    </Text>
+    <Text color="grayMedium" size="small">
+      {value}
+    </Text>
+  </Box>
+)
+
+interface AddressPreviewRowProps {
   label: string
   value: string
 }
 
-export const ResponsiveGridAddressRow = ({ label, value }: ResponsiveGridAddressRowProps) => {
+export const AddressPreviewRow = ({ label, value }: AddressPreviewRowProps) => {
   const contactAddress = useSelector(selectContact(value))
+  const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <>
-      {contactAddress && (
-        <ResponsiveGridRow label={label} value={<Text weight="bold">{contactAddress.name}</Text>} />
-      )}
-      <ResponsiveGridRow label={contactAddress ? '' : label} value={<PrettyAddress address={value} />} />
-    </>
+    <PreviewRow
+      label={label}
+      value={
+        <Box direction={isMobile ? 'column' : 'row'} gap={isMobile ? 'none' : 'small'}>
+          {contactAddress && (
+            <Text color="text" size="small" weight="bold">
+              {contactAddress.name}
+            </Text>
+          )}
+          <PrettyAddress address={value} />
+        </Box>
+      }
+    />
   )
 }

@@ -9,14 +9,25 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
+import { Alert } from 'grommet-icons/es6/icons/Alert'
 import { Checkmark } from 'grommet-icons/es6/icons/Checkmark'
-import { Close } from 'grommet-icons/es6/icons/Close'
-import * as React from 'react'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-
+import { useContext } from 'react'
+import styled from 'styled-components'
 import { ResponsiveLayer } from '../ResponsiveLayer'
 import { TransactionPreview } from '../TransactionPreview'
+
+const StyledBox = styled(Box)`
+  margin-bottom: ${({ theme }) => theme.global?.edgeSize?.medium};
+
+  @media only screen and (max-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
+    max-width: initial;
+    margin-left: -${({ theme }) => theme.global?.edgeSize?.small};
+    margin-right: -${({ theme }) => theme.global?.edgeSize?.small};
+  }
+`
 
 /**
  *
@@ -36,6 +47,7 @@ export function TransactionModal() {
   const walletAddress = useSelector(selectAddress)
   const balance = useSelector(selectBalance)
   const chainContext = useSelector(selectChainContext)
+  const isMobile = useContext(ResponsiveContext) === 'small'
 
   if (!balance) {
     throw new Error('No balance found for wallet')
@@ -54,15 +66,24 @@ export function TransactionModal() {
     <ResponsiveLayer modal position="center" background="background-front">
       <Box pad="medium" gap="medium" width="800px">
         <Box>
-          <ModalHeader>{t('transaction.step.preview', 'Preview transaction')}</ModalHeader>
-          <Box margin={{ vertical: 'small' }}>
-            <AlertBox status="warning">
+          <ModalHeader level={4} margin={{ top: 'xsmall', bottom: 'medium' }}>
+            {t('transaction.step.preview', 'Preview transaction')}
+          </ModalHeader>
+          <StyledBox>
+            <AlertBox
+              status="warning-weak"
+              icon={
+                <Box pad={isMobile ? { horizontal: 'small' } : undefined}>
+                  <Alert size="20px" color="alert-box-warning-background" />
+                </Box>
+              }
+            >
               {t(
                 'transaction.preview.warning',
                 'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
               )}
             </AlertBox>
-          </Box>
+          </StyledBox>
           {preview && (
             <TransactionPreview
               chainContext={chainContext}
@@ -72,12 +93,7 @@ export function TransactionModal() {
           )}
           {step === TransactionStep.Preview && (
             <Box direction="row" gap="small" alignSelf="end" pad={{ top: 'large' }}>
-              <Button
-                secondary
-                label={t('transaction.abort', 'Abort')}
-                icon={<Close size="18px" />}
-                onClick={abortTransaction}
-              />
+              <Button secondary label={t('transaction.cancel', 'Cancel')} onClick={abortTransaction} />
               <Button
                 primary
                 label={t('transaction.confirm', 'Confirm')}

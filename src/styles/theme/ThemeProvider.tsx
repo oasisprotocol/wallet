@@ -110,6 +110,10 @@ const grommetCustomTheme: ThemeType = {
         dark: '#f0e8cb',
         light: '#f3d45e',
       },
+      'alert-box-warning-weak-background': {
+        dark: '#f0e8cb',
+        light: '#fcf1d0',
+      },
       'alert-box-error': {
         dark: '#f26111',
         light: '#ffe7d9',

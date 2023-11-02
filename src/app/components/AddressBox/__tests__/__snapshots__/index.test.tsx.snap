@@ -64,8 +64,8 @@ exports[`<AddressBox /> should render address properly 1`] = `
 }
 
 .c4 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 .c1 {
