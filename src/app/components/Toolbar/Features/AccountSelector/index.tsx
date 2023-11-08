@@ -23,7 +23,7 @@ export const AccountSelector = memo((props: Props) => {
   const wallets = useSelector(selectWallets)
   const activeAddress = useSelector(selectAddress)
 
-  const switchAccount = (address: string) => {
+  const selectWallet = (address: string) => {
     dispatch(walletActions.selectWallet(address))
     props.closeHandler()
   }
@@ -32,7 +32,11 @@ export const AccountSelector = memo((props: Props) => {
     <ManageableAccount
       key={wallet.address}
       wallet={wallet}
-      onClick={switchAccount}
+      deleteWallet={(address: string) => {
+        dispatch(walletActions.deleteWallet(address))
+        wallet.address === activeAddress && dispatch(walletActions.selectFirstWallet())
+      }}
+      selectWallet={selectWallet}
       isActive={wallet.address === activeAddress}
     />
   ))

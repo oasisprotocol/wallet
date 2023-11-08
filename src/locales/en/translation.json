@@ -427,6 +427,9 @@
       }
     },
     "settings": {
+      "account": {
+        "delete": "Delete Account"
+      },
       "cancel": "Cancel",
       "contacts": "Contacts",
       "exportPrivateKey": {

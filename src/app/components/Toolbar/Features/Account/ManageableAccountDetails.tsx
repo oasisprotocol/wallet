@@ -18,10 +18,11 @@ import { LayerContainer } from './../LayerContainer'
 import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 
 interface ManageableAccountDetailsProps {
+  deleteAccount: (address: string) => void
   wallet: Wallet
 }
 
-export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsProps) => {
+export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [acknowledge, setAcknowledge] = useState(false)
@@ -45,12 +46,20 @@ export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsPro
         <Text size="small" margin={'small'}>
           <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
         </Text>
-        <Button
-          alignSelf="start"
-          label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
-          disabled={!wallet.privateKey}
-          onClick={() => setLayerVisibility(true)}
-        />
+        <Box justify="between" direction="row">
+          <Button
+            alignSelf="start"
+            label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
+            disabled={!wallet.privateKey}
+            onClick={() => setLayerVisibility(true)}
+          />
+          <Button
+            plain
+            color="status-error"
+            label={t('toolbar.settings.account.delete', 'Delete Account')}
+            onClick={() => deleteAccount(wallet.address)}
+          />
+        </Box>
       </Box>
       {layerVisibility && (
         <LayerContainer hideLayer={hideLayer}>

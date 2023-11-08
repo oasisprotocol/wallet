@@ -14,22 +14,28 @@ import { ManageableAccountDetails } from './ManageableAccountDetails'
 export const ManageableAccount = ({
   wallet,
   isActive,
-  onClick,
+  deleteWallet,
+  selectWallet,
 }: {
   wallet: Wallet
   isActive: boolean
-  onClick: (address: string) => void
+  deleteWallet: (address: string) => void
+  selectWallet: (address: string) => void
 }) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
+  const handleDelete = (address: string) => {
+    deleteWallet(address)
+    setLayerVisibility(false)
+  }
 
   return (
     <>
       <Account
         address={wallet.address}
         balance={wallet.balance}
-        onClick={onClick}
+        onClick={selectWallet}
         isActive={isActive}
         path={wallet.path}
         displayBalance={true}
@@ -47,7 +53,7 @@ export const ManageableAccount = ({
                 height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
                 pad={{ vertical: 'medium' }}
               >
-                <ManageableAccountDetails wallet={wallet} />
+                <ManageableAccountDetails deleteAccount={handleDelete} wallet={wallet} />
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button
                     secondary
