@@ -4,7 +4,7 @@
  *
  */
 import { walletActions } from 'app/state/wallet'
-import { selectAddress, selectWallets } from 'app/state/wallet/selectors'
+import { selectAddress, selectWallets, selectHasOneAccount } from 'app/state/wallet/selectors'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { memo } from 'react'
@@ -22,6 +22,7 @@ export const AccountSelector = memo((props: Props) => {
   const dispatch = useDispatch()
   const wallets = useSelector(selectWallets)
   const activeAddress = useSelector(selectAddress)
+  const hasOneAccount = useSelector(selectHasOneAccount)
 
   const selectWallet = (address: string) => {
     dispatch(walletActions.selectWallet(address))
@@ -32,10 +33,14 @@ export const AccountSelector = memo((props: Props) => {
     <ManageableAccount
       key={wallet.address}
       wallet={wallet}
-      deleteWallet={(address: string) => {
-        dispatch(walletActions.deleteWallet(address))
-        wallet.address === activeAddress && dispatch(walletActions.selectFirstWallet())
-      }}
+      deleteWallet={
+        hasOneAccount
+          ? undefined
+          : (address: string) => {
+              dispatch(walletActions.deleteWallet(address))
+              wallet.address === activeAddress && dispatch(walletActions.selectFirstWallet())
+            }
+      }
       selectWallet={selectWallet}
       isActive={wallet.address === activeAddress}
     />

@@ -19,16 +19,18 @@ export const ManageableAccount = ({
 }: {
   wallet: Wallet
   isActive: boolean
-  deleteWallet: (address: string) => void
+  deleteWallet?: (address: string) => void
   selectWallet: (address: string) => void
 }) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
-  const handleDelete = (address: string) => {
-    deleteWallet(address)
-    setLayerVisibility(false)
-  }
+  const handleDelete = deleteWallet
+    ? (address: string) => {
+        deleteWallet(address)
+        setLayerVisibility(false)
+      }
+    : undefined
 
   return (
     <>
