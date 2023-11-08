@@ -16,6 +16,7 @@ import { AddressBox } from '../../../AddressBox'
 import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
 import { uintToBase64, hex2uint } from '../../../../lib/helpers'
+import { DeleteAccount } from './DeleteAccount'
 
 interface ManageableAccountDetailsProps {
   deleteAccount: (address: string) => void
@@ -25,6 +26,7 @@ interface ManageableAccountDetailsProps {
 export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
+  const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
   const [acknowledge, setAcknowledge] = useState(false)
   const [notificationVisible, setNotificationVisible] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
@@ -56,8 +58,8 @@ export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAc
           <Button
             plain
             color="status-error"
-            label={t('toolbar.settings.account.delete', 'Delete Account')}
-            onClick={() => deleteAccount(wallet.address)}
+            label={t('toolbar.settings.delete.title', 'Delete Account')}
+            onClick={() => setDeleteLayerVisibility(true)}
           />
         </Box>
       </Box>
@@ -115,6 +117,13 @@ export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAc
             </Tab>
           </Tabs>
         </LayerContainer>
+      )}
+      {deleteLayerVisibility && (
+        <DeleteAccount
+          onDelete={() => deleteAccount(wallet.address)}
+          onCancel={() => setDeleteLayerVisibility(false)}
+          wallet={wallet}
+        />
       )}
       {notificationVisible && (
         <Notification

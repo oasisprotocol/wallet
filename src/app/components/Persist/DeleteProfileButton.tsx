@@ -1,4 +1,3 @@
-import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { persistActions } from 'app/state/persist'
 import { useState } from 'react'
@@ -7,9 +6,6 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { LoginModalLayout } from './LoginModalLayout'
-import { TextInput } from 'grommet/es6/components/TextInput'
-import { Form } from 'grommet/es6/components/Form'
-import { FormField } from 'grommet/es6/components/FormField'
 import { DeleteInputForm } from '../../components/DeleteInputForm'
 
 interface DeleteProfileButtonProps {

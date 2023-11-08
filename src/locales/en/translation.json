@@ -429,11 +429,13 @@
       }
     },
     "settings": {
-      "account": {
-        "delete": "Delete Account"
-      },
       "cancel": "Cancel",
       "contacts": "Contacts",
+      "delete": {
+        "description": "Are you sure you want to delete the following account?",
+        "inputHelp": "This action cannot be undone. To continue please enter '{{confirmationKeyword}}' below.",
+        "title": "Delete Account"
+      },
       "exportPrivateKey": {
         "confirm": "I understand, reveal my private key",
         "copied": "Private key copied.",

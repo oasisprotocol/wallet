@@ -15,7 +15,7 @@ import { DerivationFormatter, DerivationFormatterProps } from './DerivationForma
 export interface AccountProps {
   address: string
   balance: BalanceDetails | undefined
-  onClick: (address: string) => void
+  onClick?: (address: string) => void
   path?: number[]
   isActive: boolean
   displayBalance: boolean
@@ -48,9 +48,7 @@ export const Account = memo((props: AccountProps) => {
       fill="horizontal"
       role="checkbox"
       aria-checked={props.isActive}
-      onClick={() => {
-        props.onClick(props.address)
-      }}
+      onClick={props.onClick ? () => props.onClick!(props.address) : undefined}
       hoverIndicator={{ background: 'brand' }}
       direction="row"
     >
