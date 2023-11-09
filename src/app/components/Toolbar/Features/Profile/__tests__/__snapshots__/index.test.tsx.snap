@@ -135,12 +135,15 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-top: 48px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 24px;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 {
@@ -161,6 +164,21 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex: 1 0 auto;
   padding-top: 24px;
   padding-bottom: 24px;
+}
+
+.c15 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 12px;
+}
+
+.c14 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c9 {
@@ -290,7 +308,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border: 0;
 }
 
-.c14 {
+.c16 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -301,47 +319,62 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  color: inherit;
-  outline: none;
-  border: none;
-  padding: 0;
-  text-align: inherit;
+  border: 2px solid #d24c00;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #d24c00;
+  color: #F8F8F8;
+  border-radius: 4px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
-.c14:focus {
+.c16:hover {
+  box-shadow: 0px 0px 0px 2px #d24c00;
+}
+
+.c16:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus > circle,
-.c14:focus > ellipse,
-.c14:focus > line,
-.c14:focus > path,
-.c14:focus > polygon,
-.c14:focus > polyline,
-.c14:focus > rect {
+.c16:focus > circle,
+.c16:focus > ellipse,
+.c16:focus > line,
+.c16:focus > path,
+.c16:focus > polygon,
+.c16:focus > polyline,
+.c16:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus::-moz-focus-inner {
+.c16:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c14:focus:not(:focus-visible) {
+.c16:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
-.c14:focus:not(:focus-visible) > rect {
+.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible)::-moz-focus-inner {
+.c16:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -444,7 +477,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 
 @media only screen and (max-width:768px) {
   .c13 {
-    margin-top: 24px;
+    margin-top: 12px;
   }
 }
 
@@ -452,6 +485,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   .c1 {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
+    height: 6px;
   }
 }
 
@@ -643,8 +682,16 @@ exports[`<Profile  /> should render unavailable state 1`] = `
     <div
       class="c13"
     >
-      <button
+      <span
         class="c14"
+      >
+        Deletion
+      </span>
+      <div
+        class="c15"
+      />
+      <button
+        class="c16"
         type="button"
       >
         Delete profile

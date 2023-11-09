@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
+import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { User } from 'grommet-icons/es6/icons/User'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
@@ -61,8 +62,9 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
   return (
     <Box flex="grow" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }} pad={{ vertical: 'medium' }}>
       <UpdatePassword />
-      <Box direction="row" margin={{ top: 'large' }}>
-        <DeleteProfileButton />
+      <Box gap="small" margin={{ top: 'medium' }} alignSelf="start">
+        <Text>{t('toolbar.profile.deletion', 'Deletion')}</Text>
+        <DeleteProfileButton prominent />
       </Box>
     </Box>
   )
