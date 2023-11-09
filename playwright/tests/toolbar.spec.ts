@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { password, privateKey } from '../utils/test-inputs'
+import { password, privateKey, privateKeyAddress } from '../utils/test-inputs'
 import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
@@ -12,6 +12,17 @@ test.beforeEach(async ({ page }) => {
 const tempPassword = '123'
 
 test.describe('Profile tab', () => {
+  test('should remove a profile', async ({ page }) => {
+    await page.goto('/open-wallet/private-key')
+    await fillPrivateKeyAndPassword(page)
+    await page.getByTestId('account-selector').click()
+    await page.getByTestId('toolbar-profile-tab').click()
+    await page.getByRole('button', { name: 'Delete profile' }).click()
+    await page.getByLabel(/Are you sure you want/).fill('delete')
+    await page.getByRole('button', { name: 'Yes, delete' }).click()
+    await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
+  })
+
   test('should update password', async ({ page }) => {
     await page.goto('/open-wallet/private-key')
     await fillPrivateKeyAndPassword(page)
