@@ -9,6 +9,7 @@ import { User } from 'grommet-icons/es6/icons/User'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { UpdatePassword } from './UpdatePassword'
 import { layerOverlayMinHeight } from './../layer'
+import { DeleteProfileButton } from '../../../Persist/DeleteProfileButton'
 
 type ProfileEmptyStateProps = {
   children: ReactNode
@@ -60,6 +61,9 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
   return (
     <Box flex="grow" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }} pad={{ vertical: 'medium' }}>
       <UpdatePassword />
+      <Box direction="row" margin={{ top: 'large' }}>
+        <DeleteProfileButton />
+      </Box>
     </Box>
   )
 }
