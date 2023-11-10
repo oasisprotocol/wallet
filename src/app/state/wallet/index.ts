@@ -1,4 +1,4 @@
-import { PayloadAction } from '@reduxjs/toolkit'
+import { PayloadAction, current } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 
 import {
@@ -21,6 +21,12 @@ const slice = createSlice({
     openWalletFromMnemonic(state, action: PayloadAction<OpenSelectedAccountsPayload>) {},
     openWalletFromPrivateKey(state, action: PayloadAction<OpenFromPrivateKeyPayload>) {},
     openWalletsFromLedger(state, action: PayloadAction<OpenSelectedAccountsPayload>) {},
+    deleteWallet(state, action: PayloadAction<string>) {
+      delete state.wallets[action.payload]
+    },
+    selectFirstWallet(state) {
+      state.selectedWallet = Object.values(current(state.wallets))[0].address
+    },
     selectWallet(state, action: PayloadAction<string | undefined>) {
       state.selectedWallet = action.payload
     },

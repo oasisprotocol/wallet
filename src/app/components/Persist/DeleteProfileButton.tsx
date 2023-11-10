@@ -1,4 +1,3 @@
-import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { persistActions } from 'app/state/persist'
 import { useState } from 'react'
@@ -7,9 +6,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { LoginModalLayout } from './LoginModalLayout'
-import { TextInput } from 'grommet/es6/components/TextInput'
-import { Form } from 'grommet/es6/components/Form'
-import { FormField } from 'grommet/es6/components/FormField'
+import { DeleteInputForm } from '../../components/DeleteInputForm'
 
 interface DeleteProfileButtonProps {
   prominent?: boolean
@@ -45,7 +42,7 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
           onClickOutside={onCancel}
           onEsc={onCancel}
         >
-          <Form onSubmit={onConfirm}>
+          <DeleteInputForm onCancel={onCancel} onConfirm={onConfirm}>
             <Paragraph>
               <label htmlFor="type_delete">
                 <Trans
@@ -53,37 +50,12 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
                   i18nKey="persist.loginToProfile.deleteProfile.description"
                   defaults="Are you sure you want to delete this profile? This action cannot be undone and will <strong>erase your private keys</strong>.<br/><br/>To continue please enter '{{confirmationKeyword}}' below."
                   values={{
-                    confirmationKeyword: t(
-                      'persist.loginToProfile.deleteProfile.confirmationKeyword',
-                      'delete',
-                    ),
+                    confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
                   }}
                 />
               </label>
             </Paragraph>
-            <FormField
-              name="type_delete"
-              validate={(value: string | undefined) =>
-                !value ||
-                value.toLowerCase() !==
-                  t('persist.loginToProfile.deleteProfile.confirmationKeyword', 'delete').toLowerCase()
-                  ? t('persist.loginToProfile.deleteProfile.confirmationKeywordInvalid', `Type 'delete'`)
-                  : undefined
-              }
-            >
-              <TextInput id="type_delete" name="type_delete" />
-            </FormField>
-
-            <Box direction="row" justify="between" pad={{ top: 'large' }}>
-              <Button secondary label={t('common.cancel', 'Cancel')} onClick={onCancel} />
-              <Button
-                type="submit"
-                label={t('persist.loginToProfile.deleteProfile.confirm', 'Yes, delete')}
-                primary
-                color="status-error"
-              />
-            </Box>
-          </Form>
+          </DeleteInputForm>
         </LoginModalLayout>
       )}
     </>

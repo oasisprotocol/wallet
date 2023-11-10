@@ -7,7 +7,9 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Text } from 'grommet/es6/components/Text'
+import { Tip } from 'grommet/es6/components/Tip'
 import { Copy } from 'grommet-icons/es6/icons/Copy'
+import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation'
 import { useTranslation } from 'react-i18next'
 import { NoTranslate } from 'app/components/NoTranslate'
 import { Wallet } from '../../../../state/wallet/types'
@@ -16,14 +18,18 @@ import { AddressBox } from '../../../AddressBox'
 import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
 import { uintToBase64, hex2uint } from '../../../../lib/helpers'
+import { DeleteAccount } from './DeleteAccount'
 
 interface ManageableAccountDetailsProps {
+  /** If undefined: delete button is disabled */
+  deleteAccount: undefined | ((address: string) => void)
   wallet: Wallet
 }
 
-export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsProps) => {
+export const ManageableAccountDetails = ({ deleteAccount, wallet }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
+  const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
   const [acknowledge, setAcknowledge] = useState(false)
   const [notificationVisible, setNotificationVisible] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
@@ -45,12 +51,42 @@ export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsPro
         <Text size="small" margin={'small'}>
           <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
         </Text>
-        <Button
-          alignSelf="start"
-          label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
-          disabled={!wallet.privateKey}
-          onClick={() => setLayerVisibility(true)}
-        />
+        <Box justify="between" direction="row">
+          <Button
+            alignSelf="start"
+            label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
+            disabled={!wallet.privateKey}
+            onClick={() => setLayerVisibility(true)}
+          />
+
+          {deleteAccount ? (
+            <Button
+              plain
+              color="status-error"
+              label={t('toolbar.settings.delete.title', 'Delete Account')}
+              onClick={() => setDeleteLayerVisibility(true)}
+            />
+          ) : (
+            <Tip
+              content={t(
+                'toolbar.settings.delete.tooltip',
+                'You must have at least one account at all times.',
+              )}
+              dropProps={{ align: { bottom: 'top' } }}
+            >
+              <Box>
+                <Button
+                  icon={<CircleInformation size="18px" color="status-error" />}
+                  disabled={true}
+                  plain
+                  color="status-error"
+                  label={t('toolbar.settings.delete.title', 'Delete Account')}
+                  onClick={() => setDeleteLayerVisibility(true)}
+                />
+              </Box>
+            </Tip>
+          )}
+        </Box>
       </Box>
       {layerVisibility && (
         <LayerContainer hideLayer={hideLayer}>
@@ -106,6 +142,13 @@ export const ManageableAccountDetails = ({ wallet }: ManageableAccountDetailsPro
             </Tab>
           </Tabs>
         </LayerContainer>
+      )}
+      {deleteLayerVisibility && deleteAccount && (
+        <DeleteAccount
+          onDelete={() => deleteAccount(wallet.address)}
+          onCancel={() => setDeleteLayerVisibility(false)}
+          wallet={wallet}
+        />
       )}
       {notificationVisible && (
         <Notification

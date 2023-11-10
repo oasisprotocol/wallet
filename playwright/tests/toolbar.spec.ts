@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test'
-import { password, privateKey, privateKeyAddress } from '../utils/test-inputs'
+import { test, expect, Page } from '@playwright/test'
+import { mnemonic, mnemonicAddress0, password, privateKey, privateKeyAddress } from '../utils/test-inputs'
 import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
@@ -74,5 +74,50 @@ test.describe('My Accounts tab', () => {
     await page.getByText('Export Private Key').click()
     await page.getByText('I understand, reveal my private key').click()
     await expect(page.getByText(privateKey)).toBeVisible()
+  })
+
+  test('should not be able to remove an account', async ({ page }) => {
+    await page.goto('/open-wallet/private-key')
+    await fillPrivateKeyAndPassword(page)
+    await page.getByTestId('account-selector').click()
+    await page.getByText('Manage').click()
+    await expect(page.getByText('Delete Account')).toBeDisabled()
+  })
+
+  async function openAccountSelectorWithMultipleItems(page: Page) {
+    await page.goto('/open-wallet/mnemonic')
+    await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+    await page.getByRole('button', { name: /Import my wallet/ }).click()
+    const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })
+    await expect(uncheckedAccounts).toHaveCount(3)
+    for (const account of await uncheckedAccounts.elementHandles()) await account.click()
+    await page.getByRole('button', { name: /Open/ }).click()
+    await page.getByTestId('account-selector').click()
+    await expect(page.getByTestId('account-choice')).toHaveCount(4)
+  }
+
+  test('should remove currently selected account and switch to the first one in account list', async ({
+    page,
+  }) => {
+    await openAccountSelectorWithMultipleItems(page)
+    await page.getByText('Manage').nth(0).click()
+    await page.getByText('Delete Account').click()
+    await page.getByRole('textbox').fill('foo')
+    await page.getByRole('button', { name: 'Yes, delete' }).click()
+    expect(page.getByText("Type 'delete'")).toBeVisible()
+    await page.getByRole('textbox').fill('delete')
+    await page.getByRole('button', { name: 'Yes, delete' }).click()
+    await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
+    await expect(page.getByTestId('account-choice')).toHaveCount(3)
+  })
+
+  test('should remove not currently selected account', async ({ page }) => {
+    await openAccountSelectorWithMultipleItems(page)
+    await page.getByText('Manage').nth(1).click()
+    await page.getByText('Delete Account').click()
+    await page.getByRole('textbox').fill('delete')
+    await page.getByRole('button', { name: 'Yes, delete' }).click()
+    await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
+    await expect(page.getByTestId('account-choice')).toHaveCount(3)
   })
 })
