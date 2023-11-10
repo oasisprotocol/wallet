@@ -134,6 +134,11 @@
     "loadingError": "Couldn't load delegations.",
     "reclaimedAmount": "Amount to reclaim"
   },
+  "deleteForm": {
+    "confirm": "Yes, delete",
+    "confirmationKeyword": "delete",
+    "hint": "Type '{{confirmationKeyword}}'"
+  },
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
@@ -364,9 +369,6 @@
     "loginToProfile": {
       "deleteProfile": {
         "button": "Delete profile",
-        "confirm": "Yes, delete",
-        "confirmationKeyword": "delete",
-        "confirmationKeywordInvalid": "Type 'delete'",
         "description": "Are you sure you want to delete this profile? This action cannot be undone and will <strong>erase your private keys</strong>.<br/><br/>To continue please enter '{{confirmationKeyword}}' below.",
         "title": "Delete Profile"
       },
