@@ -30,11 +30,6 @@
       "send": "Send",
       "success": "Transaction successfully sent. The transaction might take up to a minute to appear on your account."
     },
-    "settings": {
-      "exportPrivateKey": {
-        "copied": "Private key copied."
-      }
-    },
     "subnavigation": {
       "activeDelegations": "Active delegations",
       "debondingDelegations": "Debonding delegations",
@@ -419,6 +414,7 @@
       "testnet": "Testnet"
     },
     "profile": {
+      "deletion": "Deletion",
       "notAvailable": "You can setup your profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "password": {
         "current": "Current password",
@@ -435,6 +431,7 @@
       "contacts": "Contacts",
       "exportPrivateKey": {
         "confirm": "I understand, reveal my private key",
+        "copied": "Private key copied.",
         "hint1": "The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.",
         "hint2": "Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.",
         "title": "Export Private Key"

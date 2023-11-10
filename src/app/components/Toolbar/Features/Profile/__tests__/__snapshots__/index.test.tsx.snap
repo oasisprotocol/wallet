@@ -128,6 +128,24 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   justify-content: flex-end;
 }
 
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 24px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -146,6 +164,21 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex: 1 0 auto;
   padding-top: 24px;
   padding-bottom: 24px;
+}
+
+.c15 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 12px;
+}
+
+.c14 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c9 {
@@ -275,6 +308,76 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border: 0;
 }
 
+.c16 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #d24c00;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #d24c00;
+  color: #F8F8F8;
+  border-radius: 4px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c16:hover {
+  box-shadow: 0px 0px 0px 2px #d24c00;
+}
+
+.c16:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus > circle,
+.c16:focus > ellipse,
+.c16:focus > line,
+.c16:focus > path,
+.c16:focus > polygon,
+.c16:focus > polyline,
+.c16:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c16:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c16:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c16:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
 .c2 {
   font-size: 18px;
   line-height: 24px;
@@ -373,9 +476,21 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+  .c13 {
+    margin-top: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
   .c1 {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c15 {
+    height: 6px;
   }
 }
 
@@ -564,6 +679,24 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         </button>
       </div>
     </form>
+    <div
+      class="c13"
+    >
+      <span
+        class="c14"
+      >
+        Deletion
+      </span>
+      <div
+        class="c15"
+      />
+      <button
+        class="c16"
+        type="button"
+      >
+        Delete profile
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -11,7 +11,11 @@ import { TextInput } from 'grommet/es6/components/TextInput'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
 
-export function DeleteProfileButton() {
+interface DeleteProfileButtonProps {
+  prominent?: boolean
+}
+
+export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -29,9 +33,11 @@ export function DeleteProfileButton() {
   return (
     <>
       <Button
+        color={prominent ? 'status-error' : undefined}
         label={t('persist.loginToProfile.deleteProfile.button', 'Delete profile')}
         onClick={() => setLayerVisibility(true)}
-        plain
+        primary={prominent}
+        plain={!prominent}
       />
       {layerVisibility && (
         <LoginModalLayout
