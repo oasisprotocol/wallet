@@ -26,7 +26,8 @@ import { normalizeColor } from 'grommet/es6/utils'
 import { accountActions } from 'app/state/account'
 import { selectAccount } from 'app/state/account/selectors'
 import { BalanceDetails } from 'app/state/account/types'
-import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
+import { selectActiveWallet, selectHasAccounts, selectHasOneAccount } from 'app/state/wallet/selectors'
+import { walletActions } from 'app/state/wallet'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
 import { Button } from 'grommet/es6/components/Button'
@@ -75,10 +76,10 @@ export function AccountPage(props: AccountPageProps) {
   const stake = useSelector(selectStaking)
 
   const walletHasAccounts = useSelector(selectHasAccounts)
-  const walletAddress = useSelector(selectAddress)
+  const wallet = useSelector(selectActiveWallet)
   const selectedNetwork = useSelector(selectSelectedNetwork)
   const { active } = useSelector(selectTransaction)
-
+  const hasOneAccount = useSelector(selectHasOneAccount)
   const balanceDelegations = stake.delegations?.reduce((acc, v) => acc + BigInt(v.amount), 0n)
   const balanceDebondingDelegations = stake.debondingDelegations?.reduce(
     (acc, v) => acc + BigInt(v.amount),
@@ -133,7 +134,15 @@ export function AccountPage(props: AccountPageProps) {
           <AccountSummary
             address={address}
             balance={balance}
-            walletAddress={walletAddress}
+            deleteWallet={
+              hasOneAccount && wallet
+                ? undefined
+                : (address: string) => {
+                    dispatch(walletActions.deleteWallet(address))
+                    wallet!.address === address && dispatch(walletActions.selectFirstWallet())
+                  }
+            }
+            wallet={wallet}
             walletHasAccounts={walletHasAccounts}
           />
           <Nav

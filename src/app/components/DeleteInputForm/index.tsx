@@ -28,7 +28,7 @@ export function DeleteInputForm({ children, onCancel, onConfirm }: DeleteInputFo
             : undefined
         }
       >
-        <TextInput id="type_delete" name="type_delete" />
+        <TextInput data-testid="account-delete-confirmation-input" id="type_delete" name="type_delete" />
       </FormField>
 
       <Box direction="row" justify="between" pad={{ top: 'large' }}>

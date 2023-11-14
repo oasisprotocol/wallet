@@ -1,5 +1,5 @@
 import styled, { ThemeContext } from 'styled-components'
-import { AddressBox } from 'app/components/AddressBox'
+import { AddressBox, EditableAddressBox, EditableNameBox } from 'app/components/AddressBox'
 import { AlertBox } from 'app/components/AlertBox'
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { AnchorLink } from 'app/components/AnchorLink'
@@ -7,20 +7,20 @@ import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { QRCodeCanvas } from 'qrcode.react'
-import * as React from 'react'
+import { useContext, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
-import { normalizeColor } from 'grommet/es6/utils'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { walletActions } from 'app/state/wallet'
 import { BalanceDetails } from 'app/state/account/types'
 import { selectTicker } from 'app/state/network/selectors'
+import { ManageableAccountDetails } from 'app/components/Toolbar/Features/Account/ManageableAccountDetails'
+import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
+import { Wallet } from 'app/state/wallet/types'
 
 const StyledDescriptionList = styled.dl`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border-top: solid
-    ${({ theme }) => `${theme.global?.edgeSize?.hair} ${normalizeColor('background-front-border', theme)}`};
   margin: ${({ theme }) => theme.global?.edgeSize?.xsmall} 0 0;
   padding: ${({ theme }) =>
     `${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.small} ${theme.global?.edgeSize?.xsmall}`};
@@ -87,23 +87,39 @@ const StyledDescriptionList = styled.dl`
 export interface AccountSummaryProps {
   address: string
   balance: BalanceDetails
+  deleteWallet?: (address: string) => void
   walletHasAccounts?: boolean
-  walletAddress?: string
+  wallet?: Wallet
 }
 
-export function AccountSummary({ address, balance, walletAddress, walletHasAccounts }: AccountSummaryProps) {
+export function AccountSummary({
+  address,
+  balance,
+  deleteWallet,
+  wallet,
+  walletHasAccounts,
+}: AccountSummaryProps) {
   const { t } = useTranslation()
-  const { dark } = React.useContext<any>(ThemeContext)
-  const isMobile = React.useContext(ResponsiveContext) === 'small'
+  const dispatch = useDispatch()
+  const [layerVisibility, setLayerVisibility] = useState(false)
+  const { dark } = useContext<any>(ThemeContext)
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const ticker = useSelector(selectTicker)
-
+  const unlockedStatus = useSelector(selectUnlockedStatus)
+  const canEditName = unlockedStatus === 'unlockedProfile' && address === wallet?.address
+  const editAccount = (name: string) => {
+    if (!wallet) {
+      throw new Error('Wallet not provided')
+    }
+    dispatch(walletActions.setWalletName({ address: wallet.address, name }))
+  }
   return (
     <>
       <Box margin={{ bottom: 'small' }}>
-        {walletHasAccounts && walletAddress === address && (
+        {walletHasAccounts && wallet?.address === address && (
           <AlertBox status="ok-weak">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
         )}
-        {walletHasAccounts && walletAddress !== address && (
+        {walletHasAccounts && wallet?.address !== address && (
           <AlertBox status="warning">
             {t('account.summary.notYourAccount', 'This is not your account.')}
           </AlertBox>
@@ -125,10 +141,19 @@ export function AccountSummary({ address, balance, walletAddress, walletHasAccou
         border={{ color: 'background-front-border', size: '1px' }}
         background="background-front"
       >
-        <Box pad="small" direction="row-responsive" flex>
+        <Box pad="small" direction="row-responsive" flex justify="between">
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            <AddressBox address={address} />
-
+            {!canEditName && <AddressBox address={address} separator />}
+            {canEditName && !wallet?.name && (
+              <EditableAddressBox address={address} openEditModal={() => setLayerVisibility(true)} />
+            )}
+            {canEditName && wallet?.name && (
+              <EditableNameBox
+                address={address}
+                openEditModal={() => setLayerVisibility(true)}
+                name={wallet.name}
+              />
+            )}
             <StyledDescriptionList data-testid="account-balance-summary">
               <dt>
                 <Text size={isMobile ? 'medium' : 'large'}>
@@ -157,12 +182,28 @@ export function AccountSummary({ address, balance, walletAddress, walletHasAccou
           </Box>
 
           {!isMobile && (
-            <Box align="end" flex>
+            <Box align="end">
               <QRCodeCanvas value={address} fgColor={dark ? '#e8e8e8' : '#333333'} bgColor="#00000000" />
             </Box>
           )}
         </Box>
       </Box>
+      {layerVisibility && wallet && canEditName && (
+        <ManageableAccountDetails
+          animation
+          closeHandler={() => setLayerVisibility(false)}
+          deleteAccount={
+            deleteWallet
+              ? (address: string) => {
+                  deleteWallet(address)
+                  setLayerVisibility(false)
+                }
+              : undefined
+          }
+          editAccount={editAccount}
+          wallet={wallet}
+        />
+      )}
     </>
   )
 }

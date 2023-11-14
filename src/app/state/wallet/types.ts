@@ -19,6 +19,7 @@ export interface Wallet {
   pathDisplay?: string
   privateKey?: string
   balance: BalanceDetails
+  name?: string
 }
 
 export interface AddWalletPayload extends Wallet {

@@ -39,7 +39,13 @@ export const DeleteAccount = ({ onCancel, onDelete, wallet }: DeleteAccountProps
               'Are you sure you want to delete the following account?',
             )}
           </Text>
-          <Account address={wallet.address} balance={undefined} displayBalance={false} isActive />
+          <Account
+            address={wallet.address}
+            balance={undefined}
+            displayBalance={false}
+            isActive
+            name={wallet.name}
+          />
 
           <DeleteInputForm onCancel={onCancel} onConfirm={onDelete}>
             <label htmlFor="type_delete">
