@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-import { privateKeyPersistedState } from './test-inputs'
+import { privateKeyPersistedState } from '../../src/utils/__fixtures__/test-inputs'
 
 export async function clearPersistedStorage(page: Page) {
   // Move to the right domain, but don't needlessly load HTML and JS.

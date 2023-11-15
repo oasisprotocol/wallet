@@ -1,7 +1,7 @@
-import type { ImportAccountsStep } from '../../src/app/state/importaccounts/types'
-import type { TransactionFormSteps } from '../../src/app/state/paratimes/types'
-import type { WalletType } from '../../src/app/state/wallet/types'
-import type { RootState } from '../../src/types/RootState'
+import type { ImportAccountsStep } from 'app/state/importaccounts/types'
+import type { TransactionFormSteps } from 'app/state/paratimes/types'
+import type { WalletType } from 'app/state/wallet/types'
+import type { RootState } from 'types'
 
 export const mnemonicAddress0 = 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh'
 export const mnemonicAddress0Pretty = 'oasis1 qqca 0gpl rfn6 3ljg 9c83 3te7 em36 lkz0 cv8d jffh'
@@ -132,5 +132,4 @@ export const privateKeyUnlockedState = {
     }),
     enteredWrongPassword: false,
   },
-  // TODO: this doesn't check types?!
 } satisfies RootState

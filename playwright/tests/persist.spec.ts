@@ -12,7 +12,7 @@ import {
   privateKey2,
   password,
   wrongPassword,
-} from '../utils/test-inputs'
+} from '../../src/utils/__fixtures__/test-inputs'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 
 test.beforeEach(async ({ context, page }) => {

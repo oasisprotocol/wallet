@@ -9,7 +9,7 @@ import {
   privateKey2,
   privateKey2AddressPretty,
   mnemonic,
-} from '../utils/test-inputs'
+} from '../../src/utils/__fixtures__/test-inputs'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import type { AccountsRow } from '../../src/vendors/oasisscan/index'

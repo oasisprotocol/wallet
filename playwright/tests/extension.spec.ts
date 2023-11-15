@@ -4,7 +4,7 @@ import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
 import { expectNoErrorsInConsole } from '../utils/expectNoErrorsInConsole'
 import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
-import { privateKey, privateKeyAddress } from '../utils/test-inputs'
+import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
 
 // Test dev build by default, but also allow testing production
 const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '../build-dev/')

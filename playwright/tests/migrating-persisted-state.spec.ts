@@ -3,7 +3,7 @@ import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
 import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
-import { password, privateKeyUnlockedState } from '../utils/test-inputs'
+import { password, privateKeyUnlockedState } from '../../src/utils/__fixtures__/test-inputs'
 import { RootState } from '../../src/types/RootState'
 
 test.beforeEach(async ({ context, page }) => {
