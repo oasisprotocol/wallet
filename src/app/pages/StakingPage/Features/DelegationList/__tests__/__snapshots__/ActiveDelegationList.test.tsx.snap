@@ -82,6 +82,20 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c2 {
   margin-top: 0px;
   font-size: 34px;
@@ -91,7 +105,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c19 {
+.c20 {
   font-size: 18px;
   line-height: 24px;
 }
@@ -569,11 +583,14 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                     role="gridcell"
                   >
                     <span>
-                      <span>
-                        0.0000001
-                      </span>
-                      <span
+                      <div
                         class="c19"
+                        style="display: inline-flex; white-space: nowrap;"
+                      >
+                        0.0000001
+                      </div>
+                      <span
+                        class="c20"
                       >
                         <span
                           class="notranslate"

@@ -215,7 +215,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: none;
 }
 
-.c21 {
+.c22 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -226,30 +226,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #d24c00;
 }
 
-.c21 g {
+.c22 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c21 *:not([stroke])[fill='none'] {
+.c22 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c21 *[stroke*='#'],.c21 *[STROKE*='#'] {
+.c22 *[stroke*='#'],.c22 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c21 *[fill-rule],
-.c21 *[FILL-RULE],
-.c21 *[fill*='#'],.c21 *[FILL*='#'] {
+.c22 *[fill-rule],
+.c22 *[FILL-RULE],
+.c22 *[fill*='#'],.c22 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
-}
-
-.c20 {
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .c1 {
@@ -267,6 +262,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 24px;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c21 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c2 {
@@ -776,11 +790,14 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 role="gridcell"
               >
                 <span>
-                  <span>
-                    0
-                  </span>
-                  <span
+                  <div
                     class="c20"
+                    style="display: inline-flex; white-space: nowrap;"
+                  >
+                    0
+                  </div>
+                  <span
+                    class="c21"
                   >
                     <span
                       class="notranslate"
@@ -819,7 +836,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <svg
                   aria-label="Status is unknown"
-                  class="c21"
+                  class="c22"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -845,11 +862,14 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 role="gridcell"
               >
                 <span>
-                  <span>
-                    0
-                  </span>
-                  <span
+                  <div
                     class="c20"
+                    style="display: inline-flex; white-space: nowrap;"
+                  >
+                    0
+                  </div>
+                  <span
+                    class="c21"
                   >
                     <span
                       class="notranslate"
@@ -888,7 +908,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <svg
                   aria-label="Status is critical"
-                  class="c21"
+                  class="c22"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -914,11 +934,14 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 role="gridcell"
               >
                 <span>
-                  <span>
-                    0
-                  </span>
-                  <span
+                  <div
                     class="c20"
+                    style="display: inline-flex; white-space: nowrap;"
+                  >
+                    0
+                  </div>
+                  <span
+                    class="c21"
                   >
                     <span
                       class="notranslate"

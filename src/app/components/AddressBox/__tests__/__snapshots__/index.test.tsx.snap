@@ -95,8 +95,8 @@ exports[`<AddressBox /> should render address properly 1`] = `
 }
 
 .c5 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
   font-weight: bold;
   word-break: break-word;
 }
@@ -406,8 +406,8 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
 }
 
 .c4 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
   font-weight: bold;
   word-break: break-word;
 }

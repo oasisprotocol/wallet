@@ -421,9 +421,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                 class="c9"
               >
                 <span>
-                  <span>
+                  <div
+                    class="c4"
+                    style="display: inline-flex; white-space: nowrap;"
+                  >
                     0.0000001
-                  </span>
+                  </div>
                   <span
                     class="c10"
                   >

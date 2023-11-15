@@ -40,8 +40,8 @@ exports[`<CommissionBounds  /> should match snapshot with active bounds 1`] = `
 }
 
 .c2 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 @media only screen and (max-width:768px) {
@@ -114,8 +114,8 @@ exports[`<CommissionBounds  /> should match snapshot with provided bounds 1`] = 
 }
 
 .c2 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 @media only screen and (max-width:768px) {
