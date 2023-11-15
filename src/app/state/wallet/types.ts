@@ -18,7 +18,14 @@ export interface Wallet {
   path?: number[]
   pathDisplay?: string
   privateKey?: string
-  balance: BalanceDetails
+  balance: BalanceDetails & {
+    /** @deprecated This property is not reliably present */
+    address?: string
+    /** @deprecated This property is not reliably present */
+    allowances?: any[]
+    /** @deprecated This property is not reliably present */
+    validator?: any
+  }
   name?: string
 }
 
@@ -37,6 +44,8 @@ export interface OpenSelectedAccountsPayload {
 
 /* --- STATE --- */
 export interface WalletState {
+  /** @deprecated This property was removed after 76fbf9a */
+  isOpen?: boolean
   selectedWallet?: string
   wallets: { [address: string]: Wallet }
 }
