@@ -16,15 +16,17 @@ export const ValidatorItem = (props: ValidatorProps) => {
   const details = props.details
 
   return (
-    <Box pad="medium" background="background-contrast" data-testid="validator-item">
-      <ValidatorInformations validator={validator} details={details} />
-      {isAddressInWallet && (
-        <AddEscrowForm
-          validatorAddress={validator.address}
-          validatorStatus={validator.status}
-          validatorRank={validator.rank}
-        />
-      )}
+    <Box pad={{ vertical: 'medium' }} data-testid="validator-item">
+      <Box style={{ maxWidth: '85vw' }}>
+        <ValidatorInformations validator={validator} details={details} />
+        {isAddressInWallet && (
+          <AddEscrowForm
+            validatorAddress={validator.address}
+            validatorStatus={validator.status}
+            validatorRank={validator.rank}
+          />
+        )}
+      </Box>
     </Box>
   )
 }

@@ -13,8 +13,10 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Form } from 'grommet/es6/components/Form'
+import { Text } from 'grommet/es6/components/Text'
 import { TextInput } from 'grommet/es6/components/TextInput'
-import React, { memo, useEffect, useState } from 'react'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import React, { memo, useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -35,7 +37,7 @@ export const AddEscrowForm = memo((props: Props) => {
   const [amount, setAmount] = useState('')
   const dispatch = useDispatch()
   const minStaking = useSelector(selectMinStaking)
-
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const delegate = () => {
     dispatch(
       transactionActions.addEscrow({
@@ -71,16 +73,20 @@ export const AddEscrowForm = memo((props: Props) => {
   return (
     <>
       {showNotice && (
-        <Box pad={{ vertical: 'medium' }} gap="xsmall">
-          {t(
-            'account.addEscrow.confirmDelegatingToTop.description',
-            'This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization.',
-          )}
-          <CheckBox
-            label={t('account.addEscrow.confirmDelegatingToTop.acknowledge', 'Delegate anyway')}
-            checked={!showNotice}
-            onChange={event => setShowNotice(!event.target.checked)}
-          />
+        <Box pad={{ vertical: 'medium' }} gap="medium">
+          <Text size={isMobile ? 'small' : 'medium'}>
+            {t(
+              'account.addEscrow.confirmDelegatingToTop.description',
+              'This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization.',
+            )}
+          </Text>
+          <Text size={isMobile ? 'small' : 'medium'} weight="bold">
+            <CheckBox
+              label={t('account.addEscrow.confirmDelegatingToTop.acknowledge', 'Delegate anyway')}
+              checked={!showNotice}
+              onChange={event => setShowNotice(!event.target.checked)}
+            />
+          </Text>
         </Box>
       )}
       {!showNotice && (

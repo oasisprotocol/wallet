@@ -103,7 +103,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
 const TextWrapper = ({ children }: { children: ReactNode }) => (
   <Text
     weight="bold"
-    size="medium"
+    size="inherit"
     wordBreak="break-word"
     style={{
       display: 'inline-flex',

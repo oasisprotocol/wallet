@@ -12,12 +12,18 @@ interface ResponsiveGridRowProps {
 }
 
 export const ResponsiveGridRow = memo(({ label, value }: ResponsiveGridRowProps) => {
+  const isMobile = useContext(ResponsiveContext) === 'small'
+
   return (
     <>
       <Box>
-        <Text weight="bold">{label}</Text>
+        <Text weight="bold" size={isMobile ? 'small' : 'medium'}>
+          {label}
+        </Text>
       </Box>
-      <Box direction="row">{value}</Box>
+      <Box margin={{ bottom: 'small' }} direction="row">
+        <Text size={isMobile ? 'small' : 'medium'}>{value}</Text>
+      </Box>
     </>
   )
 })
