@@ -20,16 +20,18 @@ export const DelegationItem = memo((props: DelegationProps) => {
   const details = props.validatorDetails
 
   return (
-    <Box pad="medium" background="background-contrast" data-testid="validator-item">
-      {validator && <ValidatorInformations validator={validator} details={details} />}
-      {!validator && <span>{t('validator.unknownValidator', 'Unknown validator')}</span>}
-      {canReclaim && (
-        <ReclaimEscrowForm
-          address={delegation.validatorAddress}
-          maxAmount={delegation.amount}
-          maxShares={delegation.shares}
-        />
-      )}
+    <Box pad={{ vertical: 'medium' }} data-testid="validator-item">
+      <Box style={{ maxWidth: '85vw' }}>
+        {validator && <ValidatorInformations validator={validator} details={details} />}
+        {!validator && <span>{t('validator.unknownValidator', 'Unknown validator')}</span>}
+        {canReclaim && (
+          <ReclaimEscrowForm
+            address={delegation.validatorAddress}
+            maxAmount={delegation.amount}
+            maxShares={delegation.shares}
+          />
+        )}
+      </Box>
     </Box>
   )
 })

@@ -9,6 +9,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Grid } from 'grommet/es6/components/Grid'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Spinner } from 'grommet/es6/components/Spinner'
+import { Text } from 'grommet/es6/components/Text'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -23,11 +24,16 @@ interface ValidatorProps {
 export const ValidatorInformations = (props: ValidatorProps) => {
   const { validator, details } = props
   const { t } = useTranslation()
-  const size = useContext(ResponsiveContext)
+  const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
     <>
-      <Box align="center" direction="row-responsive" gap={size !== 'small' ? 'medium' : 'none'}>
+      <Box
+        align="center"
+        direction="row"
+        justify={isMobile ? 'between' : 'start'}
+        gap={isMobile ? 'none' : 'medium'}
+      >
         {validator.name && (
           <Header level="2" margin={{ bottom: 'none', top: 'none' }} data-testid="validator-item-name">
             {validator.name}
@@ -39,18 +45,20 @@ export const ValidatorInformations = (props: ValidatorProps) => {
           </Box>
         )}
       </Box>
-      <AddressBox address={validator!.address} />
+      <Text size={isMobile ? 'small' : 'medium'}>
+        <AddressBox address={validator!.address} />
+      </Text>
       {/* Validator details */}
       <Grid
-        columns={size !== 'small' ? ['auto', 'flex'] : ['auto']}
-        gap={{ column: 'small', row: 'xsmall' }}
+        columns={isMobile ? ['auto'] : ['auto', 'flex']}
+        gap={{ column: 'medium', row: isMobile ? 'xxsmall' : 'none' }}
         fill={false}
-        pad={{ top: 'small' }}
+        pad={{ vertical: 'small' }}
       >
-        <ResponsiveGridRow label={t('validator.rank', 'Rank')} value={`#${validator.rank}`} />
+        <ResponsiveGridRow label={t('validator.rank', 'Rank')} value={validator.rank} />
         <ResponsiveGridRow
           label={t('validator.totalEscrow', 'Total escrow')}
-          value={<AmountFormatter amount={validator.escrow} />}
+          value={<AmountFormatter amount={validator.escrow} size="inherit" />}
         />
         <ResponsiveGridRow
           label={t('validator.commission', 'Commission')}

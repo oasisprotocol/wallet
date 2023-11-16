@@ -666,9 +666,12 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         class="c20"
       >
         <span>
-          <span>
+          <div
+            class="c15"
+            style="display: inline-flex; white-space: nowrap;"
+          >
             0.001
-          </span>
+          </div>
           <span
             class="c21"
           >
@@ -1388,9 +1391,12 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         class="c20"
       >
         <span>
-          <span>
+          <div
+            class="c15"
+            style="display: inline-flex; white-space: nowrap;"
+          >
             0.001
-          </span>
+          </div>
           <span
             class="c21"
           >

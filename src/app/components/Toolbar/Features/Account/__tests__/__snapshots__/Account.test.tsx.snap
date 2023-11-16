@@ -14,22 +14,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c9 {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.c14 {
-  font-size: 80%;
-  line-height: normal;
-}
-
-.c16 {
-  font-size: 18px;
-  line-height: 24px;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -219,6 +203,22 @@ exports[`<Account  /> should match snapshot 1`] = `
   -ms-flex-direction: column;
   flex-direction: column;
   height: 24px;
+}
+
+.c9 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+}
+
+.c14 {
+  font-size: 80%;
+  line-height: normal;
+}
+
+.c16 {
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .c3 {
@@ -423,9 +423,12 @@ exports[`<Account  /> should match snapshot 1`] = `
               class="c15"
             >
               <span>
-                <span>
+                <div
+                  class="c11"
+                  style="display: inline-flex; white-space: nowrap;"
+                >
                   0.000001
-                </span>
+                </div>
                 <span
                   class="c16"
                 >

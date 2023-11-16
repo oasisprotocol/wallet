@@ -7,6 +7,7 @@ import { selectTicker } from 'app/state/network/selectors'
 import * as React from 'react'
 import { memo } from 'react'
 import { useSelector } from 'react-redux'
+import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { formatBaseUnitsAsRose, formatWeiAsWrose } from 'app/lib/helpers'
@@ -56,7 +57,7 @@ export const AmountFormatter = memo(
 
     return (
       <span>
-        <span>{amountString}</span>
+        <Box style={{ display: 'inline-flex', whiteSpace: 'nowrap' }}>{amountString}</Box>
         {!hideTicker && (
           <Text size={size} {...tickerProps}>
             <NoTranslate>{` ${ticker}`}</NoTranslate>

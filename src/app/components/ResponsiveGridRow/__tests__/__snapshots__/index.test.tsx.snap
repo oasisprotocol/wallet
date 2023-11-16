@@ -163,6 +163,7 @@ exports[`<ResponsiveGridRow /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  margin-bottom: 12px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -174,6 +175,17 @@ exports[`<ResponsiveGridRow /> should render component 1`] = `
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
+}
+
+.c3 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    margin-bottom: 6px;
+  }
 }
 
 <div>
@@ -189,7 +201,11 @@ exports[`<ResponsiveGridRow /> should render component 1`] = `
   <div
     class="c2"
   >
-    transfer
+    <span
+      class="c3"
+    >
+      transfer
+    </span>
   </div>
 </div>
 `;

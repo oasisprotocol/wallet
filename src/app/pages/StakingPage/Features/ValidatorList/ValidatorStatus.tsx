@@ -35,7 +35,7 @@ export const ValidatorStatus = (props: Props) => {
   if (props.showLabel) {
     return (
       <Box direction="row" align="center" gap="xxsmall">
-        {mapped.icon} <Text>{mapped.label}</Text>
+        {mapped.icon} <Text size="inherit">{mapped.label}</Text>
       </Box>
     )
   } else {

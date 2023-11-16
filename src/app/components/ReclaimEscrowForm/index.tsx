@@ -12,7 +12,8 @@ import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { Text } from 'grommet/es6/components/Text'
 import { TextInput } from 'grommet/es6/components/TextInput'
-import React, { memo, useEffect, useState } from 'react'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import React, { memo, useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector, useDispatch } from 'react-redux'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
@@ -35,6 +36,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
   const [amount, setAmount] = useState('')
   const [shares, setShares] = useState('0' as StringifiedBigInt)
   const dispatch = useDispatch()
+  const isMobile = useContext(ResponsiveContext) === 'small'
 
   useEffect(() => {
     return () => {
@@ -83,27 +85,31 @@ export const ReclaimEscrowForm = memo((props: Props) => {
 
   return (
     <Form onSubmit={submit}>
-      <Box direction="row" gap="small" pad={{ top: 'small' }}>
-        <Box background="background-front">
-          <Box width="small">
-            <TextInput
-              data-testid="amount"
-              id="amount-id"
-              name="amount"
-              placeholder={t('common.amount')}
-              type="number"
-              step="any"
-              min="0"
-              max={roundedUpStringifiedFloatMaxAmount}
-              size="medium"
-              value={amount}
-              onChange={event => amountChanged(event.target.value)}
-              required
-            />
+      <Box direction={isMobile ? 'column' : 'row'} gap="medium" pad={{ top: 'small' }}>
+        <Box>
+          <TextInput
+            data-testid="amount"
+            id="amount-id"
+            name="amount"
+            placeholder={t('common.amount')}
+            type="number"
+            step="any"
+            min="0"
+            max={roundedUpStringifiedFloatMaxAmount}
+            size="medium"
+            value={amount}
+            onChange={event => amountChanged(event.target.value)}
+            required
+          />
+        </Box>
+        <Box direction="row" gap="medium">
+          <Box fill={isMobile}>
+            <Button fill label={t('account.reclaimEscrow.reclaim', 'Reclaim')} type="submit" primary />
+          </Box>
+          <Box fill={isMobile}>
+            <Button fill label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')} onClick={reclaimAll} />
           </Box>
         </Box>
-        <Button label={t('account.reclaimEscrow.reclaim', 'Reclaim')} type="submit" primary />
-        <Button label={t('account.reclaimEscrow.reclaimAll', 'Reclaim all')} onClick={reclaimAll} />
       </Box>
       {shares !== '0' && (
         <Text size="small" data-testid="numberOfShares">

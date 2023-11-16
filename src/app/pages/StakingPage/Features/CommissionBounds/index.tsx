@@ -44,7 +44,7 @@ const CommissionBound = memo((props: CommissionBoundProps) => {
 
   return (
     <Box as="li">
-      <Text>{component}</Text>
+      <Text size="inherit">{component}</Text>
     </Box>
   )
 })
