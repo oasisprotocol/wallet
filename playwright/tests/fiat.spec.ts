@@ -1,5 +1,5 @@
 import { test, expect, Page } from '@playwright/test'
-import { privateKey, privateKeyAddress } from '../utils/test-inputs'
+import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
 import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'

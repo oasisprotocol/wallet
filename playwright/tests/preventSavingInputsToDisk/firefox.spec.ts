@@ -1,5 +1,5 @@
 import { expect, firefox } from '@playwright/test'
-import { mnemonic, password, privateKey } from '../../utils/test-inputs'
+import { mnemonic, password, privateKey } from '../../../src/utils/__fixtures__/test-inputs'
 import { warnSlowApi } from '../../utils/warnSlowApi'
 import { mockApi } from '../../utils/mockApi'
 import {

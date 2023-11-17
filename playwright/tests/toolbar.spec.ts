@@ -1,5 +1,11 @@
 import { test, expect, Page } from '@playwright/test'
-import { mnemonic, mnemonicAddress0, password, privateKey, privateKeyAddress } from '../utils/test-inputs'
+import {
+  mnemonic,
+  mnemonicAddress0,
+  password,
+  privateKey,
+  privateKeyAddress,
+} from '../../src/utils/__fixtures__/test-inputs'
 import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'

@@ -1,5 +1,5 @@
 import { expect, test, Page } from '@playwright/test'
-import { password, privateKey, privateKeyAddress } from './test-inputs'
+import { password, privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
 
 export async function fillPrivateKeyWithoutPassword(
   page: Page,

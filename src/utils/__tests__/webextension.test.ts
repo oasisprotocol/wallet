@@ -1,5 +1,5 @@
 import browser from 'webextension-polyfill'
-import { openLedgerAccessPopup } from './webextension'
+import { openLedgerAccessPopup } from '../webextension'
 
 jest.mock('webextension-polyfill', () => ({
   extension: {
