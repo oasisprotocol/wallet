@@ -34,7 +34,7 @@ export function expectPasswordInUserData(userDataDir: string) {
     throw new Error('userDataDir contains dangerous characters')
   }
   return expectShell(
-    `grep -E "(a.b.c.d.1.2.3.4.&)|(abcd1234&)" --text --only-matching --recursive "${userDataDir}"`,
+    `grep -E "(A.b.c.d.1.2.3.4.&)|(Abcd1234&)" --text --only-matching --recursive "${userDataDir}"`,
   )
 }
 
