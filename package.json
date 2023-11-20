@@ -152,7 +152,7 @@
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@ledgerhq/hw-transport": "^6.27.6",
+    "@ledgerhq/hw-transport": "^6.29.0",
     "@testing-library/dom": "9.3.3",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "bip39": "3.1.0",
