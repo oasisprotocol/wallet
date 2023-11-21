@@ -24,6 +24,7 @@ export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 export function getInitialState(): PersistState {
   return {
     hasPersistedProfiles: !!window.localStorage.getItem(STORAGE_FIELD),
+    hasV0StorageToMigrate: false,
     // Disable persistence if tabs would override each other.
     isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
@@ -59,6 +60,9 @@ const persistSlice = createSlice({
     },
     skipUnlocking(state) {
       state.stringifiedEncryptionKey = 'skipped'
+    },
+    setHasV0StorageToMigrate(state, action: PayloadAction<boolean>) {
+      state.hasV0StorageToMigrate = action.payload
     },
 
     // Handled in saga

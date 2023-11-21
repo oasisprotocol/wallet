@@ -32,6 +32,7 @@ export interface UpdatePasswordPayload {
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean
+  hasV0StorageToMigrate: boolean
   isPersistenceUnsupported: boolean
   loading: boolean
   stringifiedEncryptionKey: undefined | 'skipped' | StringifiedKeyWithSalt

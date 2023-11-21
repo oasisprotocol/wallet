@@ -126,6 +126,7 @@ export const privateKeyUnlockedState = {
   },
   persist: {
     hasPersistedProfiles: true,
+    hasV0StorageToMigrate: false,
     isPersistenceUnsupported: false,
     loading: false,
     stringifiedEncryptionKey: typedStringify({
