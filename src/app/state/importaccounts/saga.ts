@@ -6,7 +6,7 @@ import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
 import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
-import { WalletType } from 'app/state/wallet/types'
+import { LedgerWalletType, WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
 import { selectChainContext } from '../network/selectors'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
@@ -14,14 +14,49 @@ import type Transport from '@ledgerhq/hw-transport'
 import {
   selectImportAccountHasMissingBalances,
   selectImportAccounts,
-  selectImportAccountsOnCurrentPage,
   selectImportAccountsFullList,
+  selectImportAccountsOnCurrentPage,
   selectImportAccountsPageNumber,
+  selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
+import { ScanResult } from '@capacitor-community/bluetooth-le'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
+}
+
+function* isBluetoothSupported() {
+  const isSupported = yield* call([BleTransport, BleTransport.isSupported])
+  // https://github.com/WebBluetoothCG/web-bluetooth/blob/main/implementation-status.md#scanning-api
+  // !navigator.bluetooth
+  if (!isSupported) {
+    throw new WalletError(WalletErrors.BluetoothTransportNotSupported, 'Bluetooth Transport unsupported')
+  }
+}
+
+function* getBluetoothDevices() {
+  yield* call(isBluetoothSupported)
+  return yield* call(BleTransport.list)
+}
+
+function* getBluetoothTransport(device?: ScanResult) {
+  yield* call(isBluetoothSupported)
+
+  if (!device) {
+    throw new WalletError(WalletErrors.LedgerNoDeviceSelected, 'No device selected')
+  }
+
+  try {
+    return yield* call(BleTransport.open, device)
+  } catch (e: any) {
+    if (e.message.match(/No device selected/)) {
+      throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
+    } else {
+      throw new WalletError(WalletErrors.USBTransportError, e.message)
+    }
+  }
 }
 
 function* getUSBTransport() {
@@ -30,8 +65,7 @@ function* getUSBTransport() {
     throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
   }
   try {
-    const transport = yield* call([TransportWebUSB, TransportWebUSB.create])
-    return transport
+    return yield* call([TransportWebUSB, TransportWebUSB.create])
   } catch (e: any) {
     if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
@@ -122,20 +156,33 @@ function* ensureAllBalancesArePresentOnCurrentPage() {
   yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
 }
 
+function* enumerateDevicesFromBleLedger() {
+  yield* setStep(ImportAccountsStep.LoadingBleDevices)
+  const devices = yield* getBluetoothDevices()
+  yield* put(importAccountsActions.setBleDevices(devices))
+  yield* setStep(ImportAccountsStep.Idle)
+}
+
 /**
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
-function* enumerateAccountsFromLedger() {
+function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
   const existingAccounts = yield* select(selectImportAccountsFullList)
   const pageNumber = yield* select(selectImportAccountsPageNumber)
   if (existingAccounts.length >= (pageNumber + 1) * accountsPerPage) {
     // Selected page was already enumerated.
     return
   }
-  yield* setStep(ImportAccountsStep.OpeningUSB)
+  yield* setStep(ImportAccountsStep.AccessingLedger)
   let transport: Transport | undefined
   try {
-    transport = yield* getUSBTransport()
+    if (action.payload === WalletType.BleLedger) {
+      const device = yield* select(selectSelectedBleDevice)
+      transport = yield* getBluetoothTransport(device)
+    } else {
+      transport = yield* getUSBTransport()
+    }
+
     const existingAccounts = yield* select(selectImportAccountsFullList)
     const start = existingAccounts.length
 
@@ -152,7 +199,7 @@ function* enumerateAccountsFromLedger() {
         address,
         // We select the first account by default
         selected: index === 0,
-        type: WalletType.Ledger,
+        type: action.payload,
       } as ImportAccountsListAccount
       yield* put(importAccountsActions.accountGenerated(wallet))
       yield* fork(fetchBalanceForAccount, wallet)
@@ -179,7 +226,13 @@ function* enumerateAccountsFromLedger() {
 }
 
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
-  const transport = yield* getUSBTransport()
+  let transport
+  if (signer.transportType === WalletType.BleLedger) {
+    const bleDevice = yield* select(selectSelectedBleDevice)
+    transport = yield* getBluetoothTransport(bleDevice)
+  } else {
+    transport = yield* getUSBTransport()
+  }
   const chainContext = yield* select(selectChainContext)
 
   signer.setTransport(transport)
@@ -195,4 +248,5 @@ export function* importAccountsSaga() {
   yield* takeEvery(importAccountsActions.enumerateMoreAccountsFromLedger, enumerateAccountsFromLedger)
   yield* takeEvery(importAccountsActions.enumerateAccountsFromMnemonic, enumerateAccountsFromMnemonic)
   yield* takeEvery(importAccountsActions.setPage, ensureAllBalancesArePresentOnCurrentPage)
+  yield* takeEvery(importAccountsActions.enumerateDevicesFromBleLedger, enumerateDevicesFromBleLedger)
 }

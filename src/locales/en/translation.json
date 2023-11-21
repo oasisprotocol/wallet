@@ -142,6 +142,7 @@
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
+    "bluetoothTransportNotSupported": "Your device does not support Bluetooth.",
     "cannotSendToSelf": "Cannot send to yourself",
     "disconnectedError": "Lost connection.",
     "duplicateTransaction": "Duplicate transaction",
@@ -223,6 +224,7 @@
       "idle": "Idle",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
+      "loadingBluetoothDevices": "Loading bluetooth devices",
       "openingUsb": "Opening Ledger through USB"
     }
   },
@@ -456,9 +458,10 @@
     "wallets": {
       "select": "Select",
       "type": {
-        "ledger": "Ledger",
+        "bluetoothLedger": "BLE Ledger",
         "mnemonic": "Mnemonic",
-        "privateKey": "Private key"
+        "privateKey": "Private key",
+        "usbLedger": "USB Ledger"
       }
     }
   },

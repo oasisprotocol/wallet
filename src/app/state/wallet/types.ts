@@ -2,9 +2,12 @@ import { BalanceDetails } from '../account/types'
 
 export enum WalletType {
   Ledger = 'ledger',
+  BleLedger = 'ble_ledger',
   PrivateKey = 'private_key',
   Mnemonic = 'mnemonic',
 }
+
+export type LedgerWalletType = WalletType.Ledger | WalletType.BleLedger
 
 export interface BalanceUpdatePayload {
   address: string

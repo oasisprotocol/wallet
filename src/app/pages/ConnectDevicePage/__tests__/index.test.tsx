@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { requestDevice } from 'app/lib/ledger'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { ConnectDevicePage } from '..'
+import { WalletType } from '../../../state/wallet/types'
 
 jest.mock('app/lib/ledger')
 
@@ -31,7 +32,7 @@ describe('<ConnectDevicePage />', () => {
     expect(screen.getByLabelText('Status is okay')).toBeInTheDocument()
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
     expect(mockDispatch).toHaveBeenCalledWith({
-      payload: undefined,
+      payload: WalletType.Ledger,
       type: importAccountsActions.enumerateAccountsFromLedger.type,
     })
   })

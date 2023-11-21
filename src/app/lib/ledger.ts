@@ -1,11 +1,13 @@
 import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 import OasisApp, { successOrThrow } from '@oasisprotocol/ledger'
 import { Response } from '@oasisprotocol/ledger/dist/types'
-import { Wallet, WalletType } from 'app/state/wallet/types'
+import { LedgerWalletType, Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
+import { Capacitor } from '@capacitor/core'
 
 interface LedgerAccount {
   publicKey: Uint8Array
@@ -15,6 +17,13 @@ interface LedgerAccount {
 
 export async function canAccessNavigatorUsb(): Promise<boolean> {
   return await isSupported()
+}
+
+export async function canAccessBle(): Promise<boolean> {
+  const hasBLE = await BleTransport.isEnabled().catch(() => false)
+  // Scan depends on requestLEScan method, which is not available on the web(feature flag)
+  const hasLEScan = Capacitor.isNativePlatform() || !!navigator?.bluetooth?.requestLEScan
+  return hasBLE && hasLEScan
 }
 
 export async function requestDevice(): Promise<USBDevice | undefined> {
@@ -99,13 +108,15 @@ export class LedgerSigner implements ContextSigner {
   protected transport?: Transport
   protected path: number[]
   protected publicKey: Uint8Array
+  transportType: LedgerWalletType
 
   constructor(wallet: Wallet) {
-    if (!wallet.path || wallet.type !== WalletType.Ledger) {
+    if (!wallet.path || (wallet.type !== WalletType.Ledger && wallet.type !== WalletType.BleLedger)) {
       throw new Error('Given wallet is not a ledger wallet')
     }
     this.path = wallet.path
     this.publicKey = hex2uint(wallet.publicKey)
+    this.transportType = wallet.type
   }
 
   public setTransport(transport: Transport) {

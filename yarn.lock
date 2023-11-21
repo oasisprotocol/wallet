@@ -1788,6 +1788,27 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@capacitor-community/bluetooth-le@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-3.0.0.tgz#93d184cc28995f2606f7910ea9878c0871f79c85"
+  integrity sha512-fBy7EXCg9udMf0xW2lJ9uULftJWapSkEFp4WccQZbJjS5vrA146jOGp3dTMnZWPph1wTKAF0dHLCLyBoVDk1vg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+
+"@capacitor-community/bluetooth-le@^3.0.1":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-3.0.2.tgz#d32d3013ae0bfaa02e9dce7b419ea17626e46e58"
+  integrity sha512-3S32RlCnwEGnrWaO6/hVSpirInyoVZhXJEJygfgFvdFQz0b4WnXJwgF/0IZojuomjdfd22cfsWpO4hdGLNc7yg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+
+"@capacitor/core@5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-5.0.4.tgz#70c5551a34657482042c351cbadac0fd9aba53a7"
+  integrity sha512-BFvziz9jM87pLHW2sXPNIzwrdmI5mAP0tBsBHgXoCO2+wVdpvIMYCpcst5BuTULaMz5JBFZZ6g6nqwgfs+SMCA==
+  dependencies:
+    tslib "^2.1.0"
+
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
@@ -2376,7 +2397,7 @@
     "@ledgerhq/hw-transport" "^6.29.0"
     "@ledgerhq/logs" "^6.11.0"
 
-"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.29.0":
+"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.28.8", "@ledgerhq/hw-transport@^6.29.0":
   version "6.29.0"
   resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.29.0.tgz#2b85f39d90b093930f0c7bfc513b29eb47ba97fa"
   integrity sha512-WQfzxt3EnnbOmzZVYiCgSmNsqafBOFQn40awvUPY2IZviJRs23/1ANPHAo76bzPV88+Qk0+1wZlcnIanGN6fFA==
@@ -2571,6 +2592,14 @@
     js-sha512 "^0.8.0"
     protobufjs "~7.1.2"
     tweetnacl "^1.0.3"
+
+"@oasisprotocol/ionic-ledger-hw-transport-ble@1.0.1-beta":
+  version "1.0.1-beta"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/ionic-ledger-hw-transport-ble/-/ionic-ledger-hw-transport-ble-1.0.1-beta.tgz#01abd7a1f263bbe6dee0c6b397ef6a37eb54d347"
+  integrity sha512-YJVOwg5Kaduu5VjcPDchjmC+uNQe2Xqj5nrSKmH4kXJP3RCKQMKDUzCKU72zMbcTVbYoRAidcLlUz+eDa/NQzQ==
+  dependencies:
+    "@capacitor-community/bluetooth-le" "^3.0.1"
+    "@ledgerhq/hw-transport" "^6.28.8"
 
 "@oasisprotocol/ledger@1.0.0":
   version "1.0.0"
@@ -3854,6 +3883,11 @@
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@types/w3c-web-usb/-/w3c-web-usb-1.0.9.tgz#7e50f33dc3f75bf6a06bef9c924ae51213548346"
   integrity sha512-6EIpb9g9k/SGu59mQ6RW3tedmabtE+N3iGRa98+1CCFuhGt565wLEYKXoEVKTuNrCr2SrgfvBMN5db6hggkzKQ==
+
+"@types/web-bluetooth@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.16.tgz#1d12873a8e49567371f2a75fe3e7f7edca6662d8"
+  integrity sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==
 
 "@types/webextension-polyfill@0.10.5":
   version "0.10.5"
