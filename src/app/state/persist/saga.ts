@@ -15,6 +15,7 @@ import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { runtimeIs } from 'config'
+import { readStorageV0 } from '../../../utils/walletExtensionV0'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -183,4 +184,6 @@ function* encryptAndPersistState(action: AnyAction) {
 
 export function* persistSaga() {
   yield* watchPersistAsync()
+  const storageV0 = yield* call(readStorageV0)
+  yield* put(persistActions.setHasV0StorageToMigrate(!!storageV0?.chromeStorageLocal.keyringData))
 }
