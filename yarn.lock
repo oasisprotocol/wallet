@@ -2454,6 +2454,11 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-2.7.11.tgz#af2cb4ae6d3a92ecdeb1503b73079417525476d2"
   integrity sha512-BJwkHlSUgtB+Ei52Ai32M1AOMerSlzyIGA/KC4dAGL+GGwVMdwG8HGCOA2TxP3KjhbgDPMYkv7bt/NmOmRIFng==
 
+"@metamask/browser-passworder@=3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@metamask/browser-passworder/-/browser-passworder-3.0.0.tgz#c06744e66a968ffa13f70cc71a7d3b15d86b0ee7"
+  integrity sha512-hD10mgvhcDkZX8wnauw8udp1K2MzcbZfrN7Yon9sQ+OqVK9kiQ4VhZAyZNZTy9KJLtfoVD9Y2F6L4gEese7hDA==
+
 "@metamask/jazzicon@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@metamask/jazzicon/-/jazzicon-2.0.0.tgz#5615528e91c0fc5c9d79202d1f0954a7922525a0"
