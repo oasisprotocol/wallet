@@ -10,14 +10,14 @@ import {
   privateKey2AddressPretty,
   mnemonic,
 } from '../../src/utils/__fixtures__/test-inputs'
-import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
+import { addPersistedStorageV1, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import type { AccountsRow } from '../../src/vendors/oasisscan/index'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
   await mockApi(context, 0)
-  await clearPersistedStorage(page)
+  await clearPersistedStorage(page, '/app.webmanifest')
 })
 
 test.afterEach(async ({ context }, testInfo) => {
@@ -50,7 +50,7 @@ test.describe('syncTabs', () => {
     })
 
     test('incognito', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
       await expect(page.getByTestId('account-selector')).toBeHidden()
@@ -103,7 +103,7 @@ test.describe('syncTabs', () => {
     })
 
     test('persisted', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByPlaceholder('Enter your password here').fill(password)
       await page.keyboard.press('Enter')
@@ -112,7 +112,7 @@ test.describe('syncTabs', () => {
     })
 
     test('incognito', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
       const tab2 = await context.newPage()
@@ -144,7 +144,7 @@ test.describe('syncTabs', () => {
 
   test.describe('adding and removing contacts in tabs', () => {
     test('persisted', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByPlaceholder('Enter your password here').fill(password)
       await page.keyboard.press('Enter')
@@ -208,7 +208,7 @@ test.describe('syncTabs', () => {
     })
 
     test('persisted', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByPlaceholder('Enter your password here').fill(password)
       await page.keyboard.press('Enter')
@@ -217,7 +217,7 @@ test.describe('syncTabs', () => {
     })
 
     test('incognito', async ({ page, context }) => {
-      await addPersistedStorage(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
       const tab2 = await context.newPage()
@@ -300,7 +300,7 @@ test.describe('syncTabs', () => {
     page,
     context,
   }) => {
-    await addPersistedStorage(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')

@@ -2,14 +2,14 @@ import { test, expect } from '@playwright/test'
 import { mockApi } from '../utils/mockApi'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { expectNoFatal } from '../utils/expectNoFatal'
-import { addPersistedStorage, clearPersistedStorage } from '../utils/storage'
+import { addPersistedStorageV1, clearPersistedStorage } from '../utils/storage'
 import { password, privateKeyUnlockedState } from '../../src/utils/__fixtures__/test-inputs'
 import { RootState } from '../../src/types/RootState'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
   await mockApi(context, 0)
-  await clearPersistedStorage(page)
+  await clearPersistedStorage(page, '/app.webmanifest')
 })
 
 test.afterEach(async ({ context }, testInfo) => {
@@ -18,7 +18,7 @@ test.afterEach(async ({ context }, testInfo) => {
 
 test.describe('Migrating persisted state', () => {
   test('Decrypting V1 state should result in valid RootState', async ({ context, page }) => {
-    await addPersistedStorage(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')
