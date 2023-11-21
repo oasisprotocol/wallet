@@ -9,7 +9,7 @@ import { RootState } from '../../src/types/RootState'
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
   await mockApi(context, 0)
-  await clearPersistedStorage(page)
+  await clearPersistedStorage(page, '/app.webmanifest')
 })
 
 test.afterEach(async ({ context }, testInfo) => {

@@ -18,7 +18,7 @@ import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../uti
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
   await mockApi(context, 0)
-  await clearPersistedStorage(page)
+  await clearPersistedStorage(page, '/app.webmanifest')
 })
 
 test.afterEach(async ({ context }, testInfo) => {
