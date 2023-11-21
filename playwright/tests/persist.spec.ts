@@ -139,7 +139,7 @@ test.describe('Persist', () => {
     context,
     page,
   }) => {
-    await addPersistedStorageV1(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await mockApi(context, 123)
     await page.getByPlaceholder('Enter your password here').fill(password)
@@ -182,7 +182,7 @@ test.describe('Persist', () => {
   })
 
   test('Should NOT persist changes after user skips unlocking', async ({ page }) => {
-    await addPersistedStorageV1(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByRole('button', { name: /Continue without the profile/ }).click()
     await page.getByRole('button', { name: /Open wallet/ }).click()
@@ -202,7 +202,7 @@ test.describe('Persist', () => {
   })
 
   test('Should NOT crash after quickly locking a wallet', async ({ page }) => {
-    await addPersistedStorageV1(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByRole('button', { name: /Continue without the profile/ }).click()
     await page.getByRole('button', { name: /Unlock profile/ }).click()
@@ -219,7 +219,7 @@ test.describe('Persist', () => {
     })
 
     test('deleting stored', async ({ page }) => {
-      await addPersistedStorageV1(page)
+      await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await testDeletingAndCreatingNew(page)
     })
@@ -243,7 +243,7 @@ test.describe('Persist', () => {
   })
 
   test('Password should not be cached in input field', async ({ page }) => {
-    await addPersistedStorageV1(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')

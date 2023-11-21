@@ -18,7 +18,7 @@ test.afterEach(async ({ context }, testInfo) => {
 
 test.describe('Migrating persisted state', () => {
   test('Decrypting V1 state should result in valid RootState', async ({ context, page }) => {
-    await addPersistedStorageV1(page)
+    await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.keyboard.press('Enter')
