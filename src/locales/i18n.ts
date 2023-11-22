@@ -6,6 +6,7 @@ import en from './en/translation.json'
 import fr from './fr/translation.json'
 import sl from './sl/translation.json'
 import tr from './tr/translation.json'
+import zh_CN from './zh_CN/translation.json'
 
 export const translationsJson = {
   en: {
@@ -20,13 +21,20 @@ export const translationsJson = {
   tr: {
     translation: tr,
   },
+  zh_CN: {
+    translation: zh_CN,
+  },
 }
 
-export const languageLabels: [keyof typeof translationsJson, string][] = [
+export type LanguageKey = keyof typeof translationsJson
+
+export const languageLabels: [LanguageKey, string][] = [
   ['en', 'English'],
   ['fr', 'Français'],
   ['sl', 'Slovenščina'],
   ['tr', 'Türkçe'],
+  // TODO: enable when translated
+  // ['zh_CN', '中文'],
 ]
 
 export const i18n = i18next
