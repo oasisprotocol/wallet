@@ -4,14 +4,12 @@ import { Menu } from 'grommet/es6/components/Menu'
 import { Text } from 'grommet/es6/components/Text'
 import { Language } from 'styles/theme/icons/language/Language'
 import { SelectWithIcon } from '../SelectWithIcon'
-import { languageLabels, translationsJson } from '../../../locales/i18n'
+import { languageLabels, LanguageKey } from '../../../locales/i18n'
 
-const languageOptions: { value: keyof typeof translationsJson; label: string }[] = languageLabels.map(
-  lang => ({
-    value: lang[0],
-    label: lang[1],
-  }),
-)
+const languageOptions: { value: LanguageKey; label: string }[] = languageLabels.map(lang => ({
+  value: lang[0],
+  label: lang[1],
+}))
 
 export const LanguageSelect = () => {
   const { t, i18n } = useTranslation()
