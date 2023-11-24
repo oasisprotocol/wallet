@@ -22,17 +22,18 @@ const StyledText = styled(Text)`
 
 interface AddressFormatterProps {
   address: string
+  /** Uses contacts if undefined */
+  name?: string | undefined
 }
 
-export const AddressFormatter = ({ address }: AddressFormatterProps) => {
-  const contactAddress = useSelector(selectContact(address))
+export const AddressFormatter = (props: AddressFormatterProps) => {
+  const contactAddress = useSelector(selectContact(props.address))
+  const name = props.name || contactAddress?.name
 
   return (
     <StyledBox>
-      {contactAddress?.name && (
-        <StyledText data-testid="address-formatter-name">{contactAddress.name}</StyledText>
-      )}
-      <Text>{trimLongString(address)}</Text>
+      {name && <StyledText data-testid="address-formatter-name">{name}</StyledText>}
+      <Text>{trimLongString(props.address)}</Text>
     </StyledBox>
   )
 }
