@@ -72,7 +72,11 @@ export function MigrateV0StateForm() {
   return (
     <LoginModalLayout title={t('migrateV0Extension.title', 'Important Wallet Update')}>
       {!migratingV0State && (
-        <Form onSubmit={onSubmitPassword} {...preventSavingInputsToUserData}>
+        <Form
+          onSubmit={onSubmitPassword}
+          messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
+          {...preventSavingInputsToUserData}
+        >
           <Paragraph>
             <label htmlFor="password">
               {t(
@@ -100,7 +104,11 @@ export function MigrateV0StateForm() {
         </Form>
       )}
       {migratingV0State && !hasSavedMnemonic && (
-        <Form onSubmit={onSubmitSavedMnemonic} {...preventSavingInputsToUserData}>
+        <Form
+          onSubmit={onSubmitSavedMnemonic}
+          messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
+          {...preventSavingInputsToUserData}
+        >
           <Paragraph>
             {t(
               'migrateV0Extension.backupMnemonic.description',
@@ -120,10 +128,9 @@ export function MigrateV0StateForm() {
               <strong>{migratingV0State.mnemonic}</strong>
             </NoTranslate>
           </Box>
-          <FormField contentProps={{ border: false }}>
+          <FormField contentProps={{ border: false }} required>
             <CheckBox
               label={t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
-              required
             />
           </FormField>
           {migratingV0State.invalidPrivateKeys.length > 0 ? (
@@ -138,7 +145,11 @@ export function MigrateV0StateForm() {
         </Form>
       )}
       {migratingV0State && hasSavedMnemonic && migratingV0State.invalidPrivateKeys.length > 0 && (
-        <Form onSubmit={onSubmitSavedInvalidPrivateKeys} {...preventSavingInputsToUserData}>
+        <Form
+          onSubmit={onSubmitSavedInvalidPrivateKeys}
+          messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
+          {...preventSavingInputsToUserData}
+        >
           <Paragraph>
             {t(
               'migrateV0Extension.backupInvalidPrivateKeys.description',
@@ -161,13 +172,12 @@ export function MigrateV0StateForm() {
               </Box>
             ))}
           </Box>
-          <FormField contentProps={{ border: false }}>
+          <FormField contentProps={{ border: false }} required>
             <CheckBox
               label={t(
                 'migrateV0Extension.backupInvalidPrivateKeys.confirm',
                 'I’ve safely stored invalid private keys',
               )}
-              required
             />
           </FormField>
           <Button
