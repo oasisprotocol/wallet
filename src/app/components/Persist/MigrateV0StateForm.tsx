@@ -19,7 +19,7 @@ import { AddressFormatter } from '../AddressFormatter'
 export function MigrateV0StateForm() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('Abcd1234&')
   const [enteredWrongPassword, setWrongPassword] = useState(false)
   const [migratingV0State, setMigratingV0State] = useState<undefined | MigratingV0State>(undefined)
   const [hasSavedMnemonic, setHasSavedMnemonic] = useState(false)
