@@ -86,6 +86,13 @@ export interface WalletExtensionV0State {
   }
 }
 
+export interface MigratingV0State {
+  mnemonic: string
+  invalidPrivateKeys: { privateKeyWithTypos: string; name: string; address: `oasis1${string}` }[]
+  language: LanguageKey
+  state: PersistedRootState
+}
+
 export async function readStorageV0() {
   if (runtimeIs !== 'extension') return
   const browser = await import('webextension-polyfill')
@@ -123,7 +130,10 @@ function validateAndExpandPrivateKey(privateKeyLongOrShortOrTyposHex: string): s
   }
 }
 
-export async function decryptWithPasswordV0(password: string, extensionV0State: WalletExtensionV0State) {
+export async function decryptWithPasswordV0(
+  password: string,
+  extensionV0State: WalletExtensionV0State,
+): Promise<MigratingV0State> {
   if (!extensionV0State.chromeStorageLocal.keyringData) throw new Error('No v0 encrypted data')
   const keyringData = (
     await typedMetamaskDecrypt(password, extensionV0State.chromeStorageLocal.keyringData)

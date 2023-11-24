@@ -238,6 +238,22 @@
     "unlockProfile": "Unlock profile",
     "wallet": "Wallet"
   },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "I’ve safely stored invalid private keys",
+      "description": "Some of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding.",
+      "reveal": "Tap to show invalid private keys"
+    },
+    "backupMnemonic": {
+      "confirm": "I’ve safely stored my mnemonic",
+      "description": "The new version of the wallet extension will no longer store your mnemonic. This phrase is the only way to restore your account if you have lost access. You now have a final chance to backup your mnemonic.",
+      "reveal": "Tap to show your mnemonic"
+    },
+    "finishMigration": "Open the new version of the wallet",
+    "nextStep": "Next",
+    "requiredField": "This field is required",
+    "title": "Important Wallet Update"
+  },
   "openWallet": {
     "bitpie": {
       "warning": "❗ BitPie wallet users: You cannot import the mnemonic phrase directly from your BitPie wallet. <DocsLink>Check documentation for details.</DocsLink>"

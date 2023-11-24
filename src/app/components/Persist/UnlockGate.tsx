@@ -2,6 +2,7 @@ import { selectHasV0StorageToMigrate, selectNeedsPassword } from 'app/state/pers
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { UnlockForm } from 'app/components/Persist/UnlockForm'
+import { MigrateV0StateForm } from 'app/components/Persist/MigrateV0StateForm'
 
 interface Props {
   children: React.ReactNode
@@ -18,7 +19,7 @@ export function UnlockGate(props: Props) {
     return <UnlockForm />
   }
   if (hasV0StorageToMigrate) {
-    return <>Migrate</>
+    return <MigrateV0StateForm />
   }
   return <>{props.children}</>
 }
