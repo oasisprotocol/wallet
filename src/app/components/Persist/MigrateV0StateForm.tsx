@@ -3,7 +3,7 @@ import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { persistActions } from 'app/state/persist'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
@@ -15,8 +15,8 @@ import { uintToBase64, hex2uint } from '../../lib/helpers'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { FormField } from 'grommet/es6/components/FormField'
 import { AddressFormatter } from '../AddressFormatter'
+import { themeActions } from '../../../styles/theme/slice'
 import { PasswordWrongError } from '../../../types/errors'
-
 
 export function MigrateV0StateForm() {
   const { t } = useTranslation()
@@ -25,6 +25,11 @@ export function MigrateV0StateForm() {
   const [enteredWrongPassword, setWrongPassword] = useState(false)
   const [migratingV0State, setMigratingV0State] = useState<undefined | MigratingV0State>(undefined)
   const [hasSavedMnemonic, setHasSavedMnemonic] = useState(false)
+
+  useEffect(() => {
+    // Old extension used light theme
+    dispatch(themeActions.changeTheme('light'))
+  }, [dispatch])
 
   const onSubmitPassword = async () => {
     const storageV0 = await readStorageV0()
