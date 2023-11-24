@@ -5,8 +5,10 @@ import { useDispatch } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
-import { LoginModalLayout } from './LoginModalLayout'
 import { DeleteInputForm } from '../../components/DeleteInputForm'
+import { Box } from 'grommet/es6/components/Box'
+import { Layer } from 'grommet/es6/components/Layer'
+import { Header } from 'app/components/Header'
 
 interface DeleteProfileButtonProps {
   prominent?: boolean
@@ -37,7 +39,7 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
         plain={!prominent}
       />
       {layerVisibility && (
-        <LoginModalLayout
+        <ModalLayout
           title={t('persist.loginToProfile.deleteProfile.title', 'Delete Profile')}
           onClickOutside={onCancel}
           onEsc={onCancel}
@@ -56,8 +58,27 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
               </label>
             </Paragraph>
           </DeleteInputForm>
-        </LoginModalLayout>
+        </ModalLayout>
       )}
     </>
+  )
+}
+
+export function ModalLayout(props: {
+  title: string
+  children: React.ReactNode
+  onClickOutside?: () => void
+  onEsc?: () => void
+}) {
+  return (
+    <Layer modal background="background-front" onClickOutside={props.onClickOutside} onEsc={props.onEsc}>
+      <Box pad="medium">
+        <Header level={2} textAlign="center" margin={{ top: 'medium' }}>
+          {props.title}
+        </Header>
+
+        {props.children}
+      </Box>
+    </Layer>
   )
 }
