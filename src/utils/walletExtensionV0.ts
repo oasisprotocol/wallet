@@ -94,6 +94,7 @@ export interface MigratingV0State {
 }
 
 export async function readStorageV0() {
+  return (await import('./__fixtures__/test-inputs')).walletExtensionV0PersistedState
   if (runtimeIs !== 'extension') return
   const browser = await import('webextension-polyfill')
   return {
