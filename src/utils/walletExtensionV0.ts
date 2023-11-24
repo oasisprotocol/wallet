@@ -228,11 +228,19 @@ export async function decryptWithPasswordV0(
       .map(a => [a.address, a]),
   )
 
-  const invalidPrivateKeys = invalidAccounts.map(a => ({
-    privateKeyWithTypos: a.privateKeyLongOrShortOrTypos,
-    name: a.accountName,
-    address: a.address,
-  }))
+  const invalidPrivateKeys = [
+    ...invalidAccounts.map(a => ({
+      privateKeyWithTypos: a.privateKeyLongOrShortOrTypos,
+      name: a.accountName,
+      address: a.address,
+    })),
+    {
+      privateKeyWithTypos:
+        '0bb00ec55763b2ae1af8daabdd37437c0ff63734add1b7d84bb107bb3924d2d030e9d3b848b00ccf447ccac41478e3f097c110816de297d8fc3945f43cb2414c',
+      name: 'Attempt2',
+      address: 'oasis1qrtrncgrpzmxeqkpnxyyydhlmy3zmhl9w5wp3jzl',
+    },
+  ]
 
   const evmAccounts = Object.fromEntries(
     validAccounts
