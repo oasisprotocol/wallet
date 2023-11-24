@@ -45,10 +45,7 @@ function ExposeInternals() {
     window.oasis = oasis
     window.store = store
     return () => {
-      window.monitor = undefined
-      window.oasisscan = undefined
-      window.oasis = undefined
-      window.store = undefined
+      // Keep globals even after redirecting away
     }
   }, [store])
   return <></>
