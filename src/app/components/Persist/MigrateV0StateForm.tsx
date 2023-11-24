@@ -12,6 +12,9 @@ import { LoginModalLayout } from './LoginModalLayout'
 import { MigratingV0State, decryptWithPasswordV0, readStorageV0 } from '../../../utils/walletExtensionV0'
 import { NoTranslate } from '../NoTranslate'
 import { uintToBase64, hex2uint } from '../../lib/helpers'
+import { CheckBox } from 'grommet/es6/components/CheckBox'
+import { FormField } from 'grommet/es6/components/FormField'
+import { AddressFormatter } from '../AddressFormatter'
 
 export function MigrateV0StateForm() {
   const { t } = useTranslation()
@@ -98,12 +101,34 @@ export function MigrateV0StateForm() {
               'The new version of the wallet extension will no longer store your mnemonic. This phrase is the only way to restore your account if you have lost access. You now have a final chance to backup your mnemonic.',
             )}
           </Paragraph>
-          <Paragraph>{t('migrateV0Extension.backupMnemonic.reveal', 'Tap to show your mnemonic')}</Paragraph>
-          {migratingV0State.mnemonic}
-          <Paragraph>
-            {t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
-          </Paragraph>
-          <Button type="submit" label={t('migrateV0Extension.nextStep', 'Next')} primary />
+          <Button label={t('migrateV0Extension.backupMnemonic.reveal', 'Tap to show your mnemonic')} />
+
+          <Box
+            margin={{ vertical: 'small' }}
+            pad="small"
+            background="background-contrast"
+            style={{ wordSpacing: '14px' }}
+            width="medium"
+          >
+            <NoTranslate>
+              <strong>{migratingV0State.mnemonic}</strong>
+            </NoTranslate>
+          </Box>
+          <FormField contentProps={{ border: false }}>
+            <CheckBox
+              label={t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
+              required
+            />
+          </FormField>
+          {migratingV0State.invalidPrivateKeys.length > 0 ? (
+            <Button type="submit" label={t('migrateV0Extension.nextStep', 'Next')} primary />
+          ) : (
+            <Button
+              type="submit"
+              label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
+              primary
+            />
+          )}
         </Form>
       )}
       {migratingV0State && hasSavedMnemonic && migratingV0State.invalidPrivateKeys.length > 0 && (
@@ -114,21 +139,31 @@ export function MigrateV0StateForm() {
               'We found invalid private keys in the existing storage. The new version of the wallet extension will no longer store them. You now have a final chance to make a backup, so you can try to correct them later.',
             )}
           </Paragraph>
-          <Paragraph>{t('migrateV0Extension.backupInvalidPrivateKeys.reveal', 'Tap to show')}</Paragraph>
-          {migratingV0State.invalidPrivateKeys.map(acc => (
-            <Box key={acc.privateKeyWithTypos}>
-              {acc.name} ({acc.address})
-              <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
-                <NoTranslate>{uintToBase64(hex2uint(acc.privateKeyWithTypos))}</NoTranslate>
-              </Box>
-            </Box>
-          ))}
-          <Paragraph>
-            {t(
-              'migrateV0Extension.backupInvalidPrivateKeys.confirm',
-              'I’ve safely stored invalid private keys',
+          <Button
+            label={t(
+              'migrateV0Extension.backupInvalidPrivateKeys.reveal',
+              'Tap to show invalid private keys',
             )}
-          </Paragraph>
+          />
+          <Box width="medium">
+            {migratingV0State.invalidPrivateKeys.map(acc => (
+              <Box key={acc.privateKeyWithTypos}>
+                <AddressFormatter address={acc.address} name={acc.name} />
+                <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
+                  <NoTranslate>{uintToBase64(hex2uint(acc.privateKeyWithTypos))}</NoTranslate>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+          <FormField contentProps={{ border: false }}>
+            <CheckBox
+              label={t(
+                'migrateV0Extension.backupInvalidPrivateKeys.confirm',
+                'I’ve safely stored invalid private keys',
+              )}
+              required
+            />
+          </FormField>
           <Button
             type="submit"
             label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
