@@ -16,6 +16,7 @@ import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { FormField } from 'grommet/es6/components/FormField'
 import { AddressFormatter } from '../AddressFormatter'
 import { themeActions } from '../../../styles/theme/slice'
+import { RevealOverlayButton } from '../RevealOverlayButton'
 
 export function MigrateV0StateForm() {
   const { t } = useTranslation()
@@ -115,21 +116,25 @@ export function MigrateV0StateForm() {
               'The new version of the wallet extension will no longer store your mnemonic. This phrase is the only way to restore your account if you have lost access. You now have a final chance to backup your mnemonic.',
             )}
           </Paragraph>
-          <Button label={t('migrateV0Extension.backupMnemonic.reveal', 'Tap to show your mnemonic')} />
 
-          <Box
-            margin={{ vertical: 'small' }}
-            pad="small"
-            background="background-contrast"
-            style={{ wordSpacing: '14px' }}
-            width="medium"
+          <RevealOverlayButton
+            label={t('migrateV0Extension.backupMnemonic.reveal', 'Tap to show your mnemonic')}
           >
-            <NoTranslate>
-              <strong>{migratingV0State.mnemonic}</strong>
-            </NoTranslate>
-          </Box>
-          <FormField contentProps={{ border: false }} required>
+            <Box
+              margin={{ vertical: 'small' }}
+              pad="small"
+              background="background-contrast"
+              style={{ wordSpacing: '14px' }}
+              width="medium"
+            >
+              <NoTranslate>
+                <strong>{migratingV0State.mnemonic}</strong>
+              </NoTranslate>
+            </Box>
+          </RevealOverlayButton>
+          <FormField contentProps={{ border: false }} required name="backupMnemonicConfirm">
             <CheckBox
+              name="backupMnemonicConfirm"
               label={t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
             />
           </FormField>
@@ -156,24 +161,26 @@ export function MigrateV0StateForm() {
               'We found invalid private keys in the existing storage. The new version of the wallet extension will no longer store them. You now have a final chance to make a backup, so you can try to correct them later.',
             )}
           </Paragraph>
-          <Button
+          <RevealOverlayButton
             label={t(
               'migrateV0Extension.backupInvalidPrivateKeys.reveal',
               'Tap to show invalid private keys',
             )}
-          />
-          <Box width="medium">
-            {migratingV0State.invalidPrivateKeys.map(acc => (
-              <Box key={acc.privateKeyWithTypos}>
-                <AddressFormatter address={acc.address} name={acc.name} />
-                <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
-                  <NoTranslate>{uintToBase64(hex2uint(acc.privateKeyWithTypos))}</NoTranslate>
+          >
+            <Box width="medium">
+              {migratingV0State.invalidPrivateKeys.map(acc => (
+                <Box key={acc.privateKeyWithTypos}>
+                  <AddressFormatter address={acc.address} name={acc.name} />
+                  <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
+                    <NoTranslate>{uintToBase64(hex2uint(acc.privateKeyWithTypos))}</NoTranslate>
+                  </Box>
                 </Box>
-              </Box>
-            ))}
-          </Box>
-          <FormField contentProps={{ border: false }} required>
+              ))}
+            </Box>
+          </RevealOverlayButton>
+          <FormField contentProps={{ border: false }} required name="backupInvalidPrivateKeysConfirm">
             <CheckBox
+              name="backupInvalidPrivateKeysConfirm"
               label={t(
                 'migrateV0Extension.backupInvalidPrivateKeys.confirm',
                 'I’ve safely stored invalid private keys',
