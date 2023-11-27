@@ -33,6 +33,11 @@
     {
       "groupName": "CI github-actions",
       "matchManagers": ["github-actions"]
+    },
+    {
+      "description": "Packages needed for migration from V0 extension should stay at the pinned version (https://github.com/oasisprotocol/oasis-wallet-ext/blob/master/package.json#L14)",
+      "matchPackageNames": ["@metamask/browser-passworder"],
+      "enabled": false
     }
   ],
   "rangeStrategy": "bump"
