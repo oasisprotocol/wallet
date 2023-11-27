@@ -167,6 +167,7 @@
   "//": "Parcel doesn't support subpath patterns #7840. We need an alias for @ledgerhq/devices",
   "alias": {
     "@ledgerhq/devices": "@ledgerhq/devices/lib-es",
+    "@protobufjs/inquire": "./src/utils/@protobufjs/inquire.js",
     "locales": "./src/locales",
     "utils": "./src/utils",
     "app": "./src/app",
