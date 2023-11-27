@@ -60,7 +60,7 @@ test.describe('Fiat on-ramp', () => {
   test('Content-Security-Policy should block unknown iframe and fail', async ({ page }) => {
     test.fail()
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
-    // await expectNoErrorsInConsole(page) // TODO: revert when playwright doesn't skip other tests because of this
+    await expectNoErrorsInConsole(page)
     await setup(page)
     await page.route('https://*.transak.com/*', route =>
       route.fulfill({ status: 301, headers: { Location: 'https://phishing-transak.com/' } }),
@@ -79,7 +79,7 @@ test.describe('Fiat on-ramp', () => {
 
   test('Sandbox should block top-navigation from iframe and fail', async ({ page }) => {
     test.fail()
-    // await expectNoErrorsInConsole(page) // TODO: revert when playwright doesn't skip other tests because of this
+    await expectNoErrorsInConsole(page)
     await setup(page)
     await page.route('https://*.transak.com/*', route =>
       route.fulfill({
