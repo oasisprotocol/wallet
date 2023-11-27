@@ -12,7 +12,7 @@ Production:
 
 - ensure <https://wallet.stg.oasis.io/> works
   - especially features related to changes
-  - look at CSP errors (expect one error: blocked `eval` in `inquire`)
+  - look at CSP errors
 - see the footer for what commit is deployed
 - update `stable` branch to that commit
 - `yarn install --frozen-lockfile && yarn build`
