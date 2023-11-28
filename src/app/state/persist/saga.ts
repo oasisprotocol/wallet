@@ -15,7 +15,7 @@ import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { runtimeIs } from 'config'
-import { readStorageV0 } from '../../../utils/walletExtensionV0'
+import { backupAndDeleteV0ExtProfile, readStorageV0 } from '../../../utils/walletExtensionV0'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -138,7 +138,17 @@ function* finishV0Migration(action: ReturnType<typeof persistActions.finishV0Mig
     }),
   )
   yield* call(setPasswordAsync, action.payload.password)
-  // TODO: Delete V0 profile
+
+  // Just being extra careful before deleting old state
+  const stateAfterMigration: RootState = yield* select()
+  if (
+    Object.values(action.payload.persistedRootState.wallet.wallets).length !==
+    Object.values(stateAfterMigration.wallet.wallets).length
+  ) {
+    throw new Error('Something went wrong during V0 state migration')
+  }
+
+  yield* call(backupAndDeleteV0ExtProfile)
 }
 
 // Encrypting

@@ -92,6 +92,18 @@ export interface MigratingV0State {
   state: PersistedRootState
 }
 
+export async function backupAndDeleteV0ExtProfile() {
+  if (runtimeIs !== 'extension') throw new Error('Can only delete V0 profile in an extension')
+  const browser = await import('webextension-polyfill')
+  const backupStorage = await readStorageV0()
+  window.localStorage.setItem('oasis_wallet_backup_v0', JSON.stringify(backupStorage))
+  await browser.storage.local.remove('keyringData')
+  window.localStorage.removeItem('ADDRESS_BOOK_CONFIG')
+  window.localStorage.removeItem('LANGUAGE_CONFIG')
+  window.localStorage.removeItem('NETWORK_CONFIG')
+  window.localStorage.removeItem('DISMISSED_NEW_EXTENSION_WARNING')
+}
+
 export async function readStorageV0() {
   if (runtimeIs !== 'extension') return
   const browser = await import('webextension-polyfill')
