@@ -1,10 +1,8 @@
-import { Trans, useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 import { Alert } from 'grommet-icons/es6/icons/Alert'
-import { Info } from 'grommet-icons/es6/icons/Info'
 import { Box } from 'grommet/es6/components/Box'
 import { AlertBox } from 'app/components/AlertBox'
 import { buildBannerZIndex } from '../../../styles/theme/elementSizes'
-import { AnchorLink } from '../AnchorLink'
 import styled from 'styled-components'
 import { deploys } from '../../../config'
 
@@ -22,22 +20,7 @@ export const BuildBanner = () => {
   }
 
   if (window.location.origin === deploys.production) {
-    return (
-      <StickyBanner>
-        <AlertBox status="ok" center icon={<Info size="20px" color="currentColor" />}>
-          <Trans
-            i18nKey="banner.domainMoved"
-            t={t}
-            components={{
-              NewLink: (
-                <AnchorLink to="https://wallet.oasis.io/" label="https://wallet.oasis.io/" color="text" />
-              ),
-            }}
-            defaults="Oasis Wallet has a new home at <NewLink />."
-          />
-        </AlertBox>
-      </StickyBanner>
-    )
+    return null
   }
 
   if (window.location.origin === deploys.staging) {
