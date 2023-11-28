@@ -1,6 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import {
+  FinishV0MigrationPayload,
   PersistedRootState,
   PersistState,
   SetUnlockedRootStatePayload,
@@ -93,6 +94,9 @@ const persistSlice = createSlice({
       state.loading = true
     },
     updatePasswordAsync(state, action: PayloadAction<UpdatePasswordPayload>) {
+      return
+    },
+    finishV0Migration(state, action: PayloadAction<FinishV0MigrationPayload>) {
       return
     },
   },

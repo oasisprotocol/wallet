@@ -35,7 +35,7 @@ function* watchPersistAsync() {
 
 function* handleAsyncPersistActions(action: AnyAction) {
   if (persistActions.setPasswordAsync.match(action)) {
-    yield* call(setPasswordAsync, action)
+    yield* call(setPasswordAsync, action.payload.password)
   } else if (persistActions.unlockAsync.match(action)) {
     yield* call(unlockAsync, action)
   } else if (persistActions.lockAsync.match(action)) {
@@ -51,6 +51,8 @@ function* handleAsyncPersistActions(action: AnyAction) {
     yield* call(resetRootState, action)
   } else if (persistActions.setWrongPassword.match(action)) {
     // Skip encrypting the same state
+  } else if (persistActions.finishV0Migration.match(action)) {
+    yield* call(finishV0Migration, action)
   } else {
     // Encrypt after other actions
 
@@ -59,21 +61,17 @@ function* handleAsyncPersistActions(action: AnyAction) {
 }
 
 // Handlers
-function* setPasswordAsync(action: ReturnType<typeof persistActions.setPasswordAsync>) {
+function* setPasswordAsync(password: string) {
   /**
    * Latest state does not match state immediately after action was dispatched,
    * but when it is queued by {@link watchPersistAsync}.
    */
   const latestState: RootState = yield* select()
   if (latestState.persist.isPersistenceUnsupported) throw new Error('Persistence not supported')
-  const keyWithSalt = yield* call(deriveKeyFromPassword, action.payload.password)
+  const keyWithSalt = yield* call(deriveKeyFromPassword, password)
   const encryptedState = yield* call(encryptState, latestState, keyWithSalt)
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
-  const unlockedPayload = yield* call(
-    decryptState,
-    window.localStorage.getItem(STORAGE_FIELD)!,
-    action.payload.password,
-  )
+  const unlockedPayload = yield* call(decryptState, window.localStorage.getItem(STORAGE_FIELD)!, password)
   yield* put(persistActions.setUnlockedRootState(unlockedPayload))
 }
 
@@ -130,6 +128,17 @@ function* resetRootState(action: ReturnType<typeof persistActions.resetRootState
       yield* call([window.location, window.location.assign], '/')
     }
   }
+}
+
+function* finishV0Migration(action: ReturnType<typeof persistActions.finishV0Migration>) {
+  yield* put(
+    persistActions.setUnlockedRootState({
+      persistedRootState: action.payload.persistedRootState,
+      stringifiedEncryptionKey: 'skipped',
+    }),
+  )
+  yield* call(setPasswordAsync, action.payload.password)
+  // TODO: Delete V0 profile
 }
 
 // Encrypting

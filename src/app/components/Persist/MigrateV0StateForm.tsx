@@ -74,13 +74,11 @@ export function MigrateV0StateForm() {
   const finishMigration = () => {
     if (!migratingV0State) throw new Error('No v0 storage to migrate')
     dispatch(
-      persistActions.setUnlockedRootState({
+      persistActions.finishV0Migration({
         persistedRootState: migratingV0State.state,
-        stringifiedEncryptionKey: 'skipped',
+        password: password,
       }),
     )
-    dispatch(persistActions.setPasswordAsync({ password }))
-    // TODO: Delete V0 profile
   }
 
   return (

@@ -29,6 +29,11 @@ export interface UpdatePasswordPayload {
   password: string
 }
 
+export interface FinishV0MigrationPayload {
+  persistedRootState: PersistedRootState
+  password: string
+}
+
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean
