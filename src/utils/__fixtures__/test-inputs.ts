@@ -39,15 +39,16 @@ export const privateKeyPersistedState = typedStringify({
 
 export const privateKeyUnlockedState = {
   account: {
-    address: '',
-    available: null,
-    debonding: null,
-    delegations: null,
-    total: null,
+    address: 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
+    allowances: [],
+    available: '0',
+    debonding: '0',
+    delegations: '0',
+    total: '0',
     accountError: undefined,
     transactions: [],
     transactionsError: undefined,
-    loading: true,
+    loading: false,
   },
   contacts: {},
   evmAccounts: {},
@@ -88,17 +89,21 @@ export const privateKeyUnlockedState = {
     transactionFormStep: 'transferType' satisfies `${TransactionFormSteps}` as TransactionFormSteps,
   },
   staking: {
-    debondingDelegations: null,
-    delegations: null,
+    debondingDelegations: [],
+    delegations: [],
     updateDelegationsError: undefined,
-    validators: null,
+    validators: {
+      list: [],
+      network: 'mainnet',
+      timestamp: 1701224528489,
+    },
     updateValidatorsError: undefined,
     selectedValidatorDetails: null,
     selectedValidator: null,
     loading: false,
   },
   theme: { selected: 'dark' },
-  transaction: { success: false, active: false },
+  transaction: { success: false, error: undefined, preview: undefined, active: false },
   wallet: {
     wallets: {
       oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk: {

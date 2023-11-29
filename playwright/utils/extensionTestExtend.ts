@@ -13,6 +13,7 @@ export const test = base.extend<{
   context: BrowserContext
   extensionId: string
   extensionPopupURL: `chrome-extension://${string}`
+  extensionManifestURL: `chrome-extension://${string}/manifest.json`
 }>({
   // eslint-disable-next-line no-empty-pattern
   context: async ({}, use) => {
@@ -37,5 +38,8 @@ export const test = base.extend<{
   },
   extensionPopupURL: async ({ extensionId }, use) => {
     await use(`chrome-extension://${extensionId}/${popupFile}#`)
+  },
+  extensionManifestURL: async ({ extensionId }, use) => {
+    await use(`chrome-extension://${extensionId}/manifest.json`)
   },
 })
