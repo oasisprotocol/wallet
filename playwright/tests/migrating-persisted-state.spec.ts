@@ -25,12 +25,21 @@ test.describe('Migrating persisted state', () => {
 
     const tab2 = await context.newPage()
     await tab2.goto('/e2e')
+    await tab2.getByTestId('account-selector').click({ timeout: 15_000 })
+    await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
     const decryptedStateV1 = await tab2.evaluate(() => {
       const store: any = window['store']
       return store.getState() as RootState
     })
     expect(decryptedStateV1).toEqual({
       ...privateKeyUnlockedState,
+      staking: {
+        ...privateKeyUnlockedState.staking,
+        validators: {
+          ...privateKeyUnlockedState.staking.validators,
+          timestamp: expect.any(Number),
+        },
+      },
       persist: {
         ...privateKeyUnlockedState.persist,
         stringifiedEncryptionKey: expect.any(String),
