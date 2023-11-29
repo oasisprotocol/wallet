@@ -9,7 +9,6 @@ exports[`decryptWithPasswordV0 1`] = `
       "privateKeyWithTypos": "1ab9bf560d4ca4044f31b99da44c5503d0e48f508c892cd82c5c4a9cfc76d1fb3e3a7c47f18a67b70410105d9444766269bb1a1e418b1cdf3a6aba8f18923d3a",
     },
   ],
-  "language": "en",
   "mnemonic": "among scrap refuse hungry remove unhappy crack horn half cruel skull project dentist poet design paper eternal stool tomato cabin helmet funny victory happy",
   "state": {
     "contacts": {

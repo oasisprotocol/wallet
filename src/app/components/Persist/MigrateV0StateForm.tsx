@@ -9,7 +9,12 @@ import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 import { LoginModalLayout } from './LoginModalLayout'
-import { MigratingV0State, decryptWithPasswordV0, readStorageV0 } from '../../../utils/walletExtensionV0'
+import {
+  MigratingV0State,
+  decryptWithPasswordV0,
+  readAndMigrateLanguageV0,
+  readStorageV0,
+} from '../../../utils/walletExtensionV0'
 import { NoTranslate } from '../NoTranslate'
 import { uintToBase64, hex2uint } from '../../lib/helpers'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
@@ -19,7 +24,7 @@ import { themeActions } from '../../../styles/theme/slice'
 import { PasswordWrongError } from '../../../types/errors'
 
 export function MigrateV0StateForm() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   const [password, setPassword] = useState('')
   const [enteredWrongPassword, setWrongPassword] = useState(false)
@@ -30,6 +35,11 @@ export function MigrateV0StateForm() {
     // Old extension used light theme
     dispatch(themeActions.changeTheme('light'))
   }, [dispatch])
+
+  useEffect(() => {
+    // Switch to zh_CN if it was used in old extension. We don't have a language selector in migration UI.
+    i18n.changeLanguage(readAndMigrateLanguageV0())
+  }, [i18n])
 
   const onSubmitPassword = async () => {
     const storageV0 = await readStorageV0()

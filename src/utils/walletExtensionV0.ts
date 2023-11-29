@@ -80,7 +80,7 @@ export interface WalletExtensionV0State {
   }
   localStorage: {
     ADDRESS_BOOK_CONFIG: StringifiedType<Array<{ name: string; address: `oasis1${string}` }>>
-    LANGUAGE_CONFIG: undefined | 'en' | 'zh_CN' // Ignored in migration
+    LANGUAGE_CONFIG: undefined | 'en' | 'zh_CN'
     NETWORK_CONFIG: undefined | any // Ignored in migration
     DISMISSED_NEW_EXTENSION_WARNING: undefined | any // Ignored in migration
   }
@@ -89,7 +89,6 @@ export interface WalletExtensionV0State {
 export interface MigratingV0State {
   mnemonic: string
   invalidPrivateKeys: { privateKeyWithTypos: string; name: string; address: `oasis1${string}` }[]
-  language: LanguageKey
   state: PersistedRootState
 }
 
@@ -128,6 +127,10 @@ function validateAndExpandPrivateKey(privateKeyLongOrShortOrTyposHex: string): s
   } catch (e) {
     return ''
   }
+}
+
+export function readAndMigrateLanguageV0(): LanguageKey {
+  return window.localStorage.getItem('LANGUAGE_CONFIG') === 'zh_CN' ? 'zh_CN' : 'en'
 }
 
 export async function decryptWithPasswordV0(
@@ -252,8 +255,6 @@ export async function decryptWithPasswordV0(
   const addressBookAccounts = typedJsonParse(extensionV0State.localStorage.ADDRESS_BOOK_CONFIG)
   const contacts = Object.fromEntries([...observedAccounts, ...addressBookAccounts].map(a => [a.address, a]))
 
-  const language: LanguageKey = extensionV0State.localStorage.LANGUAGE_CONFIG === 'zh_CN' ? 'zh_CN' : 'en'
-
   const state: PersistedRootState = {
     contacts: contacts,
     evmAccounts: evmAccounts,
@@ -266,5 +267,5 @@ export async function decryptWithPasswordV0(
       wallets: wallets,
     },
   }
-  return { mnemonic, invalidPrivateKeys, language, state }
+  return { mnemonic, invalidPrivateKeys, state }
 }
