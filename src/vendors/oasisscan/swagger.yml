@@ -453,6 +453,7 @@ components:
             - beacon.PVSSCommit
             - beacon.PVSSReveal
             - beacon.VRFProve
+            - consensus.Meta
         fee:
           type: string
         amount:
