@@ -19,6 +19,7 @@ import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
 import { DeleteAccount } from './DeleteAccount'
 import { PrivateKeyFormatter } from '../../../PrivateKeyFormatter'
+import { RevealOverlayButton } from '../../../RevealOverlayButton'
 
 interface FormValue {
   name: string
@@ -47,10 +48,8 @@ export const ManageableAccountDetails = ({
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
-  const [acknowledge, setAcknowledge] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
   const hideLayer = () => {
-    setAcknowledge(false)
     setLayerVisibility(false)
   }
 
@@ -193,18 +192,14 @@ export const ManageableAccountDetails = ({
                     )}
                   </Text>
                 </Box>
-                {!acknowledge && (
-                  <Button
-                    alignSelf="center"
-                    primary
-                    label={t(
-                      'toolbar.settings.exportPrivateKey.confirm',
-                      'I understand, reveal my private key',
-                    )}
-                    onClick={() => setAcknowledge(true)}
-                  />
-                )}
-                {acknowledge && <PrivateKeyFormatter privateKey={wallet.privateKey!} />}
+                <RevealOverlayButton
+                  label={t(
+                    'toolbar.settings.exportPrivateKey.confirm',
+                    'I understand, reveal my private key',
+                  )}
+                >
+                  <PrivateKeyFormatter privateKey={wallet.privateKey!} />
+                </RevealOverlayButton>
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
                 </Box>
