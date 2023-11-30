@@ -54,7 +54,7 @@ export function ConnectDevicePage() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
-        dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
       }
     } catch {
       setConnection('error')

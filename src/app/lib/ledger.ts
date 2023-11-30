@@ -111,7 +111,7 @@ export class LedgerSigner implements ContextSigner {
   transportType: LedgerWalletType
 
   constructor(wallet: Wallet) {
-    if (!wallet.path || (wallet.type !== WalletType.Ledger && wallet.type !== WalletType.BleLedger)) {
+    if (!wallet.path || (wallet.type !== WalletType.UsbLedger && wallet.type !== WalletType.BleLedger)) {
       throw new Error('Given wallet is not a ledger wallet')
     }
     this.path = wallet.path

@@ -47,7 +47,7 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
 
 interface ImportAccountsSelectionModalProps {
   abort: () => void
-  type: WalletType.Mnemonic | WalletType.Ledger
+  type: WalletType.Mnemonic | WalletType.UsbLedger
 }
 
 interface FormValue extends ChoosePasswordFieldsFormValue {}
@@ -64,7 +64,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
 
   const openAccounts = ({ value }: { value: FormValue }) => {
     dispatch(
-      props.type === WalletType.Ledger
+      props.type === WalletType.UsbLedger
         ? walletActions.openWalletsFromLedger({ choosePassword: value.password2 })
         : walletActions.openWalletFromMnemonic({ choosePassword: value.password2 }),
     )
@@ -84,7 +84,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const onNext = () => {
     dispatch(importAccountsActions.setPage(pageNum + 1))
     if (props.type === 'ledger') {
-      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(WalletType.Ledger))
+      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(WalletType.UsbLedger))
     }
   }
 

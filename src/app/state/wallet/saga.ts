@@ -51,7 +51,7 @@ export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAc
     yield* call(addWallet, {
       address: account.address,
       publicKey: account.publicKey,
-      type: WalletType.Ledger,
+      type: WalletType.UsbLedger,
       balance: account.balance!,
       path: account.path,
       pathDisplay: account.pathDisplay,

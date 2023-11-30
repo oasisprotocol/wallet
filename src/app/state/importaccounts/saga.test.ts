@@ -38,7 +38,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), validAccount],
           [matchers.call.fn(getAccountBalanceWithFallback), {}],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
         .put.actionType(importAccountsActions.accountGenerated.type)
@@ -96,7 +96,7 @@ describe('importAccounts Sagas', () => {
             },
           ],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportNotSupported } } })
         .silentRun(50)
     })
@@ -108,7 +108,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
         .put.like({ action: { payload: { code: WalletErrors.LedgerNoDeviceSelected } } })
         .silentRun(50)
     })
@@ -120,7 +120,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
         .put.like({ action: { payload: { code: WalletErrors.USBTransportError, message: 'Dummy error' } } })
         .silentRun(50)
     })
@@ -139,7 +139,7 @@ describe('importAccounts Sagas', () => {
           [matchers.call.fn(Ledger.getOasisApp), undefined],
           [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), Promise.reject(new Error('Dummy error'))],
         ])
-        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.Ledger))
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
         .put.like({ action: { payload: { code: WalletErrors.UnknownError, message: 'Dummy error' } } })
         .silentRun(50)
     })
