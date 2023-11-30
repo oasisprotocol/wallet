@@ -199,7 +199,7 @@ export async function decryptWithPasswordV0(password: string, extensionV0State: 
           return {
             publicKey: acc.publicKey,
             address: acc.address,
-            type: WalletType.Ledger,
+            type: WalletType.UsbLedger,
             path: [44, 474, 0, 0, acc.ledgerHdIndex],
             pathDisplay: `m/44'/474'/0'/0'/${acc.ledgerHdIndex}'`,
             balance: {

@@ -27,7 +27,7 @@ describe('<AccountSelector  />', () => {
             address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
             balance: { available: '100', debonding: '0', delegations: '0', total: '100' },
             publicKey: '00',
-            type: WalletType.Ledger,
+            type: WalletType.UsbLedger,
           },
         },
       },

@@ -32,7 +32,7 @@ describe('<ConnectDevicePage />', () => {
     expect(screen.getByLabelText('Status is okay')).toBeInTheDocument()
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
     expect(mockDispatch).toHaveBeenCalledWith({
-      payload: WalletType.Ledger,
+      payload: WalletType.UsbLedger,
       type: importAccountsActions.enumerateAccountsFromLedger.type,
     })
   })

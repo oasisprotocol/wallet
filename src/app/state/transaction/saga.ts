@@ -59,7 +59,7 @@ function* getSigner() {
   if (wallet.type === WalletType.PrivateKey || wallet.type === WalletType.Mnemonic) {
     const bytes = hex2uint(privateKey!)
     signer = yield* call(signerFromPrivateKey, bytes)
-  } else if (wallet.type === WalletType.Ledger || wallet.type === WalletType.BleLedger) {
+  } else if (wallet.type === WalletType.UsbLedger || wallet.type === WalletType.BleLedger) {
     signer = new LedgerSigner(wallet)
   } else {
     throw new ExhaustedTypeError('Invalid wallet type', wallet.type)
@@ -190,7 +190,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     yield* setStep(TransactionStep.Signing)
 
-    if (activeWallet.type === WalletType.Ledger || activeWallet.type === WalletType.BleLedger) {
+    if (activeWallet.type === WalletType.UsbLedger || activeWallet.type === WalletType.BleLedger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
       yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)

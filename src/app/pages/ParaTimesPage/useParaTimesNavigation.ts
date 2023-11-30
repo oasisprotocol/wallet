@@ -24,7 +24,7 @@ export const useParaTimesNavigation = (): ParaTimesNavigationHook => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const walletType = useSelector(selectType)
-  const canAccessParaTimesRoute = backend() === BackendAPIs.OasisScan && walletType !== WalletType.Ledger
+  const canAccessParaTimesRoute = backend() === BackendAPIs.OasisScan && walletType !== WalletType.UsbLedger
   const getParaTimesRoutePath = (address: string) => `/account/${address}/paratimes`
   const navigateToDeposit = useCallback(() => dispatch(paraTimesActions.navigateToDeposit()), [dispatch])
   const navigateToWithdraw = useCallback(() => dispatch(paraTimesActions.navigateToWithdraw()), [dispatch])
