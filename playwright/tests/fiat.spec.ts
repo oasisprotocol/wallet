@@ -21,7 +21,7 @@ async function setup(page: Page) {
   await expect(page.getByRole('heading', { name: 'Buy ROSE' })).toBeVisible()
 }
 
-test.describe.skip('Fiat on-ramp', () => {
+test.describe('Fiat on-ramp', () => {
   test('Content-Security-Policy should allow embedded Transak widget', async ({ page }) => {
     expect((await page.request.head('/')).headers()).toHaveProperty('content-security-policy')
     await expectNoErrorsInConsole(page, {
