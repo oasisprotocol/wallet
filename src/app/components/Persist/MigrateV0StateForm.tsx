@@ -3,7 +3,7 @@ import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { persistActions } from 'app/state/persist'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
@@ -16,12 +16,12 @@ import {
   readStorageV0,
 } from '../../../utils/walletExtensionV0'
 import { NoTranslate } from '../NoTranslate'
-import { uintToBase64, hex2uint } from '../../lib/helpers'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { FormField } from 'grommet/es6/components/FormField'
 import { AddressFormatter } from '../AddressFormatter'
 import { themeActions } from '../../../styles/theme/slice'
 import { RevealOverlayButton } from '../RevealOverlayButton'
+import { PrivateKeyFormatter } from '../PrivateKeyFormatter'
 import { PasswordWrongError } from '../../../types/errors'
 
 export function MigrateV0StateForm() {
@@ -182,9 +182,7 @@ export function MigrateV0StateForm() {
                     'Tap to show invalid private key',
                   )}
                 >
-                  <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
-                    <NoTranslate>{uintToBase64(hex2uint(acc.privateKeyWithTypos))}</NoTranslate>
-                  </Box>
+                  <PrivateKeyFormatter privateKey={acc.privateKeyWithTypos} />
                 </RevealOverlayButton>
               </Box>
             ))}
