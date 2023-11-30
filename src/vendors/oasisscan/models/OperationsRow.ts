@@ -120,7 +120,8 @@ export enum OperationsRowMethodEnum {
     GovernanceSubmitProposal = 'governance.SubmitProposal',
     BeaconPvssCommit = 'beacon.PVSSCommit',
     BeaconPvssReveal = 'beacon.PVSSReveal',
-    BeaconVrfProve = 'beacon.VRFProve'
+    BeaconVrfProve = 'beacon.VRFProve',
+    ConsensusMeta = 'consensus.Meta'
 }
 
 export function OperationsRowFromJSON(json: any): OperationsRow {

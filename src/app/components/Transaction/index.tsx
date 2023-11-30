@@ -339,6 +339,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
     },
+    [transactionTypes.TransactionType.ConsensusMeta]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
+    },
     [transactionTypes.TransactionType.ConsensusAccountsParameters]: {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,

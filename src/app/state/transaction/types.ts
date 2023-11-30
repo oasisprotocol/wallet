@@ -19,6 +19,9 @@ export enum TransactionType {
   BeaconPvssCommit = 'beacon.PVSSCommit',
   BeaconPvssReveal = 'beacon.PVSSReveal',
   BeaconVrfProve = 'beacon.VRFProve',
+  ConsensusMeta = 'consensus.Meta',
+
+  // ParaTime
   ConsensusDeposit = 'consensus.Deposit',
   ConsensusWithdraw = 'consensus.Withdraw',
   ConsensusAccountsParameters = 'consensus.Parameters',
