@@ -39,7 +39,7 @@ test.describe('The extension popup should load', () => {
     await expect(popup.getByText('error').or(popup.getByText('fail'))).toBeHidden()
   })
 
-  test.skip('should allow embedded Transak widget', async ({ page, extensionPopupURL }) => {
+  test('should allow embedded Transak widget', async ({ page, extensionPopupURL }) => {
     await expectNoErrorsInConsole(page, {
       ignoreError: msg => {
         // Odd errors inside Transak
