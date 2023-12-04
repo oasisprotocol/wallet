@@ -192,7 +192,7 @@ export function MigrateV0StateForm() {
               name="backupInvalidPrivateKeysConfirm"
               label={t(
                 'migrateV0Extension.backupInvalidPrivateKeys.confirm',
-                'I’ve safely stored invalid private keys',
+                'I’ve safely stored my private keys',
               )}
             />
           </FormField>

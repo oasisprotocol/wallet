@@ -45,7 +45,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
         'Grm/Vg1MpARPMbmdpExVA9Dkj1CMiSzYLFxKnPx20fs+OnxH8YpntwQQEF2URHZiabsaHkGLHN86arqPGJI9Og==',
       ),
     ).toBeVisible()
-    await page.getByText('I’ve safely stored invalid private keys').check()
+    await page.getByText('I’ve safely stored my private keys').check()
     await page.getByRole('button', { name: /Open the new version of the wallet/ }).click()
   })
 
