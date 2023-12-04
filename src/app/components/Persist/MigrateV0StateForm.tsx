@@ -143,18 +143,29 @@ export function MigrateV0StateForm() {
               </NoTranslate>
             </Box>
           </RevealOverlayButton>
-          <FormField contentProps={{ border: false }} required name="backupMnemonicConfirm">
+          <FormField
+            contentProps={{ border: false }}
+            required
+            name="backupMnemonicConfirm"
+            margin={{ vertical: 'medium' }}
+          >
             <CheckBox
               name="backupMnemonicConfirm"
               label={t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
             />
           </FormField>
           {migratingV0State.invalidPrivateKeys.length > 0 ? (
-            <Button type="submit" label={t('migrateV0Extension.nextStep', 'Next')} primary />
+            <Button
+              type="submit"
+              label={t('migrateV0Extension.nextStep', 'Next')}
+              fill="horizontal"
+              primary
+            />
           ) : (
             <Button
               type="submit"
               label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
+              fill="horizontal"
               primary
             />
           )}
@@ -172,7 +183,7 @@ export function MigrateV0StateForm() {
               'Some of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding.',
             )}
           </Paragraph>
-          <Box width="medium">
+          <Box width="medium" gap="large">
             {migratingV0State.invalidPrivateKeys.map(acc => (
               <Box key={acc.privateKeyWithTypos}>
                 <AddressFormatter address={acc.address} name={acc.name} />
@@ -187,7 +198,12 @@ export function MigrateV0StateForm() {
               </Box>
             ))}
           </Box>
-          <FormField contentProps={{ border: false }} required name="backupInvalidPrivateKeysConfirm">
+          <FormField
+            contentProps={{ border: false }}
+            required
+            name="backupInvalidPrivateKeysConfirm"
+            margin={{ vertical: 'medium' }}
+          >
             <CheckBox
               name="backupInvalidPrivateKeysConfirm"
               label={t(
@@ -199,6 +215,7 @@ export function MigrateV0StateForm() {
           <Button
             type="submit"
             label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
+            fill="horizontal"
             primary
           />
         </Form>
