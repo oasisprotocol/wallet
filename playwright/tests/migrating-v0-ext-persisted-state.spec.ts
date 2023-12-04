@@ -31,6 +31,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
   })
 
   await test.step('should warn about fields lost in migration', async () => {
+    // await expect(page).toHaveScreenshot({ fullPage: true })
     await page.getByRole('button', { name: /Tap to show/ }).click()
     await expect(
       page.getByText(
@@ -39,6 +40,8 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
     ).toBeVisible()
     await page.getByText('I’ve safely stored my mnemonic').check()
     await page.getByRole('button', { name: /Next/ }).click()
+
+    // await expect(page).toHaveScreenshot({ fullPage: true })
     await page.getByRole('button', { name: /Tap to show/ }).click()
     await expect(
       page.getByText(

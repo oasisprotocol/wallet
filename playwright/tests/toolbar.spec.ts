@@ -91,6 +91,7 @@ test.describe('My Accounts tab', () => {
     await page.getByTestId('account-selector').click()
     await page.getByText('Manage').click()
     await page.getByText('Export Private Key').click()
+    // await expect(page).toHaveScreenshot()
     await page.getByText('I understand, reveal my private key').click()
     await expect(page.getByText(privateKey)).toBeVisible()
   })
