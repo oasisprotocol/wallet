@@ -15,6 +15,7 @@ import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { runtimeIs } from 'config'
+import { backupAndDeleteV0ExtProfile, readStorageV0 } from '../../../utils/walletExtensionV0'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -34,7 +35,7 @@ function* watchPersistAsync() {
 
 function* handleAsyncPersistActions(action: AnyAction) {
   if (persistActions.setPasswordAsync.match(action)) {
-    yield* call(setPasswordAsync, action)
+    yield* call(setPasswordAsync, action.payload.password)
   } else if (persistActions.unlockAsync.match(action)) {
     yield* call(unlockAsync, action)
   } else if (persistActions.lockAsync.match(action)) {
@@ -50,6 +51,8 @@ function* handleAsyncPersistActions(action: AnyAction) {
     yield* call(resetRootState, action)
   } else if (persistActions.setWrongPassword.match(action)) {
     // Skip encrypting the same state
+  } else if (persistActions.finishV0Migration.match(action)) {
+    yield* call(finishV0Migration, action)
   } else {
     // Encrypt after other actions
 
@@ -58,21 +61,17 @@ function* handleAsyncPersistActions(action: AnyAction) {
 }
 
 // Handlers
-function* setPasswordAsync(action: ReturnType<typeof persistActions.setPasswordAsync>) {
+function* setPasswordAsync(password: string) {
   /**
    * Latest state does not match state immediately after action was dispatched,
    * but when it is queued by {@link watchPersistAsync}.
    */
   const latestState: RootState = yield* select()
   if (latestState.persist.isPersistenceUnsupported) throw new Error('Persistence not supported')
-  const keyWithSalt = yield* call(deriveKeyFromPassword, action.payload.password)
+  const keyWithSalt = yield* call(deriveKeyFromPassword, password)
   const encryptedState = yield* call(encryptState, latestState, keyWithSalt)
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
-  const unlockedPayload = yield* call(
-    decryptState,
-    window.localStorage.getItem(STORAGE_FIELD)!,
-    action.payload.password,
-  )
+  const unlockedPayload = yield* call(decryptState, window.localStorage.getItem(STORAGE_FIELD)!, password)
   yield* put(persistActions.setUnlockedRootState(unlockedPayload))
 }
 
@@ -131,6 +130,27 @@ function* resetRootState(action: ReturnType<typeof persistActions.resetRootState
   }
 }
 
+function* finishV0Migration(action: ReturnType<typeof persistActions.finishV0Migration>) {
+  yield* put(
+    persistActions.setUnlockedRootState({
+      persistedRootState: action.payload.persistedRootState,
+      stringifiedEncryptionKey: 'skipped',
+    }),
+  )
+  yield* call(setPasswordAsync, action.payload.password)
+
+  // Just being extra careful before deleting old state
+  const stateAfterMigration: RootState = yield* select()
+  if (
+    Object.values(action.payload.persistedRootState.wallet.wallets).length !==
+    Object.values(stateAfterMigration.wallet.wallets).length
+  ) {
+    throw new Error('Something went wrong during V0 state migration')
+  }
+
+  yield* call(backupAndDeleteV0ExtProfile)
+}
+
 // Encrypting
 async function encryptState(state: RootState, keyWithSalt: KeyWithSalt): Promise<EncryptedString> {
   const persistedRootState: PersistedRootState = {
@@ -183,4 +203,6 @@ function* encryptAndPersistState(action: AnyAction) {
 
 export function* persistSaga() {
   yield* watchPersistAsync()
+  const storageV0 = yield* call(readStorageV0)
+  yield* put(persistActions.setHasV0StorageToMigrate(!!storageV0?.chromeStorageLocal.keyringData))
 }

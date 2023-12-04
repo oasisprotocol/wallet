@@ -1,6 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import {
+  FinishV0MigrationPayload,
   PersistedRootState,
   PersistState,
   SetUnlockedRootStatePayload,
@@ -24,6 +25,7 @@ export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 export function getInitialState(): PersistState {
   return {
     hasPersistedProfiles: !!window.localStorage.getItem(STORAGE_FIELD),
+    hasV0StorageToMigrate: false,
     // Disable persistence if tabs would override each other.
     isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
@@ -60,6 +62,9 @@ const persistSlice = createSlice({
     skipUnlocking(state) {
       state.stringifiedEncryptionKey = 'skipped'
     },
+    setHasV0StorageToMigrate(state, action: PayloadAction<boolean>) {
+      state.hasV0StorageToMigrate = action.payload
+    },
 
     // Handled in saga
     // ---------------
@@ -89,6 +94,9 @@ const persistSlice = createSlice({
       state.loading = true
     },
     updatePasswordAsync(state, action: PayloadAction<UpdatePasswordPayload>) {
+      return
+    },
+    finishV0Migration(state, action: PayloadAction<FinishV0MigrationPayload>) {
       return
     },
   },

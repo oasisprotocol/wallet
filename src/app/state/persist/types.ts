@@ -29,9 +29,15 @@ export interface UpdatePasswordPayload {
   password: string
 }
 
+export interface FinishV0MigrationPayload {
+  persistedRootState: PersistedRootState
+  password: string
+}
+
 /* --- STATE --- */
 export interface PersistState {
   hasPersistedProfiles: boolean
+  hasV0StorageToMigrate: boolean
   isPersistenceUnsupported: boolean
   loading: boolean
   stringifiedEncryptionKey: undefined | 'skipped' | StringifiedKeyWithSalt
