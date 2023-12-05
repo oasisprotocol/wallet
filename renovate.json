@@ -24,7 +24,7 @@
     },
     {
       "groupName": "TypeScript type definitions",
-      "matchPackagePatterns": ["@types"]
+      "matchPackagePatterns": ["@types/"]
     },
     {
       "groupName": "docker dependencies",
