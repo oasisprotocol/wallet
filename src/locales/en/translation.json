@@ -232,6 +232,7 @@
     "fiatOnramp": "Buy",
     "home": "Home",
     "lockProfile": "Lock profile",
+    "openMenu": "Menu",
     "paraTimes": "ParaTimes",
     "stake": "Stake",
     "unlockProfile": "Unlock profile",
@@ -430,6 +431,7 @@
     "networks": {
       "local": "Local",
       "mainnet": "Mainnet",
+      "selector": "Select network",
       "testnet": "Testnet"
     },
     "profile": {

@@ -228,6 +228,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
                 label: label,
                 onClick: () => setLanguage(key),
               }))}
+              a11yTitle="Language"
             >
               <Box direction="row">
                 <Box pad="small">
@@ -329,6 +330,7 @@ export function Sidebar() {
 }
 
 export function Navigation() {
+  const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
   const [sidebarVisible, setSidebarVisible] = React.useState(false)
   const isLockableOrCloseable = useSelector(selectIsLockableOrCloseable)
@@ -362,7 +364,12 @@ export function Navigation() {
           }}
         >
           {hasMenuOnRightSide && (
-            <Button onClick={() => toggleSidebar()} icon={<MenuIcon />} focusIndicator={false} />
+            <Button
+              onClick={() => toggleSidebar()}
+              a11yTitle={t('menu.openMenu', 'Menu')}
+              icon={<MenuIcon />}
+              focusIndicator={false}
+            />
           )}
           <Box justify="center">
             <SidebarHeader size="small" />

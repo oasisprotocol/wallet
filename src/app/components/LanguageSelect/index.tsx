@@ -61,6 +61,7 @@ export const LanguageMenu = () => {
         }}
         items={languageOptions}
         fill
+        a11yTitle="Language"
       >
         <Box direction="row" gap="small" pad="small" responsive={false}>
           <Language />
