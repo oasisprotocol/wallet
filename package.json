@@ -97,12 +97,12 @@
     "webextension-polyfill": "0.10.0"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "3.12.11",
+    "@cypress/code-coverage": "3.12.13",
     "@parcel/config-webextension": "2.10.3",
     "@parcel/packager-raw-url": "2.10.3",
     "@parcel/transformer-webmanifest": "2.10.3",
     "@testing-library/cypress": "10.0.1",
-    "@testing-library/jest-dom": "6.1.4",
+    "@testing-library/jest-dom": "6.1.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.5.1",
     "@types/body-scroll-lock": "3.1.2",
@@ -123,7 +123,7 @@
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
     "babel-plugin-istanbul": "6.1.1",
-    "cypress": "13.6.0",
+    "cypress": "13.6.1",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-react-app": "7.0.1",
