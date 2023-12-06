@@ -17,7 +17,7 @@ const localnet = `
 const hmrWebsocket = `
   ws://localhost:2222
 `
-const reactErrorOverlay = `'sha256-RV6I4HWPb71LvA27WVD3cEz8GsJrHlfcM/2X2Q5gV00='`
+const reactErrorOverlay = `'sha256-yt+SNVxRkIi6H6yb7ndFuZM1esMX9esg3UpRHaTsyVk='`
 const hmrScripts = `
   'unsafe-eval'
 `
