@@ -20,8 +20,10 @@ test.describe('The extension popup should load', () => {
 
   test('get state from background page through webext-redux', async ({ page, extensionPopupURL }) => {
     await page.goto(`${extensionPopupURL}/`)
+    await page.getByRole('button', { name: /Menu/i }).click()
     await page.getByRole('button', { name: /Dark mode/i }).click()
     await page.getByRole('button', { name: /Light mode/i }).click()
+    await page.getByRole('link', { name: /Home/i }).click()
 
     await page.getByRole('link', { name: /Create wallet/i }).click()
     await expect(page.getByTestId('mnemonic-grid').locator('> *')).toHaveCount(24)

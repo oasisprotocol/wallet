@@ -68,6 +68,7 @@ export const NetworkSelector = memo((props: Props) => {
       }}
       items={menuItems}
       fill
+      a11yTitle={t('toolbar.networks.selector', 'Select network')}
     >
       <Box direction="row" gap="small" pad="small" responsive={false} data-testid="network-selector">
         <Network />

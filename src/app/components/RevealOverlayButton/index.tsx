@@ -1,6 +1,7 @@
 import { Button } from 'grommet/es6/components/Button'
 import React, { useState } from 'react'
 import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
 
 interface Props {
   label: string
@@ -12,7 +13,11 @@ export const RevealOverlayButton = (props: Props) => {
   return (
     <Box style={{ position: 'relative' }}>
       <Button
-        label={props.label}
+        label={
+          <Text color="link" weight="bold">
+            {props.label}
+          </Text>
+        }
         style={{
           visibility: hasRevealed ? 'hidden' : 'visible',
           position: 'absolute',
@@ -21,6 +26,7 @@ export const RevealOverlayButton = (props: Props) => {
           top: 0,
           bottom: 0,
         }}
+        color="lightText"
         onClick={() => setHasRevealed(true)}
       />
       <Box style={{ visibility: hasRevealed ? 'visible' : 'hidden' }}>{props.children}</Box>

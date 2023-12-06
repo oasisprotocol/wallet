@@ -9,7 +9,7 @@ const extensionManifest = require(path.join(extensionPath, '/manifest.json'))
 const popupFile = extensionManifest.browser_action.default_popup
 
 // From https://playwright.dev/docs/chrome-extensions
-export const test = base.extend<{
+const test = base.extend<{
   context: BrowserContext
   extensionId: string
   extensionPopupURL: `chrome-extension://${string}`
@@ -43,3 +43,9 @@ export const test = base.extend<{
     await use(`chrome-extension://${extensionId}/manifest.json`)
   },
 })
+
+test.use({
+  viewport: { width: 360, height: 600 },
+})
+
+export { test }

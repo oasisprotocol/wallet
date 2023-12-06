@@ -127,7 +127,7 @@ exports[`<NetworkSelector  /> should match snapshot 1`] = `
 <button
   aria-expanded="false"
   aria-haspopup="menu"
-  aria-label="Open Menu"
+  aria-label="toolbar.networks.selector"
   class="c0"
   style="border: 0px;"
   type="button"

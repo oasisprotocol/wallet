@@ -1,28 +1,25 @@
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import copy from 'copy-to-clipboard'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
-import { Notification } from 'grommet/es6/components/Notification'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Text } from 'grommet/es6/components/Text'
 import { TextInput } from 'grommet/es6/components/TextInput'
 import { Tip } from 'grommet/es6/components/Tip'
-import { Copy } from 'grommet-icons/es6/icons/Copy'
 import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation'
 import { Trans, useTranslation } from 'react-i18next'
-import { NoTranslate } from 'app/components/NoTranslate'
 import { Wallet } from '../../../../state/wallet/types'
 import { DerivationFormatter } from './DerivationFormatter'
 import { AddressBox } from '../../../AddressBox'
 import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
-import { uintToBase64, hex2uint } from '../../../../lib/helpers'
 import { DeleteAccount } from './DeleteAccount'
+import { PrivateKeyFormatter } from '../../../PrivateKeyFormatter'
+import { RevealOverlayButton } from '../../../RevealOverlayButton'
 
 interface FormValue {
   name: string
@@ -51,17 +48,8 @@ export const ManageableAccountDetails = ({
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
-  const [acknowledge, setAcknowledge] = useState(false)
-  const [notificationVisible, setNotificationVisible] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
-  const copyAddress = () => {
-    const wasCopied = copy(uintToBase64(hex2uint(wallet.privateKey!)))
-    if (wasCopied) {
-      setNotificationVisible(true)
-    }
-  }
   const hideLayer = () => {
-    setAcknowledge(false)
     setLayerVisibility(false)
   }
 
@@ -204,29 +192,14 @@ export const ManageableAccountDetails = ({
                     )}
                   </Text>
                 </Box>
-                {!acknowledge && (
-                  <Button
-                    alignSelf="center"
-                    primary
-                    label={t(
-                      'toolbar.settings.exportPrivateKey.confirm',
-                      'I understand, reveal my private key',
-                    )}
-                    onClick={() => setAcknowledge(true)}
-                  />
-                )}
-                {acknowledge && (
-                  <Box direction="row" gap="small">
-                    <Box round="5px" border={{ color: 'brand' }} pad="small" style={{ display: 'block' }}>
-                      <NoTranslate>{uintToBase64(hex2uint(wallet.privateKey!))}</NoTranslate>
-                    </Box>
-                    <Button
-                      onClick={() => copyAddress()}
-                      icon={<Copy size="18px" />}
-                      data-testid="copy-address"
-                    />
-                  </Box>
-                )}
+                <RevealOverlayButton
+                  label={t(
+                    'toolbar.settings.exportPrivateKey.confirm',
+                    'I understand, reveal my private key',
+                  )}
+                >
+                  <PrivateKeyFormatter privateKey={wallet.privateKey!} />
+                </RevealOverlayButton>
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
                 </Box>
@@ -240,14 +213,6 @@ export const ManageableAccountDetails = ({
           onDelete={() => deleteAccount(wallet.address)}
           onCancel={() => setDeleteLayerVisibility(false)}
           wallet={wallet}
-        />
-      )}
-      {notificationVisible && (
-        <Notification
-          toast
-          status={'normal'}
-          title={t('toolbar.settings.exportPrivateKey.copied', 'Private key copied.')}
-          onClose={() => setNotificationVisible(false)}
         />
       )}
     </>
