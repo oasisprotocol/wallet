@@ -26,6 +26,8 @@ import { Contacts } from '../Contacts'
 import { Profile } from '../Profile'
 import { Settings } from '../Settings'
 import { LayerContainer } from '../LayerContainer'
+import { ButtonLink } from '../../../ButtonLink'
+import { Add } from 'grommet-icons/es6/icons/Add'
 
 export const ProfileModalButton = memo(() => {
   const { t } = useTranslation()
@@ -78,11 +80,16 @@ export const ProfileModalButton = memo(() => {
             </Tab>
           </Tabs>
           {isMobile && (
-            <Box direction="row" justify="center" align="end" pad="large" flex="grow">
+            <Box direction="row" justify="between" margin={{ vertical: 'xlarge' }} gap="medium">
+              <ButtonLink
+                icon={<Add a11yTitle={undefined} />}
+                label={t('menu.addAccounts', 'Add accounts')}
+                to="/"
+                onClick={() => hideLayer()}
+              />
               {isLockableOrCloseable === 'closeable' && (
                 <Button
                   data-testid="profile-modal-close-wallet"
-                  primary
                   icon={<Logout />}
                   label={t('menu.closeWallet', 'Close wallet')}
                   onClick={() => closeWallet()}
@@ -91,7 +98,6 @@ export const ProfileModalButton = memo(() => {
               {isLockableOrCloseable === 'lockable' && (
                 <Button
                   data-testid="profile-modal-lock-wallet"
-                  primary
                   icon={<Lock />}
                   label={t('menu.lockProfile', 'Lock profile')}
                   onClick={() => lockProfile()}
