@@ -63,7 +63,7 @@ export const ProfileModalButton = memo(() => {
       </Button>
       {layerVisibility && (
         <LayerContainer animation hideLayer={hideLayer}>
-          <Tabs alignControls="start">
+          <Tabs>
             <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
               <AccountSelector closeHandler={hideLayer} />
             </Tab>

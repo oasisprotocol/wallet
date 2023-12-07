@@ -215,6 +215,11 @@ const grommetCustomTheme: ThemeType = {
       },
     },
   },
+  tabs: {
+    header: {
+      alignSelf: 'start',
+    },
+  },
   layer: {
     /**
      * Replace 100vh with 100dvh in https://github.com/grommet/grommet/blob/9e1ef40/src/js/components/Layer/StyledLayer.js

@@ -23,7 +23,7 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
 
   return (
     <LayerContainer hideLayer={() => setLayerVisibility(false)}>
-      <Tabs alignControls="start">
+      <Tabs>
         <Tab title={t('toolbar.contacts.add', 'Add Contact')} style={{ textTransform: 'capitalize' }}>
           <Box
             flex="grow"
