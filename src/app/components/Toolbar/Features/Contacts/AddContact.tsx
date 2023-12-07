@@ -25,12 +25,7 @@ export const AddContact = ({ setLayerVisibility }: AddContactProps) => {
     <LayerContainer hideLayer={() => setLayerVisibility(false)}>
       <Tabs>
         <Tab title={t('toolbar.contacts.add', 'Add Contact')} style={{ textTransform: 'capitalize' }}>
-          <Box
-            flex="grow"
-            justify="center"
-            height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
-            pad={{ vertical: 'medium' }}
-          >
+          <Box flex="grow" justify="center" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
             <ContactAccountForm
               onCancel={() => setLayerVisibility(false)}
               onSave={contract => {

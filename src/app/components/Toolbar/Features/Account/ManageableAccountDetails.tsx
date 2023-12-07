@@ -58,12 +58,7 @@ export const ManageableAccountDetails = ({
       <LayerContainer animation={animation} hideLayer={closeHandler}>
         <Tabs>
           <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-            <Box
-              flex="grow"
-              justify="between"
-              height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
-              pad={{ vertical: 'medium' }}
-            >
+            <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
               <Form<FormValue>
                 onSubmit={({ value }) => {
                   if (!editAccount) {
@@ -172,12 +167,7 @@ export const ManageableAccountDetails = ({
         <LayerContainer hideLayer={hideLayer}>
           <Tabs>
             <Tab title={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}>
-              <Box
-                flex="grow"
-                justify="between"
-                height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
-                pad={{ vertical: 'medium' }}
-              >
+              <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
                 <Box gap="medium">
                   <Text>
                     {t(

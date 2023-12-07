@@ -219,6 +219,12 @@ const grommetCustomTheme: ThemeType = {
     header: {
       alignSelf: 'start',
     },
+    panel: {
+      extend: props => css`
+        padding-top: ${props.theme.global?.edgeSize?.medium};
+        padding-bottom: ${props.theme.global?.edgeSize?.medium};
+      `,
+    },
   },
   layer: {
     /**

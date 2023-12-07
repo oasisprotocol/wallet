@@ -60,7 +60,7 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
   }
 
   return (
-    <Box flex="grow" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }} pad={{ vertical: 'medium' }}>
+    <Box flex="grow" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
       <UpdatePassword />
       <Box gap="small" margin={{ top: 'medium' }} alignSelf="start">
         <Text>{t('toolbar.profile.deletion', 'Deletion')}</Text>

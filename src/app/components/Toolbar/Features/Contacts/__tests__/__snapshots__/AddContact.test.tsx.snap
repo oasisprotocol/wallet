@@ -195,8 +195,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .c19 {
@@ -526,6 +524,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 
 .c17 {
   min-height: 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .c15 {
@@ -749,13 +749,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 @media only screen and (max-width:768px) {
   .c14 {
     padding-bottom: 3px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c18 {
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 
