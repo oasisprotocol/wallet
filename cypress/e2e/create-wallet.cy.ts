@@ -6,6 +6,7 @@ describe('Create wallet', () => {
   before(() => {
     cy.intercept('/data/accounts/*', { body: JSON.stringify(account) })
     cy.visit('/create-wallet')
+    cy.findByRole('button', { name: /Generate a new mnemonic/ }).click()
   })
 
   it('Should have generated a mnemonic', () => {

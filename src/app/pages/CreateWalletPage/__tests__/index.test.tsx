@@ -35,15 +35,15 @@ describe('<CreateWalletPage  />', () => {
     jest.resetAllMocks()
   })
 
-  // @todo this has a random mnemonic...
   it('should match snapshot', () => {
-    const page = renderPage(store)
-    expect(page.container.firstChild).toMatchSnapshot()
-    expect(generateMnemonicMock).toHaveBeenCalledTimes(1)
+    const { container, getByText } = renderPage(store)
+    fireEvent.click(getByText(/createWallet.newMnemonic/))
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('can regenerate the keyphrase', () => {
     const { getByText } = renderPage(store)
+    fireEvent.click(getByText(/createWallet.newMnemonic/))
     expect(generateMnemonicMock).toHaveBeenCalledTimes(1)
 
     fireEvent.click(getByText(/createWallet.newMnemonic/))

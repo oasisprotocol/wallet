@@ -54,10 +54,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
     }
   }
 
-  // Generate a mnemonic on first mount
   React.useEffect(() => {
-    dispatch(createWalletActions.generateMnemonic())
-
     // Clean-up when leaving this page
     return () => {
       dispatch(createWalletActions.clear())
@@ -110,12 +107,12 @@ export function CreateWalletPage(props: CreateWalletProps) {
       )}
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>
         <Box background="background-front" style={blurMnemonicInFirefox}>
-          <MnemonicGrid mnemonic={mnemonic} />
+          <MnemonicGrid mnemonic={mnemonic.length > 0 ? mnemonic : new Array(24).fill('')} />
           <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
             <NoTranslate>
               <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
             </NoTranslate>
-            <Box direction="row" justify="end" margin={{ top: 'medium' }}>
+            <Box direction="row" justify="start" margin={{ top: 'medium' }}>
               <Button
                 icon={<Refresh />}
                 label={t('createWallet.newMnemonic', 'Generate a new mnemonic')}
@@ -145,6 +142,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
           <Box pad={{ vertical: 'medium' }}>
             <CheckBox
               label={t('createWallet.confirmSaved', 'I saved my keyphrase')}
+              disabled={mnemonic.length <= 0}
               checked={checked}
               onChange={event => setChecked(event.target.checked)}
             />
