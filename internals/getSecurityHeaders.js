@@ -17,6 +17,7 @@ const localnet = `
 const hmrWebsocket = `
   ws://localhost:2222
 `
+// If this changes csp-react-error-overlay.spec.ts will print a new sha in an error in csp-react-error-overlay.spec.ts.
 const reactErrorOverlay = `'sha256-yt+SNVxRkIi6H6yb7ndFuZM1esMX9esg3UpRHaTsyVk='`
 const hmrScripts = `
   'unsafe-eval'
