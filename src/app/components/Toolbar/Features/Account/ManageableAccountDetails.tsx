@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
-import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Text } from 'grommet/es6/components/Text'
@@ -15,7 +14,6 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Wallet } from '../../../../state/wallet/types'
 import { DerivationFormatter } from './DerivationFormatter'
 import { AddressBox } from '../../../AddressBox'
-import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
 import { DeleteAccount } from './DeleteAccount'
 import { PrivateKeyFormatter } from '../../../PrivateKeyFormatter'
@@ -48,7 +46,6 @@ export const ManageableAccountDetails = ({
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
-  const isMobile = useContext(ResponsiveContext) === 'small'
   const hideLayer = () => {
     setLayerVisibility(false)
   }
@@ -58,7 +55,7 @@ export const ManageableAccountDetails = ({
       <LayerContainer animation={animation} hideLayer={closeHandler}>
         <Tabs>
           <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-            <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
+            <Box flex="grow" justify="between">
               <Form<FormValue>
                 onSubmit={({ value }) => {
                   if (!editAccount) {
@@ -117,7 +114,7 @@ export const ManageableAccountDetails = ({
                       <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
                     </Text>
                   </Box>
-                  <Box justify="between" direction="row">
+                  <Box justify="between" direction="row" gap="medium">
                     <Button
                       alignSelf="start"
                       label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
@@ -167,21 +164,19 @@ export const ManageableAccountDetails = ({
         <LayerContainer hideLayer={hideLayer}>
           <Tabs>
             <Tab title={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}>
-              <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
-                <Box gap="medium">
-                  <Text>
-                    {t(
-                      'toolbar.settings.exportPrivateKey.hint1',
-                      'The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.',
-                    )}
-                  </Text>
-                  <Text>
-                    {t(
-                      'toolbar.settings.exportPrivateKey.hint2',
-                      'Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.',
-                    )}
-                  </Text>
-                </Box>
+              <Box flex="grow" justify="between" gap="medium">
+                <Text>
+                  {t(
+                    'toolbar.settings.exportPrivateKey.hint1',
+                    'The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.',
+                  )}
+                </Text>
+                <Text>
+                  {t(
+                    'toolbar.settings.exportPrivateKey.hint2',
+                    'Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.',
+                  )}
+                </Text>
                 <RevealOverlayButton
                   label={t(
                     'toolbar.settings.exportPrivateKey.confirm',
@@ -190,9 +185,9 @@ export const ManageableAccountDetails = ({
                 >
                   <PrivateKeyFormatter privateKey={wallet.privateKey!} />
                 </RevealOverlayButton>
-                <Box direction="row" justify="between" pad={{ top: 'large' }}>
-                  <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
-                </Box>
+              </Box>
+              <Box direction="row" justify="between" pad={{ top: 'large' }}>
+                <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
               </Box>
             </Tab>
           </Tabs>

@@ -4,6 +4,7 @@ import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Close } from 'grommet-icons/es6/icons/Close'
 import { ResponsiveLayer } from '../../../ResponsiveLayer'
+import { layerOverlayMinHeight } from '../layer'
 
 interface LayerContainerProps {
   animation?: boolean
@@ -21,9 +22,12 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
       animation={animation ? 'slide' : 'none'}
       background="background-front"
       modal
-      position="top"
-      margin={isMobile ? 'none' : 'xlarge'}
-      style={{ width: '100%', maxWidth: isMobile ? 'none' : '700px' }}
+      position="center"
+      style={{
+        width: '100%',
+        maxWidth: isMobile ? 'none' : '700px',
+        minHeight: `min(${layerOverlayMinHeight}, 90dvh)`,
+      }}
     >
       <Box margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}>
         <Box align="end">
