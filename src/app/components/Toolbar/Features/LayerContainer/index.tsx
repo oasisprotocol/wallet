@@ -23,11 +23,9 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
       modal
       position="top"
       margin={isMobile ? 'none' : 'xlarge'}
+      style={{ width: '100%', maxWidth: isMobile ? 'none' : '700px' }}
     >
-      <Box
-        margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}
-        width={isMobile ? 'auto' : '700px'}
-      >
+      <Box margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}>
         <Box align="end">
           <Button
             data-testid="close-settings-modal"
