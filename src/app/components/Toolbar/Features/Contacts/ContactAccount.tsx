@@ -40,14 +40,9 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
       />
       {layerVisibility && (
         <LayerContainer hideLayer={() => setLayerVisibility(false)}>
-          <Tabs alignControls="start">
+          <Tabs>
             <Tab title={t('toolbar.contacts.manage', 'Manage Contact')}>
-              <Box
-                flex="grow"
-                justify="center"
-                height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}
-                pad={{ vertical: 'medium' }}
-              >
+              <Box flex="grow" justify="center" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
                 <ContactAccountForm
                   contact={contact}
                   onDelete={address => {

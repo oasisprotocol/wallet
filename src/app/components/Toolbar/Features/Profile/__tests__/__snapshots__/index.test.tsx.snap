@@ -162,8 +162,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }
 
 .c15 {
@@ -454,10 +452,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
   .c4 {
     margin-bottom: 6px;
   }
@@ -478,13 +472,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 @media only screen and (max-width:768px) {
   .c13 {
     margin-top: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 
