@@ -37,6 +37,11 @@ declare module 'grommet-icons/es6/icons/Add' {
   export declare const Add: Icon
 }
 
+declare module 'grommet-icons/es6/icons/AdobeCreativeCloud' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const AdobeCreativeCloud: Icon
+}
+
 declare module 'grommet-icons/es6/icons/Aed' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Aed: Icon
@@ -105,6 +110,16 @@ declare module 'grommet-icons/es6/icons/AppleAppStore' {
 declare module 'grommet-icons/es6/icons/Apple' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Apple: Icon
+}
+
+declare module 'grommet-icons/es6/icons/AppleMusic' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const AppleMusic: Icon
+}
+
+declare module 'grommet-icons/es6/icons/ApplePodcasts' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const ApplePodcasts: Icon
 }
 
 declare module 'grommet-icons/es6/icons/AppsRounded' {
@@ -1317,6 +1332,11 @@ declare module 'grommet-icons/es6/icons/Golang' {
   export declare const Golang: Icon
 }
 
+declare module 'grommet-icons/es6/icons/GooglePay' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const GooglePay: Icon
+}
+
 declare module 'grommet-icons/es6/icons/GooglePlay' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const GooglePlay: Icon
@@ -1567,6 +1587,11 @@ declare module 'grommet-icons/es6/icons/Keyboard' {
   export declare const Keyboard: Icon
 }
 
+declare module 'grommet-icons/es6/icons/Kubernetes' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Kubernetes: Icon
+}
+
 declare module 'grommet-icons/es6/icons/Language' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Language: Icon
@@ -1745,6 +1770,11 @@ declare module 'grommet-icons/es6/icons/Memory' {
 declare module 'grommet-icons/es6/icons/Menu' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Menu: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Meta' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Meta: Icon
 }
 
 declare module 'grommet-icons/es6/icons/Microfocus' {
@@ -2200,6 +2230,11 @@ declare module 'grommet-icons/es6/icons/Run' {
 declare module 'grommet-icons/es6/icons/SafariOption' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const SafariOption: Icon
+}
+
+declare module 'grommet-icons/es6/icons/SamsungPay' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const SamsungPay: Icon
 }
 
 declare module 'grommet-icons/es6/icons/Sans' {
@@ -2717,6 +2752,11 @@ declare module 'grommet-icons/es6/icons/TextWrap' {
   export declare const TextWrap: Icon
 }
 
+declare module 'grommet-icons/es6/icons/Threads' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Threads: Icon
+}
+
 declare module 'grommet-icons/es6/icons/Threats' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Threats: Icon
@@ -2825,6 +2865,11 @@ declare module 'grommet-icons/es6/icons/Tumblr' {
 declare module 'grommet-icons/es6/icons/Turbolinux' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Turbolinux: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Twitch' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Twitch: Icon
 }
 
 declare module 'grommet-icons/es6/icons/Twitter' {
@@ -2957,6 +3002,11 @@ declare module 'grommet-icons/es6/icons/Vend' {
   export declare const Vend: Icon
 }
 
+declare module 'grommet-icons/es6/icons/Venmo' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Venmo: Icon
+}
+
 declare module 'grommet-icons/es6/icons/Video' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Video: Icon
@@ -3032,6 +3082,16 @@ declare module 'grommet-icons/es6/icons/Webcam' {
   export declare const Webcam: Icon
 }
 
+declare module 'grommet-icons/es6/icons/WeChat' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const WeChat: Icon
+}
+
+declare module 'grommet-icons/es6/icons/WhatsApp' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const WhatsApp: Icon
+}
+
 declare module 'grommet-icons/es6/icons/WheelchairActive' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const WheelchairActive: Icon
@@ -3080,6 +3140,16 @@ declare module 'grommet-icons/es6/icons/Wordpress' {
 declare module 'grommet-icons/es6/icons/Workshop' {
   import { Icon } from 'grommet-icons/es6/icons'
   export declare const Workshop: Icon
+}
+
+declare module 'grommet-icons/es6/icons/X' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const X: Icon
+}
+
+declare module 'grommet-icons/es6/icons/Xing' {
+  import { Icon } from 'grommet-icons/es6/icons'
+  export declare const Xing: Icon
 }
 
 declare module 'grommet-icons/es6/icons/Yoga' {
