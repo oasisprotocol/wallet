@@ -54,10 +54,7 @@ export const TransactionPreview = memo((props: Props) => {
         label={t('transaction.preview.fee', 'Fee')}
         value={<AmountFormatter amount={preview.fee!} size="inherit" />}
       />
-      <PreviewRow
-        label={t('transaction.preview.gas', 'Gas')}
-        value={<AmountFormatter amount={preview.gas!} hideTicker />}
-      />
+      <PreviewRow label={t('transaction.preview.gas', 'Gas')} value={preview.gas} />
       <PreviewRow
         label={t('transaction.preview.genesisHash', 'Genesis hash')}
         value={
