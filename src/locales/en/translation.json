@@ -228,6 +228,7 @@
     }
   },
   "menu": {
+    "addAccounts": "Add accounts",
     "closeWallet": "Close wallet",
     "fiatOnramp": "Buy",
     "home": "Home",
