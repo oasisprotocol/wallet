@@ -29,7 +29,7 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
         minHeight: `min(${layerOverlayMinHeight}, 90dvh)`,
       }}
     >
-      <Box margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}>
+      <Box flex="grow" margin={{ top: 'small', bottom: 'medium', horizontal: 'medium' }}>
         <Box align="end">
           <Button
             data-testid="close-settings-modal"

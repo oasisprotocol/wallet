@@ -80,7 +80,7 @@ export const ProfileModalButton = memo(() => {
             </Tab>
           </Tabs>
           {isMobile && (
-            <Box direction="row" justify="between" margin={{ vertical: 'xlarge' }} gap="medium">
+            <Box direction="row" justify="between" margin={{ top: 'large', bottom: 'medium' }} gap="medium">
               <ButtonLink
                 icon={<Add a11yTitle={undefined} />}
                 label={t('menu.addAccounts', 'Add accounts')}

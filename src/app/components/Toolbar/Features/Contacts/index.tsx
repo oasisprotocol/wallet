@@ -1,26 +1,26 @@
-import { useState, useContext, ReactNode } from 'react'
+import { useState, ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
-import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Inbox } from 'grommet-icons/es6/icons/Inbox'
 import { selectContactsList } from 'app/state/contacts/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { ContactAccount } from './ContactAccount'
 import { AddContact } from './AddContact'
 import { ScrollableContainer } from '../ScrollableContainer'
-import { layerScrollableAreaHeight } from '../layer'
 
 type ContactsListEmptyStateProps = {
   children: ReactNode
 }
 
 const ContactsListEmptyState = ({ children }: ContactsListEmptyStateProps) => (
-  <Box gap="medium" align="center" pad={{ top: 'large' }}>
+  <Box flex="grow" gap="medium" align="center" pad={{ top: 'large' }}>
     <Inbox size="36px" color="currentColor" />
-    <Box pad="large">{children}</Box>
+    <Box flex="grow" pad="large">
+      {children}
+    </Box>
   </Box>
 )
 
@@ -33,7 +33,6 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
   const [layerVisibility, setLayerVisibility] = useState(false)
   const contacts = useSelector(selectContactsList)
   const unlockedStatus = useSelector(selectUnlockedStatus)
-  const isMobile = useContext(ResponsiveContext) === 'small'
   const isAvailable = unlockedStatus === 'unlockedProfile'
   const navigate = useNavigate()
 
@@ -63,13 +62,11 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
   }
 
   return (
-    <>
+    <Box flex="grow" justify="between" gap="medium">
       {!contacts.length && (
-        <Box justify="center" flex="grow" height={isMobile ? 'auto' : layerScrollableAreaHeight}>
-          <ContactsListEmptyState>
-            {t('toolbar.contacts.emptyList', 'You have no contacts yet.')}
-          </ContactsListEmptyState>
-        </Box>
+        <ContactsListEmptyState>
+          {t('toolbar.contacts.emptyList', 'You have no contacts yet.')}
+        </ContactsListEmptyState>
       )}
       {!!contacts.length && (
         <ScrollableContainer>
@@ -86,6 +83,6 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
         />
       </Box>
       {layerVisibility && <AddContact setLayerVisibility={setLayerVisibility} />}
-    </>
+    </Box>
   )
 }
