@@ -1,15 +1,13 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
-import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Tab } from 'grommet/es6/components/Tab'
 import { contactsActions } from 'app/state/contacts'
 import { Contact } from 'app/state/contacts/types'
 import { Account } from '../Account/Account'
 import { ContactAccountForm } from './ContactAccountForm'
-import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from '../LayerContainer'
 
 interface ContactAccountProps {
@@ -19,7 +17,6 @@ interface ContactAccountProps {
 export const ContactAccount = ({ contact }: ContactAccountProps) => {
   const { t } = useTranslation()
   const [layerVisibility, setLayerVisibility] = useState(false)
-  const isMobile = useContext(ResponsiveContext) === 'small'
   const dispatch = useDispatch()
   const submitHandler = (contact: Contact) => dispatch(contactsActions.update(contact))
   const deleteHandler = (address: string) => dispatch(contactsActions.delete(address))
@@ -42,7 +39,7 @@ export const ContactAccount = ({ contact }: ContactAccountProps) => {
         <LayerContainer hideLayer={() => setLayerVisibility(false)}>
           <Tabs>
             <Tab title={t('toolbar.contacts.manage', 'Manage Contact')}>
-              <Box flex="grow" justify="center" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
+              <Box flex="grow" justify="center">
                 <ContactAccountForm
                   contact={contact}
                   onDelete={address => {

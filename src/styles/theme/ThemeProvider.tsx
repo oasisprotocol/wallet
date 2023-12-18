@@ -222,9 +222,16 @@ const grommetCustomTheme: ThemeType = {
     panel: {
       extend: props => css`
         padding-top: ${props.theme.global?.edgeSize?.medium};
-        padding-bottom: ${props.theme.global?.edgeSize?.medium};
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
       `,
     },
+    extend: css`
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    `,
   },
   layer: {
     /**

@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
-import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Tab } from 'grommet/es6/components/Tab'
 import { Tabs } from 'grommet/es6/components/Tabs'
 import { Text } from 'grommet/es6/components/Text'
@@ -15,11 +14,11 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Wallet } from '../../../../state/wallet/types'
 import { DerivationFormatter } from './DerivationFormatter'
 import { AddressBox } from '../../../AddressBox'
-import { layerOverlayMinHeight } from '../layer'
 import { LayerContainer } from './../LayerContainer'
 import { DeleteAccount } from './DeleteAccount'
 import { PrivateKeyFormatter } from '../../../PrivateKeyFormatter'
 import { RevealOverlayButton } from '../../../RevealOverlayButton'
+import styled from 'styled-components'
 
 interface FormValue {
   name: string
@@ -35,6 +34,13 @@ interface ManageableAccountDetailsProps {
   wallet: Wallet
 }
 
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+` as typeof Form
+
 export const ManageableAccountDetails = ({
   animation,
   closeHandler,
@@ -48,7 +54,6 @@ export const ManageableAccountDetails = ({
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
   const [deleteLayerVisibility, setDeleteLayerVisibility] = useState(false)
-  const isMobile = useContext(ResponsiveContext) === 'small'
   const hideLayer = () => {
     setLayerVisibility(false)
   }
@@ -58,108 +63,106 @@ export const ManageableAccountDetails = ({
       <LayerContainer animation={animation} hideLayer={closeHandler}>
         <Tabs>
           <Tab title={t('toolbar.settings.myAccountsTab', 'My Accounts')}>
-            <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
-              <Form<FormValue>
-                onSubmit={({ value }) => {
-                  if (!editAccount) {
-                    return
+            <StyledForm<FormValue>
+              onSubmit={({ value }) => {
+                if (!editAccount) {
+                  return
+                }
+                editAccount(value.name)
+                closeHandler()
+              }}
+              value={value}
+              onChange={nextValue => setValue(nextValue)}
+            >
+              <Box gap="medium">
+                <FormField
+                  disabled={!editAccount}
+                  info={
+                    !editAccount ? (
+                      <span>
+                        <Trans
+                          i18nKey="toolbar.settings.accountNamingNotAvailable"
+                          t={t}
+                          components={{
+                            OpenWalletButton: (
+                              <Button
+                                color="link"
+                                onClick={() => {
+                                  closeParentHandler ? closeParentHandler() : closeHandler()
+                                  navigate('/open-wallet')
+                                }}
+                              />
+                            ),
+                          }}
+                          defaults="To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>."
+                        />
+                      </span>
+                    ) : undefined
                   }
-                  editAccount(value.name)
-                  closeHandler()
-                }}
-                value={value}
-                onChange={nextValue => setValue(nextValue)}
-              >
-                <Box gap="medium">
-                  <FormField
+                  name="name"
+                  validate={(name: string) =>
+                    name.trim().length > 16
+                      ? {
+                          message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
+                          status: 'error',
+                        }
+                      : undefined
+                  }
+                >
+                  <TextInput
                     disabled={!editAccount}
-                    info={
-                      !editAccount ? (
-                        <span>
-                          <Trans
-                            i18nKey="toolbar.settings.accountNamingNotAvailable"
-                            t={t}
-                            components={{
-                              OpenWalletButton: (
-                                <Button
-                                  color="link"
-                                  onClick={() => {
-                                    closeParentHandler ? closeParentHandler() : closeHandler()
-                                    navigate('/open-wallet')
-                                  }}
-                                />
-                              ),
-                            }}
-                            defaults="To name your account create a profile while <OpenWalletButton>opening a wallet</OpenWalletButton>."
-                          />
-                        </span>
-                      ) : undefined
-                    }
                     name="name"
-                    validate={(name: string) =>
-                      name.trim().length > 16
-                        ? {
-                            message: t('toolbar.settings.nameLengthError', 'No more than 16 characters'),
-                            status: 'error',
-                          }
-                        : undefined
-                    }
-                  >
-                    <TextInput
-                      disabled={!editAccount}
-                      name="name"
-                      placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
-                    />
-                  </FormField>
-                  <Box>
-                    <AddressBox address={wallet.address} border />
-                    <Text size="small" margin={'small'}>
-                      <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
-                    </Text>
-                  </Box>
-                  <Box justify="between" direction="row">
-                    <Button
-                      alignSelf="start"
-                      label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
-                      disabled={!wallet.privateKey}
-                      onClick={() => setLayerVisibility(true)}
-                    />
+                    placeholder={t('toolbar.settings.optionalName', 'Name (optional)')}
+                  />
+                </FormField>
+                <Box>
+                  <AddressBox address={wallet.address} border />
+                  <Text size="small" margin={'small'}>
+                    <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
+                  </Text>
+                </Box>
+                <Box justify="between" direction="row" gap="medium">
+                  <Button
+                    alignSelf="start"
+                    label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
+                    disabled={!wallet.privateKey}
+                    onClick={() => setLayerVisibility(true)}
+                  />
 
-                    {deleteAccount ? (
-                      <Button
-                        plain
-                        color="status-error"
-                        label={t('toolbar.settings.delete.title', 'Delete Account')}
-                        onClick={() => setDeleteLayerVisibility(true)}
-                      />
-                    ) : (
-                      <Tip
-                        content={t(
-                          'toolbar.settings.delete.tooltip',
-                          'You must have at least one account at all times.',
-                        )}
-                        dropProps={{ align: { bottom: 'top' } }}
-                      >
-                        <Box>
-                          <Button
-                            icon={<CircleInformation size="18px" color="status-error" />}
-                            disabled={true}
-                            plain
-                            color="status-error"
-                            label={t('toolbar.settings.delete.title', 'Delete Account')}
-                            onClick={() => setDeleteLayerVisibility(true)}
-                          />
-                        </Box>
-                      </Tip>
-                    )}
-                  </Box>
+                  {deleteAccount ? (
+                    <Button
+                      plain
+                      color="status-error"
+                      label={t('toolbar.settings.delete.title', 'Delete Account')}
+                      onClick={() => setDeleteLayerVisibility(true)}
+                    />
+                  ) : (
+                    <Tip
+                      content={t(
+                        'toolbar.settings.delete.tooltip',
+                        'You must have at least one account at all times.',
+                      )}
+                      dropProps={{ align: { bottom: 'top' } }}
+                    >
+                      <Box>
+                        <Button
+                          icon={<CircleInformation size="18px" color="status-error" />}
+                          disabled={true}
+                          plain
+                          color="status-error"
+                          label={t('toolbar.settings.delete.title', 'Delete Account')}
+                          onClick={() => setDeleteLayerVisibility(true)}
+                        />
+                      </Box>
+                    </Tip>
+                  )}
                 </Box>
-                <Box direction="row" justify="between" pad={{ top: 'large' }}>
-                  <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={closeHandler} />
-                  <Button primary label={t('toolbar.settings.save', 'Save')} type="submit" />
-                </Box>
-              </Form>
-            </Box>
+              </Box>
+              <Box direction="row" justify="between" pad={{ top: 'large' }}>
+                <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={closeHandler} />
+                <Button primary label={t('toolbar.settings.save', 'Save')} type="submit" />
+              </Box>
+            </StyledForm>
           </Tab>
         </Tabs>
       </LayerContainer>
@@ -167,7 +170,7 @@ export const ManageableAccountDetails = ({
         <LayerContainer hideLayer={hideLayer}>
           <Tabs>
             <Tab title={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}>
-              <Box flex="grow" justify="between" height={{ min: isMobile ? 'auto' : layerOverlayMinHeight }}>
+              <Box flex="grow" justify="between">
                 <Box gap="medium">
                   <Text>
                     {t(
@@ -181,15 +184,15 @@ export const ManageableAccountDetails = ({
                       'Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.',
                     )}
                   </Text>
+                  <RevealOverlayButton
+                    label={t(
+                      'toolbar.settings.exportPrivateKey.confirm',
+                      'I understand, reveal my private key',
+                    )}
+                  >
+                    <PrivateKeyFormatter privateKey={wallet.privateKey!} />
+                  </RevealOverlayButton>
                 </Box>
-                <RevealOverlayButton
-                  label={t(
-                    'toolbar.settings.exportPrivateKey.confirm',
-                    'I understand, reveal my private key',
-                  )}
-                >
-                  <PrivateKeyFormatter privateKey={wallet.privateKey!} />
-                </RevealOverlayButton>
                 <Box direction="row" justify="between" pad={{ top: 'large' }}>
                   <Button secondary label={t('toolbar.settings.cancel', 'Cancel')} onClick={hideLayer} />
                 </Box>

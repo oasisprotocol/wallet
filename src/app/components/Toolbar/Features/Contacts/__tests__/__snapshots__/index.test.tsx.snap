@@ -14,7 +14,28 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c2 {
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,12 +57,12 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c2:hover {
+.c3:hover {
   background-color: #0092f6;
   color: #FFFFFF;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -58,7 +79,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -70,20 +91,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-.c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .c7 {
@@ -100,7 +107,21 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c9 {
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,7 +139,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -137,13 +158,23 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c5 {
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 24px;
+}
+
+.c6 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
 }
 
-.c8 {
+.c9 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -169,48 +200,48 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c8:hover {
+.c9:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c8:focus {
+.c9:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
+.c9:focus > circle,
+.c9:focus > ellipse,
+.c9:focus > line,
+.c9:focus > path,
+.c9:focus > polygon,
+.c9:focus > polyline,
+.c9:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c8:focus::-moz-focus-inner {
+.c9:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c8:focus:not(:focus-visible) {
+.c9:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
-.c8:focus:not(:focus-visible) > rect {
+.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible)::-moz-focus-inner {
+.c9:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c10 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -239,44 +270,44 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c10:hover {
+.c12:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c10:focus {
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus > circle,
-.c10:focus > ellipse,
-.c10:focus > line,
-.c10:focus > path,
-.c10:focus > polygon,
-.c10:focus > polyline,
-.c10:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c10:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c10:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
-.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
-.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
-.c10:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -293,19 +324,19 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c2 {
+  .c3 {
     border: solid 1px #0092f6;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c2 {
+  .c3 {
     padding: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -324,20 +355,20 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     margin-bottom: 24px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-right: 6px;
   }
 }
@@ -346,78 +377,91 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 
 }
 
+@media only screen and (max-width:768px) {
+  .c10 {
+    height: 12px;
+  }
+}
+
 <div
   class="c0"
   style="min-height: 100dvh;"
 >
   <div
     class="c1"
-    style="max-height: 400px;"
   >
     <div
-      aria-checked="false"
       class="c2"
-      data-testid="account-choice"
-      role="checkbox"
-      tabindex="0"
+      style="max-height: 400px;"
     >
       <div
+        aria-checked="false"
         class="c3"
+        data-testid="account-choice"
+        role="checkbox"
+        tabindex="0"
       >
         <div
           class="c4"
-          data-testid="account-name"
         >
-          <span
+          <div
             class="c5"
+            data-testid="account-name"
           >
-            My Contact
-          </span>
-        </div>
-        <div
-          class="c4"
-        >
-          <span
+            <span
+              class="c6"
+            >
+              My Contact
+            </span>
+          </div>
+          <div
             class="c5"
           >
             <span
-              class="notranslate"
-              translate="no"
+              class="c6"
             >
-              oasis1qq2v...sv0d5eq4
+              <span
+                class="notranslate"
+                translate="no"
+              >
+                oasis1qq2v...sv0d5eq4
+              </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="c6"
-        >
+          </div>
           <div
-            class="c3"
+            class="c7"
           >
             <div
-              class="c7"
+              class="c4"
             >
-              <button
+              <div
                 class="c8"
-                type="button"
               >
-                Manage
-              </button>
+                <button
+                  class="c9"
+                  type="button"
+                >
+                  Manage
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="c9"
-  >
-    <button
+    <div
       class="c10"
-      type="button"
+    />
+    <div
+      class="c11"
     >
-      Add Contact
-    </button>
+      <button
+        class="c12"
+        type="button"
+      >
+        Add Contact
+      </button>
+    </div>
   </div>
 </div>
 `;
