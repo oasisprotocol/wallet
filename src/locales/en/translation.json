@@ -242,7 +242,9 @@
   "migrateV0Extension": {
     "backupInvalidPrivateKeys": {
       "confirm": "I’ve safely stored my private keys",
-      "description": "Some of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding.",
+      "description": "{{count}} of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding, so you can correct them later.",
+      "description_one": "1 of your private keys has typos and won’t be stored by the new wallet extension. Please make sure to copy it and store it elsewhere before proceeding, so you can correct it later.",
+      "description_plural": "{{count}} of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding, so you can correct them later.",
       "reveal": "Tap to show invalid private key"
     },
     "backupMnemonic": {

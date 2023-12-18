@@ -177,10 +177,22 @@ export function MigrateV0StateForm() {
           messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
           {...preventSavingInputsToUserData}
         >
+          <>
+            {/*
+            Workaround for i18next-scanner to pickup plurals correctly, because it is missing
+            defaultValue_zero, defaultValue_one, defaultValue_other here:
+            https://github.com/i18next/i18next-scanner/blob/4687b6a/src/parser.js#L502-L503
+            */}
+            {t(
+              'migrateV0Extension.backupInvalidPrivateKeys.description_one',
+              '1 of your private keys has typos and won’t be stored by the new wallet extension. Please make sure to copy it and store it elsewhere before proceeding, so you can correct it later.',
+            ) && null}
+          </>
           <Paragraph>
             {t(
               'migrateV0Extension.backupInvalidPrivateKeys.description',
-              'Some of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding.',
+              '{{count}} of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding, so you can correct them later.',
+              { count: migratingV0State.invalidPrivateKeys.length },
             )}
           </Paragraph>
           <Box width="medium" gap="large">
