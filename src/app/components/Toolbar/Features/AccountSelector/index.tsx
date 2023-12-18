@@ -59,7 +59,7 @@ export const AccountSelector = memo((props: Props) => {
   return (
     <>
       <ScrollableContainer>{accounts}</ScrollableContainer>
-      <Box align="end">
+      <Box align="end" margin={{ top: 'medium' }}>
         <Button primary label={t('toolbar.wallets.select', 'Select')} onClick={props.closeHandler} />
       </Box>
     </>
