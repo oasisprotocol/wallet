@@ -25,7 +25,7 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
       position="center"
       style={{
         width: '100%',
-        maxWidth: isMobile ? 'none' : '700px',
+        maxWidth: isMobile ? 'none' : '760px',
         minHeight: `min(${layerOverlayMinHeight}, 90dvh)`,
       }}
     >
