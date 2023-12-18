@@ -35,7 +35,12 @@ export function ResponsiveLayer(props: LayerExtendedProps) {
   )
 
   return (
-    <Layer {...props} ref={layerRef} style={{ overflowY: 'auto', ...props.style }}>
+    <Layer
+      {...props}
+      ref={layerRef}
+      className="fix-responsive-layer"
+      style={{ overflowY: 'auto', ...props.style }}
+    >
       <Box
         // Prevents Grommet flex overlap issue in smaller viewport
         flex={{ shrink: 0, grow: 1 }}

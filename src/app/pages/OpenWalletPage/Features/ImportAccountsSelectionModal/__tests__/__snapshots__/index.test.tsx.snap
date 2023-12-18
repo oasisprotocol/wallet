@@ -635,7 +635,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
           class="c2"
         />
         <div
-          class="c3"
+          class="c3 fix-responsive-layer"
           data-g-portal-id="0"
           style="overflow-y: auto;"
         >
