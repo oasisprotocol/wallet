@@ -26,7 +26,8 @@ test.describe('The extension popup should load', () => {
     await page.getByRole('link', { name: /Home/i }).click()
 
     await page.getByRole('link', { name: /Create wallet/i }).click()
-    await expect(page.getByTestId('mnemonic-grid').locator('> *')).toHaveCount(24)
+    await page.getByRole('button', { name: /Generate a new mnemonic/i }).click()
+    await expect(page.getByTestId('generated-mnemonic')).toHaveText(/\w+(\s\w+){23}/)
   })
 
   test('ask for USB permissions in ledger popup', async ({ page, context, extensionPopupURL }) => {
