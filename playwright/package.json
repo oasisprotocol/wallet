@@ -2,7 +2,8 @@
   "name": "@oasisprotocol/oasis-wallet-playwright-test",
   "version": "0.0.0-development",
   "scripts": {
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:prod": "BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/  playwright test"
   },
   "devDependencies": {
     "@playwright/test": "1.40.1"
