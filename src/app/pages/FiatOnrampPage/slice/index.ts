@@ -6,7 +6,7 @@ export const initialState: FiatOnrampState = {
   thirdPartyAcknowledged: false,
 }
 
-const slice = createSlice({
+export const fiatOnrampSlice = createSlice({
   name: 'fiatOnramp',
   initialState,
   reducers: {
@@ -16,6 +16,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: fiatOnrampActions } = slice
-
-export default slice.reducer
+export const { actions: fiatOnrampActions } = fiatOnrampSlice

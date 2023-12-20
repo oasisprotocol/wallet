@@ -4,7 +4,7 @@ import { FatalErrorPayload, FatalErrorState } from './types'
 
 export const initialState: FatalErrorState = {}
 
-const slice = createSlice({
+export const fatalErrorSlice = createSlice({
   name: 'fatalError',
   initialState,
   reducers: {
@@ -14,6 +14,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: fatalErrorActions } = slice
-
-export default slice.reducer
+export const { actions: fatalErrorActions } = fatalErrorSlice

@@ -34,7 +34,7 @@ export function getInitialState(): PersistState {
   }
 }
 
-const persistSlice = createSlice({
+export const persistSlice = createSlice({
   name: 'persist',
   initialState: () => getInitialState(),
   reducers: {
@@ -103,8 +103,6 @@ const persistSlice = createSlice({
 })
 
 export const persistActions = persistSlice.actions
-
-export default persistSlice.reducer
 
 /**
  * When persisted state is unlocked use these state slices.

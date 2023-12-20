@@ -23,7 +23,7 @@ export const initialState: ParaTimesState = {
   transactionFormStep: TransactionFormSteps.TransferType,
 }
 
-const slice = createSlice({
+export const paraTimesSlice = createSlice({
   name: 'paraTimes',
   initialState,
   reducers: {
@@ -84,6 +84,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: paraTimesActions } = slice
-
-export default slice.reducer
+export const { actions: paraTimesActions } = paraTimesSlice
