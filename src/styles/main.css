@@ -42,6 +42,27 @@ html {
   max-height: 16px;
 }
 
+/*
+ * Grommet and ResponsiveLayer do not handle nesting layers well:
+ * If user opens settings, clicks manage account (nested layer), and cancels:
+ * settings modal is still open, but `overflow: hidden` is removed from body.
+ * Workaround: set overflow hidden when any responsive layer exists.
+ */
+body:has(.fix-responsive-layer) {
+  overflow: hidden;
+}
+/*
+ * In chrome extension popup: `overflow: hidden` does not work on document.body,
+ * so main scrollbar is still displayed after modal tries to hide it. Workaround:
+ * change scrollbar width to 0 when any responsive layer exists.
+ */
+body:has(.fix-responsive-layer) {
+  scrollbar-width: none;
+}
+body:has(.fix-responsive-layer)::-webkit-scrollbar {
+  display: none;
+}
+
 /* Visually warn developers about sensitive input fields missing preventSavingInputsToUserData */
 :is(input, textarea):is(
 [type="password"], [name="password"], [name="privatekey"], [name="mnemonic"], #privatekey, #mnemonic
