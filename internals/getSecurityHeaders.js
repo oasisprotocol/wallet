@@ -14,7 +14,8 @@ const localnet = `
   http://localhost:42280
   http://localhost:9001
 `
-const hmrWebsocket = `
+const hmr = `
+  http://localhost:2222
   ws://localhost:2222
 `
 // If this changes csp-react-error-overlay.spec.ts will print a new sha in an error in csp-react-error-overlay.spec.ts.
@@ -49,7 +50,7 @@ const getCsp = ({ isExtension, isDev }) =>
       https://api.oasisscan.com
       https://monitor.oasis.dev
       ${isDev ? localnet : ''}
-      ${isDev ? hmrWebsocket : ''}
+      ${isDev ? hmr : ''}
       ;
     frame-ancestors
       ${isExtension ? dappFrameAncestors : `'none'`};
