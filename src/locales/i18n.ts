@@ -2,15 +2,23 @@ import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
+import de from './de/translation.json'
 import en from './en/translation.json'
+import es from './es/translation.json'
 import fr from './fr/translation.json'
 import sl from './sl/translation.json'
 import tr from './tr/translation.json'
 import zh_CN from './zh_CN/translation.json'
 
 export const translationsJson = {
+  de: {
+    translation: de,
+  },
   en: {
     translation: en,
+  },
+  es: {
+    translation: es,
   },
   fr: {
     translation: fr,
@@ -30,6 +38,8 @@ export type LanguageKey = keyof typeof translationsJson
 
 export const languageLabels: [LanguageKey, string][] = [
   ['en', 'English'],
+  ['de', 'Deutsch'],
+  ['es', 'Español'],
   ['fr', 'Français'],
   ['sl', 'Slovenščina'],
   ['tr', 'Türkçe'],

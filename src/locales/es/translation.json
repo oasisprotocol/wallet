@@ -1,0 +1,186 @@
+{
+  "account": {
+    "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "description": "El estado de este validador es {{validatorStatus}}. Es posible que tu delegación no genere ninguna recompensa.",
+        "title": "¿Estás seguro de que quieres continuar?"
+      },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Delegar de todos modos"
+      },
+      "delegate": "Delegar"
+    },
+    "loading": "Cargando cuenta",
+    "loadingError": "No se pudo cargar la cuenta.",
+    "reclaimEscrow": {
+      "reclaim": "Reclamar"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "title": "¿Estás seguro de que quieres continuar?"
+      },
+      "enterAddress": "Introduce una dirección",
+      "recipient": "Destinatario",
+      "send": "Enviar",
+      "success": "Transacción enviada con éxito. La transacción puede tardar hasta un minuto en aparecer en tu cuenta."
+    },
+    "subnavigation": {
+      "transactions": "Transacciones"
+    },
+    "summary": {
+      "balance": {
+        "available": "Disponible"
+      },
+      "noTransactionFound": "No se han encontrado transacciones.",
+      "notYourAccount": "Esta no es tu cuenta.",
+      "yourAccount": "Esta es tu cuenta."
+    },
+    "transaction": {
+      "loadingError": "No se ha podido cargar las transacciones."
+    },
+    "validator": {
+      "loadingError": "No se han podido cargar los validadores."
+    }
+  },
+  "backends": {
+    "oasismonitor": "API de Oasis Monitor",
+    "oasisscan": "API de Oasis Scan"
+  },
+  "common": {
+    "amount": "Cantidad",
+    "block": "Bloque",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delegator": "Delegador",
+    "from": "De",
+    "to": "A",
+    "unavailable": "No disponible",
+    "validator": "Validador",
+    "validators": "Validadores"
+  },
+  "createWallet": {
+    "confirmSaved": "He guardado mi frase semilla",
+    "doNotShare": "Nunca compartas tu frase semilla, cualquiera con tu frase semilla puede acceder a tu billetera y tus tokens.",
+    "mnemonicMismatch": "La frase semilla introducida no coincide.",
+    "newMnemonic": "Generar una frase semilla nueva",
+    "thisIsYourPhrase": "Esta es tu frase semilla."
+  },
+  "delegations": {
+    "activeDelegations": "Delegaciones activas",
+    "delegatedAmount": "Cantidad delegada"
+  },
+  "errors": {
+    "LedgerOasisAppIsNotOpen": "La aplicación de Oasis en Ledger está cerrada.",
+    "cannotSendToSelf": "No puedes enviarte a ti mismo",
+    "disconnectedError": "Se ha perdido la conexión.",
+    "duplicateTransaction": "Transacción duplicada",
+    "insufficientBalance": "Saldo insuficiente",
+    "invalidAddress": "Dirección inválida",
+    "invalidNonce": "Nonce inválido (número de transacción)",
+    "invalidPrivateKey": "Clave privada inválida",
+    "unknown": "Error desconocido: {{message}}",
+    "unknownGrpc": "Error gRPC desconocido: {{message}}",
+    "usbTransportNotSupported": "Tu navegador no es compatible con WebUSB ( por ejemplo, Firefox). Intenta utilizar Chrome."
+  },
+  "fatalError": {
+    "copied": "Error copiado al portapapeles",
+    "copy": "Copiar error al portapapeles"
+  },
+  "home": {
+    "create": {
+      "button": "Crear billetera",
+      "header": "Crear una billetera nueva"
+    },
+    "existing": {
+      "button": "Abrir billetera",
+      "header": "Acceder a una billetera existente"
+    }
+  },
+  "ledger": {
+    "instructionSteps": {
+      "connectLedger": "Conecta tu dispositivo Ledger al equipo",
+      "header": "Pasos:",
+      "openOasisApp": "Abre la aplicación de Oasis en tu dispositivo Ledger"
+    },
+    "steps": {
+      "loadingAccounts": "Cargando los datos de la cuenta",
+      "loadingBalances": "Cargando detalles del saldo",
+      "openingUsb": "Abriendo Ledger a través de USB"
+    }
+  },
+  "menu": {
+    "closeWallet": "Cerrar billetera",
+    "home": "Inicio",
+    "wallet": "Billetera"
+  },
+  "openWallet": {
+    "header": "¿Cómo quieres abrir tu billetera?",
+    "ledger": {
+      "header": "Abrir desde dispositivo Ledger"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "Frase semilla",
+      "privateKey": "Clave privada"
+    },
+    "mnemonic": {
+      "enterPhraseHere": "Introduce aquí tu frase semilla",
+      "error": "Frase semilla inválida. Por favor, asegúrate de introducir las palabras en el orden correcto, todas en minúsculas.",
+      "header": "Introduce tu frase semilla",
+      "import": "Importar mi billetera",
+      "instruction": "A continuación, introduce todas las palabras de tu frase semilla separadas por espacios. La mayoría de las frases semilla se componen de 24 o 12 palabras."
+    },
+    "privateKey": {
+      "enterPrivateKeyHere": "Introduce aquí tu clave privada",
+      "error": "Clave privada inválida",
+      "header": "Introduce tu clave privada",
+      "hidePrivateKey": "Ocultar la clave privada",
+      "instruction": "Introduce tu clave privada en formato Base64.",
+      "showPrivateKey": "Mostrar la clave privada"
+    }
+  },
+  "theme": {
+    "darkMode": "Modo oscuro"
+  },
+  "toolbar": {
+    "networks": {
+      "local": "Local",
+      "mainnet": "Mainnet",
+      "testnet": "Testnet"
+    },
+    "wallets": {
+      "type": {
+        "mnemonic": "Frase semilla",
+        "privateKey": "Clave privada"
+      }
+    }
+  },
+  "transaction": {
+    "confirm": "Confirmar",
+    "preview": {
+      "amount": "Cantidad",
+      "from": "De",
+      "gas": "Gas",
+      "to": "A",
+      "type": "Tipo",
+      "validator": "Validador",
+      "warning": "Una vez que confirmes la transacción, no podrás cancelarla. Revísala cuidadosamente y confirma una vez que estés seguro de que quieres enviarla."
+    },
+    "step": {
+      "signing": "Firmando la transacción",
+      "submitting": "Enviando la transacción"
+    }
+  },
+  "validator": {
+    "commission": "Comisión",
+    "commissionBounds": {
+      "label": "Límites de comisión"
+    },
+    "name": "Nombre",
+    "status": "Estado",
+    "statusActive": "Activo",
+    "statusInactive": "Inactivo",
+    "statusUnknown": "Desconocido",
+    "unknownValidator": "Validador desconocido"
+  }
+}
