@@ -1,1 +1,33 @@
-{}
+{
+  "account": {
+    "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "description": "该节点的状态为{{validatorStatus}}，你的质押或无法产生收益。",
+        "title": "确认继续吗？"
+      },
+      "confirmDelegatingToTop": {
+        "acknowledge": "仍要质押",
+        "description": "该节点的质押总量位于前20，请考虑给更小的节点质押，以增强网络的安全和去中心化程度。"
+      },
+      "delegate": "质押"
+    },
+    "addressCopied": "地址已复制",
+    "loading": "账户加载中",
+    "loadingError": "无法加载账户",
+    "reclaimEscrow": {
+      "reclaim": "取回",
+      "reclaimAll": "取回全部"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "此为节点地址，直接转账到该地址无法为该节点质押",
+        "title": "确认继续吗？"
+      },
+      "enterAddress": "输入地址",
+      "enterAmount": "输入金额",
+      "recipient": "收款地址",
+      "send": "发送",
+      "success": "交易成功发送！交易可能需要一分钟才会显示在您的账户上"
+    }
+  }
+}

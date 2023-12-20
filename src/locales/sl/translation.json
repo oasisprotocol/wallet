@@ -11,6 +11,7 @@
       },
       "delegate": "Delegiraj"
     },
+    "addressCopied": "Naslov skopiran.",
     "loading": "Nalaganje računa",
     "loadingError": "Računa ni mogoče naložiti.",
     "reclaimEscrow": {
@@ -24,6 +25,7 @@
         "title": "Ste prepričani, da želite nadaljevati?"
       },
       "enterAddress": "Vnesite naslov",
+      "enterAmount": "Vnesite znesek",
       "recipient": "Prejemnik",
       "send": "Pošlji",
       "success": "Transakcija uspešno izvršena. Novo stanje na vašem računu bo prikazano v kratkem."
@@ -43,7 +45,7 @@
         "total": "Stanje"
       },
       "noTransactionFound": "Ni transakcij",
-      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo {{ ticker }} morate <HomeLink>odpreti vašo denarnico</HomeLink>!",
+      "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo {{ticker}} morate <HomeLink>odpreti vašo denarnico</HomeLink>!",
       "notYourAccount": "To ni vaš račun.",
       "yourAccount": "To je vaš račun."
     },
@@ -69,7 +71,7 @@
       "loadingError": "Transakcij ni bilo mogoče pridobiti.",
       "reclaimEscrow": {
         "received": "Vračilo <Amount/> investitorju",
-        "sent": "Prejeto <Amount/> od overitelja"
+        "sent": "Zahtevano <Amount/> od overitelja"
       },
       "stakingAllow": {
         "received": "Dobljeno dovoljenje za <Amount/>",
@@ -145,6 +147,7 @@
     "unknown": "Neznana napaka: {{message}}",
     "unknownGrpc": "Neznana napaka gRPC: {{message}}",
     "unknownLedgerError": "Neznana napaka na Ledgerju: {{message}}",
+    "unknownParaTimeError": "Neznana napaka v ParaTime: {{message}}",
     "usbTransportError": "Napaka na prenosu prek USB: {{message}}",
     "usbTransportNotSupported": "Vaš brskalnik ne podpira WebUSB (npr. Firefox). Poskusite z uporabo Chroma."
   },
@@ -161,7 +164,7 @@
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Pogoji uporabe</TermsLink>",
-    "version": "Različica: <CommitLink/>, zgrajena dne {{buildTime}}"
+    "version": "Različica <ReleaseLink/> (<CommitLink/>) zgrajena {{buildTime}}"
   },
   "home": {
     "create": {
@@ -176,6 +179,13 @@
     }
   },
   "ledger": {
+    "extension": {
+      "connect": "Priklopi Ledger",
+      "failed": "Priklop spodeletel",
+      "grantAccess": "Dovoli dostop Ledgerju",
+      "instructionStep": "Ko bo naprava priklopljena, nadaljujte z uporabo denarnice",
+      "succeed": "Naprava priklopljena"
+    },
     "instructionSteps": {
       "closeLedgerLive": "Zaprite Ledger Live app na računalniku.",
       "connectLedger": "Povežite vaš Ledger z računalnikom.",
@@ -183,7 +193,7 @@
       "openOasisApp": "Odprite Oasis App na vašem Ledgerju."
     },
     "steps": {
-      "done": "Končano",
+      "idle": "Na voljo",
       "loadingAccounts": "Nalaganje podrobnosti računa",
       "loadingBalances": "Nalaganje podrobnosti stanja",
       "openingUsb": "Odpiranje Ledgerja prek USB"
@@ -192,7 +202,10 @@
   "menu": {
     "closeWallet": "Zapri denarnico",
     "home": "Domov",
+    "lockProfile": "Zakleni profil",
+    "paraTimes": "ParaTimi",
     "stake": "Vlaganje",
+    "unlockProfile": "Odkleni profil",
     "wallet": "Denarnica"
   },
   "openWallet": {
@@ -201,7 +214,11 @@
     },
     "header": "Kako želite odpreti denarnico?",
     "importAccounts": {
+      "accountCounter_one": "Izbran en račun",
+      "accountCounter_zero": "Ni izbranega računa",
+      "next": "Nadaljuj",
       "openWallets": "Odpri",
+      "prev": "Nazaj",
       "selectWallets": "Izberite račune"
     },
     "ledger": {
@@ -228,28 +245,146 @@
       "showPrivateKey": "Pokaži zasebni ključ"
     }
   },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Napredno",
+      "available": "Na voljo:",
+      "feeAmountPlaceholder": "Znesek provizije (nano {{ticker}})",
+      "feeGasPlaceholder": "Gas za provizijo",
+      "max": "MAX",
+      "tooltip": "Maks. vrednost bo lahko zmanjšana za provizijo"
+    },
+    "common": {
+      "cipher": "Cipher",
+      "depositHeader": "Polog na ParaTime",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "sapphire": "Sapphire",
+      "withdrawHeader": "Dvig iz ParaTima"
+    },
+    "confirmation": {
+      "confirmTransferLabel": "Potrjujem pravilnost zneska in naslova",
+      "depositLabel": "Položi",
+      "withdrawLabel": "Dvigni"
+    },
+    "footer": {
+      "back": "Nazaj",
+      "next": "Naprej"
+    },
+    "pageInaccessible": "Prenosi niso na voljo",
+    "recipient": {
+      "placeholder": "0x..."
+    },
+    "selection": {
+      "cancel": "Prekliči prenos",
+      "evmc": "EVMc",
+      "select": "Izberite ParaTime"
+    },
+    "transfers": {
+      "deposit": "Polog na ParaTime",
+      "depositDisabled": "Sredstev {{ticker}} za prenos ni na voljo",
+      "withdraw": "Dvig s ParaTima"
+    },
+    "unsupportedFormStep": "Nepodprt korak obrazca",
+    "validation": {
+      "insufficientBalanceToPayFee": "Stanje prenizko za plačilo provizije",
+      "invalidDecimalValue": "Dovoljenih največ {{decimals}} decimalk",
+      "invalidEthPrivateKey": "Neveljaven zasebni ključ Ethereum",
+      "invalidEthPrivateKeyLength": "Zasebni ključ mora biti dolg 64 znakov",
+      "invalidFee": "Vrednost mora biti število, večje ali enako 0",
+      "required": "Polje je zahtevano",
+      "unsupportedParaTime": "Nepodprt ParaTime"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "Izberite geslo",
+      "passwordMismatch": "Geslo se ne ujema",
+      "repeatPassword": "Ponovno vnesite geslo",
+      "startPersisting": "Lokalno shrani zasebne ključe, zaščitene z geslom",
+      "unsupported": "Shramba na tem brskalniku ni podprta"
+    },
+    "loading": "Nalaganje",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "Izbriši profil",
+        "description": "Ali ste prepričani, da želite izbrisati ta profil? To bo <strong>izbrisalo vaše zasebne ključe</strong> in ne bo jih mogoče obnoviti. <br/><br/> Če želite nadaljevati vnesite '{{confirmationKeyword}}'.",
+        "title": "Izbriši Profil"
+      },
+      "description": "Za dostop do obstoječe denarnice na tem brskalniku se prijavite v vaš profil",
+      "enterPasswordHere": "Vnesite geslo",
+      "hidePassword": "Skrij geslo",
+      "showPassword": "Prikaži gesl",
+      "skipUnlocking": "Nadaljuj brez uporabe profila",
+      "title": "Dobrodošli nazaj!",
+      "unlock": "Odkleni",
+      "wrongPassword": "Napačno geslo"
+    }
+  },
   "theme": {
     "darkMode": "Temni način",
-    "lightMode": "Svetli način"
+    "lightMode": "Svetli način",
+    "title": "Tema"
   },
   "toolbar": {
+    "contacts": {
+      "add": "Dodaj Stik",
+      "address": "Naslov",
+      "cancel": "Prekliči",
+      "delete": {
+        "button": "Izbriši stik",
+        "confirm": "Da, izbriši",
+        "description": "Ste prepričani, da želite izbrisati ta stik?",
+        "title": "Izbriši Stik"
+      },
+      "emptyList": "Nimate stikov.",
+      "manage": "Upravljaj stik",
+      "name": "Ime",
+      "notAvailable": "Da pričnete dodajati stike, najprej ustvarite profil med <OpenWalletButton>odpiranjem denarnice</OpenWalletButton>.",
+      "save": "Shrani",
+      "validation": {
+        "addressError": "Vnesite veljaven naslov denarnice.",
+        "addressNotUniqueError": "Naslov že obstaja",
+        "nameLengthError": "Največ 16 znakov",
+        "required": "Polje je obvezno"
+      }
+    },
     "networks": {
       "local": "Lokalno",
       "mainnet": "Mainnet",
       "testnet": "Testnet"
     },
+    "profile": {
+      "deletion": "Brisanje"
+    },
+    "settings": {
+      "cancel": "Prekliči",
+      "contacts": "Stiki",
+      "delete": {
+        "description": "Ali ste prepričani, da želite izbrisati ta račun?",
+        "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite '{{confirmationKeyword}}'.",
+        "title": "Izbriši Račun"
+      },
+      "exportPrivateKey": {
+        "hint2": "Ključa ni mogoče obnoviti, če ga izgubite. Poskrbite, da imate varnostno kopijo zasebnega ključa shranjeno na varnem mestu.",
+        "title": "Izvozi Zasebni Ključ"
+      },
+      "myAccountsTab": "Moji računi",
+      "nameLengthError": "Največ 16 znakov",
+      "profile": "Profil",
+      "save": "Shrani",
+      "settings": "Nastavitve"
+    },
     "wallets": {
-      "close": "Zapri",
-      "switchOtherWallet": "Izberite račun",
       "type": {
-        "ledger": "Ledger",
         "mnemonic": "Mnemonik",
-        "privateKey": "Zasebni ključ"
+        "privateKey": "Zasebni ključ",
+        "usbLedger": "USB Ledger"
       }
     }
   },
   "transaction": {
-    "abort": "Prekini",
+    "cancel": "Prekliči",
     "confirm": "Potrdi",
     "preview": {
       "amount": "Znesek",
@@ -270,9 +405,9 @@
       "submitting": "Pošiljanje transakcije"
     },
     "types": {
-      "addEscrow": "Delegiranje vaših kovancev overiteljem",
-      "reclaimEscrow": "Vračilo delegiranih kovancev na vaš račun",
-      "transfer": "Prenos kovancev z vašega na tuj račun"
+      "addEscrow": "delegiranje vaših kovancev overiteljem",
+      "reclaimEscrow": "vračilo delegiranih kovancev na vaš račun",
+      "transfer": "prenos kovancev z vašega na tuj račun"
     }
   },
   "validator": {

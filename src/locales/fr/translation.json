@@ -30,7 +30,7 @@
     "summary": {
       "balance": {
         "available": "Disponible",
-        "debonding": "Debonding",
+        "debonding": "Réclamé",
         "delegations": "Délégué (stake)",
         "total": "Solde total"
       },
@@ -92,7 +92,6 @@
   "delegations": {
     "activeDelegations": "Délégations actives",
     "debondingDelegations": "Délégations réclamées",
-    "debondingEpoch": "Epoch de récupération",
     "delegatedAmount": "Montant délégué",
     "reclaimedAmount": "Montant réclamé"
   },
@@ -150,7 +149,6 @@
       "openOasisApp": "Ouvrez l'application Oasis sur votre matériel Ledger"
     },
     "steps": {
-      "done": "Fin",
       "loadingAccounts": "Chargement des adresses",
       "loadingBalances": "Chargement du solde des adresses",
       "openingUsb": "Ouverture du Ledger via USB"
@@ -168,10 +166,7 @@
     },
     "header": "Comment souhaitez-vous ouvrir votre portefeuille ?",
     "ledger": {
-      "cancel": "Annuler",
-      "header": "Ouvrir à partir d'un matériel Ledger",
-      "openWallets": "Ouvrir",
-      "selectWallets": "Sélectionnez les comptes à ouvrir"
+      "header": "Ouvrir à partir d'un matériel Ledger"
     },
     "method": {
       "ledger": "Ledger",
@@ -205,17 +200,13 @@
       "testnet": "Testnet"
     },
     "wallets": {
-      "close": "Fermer",
-      "switchOtherWallet": "Passer à un autre compte",
       "type": {
-        "ledger": "Ledger",
         "mnemonic": "Phrase secrète",
         "privateKey": "Clé privée"
       }
     }
   },
   "transaction": {
-    "abort": "Annuler",
     "confirm": "Confirmer",
     "preview": {
       "amount": "Montant",
@@ -258,6 +249,6 @@
     "statusInactive": "Inactif",
     "statusUnknown": "Inconnu",
     "totalEscrow": "Escrow total",
-    "unknownValidator": "Unknown validator"
+    "unknownValidator": "Validateur inconnue"
   }
 }
