@@ -113,7 +113,17 @@ export function receivePersistedRootState(
   stringifiedEncryptionKey: StringifiedKeyWithSalt,
 ): RootState {
   return {
-    ...prevState,
+    // Explicitly list every field instead of `...prevState` to force developers
+    // to consider if their new slice should be persisted.
+    account: prevState.account,
+    createWallet: prevState.createWallet,
+    fatalError: prevState.fatalError,
+    fiatOnramp: prevState.fiatOnramp,
+    importAccounts: prevState.importAccounts,
+    paraTimes: prevState.paraTimes,
+    staking: prevState.staking,
+    transaction: prevState.transaction,
+
     contacts: persistedRootState.contacts,
     evmAccounts: persistedRootState.evmAccounts,
     theme: persistedRootState.theme,

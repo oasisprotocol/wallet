@@ -29,3 +29,9 @@ export const rootSlices = {
   wallet: walletSlice,
   persist: persistSlice,
 }
+
+export type AllActions = (typeof rootSlices)[keyof typeof rootSlices]['actions'] extends {
+  [actionKey: string]: { type: infer T }
+}
+  ? T
+  : never
