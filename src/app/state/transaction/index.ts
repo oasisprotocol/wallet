@@ -16,7 +16,7 @@ export const initialState: TransactionState = {
   active: false,
 }
 
-const slice = createSlice({
+export const transactionSlice = createSlice({
   name: 'transaction',
   initialState,
   reducers: {
@@ -63,6 +63,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: transactionActions } = slice
-
-export default slice.reducer
+export const { actions: transactionActions } = transactionSlice

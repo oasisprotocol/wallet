@@ -10,7 +10,7 @@ export const initialState: NetworkState = {
   minimumStakingAmount: 0,
 }
 
-const slice = createSlice({
+export const networkSlice = createSlice({
   name: 'network',
   initialState,
   reducers: {
@@ -25,6 +25,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: networkActions } = slice
-
-export default slice.reducer
+export const { actions: networkActions } = networkSlice

@@ -34,7 +34,7 @@ export function getInitialState(): PersistState {
   }
 }
 
-const persistSlice = createSlice({
+export const persistSlice = createSlice({
   name: 'persist',
   initialState: () => getInitialState(),
   reducers: {
@@ -104,8 +104,6 @@ const persistSlice = createSlice({
 
 export const persistActions = persistSlice.actions
 
-export default persistSlice.reducer
-
 /**
  * When persisted state is unlocked use these state slices.
  */
@@ -115,7 +113,17 @@ export function receivePersistedRootState(
   stringifiedEncryptionKey: StringifiedKeyWithSalt,
 ): RootState {
   return {
-    ...prevState,
+    // Explicitly list every field instead of `...prevState` to force developers
+    // to consider if their new slice should be persisted.
+    account: prevState.account,
+    createWallet: prevState.createWallet,
+    fatalError: prevState.fatalError,
+    fiatOnramp: prevState.fiatOnramp,
+    importAccounts: prevState.importAccounts,
+    paraTimes: prevState.paraTimes,
+    staking: prevState.staking,
+    transaction: prevState.transaction,
+
     contacts: persistedRootState.contacts,
     evmAccounts: persistedRootState.evmAccounts,
     theme: persistedRootState.theme,

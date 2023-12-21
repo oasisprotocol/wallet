@@ -14,7 +14,7 @@ export const initialState: ImportAccountsState = {
   showBleLedgerDevicesModal: false,
 }
 
-const slice = createSlice({
+export const importAccountsSlice = createSlice({
   name: 'importAccounts',
   initialState,
   reducers: {
@@ -85,6 +85,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: importAccountsActions } = slice
-
-export default slice.reducer
+export const { actions: importAccountsActions } = importAccountsSlice

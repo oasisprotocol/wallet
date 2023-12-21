@@ -3,40 +3,17 @@
  */
 
 import { AnyAction, combineReducers } from '@reduxjs/toolkit'
-import createWalletReducer from 'app/pages/CreateWalletPage/slice'
-import fiatOnrampReducer from 'app/pages/FiatOnrampPage/slice'
-import accountReducer from 'app/state/account'
-import fatalErrorReducer from 'app/state/fatalerror'
-import importAccountsReducer from 'app/state/importaccounts'
-import networkReducer from 'app/state/network'
-import paraTimesReducer from 'app/state/paratimes'
-import stakingReducer from 'app/state/staking'
-import contactsReducer from 'app/state/contacts'
-import evmAccountsReducer from 'app/state/evmAccounts'
-import transactionReducer from 'app/state/transaction'
-import walletReducer from 'app/state/wallet'
-import themeReducer from 'styles/theme/slice'
-import persistReducer, { persistActions, receivePersistedRootState } from 'app/state/persist'
+import { persistActions, receivePersistedRootState } from 'app/state/persist'
 import { RootState } from 'types'
+import { rootSlices } from './slices'
 
 function createRootReducer() {
-  const rootReducer = combineReducers({
-    account: accountReducer,
-    contacts: contactsReducer,
-    evmAccounts: evmAccountsReducer,
-    createWallet: createWalletReducer,
-    fiatOnramp: fiatOnrampReducer,
-    fatalError: fatalErrorReducer,
-    importAccounts: importAccountsReducer,
-    network: networkReducer,
-    paraTimes: paraTimesReducer,
-    staking: stakingReducer,
-    theme: themeReducer,
-    transaction: transactionReducer,
-    wallet: walletReducer,
-    persist: persistReducer,
-  })
-
+  const reducers = Object.fromEntries(
+    Object.entries(rootSlices).map(([key, slice]) => [key, slice.reducer]),
+  ) as {
+    [K in keyof typeof rootSlices]: (typeof rootSlices)[K]['reducer']
+  }
+  const rootReducer = combineReducers(reducers)
   return rootReducer
 }
 

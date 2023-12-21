@@ -4,7 +4,7 @@ import { ContactsState, Contact } from './types'
 
 export const initialState: ContactsState = {}
 
-const slice = createSlice({
+export const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
@@ -20,6 +20,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: contactsActions } = slice
-
-export default slice.reducer
+export const { actions: contactsActions } = contactsSlice

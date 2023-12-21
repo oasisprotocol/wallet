@@ -5,7 +5,7 @@ import { privateToEthAddress } from '../../lib/eth-helpers'
 
 export const initialState: EvmAccounts = {}
 
-const slice = createSlice({
+export const evmAccountsSlice = createSlice({
   name: 'evmAccounts',
   initialState,
   reducers: {
@@ -22,6 +22,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: evmAccountsActions } = slice
-
-export default slice.reducer
+export const { actions: evmAccountsActions } = evmAccountsSlice

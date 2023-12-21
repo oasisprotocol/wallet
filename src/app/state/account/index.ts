@@ -17,7 +17,7 @@ export const initialState: AccountState = {
   loading: true,
 }
 
-const slice = createSlice({
+export const accountSlice = createSlice({
   name: 'account',
   initialState,
   reducers: {
@@ -49,6 +49,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: accountActions } = slice
-
-export default slice.reducer
+export const { actions: accountActions } = accountSlice

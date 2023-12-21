@@ -17,7 +17,7 @@ export const initialState: StakingState = {
   loading: false,
 }
 
-const slice = createSlice({
+export const stakingSlice = createSlice({
   name: 'staking',
   initialState,
   reducers: {
@@ -67,6 +67,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: stakingActions, reducer: stakingReducer } = slice
-
-export default slice.reducer
+export const { actions: stakingActions, reducer: stakingReducer } = stakingSlice

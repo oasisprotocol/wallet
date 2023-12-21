@@ -8,7 +8,7 @@ export const getInitialState = (): ThemeState => ({
   selected: getThemeFromStorage() || 'system',
 })
 
-const slice = createSlice({
+export const themeSlice = createSlice({
   name: 'theme',
   initialState: () => getInitialState(),
   reducers: {
@@ -19,6 +19,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: themeActions } = slice
-
-export default slice.reducer
+export const { actions: themeActions } = themeSlice

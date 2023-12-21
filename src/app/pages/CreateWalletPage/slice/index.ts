@@ -9,7 +9,7 @@ export const initialState: CreateWalletState = {
   mnemonic: [],
 }
 
-const slice = createSlice({
+export const createWalletSlice = createSlice({
   name: 'createWallet',
   initialState,
   reducers: {
@@ -35,6 +35,4 @@ const slice = createSlice({
   },
 })
 
-export const { actions: createWalletActions } = slice
-
-export default slice.reducer
+export const { actions: createWalletActions } = createWalletSlice
