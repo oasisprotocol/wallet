@@ -10,7 +10,8 @@ export async function warnSlowApi(context: BrowserContext | Page) {
       if (responseTime > 500) console.warn('Slow API', `${responseTime}ms`, url)
     } catch (e) {
       // Ignore error that some requests haven't finished before browser closed.
-      if (e.message.endsWith('Target page, context or browser has been closed')) return
+      if (e.message.endsWith('Target page, context or browser has been closed')) return // @playwright/test@<=1.39
+      if (e.message.endsWith('Test ended.')) return // @playwright/test@>=1.40
       throw e
     }
   })
