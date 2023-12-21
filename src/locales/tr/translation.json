@@ -5,12 +5,19 @@
         "description": "Doğrulayıcının durumu: {{validatorStatus}}. Yaptığınız delegasyonla herhangi bir ödül elde edemeyebilirsiniz.",
         "title": "Devam etmek istediğinize emin misiniz?"
       },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Yine de delege et",
+        "description": "Bu doğrulayıcı, bahis miktarına göre ilk 20'de yer almaktadır. Ağ güvenliğini ve merkezi olmayan yönetimi artırmak için lütfen daha küçük bir doğrulayıcıya yetki vermeyi düşünün."
+      },
       "delegate": "Delege"
     },
+    "addressCopied": "Adres kopyalandı.",
     "loading": "Hesap yükleniyor",
-    "loadingError": "Hesap yüklenmedi. Bilgiler tam ya da güncel olmayabilir.",
+    "loadingError": "Hesap yüklenemedi.",
     "reclaimEscrow": {
-      "reclaim": "Al"
+      "convertedToShares": "Karşılık gelen gigashares sayısı: {{shares}}",
+      "reclaim": "Al",
+      "reclaimAll": "Hepsini al."
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -18,13 +25,16 @@
         "title": "Devam etmek istediğine emin misin?"
       },
       "enterAddress": "Bir adres girin",
+      "enterAmount": "Bir miktar girin.",
       "recipient": "Alıcı",
       "send": "Gönder",
       "success": "İşleminiz başarıyla gönderildi. İşlemin hesabınıza geçmesi bir dakikaya yakın sürebilmektedir."
     },
     "subnavigation": {
-      "activeDelegations": "Aktif delegasyon",
-      "debondingDelegations": "Ayrılmış delegasyon",
+      "activeDelegations": "Aktif delegasyonlar",
+      "debondingDelegations": "Debonding delegasyonları",
+      "mobileActiveDelegations": "Delegasyonlar",
+      "mobileDebondingDelegations": "Debonding",
       "transactions": "İşlemler"
     },
     "summary": {
@@ -32,27 +42,42 @@
         "available": "Uygun",
         "debonding": "Ayrılmış",
         "delegations": "Stake Edilmiş",
-        "total": "Toplam bakiye"
+        "total": "Toplam"
       },
       "noTransactionFound": "İşlem bulunamadı",
-      "noWalletIsOpen": "ROSE jetonlarınızı göndermek, almak, stake etmek ya da takas etmek için <HomeLink> cüzdanınızı açın! </HomeLink>",
+      "noWalletIsOpen": "{{ticker}} token göndermek, almak, stake etmek ve takas etmek için <HomeLink> cüzdanınızı açın </HomeLink>",
       "notYourAccount": "Bu sizin hesabınız değil.",
       "yourAccount": "Bu sizin hesabınız"
     },
     "transaction": {
       "addEscrow": {
-        "received": "Escrowdaki delegasyondan <Amount/> alındı",
-        "sent": "Doğrulayıcıya <Amount/> delege edildi"
+        "received": "<Amount>heyet emanette kabul edildi",
+        "sent": "<Amount/> validatörüne delege edildi."
       },
+      "consensusDeposit": {
+        "received": "{{runtimeName}}ParaTime'a<Amount/> depozito alındı",
+        "sent": "{{runtimeName}} ParaTime'a <Amount/> yatırıldı"
+      },
+      "consensusWithdraw": {
+        "received": "{{runtimeName}}ParaTime'dan <Amount/> tanesi çekildi",
+        "sent": "{{runtimeName}}ParaTime'dan çekilmeden <Amount/> alındı"
+      },
+      "explorerLink": "Explorer aracılığıyla işlem kayıtlarını görüntüle",
+      "failed": "Hata",
       "genericTransaction": {
         "destination": "Diğer adres",
-        "header": "Yöntemi '{{method}}'"
+        "header": "Yöntem {{method}}"
       },
-      "loadingError": "İşlem geçmişinizi yükleyemiyoruz. Liste boş ya da süresi geçmiş olabilir.",
+      "loadingError": "İşlemler yüklenemedi.",
       "reclaimEscrow": {
-        "received": "<Amount/> delegator tarafından alındı",
-        "sent": "Doğrulayıcıdan <Amount/> alındı"
+        "received": "<Amount/>delege tarafından geri talep edildi",
+        "sent": "<Amount/>doğrulayıcı tarafından geri talep edildi"
       },
+      "stakingAllow": {
+        "received": "<Amount/>ödenek aldı",
+        "sent": "<Amount/>Ödenek ayarla"
+      },
+      "successful": "Başarılı",
       "transfer": {
         "received": "Alındı <Amount/>",
         "sent": {
@@ -61,13 +86,21 @@
       },
       "unrecognizedTransaction": {
         "destination": "Diğer adres",
-        "header": "Tanınmayan işlem yöntemi '{{method}}'"
+        "header": "Tanınmayan işlem, yöntem {{method}}"
       }
     },
     "validator": {
       "loadingError": "Doğrulayıcıları yükleyemiyoruz.",
       "showingStale": "Doğrulayıcı listesini gösteriyoruz: {{staleTimestamp}}."
     }
+  },
+  "backends": {
+    "oasismonitor": "Oasis Monitör API",
+    "oasisscan": "Oasis Arama API"
+  },
+  "banner": {
+    "buildPreview": "Lütfen bunun Oasis Wallet'ın deneysel bir yapısı olduğunu ve sırlarınızın güvende olmadığını unutmayın. SADECE TEST AMAÇLI KULLANIN.",
+    "buildStaging": "Lütfen bunun Oasis Wallet'ın hazırlık dağıtımı olduğunu unutmayın. SADECE TEST AMAÇLI KULLANIN."
   },
   "common": {
     "amount": "Miktar",
@@ -76,6 +109,9 @@
     "confirm": "Onayla",
     "delegator": "Delegatör",
     "from": "Kimden",
+    "hash": "Tx Çıktısı",
+    "round": "Raund",
+    "time": "Zaman",
     "to": "Kime",
     "unavailable": "Uygun değil",
     "validator": "Doğrulayıcı",
@@ -84,7 +120,7 @@
   "createWallet": {
     "confirmSaved": "Anahtar kelimelerimi kaydettim",
     "doNotShare": "Anahtar kelimenizi asla paylaşmayın, anahtar kelimelerinizi bilen herkes cüzdanınıza ve tokenlarınıza erişebilir.",
-    "instruction": "Anahtar kelimelerinizi <strong>doğru sırada</strong> güvenli bir yere kaydedin, cüzdanınızı açmak için buna ihtiyacınız olacak.",
+    "instruction": "Anahtar kelimenizi <strong>doğru sırayla </strong> güvenli bir konuma kaydedin; cüzdanınızı açmak için buna ihtiyacınız olacak.",
     "mnemonicMismatch": "Girdiğiniz anımsatıcılar birbiriyle eşleşmiyor.",
     "newMnemonic": "Yeni bir mnemonic oluştur",
     "thisIsYourPhrase": "Size ait olan mnemonic"
@@ -92,26 +128,37 @@
   "delegations": {
     "activeDelegations": "Aktif delegasyonlar",
     "debondingDelegations": "Ayrılan delegasyonlar",
-    "debondingEpoch": "İşlemi/dönemi ayır",
+    "debondingTimeEnd": "Ayrılmanın sonu",
     "delegatedAmount": "Devredilen miktar",
+    "loadingError": "Yetkiler yüklenemedi.",
     "reclaimedAmount": "Alınan miktar"
   },
+  "deleteForm": {
+    "confirm": "Evet, Sil",
+    "confirmationKeyword": "Sil",
+    "hint": "'{{confirmationKeyword}}' yazın"
+  },
   "errors": {
+    "LedgerDerivedDifferentAccount": "Bu hesap şu anda bağlı olan Ledger'a ait değil.",
     "LedgerOasisAppIsNotOpen": "Ledger üzerindeki Oasis Uygulaması kapalı.",
+    "bluetoothTransportNotSupported": "Cihazınız Bluetooth desteklemiyor.",
     "cannotSendToSelf": "Kendinize gönderemezsiniz",
+    "disconnectedError": "Bağlantı koptu.",
     "duplicateTransaction": "Tekrarlayan işlem",
+    "indexerAPIError": "{{indexerName}} çalışmıyor gibi görünüyor, bazı bilgiler eksik veya güncel olmayabilir. Lütfen daha sonra tekrar gelin.",
     "insufficientBalance": "Yetersiz bakiye",
     "invalidAddress": "Geçersiz adres",
     "invalidNonce": "Geçersiz Nonce (transaction number)",
     "invalidPrivateKey": "Geçersiz anahtar kelime",
     "ledgerAppVersionNotSupported": "Alındı : \"Ledger uygulama versiyonu desteklenmiyor\", bu yanlış bir işlem olabilir, işlemi tekrar edin, eğer hata devam ederse Ledger'ınızdaki Oasis uygulamasını güncelleyin.",
     "ledgerCannotOpenOasisApp": "Oasis uygulamasını Ledger üzerinde açamadı, kilidin açık olduğundan ve Oasis uygulamasının açık olduğundan emin olun.",
-    "ledgerNoDeviceSelected": "Ledger cihazı seçilmedi. Bağlı olduğundan emin olun, <LedgerHelp> Ledger ile USB bağlantınız arasındaki genel sorunları inceleyin </LedgerHelp> ve <ChromeHelp> site izinlerinin USB cihazınızı engellemediğinden emin olun </ChromeHelp>.",
+    "ledgerNoDeviceSelected": "Hiçbir Ledger cihazı seçilmedi. Bağlı olduğundan emin olun, <LedgerHelp>Ledger</LedgerHelp> ile yaygın USB bağlantı sorunlarını kontrol edin ve <ChromeHelp>site izinlerinin USB cihazlarını engellemediğini kontrol edin</ChromeHelp>.",
     "ledgerTransactionRejected": "İşlem, Ledger tarafından reddedildi",
     "noOpenWallet": "Hiçbir cüzdan açık değil.",
     "unknown": "Bilinmeyen hata : {{message}}",
     "unknownGrpc": "Bilinmeyen gRPC hatası: {{message}}",
     "unknownLedgerError": "Bilinmeyen ledger hatası : {{message}}",
+    "unknownParaTimeError": "Bilinmeyen ParaTime hatası: 1 {{message}}",
     "usbTransportError": "USB hatası : {{message}}",
     "usbTransportNotSupported": "Kullandığınız tarafıyıcı WebUSB'yi desteklemiyor. (Örneğin Firefox). Lütfen Chrome kullanmayı deneyin."
   },
@@ -119,16 +166,28 @@
     "copied": "Hata panoya kopyalandı",
     "copy": "Hatayı panoya kopyala",
     "heading": "Önemli bir hata oluştu",
-    "instruction": "Oasis Cüzdanı'nın çalışmasını zorunlu olarak durduran bir hata meydana geldi. Lütfen sayfayı yenileyin ve sorunun devam edip etmediğini görmek için cüzdanınızı tekrar açın. Eğer sorun devam ediyorsa lütfen <Email/> adresine e-posta atın ve hatayı ek olarak gönderin."
+    "instruction": "Önemli bir hata oluştu ve Oasis Cüzdanının durdurulması gerekiyor. Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi ve cüzdanınızı yeniden açmayı deneyin. Sorun devam ederse lütfen <Email/> e-posta yoluyla destek ekibimizle iletişime geçin ve raporu aşağıya ekleyin."
+  },
+  "fiatOnramp": {
+    "astarFootnote": "Cayman Adaları'ndan muaf bir şirket olan AStar Technologies'in, Oasis adına ve amaçları doğrultusunda hareket ettiği ve aynı zamanda Oasis Cüzdanının sağlayıcısı olduğu işbu belgeyle belirtilmektedir.",
+    "description": "Bu özellik, fiat para biriminizi kripto para birimine dönüştürmenize olanak tanır.",
+    "header": "ROSE Satın Al",
+    "headerInWidget": "Cüzdanınıza ROSE satın alın.",
+    "notMainnet": "Bu özelliği yalnızda Ana Ağda kullanabilirsiniz.",
+    "notYourAccount": "Bu özelliği yalnızda cüzdanınız açıkken kullanabilirsiniz.",
+    "openYourWallet": "Cüzdanınızı açın.",
+    "switchToMainnet": "Mainnet ağına geç.",
+    "thirdPartyAcknowledge": "Üçüncü taraf bir çözüm kullandığımı ve Oasis'in bu çözümün kullanımına ilişkin herhangi bir sorumluluk taşımadığını anlıyorum.",
+    "thirdPartyDisclaimer": "Bu hizmet harici bir tarafça sağlanmaktadır. Oasis herhangi bir sorumluluk taşımamaktadır. Tüm ücretler Transak tarafından tahsil edilir."
   },
   "footer": {
-    "github": "Oasis Cüzdan tamamen <GithubLink>açık kaynaktır</GithubLink> - Geri bildirim ve sorunlar için teşekkür ederiz!",
+    "github": "Oasis Cüzdan tamamen <GithubLink>açık kaynaktır</GithubLink> - Geri bildirimler ve sorunlar takdir edilmektedir!",
     "poweredBy": {
       "oasismonitor": "Oasis Monitor API & Oasis gRPC tarafından destekleniyor",
       "oasisscan": "Oasis Scan API & Oasis gRPC tarafından destekleniyor"
     },
     "terms": "<TermsLink>Şartlar ve Koşullar</TermsLink>",
-    "version": "Versiyon: <CommitLink/> {{buildTime}} tarihinde inşa edildi."
+    "version": "Sürüm: <ReleaseLink/> (işlem: <CommitLink/>) {{buildTime}} tarihinde oluşturuldu"
   },
   "home": {
     "create": {
@@ -142,7 +201,18 @@
       "header": "Mevcut cüzdana giriş yap"
     }
   },
+  "infoBox": {
+    "valueCopied": "{{label}}kopyalandı"
+  },
+  "language": "Dil",
   "ledger": {
+    "extension": {
+      "connect": "Ledger cihazınızı bağlayın.",
+      "failed": "Bağlantı başarısız.",
+      "grantAccess": "Ledgerınıza erişim izni verin",
+      "instructionStep": "Cihaz bağlandıktan sonra cüzdan uygulamasında işleme devam edin",
+      "succeed": "Cihaz bağlandı"
+    },
     "instructionSteps": {
       "closeLedgerLive": "Bilgisayarınızdan Ledger Live Uygulamasını kapatın.",
       "connectLedger": "Lütfen Ledger cihazınızı bilgisayarınıza bağlayın",
@@ -150,28 +220,58 @@
       "openOasisApp": "Oasis Uygulamasını, Ledger cihazınızda açınız."
     },
     "steps": {
-      "done": "Tamam",
+      "idle": "Boşta",
       "loadingAccounts": "Hesap detayları yükleniyor",
       "loadingBalances": "Bakiye detayları yükleniyor",
+      "loadingBluetoothDevices": "Bluetooth cihazları yükleniyor.",
       "openingUsb": "Ledger USB Üzerinden Açılıyor"
     }
   },
   "menu": {
+    "addAccounts": "Hesap ekle",
     "closeWallet": "Cüzdanı kapat",
+    "fiatOnramp": "Satın Al",
     "home": "Ana Sayfa",
+    "lockProfile": "Profili kilitle.",
+    "openMenu": "Menü",
+    "paraTimes": "ParaTimelar",
     "stake": "Stake",
+    "unlockProfile": "Profilin kilidini aç.",
     "wallet": "Cüzdan"
+  },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "Özel anahtarımı güvenle sakladım.",
+      "reveal": "Geçersiz özel anahtarı göstermek için dokunun"
+    },
+    "backupMnemonic": {
+      "confirm": "Özel kelimelerimi güvenle sakladım",
+      "description": "Cüzdan uzantısının yeni sürümü artık anımsatıcınızı saklamayacaktır. Bu ifade, erişiminizi kaybettiyseniz hesabınızı geri yüklemenin tek yoludur. Anımsatıcınızı yedeklemek için son bir şansınız var.",
+      "reveal": "Özel Kelimelerinizi göstermek için tıklayın."
+    },
+    "finishMigration": "Cüzdanın yeni sürümünü açın",
+    "nextStep": "Sonraki",
+    "requiredField": "Bu alan zorunludur.",
+    "title": "Önemli Cüzdan Güncellemesi"
   },
   "openWallet": {
     "bitpie": {
-      "warning": "BitPie cüzdan kullanıcıları: Anımsatıcı kelimelerinizi direkt olarak BitPie cüzdanınızda içeriye aktaramazsınız. <DocsLink>Detaylar için dökümana göz atınız. </DocsLink>"
+      "warning": "❗ BitPie cüzdan kullanıcıları: Anımsatıcı ifadeyi doğrudan BitPie cüzdanınızdan içe aktaramazsınız. <DocsLink>Ayrıntılar için belgelere bakın.</DocsLink>"
     },
     "header": "Cüzdanınızı nasıl açmak istersiniz?",
-    "ledger": {
-      "cancel": "İptal et",
-      "header": "Ledger cihazınızdan açınız",
+    "importAccounts": {
+      "accountCounter": "{{count}}hesaplar seçildi.",
+      "accountCounter_one": "Bir hesap seçildi",
+      "accountCounter_plural": "{{count}}hesaplar seçildi.",
+      "accountCounter_zero": "Seçilen Hesap bulunamadı.",
+      "next": "Sonraki",
       "openWallets": "Aç",
-      "selectWallets": "Açmak istediğiniz hesapları seçin"
+      "pageNumber": "Sayfa {{pageNum}} / {{totalPages}}",
+      "prev": "Önceki",
+      "selectWallets": "Açılacak hesapları seçin"
+    },
+    "ledger": {
+      "header": "Ledger cihazınızdan açınız"
     },
     "method": {
       "ledger": "Ledger",
@@ -194,28 +294,186 @@
       "showPrivateKey": "Özel anahtarı göster"
     }
   },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Gelişmiş",
+      "available": "Mevcut",
+      "depositDescription": "Lütfen yatırılacak {{ticker}} miktarını girin ve ardından {{nextButtonLabel}} düğmesine tıklayın",
+      "emptyAccount": "Hesap boş. Çekilecek bir şey yok.",
+      "feeAmountPlaceholder": "Gas ücreti (nano {{ticker}})",
+      "feeGasPlaceholder": "Gas ücreti",
+      "max": "MAKS",
+      "tooltip": "Maksimum değer ücrete göre azalabilir",
+      "withdrawDescription": "Lütfen çekilecek {{ticker}}tutarını girin ve ardından {{nextButtonLabel}} düğmesine tıklayın"
+    },
+    "common": {
+      "cipher": "şifre",
+      "depositHeader": "ParaTime'a yatır",
+      "emerald": "Zümrüt",
+      "evmcType": "(EVMc)",
+      "header": "ParaTime Transferleri",
+      "sapphire": "Safir",
+      "withdrawHeader": "ParaTime'dan Çek"
+    },
+    "confirmation": {
+      "confirmDepositDescription": "Lütfen yatırılan tutarın ve alıcı adresinin doğru olduğunu onaylayın ve ardından \"{{nextButtonLabel}}\" seçeneğine tıklayın.",
+      "confirmDepositToForeignAccountDescription": "Hedef adres cüzdanınızdaki hesapların hiçbiriyle eşleşmiyor! Borsalar gibi bazı hizmetler, hesabınıza para yatırmak için doğrudan para yatırma işlemini desteklemeyebilir. Daha iyi uyumluluk için öncelikle ParaTime hesabınıza para yatırmanızı ve ardından {{ticker}}'ı hedef adrese aktarmanızı önemle tavsiye ederiz.",
+      "confirmTransferLabel": "Tutarın ve adresin doğru olduğunu onaylıyorum",
+      "confirmTransferToForeignAccount": "Doğrudan harici bir hesaba para çekmek istediğimi onaylıyorum",
+      "confirmTransferToValidatorDescription": "Bu bir doğrulayıcı cüzdan adresidir. Bu adrese yapılan transferler paranızı doğrulayıcıya yatırmaz.",
+      "confirmTransferToValidatorLabel": "{{ticker}}'u bir doğrulayıcı adresine aktarmak istediğimi onaylıyorum",
+      "confirmWithdrawDescription": "Lütfen çekilen tutarın ve alıcı adresinin doğru olduğunu onaylayın ve ardından \"{{nextButtonLabel}}\" seçeneğine tıklayın.",
+      "confirmWithdrawToForeignAccountDescription": "Hedef adres cüzdanınızdaki hesapların hiçbiriyle eşleşmiyor! Borsalar gibi bazı hizmetler, hesaba para yatırmak için doğrudan para çekme işlemlerini desteklemeyebilir. Daha iyi uyumluluk için öncelikle konsensüs hesabınıza para çekmenizi ve ardından {{ticker}}'ı hedef adrese aktarmanızı önemle tavsiye ederiz.",
+      "depositDescription": "<strong>{{paraTime}}</strong> {{paratimeType}}'a <strong>{{value}} {{ticker}}</strong> ila <strong>{{address}}</strong> yatırmak üzeresiniz",
+      "depositLabel": "Yatır",
+      "withdrawLabel": "Çek"
+    },
+    "footer": {
+      "back": "Geri",
+      "next": "İleri",
+      "notice": "EVMC - Ethereum Sanal Makine ile uyumlu"
+    },
+    "pageInaccessible": "Transferler mevcut değil",
+    "recipient": {
+      "depositDescription": "Lütfen alıcı adresini <strong>{{paraTime}}</strong> {{paratimeType}} alanına girin ve ardından {{nextButtonLabel}} seçeneğine tıklayın",
+      "ethPrivateKeyPlaceholder": "Ethereum uyumlu özel anahtarınızı girin",
+      "placeholder": "0x...",
+      "withdrawDescription": "Lütfen alıcı adresini fikir birliğiyle girin ve {{nextButtonLabel}} düğmesini tıklayın"
+    },
+    "selection": {
+      "cancel": "Transferi iptal et.",
+      "depositDescription": "Lütfen {{ticker}}'ınızı hangi ParaTime'a yatırmak istediğinizi seçin ve ardından {{nextButtonLabel}} seçeneğine tıklayın.",
+      "evmc": "EVMc",
+      "select": "ParaTime seç",
+      "withdrawDescription": "Lütfen {{ticker}}'ınızı hangi ParaTime'dan çekmek istediğinizi seçin ve ardından {{nextButtonLabel}} öğesine tıklayın."
+    },
+    "summary": {
+      "navigate": "ParaTime Transferlerine gidin"
+    },
+    "transfers": {
+      "deposit": "ParaTime'a yatır",
+      "depositDisabled": "Aktarılacak {{ticker}} jetonunuz yok",
+      "withdraw": "ParaTime'dan çek"
+    },
+    "unsupportedFormStep": "Desteklenmeyen adım",
+    "validation": {
+      "insufficientBalanceToPayFee": "Komisyonu ödemek için yeterli bakiyeniz yok.",
+      "invalidDecimalValue": "Maksimum {{decimals}} ondalık basamağa izin verilir",
+      "invalidEthPrivateKey": "Ethereum destekli özel anahtarınız geçerli değil.",
+      "invalidEthPrivateKeyLength": "Özel anahtarınız 64 haneli olmalıdır.",
+      "invalidFee": "Değer 0'dan büyük veya 0'a eşit bir tam sayı olmalıdır",
+      "required": "Alan gereklidir",
+      "unsupportedParaTime": "Desteklenmeyen ParaTime"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "Şifre seçin.",
+      "passwordMismatch": "Girilen paralolar uyuşmuyor",
+      "repeatPassword": "Paralonuzu tekrardan girin.",
+      "startPersisting": "Özel anahtarları bir parolayla korunarak yerel olarak saklayın",
+      "unsupported": "Kalıcılık bu tarayıcıda desteklenmiyor."
+    },
+    "loading": "Yükleniyor",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "Profili Sil",
+        "title": "Profili sil"
+      },
+      "description": "Zaten eklediğiniz cüzdanlara erişmek için bu bilgisayardaki mevcut kullanıcı profilinizde oturum açın.",
+      "enterPasswordHere": "Buraya şifrenizi girin.",
+      "hidePassword": "Parolayı sakla",
+      "showPassword": "Parolayı göster",
+      "skipUnlocking": "Profil olmadan devam et",
+      "title": "Tekrar hoşgeldiniz!",
+      "unlock": "Kilidi Aç",
+      "wrongPassword": "Yanlış şifre"
+    }
+  },
   "theme": {
     "darkMode": "Gece modu",
-    "lightMode": "Gündüz modu"
+    "lightMode": "Gündüz Modu",
+    "title": "Tema"
   },
   "toolbar": {
+    "contacts": {
+      "add": "Kontakt Ekle",
+      "address": "Adres",
+      "cancel": "İptal",
+      "delete": {
+        "button": "Kontaktı sil",
+        "confirm": "Evet, sil",
+        "description": "Bu kontaktı silmek istediğinize emin misiniz?",
+        "title": "Kontaktı sil"
+      },
+      "emptyList": "Kontratınız bulunmuyor",
+      "manage": "Kontaktı düzenle",
+      "name": "İsim",
+      "notAvailable": "Kişi eklemeye başlamak için <OpenWalletButton>bir cüzdan açarken</OpenWalletButton> bir profil oluşturun.",
+      "save": "Kaydet",
+      "validation": {
+        "addressError": "Lütfen geçerli bir cüzdan adresi girin.",
+        "addressNotUniqueError": "Adres zaten bulunuyor",
+        "nameLengthError": "16 haneden daha fazla girmeyin",
+        "required": "Bu alan gerekli."
+      }
+    },
     "networks": {
       "local": "Yerel",
       "mainnet": "Mainnet",
+      "selector": "Ağ seç",
       "testnet": "Testnet"
     },
+    "profile": {
+      "deletion": "Silme",
+      "notAvailable": "<OpenWalletButton>Bir cüzdan açarken</OpenWalletButton> profilinizi ayarlayabilirsiniz.",
+      "password": {
+        "current": "Mevcut şifre",
+        "enterCurrent": "Mevcut şifrenizi girin",
+        "enterNewPassword": "Yeni şifre",
+        "reenterNewPassword": "Yeni şifrenizi tekrar girin",
+        "submit": "Şifreyi güncelle",
+        "success": "Şifre güncellendi.",
+        "title": "Yeni bir şifre girin"
+      }
+    },
+    "settings": {
+      "accountNamingNotAvailable": "Hesabınızı adlandırmak için<OpenWalletButton>bir cüzdan açarken</OpenWalletButton> bir profil oluşturun.",
+      "cancel": "İptal",
+      "contacts": "Kontaklar",
+      "delete": {
+        "description": "Aşağıdaki hesabı silmek istediğinizden emin misiniz?",
+        "inputHelp": "Bu eylem geri alınamaz. Devam etmek için lütfen aşağıya {{confirmationKeyword}} girin.",
+        "title": "Hesabı sil",
+        "tooltip": "Her zaman en az bir hesabınızın olması gerekir."
+      },
+      "exportPrivateKey": {
+        "confirm": "Anladım, özel anahtarımı göster",
+        "copied": "Özel anahtar kopyalandı.",
+        "hint1": "Özel anahtar bir dizi karakterden oluşur. Özel anahtarınıza erişimi olan herkes, o hesabın varlıklarına doğrudan erişebilir.",
+        "hint2": "Özel anahtar kaybolduğunda geri alınamaz. Lütfen özel anahtarı yedeklediğinizden ve güvenli bir yerde sakladığınızdan emin olun.",
+        "title": "Özel Anahtarı Dışa Aktar"
+      },
+      "manageAccount": "Yönet",
+      "myAccountsTab": "Hesaplarım",
+      "nameLengthError": "En fazla 16 karakter",
+      "optionalName": "İsim: (İsteğe bağlı)",
+      "profile": "Profil",
+      "save": "Kaydet",
+      "settings": "Ayarlar"
+    },
     "wallets": {
-      "close": "Kapat",
-      "switchOtherWallet": "Başka hesaba geç",
+      "select": "Seç",
       "type": {
-        "ledger": "Ledger",
+        "bluetoothLedger": "BLE Ledger",
         "mnemonic": "Anahtar kelime",
-        "privateKey": "Özel anahtar"
+        "privateKey": "Özel anahtar",
+        "usbLedger": "USB Ledger"
       }
     }
   },
   "transaction": {
-    "abort": "İptal et",
+    "cancel": "iptal",
     "confirm": "Onayla",
     "preview": {
       "amount": "Miktar",
@@ -223,7 +481,7 @@
       "from": "Kimden",
       "gas": "Gas",
       "genesisHash": "Genesis Hash",
-      "shares": "Paylaşanlar",
+      "shares": "Gigapaylaşımlar",
       "to": "Kime",
       "type": "Tip",
       "validator": "Doğrulayıcı",
@@ -236,20 +494,20 @@
       "submitting": "İşlem gönderiliyor"
     },
     "types": {
-      "addEscrow": "Tokenları bir doğrulayıcıya devretme ve ödüller oluşturma",
-      "reclaimEscrow": "Bir doğrulayıcıya devredilen tokenları geri alma",
-      "transfer": "Tokenları bir hesabınızdan diğerine aktarma"
+      "addEscrow": "Tokenlarınızı bir doğrulayıcıya devretmek ve ödüller oluştur",
+      "reclaimEscrow": "Bir doğrulayıcıya devredilen jetonlarınızı geri talep etme",
+      "transfer": "hesabınızdan diğerine jeton gönderme"
     }
   },
   "validator": {
     "boundsNotSet": "Sınır ayarlanmadı (0% - 100%)",
     "commission": "Komisyon",
     "commissionBounds": {
-      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> şu anki dönemde {{epoch}}",
+      "current": "Geçerli Epoch {{epoch}}'ta <strong>{{lowerBound}}% - {{upperBound}}%</strong>",
       "future": "{{lowerBound}}% - {{upperBound}}%  dönemden başlıyor {{epoch}}",
       "label": "Komisyon sınırları"
     },
-    "escrow": "Escrow",
+    "escrow": "Alıkoyma",
     "fee": "İşlem ücreti",
     "name": "İsim",
     "rank": "Rütbe",

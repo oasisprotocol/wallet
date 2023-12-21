@@ -179,9 +179,12 @@ translation-ready strings. You can then export the new keys to the
 
 Updating from [Transifex]: [English translation.json] is set as an automatically
 updating resource in Transifex, so the new translation strings will appear in
-Transifex a few hours after changes are merged. After they are translated, click
-"Download for use" on each language, and create a new pull request with title
-_"i18n: Update translations from Transifex"_.
+Transifex a few hours after changes are merged. After they are translated:
+
+1. click "Download file to translate" on the target languages,
+2. `yarn run extract-messages`, and
+3. create a new pull request titled _"i18n: Update translations from
+   Transifex"_.
 
 Adding a new language:
 
