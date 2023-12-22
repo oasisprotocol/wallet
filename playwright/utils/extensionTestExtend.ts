@@ -4,9 +4,11 @@ import path from 'path'
 // Test dev build by default, but also allow testing production
 const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '../build-dev/')
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const extensionManifest = require(path.join(extensionPath, '/manifest.json'))
-const popupFile = extensionManifest.browser_action.default_popup
+const getPopupFile = () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const extensionManifest = require(path.join(extensionPath, '/manifest.json'))
+  return extensionManifest.browser_action.default_popup
+}
 
 // From https://playwright.dev/docs/chrome-extensions
 const test = base.extend<{
@@ -17,6 +19,7 @@ const test = base.extend<{
 }>({
   // eslint-disable-next-line no-empty-pattern
   context: async ({}, use) => {
+    getPopupFile() // Fail fast if extensionPath doesn't exist
     const context = await chromium.launchPersistentContext('', {
       headless: false,
       args: [`--disable-extensions-except=${extensionPath}`, `--load-extension=${extensionPath}`],
@@ -37,7 +40,7 @@ const test = base.extend<{
     await use(extensionId)
   },
   extensionPopupURL: async ({ extensionId }, use) => {
-    await use(`chrome-extension://${extensionId}/${popupFile}#`)
+    await use(`chrome-extension://${extensionId}/${getPopupFile()}#`)
   },
   extensionManifestURL: async ({ extensionId }, use) => {
     await use(`chrome-extension://${extensionId}/manifest.json`)
