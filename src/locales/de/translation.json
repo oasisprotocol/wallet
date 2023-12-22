@@ -1,0 +1,368 @@
+{
+  "account": {
+    "addEscrow": {
+      "confirmDelegatingToInactive": {
+        "title": "Bist du sicher, dass du fortfahren möchtest?"
+      },
+      "delegate": "Delegieren"
+    },
+    "addressCopied": "Adresse kopiert.",
+    "loading": "Konto wird geladen",
+    "loadingError": "Konto konnte nicht geladen werden.",
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "title": "Bist du sicher, dass du fortfahren möchtest?"
+      },
+      "enterAddress": "Adresse eingeben",
+      "enterAmount": "Betrag eingeben",
+      "recipient": "Empfänger",
+      "send": "Senden",
+      "success": "Transaktion erfolgreich gesendet. Es kann bis zu einer Minute dauern, bis die Transaktion auf deinem Konto erscheint."
+    },
+    "subnavigation": {
+      "activeDelegations": "Aktive Delegationen",
+      "mobileActiveDelegations": "Delegationen",
+      "transactions": "Transaktionen"
+    },
+    "summary": {
+      "balance": {
+        "available": "Verfügbar",
+        "debonding": "Debonding",
+        "delegations": "Staked",
+        "total": "Gesamt"
+      },
+      "noTransactionFound": "Keine Transaktionen gefunden.",
+      "noWalletIsOpen": "Um {{ticker}}-Tokens zu senden, empfangen, staken oder tauschen, <HomeLink>öffne deine Wallet</HomeLink>.",
+      "notYourAccount": "Dies ist nicht dein Konto.",
+      "yourAccount": "Dies ist dein Konto."
+    },
+    "transaction": {
+      "addEscrow": {
+        "sent": "Delegierte <Amount/> an Validator"
+      },
+      "failed": "Fehlgeschlagen",
+      "genericTransaction": {
+        "destination": "Andere Adresse"
+      },
+      "loadingError": "Transaktionen konnten nicht geladen werden.",
+      "successful": "Erfolgreich",
+      "transfer": {
+        "received": "Erhalten <Amount/>",
+        "sent": {
+          "header": "Gesendet <Amount/>"
+        }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Andere Adresse",
+        "header": "Unbekannte Transaktion, Methode '{{method}}'"
+      }
+    },
+    "validator": {
+      "loadingError": "Validatoren konnten nicht geladen werden."
+    }
+  },
+  "backends": {
+    "oasismonitor": "Oasis Monitor API",
+    "oasisscan": "Oasis Scan API"
+  },
+  "banner": {
+    "buildStaging": "Bitte beachte, dass dies die Testversion der Oasis Wallet ist. VERWENDE SIE NUR ZU TESTZWECKEN."
+  },
+  "common": {
+    "amount": "Betrag",
+    "block": "Block",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "delegator": "Delegator",
+    "from": "Von",
+    "hash": "Tx Hash",
+    "round": "Runde",
+    "time": "Zeit",
+    "to": "Zu",
+    "unavailable": "Nicht verfügbar",
+    "validator": "Validator",
+    "validators": "Validatoren"
+  },
+  "createWallet": {
+    "confirmSaved": "Ich habe meine Keyphrase gespeichert.",
+    "doNotShare": "Gib niemals deine Keyphrase weiter, denn jeder, der deine Keyphrase hat, kann auf deine Wallet und deine Token zugreifen."
+  },
+  "delegations": {
+    "activeDelegations": "Aktive Delegationen",
+    "delegatedAmount": "Delegierter Betrag",
+    "loadingError": "Delegationen konnten nicht geladen werden.",
+    "reclaimedAmount": "Betrag zur Rückerstattung"
+  },
+  "deleteForm": {
+    "confirm": "Ja, löschen",
+    "confirmationKeyword": "löschen",
+    "hint": "Typ '{{confirmationKeyword}}'"
+  },
+  "errors": {
+    "LedgerDerivedDifferentAccount": "Dieses Konto gehört nicht zu dem aktuell verbundenen Ledger.",
+    "LedgerOasisAppIsNotOpen": "Die Oasis App auf Ledger ist geschlossen.",
+    "bluetoothTransportNotSupported": "Dein Gerät unterstützt kein Bluetooth.",
+    "cannotSendToSelf": "Kann nicht an sich selbst senden",
+    "disconnectedError": "Verbindung verloren.",
+    "duplicateTransaction": "Doppelte Transaktion",
+    "insufficientBalance": "Unzureichendes Guthaben",
+    "invalidAddress": "Ungültige Adresse",
+    "invalidNonce": "Ungültige Nonce (Transaktionsnummer)",
+    "invalidPrivateKey": "Ungültiger privater Schlüssel",
+    "ledgerTransactionRejected": "Transaktion auf Ledger abgelehnt.",
+    "noOpenWallet": "Kein Wallet geöffnet",
+    "unknown": "Unbekannter Fehler: {{message}}",
+    "unknownGrpc": "Unbekannter gRPC-Fehler: {{message}}",
+    "unknownLedgerError": "Unbekannter Ledger-Fehler: {{message}}",
+    "unknownParaTimeError": "Unbekannter ParaTime-Fehler: {{message}}",
+    "usbTransportError": "USB Transportfehler: {{message}}.",
+    "usbTransportNotSupported": "Dein Browser unterstützt kein WebUSB (z.B. Firefox). Versuche es mit Chrome."
+  },
+  "fatalError": {
+    "copied": "Fehler in die Zwischenablage kopiert",
+    "copy": "Fehler in die Zwischenablage kopieren",
+    "heading": "Schwerwiegender Fehler aufgetreten"
+  },
+  "fiatOnramp": {
+    "header": "ROSE kaufen",
+    "notYourAccount": "Du kannst diese Funktion nur nutzen, wenn deine Wallet geöffnet ist.",
+    "openYourWallet": "Öffne dein Wallet",
+    "switchToMainnet": "Wechsel zu Mainnet."
+  },
+  "footer": {
+    "poweredBy": {
+      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
+      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
+    },
+    "terms": "<TermsLink>Allgemeine Geschäftsbedingungen</TermsLink>",
+    "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) gebaut um {{buildTime}}."
+  },
+  "home": {
+    "create": {
+      "button": "Wallet erstellen",
+      "header": "Neue Wallet erstellen"
+    },
+    "existing": {
+      "button": "Wallet öffnen",
+      "header": "Auf vorhandene Wallet zugreifen"
+    }
+  },
+  "infoBox": {
+    "valueCopied": "{{label}} kopiert."
+  },
+  "language": "Sprache",
+  "ledger": {
+    "extension": {
+      "connect": "Ledger-Gerät verbinden",
+      "failed": "Verbindung fehlgeschlagen",
+      "grantAccess": "Gewähre Zugriff auf dein Ledger.",
+      "succeed": "Gerät verbunden"
+    },
+    "instructionSteps": {
+      "header": "Schritte:"
+    },
+    "steps": {
+      "loadingAccounts": "Kontodetails werden geladen",
+      "loadingBluetoothDevices": "Bluetooth-Geräte werden geladen",
+      "openingUsb": "Öffne Ledger über USB"
+    }
+  },
+  "menu": {
+    "addAccounts": "Konten hinzufügen",
+    "closeWallet": "Wallet schließen",
+    "fiatOnramp": "Kaufen",
+    "home": "Home",
+    "lockProfile": "Profil sperren",
+    "openMenu": "Menü",
+    "paraTimes": "ParaTimes",
+    "stake": "Stake",
+    "unlockProfile": "Profil entsperren",
+    "wallet": "Wallet"
+  },
+  "migrateV0Extension": {
+    "finishMigration": "Öffne die neue Version der Wallet",
+    "nextStep": "Weiter",
+    "requiredField": "Dieses Feld ist erforderlich",
+    "title": "Wichtiges Wallet-Update"
+  },
+  "openWallet": {
+    "importAccounts": {
+      "accountCounter_one": "Ein Konto ausgewählt",
+      "accountCounter_zero": "Kein Konto ausgewählt",
+      "next": "Weiter",
+      "openWallets": "Öffnen",
+      "prev": "Zurück"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "Mnemonic",
+      "privateKey": "Privater Schlüssel"
+    },
+    "mnemonic": {
+      "import": "Importiere mein Wallet"
+    },
+    "privateKey": {
+      "error": "Ungültiger privater Schlüssel"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Erweitert",
+      "available": "Verfügbar:",
+      "emptyAccount": "Das Konto ist leer. Es gibt nichts abzuheben.",
+      "tooltip": "Der Maximalwert kann durch die Gebühr verringert werden."
+    },
+    "common": {
+      "cipher": "Cipher"
+    },
+    "confirmation": {
+      "confirmTransferLabel": "Ich bestätige, dass der Betrag und die Adresse korrekt sind.",
+      "confirmTransferToForeignAccount": "Ich bestätige, dass ich direkt auf ein externes Konto abheben möchte.",
+      "depositLabel": "Einzahlen",
+      "withdrawLabel": "Abheben"
+    },
+    "footer": {
+      "back": "Zurück",
+      "next": "Weiter"
+    },
+    "recipient": {
+      "placeholder": "0x..."
+    },
+    "selection": {
+      "cancel": "Übertragung abbrechen",
+      "evmc": "EVMc"
+    },
+    "transfers": {
+      "deposit": "Auf ParaTime einzahlen",
+      "withdraw": "Von ParaTime abheben"
+    },
+    "unsupportedFormStep": "Nicht unterstützter Formularschritt",
+    "validation": {
+      "insufficientBalanceToPayFee": "Unzureichendes Guthaben, um die Gebühr zu bezahlen",
+      "invalidEthPrivateKeyLength": "Der private Schlüssel sollte 64 Zeichen lang sein",
+      "invalidFee": "Der Wert muss eine ganze Zahl sein, die größer oder gleich 0 ist",
+      "required": "Feld ist erforderlich"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "Passwort wählen",
+      "repeatPassword": "Passwort erneut eingeben"
+    },
+    "loading": "Laden",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "Profil löschen",
+        "title": "Profil löschen"
+      },
+      "hidePassword": "Passwort verbergen",
+      "showPassword": "Passwort anzeigen",
+      "skipUnlocking": "Weiter ohne das Profil",
+      "title": "Willkommen zurück!",
+      "unlock": "Entsperren",
+      "wrongPassword": "Falsches Passwort"
+    }
+  },
+  "theme": {
+    "title": "Theme"
+  },
+  "toolbar": {
+    "contacts": {
+      "add": "Kontakt hinzufügen",
+      "address": "Adresse",
+      "cancel": "Abbrechen",
+      "delete": {
+        "button": "Kontakt löschen",
+        "confirm": "Ja, löschen",
+        "description": "Bist du sicher, dass du diesen Kontakt löschen möchtest?",
+        "title": "Kontakt löschen"
+      },
+      "emptyList": "Du hast noch keine Kontakte.",
+      "manage": "Kontakt verwalten",
+      "name": "Name",
+      "save": "Speichern",
+      "validation": {
+        "addressError": "Bitte gib eine gültige Wallet-Adresse ein.",
+        "addressNotUniqueError": "Adresse existiert bereits",
+        "nameLengthError": "Nicht mehr als 16 Zeichen",
+        "required": "Feld ist erforderlich"
+      }
+    },
+    "networks": {
+      "local": "Lokal",
+      "mainnet": "Mainnet",
+      "selector": "Netzwerk auswählen",
+      "testnet": "Testnet"
+    },
+    "profile": {
+      "deletion": "Löschung",
+      "password": {
+        "current": "Aktuelles Passwort",
+        "enterCurrent": "Aktuelles Passwort eingeben",
+        "enterNewPassword": "Neues Passwort",
+        "reenterNewPassword": "Erneut neues Passwort eingeben",
+        "submit": "Passwort aktualisieren",
+        "success": "Passwort aktualisiert.",
+        "title": "Setze ein neues Passwort"
+      }
+    },
+    "settings": {
+      "cancel": "Abbrechen",
+      "contacts": "Kontakte",
+      "delete": {
+        "description": "Bist du sicher, dass du das folgende Konto löschen möchtest?",
+        "inputHelp": "Diese Aktion kann nicht rückgängig gemacht werden. Um fortzufahren, gib bitte '{{confirmationKeyword}}' unten ein.",
+        "title": "Konto löschen",
+        "tooltip": "Du musst immer mindestens ein Konto haben."
+      },
+      "exportPrivateKey": {
+        "copied": "Privater Schlüssel kopiert.",
+        "hint1": "Der private Schlüssel besteht aus einer Reihe von Zeichen. Jeder, der Zugriff auf deinen privaten Schlüssel hat, hat direkten Zugriff auf das Vermögen des Kontos.",
+        "title": "Privaten Schlüssel exportieren"
+      },
+      "manageAccount": "Verwalten",
+      "myAccountsTab": "Meine Konten",
+      "nameLengthError": "Nicht mehr als 16 Zeichen",
+      "optionalName": "Name (optional)",
+      "profile": "Profil",
+      "save": "Speichern",
+      "settings": "Einstellungen"
+    },
+    "wallets": {
+      "select": "Auswählen",
+      "type": {
+        "bluetoothLedger": "BLE Ledger",
+        "mnemonic": "Mnemonic",
+        "privateKey": "Privater Schlüssel",
+        "usbLedger": "USB Ledger"
+      }
+    }
+  },
+  "transaction": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "preview": {
+      "amount": "Betrag",
+      "fee": "Gebühr",
+      "from": "Von",
+      "to": "Zu",
+      "type": "Typ",
+      "validator": "Validator"
+    },
+    "step": {
+      "preview": "Vorschau Transaktion"
+    }
+  },
+  "validator": {
+    "boundsNotSet": "Keine Grenzen festgelegt (0% - 100%)",
+    "commission": "Kommission",
+    "fee": "Gebühr",
+    "name": "Name",
+    "rank": "Rang",
+    "status": "Status",
+    "statusActive": "Aktiv",
+    "statusInactive": "Inaktiv",
+    "statusUnknown": "Unbekannt",
+    "unknownValidator": "Unbekannter Validator"
+  }
+}
