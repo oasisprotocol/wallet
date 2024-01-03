@@ -3,6 +3,7 @@
   font-family: Rubik;
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src:
     url("./../fonts/rubik/rubik-v20-latin-ext_latin-300.woff2") format("woff2"),
     url("./../fonts/rubik/rubik-v20-latin-ext_latin-300.woff") format("woff");
@@ -13,6 +14,7 @@
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src:
     url("./../fonts/roboto-mono/roboto-mono-v13-latin-300.woff2") format("woff2"),
     url("./../fonts/roboto-mono/roboto-mono-v13-latin-300.woff") format("woff");
@@ -26,6 +28,12 @@ a {
 html {
   cursor: initial;
   letter-spacing: 0.05em;
+}
+
+/* Trigger font to load earlier */
+body:before {
+  content: '';
+  font-family: Rubik, sans-serif;
 }
 
 * {
