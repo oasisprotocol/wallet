@@ -13,7 +13,6 @@ import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationL
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
 import { FiatOnramp } from 'app/pages/FiatOnrampPage'
-import { E2EPage } from 'app/pages/E2EPage'
 import { ErrorBoundary } from 'app/components/ErrorBoundary'
 
 export const commonRoutes: RouteObject[] = [
@@ -71,8 +70,14 @@ export const commonRoutes: RouteObject[] = [
     path: 'open-wallet/ledger',
     element: <FromLedger />,
   },
-  {
-    path: 'e2e',
-    element: process.env.REACT_APP_E2E_TEST ? <E2EPage /> : <div />,
-  },
 ]
+
+if (process.env.REACT_APP_E2E_TEST) {
+  commonRoutes.push({
+    path: 'e2e',
+    lazy: async () => {
+      const { E2EPage } = await import('app/pages/E2EPage')
+      return { element: <E2EPage /> }
+    },
+  })
+}
