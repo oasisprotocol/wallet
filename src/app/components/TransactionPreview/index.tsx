@@ -70,7 +70,11 @@ export const TransactionPreview = memo((props: Props) => {
             }}
             pad={{ vertical: 'xsmall', horizontal: 'small' }}
           >
-            <Text color="grayMedium" size="small" style={{ fontFamily: 'Roboto mono', letterSpacing: 0 }}>
+            <Text
+              color="grayMedium"
+              size="small"
+              style={{ fontFamily: '"Roboto mono", monospace', letterSpacing: 0 }}
+            >
               {chainContext}
             </Text>
           </Box>
