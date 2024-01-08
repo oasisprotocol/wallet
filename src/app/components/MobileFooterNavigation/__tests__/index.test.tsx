@@ -24,7 +24,6 @@ const renderComponent = (store: any, { walletHasAccounts, isMobile }: MobileFoot
 describe('<MobileFooterNavigation />', () => {
   let store: ReturnType<typeof configureAppStore>
   const mockUseParaTimesNavigationResult = {
-    canAccessParaTimesRoute: false,
     getParaTimesRoutePath: (address: string) => address,
     paraTimesRouteLabel: 'MockParaTimesLabel',
   } as ParaTimesNavigationHook
@@ -47,7 +46,7 @@ describe('<MobileFooterNavigation />', () => {
     renderComponent(store, { walletHasAccounts: true, isMobile: true })
 
     expect(screen.getByTestId('mobile-footer-navigation')).toBeInTheDocument()
-    expect(screen.queryByText('MockParaTimesLabel')).not.toBeInTheDocument()
+    expect(screen.queryByText('MockParaTimesLabel')).toBeInTheDocument()
   })
 
   it('should not render component for non mobile', () => {
@@ -60,16 +59,5 @@ describe('<MobileFooterNavigation />', () => {
     renderComponent(store, { walletHasAccounts: false, isMobile: true })
 
     expect(screen.queryByTestId('mobile-footer-navigation')).not.toBeInTheDocument()
-  })
-
-  it('should render paraTime link', () => {
-    jest.mocked(useParaTimesNavigation).mockReturnValue({
-      ...mockUseParaTimesNavigationResult,
-      canAccessParaTimesRoute: true,
-    })
-    renderComponent(store, { walletHasAccounts: true, isMobile: true })
-
-    expect(screen.getByText('MockParaTimesLabel')).toBeInTheDocument()
-    expect(screen.getByLabelText('Inherit')).toBeInTheDocument()
   })
 })

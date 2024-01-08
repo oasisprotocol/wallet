@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import * as React from 'react'
 import { Provider } from 'react-redux'
@@ -25,7 +25,6 @@ const renderComponent = (store: any) => {
 describe('<Navigation />', () => {
   let store: ReturnType<typeof configureAppStore>
   const mockUseParaTimesNavigationResult = {
-    canAccessParaTimesRoute: false,
     getParaTimesRoutePath: (address: string) => address,
     paraTimesRouteLabel: 'MockParaTimesLabel',
   } as ParaTimesNavigationHook
@@ -40,12 +39,8 @@ describe('<Navigation />', () => {
     expect(component.container.firstChild).toMatchSnapshot()
   })
 
-  it('should render paraTime link', () => {
-    jest.mocked(useParaTimesNavigation).mockReturnValue({
-      ...mockUseParaTimesNavigationResult,
-      canAccessParaTimesRoute: true,
-    })
-    renderComponent(
+  it('with account opened should match snapshot', () => {
+    const component = renderComponent(
       configureAppStore({
         wallet: {
           selectedWallet: 'dummy',
@@ -57,8 +52,6 @@ describe('<Navigation />', () => {
         },
       }),
     )
-
-    expect(screen.getByText('MockParaTimesLabel')).toBeInTheDocument()
-    expect(screen.getByLabelText('Inherit')).toBeInTheDocument()
+    expect(component.container.firstChild).toMatchSnapshot()
   })
 })

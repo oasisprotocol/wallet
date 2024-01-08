@@ -447,6 +447,9 @@ exports[`<Navigation /> should match snapshot 1`] = `
       <div
         class="c7"
       />
+      <div
+        class="c7"
+      />
     </nav>
   </div>
   <div
@@ -497,6 +500,654 @@ exports[`<Navigation /> should match snapshot 1`] = `
     >
       <div
         class="c15"
+      >
+        <svg
+          aria-label="Github"
+          class="c11"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437.55.102.75-.238.75-.53 0-.26-.009-.952-.014-1.87-3.06.664-3.706-1.475-3.706-1.475-.5-1.27-1.221-1.61-1.221-1.61-.999-.681.075-.668.075-.668 1.105.078 1.685 1.134 1.685 1.134.981 1.68 2.575 1.195 3.202.914.1-.71.384-1.195.698-1.47-2.442-.278-5.01-1.222-5.01-5.437 0-1.2.428-2.183 1.132-2.952-.114-.278-.491-1.397.108-2.91 0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128.6 1.514.223 2.633.11 2.911.705.769 1.13 1.751 1.13 2.952 0 4.226-2.572 5.156-5.022 5.428.395.34.747 1.01.747 2.037 0 1.47-.014 2.657-.014 3.017 0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"
+            fill="#333"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <div
+          class="c12"
+        />
+        <span
+          class="c6"
+        >
+          GitHub
+        </span>
+      </div>
+    </a>
+  </nav>
+</div>
+`;
+
+exports[`<Navigation /> with account opened should match snapshot 1`] = `
+.c11 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c11 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c11 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c11 *[stroke*='#'],.c11 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*='#'],.c11 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c4 {
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background: component-sidebar;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100%;
+  width: 220px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-bottom: 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 48px;
+  width: 48px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding: 0px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  background: background-oasis-blue;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+}
+
+.c13 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c5 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  height: 12px;
+}
+
+.c12 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 24px;
+}
+
+.c6 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.c15 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+  width: 100%;
+}
+
+.c15:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c15:focus > circle,
+.c15:focus > ellipse,
+.c15:focus > line,
+.c15:focus > path,
+.c15:focus > polygon,
+.c15:focus > polyline,
+.c15:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c15:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c15:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c15:focus:not(:focus-visible) > circle,.c15:focus:not(:focus-visible) > ellipse,
+.c15:focus:not(:focus-visible) > line,.c15:focus:not(:focus-visible) > path,
+.c15:focus:not(:focus-visible) > polygon,.c15:focus:not(:focus-visible) > polyline,
+.c15:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c15:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c0 {
+    padding-right: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    margin-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c1 {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c9 {
+    padding: 0px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c5 {
+    width: 6px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c7 {
+    height: 6px;
+  }
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <a
+      href="/"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3 "
+          role="figure"
+        >
+          <img
+            class="c4"
+            role="presentation"
+            src="IMAGE_MOCK"
+          />
+        </div>
+        <div
+          class="c5"
+        />
+        <span
+          class="c6"
+        >
+          Oasis Wallet
+        </span>
+      </div>
+    </a>
+  </div>
+  <div
+    class="c7"
+  />
+  <div
+    class="c8"
+  >
+    <nav
+      class="c9"
+    >
+      <a
+        aria-current="page"
+        aria-label="menu.home"
+        class="active"
+        data-testid="nav-home"
+        href="/"
+      >
+        <div
+          class="c10"
+        >
+          <svg
+            aria-label="Home"
+            class="c11"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m1 11 11-9 11 9m-8 12v-8H9v8m-5 0V9m16 14V9"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="c12"
+          />
+          <span
+            class="c6"
+          >
+            menu.home
+          </span>
+        </div>
+      </a>
+      <div
+        class="c7"
+      />
+      <a
+        aria-label="menu.wallet"
+        class=""
+        data-testid="nav-myaccount"
+        href="/account/dummy"
+      >
+        <div
+          class="c13"
+        >
+          <svg
+            aria-label="Money"
+            class="c11"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16 16c0-1.105-3.134-2-7-2s-7 .895-7 2 3.134 2 7 2 7-.895 7-2zM2 16v4.937C2 22.077 5.134 23 9 23s7-.924 7-2.063V16M9 5c-4.418 0-8 .895-8 2s3.582 2 8 2M1 7v5c0 1.013 3.582 2 8 2M23 4c0-1.105-3.1-2-6.923-2-3.824 0-6.923.895-6.923 2s3.1 2 6.923 2S23 5.105 23 4zm-7 12c3.824 0 7-.987 7-2V4M9.154 4v10.166M9 9c0 1.013 3.253 2 7.077 2C19.9 11 23 10.013 23 9"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="c12"
+          />
+          <span
+            class="c6"
+          >
+            menu.wallet
+          </span>
+        </div>
+      </a>
+      <div
+        class="c7"
+      />
+      <a
+        aria-label="menu.stake"
+        class=""
+        data-testid="nav-stake"
+        href="/account/dummy/stake"
+      >
+        <div
+          class="c13"
+        >
+          <svg
+            aria-label="LineChart"
+            class="c11"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m1 16 7-7 5 5L23 4M0 22h23.999M16 4h7v7"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="c12"
+          />
+          <span
+            class="c6"
+          >
+            menu.stake
+          </span>
+        </div>
+      </a>
+      <div
+        class="c7"
+      />
+      <a
+        aria-label="MockParaTimesLabel"
+        class=""
+        data-testid="nav-paratime"
+        href="/dummy"
+      >
+        <div
+          class="c13"
+        >
+          <svg
+            aria-label="Inherit"
+            class="c11"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m17 18-5-3 5 3zM7 18l5-3v-4m5 9a3 3 0 1 0 6 0 3 3 0 0 0-6 0zM4 17a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM17 6a5 5 0 1 1-10.001-.001A5 5 0 0 1 17 6z"
+              fill="none"
+              stroke="#231F20"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="c12"
+          />
+          <span
+            class="c6"
+          >
+            MockParaTimesLabel
+          </span>
+        </div>
+      </a>
+      <div
+        class="c7"
+      />
+      <a
+        aria-label="menu.fiatOnramp"
+        class=""
+        href="/account/dummy/fiat"
+      >
+        <div
+          class="c13"
+        >
+          <svg
+            aria-label="CreditCard"
+            class="c11"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M1 5c0-.552.44-1 1.002-1h19.996A1 1 0 0 1 23 5v14c0 .552-.44 1-1.002 1H2.002A1 1 0 0 1 1 19V5zm0 3h22v2H1V8zm4 7h2v.5H5V15zm5 0h6v.5h-6V15z"
+              fill="none"
+              stroke="#000"
+              stroke-width="2"
+            />
+          </svg>
+          <div
+            class="c12"
+          />
+          <span
+            class="c6"
+          >
+            menu.fiatOnramp
+          </span>
+        </div>
+      </a>
+    </nav>
+  </div>
+  <div
+    class="c7"
+  />
+  <nav
+    class="c14"
+  >
+    <button
+      aria-label="menu.closeWallet"
+      class="c15"
+      type="button"
+    >
+      <div
+        class="c13"
+      >
+        <svg
+          aria-label="Logout"
+          class="c11"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13 9V2H1v20h12v-7m9-3H5m12-5 5 5-5 5"
+            fill="none"
+            stroke="#231F20"
+            stroke-width="2"
+          />
+        </svg>
+        <div
+          class="c12"
+        />
+        <span
+          class="c6"
+        >
+          menu.closeWallet
+        </span>
+      </div>
+    </button>
+    <div
+      class="c7"
+    />
+    <a
+      aria-label="GitHub"
+      href="https://github.com/oasisprotocol/oasis-wallet-web"
+      rel="noopener"
+      target="_blank"
+    >
+      <div
+        class="c13"
       >
         <svg
           aria-label="Github"
