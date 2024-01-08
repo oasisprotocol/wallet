@@ -15,6 +15,7 @@
     "loading": "账户加载中",
     "loadingError": "无法加载账户",
     "reclaimEscrow": {
+      "convertedToShares": "对应的Gigashare数量：{{shares}}",
       "reclaim": "取回",
       "reclaimAll": "取回全部"
     },
@@ -28,6 +29,506 @@
       "recipient": "收款地址",
       "send": "发送",
       "success": "交易成功发送！交易可能需要一分钟才会显示在您的账户上"
+    },
+    "subnavigation": {
+      "activeDelegations": "质押进行中",
+      "debondingDelegations": "质押取回中",
+      "mobileActiveDelegations": "质押",
+      "mobileDebondingDelegations": "取回中",
+      "transactions": "交易"
+    },
+    "summary": {
+      "balance": {
+        "available": "可用",
+        "debonding": "取回中",
+        "delegations": "质押",
+        "total": "总额"
+      },
+      "noTransactionFound": "交易无法找到",
+      "noWalletIsOpen": "转账、接收、质押{{ticker}}代币，<HomeLink>打开钱包</HomeLink>",
+      "notYourAccount": "这不是您的账户",
+      "yourAccount": "这是您的账户"
+    },
+    "transaction": {
+      "addEscrow": {
+        "received": "接收到<Amount>质押委托",
+        "sent": "质押<Amount/>给节点"
+      },
+      "consensusDeposit": {
+        "received": "收到<Amount/>存款到{{runtimeName}} ParaTime",
+        "sent": "存<Amount/>到{{runtimeName}} ParaTime"
+      },
+      "consensusWithdraw": {
+        "received": "从{{runtimeName}}ParaTime取出<Amount/>",
+        "sent": "收到从{{runtimeName}}ParaTime取出的<Amount/>"
+      },
+      "explorerLink": "在区块浏览器查看转账记录",
+      "failed": "失败",
+      "genericTransaction": {
+        "destination": "其他地址",
+        "header": "方法'{{method}}'"
+      },
+      "loadingError": "无法加载交易",
+      "reclaimEscrow": {
+        "received": "质押人取回<Amount/>",
+        "sent": "从节点取回<Amount/>"
+      },
+      "stakingAllow": {
+        "received": "收到<Amount/>配额",
+        "sent": "设定<Amount/>配额"
+      },
+      "successful": "成功",
+      "transfer": {
+        "received": "收到<Amount/>",
+        "sent": {
+          "header": "转出<Amount/>"
+        }
+      },
+      "unrecognizedTransaction": {
+        "destination": "其他地址",
+        "header": "未识别的交易，方法 “{{method}}”"
+      }
+    },
+    "validator": {
+      "loadingError": "无法加载节点",
+      "showingStale": "显示节点列表{{staleTimestamp}}"
     }
+  },
+  "backends": {
+    "oasismonitor": "Oasis Monitor API",
+    "oasisscan": "Oasis Scan API"
+  },
+  "banner": {
+    "buildPreview": "注意：这是 Oasis 钱包的实验版本，您的机密信息不安全。仅供测试使用",
+    "buildStaging": "注意：这是 Oasis 钱包的测试环境。仅用于测试"
+  },
+  "common": {
+    "amount": "金额",
+    "block": "区块",
+    "cancel": "取消",
+    "confirm": "确认",
+    "delegator": "质押者",
+    "from": "从",
+    "hash": "交易哈希",
+    "round": "轮",
+    "time": "时间",
+    "to": "到",
+    "unavailable": "不可用",
+    "validator": "节点",
+    "validators": "节点"
+  },
+  "createWallet": {
+    "confirmSaved": "我已保存助记词",
+    "doNotShare": "永远不要分享您的助记词，任何人拥有您的助记词都可以访问您的钱包和代币",
+    "instruction": "将您的助记词<strong>按正确顺序</strong>保存在安全的位置，您将需要它来打开钱包",
+    "mnemonicMismatch": "助记词不匹配",
+    "newMnemonic": "生成新的助记词",
+    "thisIsYourPhrase": "这是您的助记词"
+  },
+  "delegations": {
+    "activeDelegations": "质押进行中",
+    "debondingDelegations": "质押取回中",
+    "debondingTimeEnd": "质押取回结束",
+    "delegatedAmount": "质押额",
+    "loadingError": "无法载入质押",
+    "reclaimedAmount": "取回数额"
+  },
+  "deleteForm": {
+    "confirm": "确认删除",
+    "confirmationKeyword": "删除",
+    "hint": "输入 “{{confirmationKeyword}}”"
+  },
+  "errors": {
+    "LedgerDerivedDifferentAccount": "该账户不属于当前连接的Ledger",
+    "LedgerOasisAppIsNotOpen": "Oasis 应用在 Ledger 上已关闭",
+    "bluetoothTransportNotSupported": "您的设备不支持蓝牙",
+    "cannotSendToSelf": "不能发送给自己",
+    "disconnectedError": "失去连接",
+    "duplicateTransaction": "重复交易",
+    "indexerAPIError": "{{indexerName}}似乎已经停止工作，一些信息可能缺少或过时，请稍后再回来",
+    "insufficientBalance": "余额不足",
+    "invalidAddress": "无效地址",
+    "invalidNonce": "无效的nonce（交易号）",
+    "invalidPrivateKey": "无效的私钥",
+    "ledgerAppVersionNotSupported": "Oasis 应用在 Ledger 上已关闭或未更新。请确保 Ledger 已解锁，Oasis 应用已打开并更新至最新版本",
+    "ledgerCannotOpenOasisApp": "无法在Ledger上打开Oasis应用。请确保Ledger已解锁且Oasis应用已打开",
+    "ledgerNoDeviceSelected": "未选择任何Ledger设备，请确保已连接，<LedgerHelp>检查Ledger常见的USB连接问题</LedgerHelp>，并<ChromeHelp>检查网站权限是否阻止USB设备</ChromeHelp>",
+    "ledgerTransactionRejected": "交易在Ledger上被拒绝",
+    "noOpenWallet": "未打开钱包",
+    "unknown": "未知错误：{{message}}",
+    "unknownGrpc": "未知的 gRPC 错误: {{message}}",
+    "unknownLedgerError": "未知账本错误：{{message}}",
+    "unknownParaTimeError": "未知的ParaTime错误：{{message}}",
+    "usbTransportError": "USB传输错误：{{message}}。",
+    "usbTransportNotSupported": "您的浏览器不支持WebUSB（如Firefox），请使用Chrome再试"
+  },
+  "fatalError": {
+    "copied": "错误已复制到剪贴板",
+    "copy": "复制错误到剪贴板",
+    "heading": "发生致命错误",
+    "instruction": "发生致命错误，导致Oasis钱包必须停止。尝试刷新页面并重新打开钱包，若问题仍然存在，请通过<Email/>电子邮件联系我们团队，并附上下面的报告"
+  },
+  "fiatOnramp": {
+    "astarFootnote": "特此注意，AStar Technologies作为一家开曼群岛豁免公司，代表Oasis提供服务，并且也是Oasis钱包的提供者",
+    "description": "此功能允许您将法定货币转换为加密货币",
+    "header": "购买ROSE",
+    "headerInWidget": "购买ROSE到您的钱包",
+    "notMainnet": "只有在主网上才能使用此功能",
+    "notYourAccount": "只有在您的钱包打开时才能使用此功能",
+    "openYourWallet": "打开钱包",
+    "switchToMainnet": "切换到主网",
+    "thirdPartyAcknowledge": "我了解我正在使用第三方的解决方案，Oasis*对于该解决方案的使用不承担任何责任",
+    "thirdPartyDisclaimer": "此服务由外部机构提供。Oasis*不承担任何责任。所有费用由Transak收取"
+  },
+  "footer": {
+    "github": "Oasis钱包是完全<GithubLink>开源</GithubLink>的，欢迎反馈问题！",
+    "poweredBy": {
+      "oasismonitor": "由 Oasis Monitor API 和 Oasis gRPC 支持",
+      "oasisscan": "由 Oasis Scan API 和 Oasis gRPC 支持"
+    },
+    "terms": "<TermsLink>条款</TermsLink>",
+    "version": "版本： <ReleaseLink/> （提交： <CommitLink/>）在 {{buildTime}} 构建"
+  },
+  "home": {
+    "create": {
+      "button": "创建钱包",
+      "description": "创建一个新钱包来发送、接收、质押及交易ROSE代币",
+      "header": "创建新钱包"
+    },
+    "existing": {
+      "button": "打开钱包",
+      "description": "打开存储在Ledger上的现有钱包，导入私钥或助记词",
+      "header": "访问现有钱包"
+    }
+  },
+  "infoBox": {
+    "valueCopied": "{{label}}已复制"
+  },
+  "language": "语言",
+  "ledger": {
+    "extension": {
+      "connect": "连接Ledger设备",
+      "failed": "连接失败",
+      "grantAccess": "授予 Ledger 访问权限",
+      "instructionStep": "设备连接后，继续在钱包应用中进行操作",
+      "succeed": "设备已连接"
+    },
+    "instructionSteps": {
+      "closeLedgerLive": "关闭电脑上的Ledger Live应用",
+      "connectLedger": "连接您的Ledger设备到电脑",
+      "header": "步骤：",
+      "openOasisApp": "打开Ledger设备上的Oasis应用"
+    },
+    "steps": {
+      "idle": "闲置",
+      "loadingAccounts": "正在加载帐户信息",
+      "loadingBalances": "正在加载余额详情",
+      "loadingBluetoothDevices": "正在加载蓝牙设备",
+      "openingUsb": "正在通过USB打开Ledger"
+    }
+  },
+  "menu": {
+    "addAccounts": "添加账户",
+    "closeWallet": "关闭钱包",
+    "fiatOnramp": "购买",
+    "home": "主页",
+    "lockProfile": "锁定个人资料",
+    "openMenu": "菜单",
+    "paraTimes": "ParaTimes",
+    "stake": "质押",
+    "unlockProfile": "解锁个人资料",
+    "wallet": "钱包"
+  },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "我已经安全地存储了我的私钥",
+      "description": "{{count}}个私钥存在拼写错误，新的钱包扩展程序将不会存储它们。在继续之前，请确保将将其复制并存储在其他地方，以便稍后更正",
+      "description_one": "1 个私钥存在拼写错误，新的钱包扩展程序将不会存储它们。在继续之前，请确保将将其复制并存储在其他地方，以便稍后更正",
+      "description_plural": "{{count}}个私钥存在拼写错误，新的钱包扩展程序将不会存储它们。在继续之前，请确保将将其复制并存储在其他地方，以便稍后更正",
+      "reveal": "点击以显示无效的私钥"
+    },
+    "backupMnemonic": {
+      "confirm": "我已经安全地存储了我的助记词",
+      "description": "新版本的钱包扩展应用将不再存储您的助记词。如果您丢失访问权限，该助记词是恢复您的账户的唯一方式。现在您有最后一次机会备份您的助记词。",
+      "reveal": "点击显示您的助记词"
+    },
+    "finishMigration": "打开钱包的新版本",
+    "nextStep": "下一步",
+    "requiredField": "此栏为必填项",
+    "title": "重要的钱包更新"
+  },
+  "openWallet": {
+    "bitpie": {
+      "warning": "❗ BitPie钱包用户注意：您不能直接从BitPie钱包导入助记词。 <DocsLink>请查看文档以获取详细信息。</DocsLink>"
+    },
+    "header": "您想如何打开钱包？",
+    "importAccounts": {
+      "accountCounter": "{{count}}个账户已选择",
+      "accountCounter_one": "一个账户被选中",
+      "accountCounter_plural": "{{count}}个账户已选择",
+      "accountCounter_zero": "未选择帐户",
+      "next": "下一步",
+      "openWallets": "打开",
+      "pageNumber": "第 {{pageNum}} 页，共 {{totalPages}} 页",
+      "prev": "上一页",
+      "selectWallets": "选择要打开的账户"
+    },
+    "ledger": {
+      "header": "从Ledger设备打开"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "助记词",
+      "privateKey": "私钥"
+    },
+    "mnemonic": {
+      "enterPhraseHere": "输入您的助记词",
+      "error": "无效的助记词，请确保顺序正确且所有字母均为小写",
+      "header": "输入您的助记词",
+      "import": "导入我的钱包",
+      "instruction": "输入助记词，用空格分隔。大部分助记词由24个或12个单词组成"
+    },
+    "privateKey": {
+      "enterPrivateKeyHere": "输入您的私钥",
+      "error": "无效的私钥",
+      "header": "输入您的私钥",
+      "hidePrivateKey": "隐藏私钥",
+      "instruction": "输入Base64格式的私钥",
+      "showPrivateKey": "显示私钥"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "advanced": "高级",
+      "available": "可用：",
+      "depositDescription": "请输入要存入的{{ticker}}金额，然后点击\"{{nextButtonLabel}}\"。",
+      "emptyAccount": "账户是空的。无金额可提取。",
+      "feeAmountPlaceholder": "费用金额（十亿分之一 {{ticker}}）",
+      "feeGasPlaceholder": "Gas费",
+      "max": "最大",
+      "tooltip": "最大值或因费用而减少",
+      "withdrawDescription": "请输入要提取的{{ticker}}金额，然后点击\"{{nextButtonLabel}}\""
+    },
+    "common": {
+      "cipher": "Cipher",
+      "depositHeader": "存入ParaTime",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "header": "ParaTime转账",
+      "sapphire": "Sapphire",
+      "withdrawHeader": "从ParaTime提款"
+    },
+    "confirmation": {
+      "confirmDepositDescription": "请确认存款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
+      "confirmDepositToForeignAccountDescription": "目标地址与您钱包中的任何帐户不匹配！一些服务（如交易所）可能不支持直接存款来到您的帐户。为了更好的兼容性，我们强烈建议您首先存入您的ParaTime帐户，然后将{{ticker}}转移到目标地址。",
+      "confirmTransferLabel": "我确认金额和地址是正确的",
+      "confirmTransferToForeignAccount": "我确认我想直接提取到外部账户",
+      "confirmTransferToValidatorDescription": "这是一个节点钱包地址。向此地址转账不会将您的资金质押到该节点。",
+      "confirmTransferToValidatorLabel": "我确认我想转账{{ticker}}到节点地址",
+      "confirmWithdrawDescription": "请确认提款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
+      "confirmWithdrawToForeignAccountDescription": "目标地址与您钱包中的帐户不匹配！一些服务（如交易所）可能不支持直接提取资金到该帐户。为了更好的兼容性，我们强烈建议您先提取到您的共识层账户，然后将{{ticker}}转账到目标地址",
+      "depositDescription": "您即将在<strong>{{paraTime}}</strong> {{paratimeType}}将<strong>{{value}} {{ticker}}</strong>存入<strong>{{address}}</strong>。",
+      "depositLabel": "存款",
+      "withdrawDescription": "您即将从<strong>{{paraTime}}</strong>{{paratimeType}}提取<strong>{{value}} {{ticker}}</strong>到<strong>{{address}}</strong>",
+      "withdrawLabel": "取回"
+    },
+    "error": {
+      "depositDescription": "交易失败。我们无法完成在 <strong>{{paraTime}}</strong>{{paratimeType}}上转账到<strong>{{address}}</strong>的<strong>{{value}}{{ticker}}</strong>的存入交易",
+      "withdrawDescription": "交易失败。我们无法完成在<strong>{{paraTime}}</strong>{{paratimeType}}上转账到<strong>{{address}}</strong>的<strong>{{value}}{{ticker}}</strong>的取回交易"
+    },
+    "footer": {
+      "back": "后退",
+      "next": "前进",
+      "notice": "* EVMc - 兼容以太坊虚拟机"
+    },
+    "pageInaccessible": "转账不可用",
+    "recipient": {
+      "depositDescription": "请在<strong>{{paraTime}}</strong> {{paratimeType}}上输入收款地址，然后点击“{{nextButtonLabel}}”",
+      "ethPrivateKeyPlaceholder": "输入以太坊兼容的私钥",
+      "evmcWithdrawDescription": "请输入ParaTime上的账户私钥，在共识层上的接收地址，然后点击\"{{nextButtonLabel}}\"",
+      "placeholder": "0x...",
+      "withdrawDescription": "请输入在共识层上的收款地址并点击\"{{nextButtonLabel}}\""
+    },
+    "selection": {
+      "cancel": "取消转账",
+      "depositDescription": "请选择您希望将{{ticker}}存入的ParaTime，然后点击\"{{nextButtonLabel}}\"",
+      "evmc": "EVMc",
+      "select": "选择一个ParaTime",
+      "withdrawDescription": "请选择您希望从哪个ParaTime提取{{ticker}}，然后点击\"{{nextButtonLabel}}\""
+    },
+    "summary": {
+      "depositDescription": "您已成功在<strong>{{paraTime}}</strong>{{paratimeType}}上存入<strong>{{value}}{{ticker}}</strong>至<strong>{{address}}</strong> ",
+      "navigate": "跳转到ParaTime转账",
+      "withdrawDescription": "您已成功从<strong>{{paraTime}}</strong> {{paratimeType}}提取<strong>{{value}} {{ticker}}</strong>至<strong>{{address}}</strong>"
+    },
+    "transfers": {
+      "deposit": "存到ParaTime",
+      "depositDisabled": "您没有任何{{ticker}}代币可转移",
+      "description": "点击“{{depositButtonLabel}}”按钮，将您的{{ticker}}从共识层存入您选择的ParaTime，或点击“{{withdrawButtonLabel}}”按钮，将您的{{ticker}}从ParaTime取回到共识层。",
+      "withdraw": "从ParaTime取回"
+    },
+    "unsupportedFormStep": "不支持的表单步骤",
+    "validation": {
+      "insufficientBalanceToPayFee": "余额不足以支付费用",
+      "invalidDecimalValue": "最多允许{{decimals}}位小数",
+      "invalidEthPrivateKey": "以太坊兼容私钥无效",
+      "invalidEthPrivateKeyLength": "私钥需为64个字符长度",
+      "invalidFee": "值必须是大于或等于0的整数",
+      "required": "栏为必填",
+      "unsupportedParaTime": "不支持的ParaTime"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "choosePassword": "选择一个密码",
+      "passwordMismatch": "输入的密码不匹配",
+      "repeatPassword": "重新输入您的密码",
+      "startPersisting": "本地存储私钥，通过密码保护",
+      "unsupported": "Persistence 在此浏览器中不受支持 "
+    },
+    "loading": "加载中",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "删除个人资料",
+        "description": "你确定要删除个人资料吗？此操作无法撤销，并将<strong>擦除您的私钥</strong>。<br/><br/>要继续，请在下方输入“{{confirmationKeyword}}”。",
+        "title": "删除个人资料"
+      },
+      "description": "登录您在此计算机上的现有用户档案，以访问您已添加的钱包。",
+      "enterPasswordHere": "在此输入密码",
+      "hidePassword": "隐藏密码",
+      "showPassword": "显示密码",
+      "skipUnlocking": "跳过个人资料，继续",
+      "title": "欢迎回来！",
+      "unlock": "解锁",
+      "wrongPassword": "密码错误"
+    }
+  },
+  "theme": {
+    "darkMode": "黑夜模式",
+    "lightMode": "浅色模式",
+    "title": "主题"
+  },
+  "toolbar": {
+    "contacts": {
+      "add": "添加联系人",
+      "address": "地址",
+      "cancel": "取消",
+      "delete": {
+        "button": "删除联系人",
+        "confirm": "确认删除",
+        "description": "确定要删除这个联系人吗？",
+        "title": "删除联系人"
+      },
+      "emptyList": "未添加联系人",
+      "manage": "管理联系人",
+      "name": "名称",
+      "notAvailable": "开始添加联系人时，请在<OpenWalletButton>打开钱包</OpenWalletButton>时创建个人资料。",
+      "save": "保存",
+      "validation": {
+        "addressError": "请输入一个有效的钱包地址",
+        "addressNotUniqueError": "地址已存在",
+        "nameLengthError": "不超过16个字符",
+        "required": "栏为必填"
+      }
+    },
+    "networks": {
+      "local": "本地",
+      "mainnet": "主网",
+      "selector": "选择网络",
+      "testnet": "测试网"
+    },
+    "profile": {
+      "deletion": "删除",
+      "notAvailable": "您可以在<OpenWalletButton>打开钱包</OpenWalletButton>时设置个人资料",
+      "password": {
+        "current": "当前密码",
+        "enterCurrent": "输入您当前的密码",
+        "enterNewPassword": "新密码",
+        "reenterNewPassword": "重新输入新密码",
+        "submit": "更新密码",
+        "success": "密码已更新",
+        "title": "设置一个新密码"
+      }
+    },
+    "settings": {
+      "accountNamingNotAvailable": "命名账户时，请创建个人资料，同时<OpenWalletButton>打开钱包</OpenWalletButton>",
+      "cancel": "取消",
+      "contacts": "联系人",
+      "delete": {
+        "description": "您确定要删除以下账户吗？",
+        "inputHelp": "此操作无法撤销。若要继续，请在下方输入“{{confirmationKeyword}}”",
+        "title": "删除账户",
+        "tooltip": "你必须始终拥有至少一个账户"
+      },
+      "exportPrivateKey": {
+        "confirm": "明白，显示我的私钥",
+        "copied": "私钥已复制",
+        "hint1": "私钥由一串字符组成，拥有私钥任何的人都可以直接访问该账户的资产。",
+        "hint2": "一旦私钥丢失，将无法找回。请确保备份私钥并将其保存在安全的地方。",
+        "title": "导出私钥"
+      },
+      "manageAccount": "管理",
+      "myAccountsTab": "我的账户",
+      "nameLengthError": "不超过16个字符",
+      "optionalName": "名称（非必填）",
+      "profile": "个人资料",
+      "save": "保存",
+      "settings": "设置"
+    },
+    "wallets": {
+      "select": "选择",
+      "type": {
+        "bluetoothLedger": "BLE Ledger",
+        "mnemonic": "助记词",
+        "privateKey": "私钥",
+        "usbLedger": "USB Ledger"
+      }
+    }
+  },
+  "transaction": {
+    "cancel": "取消",
+    "confirm": "确认",
+    "preview": {
+      "amount": "金额",
+      "fee": "费用",
+      "from": "从",
+      "gas": "Gas",
+      "genesisHash": "创世哈希",
+      "shares": "Gigashares",
+      "to": "至",
+      "type": "类型",
+      "validator": "节点",
+      "warning": "一旦您确认此交易，您将无法取消。请仔细审查，确保无误后确认发送。"
+    },
+    "step": {
+      "building": "建立交易中",
+      "preview": "预览交易",
+      "signing": "签署交易中",
+      "submitting": "提交交易中"
+    },
+    "types": {
+      "addEscrow": "质押代币到节点并获得奖励",
+      "reclaimEscrow": "取回质押在节点的代币",
+      "transfer": "从您的账户发送代币到其他账户"
+    }
+  },
+  "validator": {
+    "boundsNotSet": "没有设置边界（0% - 100%）",
+    "commission": "佣金",
+    "commissionBounds": {
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> 在当前 Epoch {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}% 从 Epoch {{epoch}} 开始",
+      "label": "佣金范围"
+    },
+    "escrow": "托管",
+    "fee": "费用",
+    "name": "名称",
+    "rank": "等级",
+    "status": "状态",
+    "statusActive": "活跃",
+    "statusInactive": "停用",
+    "statusUnknown": "未知",
+    "totalEscrow": "总托管额",
+    "unknownValidator": "未知的节点"
   }
 }
