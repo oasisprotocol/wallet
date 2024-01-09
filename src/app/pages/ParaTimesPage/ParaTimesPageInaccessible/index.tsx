@@ -12,3 +12,13 @@ export const ParaTimesPageInaccessibleForeign = () => {
     />
   )
 }
+
+export const ParaTimesPageInaccessibleLedger = () => {
+  const { t } = useTranslation()
+  return (
+    <ParaTimeContent
+      header={t('paraTimes.common.header', 'ParaTime Transfers')}
+      description={t('paraTimes.pageInaccessible.ledgerAccount', 'Ledger account is not supported.')}
+    />
+  )
+}

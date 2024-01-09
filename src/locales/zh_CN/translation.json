@@ -342,7 +342,8 @@
       "notice": "* EVMc - 兼容以太坊虚拟机"
     },
     "pageInaccessible": {
-      "foreignAccount": "转账不可用"
+      "foreignAccount": "转账不可用",
+      "ledgerAccount": "暂不支持Ledger账户"
     },
     "recipient": {
       "depositDescription": "请在<strong>{{paraTime}}</strong> {{paratimeType}}上输入收款地址，然后点击“{{nextButtonLabel}}”",
