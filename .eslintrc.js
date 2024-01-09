@@ -67,6 +67,16 @@ const noGoogleTranslateCrashingSyntax = [
     message:
       'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
   },
+
+  // TODO: Nesting is not supported. Detect it as error for now
+  {
+    selector: 'JSXElement > JSXExpressionContainer > ConditionalExpression > ConditionalExpression',
+    message: 'noGoogleTranslateCrashingSyntax can not check nested conditions.',
+  },
+  {
+    selector: 'JSXElement > JSXExpressionContainer > ConditionalExpression > LogicalExpression',
+    message: 'noGoogleTranslateCrashingSyntax can not check nested conditions.',
+  },
 ]
 
 /** @type { import('eslint').Linter.Config } */

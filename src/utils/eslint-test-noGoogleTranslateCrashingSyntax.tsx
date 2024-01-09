@@ -193,3 +193,44 @@ const textAfterTernaryOperator = (
     </span>
   </div>
 )
+
+const nestedConditionsAreNotSupported = (
+  <div>
+    <span>
+      <span>good</span>
+      {/* eslint-disable-next-line no-restricted-syntax -- Unsupported */}
+      {!condition ? <span>good</span> : !condition ? <span>good</span> : <span>good</span>}
+    </span>
+    <span>
+      {/* eslint-disable-next-line no-restricted-syntax -- Unsupported */}
+      {!condition ? <span>good</span> : !condition ? <span>good</span> : <span>good</span>}
+      bad
+    </span>
+    <span>
+      <span>good</span>
+      {/* eslint-disable-next-line no-restricted-syntax -- Unsupported */}
+      {!condition ? <span>good</span> : !condition && <span>good</span>}
+    </span>
+    <span>
+      <span>good</span>
+      {/* eslint-disable-next-line no-restricted-syntax -- Unsupported */}
+      {!condition ? <span>good</span> : !condition && 'bad'}
+    </span>
+    <span>
+      <span>good</span>
+      {!condition ? (
+        <span>good</span>
+      ) : // eslint-disable-next-line no-restricted-syntax -- Unsupported
+      !condition ? (
+        <span>good</span>
+      ) : !condition ? (
+        <>
+          bad
+          <span>good</span>
+        </>
+      ) : (
+        true && 'bad'
+      )}
+    </span>
+  </div>
+)
