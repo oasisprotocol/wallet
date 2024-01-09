@@ -378,7 +378,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 }
 
 .c0 {
-  font-family: Rubik;
+  font-family: Rubik,sans-serif;
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;

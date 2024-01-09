@@ -34,7 +34,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 .c0 {
-  font-family: Rubik;
+  font-family: Rubik,sans-serif;
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
@@ -1107,7 +1107,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 >
                   <span
                     class="c15"
-                    style="font-family: Roboto mono; letter-spacing: 0;"
+                    style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
                   >
                     <span
                       class="notranslate"

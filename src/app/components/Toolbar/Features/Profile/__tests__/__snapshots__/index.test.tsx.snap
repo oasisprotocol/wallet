@@ -34,7 +34,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 .c0 {
-  font-family: Rubik;
+  font-family: Rubik,sans-serif;
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;

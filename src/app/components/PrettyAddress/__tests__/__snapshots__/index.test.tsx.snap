@@ -8,7 +8,7 @@ exports[`<PrettyAddress  /> should match snapshot 1`] = `
 
 <span
   class="c0"
-  style="font-family: Roboto mono; letter-spacing: 0;"
+  style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
 >
   <span
     class="notranslate"
@@ -27,7 +27,7 @@ exports[`<PrettyAddress  /> should split the address 1`] = `
 
 <span
   class="c0"
-  style="font-family: Roboto mono; letter-spacing: 0;"
+  style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
 >
   <span
     class="notranslate"

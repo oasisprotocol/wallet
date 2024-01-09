@@ -190,7 +190,7 @@ const grommetCustomTheme: ThemeType = {
       },
     },
     font: {
-      family: 'Rubik',
+      family: 'Rubik, sans-serif',
     },
   },
   notification: {

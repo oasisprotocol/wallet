@@ -215,7 +215,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
         >
           <span
             class="c6"
-            style="font-family: Roboto mono; letter-spacing: 0;"
+            style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
           >
             <span
               class="notranslate"

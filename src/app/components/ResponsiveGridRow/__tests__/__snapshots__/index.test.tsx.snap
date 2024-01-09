@@ -2,7 +2,7 @@
 
 exports[`<AddressPreviewRow  /> should match snapshot 1`] = `
 .c0 {
-  font-family: Rubik;
+  font-family: Rubik,sans-serif;
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
@@ -81,7 +81,7 @@ exports[`<AddressPreviewRow  /> should match snapshot 1`] = `
         </span>
         <span
           class="c5"
-          style="font-family: Roboto mono; letter-spacing: 0;"
+          style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
         >
           <span
             class="notranslate"

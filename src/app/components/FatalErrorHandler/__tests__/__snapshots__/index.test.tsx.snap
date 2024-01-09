@@ -2,7 +2,7 @@
 
 exports[`<FatalErrorHandler /> should be null without an error 1`] = `
 .c0 {
-  font-family: Rubik;
+  font-family: Rubik,sans-serif;
   font-size: 18px;
   line-height: 24px;
   background-color: #ffffff;
