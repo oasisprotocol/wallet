@@ -46,7 +46,7 @@ describe('<ParaTimes />', () => {
 
     render(<ParaTimes />)
 
-    expect(screen.getByText('paraTimes.pageInaccessible')).toBeInTheDocument()
+    expect(screen.getByText('paraTimes.pageInaccessible.foreignAccount')).toBeInTheDocument()
     expect(screen.queryByText('paraTimes.transfers.deposit')).not.toBeInTheDocument()
     expect(screen.queryByText('paraTimes.transfers.withdraw')).not.toBeInTheDocument()
   })

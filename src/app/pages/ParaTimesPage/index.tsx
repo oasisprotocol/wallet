@@ -7,7 +7,7 @@ import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { TransactionFormSteps } from 'app/state/paratimes/types'
 import { ExhaustedTypeError } from 'types/errors'
-import { ParaTimesPageInaccessible } from './ParaTimesPageInaccessible'
+import { ParaTimesPageInaccessibleForeign } from './ParaTimesPageInaccessible'
 import { ParaTimeTransferType } from './ParaTimeTransferType'
 import { ParaTimeSelection } from './ParaTimeSelection'
 import { TransactionRecipient } from './TransactionRecipient'
@@ -55,13 +55,17 @@ export const ParaTimes = () => {
     clearTransactionForm()
   }, [clearTransactionForm, selectedNetwork])
 
+  if (!isAddressInWallet) {
+    return (
+      <Box pad="medium" background="background-front" align="center">
+        <ParaTimesPageInaccessibleForeign />
+      </Box>
+    )
+  }
+
   return (
     <Box pad="medium" background="background-front" align="center">
-      {isAddressInWallet ? (
-        <ActiveFormStepComponent step={transactionFormStep} />
-      ) : (
-        <ParaTimesPageInaccessible />
-      )}
+      <ActiveFormStepComponent step={transactionFormStep} />
     </Box>
   )
 }
