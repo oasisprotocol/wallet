@@ -40,7 +40,7 @@ export interface MobileFooterNavigationProps {
 export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFooterNavigationProps) => {
   const { t } = useTranslation()
   const address = useSelector(selectAddress)
-  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
+  const { getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const getMenuItems = useMemo(() => {
     const menuItems = [
       {
@@ -53,15 +53,11 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
         Icon: LineChart,
         to: `/account/${address}/stake`,
       },
-      ...(canAccessParaTimesRoute
-        ? [
-            {
-              label: paraTimesRouteLabel,
-              Icon: Inherit,
-              to: getParaTimesRoutePath(address!),
-            },
-          ]
-        : []),
+      {
+        label: paraTimesRouteLabel,
+        Icon: Inherit,
+        to: getParaTimesRoutePath(address!),
+      },
       ...(IS_FIAT_ONRAMP_ENABLED
         ? [
             {
@@ -73,7 +69,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
         : []),
     ]
     return menuItems
-  }, [address, canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel, t])
+  }, [address, getParaTimesRoutePath, paraTimesRouteLabel, t])
 
   if (!isMobile || !walletHasAccounts) {
     return null

@@ -333,7 +333,9 @@
       "next": "İleri",
       "notice": "EVMC - Ethereum Sanal Makine ile uyumlu"
     },
-    "pageInaccessible": "Transferler mevcut değil",
+    "pageInaccessible": {
+      "foreignAccount": "Transferler mevcut değil"
+    },
     "recipient": {
       "depositDescription": "Lütfen alıcı adresini <strong>{{paraTime}}</strong> {{paratimeType}} alanına girin ve ardından {{nextButtonLabel}} seçeneğine tıklayın",
       "ethPrivateKeyPlaceholder": "Ethereum uyumlu özel anahtarınızı girin",

@@ -259,7 +259,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
 function SidebarMenuItems() {
   const address = useSelector(selectAddress)
   const { t } = useTranslation()
-  const { canAccessParaTimesRoute, getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
+  const { getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const menu = {
     home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
     wallet: (
@@ -304,8 +304,7 @@ function SidebarMenuItems() {
       {menu.home}
       {menu.wallet}
       {menu.stake}
-      {/* eslint-disable-next-line no-restricted-syntax -- menu.paraTimes is not a plain text node */}
-      {canAccessParaTimesRoute && menu.paraTimes}
+      {menu.paraTimes}
       {/* eslint-disable-next-line no-restricted-syntax -- menu.fiatOnramp is not a plain text node */}
       {IS_FIAT_ONRAMP_ENABLED && menu.fiatOnramp}
     </Nav>

@@ -271,7 +271,9 @@
       "back": "Nazaj",
       "next": "Naprej"
     },
-    "pageInaccessible": "Prenosi niso na voljo",
+    "pageInaccessible": {
+      "foreignAccount": "Prenosi niso na voljo"
+    },
     "recipient": {
       "placeholder": "0x..."
     },

@@ -341,7 +341,10 @@
       "next": "Next",
       "notice": "* EVMc - compatible with Ethereum Virtual Machine"
     },
-    "pageInaccessible": "Transfers are not available.",
+    "pageInaccessible": {
+      "foreignAccount": "Transfers are not available.",
+      "ledgerAccount": "Ledger account is not supported."
+    },
     "recipient": {
       "depositDescription": "Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click \"{{nextButtonLabel}}\"",
       "ethPrivateKeyPlaceholder": "Enter Ethereum-compatible private key",

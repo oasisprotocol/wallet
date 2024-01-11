@@ -106,7 +106,7 @@ exports[`<ParaTimesPageInaccessible /> should render component 1`] = `
         class="c3"
         data-testid="paraTime-content-description"
       >
-        paraTimes.pageInaccessible
+        paraTimes.pageInaccessible.foreignAccount
       </span>
     </div>
     <div
