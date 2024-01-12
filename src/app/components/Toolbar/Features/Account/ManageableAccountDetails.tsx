@@ -41,7 +41,9 @@ const StyledForm = styled(Form)`
   justify-content: space-between;
 ` as typeof Form
 
-const StyledDeleteButton = styled(Button)``
+const StyledDeleteButton = styled(Button)`
+  text-align: center;
+`
 StyledDeleteButton.defaultProps = {
   plain: true,
   color: 'status-error',
@@ -127,7 +129,7 @@ export const ManageableAccountDetails = ({
                     <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
                   </Text>
                 </Box>
-                <Box justify="between" direction="row" gap="medium">
+                <Box justify="between" direction="row-responsive" gap="large">
                   <Button
                     label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
                     disabled={!wallet.privateKey}
