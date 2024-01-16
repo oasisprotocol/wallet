@@ -29,7 +29,7 @@ export async function deriveKeyFromPassword(
   }
 }
 
-export async function encryptWithKey<T>(keyWithSalt: KeyWithSalt, dataObj: T): Promise<EncryptedString> {
+export async function encryptWithKey<T>(keyWithSalt: KeyWithSalt, dataObj: T): Promise<EncryptedString<T>> {
   const dataBytes = new TextEncoder().encode(JSON.stringify(dataObj))
   const nonce = nacl.randomBytes(nacl.secretbox.nonceLength)
   const encryptedObj: EncryptedObject = {
@@ -37,11 +37,14 @@ export async function encryptWithKey<T>(keyWithSalt: KeyWithSalt, dataObj: T): P
     nonce: nonce,
     salt: keyWithSalt.salt,
   }
-  const encryptedString = base64andStringify(encryptedObj)
+  const encryptedString = base64andStringify(encryptedObj) as EncryptedString<T>
   return encryptedString
 }
 
-export async function decryptWithPassword<T>(password: string, encryptedString: EncryptedString): Promise<T> {
+export async function decryptWithPassword<T>(
+  password: string,
+  encryptedString: EncryptedString<T>,
+): Promise<T> {
   const encryptedObj = fromBase64andParse<EncryptedObject>(encryptedString)
   const derivedKeyWithSalt = await deriveKeyFromPassword(password, encryptedObj.salt)
   const dataBytes = nacl.secretbox.open(encryptedObj.secretbox, encryptedObj.nonce, derivedKeyWithSalt.key)

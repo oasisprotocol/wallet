@@ -1,6 +1,6 @@
 import { runtimeIs } from '../config'
 import { decrypt as metamaskDecrypt } from '@metamask/browser-passworder'
-import { PersistedRootState } from '../app/state/persist/types'
+import { EncryptedString, PersistedRootState } from '../app/state/persist/types'
 import { initialState as initialNetworkState } from '../app/state/network'
 import { Wallet, WalletType } from '../app/state/wallet/types'
 import { hex2uint, uint2hex } from '../app/lib/helpers'
@@ -8,7 +8,6 @@ import { OasisKey } from '../app/lib/key'
 import { PasswordWrongError } from '../types/errors'
 import { LanguageKey } from '../locales/i18n'
 
-type EncryptedString<T> = string & { encryptedType: T }
 export type StringifiedType<T> = string & { stringifiedType: T }
 
 export type EncryptedData = EncryptedString<

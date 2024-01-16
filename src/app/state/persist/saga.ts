@@ -71,12 +71,17 @@ function* setPasswordAsync(password: string) {
   const keyWithSalt = yield* call(deriveKeyFromPassword, password)
   const encryptedState = yield* call(encryptState, latestState, keyWithSalt)
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
-  const unlockedPayload = yield* call(decryptState, window.localStorage.getItem(STORAGE_FIELD)!, password)
+  const encryptedState2 = window.localStorage.getItem(
+    STORAGE_FIELD,
+  ) as EncryptedString<PersistedRootState> | null
+  const unlockedPayload = yield* call(decryptState, encryptedState2!, password)
   yield* put(persistActions.setUnlockedRootState(unlockedPayload))
 }
 
 function* unlockAsync(action: ReturnType<typeof persistActions.unlockAsync>) {
-  const encryptedState: EncryptedString | null = window.localStorage.getItem(STORAGE_FIELD)
+  const encryptedState = window.localStorage.getItem(
+    STORAGE_FIELD,
+  ) as EncryptedString<PersistedRootState> | null
   if (!encryptedState) throw new Error('Unexpected unlock action while no state is locked')
   try {
     const unlockedPayload = yield* call(decryptState, encryptedState, action.payload.password)
@@ -91,7 +96,9 @@ function* unlockAsync(action: ReturnType<typeof persistActions.unlockAsync>) {
 }
 
 function* updatePasswordAsync(action: ReturnType<typeof persistActions.updatePasswordAsync>) {
-  const encryptedState: EncryptedString | null = window.localStorage.getItem(STORAGE_FIELD)
+  const encryptedState = window.localStorage.getItem(
+    STORAGE_FIELD,
+  ) as EncryptedString<PersistedRootState> | null
   if (!encryptedState) throw new Error('Unexpected update password action while no state is locked')
   try {
     // used only for a current password validation, doesn't use decrypted result
@@ -152,7 +159,10 @@ function* finishV0Migration(action: ReturnType<typeof persistActions.finishV0Mig
 }
 
 // Encrypting
-async function encryptState(state: RootState, keyWithSalt: KeyWithSalt): Promise<EncryptedString> {
+async function encryptState(
+  state: RootState,
+  keyWithSalt: KeyWithSalt,
+): Promise<EncryptedString<PersistedRootState>> {
   const persistedRootState: PersistedRootState = {
     contacts: state.contacts,
     evmAccounts: state.evmAccounts,
@@ -165,7 +175,7 @@ async function encryptState(state: RootState, keyWithSalt: KeyWithSalt): Promise
 }
 
 async function decryptState(
-  encryptedState: EncryptedString,
+  encryptedState: EncryptedString<PersistedRootState>,
   password: string,
 ): Promise<SetUnlockedRootStatePayload> {
   const persistedRootState: PersistedRootState = await decryptWithPassword(password, encryptedState)
