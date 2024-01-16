@@ -98,6 +98,10 @@
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
+  "banner": {
+    "buildPreview": "Uporabljate eksperimentalno različico Oasis Walleta in vaši ključi so morda ogroženi. UPORABLJAJTE LE KLJUČE ZA TESTIRANJE.",
+    "buildStaging": "Uporabljate razvojno različico Oasis Walleta. UPORABLJAJTE GA LE ZA TESTIRANJE."
+  },
   "common": {
     "amount": "Znesek",
     "block": "Blok",
@@ -129,8 +133,15 @@
     "loadingError": "Ni mogoče naložiti delegacij.",
     "reclaimedAmount": "Vračilo"
   },
+  "deleteForm": {
+    "confirm": "Da, izbriši",
+    "confirmationKeyword": "izbriši",
+    "hint": "Vtipkajte '{{confirmationKeyword}}'"
+  },
   "errors": {
+    "LedgerDerivedDifferentAccount": "Račun ne pripada trenutno povezanemu Ledgerju",
     "LedgerOasisAppIsNotOpen": "Oasis App na Ledgerju je zaprt.",
+    "bluetoothTransportNotSupported": "Vaša naprava ne podpira Bluetootha.",
     "cannotSendToSelf": "Ni mogoče pošiljati samemu sebi",
     "disconnectedError": "Izgubljena povezava.",
     "duplicateTransaction": "Podvojena transakcija",
@@ -157,6 +168,18 @@
     "heading": "Pojavila se je usodna napaka",
     "instruction": "Pojavila se je usodna napaka in Oasis Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
+  "fiatOnramp": {
+    "astarFootnote": "AStar Technologies, registrirana na Kajmanskih otokih, deluje v imenu in za namene Oasisa in je tudi ponudnik Oasis Walleta.",
+    "description": "Ta funkcionalnost omogoča pretvorbo fiat valute v kripto valuto.",
+    "header": "Kupi ROSE",
+    "headerInWidget": "Kupi ROSE in ga prenesi v denarnico",
+    "notMainnet": "To funkcionalnost lahko uporabljate le, če ste povezani na Mainnet.",
+    "notYourAccount": "To funkcionalnost lahko uporabljate le, če imate denarnico odprto.",
+    "openYourWallet": "Odpri denarnico",
+    "switchToMainnet": "Preklopi na Mainnet",
+    "thirdPartyAcknowledge": "Strinjam se, da bom uporabil zunanjo storitev in Oasis* ne nosi odgovornosti za uporabo te storitve.",
+    "thirdPartyDisclaimer": "Storitev opravlja zunanje izvajalec. Oasis* ne nosi odgovornosti za njeno delovanje. Vse provizije zaračuna ponudnik Transak."
+  },
   "footer": {
     "github": "Oasis Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
     "poweredBy": {
@@ -178,6 +201,10 @@
       "header": "Odpri denarnico"
     }
   },
+  "infoBox": {
+    "valueCopied": "{{label}} kopiran."
+  },
+  "language": "Jezik",
   "ledger": {
     "extension": {
       "connect": "Priklopi Ledger",
@@ -196,17 +223,39 @@
       "idle": "Na voljo",
       "loadingAccounts": "Nalaganje podrobnosti računa",
       "loadingBalances": "Nalaganje podrobnosti stanja",
+      "loadingBluetoothDevices": "Nalaganje naprav bluetooth",
       "openingUsb": "Odpiranje Ledgerja prek USB"
     }
   },
   "menu": {
+    "addAccounts": "Dodaj račune",
     "closeWallet": "Zapri denarnico",
+    "fiatOnramp": "Kupi",
     "home": "Domov",
     "lockProfile": "Zakleni profil",
+    "openMenu": "Meni",
     "paraTimes": "ParaTimi",
     "stake": "Vlaganje",
     "unlockProfile": "Odkleni profil",
     "wallet": "Denarnica"
+  },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "Varno sem shranil svoje zasebne ključe",
+      "description": "{{count}} vaših zasebnih ključev ima napake in ne bodo shranjene v novo denarnico. Prosimo, da jih pred nadaljevanjem skopirate in shranite na ločeno mesto, kasneje pa jih boste preverili in ustrezno popravili.",
+      "description_one": "1 zasebni ključ ima napako in ne bo shranjen v novo denarnico. Prosimo, da ga pred nadaljevanjem skopirate in shranite na ločeno mesto, kasneje pa ga boste preverili in ustrezno popravili.",
+      "description_plural": "{{count}} vaših zasebnih ključev ima napake in ne bodo shranjene v novo denarnico. Prosimo, da jih pred nadaljevanjem skopirate in shranite na ločeno mesto, kasneje pa jih boste preverili in ustrezno popravili.",
+      "reveal": "Kliknite, da odkrijete neveljaven zasebni ključ"
+    },
+    "backupMnemonic": {
+      "confirm": "Varno sem shranil mnemonik",
+      "description": "Nova različica dodatka za brskalnik ne bo več shranila mnemonika, temveč le izvedene zasebne ključe. Uporaba mnemonika je edini način za dostop do vašega računa, v primeru, da se vam računalnik oz. naprava s ključi pokvari. Zdaj imate zadnjo možnost, da arhivirate vaš mnemonik.",
+      "reveal": "Klikni za prikaz mnemonika"
+    },
+    "finishMigration": "Odpri novo različico denarnice",
+    "nextStep": "Naprej",
+    "requiredField": "To polje je obvezno",
+    "title": "Pomembna novost"
   },
   "openWallet": {
     "bitpie": {
@@ -214,10 +263,13 @@
     },
     "header": "Kako želite odpreti denarnico?",
     "importAccounts": {
+      "accountCounter": "{{count}} izbran račun",
       "accountCounter_one": "Izbran en račun",
+      "accountCounter_plural": "{{count}} izbrani računi",
       "accountCounter_zero": "Ni izbranega računa",
       "next": "Nadaljuj",
       "openWallets": "Odpri",
+      "pageNumber": "Stran {{pageNum}} od {{totalPages}}",
       "prev": "Nazaj",
       "selectWallets": "Izberite račune"
     },
@@ -249,42 +301,73 @@
     "amount": {
       "advanced": "Napredno",
       "available": "Na voljo:",
+      "depositDescription": "Vnesite znesek {{ticker}} za polog in kliknite \"{{nextButtonLabel}}\"",
+      "emptyAccount": "Račun je prazen. Dvig ni mogoč.",
       "feeAmountPlaceholder": "Znesek provizije (nano {{ticker}})",
       "feeGasPlaceholder": "Gas za provizijo",
       "max": "MAX",
-      "tooltip": "Maks. vrednost bo lahko zmanjšana za provizijo"
+      "tooltip": "Maks. vrednost bo lahko zmanjšana za provizijo",
+      "withdrawDescription": "Vnesite znesek {{ticker}} za dvig in kliknite \"{{nextButtonLabel}}\""
     },
     "common": {
       "cipher": "Cipher",
       "depositHeader": "Polog na ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
+      "header": "Prenosi ParaTime",
       "sapphire": "Sapphire",
       "withdrawHeader": "Dvig iz ParaTima"
     },
     "confirmation": {
+      "confirmDepositDescription": "Preverite, da sta znesek in naslova prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
+      "confirmDepositToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih pologov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite polog na vaš ParaTime račun, nato pa prenos {{ticker}} na prejemnikov naslov.",
       "confirmTransferLabel": "Potrjujem pravilnost zneska in naslova",
+      "confirmTransferToForeignAccount": "Potrjujem neposredni polog na zunanji račun",
+      "confirmTransferToValidatorDescription": "Prejemnikov naslov pripada overitelju. Prenos na ta naslov mu sredstev ne bo delegiral, temveč nakazal.",
+      "confirmTransferToValidatorLabel": "Potrjujemo nakazilo {{ticker}} na račun overitelja",
+      "confirmWithdrawDescription": "Preverite, da sta znesek in naslov prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
+      "confirmWithdrawToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih dvigov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite dvig na vaš osebni račun, nato pa prenos {{ticker}} na prejemnikov naslov.",
+      "depositDescription": "Položili boste <strong>{{value}} {{ticker}}</strong> na naslov <strong>{{address}}</strong> na ParaTime <strong>{{paraTime}}</strong> {{paratimeType}}",
       "depositLabel": "Položi",
+      "withdrawDescription": "Dvignili boste <strong>{{value}} {{ticker}}</strong> s ParaTima <strong>{{paraTime}}</strong> {{paratimeType}} na naslov <strong>{{address}}</strong>",
       "withdrawLabel": "Dvigni"
+    },
+    "error": {
+      "depositDescription": "Transakcija je spodletela. Polog <strong>{{value}} {{ticker}}</strong> na naslov <strong>{{address}}</strong> na ParaTime <strong>{{paraTime}}</strong> {{paratimeType}} ni uspel.",
+      "withdrawDescription": "Transakcija je spodletela. Dvig <strong>{{value}} {{ticker}}</strong> s ParaTima <strong>{{paraTime}}</strong> {{paratimeType}} na naslov <strong>{{address}}</strong> ni uspel."
     },
     "footer": {
       "back": "Nazaj",
-      "next": "Naprej"
+      "next": "Naprej",
+      "notice": "* EVMc - združljiv z Ethereum Virtual Machine"
     },
     "pageInaccessible": {
-      "foreignAccount": "Prenosi niso na voljo"
+      "foreignAccount": "Prenosi niso na voljo",
+      "ledgerAccount": "Ledgerjev račun ni podprt."
     },
     "recipient": {
-      "placeholder": "0x..."
+      "depositDescription": "Vnestie naslov prejemnika na ParaTimu <strong>{{paraTime}}</strong> {{paratimeType}} in kliknite \"{{nextButtonLabel}}\"",
+      "ethPrivateKeyPlaceholder": "Vnesite zasebni ključ združljiv z Ethereumom",
+      "evmcWithdrawDescription": "Vnesite zasebni ključ računa na ParaTimu, naslov prejemnika na nivo konsenza in kliknite \"{{nextButtonLabel}}\"",
+      "placeholder": "0x...",
+      "withdrawDescription": "Vnesite prejemnikov naslov na nivo konsenza in kliknite \"{{nextButtonLabel}}\""
     },
     "selection": {
       "cancel": "Prekliči prenos",
+      "depositDescription": "Izberite ParaTime, na katerega želite položiti {{ticker}} in kliknite \"{{nextButtonLabel}}\".",
       "evmc": "EVMc",
-      "select": "Izberite ParaTime"
+      "select": "Izberite ParaTime",
+      "withdrawDescription": "Izberite Paratime s katerega želite dvigniti {{ticker}} in kliknite \"{{nextButtonLabel}}\"."
+    },
+    "summary": {
+      "depositDescription": "Polog <strong>{{value}} {{ticker}}</strong> na naslov <strong>{{address}}</strong> na ParaTime <strong>{{paraTime}}</strong> {{paratimeType}} je bil uspešen.",
+      "navigate": "Nadaljuj na prenose ParaTime",
+      "withdrawDescription": "Dvig <strong>{{value}} {{ticker}}</strong> s ParaTima <strong>{{paraTime}}</strong> {{paratimeType}} na naslov <strong>{{address}}</strong> je bil uspešen."
     },
     "transfers": {
       "deposit": "Polog na ParaTime",
       "depositDisabled": "Sredstev {{ticker}} za prenos ni na voljo",
+      "description": "Kliknite na gumb \"{{depositButtonLabel}}\" za polog {{ticker}} z nivoja konsenza na izbran ParaTime ali \"{{withdrawButtonLabel}}\" za dvig {{ticker}} s ParaTima na nivo konsenza.",
       "withdraw": "Dvig s ParaTima"
     },
     "unsupportedFormStep": "Nepodprt korak obrazca",
@@ -354,31 +437,51 @@
     "networks": {
       "local": "Lokalno",
       "mainnet": "Mainnet",
+      "selector": "Izberite omrežje",
       "testnet": "Testnet"
     },
     "profile": {
-      "deletion": "Brisanje"
+      "deletion": "Brisanje",
+      "notAvailable": "Vaš profil lahko urejate, ko <OpenWalletButton>odprete denarnico</OpenWalletButton>.",
+      "password": {
+        "current": "Trenutno geslo",
+        "enterCurrent": "Vnesite obstoječe geslo",
+        "enterNewPassword": "Novo geslo",
+        "reenterNewPassword": "Ponovno vnesite geslo",
+        "submit": "Posodobi geslo",
+        "success": "Geslo posodobljeno.",
+        "title": "Nastavi novo geslo"
+      }
     },
     "settings": {
+      "accountNamingNotAvailable": "Za poimenovanje računa ustvarite profil, ko <OpenWalletButton>odpirate denarnico</OpenWalletButton>.",
       "cancel": "Prekliči",
       "contacts": "Stiki",
       "delete": {
         "description": "Ali ste prepričani, da želite izbrisati ta račun?",
         "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite '{{confirmationKeyword}}'.",
-        "title": "Izbriši Račun"
+        "title": "Izbriši Račun",
+        "tooltip": "V denarnici morate imeti vsaj en račun."
       },
       "exportPrivateKey": {
+        "confirm": "Razumem, razkrij zasebni ključ",
+        "copied": "Zasebni ključ kopiran.",
+        "hint1": "Zasebni ključ je sestavljen iz niza znakov. Kdor ima dostop do zasebnega ključa, lahko z njim upravlja s sredstvi na pripadajočem računu.",
         "hint2": "Ključa ni mogoče obnoviti, če ga izgubite. Poskrbite, da imate varnostno kopijo zasebnega ključa shranjeno na varnem mestu.",
         "title": "Izvozi Zasebni Ključ"
       },
+      "manageAccount": "Uredi",
       "myAccountsTab": "Moji računi",
       "nameLengthError": "Največ 16 znakov",
+      "optionalName": "Ime (opcijsko)",
       "profile": "Profil",
       "save": "Shrani",
       "settings": "Nastavitve"
     },
     "wallets": {
+      "select": "Izberi",
       "type": {
+        "bluetoothLedger": "BLE Ledger",
         "mnemonic": "Mnemonik",
         "privateKey": "Zasebni ključ",
         "usbLedger": "USB Ledger"
