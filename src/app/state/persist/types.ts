@@ -15,9 +15,9 @@ export interface EncryptedObject {
   salt: Uint8Array
 }
 /** Redux can't serialize Uint8Arrays so we base64 encode and stringify */
-export type EncryptedString = string & PreserveAliasName
+export type EncryptedString<T> = string & { encryptedType: T }
 // Hover to check if inferred variable type is EncryptedString (not string)
-export const testPreserveAliasName = '{}' as EncryptedString
+export const testPreserveAliasName = '{}' as EncryptedString<any>
 
 export interface SetUnlockedRootStatePayload {
   persistedRootState: PersistedRootState
