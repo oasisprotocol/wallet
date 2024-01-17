@@ -48,6 +48,7 @@ test.describe('The extension popup should load', () => {
         // Odd errors inside Transak
         if (msg.text().includes('responded with a status of 403')) return true
         if (msg.text().includes('`sessionKey` is a required property')) return true
+        if (msg.text().includes('[Report Only]')) return true
       },
     })
     await page.goto(`${extensionPopupURL}/open-wallet/private-key`)

@@ -112,10 +112,9 @@ export function FiatOnramp() {
           <iframe
             height="875"
             title="Transak On/Off Ramp Widget"
-            // From https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
-            // TODO: It also loads https://api.sardine.ai inside, and that tries
-            // to listen for devicemotion and deviceorientation. Is this necessary?
-            allow="camera;microphone;fullscreen;payment"
+            // Expands on https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
+            // and somewhat matches https://docs.transak.com/docs/web-integration#embediframe-webapp
+            allow="accelerometer;camera;microphone;fullscreen;gyroscope;payment"
             // Restrict top-navigation
             sandbox={[
               'allow-downloads',
