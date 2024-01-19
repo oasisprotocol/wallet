@@ -11,6 +11,19 @@ import { useTranslation } from 'react-i18next'
 import { BalanceDetails } from '../../../../state/account/types'
 import { Button } from 'grommet/es6/components/Button'
 import { DerivationFormatter, DerivationFormatterProps } from './DerivationFormatter'
+import styled from 'styled-components'
+
+// Larger area for hoverIndicator
+const StyledManageButton = styled(Button)`
+  padding: 0.5ex 0.7ch;
+  margin: -0.5ex -0.7ch;
+  border-radius: ${({ theme }) => theme.button?.border?.radius};
+`
+StyledManageButton.defaultProps = {
+  plain: true,
+  color: { light: 'brand', dark: 'white' },
+  hoverIndicator: true,
+}
 
 export interface AccountProps {
   address: string
@@ -79,7 +92,7 @@ export const Account = memo((props: AccountProps) => {
             {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
             {props.displayManageButton && (
               <Box direction="row">
-                <Button
+                <StyledManageButton
                   label={t('toolbar.settings.manageAccount', 'Manage')}
                   onClick={e => {
                     props.displayManageButton?.onClickManage(props.address)
