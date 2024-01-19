@@ -6,7 +6,7 @@ import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { memo, useContext } from 'react'
+import { memo, useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BalanceDetails } from '../../../../state/account/types'
 import { Button } from 'grommet/es6/components/Button'
@@ -44,6 +44,7 @@ export interface AccountProps {
 export const Account = memo((props: AccountProps) => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
+  const [isHovering, setIsHovering] = useState(false)
 
   const address =
     size === 'small' ? <ShortAddress address={props.address} /> : <PrettyAddress address={props.address} />
@@ -54,7 +55,7 @@ export const Account = memo((props: AccountProps) => {
     <Box
       data-testid="account-choice"
       round="5px"
-      background={props.isActive ? 'neutral-2' : undefined}
+      background={isHovering ? 'brand' : props.isActive ? 'neutral-2' : undefined}
       border={{ color: props.isActive ? 'neutral-2' : 'brand' }}
       pad="small"
       flex={{ shrink: 0 }}
@@ -62,7 +63,11 @@ export const Account = memo((props: AccountProps) => {
       role="checkbox"
       aria-checked={props.isActive}
       onClick={props.onClick ? () => props.onClick!(props.address) : undefined}
-      hoverIndicator={{ background: 'brand' }}
+      // `hoverIndicator={{ background: 'brand' }}` does not detect dark background
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      onFocus={() => setIsHovering(true)}
+      onBlur={() => setIsHovering(false)}
       direction="row"
     >
       {props.displayCheckbox && (
