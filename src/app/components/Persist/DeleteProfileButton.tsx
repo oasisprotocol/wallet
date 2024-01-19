@@ -32,7 +32,7 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
   return (
     <>
       <Button
-        color={prominent ? 'status-error' : undefined}
+        color="status-error"
         label={t('persist.loginToProfile.deleteProfile.button', 'Delete profile')}
         onClick={() => setLayerVisibility(true)}
         primary={prominent}
