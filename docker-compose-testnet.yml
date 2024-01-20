@@ -24,7 +24,7 @@ services:
     ports:
       - '127.0.0.1:42280:42280'
       - '127.0.0.1:42281:42281'
-    command: envoy -c /etc/envoy/envoy.yaml --component-log-level upstream:debug,connection:trace
+    command: envoy -c /etc/envoy/envoy.yaml --component-log-level upstream:debug,connection:trace && 
     environment:
       ENVOY_UID: 0
       ENVOY_GID: 0
