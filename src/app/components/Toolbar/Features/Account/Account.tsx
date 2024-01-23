@@ -92,22 +92,20 @@ export const Account = memo((props: AccountProps) => {
         <Box>
           <Text weight="bold">{address}</Text>
         </Box>
-        <Box direction="row-responsive">
-          <Box flex="grow">
-            {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
-            {props.displayManageButton && (
-              <Box direction="row">
-                <StyledManageButton
-                  label={t('toolbar.settings.manageAccount', 'Manage')}
-                  onClick={e => {
-                    // TODO: clicking using Tab + Enter on Manage only triggers parent listener `props.onClick`.
-                    props.displayManageButton?.onClickManage(props.address)
-                    e.stopPropagation()
-                  }}
-                />
-              </Box>
-            )}
-          </Box>
+        <Box direction="row" gap="large" justify="between" wrap>
+          {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
+          {props.displayManageButton && (
+            <Box direction="row">
+              <StyledManageButton
+                label={t('toolbar.settings.manageAccount', 'Manage')}
+                onClick={e => {
+                  // TODO: clicking using Tab + Enter on Manage only triggers parent listener `props.onClick`.
+                  props.displayManageButton?.onClickManage(props.address)
+                  e.stopPropagation()
+                }}
+              />
+            </Box>
+          )}
           {props.displayBalance && (
             <Box height="24px">
               {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}
