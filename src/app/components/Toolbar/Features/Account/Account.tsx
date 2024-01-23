@@ -59,7 +59,6 @@ export const Account = memo((props: AccountProps) => {
       border={{ color: props.isActive ? 'neutral-2' : 'brand' }}
       pad="small"
       flex={{ shrink: 0 }}
-      fill="horizontal"
       role="checkbox"
       aria-checked={props.isActive}
       onClick={props.onClick ? () => props.onClick!(props.address) : undefined}
@@ -83,7 +82,7 @@ export const Account = memo((props: AccountProps) => {
         </Box>
       )}
 
-      <Box flex="grow" gap={size === 'small' ? undefined : 'xsmall'}>
+      <Box fill="horizontal" gap={size === 'small' ? undefined : 'xsmall'}>
         {props.name && (
           <Box data-testid="account-name">
             <Text weight="bold">{props.name}</Text>
