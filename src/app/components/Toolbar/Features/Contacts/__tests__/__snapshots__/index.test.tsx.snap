@@ -51,7 +51,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 100%;
   padding: 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -69,9 +68,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  width: 100%;
 }
 
 .c5 {
@@ -100,6 +97,13 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .c8 {
@@ -330,25 +334,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
-}
-
-@media only screen and (max-width:768px) {
   .c2 {
     margin-bottom: 24px;
   }
@@ -426,18 +411,14 @@ exports[`<Contacts  /> should match snapshot 1`] = `
             class="c7"
           >
             <div
-              class="c4"
+              class="c8"
             >
-              <div
-                class="c8"
+              <button
+                class="c9 c10"
+                type="button"
               >
-                <button
-                  class="c9 c10"
-                  type="button"
-                >
-                  Manage
-                </button>
-              </div>
+                Manage
+              </button>
             </div>
           </div>
         </div>

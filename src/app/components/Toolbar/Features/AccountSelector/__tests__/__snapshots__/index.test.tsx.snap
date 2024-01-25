@@ -30,7 +30,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 100%;
   padding: 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -48,9 +47,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  width: 100%;
 }
 
 .c4 {
@@ -79,6 +76,13 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .c7 {
@@ -95,7 +99,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -110,7 +114,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -148,13 +152,23 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   overflow-y: auto;
 }
 
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 48px;
+}
+
 .c5 {
   font-size: 18px;
   line-height: 24px;
   font-weight: bold;
 }
 
-.c11 {
+.c12 {
   font-size: 18px;
   line-height: 24px;
 }
@@ -219,7 +233,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c13 {
+.c14 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -248,44 +262,44 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c13:hover {
+.c14:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c13:focus {
+.c14:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus > circle,
-.c13:focus > ellipse,
-.c13:focus > line,
-.c13:focus > path,
-.c13:focus > polygon,
-.c13:focus > polyline,
-.c13:focus > rect {
+.c14:focus > circle,
+.c14:focus > ellipse,
+.c14:focus > line,
+.c14:focus > path,
+.c14:focus > polygon,
+.c14:focus > polyline,
+.c14:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c13:focus::-moz-focus-inner {
+.c14:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c13:focus:not(:focus-visible) {
+.c14:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
-.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
-.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
-.c13:focus:not(:focus-visible) > rect {
+.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c13:focus:not(:focus-visible)::-moz-focus-inner {
+.c14:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -320,26 +334,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     margin-top: 12px;
   }
 }
@@ -365,6 +360,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
 
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
+    width: 24px;
+  }
 }
 
 <body>
@@ -405,21 +406,20 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
               class="c6"
             >
               <div
-                class="c3"
+                class="c7"
               >
-                <div
-                  class="c7"
+                <button
+                  class="c8 c9"
+                  type="button"
                 >
-                  <button
-                    class="c8 c9"
-                    type="button"
-                  >
-                    toolbar.settings.manageAccount
-                  </button>
-                </div>
+                  toolbar.settings.manageAccount
+                </button>
               </div>
               <div
                 class="c10"
+              />
+              <div
+                class="c11"
               >
                 <span>
                   <div
@@ -429,7 +429,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                     0.0000001
                   </div>
                   <span
-                    class="c11"
+                    class="c12"
                   >
                     <span
                       class="notranslate"
@@ -445,10 +445,10 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c12"
+        class="c13"
       >
         <button
-          class="c13"
+          class="c14"
           type="button"
         >
           toolbar.wallets.select

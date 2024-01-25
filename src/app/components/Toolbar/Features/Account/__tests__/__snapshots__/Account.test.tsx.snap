@@ -30,7 +30,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 100%;
   padding: 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -134,9 +133,7 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
+  width: 100%;
 }
 
 .c11 {
@@ -165,6 +162,13 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .c13 {
@@ -185,7 +189,7 @@ exports[`<Account  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -200,6 +204,16 @@ exports[`<Account  /> should match snapshot 1`] = `
   height: 24px;
 }
 
+.c15 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 48px;
+}
+
 .c9 {
   font-size: 18px;
   line-height: 24px;
@@ -211,7 +225,7 @@ exports[`<Account  /> should match snapshot 1`] = `
   line-height: normal;
 }
 
-.c16 {
+.c17 {
   font-size: 18px;
   line-height: 24px;
 }
@@ -301,26 +315,13 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
+
 }
 
 @media only screen and (max-width:768px) {
-
+  .c15 {
+    width: 24px;
+  }
 }
 
 <body>
@@ -398,24 +399,23 @@ exports[`<Account  /> should match snapshot 1`] = `
             class="c12"
           >
             <div
-              class="c10"
+              class="c13"
             >
-              <div
-                class="c13"
+              toolbar.wallets.type.mnemonic
+               
+              <span
+                class="c14"
               >
-                toolbar.wallets.type.mnemonic
-                 
-                <span
-                  class="c14"
-                >
-                  (
-                  m/44'/474'/0'/0'/0'
-                  )
-                </span>
-              </div>
+                (
+                m/44'/474'/0'/0'/0'
+                )
+              </span>
             </div>
             <div
               class="c15"
+            />
+            <div
+              class="c16"
             >
               <span>
                 <div
@@ -425,7 +425,7 @@ exports[`<Account  /> should match snapshot 1`] = `
                   0.000001
                 </div>
                 <span
-                  class="c16"
+                  class="c17"
                 >
                   <span
                     class="notranslate"
