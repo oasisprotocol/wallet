@@ -36,11 +36,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c1:hover {
-  background-color: #0092f6;
-  color: #FFFFFF;
-}
-
 .c2 {
   display: -webkit-box;
   display: -webkit-flex;
