@@ -41,6 +41,14 @@ const StyledForm = styled(Form)`
   justify-content: space-between;
 ` as typeof Form
 
+const StyledDeleteButton = styled(Button)`
+  text-align: center;
+`
+StyledDeleteButton.defaultProps = {
+  plain: true,
+  color: 'status-error',
+}
+
 export const ManageableAccountDetails = ({
   animation,
   closeHandler,
@@ -121,18 +129,15 @@ export const ManageableAccountDetails = ({
                     <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
                   </Text>
                 </Box>
-                <Box justify="between" direction="row" gap="medium">
+                <Box justify="between" direction="row-responsive" gap="large">
                   <Button
-                    alignSelf="start"
                     label={t('toolbar.settings.exportPrivateKey.title', 'Export Private Key')}
                     disabled={!wallet.privateKey}
                     onClick={() => setLayerVisibility(true)}
                   />
 
                   {deleteAccount ? (
-                    <Button
-                      plain
-                      color="status-error"
+                    <StyledDeleteButton
                       label={t('toolbar.settings.delete.title', 'Delete Account')}
                       onClick={() => setDeleteLayerVisibility(true)}
                     />
@@ -145,11 +150,9 @@ export const ManageableAccountDetails = ({
                       dropProps={{ align: { bottom: 'top' } }}
                     >
                       <Box>
-                        <Button
+                        <StyledDeleteButton
                           icon={<CircleInformation size="18px" color="status-error" />}
                           disabled={true}
-                          plain
-                          color="status-error"
                           label={t('toolbar.settings.delete.title', 'Delete Account')}
                           onClick={() => setDeleteLayerVisibility(true)}
                         />

@@ -47,7 +47,7 @@ export function UnlockForm() {
           width="auto"
         ></PasswordField>
 
-        <Box direction="row-responsive" gap="medium" justify="between" margin={{ top: 'medium' }}>
+        <Box direction="row-responsive" gap="large" justify="between" margin={{ top: 'medium' }}>
           <Button type="submit" label={t('persist.loginToProfile.unlock', 'Unlock')} primary />
 
           <Button
