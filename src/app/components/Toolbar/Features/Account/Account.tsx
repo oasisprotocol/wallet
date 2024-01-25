@@ -100,6 +100,7 @@ export const Account = memo((props: AccountProps) => {
                 <StyledManageButton
                   label={t('toolbar.settings.manageAccount', 'Manage')}
                   onClick={e => {
+                    // TODO: clicking using Tab + Enter on Manage only triggers parent listener `props.onClick`.
                     props.displayManageButton?.onClickManage(props.address)
                     e.stopPropagation()
                   }}
