@@ -57,11 +57,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c3:hover {
-  background-color: #0092f6;
-  color: #FFFFFF;
-}
-
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -121,7 +116,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -158,7 +153,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   overflow-y: auto;
 }
 
-.c10 {
+.c11 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -185,23 +180,16 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
-  border-radius: 4px;
-  color: #16213E;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
+  color: #0092f6;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
 }
 
 .c9:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  background-color: rgba(221,221,221,0.4);
+  color: #000000;
 }
 
 .c9:focus {
@@ -241,7 +229,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c12 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -270,45 +258,51 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c12:hover {
+.c13:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus > circle,
-.c12:focus > ellipse,
-.c12:focus > line,
-.c12:focus > path,
-.c12:focus > polygon,
-.c12:focus > polyline,
-.c12:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c12:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
-.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
-.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
-.c12:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
+}
+
+.c10 {
+  padding: 0.5ex 0.7ch;
+  margin: -0.5ex -0.7ch;
+  border-radius: 4px;
 }
 
 @media only screen and (max-width:768px) {
@@ -378,7 +372,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c10 {
+  .c11 {
     height: 12px;
   }
 }
@@ -438,7 +432,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
                 class="c8"
               >
                 <button
-                  class="c9"
+                  class="c9 c10"
                   type="button"
                 >
                   Manage
@@ -450,13 +444,13 @@ exports[`<Contacts  /> should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="c10"
+      class="c11"
     />
     <div
-      class="c11"
+      class="c12"
     >
       <button
-        class="c12"
+        class="c13"
         type="button"
       >
         Add Contact
