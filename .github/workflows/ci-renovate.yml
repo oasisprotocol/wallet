@@ -37,7 +37,7 @@ jobs:
       - name: Create and commit Change Log fragment if it does not exist
         run: |
           if [[ ! -f "${{ steps.vars.outputs.FILE_NAME }}" ]]; then
-            echo "${{ github.event.pull_request.title }}" > ${{ steps.vars.outputs.FILE_NAME }}
+            echo "Update dependencies" > ${{ steps.vars.outputs.FILE_NAME }}
             # Set git user email and name to match author of the last commit.
             git config --local user.email "$(git log --pretty='%ae' -1)"
             git config --local user.name "$(git log --pretty=format:'%an' -1)"
