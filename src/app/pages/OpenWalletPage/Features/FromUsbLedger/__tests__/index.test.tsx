@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import { FromLedger } from '..'
+import { FromUsbLedger } from '..'
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
@@ -9,7 +9,7 @@ jest.mock('react-redux', () => ({
 
 describe('<FromUsbLedger />', () => {
   it('should render component', () => {
-    const { container } = render(<FromLedger />)
+    const { container } = render(<FromUsbLedger />)
 
     expect(container).toMatchSnapshot()
   })
