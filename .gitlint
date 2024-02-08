@@ -22,3 +22,8 @@ min-length=20
 
 [title-must-not-contain-word]
 words=wip
+
+[ignore-by-author-name]
+# Ignore specific line length rules for Dependabot commits.
+regex=dependabot
+ignore=title-max-length,body-max-line-length
