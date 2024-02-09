@@ -54,6 +54,8 @@ jobs:
         with:
           files: |
             oasis-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
+            build/Content-Security-Policy.txt
+            build/Permissions-Policy.txt
           name: Oasis Wallet ${{ steps.vars.outputs.VERSION }}
           body: ${{ steps.changelog.outputs.content }}
         env:
