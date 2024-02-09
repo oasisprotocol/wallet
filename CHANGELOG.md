@@ -16,53 +16,40 @@ The format is inspired by [Keep a Changelog].
 
 ### Features
 
-- Named accounts feature
+- Support naming accounts
   ([#1699](https://github.com/oasisprotocol/oasis-wallet-web/issues/1699))
 
-- Suggest previous ethPrivateKeys in ParaTime form
-  ([#1737](https://github.com/oasisprotocol/oasis-wallet-web/issues/1737))
-
-- Add Bluetooth Ledger state
-  ([#1739](https://github.com/oasisprotocol/oasis-wallet-web/issues/1739))
-
-- Add remove account feature
+- Support removing accounts
   ([#1752](https://github.com/oasisprotocol/oasis-wallet-web/issues/1752))
 
-- Add Ionic Capacitor
-  ([#1769](https://github.com/oasisprotocol/oasis-wallet-web/issues/1769))
-
-- Add V0 extension migration UI
-  ([#1783](https://github.com/oasisprotocol/oasis-wallet-web/issues/1783),
-   [#1790](https://github.com/oasisprotocol/oasis-wallet-web/issues/1790))
+- Add Chinese, Slovenian, Turkish translations
+  ([#1815](https://github.com/oasisprotocol/oasis-wallet-web/issues/1815),
+   [#1821](https://github.com/oasisprotocol/oasis-wallet-web/issues/1821),
+   [#1827](https://github.com/oasisprotocol/oasis-wallet-web/issues/1827))
 
 - Add German and Spanish partial translations
   ([#1817](https://github.com/oasisprotocol/oasis-wallet-web/issues/1817))
 
-- Add Chinese translation
-  ([#1821](https://github.com/oasisprotocol/oasis-wallet-web/issues/1821))
+- Suggest previous ethPrivateKeys in ParaTime form
+  ([#1737](https://github.com/oasisprotocol/oasis-wallet-web/issues/1737))
 
 - Show a link to disabled ParaTimes page on Ledger accounts
   ([#1824](https://github.com/oasisprotocol/oasis-wallet-web/issues/1824))
+
+### Bug Fixes and Improvements
 
 - Improve mobile layout
   ([#1836](https://github.com/oasisprotocol/oasis-wallet-web/issues/1836),
    [#1838](https://github.com/oasisprotocol/oasis-wallet-web/issues/1838))
 
-### Bug Fixes and Improvements
-
-- Prevent showing horizontal scrollbar in desktop profile modal
+- Show fewer scrollbars
   ([#1796](https://github.com/oasisprotocol/oasis-wallet-web/issues/1796),
-   [#1805](https://github.com/oasisprotocol/oasis-wallet-web/issues/1805))
+   [#1805](https://github.com/oasisprotocol/oasis-wallet-web/issues/1805),
+   [#1806](https://github.com/oasisprotocol/oasis-wallet-web/issues/1806),
+   [#1811](https://github.com/oasisprotocol/oasis-wallet-web/issues/1811))
 
-- Refactor layerOverlayMinHeight to avoid needless scrollbars
-  ([#1806](https://github.com/oasisprotocol/oasis-wallet-web/issues/1806))
-
-- Fix hiding body scrollbar in Chrome extension and nested layers
-  ([#1811](https://github.com/oasisprotocol/oasis-wallet-web/issues/1811))
-
-- i18n: Update translations from Transifex and add normalization script
-  ([#1815](https://github.com/oasisprotocol/oasis-wallet-web/issues/1815),
-   [#1827](https://github.com/oasisprotocol/oasis-wallet-web/issues/1827))
+- Update translation process and add translation normalization script
+  ([#1815](https://github.com/oasisprotocol/oasis-wallet-web/issues/1815))
 
   The translation procedure was slightly changed. On Transifex, use "Download
   file to translate" instead of "Download for use". This will download the
@@ -71,16 +58,11 @@ The format is inspired by [Keep a Changelog].
   `normalize-translations` script. On the UI, React will replace them with the
   English versions automatically.
 
-- Fix flaky e2e tests with new Playwright
-  ([#1816](https://github.com/oasisprotocol/oasis-wallet-web/issues/1816))
-
-- Allow Transak to use more device sensors
-  ([#1832](https://github.com/oasisprotocol/oasis-wallet-web/issues/1832))
-
 ### Internal Changes
 
 - Update dependencies
   ([#1616](https://github.com/oasisprotocol/oasis-wallet-web/issues/1616),
+   [#1708](https://github.com/oasisprotocol/oasis-wallet-web/issues/1708),
    [#1725](https://github.com/oasisprotocol/oasis-wallet-web/issues/1725),
    [#1732](https://github.com/oasisprotocol/oasis-wallet-web/issues/1732),
    [#1733](https://github.com/oasisprotocol/oasis-wallet-web/issues/1733),
@@ -108,62 +90,38 @@ The format is inspired by [Keep a Changelog].
 - Update dumped validators
   ([#1693](https://github.com/oasisprotocol/oasis-wallet-web/issues/1693))
 
-- Update parcel monorepo to v2.10.3
-  ([#1708](https://github.com/oasisprotocol/oasis-wallet-web/issues/1708))
-
 - Rename privateKeyPlaceholder to ethPrivateKeyPlaceholder
   ([#1736](https://github.com/oasisprotocol/oasis-wallet-web/issues/1736))
 
-- Test contacts syncing initial state too, not just actions
-  ([#1741](https://github.com/oasisprotocol/oasis-wallet-web/issues/1741))
+- Improve tests
+  ([#1741](https://github.com/oasisprotocol/oasis-wallet-web/issues/1741),
+   [#1755](https://github.com/oasisprotocol/oasis-wallet-web/issues/1755),
+   [#1756](https://github.com/oasisprotocol/oasis-wallet-web/issues/1756),
+   [#1768](https://github.com/oasisprotocol/oasis-wallet-web/issues/1768),
+   [#1775](https://github.com/oasisprotocol/oasis-wallet-web/issues/1775),
+   [#1779](https://github.com/oasisprotocol/oasis-wallet-web/issues/1779),
+   [#1780](https://github.com/oasisprotocol/oasis-wallet-web/issues/1780),
+   [#1786](https://github.com/oasisprotocol/oasis-wallet-web/issues/1786),
+   [#1807](https://github.com/oasisprotocol/oasis-wallet-web/issues/1807),
+   [#1816](https://github.com/oasisprotocol/oasis-wallet-web/issues/1816))
 
 - Install setuptools to make Towncrier fork work with Python 3.12
   ([#1748](https://github.com/oasisprotocol/oasis-wallet-web/issues/1748))
 
-- E2E test migrating older V1 state to current RootState
-  ([#1755](https://github.com/oasisprotocol/oasis-wallet-web/issues/1755))
-
-- Change the password in test fixtures
-  ([#1756](https://github.com/oasisprotocol/oasis-wallet-web/issues/1756))
-
-- Refactor extension tests
-  ([#1768](https://github.com/oasisprotocol/oasis-wallet-web/issues/1768))
-
-- Add utils for migration from V0 encrypted state to RootState
-  ([#1771](https://github.com/oasisprotocol/oasis-wallet-web/issues/1771))
-
-- Stub out @protobufjs/inquire to avoid `unsafe-eval` violation in CSP
-  ([#1774](https://github.com/oasisprotocol/oasis-wallet-web/issues/1774))
-
-- Revert TODOs from "Avoid playwright's buggy test.fail() skipping tests"
-  ([#1775](https://github.com/oasisprotocol/oasis-wallet-web/issues/1775))
-
-- Don't cleanup E2E page globals
-  ([#1779](https://github.com/oasisprotocol/oasis-wallet-web/issues/1779))
-
-- Improve e2e tests
-  ([#1780](https://github.com/oasisprotocol/oasis-wallet-web/issues/1780))
+- Maintain security headers
+  ([#1774](https://github.com/oasisprotocol/oasis-wallet-web/issues/1774),
+   [#1792](https://github.com/oasisprotocol/oasis-wallet-web/issues/1792),
+   [#1813](https://github.com/oasisprotocol/oasis-wallet-web/issues/1813),
+   [#1832](https://github.com/oasisprotocol/oasis-wallet-web/issues/1832))
 
 - Handle new transaction type consensus.Meta
   ([#1785](https://github.com/oasisprotocol/oasis-wallet-web/issues/1785))
 
-- Re-enable Transak tests
-  ([#1786](https://github.com/oasisprotocol/oasis-wallet-web/issues/1786))
-
-- Update react-error-overlay CSP hash
-  ([#1792](https://github.com/oasisprotocol/oasis-wallet-web/issues/1792))
-
 - Use theme to style tabs
   ([#1797](https://github.com/oasisprotocol/oasis-wallet-web/issues/1797))
 
-- Simplify running playwright with start:prod
-  ([#1807](https://github.com/oasisprotocol/oasis-wallet-web/issues/1807))
-
 - Cleanup leftover for disabling sourcemaps in react-scripts
   ([#1808](https://github.com/oasisprotocol/oasis-wallet-web/issues/1808))
-
-- Add more HMR exceptions to CSP
-  ([#1813](https://github.com/oasisprotocol/oasis-wallet-web/issues/1813))
 
 - Explicitly mark each action and slice for syncing and persisting
   ([#1814](https://github.com/oasisprotocol/oasis-wallet-web/issues/1814))
@@ -185,6 +143,19 @@ The format is inspired by [Keep a Changelog].
 
 - Ignore specific line length rules for Dependabot commits in gitlint
   ([#1840](https://github.com/oasisprotocol/oasis-wallet-web/issues/1840))
+
+### Unreleased features and improvements
+
+- Add Bluetooth Ledger state
+  ([#1739](https://github.com/oasisprotocol/oasis-wallet-web/issues/1739))
+
+- Add Ionic Capacitor
+  ([#1769](https://github.com/oasisprotocol/oasis-wallet-web/issues/1769))
+
+- Add V0 extension migration UI
+  ([#1771](https://github.com/oasisprotocol/oasis-wallet-web/issues/1771),
+   [#1783](https://github.com/oasisprotocol/oasis-wallet-web/issues/1783),
+   [#1790](https://github.com/oasisprotocol/oasis-wallet-web/issues/1790))
 
 ## 1.8.1 (2023-10-20)
 
