@@ -1,4 +1,5 @@
 // @ts-check
+const fs = require('fs')
 const execSync = require('child_process').execSync
 const { getCsp, getPermissionsPolicy } = require('../getSecurityHeaders.js')
 const { buildDatetime, buildSha, buildVersion } = require('../getBuildData')
@@ -16,3 +17,5 @@ process.env.REACT_APP_META_CSP = csp.replace(/frame-ancestors .*?;/, '')
 
 execSync('yarn clean && parcel build --target web --dist-dir build', { stdio: 'inherit' })
 execSync('cp public/robots.txt build/robots.txt', { encoding: 'utf8' })
+fs.writeFileSync('build/Content-Security-Policy.txt', csp, 'utf8')
+fs.writeFileSync('build/Permissions-Policy.txt', permissionsPolicy, 'utf8')
