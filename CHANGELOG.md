@@ -12,6 +12,18 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.9.1 (2024-02-12)
+
+### Bug Fixes and Improvements
+
+- Enable Chinese translation
+  ([#1844](https://github.com/oasisprotocol/oasis-wallet-web/issues/1844))
+
+### Internal Changes
+
+- Include security headers in the build and release
+  ([#1845](https://github.com/oasisprotocol/oasis-wallet-web/issues/1845))
+
 ## 1.9.0 (2024-02-09)
 
 ### Features
