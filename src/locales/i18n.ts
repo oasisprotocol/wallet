@@ -43,8 +43,7 @@ export const languageLabels: [LanguageKey, string][] = [
   ['fr', 'Français'],
   ['sl', 'Slovenščina'],
   ['tr', 'Türkçe'],
-  // TODO: enable when translated
-  // ['zh_CN', '中文'],
+  ['zh_CN', '中文'],
 ]
 
 export const i18n = i18next
