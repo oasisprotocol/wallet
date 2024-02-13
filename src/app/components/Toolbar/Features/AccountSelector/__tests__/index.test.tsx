@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import { WalletType } from 'app/state/wallet/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
+import { MemoryRouter } from 'react-router-dom'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
@@ -10,9 +11,11 @@ import { AccountSelector } from '..'
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <ThemeProvider>
-        <AccountSelector closeHandler={() => {}} />
-      </ThemeProvider>
+      <MemoryRouter>
+        <ThemeProvider>
+          <AccountSelector closeHandler={() => {}} />
+        </ThemeProvider>
+      </MemoryRouter>
     </Provider>,
   )
 

@@ -1,6 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AccountSelector  /> should match snapshot 1`] = `
+.c16 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c16 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c16 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c16 *[stroke*='#'],.c16 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c16 *[fill-rule],
+.c16 *[FILL-RULE],
+.c16 *[fill*='#'],.c16 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c0 {
   font-family: Rubik,sans-serif;
   font-size: 18px;
@@ -122,15 +154,37 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin-top: 24px;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .c1 {
@@ -160,6 +214,26 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   -ms-flex-item-align: stretch;
   align-self: stretch;
   width: 48px;
+}
+
+.c17 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
+}
+
+.c18 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 24px;
 }
 
 .c5 {
@@ -250,9 +324,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
-  color: #F8F8F8;
-  border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -300,6 +371,76 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c14:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c19 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0092f6;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  background-color: #0092f6;
+  color: #F8F8F8;
+  border-radius: 4px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c19:hover {
+  box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c19:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c19:focus > circle,
+.c19:focus > ellipse,
+.c19:focus > line,
+.c19:focus > path,
+.c19:focus > polygon,
+.c19:focus > polyline,
+.c19:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c19:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c19:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c19:focus:not(:focus-visible) > circle,.c19:focus:not(:focus-visible) > ellipse,
+.c19:focus:not(:focus-visible) > line,.c19:focus:not(:focus-visible) > path,
+.c19:focus:not(:focus-visible) > polygon,.c19:focus:not(:focus-visible) > polyline,
+.c19:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c19:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -365,6 +506,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 @media only screen and (max-width:768px) {
   .c10 {
     width: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    width: 12px;
   }
 }
 
@@ -447,8 +594,41 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
       <div
         class="c13"
       >
+        <a
+          aria-label="menu.addAccounts"
+          href="/"
+        >
+          <button
+            class="c14"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="c15"
+            >
+              <svg
+                class="c16"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22V2M2 12h20"
+                  fill="none"
+                  stroke="#000"
+                  stroke-width="2"
+                />
+              </svg>
+              <div
+                class="c17"
+              />
+              menu.addAccounts
+            </div>
+          </button>
+        </a>
+        <div
+          class="c18"
+        />
         <button
-          class="c14"
+          class="c19"
           type="button"
         >
           toolbar.wallets.select
