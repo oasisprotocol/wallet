@@ -2,6 +2,18 @@
 
 ## Web wallet
 
+Make a release:
+
+- ```sh
+  pip3 install --upgrade \
+    https://github.com/oasisprotocol/towncrier/archive/oasis-master.tar.gz
+  ```
+
+- `yarn changelog`, commit "Assemble changes for ___ release", and merge PR
+- `yarn release-tag`
+  ([.github/workflows/release.yml](/.github/workflows/release.yml) then creates
+  a github release)
+
 Staging:
 
 - download <https://github.com/oasisprotocol/oasis-wallet-web/releases>
