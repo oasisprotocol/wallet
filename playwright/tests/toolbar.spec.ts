@@ -46,6 +46,7 @@ test.describe('Profile tab', () => {
     await expect(page.getByText('Password updated.')).toBeVisible()
 
     await page.getByTestId('close-settings-modal').click()
+    await expect(page.getByTestId('close-settings-modal')).not.toBeVisible()
     await page.getByRole('button', { name: /Lock profile/ }).click()
     await page.getByPlaceholder('Enter your password here').fill(tempPassword)
     await page.getByRole('button', { name: /Unlock/ }).click()
@@ -63,6 +64,7 @@ test.describe('Profile tab', () => {
 
     // validate default password
     await page.getByTestId('close-settings-modal').click()
+    await expect(page.getByTestId('close-settings-modal')).not.toBeVisible()
     await page.getByRole('button', { name: /Lock profile/ }).click()
     await page.getByPlaceholder('Enter your password here').fill(password)
     await page.getByRole('button', { name: /Unlock/ }).click()
