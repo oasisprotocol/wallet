@@ -64,6 +64,7 @@ describe('<ProfileModalButton  />', () => {
     renderComponent(store, 'small')
 
     await userEvent.click(screen.getByTestId('account-selector'))
+    await userEvent.click(screen.getByTestId('toolbar-profile-tab'))
     await userEvent.click(screen.getByTestId('profile-modal-lock-wallet'))
     expect(spy).toHaveBeenCalledWith({
       type: persistActions.lockAsync.type,
@@ -82,6 +83,7 @@ describe('<ProfileModalButton  />', () => {
     renderComponent(store, 'small')
 
     await userEvent.click(screen.getByTestId('account-selector'))
+    await userEvent.click(screen.getByTestId('toolbar-profile-tab'))
     await userEvent.click(screen.getByTestId('profile-modal-close-wallet'))
     expect(mockNavigate).toHaveBeenCalledWith('/')
     expect(spy).toHaveBeenCalledWith({

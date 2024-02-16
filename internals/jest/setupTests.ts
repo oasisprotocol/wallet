@@ -1,3 +1,4 @@
+import { waitFor } from '@testing-library/react'
 import 'dotenv/config'
 import 'react-app-polyfill/stable'
 
@@ -17,3 +18,11 @@ window.TextDecoder = global.TextDecoder
 window.TextEncoder = global.TextEncoder
 
 global.window.scrollTo = () => {}
+
+afterEach(async () => {
+  // @testing-library/react does not directly cleanup portals, but it does
+  // trigger their internal cleanup. Wait for closing animation to finish.
+  await waitFor(() => {
+    expect(document.querySelector('[data-g-portal-id]')).not.toBeInTheDocument()
+  })
+})

@@ -13,6 +13,8 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { ManageableAccount } from '../Account/ManageableAccount'
 import { ScrollableContainer } from '../ScrollableContainer'
+import { ButtonLink } from '../../../ButtonLink'
+import { Add } from 'grommet-icons/es6/icons/Add'
 
 interface Props {
   closeHandler: () => any
@@ -57,11 +59,17 @@ export const AccountSelector = memo((props: Props) => {
   ))
 
   return (
-    <>
+    <Box flex="grow" justify="between" gap="medium">
       <ScrollableContainer>{accounts}</ScrollableContainer>
-      <Box align="end" margin={{ top: 'medium' }}>
+      <Box direction="row" justify="between" gap="medium">
+        <ButtonLink
+          icon={<Add a11yTitle={undefined} />}
+          label={t('menu.addAccounts', 'Add accounts')}
+          to="/"
+          onClick={() => props.closeHandler()}
+        />
         <Button primary label={t('toolbar.wallets.select', 'Select')} onClick={props.closeHandler} />
       </Box>
-    </>
+    </Box>
   )
 })
