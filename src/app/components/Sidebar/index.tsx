@@ -12,7 +12,7 @@ import { FormDown } from 'grommet-icons/es6/icons/FormDown'
 import { Home } from 'grommet-icons/es6/icons/Home'
 import { Inherit } from 'grommet-icons/es6/icons/Inherit'
 import { LineChart } from 'grommet-icons/es6/icons/LineChart'
-import { Lock } from 'grommet-icons/es6/icons/Lock'
+import { MuiLockIcon } from '../../../styles/theme/icons/mui-icons/MuiLockIcon'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
 import { Menu as MenuIcon } from 'grommet-icons/es6/icons/Menu'
 import { Money } from 'grommet-icons/es6/icons/Money'
@@ -189,7 +189,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       )}
       {isLockableOrCloseable === 'lockable' && (
         <SidebarButton
-          icon={<Lock />}
+          icon={<MuiLockIcon />}
           label={t('menu.lockProfile', 'Lock profile')}
           onClick={() => lockProfile()}
         />
