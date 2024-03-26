@@ -606,7 +606,6 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
             >
               <label
                 class="c12"
-                label="I confirm the amount and the address are correct"
               >
                 <div
                   class="c13 c14"

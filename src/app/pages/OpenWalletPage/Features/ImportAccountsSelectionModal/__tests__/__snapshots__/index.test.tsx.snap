@@ -239,6 +239,10 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   position: absolute;
 }
 
+.c4:focus {
+  outline: none;
+}
+
 .c13 {
   display: inline-block;
   box-sizing: border-box;

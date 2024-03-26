@@ -716,6 +716,10 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   position: absolute;
 }
 
+.c4:focus {
+  outline: none;
+}
+
 @media only screen and (max-width:768px) {
   .c6 {
     margin-left: 12px;

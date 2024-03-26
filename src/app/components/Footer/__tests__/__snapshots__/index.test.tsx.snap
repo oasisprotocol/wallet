@@ -120,6 +120,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
 
 .c2 {
   box-sizing: border-box;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   font-size: 14px;
   line-height: 20px;
   color: #0092f6;
