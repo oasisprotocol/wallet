@@ -9,11 +9,13 @@ import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
 import { TextInput } from 'grommet/es6/components/TextInput'
+import { Text } from 'grommet/es6/components/Text'
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
+import { selectTicker } from '../../../../state/network/selectors'
 
 export interface SendTransactionProps {
   isAddressInWallet: boolean
@@ -30,6 +32,7 @@ export function SendTransaction(props: SendTransactionProps) {
   const { error, success } = useSelector(selectTransaction)
   const validators = useSelector(selectValidators)
   const contacts = useSelector(selectContactsList)
+  const ticker = useSelector(selectTicker)
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
   const sendTransaction = () =>
@@ -109,6 +112,12 @@ export function SendTransaction(props: SendTransactionProps) {
               value={amount}
               onChange={event => setAmount(event.target.value)}
               required
+              icon={
+                <Text size="xsmall" weight={600} color="lightText">
+                  {ticker}
+                </Text>
+              }
+              reverse
             />
           </FormField>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>
