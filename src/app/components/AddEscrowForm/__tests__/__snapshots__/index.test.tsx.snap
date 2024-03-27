@@ -32,7 +32,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c5 {
+.c7 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -42,7 +42,14 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   width: 12px;
 }
 
-.c6 {
+.c5 {
+  font-size: 12px;
+  line-height: 18px;
+  color: #a3a3a3;
+  font-weight: 600;
+}
+
+.c8 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -71,8 +78,62 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c6:hover {
+.c8:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
+}
+
+.c8:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #6FFFB0;
+}
+
+.c8:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c8:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c8:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c6 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  padding-right: 48px;
 }
 
 .c6:focus {
@@ -95,88 +156,53 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c6:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible) > circle,.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,.c6:focus:not(:focus-visible) > polyline,
-.c6:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c6:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c4 {
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  border: none;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
-  width: 100%;
-  padding: 11px;
-  font-weight: 600;
-  margin: 0;
-  border: 1px solid rgba(0,0,0,0.33);
-  border-radius: 4px;
-}
-
-.c4:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c4:focus > circle,
-.c4:focus > ellipse,
-.c4:focus > line,
-.c4:focus > path,
-.c4:focus > polygon,
-.c4:focus > polyline,
-.c4:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
-}
-
-.c4:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c4::-webkit-input-placeholder {
+.c6::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c4::-moz-placeholder {
+.c6::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c4:-ms-input-placeholder {
+.c6:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c4::-webkit-search-decoration {
+.c6::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c4::-moz-focus-inner {
+.c6::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c4:-moz-placeholder,
-.c4::-moz-placeholder {
+.c6:-moz-placeholder,
+.c6::-moz-placeholder {
   opacity: 1;
 }
 
 .c3 {
   position: relative;
   width: 100%;
+}
+
+.c4 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-packjustify: center;
+  -webkit-justify: center;
+  -ms-flex-packjustify: center;
+  justify: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+  right: 12px;
 }
 
 .c0 {
@@ -199,7 +225,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c7 {
     width: 6px;
   }
 }
@@ -218,9 +244,16 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
         <div
           class="c3"
         >
+          <div
+            class="c4"
+          >
+            <span
+              class="c5"
+            />
+          </div>
           <input
             autocomplete="off"
-            class="c4"
+            class="c6"
             data-testid="amount"
             id="amount-id"
             min="0"
@@ -234,10 +267,10 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c5"
+        class="c7"
       />
       <button
-        class="c6"
+        class="c8"
         type="submit"
       >
         account.addEscrow.delegate
