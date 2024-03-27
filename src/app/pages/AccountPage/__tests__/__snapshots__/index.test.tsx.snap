@@ -282,7 +282,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c37 {
+.c39 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -301,7 +301,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c40 {
+.c42 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -320,7 +320,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-basis: 75%;
 }
 
-.c41 {
+.c43 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -335,7 +335,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c42 {
+.c44 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -451,7 +451,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c39 {
+.c41 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -507,7 +507,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c43 {
+.c45 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
@@ -647,7 +647,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c38 {
+.c40 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -676,44 +676,44 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c38:hover {
+.c40:hover {
   box-shadow: 0px 0px 0px 2px #0092f6;
 }
 
-.c38:focus {
+.c40:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c38:focus > circle,
-.c38:focus > ellipse,
-.c38:focus > line,
-.c38:focus > path,
-.c38:focus > polygon,
-.c38:focus > polyline,
-.c38:focus > rect {
+.c40:focus > circle,
+.c40:focus > ellipse,
+.c40:focus > line,
+.c40:focus > path,
+.c40:focus > polygon,
+.c40:focus > polyline,
+.c40:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c38:focus::-moz-focus-inner {
+.c40:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c38:focus:not(:focus-visible) {
+.c40:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c38:focus:not(:focus-visible) > circle,.c38:focus:not(:focus-visible) > ellipse,
-.c38:focus:not(:focus-visible) > line,.c38:focus:not(:focus-visible) > path,
-.c38:focus:not(:focus-visible) > polygon,.c38:focus:not(:focus-visible) > polyline,
-.c38:focus:not(:focus-visible) > rect {
+.c40:focus:not(:focus-visible) > circle,.c40:focus:not(:focus-visible) > ellipse,
+.c40:focus:not(:focus-visible) > line,.c40:focus:not(:focus-visible) > path,
+.c40:focus:not(:focus-visible) > polygon,.c40:focus:not(:focus-visible) > polyline,
+.c40:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c38:focus:not(:focus-visible)::-moz-focus-inner {
+.c40:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -761,9 +761,72 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c38 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 11px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  padding-right: 48px;
+}
+
+.c38::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c38::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c38:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c38::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c38::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c38:-moz-placeholder,
+.c38::-moz-placeholder {
+  opacity: 1;
+}
+
 .c34 {
   position: relative;
   width: 100%;
+}
+
+.c37 {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-packjustify: center;
+  -webkit-justify: center;
+  -ms-flex-packjustify: center;
+  justify: center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+  right: 12px;
 }
 
 .c16 {
@@ -917,25 +980,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c37 {
+  .c39 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c41 {
+  .c43 {
     margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c42 {
+  .c44 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c42 {
+  .c44 {
     padding: 24px;
   }
 }
@@ -972,14 +1035,14 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c39 {
+  .c41 {
     width: auto;
     height: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c43 {
+  .c45 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1352,9 +1415,16 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                   <div
                     class="c34"
                   >
+                    <div
+                      class="c37"
+                    >
+                      <span
+                        class="c19"
+                      />
+                    </div>
                     <input
                       autocomplete="off"
-                      class="c35"
+                      class="c38"
                       id="amount-id"
                       min="0"
                       name="amount"
@@ -1371,10 +1441,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
                 class="c36"
               />
               <div
-                class="c37"
+                class="c39"
               >
                 <button
-                  class="c38"
+                  class="c40"
                   type="submit"
                 >
                   Send
@@ -1385,19 +1455,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="c39"
+        class="c41"
       />
       <div
-        class="c40"
+        class="c42"
       >
         <div
-          class="c41"
+          class="c43"
         >
           <div
-            class="c42"
+            class="c44"
           >
             <h3
-              class="c43"
+              class="c45"
             >
               No transactions found.
             </h3>

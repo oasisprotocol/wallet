@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector, useDispatch } from 'react-redux'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { TransactionStatus } from '../TransactionStatus'
+import { selectTicker } from '../../state/network/selectors'
 
 interface Props {
   /** Currently delegated amount */
@@ -33,6 +34,7 @@ interface Props {
 export const ReclaimEscrowForm = memo((props: Props) => {
   const { t } = useTranslation()
   const { error, success } = useSelector(selectTransaction)
+  const ticker = useSelector(selectTicker)
   const [amount, setAmount] = useState('')
   const [shares, setShares] = useState('0' as StringifiedBigInt)
   const dispatch = useDispatch()
@@ -100,6 +102,12 @@ export const ReclaimEscrowForm = memo((props: Props) => {
             value={amount}
             onChange={event => amountChanged(event.target.value)}
             required
+            icon={
+              <Text size="xsmall" weight={600} color="lightText">
+                {ticker}
+              </Text>
+            }
+            reverse
           />
         </Box>
         <Box direction="row" gap="medium">

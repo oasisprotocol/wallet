@@ -5,7 +5,7 @@
  */
 import { useModal } from 'app/components/Modal'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
-import { selectMinStaking } from 'app/state/network/selectors'
+import { selectMinStaking, selectTicker } from 'app/state/network/selectors'
 import { Validator } from 'app/state/staking/types'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
@@ -37,6 +37,7 @@ export const AddEscrowForm = memo((props: Props) => {
   const [amount, setAmount] = useState('')
   const dispatch = useDispatch()
   const minStaking = useSelector(selectMinStaking)
+  const ticker = useSelector(selectTicker)
   const isMobile = useContext(ResponsiveContext) === 'small'
   const delegate = () => {
     dispatch(
@@ -104,6 +105,12 @@ export const AddEscrowForm = memo((props: Props) => {
                 value={amount}
                 onChange={event => setAmount(event.target.value)}
                 required
+                icon={
+                  <Text size="xsmall" weight={600} color="lightText">
+                    {ticker}
+                  </Text>
+                }
+                reverse
               />
             </Box>
             <Button label={t('account.addEscrow.delegate', 'Delegate')} type="submit" primary />
