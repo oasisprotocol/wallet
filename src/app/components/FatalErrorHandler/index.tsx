@@ -10,7 +10,6 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { ThemeContext } from 'styled-components'
 import { Anchor } from 'grommet/es6/components/Anchor'
 import { Box } from 'grommet/es6/components/Box'
-import { Button } from 'grommet/es6/components/Button'
 import { Heading } from 'grommet/es6/components/Heading'
 import { TextArea } from 'grommet/es6/components/TextArea'
 import { Text } from 'grommet/es6/components/Text'
@@ -25,6 +24,7 @@ import { normalizeColor } from 'grommet/es6/utils'
 import { ResponsiveLayer } from '../ResponsiveLayer'
 import logotype from '../../../../public/logo192.png'
 import { runtimeIs } from 'config'
+import { BrandButton } from '../Button'
 
 const StyledTextArea = styled(TextArea)`
   // Opacity is a workaround for browsers anti-aliasing issue triggered by border-radius.
@@ -35,14 +35,6 @@ const StyledTextArea = styled(TextArea)`
   font-size: 13px;
   color: ${({ theme }) => normalizeColor('text-custom', theme)};
 `
-
-const StyledButton = styled(Button)`
-  font-size: 14px;
-  border-radius: 8px;
-  border-width: 1px;
-  border-style: solid;
-`
-
 interface Props {
   children?: React.ReactNode
 }
@@ -84,52 +76,35 @@ export function FatalErrorHandler({ children }: Props) {
           />
         </Text>
         <Box direction={isMobile ? 'column' : 'row'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
-          <StyledButton
+          <BrandButton
             href="https://status.oasisprotocol.org"
             target="_blank"
             rel="noopener noreferrer"
-            icon={<Dashboard size="22px" color={normalizeColor('brand-white', theme)} />}
+            icon={<Dashboard />}
             label={t('fatalError.checkStatus', 'Check network status')}
-            style={{
-              backgroundColor: normalizeColor('brand-blue', theme),
-              color: normalizeColor('brand-white', theme),
-              borderColor: normalizeColor('brand-blue', theme),
-            }}
-            size="large"
           />
         </Box>
         <Box direction="row" justify="end" margin={{ bottom: isMobile ? 'medium' : 'small' }}>
           <StyledTextArea data-testid="fatalerror-stacktrace" readOnly rows={6} value={combinedStacktrace} />
         </Box>
         <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
-          <StyledButton
+          <BrandButton
+            brandVariant="brand-gray-medium"
             onClick={() => copyError()}
-            icon={<Copy size="18px" color={normalizeColor('brand-gray-extra-dark', theme)} />}
+            icon={<Copy />}
             label={
               !copied
                 ? t('fatalError.copy', 'Copy error to clipboard')
                 : t('fatalError.copied', 'Error copied to clipboard')
             }
-            style={{
-              backgroundColor: normalizeColor('brand-gray-medium', theme),
-              color: normalizeColor('brand-gray-extra-dark', theme),
-              borderColor: normalizeColor('brand-gray-medium', theme),
-            }}
-            size="large"
           />
         </Box>
         {runtimeIs === 'extension' && (
           <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
-            <StyledButton
+            <BrandButton
               onClick={() => (window as any).chrome?.runtime?.reload()}
-              icon={<Refresh size="22px" color={normalizeColor('brand-white', theme)} />}
+              icon={<Refresh />}
               label={t('fatalError.reloadExtension', 'Reload extension')}
-              style={{
-                backgroundColor: normalizeColor('brand-blue', theme),
-                color: normalizeColor('brand-white', theme),
-                borderColor: normalizeColor('brand-blue', theme),
-              }}
-              size="large"
             />
           </Box>
         )}
