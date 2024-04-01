@@ -316,7 +316,7 @@ exports[`<TransactionSummary /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      style="max-width: 550px;"
+      style="max-width: min(100%, 550px);"
     >
       <span
         class="c3"
