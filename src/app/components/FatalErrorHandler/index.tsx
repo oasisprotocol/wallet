@@ -45,6 +45,7 @@ export function FatalErrorHandler({ children }: Props) {
   const theme = useContext(ThemeContext)
   const fatalError = useSelector(selectFatalError)
   const [copied, setCopied] = useState(false)
+  const isExtension = runtimeIs === 'extension'
 
   if (!fatalError) {
     return <>{children}</>
@@ -77,6 +78,7 @@ export function FatalErrorHandler({ children }: Props) {
         </Text>
         <Box direction={isMobile ? 'column' : 'row'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
           <BrandButton
+            brandVariant={isExtension ? 'brand-gray-medium' : undefined}
             href="https://status.oasisprotocol.org"
             target="_blank"
             rel="noopener noreferrer"
@@ -87,7 +89,10 @@ export function FatalErrorHandler({ children }: Props) {
         <Box direction="row" justify="end" margin={{ bottom: isMobile ? 'medium' : 'small' }}>
           <StyledTextArea data-testid="fatalerror-stacktrace" readOnly rows={6} value={combinedStacktrace} />
         </Box>
-        <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
+        <Box
+          align={isMobile ? 'stretch' : 'end'}
+          margin={{ bottom: isExtension ? 'small' : isMobile ? 'xlarge' : 'large' }}
+        >
           <BrandButton
             brandVariant="brand-gray-medium"
             onClick={() => copyError()}
@@ -99,7 +104,7 @@ export function FatalErrorHandler({ children }: Props) {
             }
           />
         </Box>
-        {runtimeIs === 'extension' && (
+        {isExtension && (
           <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
             <BrandButton
               onClick={() => (window as any).chrome?.runtime?.reload()}
