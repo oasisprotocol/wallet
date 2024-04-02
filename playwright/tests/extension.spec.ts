@@ -71,4 +71,42 @@ test.describe('The extension popup should load', () => {
     await page.frameLocator('iframe')!.getByText('Buy now').click()
     await expect(page.frameLocator('iframe')!.getByText('Please Enter Your Email')).toBeVisible()
   })
+
+  test('recover from fatal errors', async ({ extensionPopupURL, context }) => {
+    {
+      const page = await context.newPage()
+      await page.goto(`${extensionPopupURL}/e2e`)
+      await page.getByRole('button', { name: 'Trigger fatal saga error' }).click()
+      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
+      await page.close()
+    }
+
+    {
+      // Gets stuck on error despite reloading or reopening the popup
+      const page = await context.newPage()
+      await page.goto(`${extensionPopupURL}/`)
+      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
+      await page.reload()
+      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
+      await page.close()
+    }
+
+    {
+      // Gets unstuck with a button
+      const page = await context.newPage()
+      await page.goto(`${extensionPopupURL}/`)
+      await page.getByRole('button', { name: 'Reload extension' }).click()
+      await page.close()
+    }
+
+    {
+      const page = await context.newPage()
+      await page.waitForTimeout(1000)
+      await page.goto(`${extensionPopupURL}/`)
+      await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
+      await page.reload()
+      await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
+      await page.close()
+    }
+  })
 })
