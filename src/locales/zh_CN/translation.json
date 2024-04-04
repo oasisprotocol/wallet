@@ -46,8 +46,7 @@
       },
       "noTransactionFound": "交易无法找到",
       "noWalletIsOpen": "转账、接收、质押{{ticker}}代币，<HomeLink>打开钱包</HomeLink>",
-      "notYourAccount": "这不是您的账户",
-      "yourAccount": "这是您的账户"
+      "notYourAccount": "这不是您的账户"
     },
     "transaction": {
       "addEscrow": {

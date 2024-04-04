@@ -36,8 +36,7 @@
       },
       "noTransactionFound": "Aucune transaction trouvée",
       "noWalletIsOpen": "Pour envoyer, recevoir, jalonner et échanger vos jetons Rose, <HomeLink>Ouvrez votre portefeuille</HomeLink> !",
-      "notYourAccount": "Ce compte n'est pas le vôtre.",
-      "yourAccount": "Ce compte est le vôtre."
+      "notYourAccount": "Ce compte n'est pas le vôtre."
     },
     "transaction": {
       "addEscrow": {

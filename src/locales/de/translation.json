@@ -33,8 +33,7 @@
       },
       "noTransactionFound": "Keine Transaktionen gefunden.",
       "noWalletIsOpen": "Um {{ticker}}-Tokens zu senden, empfangen, staken oder tauschen, <HomeLink>öffne deine Wallet</HomeLink>.",
-      "notYourAccount": "Dies ist nicht dein Konto.",
-      "yourAccount": "Dies ist dein Konto."
+      "notYourAccount": "Dies ist nicht dein Konto."
     },
     "transaction": {
       "addEscrow": {

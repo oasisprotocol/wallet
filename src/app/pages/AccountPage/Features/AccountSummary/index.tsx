@@ -116,9 +116,6 @@ export function AccountSummary({
   return (
     <>
       <Box margin={{ bottom: 'small' }}>
-        {walletHasAccounts && wallet?.address === address && (
-          <AlertBox status="ok-weak">{t('account.summary.yourAccount', 'This is your account.')}</AlertBox>
-        )}
         {walletHasAccounts && wallet?.address !== address && (
           <AlertBox status="warning">
             {t('account.summary.notYourAccount', 'This is not your account.')}

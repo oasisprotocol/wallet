@@ -32,8 +32,7 @@
         "available": "Disponible"
       },
       "noTransactionFound": "No se han encontrado transacciones.",
-      "notYourAccount": "Esta no es tu cuenta.",
-      "yourAccount": "Esta es tu cuenta."
+      "notYourAccount": "Esta no es tu cuenta."
     },
     "transaction": {
       "loadingError": "No se ha podido cargar las transacciones."
