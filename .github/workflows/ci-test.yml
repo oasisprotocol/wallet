@@ -25,7 +25,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Node.js 18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         id: yarn-cache
         with:
           node-version: 18
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Node.js 18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: yarn
@@ -50,7 +50,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - run: yarn test --coverage
       - name: 'Upload coverage report'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: jest-coverage
           path: coverage
@@ -65,7 +65,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Node.js 18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: yarn
@@ -85,7 +85,7 @@ jobs:
         run: xvfb-run yarn test:prod
       - name: 'Upload playwright test-results'
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: playwright-test-results
           path: playwright/test-results
@@ -100,7 +100,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Node.js 18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
           cache: yarn
@@ -115,7 +115,7 @@ jobs:
       - run: npx wait-on http://localhost:3000/ --timeout 60000
       - run: yarn cypress:run
       - name: 'Upload coverage report'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cypress-coverage
           path: cypress-coverage
@@ -130,7 +130,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Download coverage reports
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
       - uses: codecov/codecov-action@v3
         with:
           files: ./jest-coverage/coverage-final.json
