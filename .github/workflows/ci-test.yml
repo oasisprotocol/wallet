@@ -61,6 +61,11 @@ jobs:
     name: playwright
     needs: [yarn_cache]
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8]
+        shardTotal: [8]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,6 +74,8 @@ jobs:
         with:
           node-version: '18.x'
           cache: yarn
+      # TODO: could move outside sharding: yarn + build:ext + build + upload
+      # and then 8x shard download builds + serve + test
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - run: REACT_APP_E2E_TEST=1 yarn build:ext
@@ -82,14 +89,15 @@ jobs:
       - run: npx wait-on http://localhost:5000/ --timeout 60000
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
-        run: xvfb-run yarn test:prod
+        run: xvfb-run yarn test:prod --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - name: 'Upload playwright test-results'
         if: ${{ failure() }}
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-test-results
+          name: playwright-test-results-${{ matrix.shardIndex }}
           path: playwright/test-results
           retention-days: 5
+          # TODO: maybe https://playwright.dev/docs/test-sharding#merging-reports-from-multiple-shards
 
   upload-coverage:
     # NOTE: This name appears in GitHub's Checks API.
