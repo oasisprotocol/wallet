@@ -225,12 +225,8 @@ test.describe('Persist', () => {
     })
 
     async function testDeletingAndCreatingNew(page: Page) {
-      await page.getByRole('button', { name: 'Delete profile' }).click()
-      await page
-        .getByLabel(
-          "Are you sure you want to delete this profile? This action cannot be undone and will erase your private keys.To continue please enter 'delete' below.",
-        )
-        .fill('delete')
+      await page.getByRole('button', { name: 'Forgot password?' }).click()
+      await page.getByLabel(/To confirm and proceed/).fill('delete')
       await page.getByRole('button', { name: 'Yes, delete' }).click()
 
       await page.getByRole('button', { name: /Open wallet/ }).click()

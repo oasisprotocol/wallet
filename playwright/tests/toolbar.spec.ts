@@ -24,7 +24,7 @@ test.describe('Profile tab', () => {
     await page.getByTestId('account-selector').click()
     await page.getByTestId('toolbar-profile-tab').click()
     await page.getByRole('button', { name: 'Delete profile' }).click()
-    await page.getByLabel(/Are you sure you want/).fill('delete')
+    await page.getByLabel(/To confirm and proceed/).fill('delete')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
     await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
   })
