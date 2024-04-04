@@ -46,8 +46,7 @@
       },
       "noTransactionFound": "İşlem bulunamadı",
       "noWalletIsOpen": "{{ticker}} token göndermek, almak, stake etmek ve takas etmek için <HomeLink> cüzdanınızı açın </HomeLink>",
-      "notYourAccount": "Bu sizin hesabınız değil.",
-      "yourAccount": "Bu sizin hesabınız"
+      "notYourAccount": "Bu sizin hesabınız değil."
     },
     "transaction": {
       "addEscrow": {

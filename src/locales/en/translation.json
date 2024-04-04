@@ -47,8 +47,7 @@
       },
       "noTransactionFound": "No transactions found.",
       "noWalletIsOpen": "To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>.",
-      "notYourAccount": "This is not your account.",
-      "yourAccount": "This is your account."
+      "notYourAccount": "This is not your account."
     },
     "transaction": {
       "addEscrow": {

@@ -46,8 +46,7 @@
       },
       "noTransactionFound": "Ni transakcij",
       "noWalletIsOpen": "Za pošiljanje, sprejemanje, vlaganje in menjavo {{ticker}} morate <HomeLink>odpreti vašo denarnico</HomeLink>!",
-      "notYourAccount": "To ni vaš račun.",
-      "yourAccount": "To je vaš račun."
+      "notYourAccount": "To ni vaš račun."
     },
     "transaction": {
       "addEscrow": {
