@@ -12,9 +12,10 @@ import { Header } from 'app/components/Header'
 
 interface DeleteProfileButtonProps {
   prominent?: boolean
+  variant: 'voluntary' | 'forgot-password'
 }
 
-export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
+export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonProps) {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -33,7 +34,11 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
     <>
       <Button
         color="status-error"
-        label={t('persist.loginToProfile.deleteProfile.button', 'Delete profile')}
+        label={
+          variant === 'forgot-password'
+            ? t('persist.loginToProfile.deleteProfile.forgotPasswordButton', 'Forgot password?')
+            : t('persist.loginToProfile.deleteProfile.button', 'Delete profile')
+        }
         onClick={() => setLayerVisibility(true)}
         primary={prominent}
         plain={!prominent}
@@ -47,10 +52,21 @@ export function DeleteProfileButton({ prominent }: DeleteProfileButtonProps) {
           <DeleteInputForm onCancel={onCancel} onConfirm={onConfirm}>
             <Paragraph>
               <label htmlFor="type_delete">
+                {variant === 'forgot-password' && (
+                  <span>
+                    {t(
+                      'persist.loginToProfile.deleteProfile.forgotPasswordDescription',
+                      'Oasis Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.',
+                    )}
+                    <br />
+                    <br />
+                  </span>
+                )}
+
                 <Trans
                   t={t}
                   i18nKey="persist.loginToProfile.deleteProfile.description"
-                  defaults="Are you sure you want to delete this profile? This action cannot be undone and will <strong>erase your private keys</strong>.<br/><br/>To continue please enter '{{confirmationKeyword}}' below."
+                  defaults="This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type '{{confirmationKeyword}}' below."
                   values={{
                     confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
                   }}

@@ -75,7 +75,7 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
             <UpdatePassword />
             <Box gap="small" margin={{ top: 'medium' }} alignSelf="start">
               <Text>{t('toolbar.profile.deletion', 'Deletion')}</Text>
-              <DeleteProfileButton prominent />
+              <DeleteProfileButton prominent variant="voluntary" />
             </Box>
           </>
         )}
