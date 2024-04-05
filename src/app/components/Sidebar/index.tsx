@@ -265,7 +265,7 @@ function SidebarMenuItems() {
     wallet: (
       <SidebarButton
         icon={<Money />}
-        label={t('menu.wallet', 'Wallet')}
+        label={t('menu.wallet', 'ROSE Wallet')}
         needsWalletOpen={true}
         route={`/account/${address}`}
         data-testid="nav-myaccount"
@@ -274,7 +274,7 @@ function SidebarMenuItems() {
     stake: (
       <SidebarButton
         icon={<LineChart />}
-        label={t('menu.stake', 'Stake')}
+        label={t('menu.stake', 'Stake ROSE')}
         needsWalletOpen={true}
         route={`/account/${address}/stake`}
         data-testid="nav-stake"
@@ -292,7 +292,7 @@ function SidebarMenuItems() {
     fiatOnramp: (
       <SidebarButton
         icon={<CreditCard />}
-        label={t('menu.fiatOnramp', 'Buy')}
+        label={t('menu.fiatOnramp', 'Buy ROSE')}
         needsWalletOpen={true}
         route={`/account/${address}/fiat`}
       />
