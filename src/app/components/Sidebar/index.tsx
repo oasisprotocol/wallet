@@ -25,7 +25,8 @@ import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
-import walletLogotype from '../../../../public/Rose Wallet Logo Blue cropped.svg'
+import walletBlueLogotype from '../../../../public/Rose Wallet Logo Blue cropped.svg'
+import walletWhiteLogotype from '../../../../public/Rose Wallet Logo White cropped.svg'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
@@ -36,6 +37,7 @@ import {
   sidebarLargeSizeLogo,
   mobileToolbarZIndex,
 } from '../../../styles/theme/elementSizes'
+import { ThemeContext } from 'styled-components'
 
 interface SidebarButtonBaseProps {
   needsWalletOpen?: boolean
@@ -120,6 +122,8 @@ interface SidebarFooterProps {
 }
 
 const SidebarHeader = (props: SidebarHeaderProps) => {
+  const { dark } = useContext<any>(ThemeContext)
+
   const size = props.size
   const sizeLogo = {
     small: `${sidebarSmallSizeLogo}px`,
@@ -138,10 +142,8 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
         <Box align="center" direction="row" gap="small">
           <img
             alt="ROSE Wallet logo"
-            src={walletLogotype}
-            style={{
-              height: sizeLogo[size],
-            }}
+            src={dark ? walletWhiteLogotype : walletBlueLogotype}
+            style={{ height: sizeLogo[size] }}
           />
         </Box>
       </Link>
