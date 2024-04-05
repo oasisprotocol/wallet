@@ -230,11 +230,13 @@
     "addAccounts": "Dodaj račune",
     "closeWallet": "Zapri denarnico",
     "fiatOnramp": "Kupi",
+    "fiatOnramp-mobile": "Kupi",
     "home": "Domov",
     "lockProfile": "Zakleni profil",
     "openMenu": "Meni",
     "paraTimes": "ParaTimi",
     "stake": "Vlaganje",
+    "stake-mobile": "Vlaganje",
     "unlockProfile": "Odkleni profil",
     "wallet": "Denarnica"
   },

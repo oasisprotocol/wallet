@@ -234,11 +234,13 @@
     "addAccounts": "Add accounts",
     "closeWallet": "Close wallet",
     "fiatOnramp": "Buy ROSE",
+    "fiatOnramp-mobile": "Buy",
     "home": "Home",
     "lockProfile": "Lock profile",
     "openMenu": "Menu",
     "paraTimes": "ParaTimes",
     "stake": "Stake ROSE",
+    "stake-mobile": "Stake",
     "unlockProfile": "Unlock profile",
     "wallet": "ROSE Wallet"
   },

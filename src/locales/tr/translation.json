@@ -230,11 +230,13 @@
     "addAccounts": "Hesap ekle",
     "closeWallet": "Cüzdanı kapat",
     "fiatOnramp": "Satın Al",
+    "fiatOnramp-mobile": "Satın Al",
     "home": "Ana Sayfa",
     "lockProfile": "Profili kilitle.",
     "openMenu": "Menü",
     "paraTimes": "ParaTimelar",
     "stake": "Stake",
+    "stake-mobile": "Stake",
     "unlockProfile": "Profilin kilidini aç.",
     "wallet": "Cüzdan"
   },

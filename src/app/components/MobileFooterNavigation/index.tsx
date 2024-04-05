@@ -49,7 +49,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
         to: `/account/${address}`,
       },
       {
-        label: t('menu.stake', 'Stake ROSE'),
+        label: t('menu.stake-mobile', 'Stake'),
         Icon: LineChart,
         to: `/account/${address}/stake`,
       },
@@ -61,7 +61,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
       ...(IS_FIAT_ONRAMP_ENABLED
         ? [
             {
-              label: t('menu.fiatOnramp', 'Buy ROSE'),
+              label: t('menu.fiatOnramp-mobile', 'Buy'),
               Icon: CreditCard,
               to: `/account/${address}/fiat`,
             },

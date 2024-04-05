@@ -170,11 +170,13 @@
     "addAccounts": "Konten hinzufügen",
     "closeWallet": "Wallet schließen",
     "fiatOnramp": "Kaufen",
+    "fiatOnramp-mobile": "Kaufen",
     "home": "Home",
     "lockProfile": "Profil sperren",
     "openMenu": "Menü",
     "paraTimes": "ParaTimes",
     "stake": "Stake",
+    "stake-mobile": "Stake",
     "unlockProfile": "Profil entsperren",
     "wallet": "Wallet"
   },
