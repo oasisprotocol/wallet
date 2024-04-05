@@ -71,6 +71,10 @@ const grommetCustomTheme: ThemeType = {
         dark: '#6FFFB0',
         light: '#0092f6',
       },
+      ticker: {
+        dark: '#6FFFB0',
+        light: '#0092f6',
+      },
       'brand-background-light': '#e3e8ed',
       'brand-white': '#f8f8f8',
       'brand-blue': '#0092f6',

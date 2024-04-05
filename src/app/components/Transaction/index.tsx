@@ -83,7 +83,9 @@ export function Transaction(props: TransactionProps) {
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const Amount = <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} />
+  const Amount = (
+    <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} plainTicker />
+  )
   let side: TransactionSide
   let otherAddress = ''
 

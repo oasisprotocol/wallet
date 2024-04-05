@@ -103,7 +103,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
             onChange={event => amountChanged(event.target.value)}
             required
             icon={
-              <Text size="xsmall" weight={600} color="lightText">
+              <Text size="xsmall" weight={600} color="ticker">
                 {ticker}
               </Text>
             }

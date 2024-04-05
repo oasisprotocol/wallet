@@ -103,7 +103,7 @@ export const Footer = memo(() => {
             i18nKey="footer.roseTrademark"
             t={t}
             components={{
-              Highlight: <Text size="inherit" weight={600} />,
+              Highlight: <Text size="inherit" weight={600} color="ticker" />,
             }}
             defaults="<Highlight>ROSE</Highlight> trademark pending"
           />
