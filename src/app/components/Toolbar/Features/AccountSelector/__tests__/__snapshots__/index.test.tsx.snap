@@ -215,6 +215,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-sizing: border-box;
   max-width: 100%;
   margin-bottom: 48px;
+  margin-left: -2px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -222,6 +223,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   flex-direction: column;
   padding-top: 24px;
   padding-bottom: 24px;
+  padding-left: 2px;
   padding-right: 12px;
   overflow-y: auto;
 }
@@ -494,6 +496,14 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
+
+}
+
+@media only screen and (max-width:768px) {
   .c3 {
     border: solid 1px #0092f6;
   }
@@ -513,8 +523,20 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c2 {
+    margin-left: -2px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
     padding-top: 12px;
     padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c2 {
+    padding-left: 2px;
   }
 }
 
