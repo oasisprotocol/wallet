@@ -22,7 +22,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
 import { ResponsiveLayer } from '../ResponsiveLayer'
-import logotype from '../../../../public/logo192.png'
+import logotype from '../../../../public/Icon Blue 192.png'
 import { runtimeIs } from 'config'
 import { BrandButton } from '../Button'
 

@@ -13,7 +13,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { requestDevice } from 'app/lib/ledger'
-import logotype from '../../../../public/logo192.png'
+import logotype from '../../../../public/Icon Blue 192.png'
 import { WalletType } from '../../state/wallet/types'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
