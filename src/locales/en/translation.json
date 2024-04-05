@@ -189,6 +189,7 @@
       "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
+    "roseTrademark": "<Highlight>ROSE</Highlight> trademark pending",
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",
     "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
   },
