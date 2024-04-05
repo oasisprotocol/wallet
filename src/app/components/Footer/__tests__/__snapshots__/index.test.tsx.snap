@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> should render mobile version of footer 1`] = `
-.c8 {
+.c9 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,23 +12,23 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   stroke: #666666;
 }
 
-.c8 g {
+.c9 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c8 *:not([stroke])[fill='none'] {
+.c9 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c8 *[stroke*='#'],.c8 *[STROKE*='#'] {
+.c9 *[stroke*='#'],.c9 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c8 *[fill-rule],
-.c8 *[FILL-RULE],
-.c8 *[fill*='#'],.c8 *[FILL*='#'] {
+.c9 *[fill-rule],
+.c9 *[FILL-RULE],
+.c9 *[fill*='#'],.c9 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -79,7 +79,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -103,7 +103,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   padding-right: 24px;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -151,12 +151,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   text-align: center;
 }
 
-.c9 {
-  font-size: 14px;
-  line-height: 20px;
+.c5 {
+  font-size: inherit;
+  line-height: normal;
+  color: #0092f6;
+  font-weight: 600;
 }
 
-.c5 {
+.c6 {
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
@@ -208,14 +210,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     padding-left: 12px;
     padding-right: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c7 {
+  .c8 {
     margin: 3px;
   }
 }
@@ -227,7 +229,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     class="c1"
   >
     <span>
-      Oasis Wallet is fully 
+      ROSE Wallet is fully 
     </span>
     <a
       class="c2"
@@ -290,9 +292,19 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     >
       Powered by Oasis Scan API & Oasis gRPC
     </div>
+    <span
+      class="c5"
+    >
+      <span>
+        ROSE
+      </span>
+    </span>
+    <span>
+       trademark pending
+    </span>
   </span>
   <nav
-    class="c5"
+    class="c6"
     data-testid="mobile-footer-navigation"
   >
     <a
@@ -300,14 +312,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       href="/account/dummy"
     >
       <span
-        class="c6"
+        class="c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           <svg
             aria-label="Money"
-            class="c8"
+            class="c9"
             viewBox="0 0 24 24"
           >
             <path
@@ -319,9 +331,9 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           </svg>
         </span>
         <span
-          class="c9"
+          class="c3"
         >
-          Wallet
+          ROSE Wallet
         </span>
       </span>
     </a>
@@ -330,14 +342,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       href="/account/dummy/stake"
     >
       <span
-        class="c6"
+        class="c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           <svg
             aria-label="LineChart"
-            class="c8"
+            class="c9"
             viewBox="0 0 24 24"
           >
             <path
@@ -349,7 +361,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           </svg>
         </span>
         <span
-          class="c9"
+          class="c3"
         >
           Stake
         </span>
@@ -360,14 +372,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       href="/account/dummy/paratimes"
     >
       <span
-        class="c6"
+        class="c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           <svg
             aria-label="Inherit"
-            class="c8"
+            class="c9"
             viewBox="0 0 24 24"
           >
             <path
@@ -379,7 +391,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           </svg>
         </span>
         <span
-          class="c9"
+          class="c3"
         >
           ParaTimes
         </span>
@@ -390,14 +402,14 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       href="/account/dummy/fiat"
     >
       <span
-        class="c6"
+        class="c7"
       >
         <span
-          class="c7"
+          class="c8"
         >
           <svg
             aria-label="CreditCard"
-            class="c8"
+            class="c9"
             viewBox="0 0 24 24"
           >
             <path
@@ -409,7 +421,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           </svg>
         </span>
         <span
-          class="c9"
+          class="c3"
         >
           Buy
         </span>

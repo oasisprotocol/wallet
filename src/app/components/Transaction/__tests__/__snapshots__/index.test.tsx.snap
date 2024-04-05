@@ -367,7 +367,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 .c21 {
   font-size: 12px;
   line-height: 18px;
-  color: lightText;
+  color: ticker;
   font-weight: 600;
 }
 
@@ -1096,7 +1096,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
 .c21 {
   font-size: 12px;
   line-height: 18px;
-  color: lightText;
+  color: ticker;
   font-weight: 600;
 }
 

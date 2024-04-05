@@ -270,7 +270,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
 .c16 {
   font-size: 12px;
   line-height: 18px;
-  color: lightText;
+  color: ticker;
   font-weight: 600;
 }
 

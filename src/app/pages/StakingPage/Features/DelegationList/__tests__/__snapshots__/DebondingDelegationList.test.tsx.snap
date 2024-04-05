@@ -76,6 +76,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 .c19 {
   font-size: 18px;
   line-height: 24px;
+  color: #0092f6;
 }
 
 .c5 {

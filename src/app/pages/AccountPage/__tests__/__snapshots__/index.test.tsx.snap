@@ -435,7 +435,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 .c16 {
   font-size: 12px;
   line-height: 18px;
-  color: #a3a3a3;
+  color: #0092f6;
   font-weight: 600;
 }
 
