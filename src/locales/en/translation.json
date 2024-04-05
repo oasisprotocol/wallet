@@ -467,7 +467,7 @@
       "contacts": "Contacts",
       "delete": {
         "description": "Are you sure you want to delete the following account?",
-        "inputHelp": "This action cannot be undone. To continue please enter '{{confirmationKeyword}}' below.",
+        "inputHelp": "This action cannot be undone. To continue please type '{{confirmationKeyword}}' below.",
         "title": "Delete Account",
         "tooltip": "You must have at least one account at all times."
       },

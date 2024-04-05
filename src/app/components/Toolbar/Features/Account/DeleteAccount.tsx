@@ -52,7 +52,7 @@ export const DeleteAccount = ({ onCancel, onDelete, wallet }: DeleteAccountProps
               <Paragraph fill textAlign="center">
                 {t(
                   'toolbar.settings.delete.inputHelp',
-                  `This action cannot be undone. To continue please enter '{{confirmationKeyword}}' below.`,
+                  `This action cannot be undone. To continue please type '{{confirmationKeyword}}' below.`,
                   {
                     confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
                   },
