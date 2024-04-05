@@ -93,14 +93,14 @@
       "showingStale": "Showing validator list as of {{staleTimestamp}}."
     }
   },
-  "appTitle": "Oasis Wallet",
+  "appTitle": "ROSE Wallet",
   "backends": {
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildPreview": "Please note this is an experimental build of Oasis Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
-    "buildStaging": "Please note this is the staging deployment of Oasis Wallet. ONLY USE IT FOR TESTING."
+    "buildPreview": "Please note this is an experimental build of ROSE Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
+    "buildStaging": "Please note this is the staging deployment of ROSE Wallet. ONLY USE IT FOR TESTING."
   },
   "common": {
     "amount": "Amount",
@@ -172,7 +172,7 @@
     "reloadExtension": "Reload extension"
   },
   "fiatOnramp": {
-    "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the Oasis Wallet.",
+    "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.",
     "description": "This feature allows you to convert your fiat currency into cryptocurrency.",
     "header": "Buy ROSE",
     "headerInWidget": "Purchase ROSE to your wallet",
@@ -184,11 +184,12 @@
     "thirdPartyDisclaimer": "This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
-    "github": "Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
+    "github": "ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
     "poweredBy": {
       "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
+    "roseTrademark": "<Highlight>ROSE</Highlight> trademark pending",
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",
     "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
   },
@@ -233,14 +234,16 @@
   "menu": {
     "addAccounts": "Add accounts",
     "closeWallet": "Close wallet",
-    "fiatOnramp": "Buy",
+    "fiatOnramp": "Buy ROSE",
+    "fiatOnramp-mobile": "Buy",
     "home": "Home",
     "lockProfile": "Lock profile",
     "openMenu": "Menu",
     "paraTimes": "ParaTimes",
-    "stake": "Stake",
+    "stake": "Stake ROSE",
+    "stake-mobile": "Stake",
     "unlockProfile": "Unlock profile",
-    "wallet": "Wallet"
+    "wallet": "ROSE Wallet"
   },
   "migrateV0Extension": {
     "backupInvalidPrivateKeys": {
@@ -398,7 +401,7 @@
         "button": "Delete profile",
         "description": "This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type '{{confirmationKeyword}}' below.",
         "forgotPasswordButton": "Forgot password?",
-        "forgotPasswordDescription": "Oasis Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.",
+        "forgotPasswordDescription": "ROSE Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.",
         "title": "Delete Profile"
       },
       "description": "Log into your existing user profile on this computer to access the wallets you already added.",

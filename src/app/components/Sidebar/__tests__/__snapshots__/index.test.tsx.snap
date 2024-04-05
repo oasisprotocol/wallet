@@ -82,7 +82,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 24px;
+  padding: 12px;
 }
 
 .c2 {
@@ -342,7 +342,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    padding: 12px;
+    padding: 6px;
   }
 }
 
@@ -392,7 +392,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
         <span
           class="c6"
         >
-          Oasis Wallet
+          ROSE Wallet
         </span>
       </div>
     </a>
@@ -608,7 +608,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 24px;
+  padding: 12px;
 }
 
 .c2 {
@@ -868,7 +868,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    padding: 12px;
+    padding: 6px;
   }
 }
 
@@ -918,7 +918,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
         <span
           class="c6"
         >
-          Oasis Wallet
+          ROSE Wallet
         </span>
       </div>
     </a>

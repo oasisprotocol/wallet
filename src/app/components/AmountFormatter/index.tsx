@@ -21,6 +21,7 @@ export interface AmountFormatterProps {
   hideTicker?: boolean
   size?: string
   smallTicker?: boolean
+  plainTicker?: boolean
 }
 
 /**
@@ -35,6 +36,7 @@ export const AmountFormatter = memo(
     hideTicker,
     size,
     smallTicker,
+    plainTicker,
   }: AmountFormatterProps) => {
     const ticker = useSelector(selectTicker)
     const isUsingBaseUnits = amountUnit === 'baseUnits'
@@ -51,15 +53,15 @@ export const AmountFormatter = memo(
       ? {
           size: 'xsmall',
           weight: 600,
-          color: 'lightText',
         }
       : {}
+    const colorProps = plainTicker ? {} : { color: 'ticker' }
 
     return (
       <span>
         <Box style={{ display: 'inline-flex', whiteSpace: 'nowrap' }}>{amountString}</Box>
         {!hideTicker && (
-          <Text size={size} {...tickerProps}>
+          <Text size={size} {...tickerProps} {...colorProps}>
             <NoTranslate>{` ${ticker}`}</NoTranslate>
           </Text>
         )}

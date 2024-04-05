@@ -98,8 +98,8 @@
     "oasisscan": "Oasis Arama API"
   },
   "banner": {
-    "buildPreview": "Lütfen bunun Oasis Wallet'ın deneysel bir yapısı olduğunu ve sırlarınızın güvende olmadığını unutmayın. SADECE TEST AMAÇLI KULLANIN.",
-    "buildStaging": "Lütfen bunun Oasis Wallet'ın hazırlık dağıtımı olduğunu unutmayın. SADECE TEST AMAÇLI KULLANIN."
+    "buildPreview": "Lütfen bunun ROSE Wallet'ın deneysel bir yapısı olduğunu ve sırlarınızın güvende olmadığını unutmayın. SADECE TEST AMAÇLI KULLANIN.",
+    "buildStaging": "Lütfen bunun ROSE Wallet'ın hazırlık dağıtımı olduğunu unutmayın. SADECE TEST AMAÇLI KULLANIN."
   },
   "common": {
     "amount": "Miktar",
@@ -230,11 +230,13 @@
     "addAccounts": "Hesap ekle",
     "closeWallet": "Cüzdanı kapat",
     "fiatOnramp": "Satın Al",
+    "fiatOnramp-mobile": "Satın Al",
     "home": "Ana Sayfa",
     "lockProfile": "Profili kilitle.",
     "openMenu": "Menü",
     "paraTimes": "ParaTimelar",
     "stake": "Stake",
+    "stake-mobile": "Stake",
     "unlockProfile": "Profilin kilidini aç.",
     "wallet": "Cüzdan"
   },

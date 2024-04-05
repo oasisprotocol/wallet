@@ -53,7 +53,7 @@ export const Footer = memo(() => {
           i18nKey="footer.github"
           t={t}
           components={{ GithubLink: <Anchor href={githubLink} target="_blank" rel="noopener noreferrer" /> }}
-          defaults="Oasis Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!"
+          defaults="ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!"
         />
       </Text>
       <Text size={responsiveSize} textAlign="center" margin={{ bottom: responsiveSize }}>
@@ -99,6 +99,14 @@ export const Footer = memo(() => {
             }}
           />
           {poweredByLabel && <Box align="center">{poweredByLabel}</Box>}
+          <Trans
+            i18nKey="footer.roseTrademark"
+            t={t}
+            components={{
+              Highlight: <Text size="inherit" weight={600} color="ticker" />,
+            }}
+            defaults="<Highlight>ROSE</Highlight> trademark pending"
+          />
         </Text>
       )}
 

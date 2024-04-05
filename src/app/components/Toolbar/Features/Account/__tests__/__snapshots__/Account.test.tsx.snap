@@ -228,6 +228,7 @@ exports[`<Account  /> should match snapshot 1`] = `
 .c17 {
   font-size: 18px;
   line-height: 24px;
+  color: #0092f6;
 }
 
 .c3 {

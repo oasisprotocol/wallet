@@ -65,7 +65,7 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildStaging": "Bitte beachte, dass dies die Testversion der Oasis Wallet ist. VERWENDE SIE NUR ZU TESTZWECKEN."
+    "buildStaging": "Bitte beachte, dass dies die Testversion der ROSE Wallet ist. VERWENDE SIE NUR ZU TESTZWECKEN."
   },
   "common": {
     "amount": "Betrag",
@@ -170,11 +170,13 @@
     "addAccounts": "Konten hinzufügen",
     "closeWallet": "Wallet schließen",
     "fiatOnramp": "Kaufen",
+    "fiatOnramp-mobile": "Kaufen",
     "home": "Home",
     "lockProfile": "Profil sperren",
     "openMenu": "Menü",
     "paraTimes": "ParaTimes",
     "stake": "Stake",
+    "stake-mobile": "Stake",
     "unlockProfile": "Profil entsperren",
     "wallet": "Wallet"
   },

@@ -1,4 +1,4 @@
-# Oasis Wallet
+# ROSE Wallet
 
 [![CI build status][github-ci-build-badge]][github-ci-build-link]
 [![CI test status][github-ci-test-badge]][github-ci-test-link]
@@ -13,10 +13,10 @@
 
 ![Demo](docs/images/demo.gif)
 
-- [Oasis Wallet](#oasis-wallet)
+- [ROSE Wallet](#rose-wallet)
   - [Features](#features)
   - [Getting started](#getting-started)
-    - [Installing and running oasis-wallet][install-link]
+    - [Installing and running from source code][install-link]
     - [Test accounts](#test-accounts)
   - [Architecture](#architecture)
   - [Contributing & development](#contributing--development)
@@ -41,7 +41,7 @@
 
 ## Getting started
 
-### Installing and running oasis-wallet
+### Installing and running from source code
 
 You can quickly get started with the following commands:
 
@@ -78,7 +78,7 @@ oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 
 ## Architecture
 
-Oasis-wallet needs multiple components to run, all provided in the
+This code needs multiple components to run, all provided in the
 [docker-compose.yml] for local development.
 
 ![Architecture diagram](docs/images/architecture.svg)
@@ -172,7 +172,7 @@ A detailed post on Git commit messages: [How To Write a Git Commit Message].
 
 Translating: We have [Transifex] to easily contribute translations.
 
-Development: Oasis Wallet uses [react-i18next] for internationalization. You can
+Development: ROSE Wallet uses [react-i18next] for internationalization. You can
 simply use the [useTranslation hook] inside your components to add additional
 translation-ready strings. You can then export the new keys to the
 [English translation.json] by running `yarn run extract-messages`.
@@ -228,4 +228,4 @@ and download the translation file there,
 [license-link]: https://opensource.org/licenses/Apache-2.0
 [codecov-badge]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
-[install-link]: #installing-and-running-oasis-wallet
+[install-link]: #installing-and-running-from-source-code

@@ -44,12 +44,12 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
   const getMenuItems = useMemo(() => {
     const menuItems = [
       {
-        label: t('menu.wallet', 'Wallet'),
+        label: t('menu.wallet', 'ROSE Wallet'),
         Icon: Money,
         to: `/account/${address}`,
       },
       {
-        label: t('menu.stake', 'Stake'),
+        label: t('menu.stake-mobile', 'Stake'),
         Icon: LineChart,
         to: `/account/${address}/stake`,
       },
@@ -61,7 +61,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
       ...(IS_FIAT_ONRAMP_ENABLED
         ? [
             {
-              label: t('menu.fiatOnramp', 'Buy'),
+              label: t('menu.fiatOnramp-mobile', 'Buy'),
               Icon: CreditCard,
               to: `/account/${address}/fiat`,
             },
@@ -83,7 +83,9 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
             <Box as="span" margin="xsmall">
               <Icon />
             </Box>
-            <Text size="small">{label}</Text>
+            <Text size="small" textAlign="center">
+              {label}
+            </Text>
           </Box>
         </NavLink>
       ))}

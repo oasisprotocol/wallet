@@ -1,5 +1,5 @@
 {
-  "name": "@oasisprotocol/oasis-wallet-playwright-test",
+  "name": "@oasisprotocol/rose-wallet-playwright-test",
   "version": "0.0.0-development",
   "scripts": {
     "test": "playwright test",

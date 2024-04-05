@@ -230,11 +230,13 @@
     "addAccounts": "添加账户",
     "closeWallet": "关闭钱包",
     "fiatOnramp": "购买",
+    "fiatOnramp-mobile": "购买",
     "home": "主页",
     "lockProfile": "锁定个人资料",
     "openMenu": "菜单",
     "paraTimes": "ParaTimes",
     "stake": "质押",
+    "stake-mobile": "质押",
     "unlockProfile": "解锁个人资料",
     "wallet": "钱包"
   },
