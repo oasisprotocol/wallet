@@ -56,7 +56,7 @@ export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonP
                   <span>
                     {t(
                       'persist.loginToProfile.deleteProfile.forgotPasswordDescription',
-                      'Oasis Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.',
+                      'ROSE Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.',
                     )}
                     <br />
                     <br />

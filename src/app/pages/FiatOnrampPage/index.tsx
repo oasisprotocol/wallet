@@ -160,7 +160,7 @@ export function FiatOnramp() {
             <span>
               {t(
                 'fiatOnramp.astarFootnote',
-                'It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the Oasis Wallet.',
+                'It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.',
               )}
             </span>
           </Box>

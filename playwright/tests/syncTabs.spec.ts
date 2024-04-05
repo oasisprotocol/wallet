@@ -76,7 +76,7 @@ test.describe('syncTabs', () => {
       // Second tab should sync the opened wallet
       await tab2.goto('/')
       await expect(tab2.getByTestId('account-selector')).toBeVisible()
-      await tab2.getByRole('link', { name: 'Wallet', exact: true }).click()
+      await tab2.getByRole('link', { name: 'ROSE Wallet', exact: true }).click()
       await expect(tab2).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
       await expect(tab2.getByTestId('account-balance-summary')).toContainText('ROSE')
 

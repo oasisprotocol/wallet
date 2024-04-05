@@ -65,7 +65,7 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildStaging": "Bitte beachte, dass dies die Testversion der Oasis Wallet ist. VERWENDE SIE NUR ZU TESTZWECKEN."
+    "buildStaging": "Bitte beachte, dass dies die Testversion der ROSE Wallet ist. VERWENDE SIE NUR ZU TESTZWECKEN."
   },
   "common": {
     "amount": "Betrag",

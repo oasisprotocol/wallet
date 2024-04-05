@@ -154,20 +154,20 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
   const sizeLogo = {
     small: `${sidebarSmallSizeLogo}px`,
     medium: `${sidebarMediumSizeLogo}px`,
-    large: 'medium',
+    large: `${sidebarMediumSizeLogo}px`,
   }
 
   return (
     <Box
       align="center"
       margin={{ bottom: size !== 'small' ? 'medium' : undefined }}
-      pad="medium"
+      pad="small"
       alignSelf={size === 'large' ? undefined : 'center'}
     >
       <Link to="/">
         <Box align="center" direction="row" gap="small">
           <Avatar src={logotype} size={sizeLogo[size]} />
-          {size !== 'medium' && <Text>Oasis Wallet</Text>}
+          {size !== 'medium' && <Text>ROSE Wallet</Text>}
         </Box>
       </Link>
     </Box>

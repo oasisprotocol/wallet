@@ -61,7 +61,7 @@ export function FatalErrorHandler({ children }: Props) {
   return (
     <ResponsiveLayer modal background="background-front">
       <Box align="end" margin={{ horizontal: 'large', top: 'medium' }}>
-        <img src={logotype} alt={t('appTitle', 'Oasis Wallet')} width="45" height="45" />
+        <img src={logotype} alt={t('appTitle', 'ROSE Wallet')} width="45" height="45" />
       </Box>
       <Box margin={{ horizontal: 'large', bottom: 'large' }}>
         <Box direction="row" align="center" gap="small">
