@@ -1,5 +1,4 @@
 import { selectAddress, selectHasAccounts } from 'app/state/wallet/selectors'
-import { Avatar } from 'grommet/es6/components/Avatar'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Layer } from 'grommet/es6/components/Layer'
@@ -26,7 +25,7 @@ import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
-import logotype from '../../../../public/Icon Blue 192.png'
+import walletLogotype from '../../../../public/Rose Wallet Logo Blue cropped.svg'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
@@ -34,6 +33,7 @@ import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import {
   sidebarSmallSizeLogo,
   sidebarMediumSizeLogo,
+  sidebarLargeSizeLogo,
   mobileToolbarZIndex,
 } from '../../../styles/theme/elementSizes'
 
@@ -124,7 +124,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
   const sizeLogo = {
     small: `${sidebarSmallSizeLogo}px`,
     medium: `${sidebarMediumSizeLogo}px`,
-    large: `${sidebarMediumSizeLogo}px`,
+    large: `${sidebarLargeSizeLogo}px`,
   }
 
   return (
@@ -136,8 +136,13 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
     >
       <Link to="/">
         <Box align="center" direction="row" gap="small">
-          <Avatar src={logotype} size={sizeLogo[size]} />
-          <Text>ROSE Wallet</Text>
+          <img
+            alt="ROSE Wallet logo"
+            src={walletLogotype}
+            style={{
+              height: sizeLogo[size],
+            }}
+          />
         </Box>
       </Link>
     </Box>
