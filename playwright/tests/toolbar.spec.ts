@@ -126,7 +126,7 @@ test.describe('My Accounts tab', () => {
     await page.getByText('Delete Account').click()
     await page.getByTestId('account-delete-confirmation-input').fill('foo')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
-    expect(page.getByText("Type 'delete'")).toBeVisible()
+    expect(page.getByText("Type 'delete'", { exact: true })).toBeVisible()
     await page.getByTestId('account-delete-confirmation-input').fill('delete')
     await page.getByRole('button', { name: 'Yes, delete' }).click()
     await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
