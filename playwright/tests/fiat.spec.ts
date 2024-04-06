@@ -30,6 +30,7 @@ test.describe('Fiat on-ramp', () => {
         if (msg.text().includes('responded with a status of 403')) return true
         if (msg.text().includes('`sessionKey` is a required property')) return true
         if (msg.text().includes('[Report Only]')) return true
+        if (msg.text().includes('script-src https://*.transak.com https://*.google.com')) return true
       },
     })
     await setup(page)
