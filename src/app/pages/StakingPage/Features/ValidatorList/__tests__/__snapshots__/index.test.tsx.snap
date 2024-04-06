@@ -281,7 +281,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 .c21 {
   font-size: 18px;
   line-height: 24px;
-  color: #0092f6;
+  color: #0500e2;
 }
 
 .c2 {

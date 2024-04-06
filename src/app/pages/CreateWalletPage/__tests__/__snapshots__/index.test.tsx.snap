@@ -372,13 +372,13 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
+  background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -391,12 +391,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 .c10:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c10:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c10:focus > circle,
@@ -407,7 +407,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 .c10:focus > polyline,
 .c10:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c10:focus::-moz-focus-inner {
@@ -442,13 +442,13 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
+  background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
   opacity: 0.3;
@@ -464,7 +464,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 .c28:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c28:focus > circle,
@@ -475,7 +475,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 .c28:focus > polyline,
 .c28:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c28:focus::-moz-focus-inner {
@@ -545,7 +545,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 .c25:checked + span > span {
   left: calc( 48px - 24px );
-  background: #0092f6;
+  background: #0500e2;
 }
 
 .c24 {

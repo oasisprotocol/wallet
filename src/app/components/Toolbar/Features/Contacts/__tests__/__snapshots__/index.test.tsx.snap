@@ -42,7 +42,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  border: solid 1px #0092f6;
+  border: solid 1px #0500e2;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -186,7 +186,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  color: #0092f6;
+  color: #0500e2;
   outline: none;
   border: none;
   padding: 0;
@@ -200,7 +200,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 
 .c9:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c9:focus > circle,
@@ -211,7 +211,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 .c9:focus > polyline,
 .c9:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c9:focus::-moz-focus-inner {
@@ -246,13 +246,13 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
+  background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -265,12 +265,12 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 .c13:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c13:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c13:focus > circle,
@@ -281,7 +281,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 .c13:focus > polyline,
 .c13:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c13:focus::-moz-focus-inner {
@@ -333,7 +333,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c3 {
-    border: solid 1px #0092f6;
+    border: solid 1px #0500e2;
   }
 }
 

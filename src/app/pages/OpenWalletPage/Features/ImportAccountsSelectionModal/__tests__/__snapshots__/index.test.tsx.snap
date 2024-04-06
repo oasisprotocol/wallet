@@ -254,7 +254,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 18px;
   color: #16213E;
   padding: 4px 20px;
@@ -273,7 +273,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 
 .c13:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c13:focus > circle,
@@ -284,7 +284,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 .c13:focus > polyline,
 .c13:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c13:focus::-moz-focus-inner {
@@ -319,7 +319,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 18px;
   color: #16213E;
   padding: 4px 20px;
@@ -335,12 +335,12 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 .c15:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c15:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c15:focus > circle,
@@ -351,7 +351,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 .c15:focus > polyline,
 .c15:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c15:focus::-moz-focus-inner {
@@ -386,7 +386,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
@@ -402,12 +402,12 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 }
 
 .c17:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c17:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c17:focus > circle,
@@ -418,7 +418,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 .c17:focus > polyline,
 .c17:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c17:focus::-moz-focus-inner {
@@ -453,13 +453,13 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
+  background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
   opacity: 0.3;
@@ -475,7 +475,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 
 .c19:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c19:focus > circle,
@@ -486,7 +486,7 @@ exports[`<ImportAccountsSelectionModal  /> should match snapshot 1`] = `
 .c19:focus > polyline,
 .c19:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c19:focus::-moz-focus-inner {

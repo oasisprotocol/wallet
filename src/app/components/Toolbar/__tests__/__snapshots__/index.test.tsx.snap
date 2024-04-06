@@ -128,7 +128,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 
 .c4:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c4:focus > circle,
@@ -139,7 +139,7 @@ exports[`<Toolbar  /> should match snapshot 1`] = `
 .c4:focus > polyline,
 .c4:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c4:focus::-moz-focus-inner {
