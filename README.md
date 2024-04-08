@@ -11,8 +11,6 @@
 > :warning: **NEVER use the private keys and mnemonics given as examples
 > in this repository.**
 
-![Demo](docs/images/demo.gif)
-
 - [ROSE Wallet](#rose-wallet)
   - [Features](#features)
   - [Getting started](#getting-started)
