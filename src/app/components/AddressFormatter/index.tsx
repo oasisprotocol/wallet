@@ -33,7 +33,7 @@ export const AddressFormatter = (props: AddressFormatterProps) => {
   return (
     <StyledBox>
       {name && <StyledText data-testid="address-formatter-name">{name}</StyledText>}
-      <Text>{trimLongString(props.address)}</Text>
+      <Text style={{ overflowWrap: 'anywhere' }}>{trimLongString(props.address)}</Text>
     </StyledBox>
   )
 }

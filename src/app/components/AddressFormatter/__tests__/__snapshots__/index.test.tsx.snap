@@ -69,6 +69,7 @@ exports[`<AddressFormatter  /> should match snapshot 1`] = `
     </span>
     <span
       class="c3"
+      style="overflow-wrap: anywhere;"
     >
       oasis1qq2v...sv0d5eq4
     </span>

@@ -573,6 +573,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
               >
                 <span
                   class="c17"
+                  style="overflow-wrap: anywhere;"
                 >
                   source
                 </span>
@@ -1302,6 +1303,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
               >
                 <span
                   class="c17"
+                  style="overflow-wrap: anywhere;"
                 >
                   source
                 </span>
