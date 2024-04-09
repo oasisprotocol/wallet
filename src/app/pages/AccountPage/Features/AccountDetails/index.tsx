@@ -4,7 +4,7 @@
  *
  */
 import { Box } from 'grommet/es6/components/Box'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useSelector } from 'react-redux'
 import { SendTransaction } from '../SendTransaction'
 import { TransactionHistory } from '../TransactionHistory'
@@ -16,13 +16,13 @@ export const AccountDetails = memo((props: Props) => {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
 
   return (
-    <Box direction="row-responsive" gap="small">
+    <Box direction="row" wrap style={{ gap: '24px' }}>
       {isAddressInWallet && (
-        <Box flex basis="1/4" width={{ min: '300px' }}>
+        <Box flex={{ grow: 1 }} basis="32ex" width={{ max: '100%' }}>
           <SendTransaction isAddressInWallet={isAddressInWallet} />
         </Box>
       )}
-      <Box flex basis="3/4">
+      <Box flex={{ grow: 3 }} basis="80ex" width={{ max: '100%' }}>
         <TransactionHistory />
       </Box>
     </Box>
