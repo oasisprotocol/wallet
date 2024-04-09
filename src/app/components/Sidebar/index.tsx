@@ -8,7 +8,6 @@ import { Nav } from 'grommet/es6/components/Nav'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Sidebar as GSidebar } from 'grommet/es6/components/Sidebar'
 import { Text } from 'grommet/es6/components/Text'
-import { Tip } from 'grommet/es6/components/Tip'
 import { Github } from 'grommet-icons/es6/icons/Github'
 import { FormDown } from 'grommet-icons/es6/icons/FormDown'
 import { Home } from 'grommet-icons/es6/icons/Home'
@@ -38,26 +37,6 @@ import {
   mobileToolbarZIndex,
 } from '../../../styles/theme/elementSizes'
 
-const SidebarTooltip = (props: { children: React.ReactNode; isActive: boolean; label: string }) => {
-  const size = useContext(ResponsiveContext)
-  const isMediumSize = size === 'medium'
-  const tooltip = (
-    <Box
-      pad={{ vertical: 'small', right: 'medium' }}
-      margin="none"
-      background={props.isActive ? 'background-oasis-blue' : 'component-sidebar'}
-      round={{ size: 'medium', corner: 'right' }}
-    >
-      {props.label}
-    </Box>
-  )
-  return (
-    <Tip content={isMediumSize ? tooltip : undefined} dropProps={{ align: { left: 'right' } }} plain={true}>
-      {props.children}
-    </Tip>
-  )
-}
-
 interface SidebarButtonBaseProps {
   needsWalletOpen?: boolean
   icon: JSX.Element
@@ -84,10 +63,8 @@ export const SidebarButton = ({
   ...rest
 }: SidebarButtonProps) => {
   const walletHasAccounts = useSelector(selectHasAccounts)
-  const size = useContext(ResponsiveContext)
   const location = useLocation()
   const isActive = route ? route === location.pathname : false
-  const isMediumSize = size === 'medium'
 
   if (!walletHasAccounts && needsWalletOpen) {
     return null
@@ -95,16 +72,15 @@ export const SidebarButton = ({
 
   const component = (
     <Box
-      pad={{ vertical: 'small', left: isMediumSize ? 'none' : 'medium' }}
+      pad={{ vertical: 'small', left: 'medium' }}
       background={isActive ? 'background-oasis-blue' : undefined}
       responsive={false}
       direction="row"
       gap="medium"
-      justify={isMediumSize ? 'center' : 'start'}
+      justify="start"
     >
-      {/* eslint-disable-next-line no-restricted-syntax -- icon is not a plain text node */}
       {icon}
-      {!isMediumSize && <Text>{label}</Text>}
+      <Text>{label}</Text>
     </Box>
   )
 
@@ -115,26 +91,20 @@ export const SidebarButton = ({
       throw new Error('Must use newTab with absolute URLs. React-router Link component uses relative routes.')
     }
 
-    return (
-      <SidebarTooltip label={label} isActive={isActive}>
-        {newTab ? (
-          <a aria-label={label} href={route} target="_blank" rel="noopener" {...rest}>
-            {component}
-          </a>
-        ) : (
-          <NavLink aria-label={label} to={route} {...rest}>
-            {component}
-          </NavLink>
-        )}
-      </SidebarTooltip>
+    return newTab ? (
+      <a aria-label={label} href={route} target="_blank" rel="noopener" {...rest}>
+        {component}
+      </a>
+    ) : (
+      <NavLink aria-label={label} to={route} {...rest}>
+        {component}
+      </NavLink>
     )
   } else {
     return (
-      <SidebarTooltip label={label} isActive={isActive}>
-        <Button a11yTitle={label} fill="horizontal" onClick={onClick} {...rest}>
-          {component}
-        </Button>
-      </SidebarTooltip>
+      <Button a11yTitle={label} fill="horizontal" onClick={onClick} {...rest}>
+        {component}
+      </Button>
     )
   }
 }
@@ -167,7 +137,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
       <Link to="/">
         <Box align="center" direction="row" gap="small">
           <Avatar src={logotype} size={sizeLogo[size]} />
-          {size !== 'medium' && <Text>ROSE Wallet</Text>}
+          <Text>ROSE Wallet</Text>
         </Box>
       </Link>
     </Box>
@@ -219,32 +189,30 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       )}
 
       {size === 'small' && (
-        <SidebarTooltip label="Language" isActive={false}>
-          <Box pad="small" align="start">
-            <Menu
-              hoverIndicator={false}
-              dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
-              items={languageLabels.map(([key, label]) => ({
-                label: label,
-                onClick: () => setLanguage(key),
-              }))}
-              a11yTitle="Language"
-            >
-              <Box direction="row">
-                <Box pad="small">
-                  <Language />
-                </Box>
-                <Box pad="small" flex="grow">
-                  {/* Intentionally not translated */}
-                  <Text>Language</Text>
-                </Box>
-                <Box pad="small">
-                  <FormDown />
-                </Box>
+        <Box pad="small" align="start">
+          <Menu
+            hoverIndicator={false}
+            dropProps={{ align: { bottom: 'bottom', left: 'left' } }}
+            items={languageLabels.map(([key, label]) => ({
+              label: label,
+              onClick: () => setLanguage(key),
+            }))}
+            a11yTitle="Language"
+          >
+            <Box direction="row">
+              <Box pad="small">
+                <Language />
               </Box>
-            </Menu>
-          </Box>
-        </SidebarTooltip>
+              <Box pad="small" flex="grow">
+                {/* Intentionally not translated */}
+                <Text>Language</Text>
+              </Box>
+              <Box pad="small">
+                <FormDown />
+              </Box>
+            </Box>
+          </Menu>
+        </Box>
       )}
       <SidebarButton
         icon={<Github />}
@@ -321,7 +289,7 @@ export function Sidebar() {
       footer={<SidebarFooter size={size} />}
       pad={{ left: 'none', right: 'none', vertical: 'medium' }}
       gap="small"
-      width={size === 'medium' ? undefined : '220px'}
+      width="220px"
     >
       <SidebarMenuItems />
     </GSidebar>
