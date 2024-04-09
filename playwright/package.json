@@ -1,6 +1,7 @@
 {
-  "name": "@oasisprotocol/rose-wallet-playwright-test",
+  "name": "@oasisprotocol/oasis-rose-wallet-playwright-test",
   "version": "0.0.0-development",
+  "private": true,
   "scripts": {
     "test": "playwright test",
     "test:prod": "BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/  playwright test"

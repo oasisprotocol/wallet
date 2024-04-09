@@ -60,7 +60,7 @@ VERSION=`cat extension/src/manifest.json | jq .version -r`
 COMMIT=`git rev-parse --short HEAD`
 yarn install --frozen-lockfile
 yarn build:ext
-zip -r rose-wallet-$VERSION-$COMMIT.zip build-ext/
+zip -r oasis-rose-wallet-$VERSION-$COMMIT.zip build-ext/
 ```
 
 - GitHub pre-release with zip file
