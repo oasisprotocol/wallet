@@ -99,14 +99,6 @@ export const Footer = memo(() => {
             }}
           />
           {poweredByLabel && <Box align="center">{poweredByLabel}</Box>}
-          <Trans
-            i18nKey="footer.roseTrademark"
-            t={t}
-            components={{
-              Highlight: <Text size="inherit" weight={600} color="ticker" />,
-            }}
-            defaults="<Highlight>ROSE</Highlight> trademark pending"
-          />
         </Text>
       )}
 
