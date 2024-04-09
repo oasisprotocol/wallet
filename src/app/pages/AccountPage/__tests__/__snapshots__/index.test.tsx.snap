@@ -187,6 +187,9 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .c27 {
@@ -200,13 +203,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-width: 300px;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-  -webkit-flex-basis: 25%;
-  -ms-flex-preferred-size: 25%;
-  flex-basis: 25%;
+  max-width: 100%;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  -webkit-flex-basis: 32ex;
+  -ms-flex-preferred-size: 32ex;
+  flex-basis: 32ex;
 }
 
 .c28 {
@@ -260,7 +263,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c39 {
+.c38 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -271,15 +274,16 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-  -webkit-flex-basis: 75%;
-  -ms-flex-preferred-size: 75%;
-  flex-basis: 75%;
+  max-width: 100%;
+  -webkit-flex: 3 0;
+  -ms-flex: 3 0;
+  flex: 3 0;
+  -webkit-flex-basis: 80ex;
+  -ms-flex-preferred-size: 80ex;
+  flex-basis: 80ex;
 }
 
-.c40 {
+.c39 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -294,7 +298,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c41 {
+.c40 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -410,16 +414,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c38 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  width: 12px;
-}
-
 .c11 {
   font-size: inherit;
   line-height: normal;
@@ -460,7 +454,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c42 {
+.c41 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
@@ -889,25 +883,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c26 {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-basis: auto;
-    -ms-flex-preferred-size: auto;
-    flex-basis: auto;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-    -webkit-align-items: stretch;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-  }
-}
-
-@media only screen and (max-width:768px) {
   .c28 {
     padding: 12px;
   }
@@ -926,19 +901,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c40 {
+  .c39 {
     margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c41 {
+  .c40 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c41 {
+  .c40 {
     padding: 24px;
   }
 }
@@ -975,14 +950,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c38 {
-    width: auto;
-    height: 6px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c42 {
+  .c41 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1281,6 +1249,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     </nav>
     <div
       class="c26"
+      style="gap: 24px;"
     >
       <div
         class="c27"
@@ -1381,18 +1350,15 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
       </div>
       <div
         class="c38"
-      />
-      <div
-        class="c39"
       >
         <div
-          class="c40"
+          class="c39"
         >
           <div
-            class="c41"
+            class="c40"
           >
             <h3
-              class="c42"
+              class="c41"
             >
               No transactions found.
             </h3>
