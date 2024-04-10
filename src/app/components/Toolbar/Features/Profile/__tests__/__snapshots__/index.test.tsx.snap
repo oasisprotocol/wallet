@@ -251,7 +251,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 
 .c9:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c9:focus > circle,
@@ -262,7 +262,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 .c9:focus > polyline,
 .c9:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c9:focus::-moz-focus-inner {
@@ -297,13 +297,13 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
   font-size: 18px;
   line-height: 24px;
-  background-color: #0092f6;
+  background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
@@ -316,12 +316,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 .c12:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c12:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c12:focus > circle,
@@ -332,7 +332,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 .c12:focus > polyline,
 .c12:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c12:focus::-moz-focus-inner {
@@ -391,7 +391,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 
 .c16:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c16:focus > circle,
@@ -402,7 +402,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 .c16:focus > polyline,
 .c16:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c16:focus::-moz-focus-inner {
@@ -437,7 +437,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #0092f6;
+  border: 2px solid #0500e2;
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
@@ -453,12 +453,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 .c18:hover {
-  box-shadow: 0px 0px 0px 2px #0092f6;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c18:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c18:focus > circle,
@@ -469,7 +469,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 .c18:focus > polyline,
 .c18:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c18:focus::-moz-focus-inner {
@@ -519,7 +519,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 
 .c8:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c8:focus > circle,
@@ -530,7 +530,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 .c8:focus > polyline,
 .c8:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c8:focus::-moz-focus-inner {

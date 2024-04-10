@@ -40,8 +40,8 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #0092f6;
-  stroke: #0092f6;
+  fill: #0500e2;
+  stroke: #0500e2;
 }
 
 .c15 g {
@@ -196,7 +196,7 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
 
 .c7:focus {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c7:focus > circle,
@@ -207,7 +207,7 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
 .c7:focus > polyline,
 .c7:focus > rect {
   outline: none;
-  box-shadow: 0 0 2px 2px #6FFFB0;
+  box-shadow: 0 0 2px 2px #00A9FF;
 }
 
 .c7:focus::-moz-focus-inner {

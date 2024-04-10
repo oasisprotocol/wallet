@@ -11,6 +11,8 @@
 > :warning: **NEVER use the private keys and mnemonics given as examples
 > in this repository.**
 
+[demo-video]
+
 - [Oasis ROSE Wallet](#oasis-rose-wallet)
   - [Features](#features)
   - [Getting started](#getting-started)
@@ -195,6 +197,7 @@ and download the translation file there,
 
 [Release process doc](docs/release-process.md)
 
+[demo-video]: https://github.com/oasisprotocol/oasis-wallet-web/assets/3758846/ef11fbea-dd55-42b1-87a4-1b74509a2809
 [docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
 [oasis-monitor]: https://oasismonitor.com

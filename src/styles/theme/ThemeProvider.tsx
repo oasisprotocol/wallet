@@ -61,8 +61,8 @@ const grommetCustomTheme: ThemeType = {
       oasisMinty: '#4CD4A9',
       oasisLightGray: '#ececec',
       brand: {
-        dark: '#0092f6bb',
-        light: '#0092f6',
+        dark: '#6EFFFA',
+        light: '#0500e2',
       },
       oasisBlue2: '#4db3f9',
       oasisBlue3: '#26a2f8',
@@ -70,19 +70,16 @@ const grommetCustomTheme: ThemeType = {
         dark: '#d5d6d7',
         light: '#565b61',
       },
-      link: {
-        dark: '#6FFFB0',
-        light: '#0092f6',
+      link: 'brand',
+      ticker: 'brand',
+      focus: {
+        dark: '#00A9FF',
+        light: '#00A9FF',
       },
-      ticker: {
-        dark: '#6FFFB0',
-        light: '#0092f6',
-      },
-      focus: '#6FFFB0',
       'accent-1': 'focus',
       'brand-background-light': '#e3e8ed',
       'brand-white': '#f8f8f8',
-      'brand-blue': '#0092f6',
+      'brand-blue': '#0500e2',
       'brand-gray-medium': '#d5d6d7',
       'brand-gray-extra-dark': '#06152b',
       'status-ok': '#2ad5ab',
@@ -93,12 +90,12 @@ const grommetCustomTheme: ThemeType = {
       'status-error': '#d24c00',
 
       'alert-box-info': {
-        dark: '#0092f6',
+        dark: '#0500e2',
         light: '#d4ebff',
       },
       'alert-box-info-background': {
         dark: '#d4ebff',
-        light: '#0092f6',
+        light: '#0500e2',
       },
       'alert-box-ok-weak': {
         dark: '#2ad5ab',
@@ -139,7 +136,7 @@ const grommetCustomTheme: ThemeType = {
 
       'background-oasis-blue': {
         dark: '#0f477b',
-        light: '#0092f6',
+        light: '#0500e2',
       },
       lightText: '#a3a3a3',
       neutral: {
@@ -147,8 +144,8 @@ const grommetCustomTheme: ThemeType = {
         light: '#310081FF',
       },
       'neutral-2': {
-        dark: '#0092f6bb',
-        light: '#0092f6bb',
+        dark: '#0500e2bb',
+        light: '#0500e2bb',
       },
       'background-back': {
         dark: '#1A1A2e',
@@ -179,7 +176,7 @@ const grommetCustomTheme: ThemeType = {
         light: '#00C8FF',
       },
       'background-custom-2': {
-        dark: '#6FFFB0',
+        dark: '#6EFFFA',
         light: '#E8F5FF',
       },
       'component-toolbar': {
@@ -191,7 +188,7 @@ const grommetCustomTheme: ThemeType = {
         light: '#fafafa',
       },
       'successful-label': {
-        dark: '#6FFFB0',
+        dark: '#00fd79',
         light: '#3fa900',
       },
       'text-custom': {

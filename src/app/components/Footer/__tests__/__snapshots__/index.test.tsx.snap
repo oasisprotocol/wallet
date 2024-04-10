@@ -126,7 +126,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   display: inline-flex;
   font-size: 14px;
   line-height: 20px;
-  color: #0092f6;
+  color: #0500e2;
   font-weight: 600;
   -webkit-text-decoration: none;
   text-decoration: none;

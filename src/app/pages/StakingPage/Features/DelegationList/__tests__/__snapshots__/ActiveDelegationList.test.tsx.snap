@@ -108,7 +108,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
 .c20 {
   font-size: 18px;
   line-height: 24px;
-  color: #0092f6;
+  color: #0500e2;
 }
 
 .c5 {

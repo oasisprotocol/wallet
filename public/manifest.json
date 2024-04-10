@@ -7,23 +7,23 @@
   "version": "0.0.1",
   "default_locale": "en",
   "icons": {
-    "16": "./logo512.png",
-    "19": "./logo512.png",
-    "32": "./logo512.png",
-    "38": "./logo512.png",
-    "64": "./logo512.png",
-    "128": "./logo512.png",
-    "512": "./logo512.png"
+    "16": "./Icon Blue 512.png",
+    "19": "./Icon Blue 512.png",
+    "32": "./Icon Blue 512.png",
+    "38": "./Icon Blue 512.png",
+    "64": "./Icon Blue 512.png",
+    "128": "./Icon Blue 512.png",
+    "512": "./Icon Blue 512.png"
   },
   "browser_action": {
     "default_icon": {
-      "16": "./logo512.png",
-      "19": "./logo512.png",
-      "32": "./logo512.png",
-      "38": "./logo512.png",
-      "64": "./logo512.png",
-      "128": "./logo512.png",
-      "512": "./logo512.png"
+      "16": "./Icon Blue 512.png",
+      "19": "./Icon Blue 512.png",
+      "32": "./Icon Blue 512.png",
+      "38": "./Icon Blue 512.png",
+      "64": "./Icon Blue 512.png",
+      "128": "./Icon Blue 512.png",
+      "512": "./Icon Blue 512.png"
     },
     "default_title": "Oasis ROSE Wallet",
     "default_popup": "../extension/src/popup.html"
