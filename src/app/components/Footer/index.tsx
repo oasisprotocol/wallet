@@ -53,7 +53,7 @@ export const Footer = memo(() => {
           i18nKey="footer.github"
           t={t}
           components={{ GithubLink: <Anchor href={githubLink} target="_blank" rel="noopener noreferrer" /> }}
-          defaults="ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!"
+          defaults="Oasis ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!"
         />
       </Text>
       <Text size={responsiveSize} textAlign="center" margin={{ bottom: responsiveSize }}>

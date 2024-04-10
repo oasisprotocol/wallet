@@ -98,8 +98,8 @@
     "oasisscan": "Oasis Arama API"
   },
   "banner": {
-    "buildPreview": "Lütfen bunun ROSE Wallet'ın deneysel bir yapısı olduğunu ve sırlarınızın güvende olmadığını unutmayın. SADECE TEST AMAÇLI KULLANIN.",
-    "buildStaging": "Lütfen bunun ROSE Wallet'ın hazırlık dağıtımı olduğunu unutmayın. SADECE TEST AMAÇLI KULLANIN."
+    "buildPreview": "Lütfen bunun Oasis ROSE Wallet'ın deneysel bir yapısı olduğunu ve sırlarınızın güvende olmadığını unutmayın. SADECE TEST AMAÇLI KULLANIN.",
+    "buildStaging": "Lütfen bunun Oasis ROSE Wallet'ın hazırlık dağıtımı olduğunu unutmayın. SADECE TEST AMAÇLI KULLANIN."
   },
   "common": {
     "amount": "Miktar",

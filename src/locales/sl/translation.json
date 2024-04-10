@@ -98,8 +98,8 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildPreview": "Uporabljate eksperimentalno različico ROSE Walleta in vaši ključi so morda ogroženi. UPORABLJAJTE LE KLJUČE ZA TESTIRANJE.",
-    "buildStaging": "Uporabljate razvojno različico ROSE Walleta. UPORABLJAJTE GA LE ZA TESTIRANJE."
+    "buildPreview": "Uporabljate eksperimentalno različico Oasis ROSE Walleta in vaši ključi so morda ogroženi. UPORABLJAJTE LE KLJUČE ZA TESTIRANJE.",
+    "buildStaging": "Uporabljate razvojno različico Oasis ROSE Walleta. UPORABLJAJTE GA LE ZA TESTIRANJE."
   },
   "common": {
     "amount": "Znesek",
@@ -165,7 +165,7 @@
     "copied": "Napaka skopirana v odložišče",
     "copy": "Skopiraj napako v odložišče",
     "heading": "Pojavila se je usodna napaka",
-    "instruction": "Pojavila se je usodna napaka in ROSE Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
+    "instruction": "Pojavila se je usodna napaka in Oasis ROSE Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
   "fiatOnramp": {
     "astarFootnote": "AStar Technologies, registrirana na Kajmanskih otokih, deluje v imenu in za namene Oasisa in je tudi ponudnik ROSE Walleta.",
@@ -180,7 +180,7 @@
     "thirdPartyDisclaimer": "Storitev opravlja zunanje izvajalec. Oasis* ne nosi odgovornosti za njeno delovanje. Vse provizije zaračuna ponudnik Transak."
   },
   "footer": {
-    "github": "ROSE Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
+    "github": "Oasis ROSE Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
     "poweredBy": {
       "oasismonitor": "Deluje s pomočjo Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
