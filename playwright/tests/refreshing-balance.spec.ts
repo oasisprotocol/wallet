@@ -43,3 +43,17 @@ test('Accounts page should continuously refresh balance', async ({ page }) => {
   await expect(page.getByTestId('account-choice')).toContainText('456.0')
   // If balance in AccountSelector is not refreshed then making transactions with new balance will fail.
 })
+
+test('Accounts page should refresh balance on navigation', async ({ page }) => {
+  await page.getByTestId('account-selector').click()
+  await expect(page.getByTestId('account-balance-summary')).toContainText('123.0')
+  await expect(page.getByTestId('account-choice')).toContainText('123.0')
+  await page.getByRole('button', { name: /Select/ }).click()
+  await page.getByRole('link', { name: /Home/ }).click()
+  await mockApi(page, 456)
+  await page.getByTestId('nav-myaccount').click()
+  await page.getByTestId('account-selector').click()
+  await expect(page.getByTestId('account-balance-summary')).toContainText('456.0')
+  await expect(page.getByTestId('account-choice')).toContainText('456.0')
+  // If balance in AccountSelector is not refreshed then making transactions with new balance will fail.
+})

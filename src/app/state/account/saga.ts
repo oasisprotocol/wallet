@@ -12,6 +12,7 @@ import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+import { walletActions } from '../wallet'
 
 const ACCOUNT_REFETCHING_INTERVAL = process.env.REACT_APP_E2E_TEST ? 5 * 1000 : 30 * 1000
 const TRANSACTIONS_LIMIT = 20
@@ -28,6 +29,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
         try {
           const account = yield* call(getAccountBalanceWithFallback, address)
           yield* put(accountActions.accountLoaded(account))
+          yield* put(walletActions.updateBalance({ address: account.address, balance: account }))
         } catch (apiError: any) {
           if (apiError instanceof WalletError) {
             yield* put(accountActions.accountError({ code: apiError.type, message: apiError.message }))

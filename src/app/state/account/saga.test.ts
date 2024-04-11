@@ -1,5 +1,6 @@
 import { expectSaga, testSaga } from 'redux-saga-test-plan'
 import { stakingActions } from 'app/state/staking'
+import { walletActions } from 'app/state/wallet'
 import { transactionActions } from 'app/state/transaction'
 import { accountActions } from '.'
 import {
@@ -10,6 +11,22 @@ import {
   fetchingOnAccountPage,
 } from './saga'
 import { DeepPartialRootState } from 'types/RootState'
+import * as matchers from 'redux-saga-test-plan/matchers'
+import { getExplorerAPIs } from '../network/saga'
+import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+
+const address = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
+const state: DeepPartialRootState = {
+  account: { address },
+  wallet: {
+    selectedWallet: 'dummy',
+    wallets: {
+      dummy: {
+        address,
+      },
+    },
+  },
+}
 
 describe('Account Sagas', () => {
   test('accountSaga', () => {
@@ -27,23 +44,27 @@ describe('Account Sagas', () => {
   })
 
   it('Should refresh account on paraTime transaction', () => {
-    const address = 'oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'
-    const state: DeepPartialRootState = {
-      account: { address },
-      wallet: {
-        selectedWallet: 'dummy',
-        wallets: {
-          dummy: {
-            address,
-          },
-        },
-      },
-    }
     return expectSaga(accountSaga)
       .withState(state)
       .dispatch(transactionActions.paraTimeTransactionSent('dummyAddress'))
       .put.actionType(accountActions.fetchAccount.type)
       .put.actionType(stakingActions.fetchAccount.type)
       .silentRun(50)
+  })
+
+  it('should update account and wallet balances', () => {
+    return (
+      expectSaga(accountSaga)
+        .withState(state)
+        .provide([
+          [matchers.call.fn(getExplorerAPIs), {}],
+          [matchers.call.fn(getAccountBalanceWithFallback), {}],
+        ])
+        .dispatch(accountActions.fetchAccount('dummyAddress'))
+        // we have two sources of truth for balances for a selected account
+        .put.actionType(accountActions.accountLoaded.type)
+        .put.actionType(walletActions.updateBalance.type)
+        .silentRun(50)
+    )
   })
 })
