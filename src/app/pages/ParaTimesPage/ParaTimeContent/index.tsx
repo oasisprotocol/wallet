@@ -20,14 +20,14 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
   const { isDepositing } = useParaTimes()
 
   return (
-    <Box align="center">
+    <Box align="center" style={{ maxWidth: 'min(100%, 550px)' }}>
       <Heading level={3} margin={{ bottom: 'large' }}>
         {header ||
           (isDepositing
             ? t('paraTimes.common.depositHeader', 'Deposit to ParaTime')
             : t('paraTimes.common.withdrawHeader', 'Withdraw from ParaTime'))}
       </Heading>
-      <Box margin={{ bottom: 'large' }} style={{ maxWidth: 'min(100%, 550px)' }}>
+      <Box margin={{ bottom: 'large' }}>
         <Text
           data-testid="paraTime-content-description"
           textAlign="center"
