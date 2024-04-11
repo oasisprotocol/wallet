@@ -12,6 +12,60 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.10.0 (2024-04-11)
+
+### Features
+
+- Rename to Oasis ROSE Wallet
+  ([#1870](https://github.com/oasisprotocol/oasis-wallet-web/issues/1870),
+   [#1879](https://github.com/oasisprotocol/oasis-wallet-web/issues/1879))
+
+- New Oasis branding
+  ([#1883](https://github.com/oasisprotocol/oasis-wallet-web/issues/1883))
+
+### Bug Fixes and Improvements
+
+- Update buttons layout in mobile settings and fix double scrollbar in extension
+  ([#1850](https://github.com/oasisprotocol/oasis-wallet-web/issues/1850))
+
+- Allow to reload extension from within error modal
+  ([#1860](https://github.com/oasisprotocol/oasis-wallet-web/issues/1860))
+
+- Fix long strings overflowing their container in extension layout
+  ([#1864](https://github.com/oasisprotocol/oasis-wallet-web/issues/1864))
+
+- Show better description in Delete Profile dialog if user forgot their password
+  ([#1869](https://github.com/oasisprotocol/oasis-wallet-web/issues/1869))
+
+- Show expanded sidebar on medium size devices too
+  ([#1878](https://github.com/oasisprotocol/oasis-wallet-web/issues/1878))
+
+- Update wallet store balance while fetching account details
+  ([#1886](https://github.com/oasisprotocol/oasis-wallet-web/issues/1886))
+
+### Internal Changes
+
+- Update dependencies
+  ([#1749](https://github.com/oasisprotocol/oasis-wallet-web/issues/1749),
+   [#1819](https://github.com/oasisprotocol/oasis-wallet-web/issues/1819),
+   [#1855](https://github.com/oasisprotocol/oasis-wallet-web/issues/1855),
+   [#1867](https://github.com/oasisprotocol/oasis-wallet-web/issues/1867))
+
+- Update deployment notes
+  ([#1847](https://github.com/oasisprotocol/oasis-wallet-web/issues/1847))
+
+- Update release notes
+  ([#1848](https://github.com/oasisprotocol/oasis-wallet-web/issues/1848))
+
+- Fix CSP in start:prod
+  ([#1849](https://github.com/oasisprotocol/oasis-wallet-web/issues/1849))
+
+- E2E test recovering from fatal errors in extension
+  ([#1865](https://github.com/oasisprotocol/oasis-wallet-web/issues/1865))
+
+- Ignore transak's CSP errors that are not caused by our CSP
+  ([#1875](https://github.com/oasisprotocol/oasis-wallet-web/issues/1875))
+
 ## 1.9.1 (2024-02-12)
 
 ### Bug Fixes and Improvements
