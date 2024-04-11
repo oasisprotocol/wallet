@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { EvmAccounts } from './types'
-import { privateToEthAddress } from '../../lib/eth-helpers'
+import { privateToEthAddress, stripHexPrefix } from '../../lib/eth-helpers'
 
 export const initialState: EvmAccounts = {}
 
@@ -10,7 +10,7 @@ export const evmAccountsSlice = createSlice({
   initialState,
   reducers: {
     add(state, action: PayloadAction<{ ethPrivateKey: string }>) {
-      const ethAddress = privateToEthAddress(action.payload.ethPrivateKey)
+      const ethAddress = privateToEthAddress(stripHexPrefix(action.payload.ethPrivateKey))
       state[ethAddress] = {
         ethPrivateKey: action.payload.ethPrivateKey,
         ethAddress: ethAddress,

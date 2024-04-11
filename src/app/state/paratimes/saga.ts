@@ -1,7 +1,7 @@
 import { call, put, select, takeLatest } from 'typed-redux-saga'
 import * as oasis from '@oasisprotocol/client'
 import { accounts, token } from '@oasisprotocol/client-rt'
-import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
+import { getEvmBech32Address, privateToEthAddress, stripHexPrefix } from 'app/lib/eth-helpers'
 import { submitParaTimeTransaction } from 'app/state/transaction/saga'
 import { getOasisNic } from 'app/state/network/saga'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
@@ -54,7 +54,7 @@ export function* fetchBalance(oasisAddress: string, paraTime: ParaTime) {
 export function* fetchBalanceUsingEthPrivateKey() {
   const { transactionForm } = yield* select(selectParaTimes)
   try {
-    const address = privateToEthAddress(transactionForm.ethPrivateKey)
+    const address = privateToEthAddress(stripHexPrefix(transactionForm.ethPrivateKey))
     const oasisAddress = yield* call(getEvmBech32Address, address)
     yield* call(fetchBalance, oasisAddress, transactionForm.paraTime!)
   } catch (error: any) {
@@ -85,7 +85,7 @@ export function* submitTransaction() {
     }
     yield* call(submitParaTimeTransaction, runtime, {
       amount: transactionForm.amount,
-      ethPrivateKey: transactionForm.ethPrivateKey,
+      ethPrivateKey: stripHexPrefix(transactionForm.ethPrivateKey),
       feeAmount: transactionForm.feeAmount || transactionForm.defaultFeeAmount,
       feeGas: transactionForm.feeGas,
       recipient: transactionForm.recipient,
