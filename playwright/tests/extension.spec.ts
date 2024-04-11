@@ -70,7 +70,7 @@ test.describe('The extension popup should load', () => {
       .click()
     await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
     await page.frameLocator('iframe')!.getByText('Buy now').click()
-    await expect(page.frameLocator('iframe')!.getByText('Please Enter Your Email')).toBeVisible()
+    await expect(page.frameLocator('iframe')!.getByText(/email/i).first()).toBeVisible()
   })
 
   test('recover from fatal errors', async ({ extensionPopupURL, context }) => {
