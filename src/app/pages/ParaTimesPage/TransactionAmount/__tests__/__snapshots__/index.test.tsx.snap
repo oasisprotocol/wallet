@@ -600,6 +600,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
 <div>
   <div
     class="c0"
+    style="max-width: min(100%, 550px);"
   >
     <h3
       class="c1"
@@ -608,7 +609,6 @@ exports[`<TransactionAmount /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      style="max-width: min(100%, 550px);"
     >
       <span
         class="c3"
