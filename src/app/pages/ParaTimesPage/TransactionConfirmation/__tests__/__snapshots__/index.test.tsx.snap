@@ -525,6 +525,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
 <div>
   <div
     class="c0"
+    style="max-width: min(100%, 550px);"
   >
     <h3
       class="c1"
@@ -533,7 +534,6 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
     </h3>
     <div
       class="c2"
-      style="max-width: min(100%, 550px);"
     >
       <span
         class="c3"
@@ -574,7 +574,6 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
       <form>
         <div
           class="c5"
-          style="max-width: min(100%, 450px);"
         >
           <div
             class="c6"

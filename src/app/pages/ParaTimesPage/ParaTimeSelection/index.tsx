@@ -73,7 +73,7 @@ export const ParaTimeSelection = () => {
         onSubmit={navigateToRecipient}
         value={transactionForm}
       >
-        <Box style={{ maxWidth: 'min(100%, 300px)' }}>
+        <Box style={{ maxWidth: 'min(100%, 300px)', margin: '0 auto' }}>
           <Box margin={{ bottom: 'medium' }}>
             <FormField name="paraTime" required>
               <Select

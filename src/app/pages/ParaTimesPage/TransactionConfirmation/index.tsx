@@ -33,7 +33,7 @@ export const ConfirmationCheckbox = ({
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <Box margin={{ bottom: 'medium' }} style={{ maxWidth: 'min(100%, 450px)' }}>
+    <Box margin={{ bottom: 'medium' }}>
       <Box margin={{ bottom: 'small' }} responsive={false}>
         <AlertBox status={warning ? 'warning' : 'error'}>
           <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
