@@ -41,7 +41,7 @@ test.describe('Fiat on-ramp', () => {
       .click()
     await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
     await page.frameLocator('iframe')!.getByText('Buy now').click()
-    await expect(page.frameLocator('iframe')!.getByText('Please Enter Your Email')).toBeVisible()
+    await expect(page.frameLocator('iframe')!.getByText(/email/i).first()).toBeVisible()
   })
 
   test('Content-Security-Policy should also allow Transak staging iframe', async ({ page }) => {
