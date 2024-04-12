@@ -128,7 +128,7 @@ const cipherConfig: ParaTimeConfig = {
     runtimeId: undefined,
   },
   gasPrice: 5n,
-  feeGas: 500_000n,
+  feeGas: 5_000_000n,
   decimals: 9,
   displayOrder: 3,
   type: RuntimeTypes.Oasis,
