@@ -213,6 +213,11 @@ export const walletExtensionV0PersistedState = {
   },
 } satisfies WalletExtensionV0State
 
+export const ethAccount = {
+  address: '0xbA1b346233E5bB5b44f5B4aC6bF224069f427b18',
+  privateKey: '6593a788d944bb3e25357df140fac5b0e6273f1500a3b37d6513bf9e9807afe2',
+}
+
 export const walletExtensionV0UnlockedState = {
   account: {
     address: 'oasis1qq30ejf9puuc6qnrazmy9dmn7f3gessveum5wnr6',
@@ -235,9 +240,9 @@ export const walletExtensionV0UnlockedState = {
     },
   },
   evmAccounts: {
-    '0xbA1b346233E5bB5b44f5B4aC6bF224069f427b18': {
-      ethAddress: '0xbA1b346233E5bB5b44f5B4aC6bF224069f427b18',
-      ethPrivateKey: '6593a788d944bb3e25357df140fac5b0e6273f1500a3b37d6513bf9e9807afe2',
+    [ethAccount.address]: {
+      ethAddress: ethAccount.address,
+      ethPrivateKey: ethAccount.privateKey,
     },
   },
   createWallet: { checkbox: false, mnemonic: [] },
