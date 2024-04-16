@@ -102,7 +102,7 @@
     "invalidAddress": "Adresse invalide",
     "invalidNonce": "Nonce invalide (numéro de transaction)",
     "invalidPrivateKey": "Clé privée invalide",
-    "ledgerAppVersionNotSupported": "Erreur reçue : \"Ledger App Version not supported\", cette erreur peut être un faux positif, relancez Oasis ROSE Wallet et réessayez. Si l'erreur persiste, mettez à jour l'application Oasis dans votre Ledger.",
+    "ledgerAppVersionNotSupported": "Erreur reçue : \"Ledger App Version not supported\", cette erreur peut être un faux positif, relancez ROSE Wallet et réessayez. Si l'erreur persiste, mettez à jour l'application Oasis dans votre Ledger.",
     "ledgerCannotOpenOasisApp": "Impossible d'accéder à l'application Oasis sur le Ledger. Assurez vous qu'il est dévérouillé et que l'application Oasis est ouverte.",
     "ledgerNoDeviceSelected": "Aucun matériel Ledger détecté. Vérifiez qu'il soit connecté. <LedgerHelp>Vérifiez les problèmes de connexion USB courants avec le matériel Ledger</LedgerHelp>. <ChromeHelp>Vérifiez que les permissions du site ne bloque pas les appareils de type USB</ChromeHelp>.",
     "ledgerTransactionRejected": "Transaction rejetée sur le Ledger.",
@@ -117,10 +117,10 @@
     "copied": "Erreur copiée",
     "copy": "Copier l'erreur",
     "heading": "Une erreur fatale s'est produite",
-    "instruction": "Une erreur fatale s'est produite et Oasis ROSE Wallet doit s'arrêter. Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <Email/> . Envoyez l'email et joignez le rapport ci-dessous."
+    "instruction": "Une erreur fatale s'est produite et ROSE Wallet doit s'arrêter. Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <Email/> . Envoyez l'email et joignez le rapport ci-dessous."
   },
   "footer": {
-    "github": "Oasis ROSE Wallet est entièrement <GithubLink>open source</GithubLink> - N'hésitez pas à remonter tout problème !",
+    "github": "ROSE Wallet est entièrement <GithubLink>open source</GithubLink> - N'hésitez pas à remonter tout problème !",
     "poweredBy": {
       "oasismonitor": "Alimenté par Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC"

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/lukaw3d/parcel-bundler-json-schemas/main/package_schema.json",
-  "name": "@oasisprotocol/oasis-rose-wallet",
+  "name": "@oasisprotocol/rose-wallet",
   "version": "1.10.0",
   "private": true,
   "repository": {

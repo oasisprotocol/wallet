@@ -4,7 +4,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
 <FatalErrorHandler>
   <ModalProvider>
     <Helmet
-      defaultTitle="Oasis ROSE Wallet"
+      defaultTitle="ROSE Wallet"
       defer={true}
       encodeSpecialCharacters={true}
       htmlAttributes={
@@ -13,7 +13,7 @@ exports[`<App /> should render and match the snapshot 1`] = `
         }
       }
       prioritizeSeoTags={false}
-      titleTemplate="%s - Oasis ROSE Wallet"
+      titleTemplate="%s - ROSE Wallet"
     >
       <meta
         content="A wallet for Oasis"

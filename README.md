@@ -1,4 +1,4 @@
-# Oasis ROSE Wallet
+# ROSE Wallet
 
 [![CI build status][github-ci-build-badge]][github-ci-build-link]
 [![CI test status][github-ci-test-badge]][github-ci-test-link]
@@ -13,7 +13,7 @@
 
 [demo-video]
 
-- [Oasis ROSE Wallet](#oasis-rose-wallet)
+- [ROSE Wallet](#rose-wallet)
   - [Features](#features)
   - [Getting started](#getting-started)
     - [Installing and running from source code][install-link]
@@ -172,7 +172,7 @@ A detailed post on Git commit messages: [How To Write a Git Commit Message].
 
 Translating: We have [Transifex] to easily contribute translations.
 
-Development: Oasis ROSE Wallet uses [react-i18next] for internationalization.
+Development: ROSE Wallet uses [react-i18next] for internationalization.
 You can simply use the [useTranslation hook] inside your components to add
 additional translation-ready strings. You can then export the new keys to the
 [English translation.json] by running `yarn run extract-messages`.
