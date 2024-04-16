@@ -222,7 +222,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     class="c1"
   >
     <span>
-      Oasis ROSE Wallet is fully 
+      ROSE Wallet is fully 
     </span>
     <a
       class="c2"

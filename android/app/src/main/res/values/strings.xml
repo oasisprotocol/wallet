@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Oasis ROSE Wallet</string>
-    <string name="title_activity_main">Oasis ROSE Wallet</string>
+    <string name="app_name">ROSE Wallet</string>
+    <string name="title_activity_main">ROSE Wallet</string>
     <string name="package_name">com.oasisprotocol.wallet</string>
     <string name="custom_url_scheme">com.oasisprotocol.wallet</string>
 </resources>

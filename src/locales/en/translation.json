@@ -99,8 +99,8 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildPreview": "Please note this is an experimental build of Oasis ROSE Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
-    "buildStaging": "Please note this is the staging deployment of Oasis ROSE Wallet. ONLY USE IT FOR TESTING."
+    "buildPreview": "Please note this is an experimental build of ROSE Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
+    "buildStaging": "Please note this is the staging deployment of ROSE Wallet. ONLY USE IT FOR TESTING."
   },
   "common": {
     "amount": "Amount",
@@ -184,7 +184,7 @@
     "thirdPartyDisclaimer": "This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
-    "github": "Oasis ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
+    "github": "ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
     "poweredBy": {
       "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
@@ -400,7 +400,7 @@
         "button": "Delete profile",
         "description": "This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type '{{confirmationKeyword}}' below.",
         "forgotPasswordButton": "Forgot password?",
-        "forgotPasswordDescription": "Oasis ROSE Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.",
+        "forgotPasswordDescription": "ROSE Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.",
         "title": "Delete Profile"
       },
       "description": "Log into your existing user profile on this computer to access the wallets you already added.",

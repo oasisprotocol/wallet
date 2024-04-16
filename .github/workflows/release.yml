@@ -43,7 +43,7 @@ jobs:
       - name: Create zip file
         run: |
           cd build/
-          zip -r ../oasis-rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip .
+          zip -r ../rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         uses: buberdds/extract-changelog-action@v1
         id: changelog
@@ -53,10 +53,10 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            oasis-rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
+            rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
             build/Content-Security-Policy.txt
             build/Permissions-Policy.txt
-          name: Oasis ROSE Wallet ${{ steps.vars.outputs.VERSION }}
+          name: ROSE Wallet ${{ steps.vars.outputs.VERSION }}
           body: ${{ steps.changelog.outputs.content }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
