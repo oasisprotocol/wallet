@@ -14,29 +14,6 @@ function ignoreTimeoutError() {
 }
 
 describe('check all transaction methods from API are mapped in transactionMethodMap', () => {
-  it('by parsing latest transactions on oasismonitor', () => {
-    ignoreTimeoutError() // Ignore if API is not responding
-
-    cy.request({
-      url: 'https://monitor.oasis.dev/data/transactions?limit=2000',
-      retryOnNetworkFailure: false,
-      failOnStatusCode: false,
-      timeout: 5000,
-    }).then(response => {
-      if (!response.isOkStatusCode) return // Ignore if API is broken
-
-      cy.visit('/e2e')
-      cy.window()
-      .should('have.a.property', 'monitor')
-      .then((monitor) => {
-        response.body.forEach(transactionFromApi => {
-          const [parsedTransaction] = monitor.parseTransactionsList([transactionFromApi])
-          expect(parsedTransaction.type).to.be.a('string', `parse transaction type "${transactionFromApi.type}" to a string`)
-        })
-      })
-    })
-  })
-
   it('by comparing list of methods from oasisscan', () => {
     ignoreTimeoutError() // Ignore if API is not responding
 
