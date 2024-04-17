@@ -230,3 +230,4 @@ and download the translation file there,
 [codecov-badge]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
 [install-link]: #installing-and-running-from-source-code
+
