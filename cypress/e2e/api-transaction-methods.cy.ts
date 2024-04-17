@@ -14,7 +14,7 @@ function ignoreTimeoutError() {
 }
 
 describe('check all transaction methods from API are mapped in transactionMethodMap', () => {
-  it('by comparing list of methods from oasisscan', () => {
+  it('by comparing list of methods from oasisscan mainnet', () => {
     ignoreTimeoutError() // Ignore if API is not responding
 
     cy.request({
@@ -26,13 +26,33 @@ describe('check all transaction methods from API are mapped in transactionMethod
       if (!response.isOkStatusCode) return // Ignore if API is broken
 
       const allApiMethods = response.body.data.list
-      expect(allApiMethods).to.have.length(Object.keys(OperationsRowMethodEnum).length)
+      expect(allApiMethods).to.have.length.lte(Object.keys(OperationsRowMethodEnum).length)
       cy.visit('/e2e')
       cy.window()
-      .should('have.a.property', 'oasisscan')
-      .then((oasisscan) => {
-        expect(oasisscan.transactionMethodMap).to.include.keys(allApiMethods)
-      })
+        .should('have.a.property', 'oasisscan')
+        .then((oasisscan) => {
+          expect(oasisscan.transactionMethodMap).to.include.keys(allApiMethods)
+        })
+    })
+  })
+
+  it('by comparing list of methods from oasisscan testnet', () => {
+    cy.request({
+      url: 'https://api.oasisscan.com/testnet/chain/methods', // does not include consensus methods
+      retryOnNetworkFailure: false,
+      failOnStatusCode: false,
+      timeout: 5000,
+    }).then(response => {
+      if (!response.isOkStatusCode) return // Ignore if API is broken
+
+      const allApiMethods = response.body.data.list
+      expect(allApiMethods).to.have.length.lte(Object.keys(OperationsRowMethodEnum).length)
+      cy.visit('/e2e')
+      cy.window()
+        .should('have.a.property', 'oasisscan')
+        .then((oasisscan) => {
+          expect(oasisscan.transactionMethodMap).to.include.keys(allApiMethods)
+        })
     })
   })
 })
