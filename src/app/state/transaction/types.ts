@@ -11,6 +11,7 @@ export enum TransactionType {
   StakingBurn = 'staking.Burn',
   RoothashExecutorCommit = 'roothash.ExecutorCommit',
   RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
+  RoothashSubmitMsg = 'roothash.SubmitMsg',
   RegistryDeregisterEntity = 'registry.DeregisterEntity',
   RegistryRegisterEntity = 'registry.RegisterEntity',
   RegistryRegisterNode = 'registry.RegisterNode',

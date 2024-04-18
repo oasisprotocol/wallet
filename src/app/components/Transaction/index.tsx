@@ -321,6 +321,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
     },
+    [transactionTypes.TransactionType.RoothashSubmitMsg]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
+    },
     [transactionTypes.TransactionType.RegistryDeregisterEntity]: {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,

@@ -130,6 +130,7 @@ export const transactionMethodMap: {
   [OperationsRowMethodEnum.StakingBurn]: TransactionType.StakingBurn,
   [OperationsRowMethodEnum.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
   [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
+  [OperationsRowMethodEnum.RoothashSubmitMsg]: TransactionType.RoothashSubmitMsg,
   [OperationsRowMethodEnum.RegistryDeregisterEntity]: TransactionType.RegistryDeregisterEntity,
   [OperationsRowMethodEnum.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
   [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
