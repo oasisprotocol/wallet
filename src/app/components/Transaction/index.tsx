@@ -26,6 +26,7 @@ import { LinkPrevious } from 'grommet-icons/es6/icons/LinkPrevious'
 import { LinkNext } from 'grommet-icons/es6/icons/LinkNext'
 import { Atm } from 'grommet-icons/es6/icons/Atm'
 import { Alert } from 'grommet-icons/es6/icons/Alert'
+import { MuiLocalFireDepartmentIcon } from '../../../styles/theme/icons/mui-icons/MuiLocalFireDepartmentIcon'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
 import * as React from 'react'
@@ -288,6 +289,21 @@ export function Transaction(props: TransactionProps) {
         ),
       },
     },
+    [transactionTypes.TransactionType.StakingBurn]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: {
+        destination: t('account.transaction.genericTransaction.destination', 'Other address'),
+        icon: MuiLocalFireDepartmentIcon,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingBurn.sent"
+            t={t}
+            components={{ Amount }}
+            defaults="Burned <Amount/>"
+          />
+        ),
+      },
+    },
 
     [transactionTypes.TransactionType.StakingAmendCommissionSchedule]: {
       [TransactionSide.Received]: genericTransaction,
@@ -305,6 +321,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
     },
+    [transactionTypes.TransactionType.RoothashSubmitMsg]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
+    },
     [transactionTypes.TransactionType.RegistryDeregisterEntity]: {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
@@ -318,6 +338,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Sent]: genericTransaction,
     },
     [transactionTypes.TransactionType.RegistryRegisterRuntime]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
+    },
+    [transactionTypes.TransactionType.RegistryUnfreezeNode]: {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
     },

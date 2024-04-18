@@ -9,7 +9,7 @@ import { User } from 'grommet-icons/es6/icons/User'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { UpdatePassword } from './UpdatePassword'
 import { DeleteProfileButton } from '../../../Persist/DeleteProfileButton'
-import { Lock } from 'grommet-icons/es6/icons/Lock'
+import { MuiLockIcon } from '../../../../../styles/theme/icons/mui-icons/MuiLockIcon'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
@@ -92,7 +92,7 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
         {isLockableOrCloseable === 'lockable' && (
           <Button
             data-testid="profile-modal-lock-wallet"
-            icon={<Lock />}
+            icon={<MuiLockIcon />}
             label={t('menu.lockProfile', 'Lock profile')}
             onClick={() => lockProfile()}
           />

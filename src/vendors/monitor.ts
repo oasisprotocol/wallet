@@ -159,7 +159,7 @@ export function parseTransactionsList(transactionsList: OperationsRow[]): Transa
       status: t.status,
       timestamp: t.timestamp == null ? undefined : t.timestamp * 1000,
       to: t.to,
-      type: transactionMethodMap[t.type!],
+      type: transactionMethodMap[t.type!] ?? t.type,
       runtimeName: undefined,
       runtimeId: undefined,
       round: undefined,

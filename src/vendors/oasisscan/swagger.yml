@@ -442,12 +442,15 @@ components:
             - staking.AmendCommissionSchedule
             - staking.Allow
             - staking.Withdraw
+            - staking.Burn
             - roothash.ExecutorCommit
             - roothash.ExecutorProposerTimeout
+            - roothash.SubmitMsg
             - registry.DeregisterEntity
             - registry.RegisterEntity
             - registry.RegisterNode
             - registry.RegisterRuntime
+            - registry.UnfreezeNode
             - governance.CastVote
             - governance.SubmitProposal
             - beacon.PVSSCommit

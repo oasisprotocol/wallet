@@ -76,6 +76,9 @@
         "received": "Received <Amount/> allowance",
         "sent": "Set <Amount/> allowance"
       },
+      "stakingBurn": {
+        "sent": "Burned <Amount/>"
+      },
       "successful": "Successful",
       "transfer": {
         "received": "Received <Amount/>",
