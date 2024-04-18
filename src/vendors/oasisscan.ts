@@ -127,6 +127,7 @@ export const transactionMethodMap: {
   [OperationsRowMethodEnum.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
   [OperationsRowMethodEnum.StakingAllow]: TransactionType.StakingAllow,
   [OperationsRowMethodEnum.StakingWithdraw]: TransactionType.StakingWithdraw,
+  [OperationsRowMethodEnum.StakingBurn]: TransactionType.StakingBurn,
   [OperationsRowMethodEnum.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
   [OperationsRowMethodEnum.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
   [OperationsRowMethodEnum.RegistryDeregisterEntity]: TransactionType.RegistryDeregisterEntity,

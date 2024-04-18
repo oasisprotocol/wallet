@@ -26,6 +26,7 @@ import { LinkPrevious } from 'grommet-icons/es6/icons/LinkPrevious'
 import { LinkNext } from 'grommet-icons/es6/icons/LinkNext'
 import { Atm } from 'grommet-icons/es6/icons/Atm'
 import { Alert } from 'grommet-icons/es6/icons/Alert'
+import { MuiLocalFireDepartmentIcon } from '../../../styles/theme/icons/mui-icons/MuiLocalFireDepartmentIcon'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
 import * as React from 'react'
@@ -284,6 +285,21 @@ export function Transaction(props: TransactionProps) {
             components={{ Amount }}
             // TODO: try to resolve destination to a runtime name
             defaults="Set <Amount/> allowance"
+          />
+        ),
+      },
+    },
+    [transactionTypes.TransactionType.StakingBurn]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: {
+        destination: t('account.transaction.genericTransaction.destination', 'Other address'),
+        icon: MuiLocalFireDepartmentIcon,
+        header: () => (
+          <Trans
+            i18nKey="account.transaction.stakingBurn.sent"
+            t={t}
+            components={{ Amount }}
+            defaults="Burned <Amount/>"
           />
         ),
       },

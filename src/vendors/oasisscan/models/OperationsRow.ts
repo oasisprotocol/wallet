@@ -110,6 +110,7 @@ export enum OperationsRowMethodEnum {
     StakingAmendCommissionSchedule = 'staking.AmendCommissionSchedule',
     StakingAllow = 'staking.Allow',
     StakingWithdraw = 'staking.Withdraw',
+    StakingBurn = 'staking.Burn',
     RoothashExecutorCommit = 'roothash.ExecutorCommit',
     RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
     RegistryDeregisterEntity = 'registry.DeregisterEntity',

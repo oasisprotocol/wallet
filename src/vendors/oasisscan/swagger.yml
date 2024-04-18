@@ -442,6 +442,7 @@ components:
             - staking.AmendCommissionSchedule
             - staking.Allow
             - staking.Withdraw
+            - staking.Burn
             - roothash.ExecutorCommit
             - roothash.ExecutorProposerTimeout
             - registry.DeregisterEntity
