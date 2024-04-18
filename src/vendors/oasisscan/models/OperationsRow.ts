@@ -118,6 +118,7 @@ export enum OperationsRowMethodEnum {
     RegistryRegisterEntity = 'registry.RegisterEntity',
     RegistryRegisterNode = 'registry.RegisterNode',
     RegistryRegisterRuntime = 'registry.RegisterRuntime',
+    RegistryUnfreezeNode = 'registry.UnfreezeNode',
     GovernanceCastVote = 'governance.CastVote',
     GovernanceSubmitProposal = 'governance.SubmitProposal',
     BeaconPvssCommit = 'beacon.PVSSCommit',

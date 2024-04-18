@@ -450,6 +450,7 @@ components:
             - registry.RegisterEntity
             - registry.RegisterNode
             - registry.RegisterRuntime
+            - registry.UnfreezeNode
             - governance.CastVote
             - governance.SubmitProposal
             - beacon.PVSSCommit

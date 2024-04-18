@@ -135,6 +135,7 @@ export const transactionMethodMap: {
   [OperationsRowMethodEnum.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
   [OperationsRowMethodEnum.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
   [OperationsRowMethodEnum.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
+  [OperationsRowMethodEnum.RegistryUnfreezeNode]: TransactionType.RegistryUnfreezeNode,
   [OperationsRowMethodEnum.GovernanceCastVote]: TransactionType.GovernanceCastVote,
   [OperationsRowMethodEnum.GovernanceSubmitProposal]: TransactionType.GovernanceSubmitProposal,
   [OperationsRowMethodEnum.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
