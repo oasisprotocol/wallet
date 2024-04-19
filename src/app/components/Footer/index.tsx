@@ -62,7 +62,7 @@ export const Footer = memo(() => {
           t={t}
           components={{
             TermsLink: (
-              <Anchor href="https://wallet.oasis.io/t-c" target="_blank" rel="noopener noreferrer" />
+              <Anchor href="https://wallet.oasis.io/t-c.pdf" target="_blank" rel="noopener noreferrer" />
             ),
           }}
           defaults="<TermsLink>Terms and Conditions</TermsLink>"
