@@ -12,6 +12,24 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.11.0 (2024-04-19)
+
+### Features
+
+- Further refinement of Oasis branding
+  ([#1893](https://github.com/oasisprotocol/oasis-wallet-web/issues/1893))
+
+### Bug Fixes and Improvements
+
+- Adjust gas limit for Cipher deposits and withdrawals
+  ([#1892](https://github.com/oasisprotocol/oasis-wallet-web/issues/1892))
+
+- Display staking.Burn transactions
+  ([#1895](https://github.com/oasisprotocol/oasis-wallet-web/issues/1895))
+
+- Update Terms and Conditions and fix opening it on Windows
+  ([#1896](https://github.com/oasisprotocol/oasis-wallet-web/issues/1896))
+
 ## 1.10.0 (2024-04-11)
 
 ### Features
