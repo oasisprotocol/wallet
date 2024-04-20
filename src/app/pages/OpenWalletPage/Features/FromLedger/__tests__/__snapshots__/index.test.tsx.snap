@@ -93,9 +93,12 @@ exports[`<FromLedger /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c4:focus:not(:focus-visible) > circle,.c4:focus:not(:focus-visible) > ellipse,
-.c4:focus:not(:focus-visible) > line,.c4:focus:not(:focus-visible) > path,
-.c4:focus:not(:focus-visible) > polygon,.c4:focus:not(:focus-visible) > polyline,
+.c4:focus:not(:focus-visible) > circle,
+.c4:focus:not(:focus-visible) > ellipse,
+.c4:focus:not(:focus-visible) > line,
+.c4:focus:not(:focus-visible) > path,
+.c4:focus:not(:focus-visible) > polygon,
+.c4:focus:not(:focus-visible) > polyline,
 .c4:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

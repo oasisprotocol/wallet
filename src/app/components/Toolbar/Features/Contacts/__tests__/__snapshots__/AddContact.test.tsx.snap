@@ -21,14 +21,16 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c9 *[stroke*='#'],.c9 *[STROKE*='#'] {
+.c9 *[stroke*='#'],
+.c9 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c9 *[fill-rule],
 .c9 *[FILL-RULE],
-.c9 *[fill*='#'],.c9 *[FILL*='#'] {
+.c9 *[fill*='#'],
+.c9 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -303,9 +305,12 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > circle,
+.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,
+.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,
+.c8:focus:not(:focus-visible) > polyline,
 .c8:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -358,9 +363,12 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > circle,
+.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,
+.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,
+.c14:focus:not(:focus-visible) > polyline,
 .c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -425,9 +433,12 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c26:focus:not(:focus-visible) > circle,.c26:focus:not(:focus-visible) > ellipse,
-.c26:focus:not(:focus-visible) > line,.c26:focus:not(:focus-visible) > path,
-.c26:focus:not(:focus-visible) > polygon,.c26:focus:not(:focus-visible) > polyline,
+.c26:focus:not(:focus-visible) > circle,
+.c26:focus:not(:focus-visible) > ellipse,
+.c26:focus:not(:focus-visible) > line,
+.c26:focus:not(:focus-visible) > path,
+.c26:focus:not(:focus-visible) > polygon,
+.c26:focus:not(:focus-visible) > polyline,
 .c26:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -495,9 +506,12 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c27:focus:not(:focus-visible) > circle,.c27:focus:not(:focus-visible) > ellipse,
-.c27:focus:not(:focus-visible) > line,.c27:focus:not(:focus-visible) > path,
-.c27:focus:not(:focus-visible) > polygon,.c27:focus:not(:focus-visible) > polyline,
+.c27:focus:not(:focus-visible) > circle,
+.c27:focus:not(:focus-visible) > ellipse,
+.c27:focus:not(:focus-visible) > line,
+.c27:focus:not(:focus-visible) > path,
+.c27:focus:not(:focus-visible) > polygon,
+.c27:focus:not(:focus-visible) > polyline,
 .c27:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

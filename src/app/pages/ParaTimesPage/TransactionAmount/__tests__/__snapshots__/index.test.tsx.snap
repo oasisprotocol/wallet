@@ -317,9 +317,12 @@ exports[`<TransactionAmount /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible) > circle,.c11:focus:not(:focus-visible) > ellipse,
-.c11:focus:not(:focus-visible) > line,.c11:focus:not(:focus-visible) > path,
-.c11:focus:not(:focus-visible) > polygon,.c11:focus:not(:focus-visible) > polyline,
+.c11:focus:not(:focus-visible) > circle,
+.c11:focus:not(:focus-visible) > ellipse,
+.c11:focus:not(:focus-visible) > line,
+.c11:focus:not(:focus-visible) > path,
+.c11:focus:not(:focus-visible) > polygon,
+.c11:focus:not(:focus-visible) > polyline,
 .c11:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -384,9 +387,12 @@ exports[`<TransactionAmount /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c19:focus:not(:focus-visible) > circle,.c19:focus:not(:focus-visible) > ellipse,
-.c19:focus:not(:focus-visible) > line,.c19:focus:not(:focus-visible) > path,
-.c19:focus:not(:focus-visible) > polygon,.c19:focus:not(:focus-visible) > polyline,
+.c19:focus:not(:focus-visible) > circle,
+.c19:focus:not(:focus-visible) > ellipse,
+.c19:focus:not(:focus-visible) > line,
+.c19:focus:not(:focus-visible) > path,
+.c19:focus:not(:focus-visible) > polygon,
+.c19:focus:not(:focus-visible) > polyline,
 .c19:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -454,9 +460,12 @@ exports[`<TransactionAmount /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c22:focus:not(:focus-visible) > circle,.c22:focus:not(:focus-visible) > ellipse,
-.c22:focus:not(:focus-visible) > line,.c22:focus:not(:focus-visible) > path,
-.c22:focus:not(:focus-visible) > polygon,.c22:focus:not(:focus-visible) > polyline,
+.c22:focus:not(:focus-visible) > circle,
+.c22:focus:not(:focus-visible) > ellipse,
+.c22:focus:not(:focus-visible) > line,
+.c22:focus:not(:focus-visible) > path,
+.c22:focus:not(:focus-visible) > polygon,
+.c22:focus:not(:focus-visible) > polyline,
 .c22:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

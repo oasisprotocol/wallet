@@ -21,14 +21,16 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   stroke-width: 0;
 }
 
-.c10 *[stroke*='#'],.c10 *[STROKE*='#'] {
+.c10 *[stroke*='#'],
+.c10 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c10 *[fill-rule],
 .c10 *[FILL-RULE],
-.c10 *[fill*='#'],.c10 *[FILL*='#'] {
+.c10 *[fill*='#'],
+.c10 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -274,9 +276,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
 .c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -344,9 +349,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible) > circle,.c12:focus:not(:focus-visible) > ellipse,
-.c12:focus:not(:focus-visible) > line,.c12:focus:not(:focus-visible) > path,
-.c12:focus:not(:focus-visible) > polygon,.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > circle,
+.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,
+.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,
+.c12:focus:not(:focus-visible) > polyline,
 .c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -414,9 +422,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > circle,
+.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,
+.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,
+.c16:focus:not(:focus-visible) > polyline,
 .c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -481,9 +492,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   box-shadow: none;
 }
 
-.c18:focus:not(:focus-visible) > circle,.c18:focus:not(:focus-visible) > ellipse,
-.c18:focus:not(:focus-visible) > line,.c18:focus:not(:focus-visible) > path,
-.c18:focus:not(:focus-visible) > polygon,.c18:focus:not(:focus-visible) > polyline,
+.c18:focus:not(:focus-visible) > circle,
+.c18:focus:not(:focus-visible) > ellipse,
+.c18:focus:not(:focus-visible) > line,
+.c18:focus:not(:focus-visible) > path,
+.c18:focus:not(:focus-visible) > polygon,
+.c18:focus:not(:focus-visible) > polyline,
 .c18:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

@@ -21,14 +21,16 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c9 *[stroke*='#'],.c9 *[STROKE*='#'] {
+.c9 *[stroke*='#'],
+.c9 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c9 *[fill-rule],
 .c9 *[FILL-RULE],
-.c9 *[fill*='#'],.c9 *[FILL*='#'] {
+.c9 *[fill*='#'],
+.c9 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -527,9 +529,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > circle,
+.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,
+.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,
+.c8:focus:not(:focus-visible) > polyline,
 .c8:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -582,9 +587,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c19:focus:not(:focus-visible) > circle,.c19:focus:not(:focus-visible) > ellipse,
-.c19:focus:not(:focus-visible) > line,.c19:focus:not(:focus-visible) > path,
-.c19:focus:not(:focus-visible) > polygon,.c19:focus:not(:focus-visible) > polyline,
+.c19:focus:not(:focus-visible) > circle,
+.c19:focus:not(:focus-visible) > ellipse,
+.c19:focus:not(:focus-visible) > line,
+.c19:focus:not(:focus-visible) > path,
+.c19:focus:not(:focus-visible) > polygon,
+.c19:focus:not(:focus-visible) > polyline,
 .c19:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -652,9 +660,12 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c37:focus:not(:focus-visible) > circle,.c37:focus:not(:focus-visible) > ellipse,
-.c37:focus:not(:focus-visible) > line,.c37:focus:not(:focus-visible) > path,
-.c37:focus:not(:focus-visible) > polygon,.c37:focus:not(:focus-visible) > polyline,
+.c37:focus:not(:focus-visible) > circle,
+.c37:focus:not(:focus-visible) > ellipse,
+.c37:focus:not(:focus-visible) > line,
+.c37:focus:not(:focus-visible) > path,
+.c37:focus:not(:focus-visible) > polygon,
+.c37:focus:not(:focus-visible) > polyline,
 .c37:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -966,7 +977,8 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     width: 60%;
   }
 
-  .c13 dt:not(:last-of-type),.c13 dd:not(:last-of-type) {
+  .c13 dt:not(:last-of-type),
+  .c13 dd:not(:last-of-type) {
     margin-bottom: 6px;
   }
 
@@ -993,7 +1005,8 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
     font-size: 16px;
   }
 
-  .c13 dt:not(:last-of-type),.c13 dd:not(:last-of-type) {
+  .c13 dt:not(:last-of-type),
+  .c13 dd:not(:last-of-type) {
     margin-bottom: 3px;
   }
 

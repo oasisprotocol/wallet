@@ -171,14 +171,16 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*='#'],.c12 *[FILL*='#'] {
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -203,14 +205,16 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c19 *[stroke*='#'],.c19 *[STROKE*='#'] {
+.c19 *[stroke*='#'],
+.c19 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c19 *[fill-rule],
 .c19 *[FILL-RULE],
-.c19 *[fill*='#'],.c19 *[FILL*='#'] {
+.c19 *[fill*='#'],
+.c19 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -235,14 +239,16 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c22 *[stroke*='#'],.c22 *[STROKE*='#'] {
+.c22 *[stroke*='#'],
+.c22 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c22 *[fill-rule],
 .c22 *[FILL-RULE],
-.c22 *[fill*='#'],.c22 *[FILL*='#'] {
+.c22 *[fill*='#'],
+.c22 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
