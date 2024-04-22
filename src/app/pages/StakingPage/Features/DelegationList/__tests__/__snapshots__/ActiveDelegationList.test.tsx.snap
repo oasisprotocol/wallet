@@ -21,14 +21,16 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*='#'],.c12 *[FILL*='#'] {
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -53,14 +55,16 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c18 *[stroke*='#'],.c18 *[STROKE*='#'] {
+.c18 *[stroke*='#'],
+.c18 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c18 *[fill-rule],
 .c18 *[FILL-RULE],
-.c18 *[fill*='#'],.c18 *[FILL*='#'] {
+.c18 *[fill*='#'],
+.c18 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }

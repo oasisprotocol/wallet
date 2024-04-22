@@ -249,7 +249,8 @@ exports[`<Account  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c3:hover input:not([disabled]) + div,.c3:hover input:not([disabled]) + span {
+.c3:hover input:not([disabled]) + div,
+.c3:hover input:not([disabled]) + span {
   border-color: #000000;
 }
 

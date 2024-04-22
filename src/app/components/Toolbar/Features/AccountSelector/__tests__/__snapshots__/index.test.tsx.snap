@@ -21,14 +21,16 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c18 *[stroke*='#'],.c18 *[STROKE*='#'] {
+.c18 *[stroke*='#'],
+.c18 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c18 *[fill-rule],
 .c18 *[FILL-RULE],
-.c18 *[fill*='#'],.c18 *[FILL*='#'] {
+.c18 *[fill*='#'],
+.c18 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -328,9 +330,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,.c9:focus:not(:focus-visible) > polyline,
+.c9:focus:not(:focus-visible) > circle,
+.c9:focus:not(:focus-visible) > ellipse,
+.c9:focus:not(:focus-visible) > line,
+.c9:focus:not(:focus-visible) > path,
+.c9:focus:not(:focus-visible) > polygon,
+.c9:focus:not(:focus-visible) > polyline,
 .c9:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -395,9 +400,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,.c16:focus:not(:focus-visible) > polyline,
+.c16:focus:not(:focus-visible) > circle,
+.c16:focus:not(:focus-visible) > ellipse,
+.c16:focus:not(:focus-visible) > line,
+.c16:focus:not(:focus-visible) > path,
+.c16:focus:not(:focus-visible) > polygon,
+.c16:focus:not(:focus-visible) > polyline,
 .c16:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -465,9 +473,12 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c21:focus:not(:focus-visible) > circle,.c21:focus:not(:focus-visible) > ellipse,
-.c21:focus:not(:focus-visible) > line,.c21:focus:not(:focus-visible) > path,
-.c21:focus:not(:focus-visible) > polygon,.c21:focus:not(:focus-visible) > polyline,
+.c21:focus:not(:focus-visible) > circle,
+.c21:focus:not(:focus-visible) > ellipse,
+.c21:focus:not(:focus-visible) > line,
+.c21:focus:not(:focus-visible) > path,
+.c21:focus:not(:focus-visible) > polygon,
+.c21:focus:not(:focus-visible) > polyline,
 .c21:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

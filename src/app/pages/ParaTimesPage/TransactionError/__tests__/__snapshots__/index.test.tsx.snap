@@ -95,14 +95,16 @@ exports[`<TransactionError /> should render component 1`] = `
   stroke-width: 0;
 }
 
-.c6 *[stroke*='#'],.c6 *[STROKE*='#'] {
+.c6 *[stroke*='#'],
+.c6 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c6 *[fill-rule],
 .c6 *[FILL-RULE],
-.c6 *[fill*='#'],.c6 *[FILL*='#'] {
+.c6 *[fill*='#'],
+.c6 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -353,9 +355,12 @@ exports[`<TransactionError /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > circle,
+.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,
+.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,
+.c14:focus:not(:focus-visible) > polyline,
 .c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

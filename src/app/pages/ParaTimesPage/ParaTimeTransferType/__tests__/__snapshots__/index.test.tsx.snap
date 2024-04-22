@@ -142,9 +142,12 @@ exports[`<ParaTimeTransferType /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c6:focus:not(:focus-visible) > circle,.c6:focus:not(:focus-visible) > ellipse,
-.c6:focus:not(:focus-visible) > line,.c6:focus:not(:focus-visible) > path,
-.c6:focus:not(:focus-visible) > polygon,.c6:focus:not(:focus-visible) > polyline,
+.c6:focus:not(:focus-visible) > circle,
+.c6:focus:not(:focus-visible) > ellipse,
+.c6:focus:not(:focus-visible) > line,
+.c6:focus:not(:focus-visible) > path,
+.c6:focus:not(:focus-visible) > polygon,
+.c6:focus:not(:focus-visible) > polyline,
 .c6:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -209,9 +212,12 @@ exports[`<ParaTimeTransferType /> should render component 1`] = `
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > circle,
+.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,
+.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,
+.c8:focus:not(:focus-visible) > polyline,
 .c8:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

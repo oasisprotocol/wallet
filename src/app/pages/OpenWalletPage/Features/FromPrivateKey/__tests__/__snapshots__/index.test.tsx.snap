@@ -21,14 +21,16 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c11 *[stroke*='#'],.c11 *[STROKE*='#'] {
+.c11 *[stroke*='#'],
+.c11 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c11 *[fill-rule],
 .c11 *[FILL-RULE],
-.c11 *[fill*='#'],.c11 *[FILL*='#'] {
+.c11 *[fill*='#'],
+.c11 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -215,9 +217,12 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
-.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
-.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > circle,
+.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,
+.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,
+.c10:focus:not(:focus-visible) > polyline,
 .c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -285,9 +290,12 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > circle,
+.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,
+.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,
+.c14:focus:not(:focus-visible) > polyline,
 .c14:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;

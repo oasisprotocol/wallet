@@ -21,14 +21,16 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*='#'],.c12 *[FILL*='#'] {
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -419,9 +421,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c10:focus:not(:focus-visible) > circle,.c10:focus:not(:focus-visible) > ellipse,
-.c10:focus:not(:focus-visible) > line,.c10:focus:not(:focus-visible) > path,
-.c10:focus:not(:focus-visible) > polygon,.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > circle,
+.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,
+.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,
+.c10:focus:not(:focus-visible) > polyline,
 .c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -487,9 +492,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   box-shadow: none;
 }
 
-.c28:focus:not(:focus-visible) > circle,.c28:focus:not(:focus-visible) > ellipse,
-.c28:focus:not(:focus-visible) > line,.c28:focus:not(:focus-visible) > path,
-.c28:focus:not(:focus-visible) > polygon,.c28:focus:not(:focus-visible) > polyline,
+.c28:focus:not(:focus-visible) > circle,
+.c28:focus:not(:focus-visible) > ellipse,
+.c28:focus:not(:focus-visible) > line,
+.c28:focus:not(:focus-visible) > path,
+.c28:focus:not(:focus-visible) > polygon,
+.c28:focus:not(:focus-visible) > polyline,
 .c28:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
@@ -530,7 +538,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c22:hover input:not([disabled]) + div,.c22:hover input:not([disabled]) + span {
+.c22:hover input:not([disabled]) + div,
+.c22:hover input:not([disabled]) + span {
   border-color: #000000;
 }
 

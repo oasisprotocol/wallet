@@ -21,14 +21,16 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   stroke-width: 0;
 }
 
-.c2 *[stroke*='#'],.c2 *[STROKE*='#'] {
+.c2 *[stroke*='#'],
+.c2 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c2 *[fill-rule],
 .c2 *[FILL-RULE],
-.c2 *[fill*='#'],.c2 *[FILL*='#'] {
+.c2 *[fill*='#'],
+.c2 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -53,14 +55,16 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*='#'],.c12 *[FILL*='#'] {
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -751,14 +755,16 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c2 *[stroke*='#'],.c2 *[STROKE*='#'] {
+.c2 *[stroke*='#'],
+.c2 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c2 *[fill-rule],
 .c2 *[FILL-RULE],
-.c2 *[fill*='#'],.c2 *[FILL*='#'] {
+.c2 *[fill*='#'],
+.c2 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -783,14 +789,16 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],.c12 *[STROKE*='#'] {
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
 .c12 *[fill-rule],
 .c12 *[FILL-RULE],
-.c12 *[fill*='#'],.c12 *[FILL*='#'] {
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
