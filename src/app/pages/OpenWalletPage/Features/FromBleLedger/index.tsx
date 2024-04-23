@@ -37,14 +37,14 @@ export function FromBleLedger() {
         <li>
           {t(
             'ledger.instructionSteps.connectBluetoothLedger',
-            'Connect your Bluetooth Ledger device to the device',
+            'Connect your Ledger to this device via Bluetooth',
           )}
         </li>
         <li>
-          {t('ledger.instructionSteps.deviceIsPaired', 'Make sure your Ledger is paired with the device')}
+          {t('ledger.instructionSteps.deviceIsPaired', 'Make sure your Ledger is paired with this device')}
         </li>
         <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the device')}</li>
-        <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis App on your Ledger device')}</li>
+        <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis app on your Ledger')}</li>
       </ol>
       <Box direction="row" margin={{ top: 'medium' }}>
         <Button

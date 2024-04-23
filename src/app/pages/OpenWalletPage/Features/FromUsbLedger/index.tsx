@@ -29,11 +29,9 @@ export function FromUsbLedger() {
         {t('ledger.instructionSteps.header', 'Steps:')}
       </Heading>
       <ol>
-        <li>
-          {t('ledger.instructionSteps.connectUsbLedger', 'Connect your USB Ledger device to the device')}
-        </li>
-        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the device')}</li>
-        <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis App on your Ledger device')}</li>
+        <li>{t('ledger.instructionSteps.connectUsbLedger', 'Connect your Ledger to this device via USB')}</li>
+        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close the Ledger Live app on your computer')}</li>
+        <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis app on your Ledger')}</li>
       </ol>
       <Box direction="row" margin={{ top: 'medium' }}>
         <Button

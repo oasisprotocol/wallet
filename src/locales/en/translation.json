@@ -222,16 +222,18 @@
     },
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
-      "connectLedger": "Connect your Ledger device to the computer",
+      "connectBluetoothLedger": "Connect your Ledger to this device via Bluetooth",
+      "connectUsbLedger": "Connect your USB Ledger device to the computer",
+      "deviceIsPaired": "Make sure your Ledger is paired with this device",
       "header": "Steps:",
       "openOasisApp": "Open the Oasis App on your Ledger device"
     },
     "steps": {
+      "accessingLedger": "Connecting with Ledger device",
       "idle": "Idle",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
-      "loadingBluetoothDevices": "Loading bluetooth devices",
-      "openingUsb": "Opening Ledger through USB"
+      "loadingBluetoothDevices": "Loading bluetooth devices"
     }
   },
   "menu": {
@@ -272,15 +274,21 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
+      "NoBLEDevicesFound": "No Bluetooth devices found",
       "accountCounter": "{{count}} accounts selected",
       "accountCounter_one": "One account selected",
       "accountCounter_plural": "{{count}} accounts selected",
       "accountCounter_zero": "No account selected",
+      "bluetoothLedger": "Bluetooth Ledger",
+      "connectDeviceHeader": "How do you want to connect your Ledger device?",
       "next": "Next",
       "openWallets": "Open",
       "pageNumber": "Page {{pageNum}} of {{totalPages}}",
       "prev": "Prev",
-      "selectWallets": "Select accounts to open"
+      "selectDevice": "Select device",
+      "selectLedgerDevice": "Select Ledger device",
+      "selectWallets": "Select accounts to open",
+      "usbLedger": "USB Ledger"
     },
     "ledger": {
       "header": "Open from Ledger device"
