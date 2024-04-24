@@ -15,10 +15,10 @@ interface Props {
 export function UnlockGate(props: Props) {
   const needsPassword = useSelector(selectNeedsPassword)
   const hasV0StorageToMigrate = useSelector(selectHasV0StorageToMigrate)
-  if (needsPassword) {
+  if (needsPassword || location.hash === '#locked') {
     return <UnlockForm />
   }
-  if (hasV0StorageToMigrate) {
+  if (hasV0StorageToMigrate || location.hash === '#migrate') {
     return <MigrateV0StateForm />
   }
   return <>{props.children}</>

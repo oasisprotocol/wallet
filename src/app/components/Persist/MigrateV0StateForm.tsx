@@ -44,6 +44,19 @@ export function MigrateV0StateForm() {
   }, [i18n])
 
   const onSubmitPassword = async () => {
+    setMigratingV0State({
+      invalidPrivateKeys: [
+        {
+          privateKeyWithTypos:
+            '86b12cfbcd816983fa2ac199c21b9b217391a7345d85c0c8fc7b715fc8fae19b783f6555015b70642912966317a3b084d0d9670415c45084e750ff5378535737',
+          name: 'aa',
+          address: 'oasis1qpw6nzr77u5nfucee5wjp544hzgmpjjj2gz5p6zq',
+        },
+      ],
+      mnemonic:
+        'world tide monkey club merry globe receive shove filter company rescue present payment purchase blush phone hazard bread chief favorite bracket end mechanic skill',
+    })
+    return
     const storageV0 = await readStorageV0()
     if (!storageV0) throw new Error('No v0 storage to migrate')
     try {

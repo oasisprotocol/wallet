@@ -10,7 +10,6 @@ export const useRouteRedirects = () => {
 
   useEffect(() => {
     if (address) {
-      navigate(`/account/${address}`)
     }
   }, [address, navigate])
 }

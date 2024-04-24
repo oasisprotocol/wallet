@@ -187,7 +187,7 @@
   "targets": {
     "// see also .parcelrc and .terserrc": {},
     "web": {
-      "source": "public/index.html",
+      "source": ["public/index.html", "public/preview.html"],
       "distDir": "./build",
       "context": "browser",
       "scopeHoist": false

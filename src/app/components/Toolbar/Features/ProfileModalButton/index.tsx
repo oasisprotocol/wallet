@@ -25,7 +25,7 @@ export const ProfileModalButton = memo(() => {
   const { t } = useTranslation()
   const walletHasAccounts = useSelector(selectHasAccounts)
   const address = useSelector(selectAddress)
-  const [layerVisibility, setLayerVisibility] = useState(false)
+  const [layerVisibility, setLayerVisibility] = useState(location.hash === '#settings')
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const hideLayer = () => setLayerVisibility(false)
 
