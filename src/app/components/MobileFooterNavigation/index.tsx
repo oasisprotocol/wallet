@@ -25,13 +25,19 @@ const StyledMobileFooterNavigation = styled.nav`
   right: 0;
   height: ${mobileFooterNavigationHeight};
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: stretch;
+  justify-content: space-between;
   box-shadow: ${({ theme }) =>
     `0px 0px ${theme.global?.borderSize?.xsmall} ${normalizeColor('background-front-border', theme)}`};
   border-top: ${({ theme }) =>
     `solid ${theme.global?.borderSize?.xsmall} ${normalizeColor('background-contrast', theme)}`};
   flex-direction: row;
+`
+
+const StyledNavLink = styled(NavLink)`
+  &:hover {
+    background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
+  }
 `
 
 export interface MobileFooterNavigationProps {
@@ -87,16 +93,25 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
 }
 
 function MobileFooterButton({ label, Icon, to }: { label: string; Icon: Icon; to: string }) {
+  const location = useLocation()
+  const isActive = to === location.pathname
+
   return (
-    <NavLink to={to}>
-      <Box as="span" justify="center" align="center" pad={{ horizontal: 'medium' }}>
-        <Box as="span" margin="xsmall">
-          <Icon />
-        </Box>
+    <StyledNavLink to={to}>
+      <Box
+        as="span"
+        justify="center"
+        align="center"
+        fill="vertical"
+        pad={{ horizontal: 'medium' }}
+        background={isActive ? 'background-oasis-blue' : undefined}
+        gap="small"
+      >
+        <Icon />
         <Text size="small" textAlign="center">
           {label}
         </Text>
       </Box>
-    </NavLink>
+    </StyledNavLink>
   )
 }
