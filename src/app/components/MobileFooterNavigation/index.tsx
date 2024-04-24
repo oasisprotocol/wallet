@@ -35,6 +35,9 @@ const StyledMobileFooterNavigation = styled.nav`
 `
 
 const StyledNavLink = styled(NavLink)`
+  // Make items equal width
+  flex-grow: 1;
+  flex-basis: 0;
   &:hover {
     background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
   }
@@ -103,12 +106,11 @@ function MobileFooterButton({ label, Icon, to }: { label: string; Icon: Icon; to
         justify="center"
         align="center"
         fill="vertical"
-        pad={{ horizontal: 'medium' }}
         background={isActive ? 'background-oasis-blue' : undefined}
         gap="small"
       >
         <Icon />
-        <Text size="small" textAlign="center">
+        <Text size="small" textAlign="center" style={{ lineHeight: 1 }}>
           {label}
         </Text>
       </Box>
