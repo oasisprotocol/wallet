@@ -24,7 +24,7 @@ export function PersistLoadingGate(props: Props) {
         <Layer modal background="background-front" responsive={false}>
           <Box pad="medium" gap="medium" direction="row" align="center">
             <Spinner size="medium" />
-            <Text size="large">{t('persist.loading', 'Loading')}</Text>
+            <Text size="medium">{t('persist.loading', 'Loading')}</Text>
           </Box>
         </Layer>
       )}

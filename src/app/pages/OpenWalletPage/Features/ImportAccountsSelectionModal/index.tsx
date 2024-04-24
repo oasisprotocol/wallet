@@ -112,7 +112,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               <Box direction="row" gap="medium" alignContent="center" pad={{ top: 'small' }}>
                 <Spinner size="medium" />
                 <Box alignSelf="center">
-                  <Text size="xlarge">
+                  <Text size="medium">
                     <ImportAccountsStepFormatter step={importAccounts.step} />
                   </Text>
                 </Box>
