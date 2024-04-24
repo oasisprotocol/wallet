@@ -64,9 +64,6 @@ body:has(.fix-responsive-layer) {
  * so main scrollbar is still displayed after modal tries to hide it. Workaround:
  * change scrollbar width to 0 when any responsive layer exists.
  */
-body:has(.fix-responsive-layer) {
-  scrollbar-width: none;
-}
 body:has(.fix-responsive-layer)::-webkit-scrollbar {
   display: none;
 }
