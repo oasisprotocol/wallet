@@ -225,6 +225,9 @@ const grommetCustomTheme: ThemeType = {
         color: 'brand',
       },
     },
+    margin: {
+      horizontal: 'xsmall',
+    },
   },
   tabs: {
     header: {
@@ -242,6 +245,17 @@ const grommetCustomTheme: ThemeType = {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+
+      // Arrows displayed when overflowing should be smaller on small screens
+      & > [role='tablist'] > button {
+        padding-left: 0;
+        padding-right: 0;
+
+        svg {
+          width: 14px;
+          margin-top: -5px;
+        }
+      }
     `,
   },
   layer: {
