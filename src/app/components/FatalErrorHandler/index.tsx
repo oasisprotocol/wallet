@@ -116,7 +116,7 @@ export function FatalErrorHandler({ children }: Props) {
         <Text size="small">
           <Trans
             i18nKey="fatalError.instruction"
-            defaults="If the issue is not resolved after refreshing, please email our support team at  <Email/> and attached the error report."
+            defaults="If the issue is not resolved after refreshing, please email our support team at  <Email/> and attach the error report."
             t={t}
             components={{
               Email: (
