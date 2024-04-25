@@ -293,16 +293,28 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  color: #0500e2;
-  outline: none;
-  border: none;
-  padding: 0;
-  text-align: inherit;
+  border: 2px solid #0500e2;
+  border-radius: 18px;
+  color: #16213E;
+  padding: 4px 20px;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #0500e2;
+  color: #F8F8F8;
+  border-radius: 18px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
 }
 
 .c9:hover {
   background-color: rgba(221,221,221,0.4);
   color: #000000;
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c9:focus {
@@ -489,8 +501,6 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c10 {
-  padding: 0.5ex 0.7ch;
-  margin: -0.5ex -0.7ch;
   border-radius: 4px;
 }
 
