@@ -1,7 +1,6 @@
 import { NewTransactionType } from 'app/state/transaction/types'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 
 interface Props {
@@ -20,13 +19,13 @@ export const TransactionTypeFormatter = memo((props: Props) => {
 
   const typeMessage = typeMap[type]
   return (
-    <Box direction="row" align="center" gap="xsmall">
+    <span>
       <Text color="grayMedium" size="small" style={{ textTransform: 'capitalize', fontWeight: 600 }}>
         {type}
       </Text>
       <Text color="grayMedium" size="xsmall" style={{ letterSpacing: 0 }}>
-        ({typeMessage})
+        &nbsp;({typeMessage})
       </Text>
-    </Box>
+    </span>
   )
 })
