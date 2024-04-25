@@ -91,11 +91,11 @@ const grommetCustomTheme: ThemeType = {
 
       'alert-box-info': {
         dark: '#0500e2',
-        light: '#d4ebff',
+        light: '#0500e2',
       },
       'alert-box-info-background': {
         dark: '#d4ebff',
-        light: '#0500e2',
+        light: '#d4ebff',
       },
       'alert-box-ok-weak': {
         dark: '#2ad5ab',

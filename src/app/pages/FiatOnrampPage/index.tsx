@@ -98,7 +98,7 @@ export function FiatOnramp() {
         </AlertBox>
 
         {!thirdPartyAcknowledged ? (
-          <Box margin={{ top: '20px', bottom: '400px' }}>
+          <Box margin={{ top: '20px' }}>
             <CheckBox
               label={t(
                 'fiatOnramp.thirdPartyAcknowledge',
