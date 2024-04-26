@@ -1,12 +1,20 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { when } from 'jest-when'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
-import { canAccessNavigatorUsb } from 'app/lib/ledger'
 import { SelectOpenMethod } from '..'
 
+jest.mock('app/lib/ledger', () => ({
+  ...jest.requireActual('app/lib/ledger'),
+  canAccessBle: jest.fn().mockResolvedValue(false),
+  canAccessNavigatorUsb: jest.fn().mockResolvedValue(false),
+}))
+jest.mock('config', () => ({
+  ...jest.requireActual('config'),
+  runtimeIs: 'extension',
+}))
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
 }))
@@ -18,31 +26,31 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate,
 }))
 
-const renderComponent = (webExtensionLedgerAccess?: () => void) =>
+const renderComponent = () =>
   render(
     <MemoryRouter>
-      <SelectOpenMethod webExtensionLedgerAccess={webExtensionLedgerAccess} />
+      <SelectOpenMethod />
     </MemoryRouter>,
   )
 
 describe('<SelectOpenMethod />', () => {
-  beforeEach(() => {
-    jest.mocked(canAccessNavigatorUsb).mockResolvedValue(false)
-  })
-
   it('should render component', () => {
     const { container } = renderComponent()
 
     expect(container).toMatchSnapshot()
   })
 
-  it('should redirect user to ledger page', () => {
+  it('should redirect user to ledger page', async () => {
     when(useSelector as any)
       .calledWith(selectShowAccountsSelectionModal)
       .mockReturnValue(true)
 
-    renderComponent(() => {})
+    renderComponent()
 
-    expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger/usb')
+    await waitFor(() => {
+      expect(screen.queryByText('openWallet.method.ledger')).toBeInTheDocument()
+
+      expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger/usb')
+    })
   })
 })

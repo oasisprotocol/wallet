@@ -2,7 +2,6 @@ import { importAccountsActions } from 'app/state/importaccounts'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Heading } from 'grommet/es6/components/Heading'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import {
