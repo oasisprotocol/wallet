@@ -13,22 +13,21 @@ import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { canAccessBle, canAccessNavigatorUsb } from 'app/lib/ledger'
+import { runtimeIs } from 'config'
 
-type SelectOpenMethodProps = {
-  webExtensionLedgerAccess?: () => void
-}
-
-export function SelectOpenMethod({ webExtensionLedgerAccess }: SelectOpenMethodProps) {
+export function SelectOpenMethod() {
   const { t } = useTranslation()
   const [supportsLedger, setSupportsLedger] = React.useState<boolean | undefined>(true)
   const navigate = useNavigate()
   const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
 
   useEffect(() => {
-    if (webExtensionLedgerAccess && showAccountsSelectionModal) {
+    const isExtension = runtimeIs === 'extension'
+
+    if (isExtension && showAccountsSelectionModal) {
       navigate('/open-wallet/ledger/usb')
     }
-  }, [navigate, showAccountsSelectionModal, webExtensionLedgerAccess])
+  }, [navigate, showAccountsSelectionModal])
 
   useEffect(() => {
     async function getLedgerSupport() {

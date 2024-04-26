@@ -2,8 +2,9 @@ import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { App } from 'app'
 import { ConnectDevicePage } from 'app/pages/ConnectDevicePage'
-import { FromLedgerWebExtension, OpenWalletPageWebExtension } from 'app/pages/OpenWalletPage/webextension'
+import { FromLedgerWebExtension } from 'app/pages/OpenWalletPage/webextension'
 import { commonRoutes } from '../../../src/commonRoutes'
+import { SelectOpenMethod } from '../../../src/app/pages/OpenWalletPage'
 
 export const routes: RouteObject[] = [
   {
@@ -13,7 +14,7 @@ export const routes: RouteObject[] = [
       ...commonRoutes,
       {
         path: 'open-wallet',
-        element: <OpenWalletPageWebExtension />,
+        element: <SelectOpenMethod />,
       },
     ],
   },

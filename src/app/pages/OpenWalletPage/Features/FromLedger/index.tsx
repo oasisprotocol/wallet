@@ -6,13 +6,13 @@ import { Button } from 'grommet/es6/components/Button'
 import { Text } from 'grommet/es6/components/Text'
 import { canAccessBle, canAccessNavigatorUsb } from '../../../../lib/ledger'
 import { useTranslation } from 'react-i18next'
+import { runtimeIs } from 'config'
 
 type SelectOpenMethodProps = {
-  webExtensionLedgerAccess?: () => void
-  disableBluetoothLedger?: boolean
+  webExtensionUSBLedgerAccess?: () => void
 }
 
-export function FromLedger({ webExtensionLedgerAccess, disableBluetoothLedger }: SelectOpenMethodProps) {
+export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProps) {
   const { t } = useTranslation()
   const [supportsUsbLedger, setSupportsUsbLedger] = React.useState<boolean | undefined>(true)
   const [supportsBleLedger, setSupportsBleLedger] = React.useState<boolean | undefined>(true)
@@ -20,14 +20,16 @@ export function FromLedger({ webExtensionLedgerAccess, disableBluetoothLedger }:
   useEffect(() => {
     async function getLedgerSupport() {
       const usbLedgerSupported = await canAccessNavigatorUsb()
-      const bleLedgerSupported = !disableBluetoothLedger && (await canAccessBle())
+
+      const isExtension = runtimeIs === 'extension'
+      const bleLedgerSupported = !isExtension && (await canAccessBle())
 
       setSupportsUsbLedger(usbLedgerSupported)
       setSupportsBleLedger(bleLedgerSupported)
     }
 
     getLedgerSupport()
-  }, [disableBluetoothLedger])
+  }, [])
 
   return (
     <Box
@@ -44,11 +46,11 @@ export function FromLedger({ webExtensionLedgerAccess, disableBluetoothLedger }:
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <div>
           <div>
-            {webExtensionLedgerAccess ? (
+            {webExtensionUSBLedgerAccess ? (
               <Button
                 disabled={!supportsUsbLedger}
                 style={{ width: 'fit-content' }}
-                onClick={webExtensionLedgerAccess}
+                onClick={webExtensionUSBLedgerAccess}
                 label={t('ledger.extension.grantAccess', 'Grant access to your USB Ledger')}
                 primary
               />
