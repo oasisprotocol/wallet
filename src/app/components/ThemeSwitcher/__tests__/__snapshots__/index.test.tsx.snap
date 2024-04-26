@@ -8,8 +8,8 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #666666;
-  stroke: #666666;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .c6 g {

@@ -8,8 +8,8 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: currentColor;
-  stroke: currentColor;
+  fill: #f8f8f8;
+  stroke: #f8f8f8;
 }
 
 .c7 g {
@@ -479,7 +479,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
       >
         <svg
           aria-label="Github"
-          class="c7"
+          class="c13"
           viewBox="0 0 24 24"
         >
           <path
@@ -510,8 +510,8 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: currentColor;
-  stroke: currentColor;
+  fill: #f8f8f8;
+  stroke: #f8f8f8;
 }
 
 .c7 g {
@@ -533,6 +533,40 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
 .c7 *[FILL-RULE],
 .c7 *[fill*='#'],
 .c7 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c11 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c11 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c11 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c11 *[stroke*='#'],
+.c11 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*='#'],
+.c11 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -678,7 +712,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c11 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -720,7 +754,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c12 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -739,43 +773,43 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   width: 100%;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus > circle,
-.c12:focus > ellipse,
-.c12:focus > line,
-.c12:focus > path,
-.c12:focus > polygon,
-.c12:focus > polyline,
-.c12:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c12:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c12:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible) > circle,
-.c12:focus:not(:focus-visible) > ellipse,
-.c12:focus:not(:focus-visible) > line,
-.c12:focus:not(:focus-visible) > path,
-.c12:focus:not(:focus-visible) > polygon,
-.c12:focus:not(:focus-visible) > polyline,
-.c12:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,
+.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,
+.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,
+.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -896,7 +930,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
         >
           <svg
             aria-label="Money"
-            class="c7"
+            class="c11"
             viewBox="0 0 24 24"
           >
             <path
@@ -930,7 +964,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
         >
           <svg
             aria-label="LineChart"
-            class="c7"
+            class="c11"
             viewBox="0 0 24 24"
           >
             <path
@@ -964,7 +998,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
         >
           <svg
             aria-label="Inherit"
-            class="c7"
+            class="c11"
             viewBox="0 0 24 24"
           >
             <path
@@ -997,7 +1031,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
         >
           <svg
             aria-label="CreditCard"
-            class="c7"
+            class="c11"
             viewBox="0 0 24 24"
           >
             <path
@@ -1023,11 +1057,11 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
     class="c3"
   />
   <nav
-    class="c11"
+    class="c12"
   >
     <button
       aria-label="menu.closeWallet"
-      class="c12"
+      class="c13"
       type="button"
     >
       <div
@@ -1035,7 +1069,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
       >
         <svg
           aria-label="Logout"
-          class="c7"
+          class="c11"
           viewBox="0 0 24 24"
         >
           <path
@@ -1069,7 +1103,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
       >
         <svg
           aria-label="Github"
-          class="c7"
+          class="c11"
           viewBox="0 0 24 24"
         >
           <path

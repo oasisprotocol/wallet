@@ -8,8 +8,8 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #666666;
-  stroke: #666666;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .c10 g {
