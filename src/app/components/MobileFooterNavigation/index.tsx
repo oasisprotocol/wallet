@@ -109,7 +109,7 @@ function MobileFooterButton({ label, Icon, to }: { label: string; Icon: Icon; to
         background={isActive ? 'control' : undefined}
         gap="small"
       >
-        <Icon color="currentColor" />
+        <Icon />
         <Text size="small" textAlign="center" style={{ lineHeight: 1 }}>
           {label}
         </Text>

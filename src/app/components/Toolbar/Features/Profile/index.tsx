@@ -20,7 +20,7 @@ type ProfileEmptyStateProps = {
 
 const ProfileEmptyState = ({ children }: ProfileEmptyStateProps) => (
   <Box gap="medium" align="center" pad={{ top: 'large' }}>
-    <User size="36px" color="currentColor" />
+    <User size="36px" />
     <Box pad="large">{children}</Box>
   </Box>
 )

@@ -10,7 +10,7 @@ export type AlertBoxStatus = 'error' | 'warning' | 'warning-weak' | 'ok' | 'ok-w
 interface Props {
   status: AlertBoxStatus
   center?: boolean
-  /** Example `icon={<Info size="20px" color="currentColor" />}` */
+  /** Example `icon={<Info size="20px" />}` */
   icon?: React.ReactNode
   children: React.ReactNode
 }

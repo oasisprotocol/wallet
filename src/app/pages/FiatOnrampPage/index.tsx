@@ -51,7 +51,7 @@ export function FiatOnramp() {
   if (selectedNetwork !== 'mainnet') {
     return (
       <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
           {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
         </AlertBox>
 
@@ -69,7 +69,7 @@ export function FiatOnramp() {
   if (!walletAddress || !isAddressInWallet) {
     return (
       <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
           {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
         </AlertBox>
         <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
@@ -90,7 +90,7 @@ export function FiatOnramp() {
         width="601px" // Transak threshold for >mobile layout
         style={{ boxSizing: 'content-box' }}
       >
-        <AlertBox status="error" icon={<CircleAlert size="24px" color="currentColor" />}>
+        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
           {t(
             'fiatOnramp.thirdPartyDisclaimer',
             'This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
