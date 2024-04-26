@@ -85,7 +85,7 @@ export const UpdatePassword = () => {
         password1Placeholder={t('toolbar.profile.password.enterNewPassword', 'New password')}
         password2Placeholder={t('toolbar.profile.password.reenterNewPassword', 'Re-enter new password')}
       />
-      <Box direction="row" justify="end" margin={{ top: 'medium' }}>
+      <Box direction="row" margin={{ top: 'medium' }}>
         <Button primary type="submit" label={t('toolbar.profile.password.submit', 'Update password')} />
       </Box>
       {notificationVisible && (

@@ -141,10 +141,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
 }
 
 .c13 {
@@ -157,7 +153,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
-  margin-top: 24px;
+  margin-top: 40px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -621,7 +617,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 
 @media only screen and (max-width:768px) {
   .c13 {
-    margin-top: 12px;
+    margin-top: 40px;
   }
 }
 
