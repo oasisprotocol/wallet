@@ -432,7 +432,7 @@ export function Transaction(props: TransactionProps) {
         <Box>
           {isMobile && (
             <Box pad={{ left: 'small' }}>
-              <Text size="16px" margin={{ bottom: 'xsmall' }}>
+              <Text size="small" margin={{ bottom: 'xsmall' }}>
                 {otherAddress ? (
                   <AddressFormatter address={otherAddress} />
                 ) : (
@@ -487,7 +487,7 @@ export function Transaction(props: TransactionProps) {
         <Box pad={{ right: 'small' }}>
           <Text
             weight="bold"
-            size={isMobile ? 'medium' : 'xlarge'}
+            size={isMobile ? 'small' : 'xlarge'}
             margin={{ bottom: 'xsmall' }}
             textAlign="end"
           >
