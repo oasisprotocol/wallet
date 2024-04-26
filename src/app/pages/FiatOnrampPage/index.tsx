@@ -141,7 +141,7 @@ export function FiatOnramp() {
               isFeeCalculationHidden: 'false',
 
               exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
-              themeColor: '#18213c',
+              themeColor: '0500e2',
             }).toString()}`}
             style={{
               display: 'block',
