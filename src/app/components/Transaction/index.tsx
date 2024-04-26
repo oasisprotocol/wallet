@@ -479,11 +479,7 @@ export function Transaction(props: TransactionProps) {
           <Text weight="bold" size={isMobile ? 'medium' : 'xlarge'}>
             <AmountFormatter amount={transaction.amount!} smallTicker />
           </Text>
-          <Text
-            color={transaction.status ? 'successful-label' : 'status-error'}
-            size={isMobile ? 'xsmall' : 'small'}
-            weight="bold"
-          >
+          <Text color={transaction.status ? 'successful-label' : 'status-error'} size="small" weight="bold">
             {transaction.status ? (
               <span>{t('account.transaction.successful', 'Successful')}</span>
             ) : (
