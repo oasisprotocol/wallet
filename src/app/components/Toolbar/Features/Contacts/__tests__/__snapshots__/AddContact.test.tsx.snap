@@ -167,8 +167,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 6px;
+  margin-right: 6px;
   margin-top: 3px;
   margin-bottom: 3px;
   border-bottom: solid 2px #0500e2;
@@ -551,10 +551,20 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-grow: 1;
 }
 
+.c11 > [role='tablist'] > button {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.c11 > [role='tablist'] > button svg {
+  width: 14px;
+  margin-top: -5px;
+}
+
 .c16 {
   white-space: nowrap;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 6px;
+  margin-right: 6px;
   margin-top: 3px;
   margin-bottom: 3px;
 }
@@ -755,8 +765,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
   }
 }
 
