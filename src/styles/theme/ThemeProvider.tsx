@@ -194,6 +194,7 @@ const grommetCustomTheme: ThemeType = {
         dark: '#F8F8F8',
         light: '#16213E',
       },
+      icon: '#666666',
     },
     font: {
       family: 'Rubik, sans-serif',
