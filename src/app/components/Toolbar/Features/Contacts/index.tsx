@@ -17,7 +17,7 @@ type ContactsListEmptyStateProps = {
 
 const ContactsListEmptyState = ({ children }: ContactsListEmptyStateProps) => (
   <Box flex="grow" gap="medium" align="center" pad={{ top: 'large' }}>
-    <Inbox size="36px" color="currentColor" />
+    <Inbox size="36px" />
     <Box flex="grow" pad="large">
       {children}
     </Box>

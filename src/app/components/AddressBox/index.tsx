@@ -83,7 +83,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
         <StyledButton
           label={trimLongString(address, 8, 6)}
           onClick={() => copyAddress()}
-          icon={<Copy size="18px" color="currentColor" />}
+          icon={<Copy size="18px" />}
           data-testid="copy-address-button"
           reverse
         />

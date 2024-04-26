@@ -8,8 +8,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 18px;
   height: 18px;
-  fill: #666666;
-  stroke: #666666;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .c9 g {

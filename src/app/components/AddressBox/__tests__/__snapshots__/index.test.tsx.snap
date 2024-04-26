@@ -278,8 +278,8 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   flex: 0 0 auto;
   width: 18px;
   height: 18px;
-  fill: currentColor;
-  stroke: currentColor;
+  fill: #666666;
+  stroke: #666666;
 }
 
 .c11 g {

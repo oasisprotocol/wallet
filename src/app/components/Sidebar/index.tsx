@@ -175,21 +175,21 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       {!isLockableOrCloseable && <ThemeSwitcher />}
       {isLockableOrCloseable === 'closeable' && (
         <SidebarButton
-          icon={<Logout color="currentColor" />}
+          icon={<Logout />}
           label={t('menu.closeWallet', 'Close wallet')}
           onClick={() => closeWallet()}
         />
       )}
       {isLockableOrCloseable === 'unlockable' && (
         <SidebarButton
-          icon={<Logout color="currentColor" />}
+          icon={<Logout />}
           label={t('menu.unlockProfile', 'Unlock profile')}
           onClick={() => closeWallet()}
         />
       )}
       {isLockableOrCloseable === 'lockable' && (
         <SidebarButton
-          icon={<MuiLockIcon color="currentColor" />}
+          icon={<MuiLockIcon />}
           label={t('menu.lockProfile', 'Lock profile')}
           onClick={() => lockProfile()}
         />
@@ -222,7 +222,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
         </Box>
       )}
       <SidebarButton
-        icon={<Github color="currentColor" />}
+        icon={<Github />}
         label="GitHub"
         route="https://github.com/oasisprotocol/oasis-wallet-web"
         newTab
@@ -236,17 +236,10 @@ function SidebarMenuItems() {
   const { t } = useTranslation()
   const { getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const menu = {
-    home: (
-      <SidebarButton
-        icon={<Home color="currentColor" />}
-        label={t('menu.home', 'Home')}
-        route="/"
-        data-testid="nav-home"
-      />
-    ),
+    home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
     wallet: (
       <SidebarButton
-        icon={<Money color="currentColor" />}
+        icon={<Money />}
         label={t('menu.wallet', 'ROSE Wallet')}
         needsWalletOpen={true}
         route={`/account/${address}`}
@@ -255,7 +248,7 @@ function SidebarMenuItems() {
     ),
     stake: (
       <SidebarButton
-        icon={<LineChart color="currentColor" />}
+        icon={<LineChart />}
         label={t('menu.stake', 'Stake ROSE')}
         needsWalletOpen={true}
         route={`/account/${address}/stake`}
@@ -264,7 +257,7 @@ function SidebarMenuItems() {
     ),
     paraTimes: (
       <SidebarButton
-        icon={<Inherit color="currentColor" />}
+        icon={<Inherit />}
         label={paraTimesRouteLabel}
         needsWalletOpen={true}
         route={getParaTimesRoutePath(address!)}
@@ -273,7 +266,7 @@ function SidebarMenuItems() {
     ),
     fiatOnramp: (
       <SidebarButton
-        icon={<CreditCard color="currentColor" />}
+        icon={<CreditCard />}
         label={t('menu.fiatOnramp', 'Buy ROSE')}
         needsWalletOpen={true}
         route={`/account/${address}/fiat`}
