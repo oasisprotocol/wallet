@@ -76,6 +76,8 @@ export const ValidatorList = memo((props: Props) => {
       name: t('validator.name', 'Name'),
       id: 'name',
       selector: 'name',
+      maxWidth: '40ex',
+      minWidth: '15ex',
       cell: datum =>
         datum.name ?? (
           <Text data-tag="allowRowEvents">
@@ -89,6 +91,7 @@ export const ValidatorList = memo((props: Props) => {
       name: t('validator.escrow', 'Escrow'),
       id: 'escrow',
       selector: 'escrow',
+      width: '28ex',
       hide: 'sm',
       cell: datum => (
         <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
