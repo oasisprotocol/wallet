@@ -184,7 +184,7 @@ export const ManageableAccountDetails = ({
                   <Text>
                     {t(
                       'toolbar.settings.exportPrivateKey.hint2',
-                      'Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.',
+                      'If the private key is lost, it cannot be retrieved. Please make sure to backup the private key and keep it in a safe place.',
                     )}
                   </Text>
                   <RevealOverlayButton
