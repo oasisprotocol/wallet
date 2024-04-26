@@ -133,11 +133,6 @@ const grommetCustomTheme: ThemeType = {
         dark: '#ffe7d9',
         light: '#f26111',
       },
-
-      'background-oasis-blue': {
-        dark: '#0f477b',
-        light: '#0500e2',
-      },
       lightText: '#a3a3a3',
       neutral: {
         dark: '#310081FF',

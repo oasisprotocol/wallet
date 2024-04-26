@@ -9,11 +9,13 @@ import { Money } from 'grommet-icons/es6/icons/Money'
 import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes'
+// eslint-disable-next-line no-restricted-imports
+import type { Icon } from 'grommet-icons/es6/icons'
 
 const StyledMobileFooterNavigation = styled.nav`
   background-color: ${({ theme }) => normalizeColor('background-front', theme)};
@@ -23,13 +25,22 @@ const StyledMobileFooterNavigation = styled.nav`
   right: 0;
   height: ${mobileFooterNavigationHeight};
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  align-items: stretch;
+  justify-content: space-between;
   box-shadow: ${({ theme }) =>
     `0px 0px ${theme.global?.borderSize?.xsmall} ${normalizeColor('background-front-border', theme)}`};
   border-top: ${({ theme }) =>
     `solid ${theme.global?.borderSize?.xsmall} ${normalizeColor('background-contrast', theme)}`};
   flex-direction: row;
+`
+
+const StyledNavLink = styled(NavLink)`
+  // Make items equal width
+  flex-grow: 1;
+  flex-basis: 0;
+  &:hover {
+    background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
+  }
 `
 
 export interface MobileFooterNavigationProps {
@@ -78,17 +89,31 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
   return (
     <StyledMobileFooterNavigation data-testid="mobile-footer-navigation">
       {getMenuItems.map(({ label, Icon, to }) => (
-        <NavLink to={to} key={to}>
-          <Box as="span" justify="center" align="center" pad={{ horizontal: 'medium' }}>
-            <Box as="span" margin="xsmall">
-              <Icon />
-            </Box>
-            <Text size="small" textAlign="center">
-              {label}
-            </Text>
-          </Box>
-        </NavLink>
+        <MobileFooterButton key={to} label={label} Icon={Icon} to={to} />
       ))}
     </StyledMobileFooterNavigation>
+  )
+}
+
+function MobileFooterButton({ label, Icon, to }: { label: string; Icon: Icon; to: string }) {
+  const location = useLocation()
+  const isActive = to === location.pathname
+
+  return (
+    <StyledNavLink to={to}>
+      <Box
+        as="span"
+        justify="center"
+        align="center"
+        fill="vertical"
+        background={isActive ? 'control' : undefined}
+        gap="small"
+      >
+        <Icon color="currentColor" />
+        <Text size="small" textAlign="center" style={{ lineHeight: 1 }}>
+          {label}
+        </Text>
+      </Box>
+    </StyledNavLink>
   )
 }

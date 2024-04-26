@@ -8,8 +8,8 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #666666;
-  stroke: #666666;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .c7 g {
@@ -31,6 +31,40 @@ exports[`<Navigation /> should match snapshot 1`] = `
 .c7 *[FILL-RULE],
 .c7 *[fill*='#'],
 .c7 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c13 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c13 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c13 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c13 *[stroke*='#'],
+.c13 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c13 *[fill-rule],
+.c13 *[FILL-RULE],
+.c13 *[fill*='#'],
+.c13 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -139,7 +173,8 @@ exports[`<Navigation /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background: background-oasis-blue;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -409,7 +444,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
       >
         <svg
           aria-label="theme.darkMode"
-          class="c7"
+          class="c13"
           viewBox="0 0 24 24"
         >
           <path
@@ -475,8 +510,8 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   flex: 0 0 auto;
   width: 24px;
   height: 24px;
-  fill: #666666;
-  stroke: #666666;
+  fill: currentColor;
+  stroke: currentColor;
 }
 
 .c7 g {
@@ -606,7 +641,8 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  background: background-oasis-blue;
+  background-color: #7D4CDB;
+  color: #f8f8f8;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
