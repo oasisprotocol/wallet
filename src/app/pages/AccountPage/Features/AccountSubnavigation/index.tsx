@@ -70,7 +70,7 @@ export function AccountSubnavigation() {
             ? t('account.subnavigation.mobileActiveDelegations', 'Delegations')
             : t('account.subnavigation.activeDelegations', 'Active delegations')
         }
-        route="active-delegations"
+        route={`/account/${address}/active-delegations`}
       />
 
       <NavItem
@@ -80,7 +80,7 @@ export function AccountSubnavigation() {
             ? t('account.subnavigation.mobileDebondingDelegations', 'Debonding')
             : t('account.subnavigation.debondingDelegations', 'Debonding delegations')
         }
-        route="debonding-delegations"
+        route={`/account/${address}/debonding-delegations`}
       />
     </Nav>
   )
