@@ -171,7 +171,7 @@
     "copy": "Copy error to clipboard",
     "description": "The error that has occurred triggers the wallet to stop. <strong>Your funds are safe.</strong><br/><br/>Please try refreshing the page and reopening your wallet to see if the issue persists. You can check the current status of the network below.",
     "heading": "An error occurred.",
-    "instruction": "If the issue is not resolved after refreshing, please email our support team at  <Email/> and attached the error report.",
+    "instruction": "If the issue is not resolved after refreshing, please email our support team at  <Email/> and attach the error report.",
     "reloadExtension": "Reload extension"
   },
   "fiatOnramp": {
@@ -477,7 +477,7 @@
         "confirm": "I understand, reveal my private key",
         "copied": "Private key copied.",
         "hint1": "The private key consists of a string of characters. Anyone with access to your private key has direct access to the assets of that account.",
-        "hint2": "Once the private key is lost, it cannot be retrieved. Please make sure to Backup the private key and keep it in a safe place.",
+        "hint2": "If the private key is lost, it cannot be retrieved. Please make sure to backup the private key and keep it in a safe place.",
         "title": "Export Private Key"
       },
       "manageAccount": "Manage",
