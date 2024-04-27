@@ -98,7 +98,7 @@ export function FiatOnramp() {
         </AlertBox>
 
         {!thirdPartyAcknowledged ? (
-          <Box margin={{ top: '20px', bottom: '400px' }}>
+          <Box margin={{ top: '20px' }}>
             <CheckBox
               label={t(
                 'fiatOnramp.thirdPartyAcknowledge',
@@ -141,7 +141,7 @@ export function FiatOnramp() {
               isFeeCalculationHidden: 'false',
 
               exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
-              themeColor: '#18213c',
+              themeColor: '0500e2',
             }).toString()}`}
             style={{
               display: 'block',
