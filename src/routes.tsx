@@ -3,6 +3,7 @@ import { RouteObject } from 'react-router-dom'
 import { App } from 'app'
 import { OpenWalletPage } from 'app/pages/OpenWalletPage'
 import { commonRoutes } from './commonRoutes'
+import { FromLedger } from './app/pages/OpenWalletPage/Features/FromLedger'
 
 export const routes: RouteObject[] = [
   {
@@ -13,6 +14,10 @@ export const routes: RouteObject[] = [
       {
         path: 'open-wallet',
         element: <OpenWalletPage />,
+      },
+      {
+        path: 'open-wallet/ledger',
+        element: <FromLedger />,
       },
     ],
   },

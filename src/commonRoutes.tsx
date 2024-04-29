@@ -2,7 +2,6 @@ import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { CreateWalletPage } from 'app/pages/CreateWalletPage'
 import { HomePage } from 'app/pages/HomePage'
-import { FromLedger } from 'app/pages/OpenWalletPage/Features/FromLedger'
 import { FromMnemonic } from 'app/pages/OpenWalletPage/Features/FromMnemonic'
 import { FromPrivateKey } from 'app/pages/OpenWalletPage/Features/FromPrivateKey'
 import { AccountPage } from 'app/pages/AccountPage'
@@ -67,10 +66,6 @@ export const commonRoutes: RouteObject[] = [
   {
     path: 'open-wallet/private-key',
     element: <FromPrivateKey />,
-  },
-  {
-    path: 'open-wallet/ledger',
-    element: <FromLedger />,
   },
   {
     path: 'open-wallet/ledger/usb',
