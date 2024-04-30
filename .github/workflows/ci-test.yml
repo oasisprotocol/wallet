@@ -30,6 +30,7 @@ jobs:
         with:
           node-version: 18
           cache: yarn
+      - run: echo "modified workflow"
       - if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
