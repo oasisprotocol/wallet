@@ -93,13 +93,13 @@ export function MigrateV0StateForm() {
             <label htmlFor="password">
               {t(
                 'persist.loginToProfile.description',
-                'Log into your existing user profile on this computer to access the wallets you already added.',
+                'Enter your password to access your existing wallets on this device.',
               )}
             </label>
           </Paragraph>
 
           <PasswordField
-            placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')}
+            placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password')}
             name="password"
             inputElementId="password"
             autoFocus

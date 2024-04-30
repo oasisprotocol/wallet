@@ -55,7 +55,7 @@ export function ChoosePasswordFields() {
             </label>
           </Paragraph>
           <ChoosePasswordInputFields
-            password1Placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password here')}
+            password1Placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password')}
             password2Placeholder={t('persist.createProfile.repeatPassword', 'Re-enter your password')}
           />
         </>

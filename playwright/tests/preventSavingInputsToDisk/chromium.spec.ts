@@ -36,7 +36,7 @@ test('Chromium expect mnemonic, privateKey, and password to NOT leak with preven
     await page.getByRole('button', { name: 'Show password' }).nth(0).click()
 
     await page.getByPlaceholder('Enter your private key here').fill(privateKey)
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.getByPlaceholder('Re-enter your password').fill(password)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
     await expect(page.getByText('Loading account')).toBeHidden()
