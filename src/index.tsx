@@ -21,7 +21,7 @@ import { configureAppStore } from 'store/configureStore'
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
-// Initialize languages
+// Initialize
 import './locales/i18n'
 
 // Fonts
