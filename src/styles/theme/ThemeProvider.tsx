@@ -39,6 +39,20 @@ const grommetCustomTheme: ThemeType = {
       },
     },
   },
+  textInput: {
+    extend: css`
+      &::placeholder {
+        font-size: 14px;
+      }
+    `,
+  },
+  textArea: {
+    extend: css`
+      &::placeholder {
+        font-size: 14px;
+      }
+    `,
+  },
   tip: {
     content: {
       // Default background is background-contrast, but we made that one transparent
@@ -198,6 +212,12 @@ const grommetCustomTheme: ThemeType = {
     },
     font: {
       family: 'Rubik, sans-serif',
+    },
+    input: {
+      padding: {
+        horizontal: '5px',
+        vertical: '12px',
+      },
     },
   },
   notification: {
