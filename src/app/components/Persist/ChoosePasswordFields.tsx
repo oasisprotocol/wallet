@@ -28,13 +28,11 @@ export function ChoosePasswordFields() {
   }
 
   return (
-    <Box as="fieldset" margin={{ top: 'medium' }}>
-      <FormField contentProps={{ border: false }} margin={{ top: 'xsmall' }}>
+    <Box as="fieldset" margin={{ top: 'medium' }} pad="medium">
+      <FormField contentProps={{ border: false, pad: 'none' }} margin={{ top: 'xsmall' }}>
         <CheckBox
-          label={t(
-            'persist.createProfile.startPersisting',
-            'Store private keys locally, protected by a password',
-          )}
+          label={t('persist.createProfile.startPersistingToggle', 'Create a profile')}
+          toggle
           onChange={event => setStartPersisting(event.target.checked)}
           {...(isChoiceDisabled
             ? {
@@ -46,18 +44,41 @@ export function ChoosePasswordFields() {
               })}
         ></CheckBox>
       </FormField>
+      <Paragraph size="small" fill>
+        {t(
+          'persist.createProfile.startPersisting',
+          'Store your private keys locally and protect them with a password by creating a profile.',
+        )}
+      </Paragraph>
 
       {isChoosingPassword && (
         <>
-          <Paragraph>
-            <label htmlFor="password1">
-              {t('persist.createProfile.choosePassword', 'Choose a password')}
-            </label>
-          </Paragraph>
           <ChoosePasswordInputFields
             password1Placeholder={t('persist.loginToProfile.enterPasswordHere', 'Enter your password')}
-            password2Placeholder={t('persist.createProfile.repeatPassword', 'Re-enter your password')}
+            password2Placeholder={t('persist.createProfile.repeatPassword', 'Confirm your password')}
           />
+
+          <FormField
+            name="profileStorageUndependableAcknowledge"
+            contentProps={{
+              border: false,
+              pad: 'none',
+            }}
+            margin={{ top: 'xsmall' }}
+          >
+            <CheckBox
+              name="profileStorageUndependableAcknowledge"
+              required
+              label={
+                <Paragraph size="small" fill>
+                  {t(
+                    'persist.createProfile.undependableAcknowledge',
+                    'I understand this password and profile do not substitute my mnemonic.',
+                  )}
+                </Paragraph>
+              }
+            ></CheckBox>
+          </FormField>
         </>
       )}
     </Box>
