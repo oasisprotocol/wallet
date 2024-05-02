@@ -586,7 +586,10 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -621,6 +624,22 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c23::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c23::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c23:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c23::placeholder {
+  font-size: 14px;
+}
+
 .c22 {
   position: relative;
   width: 100%;
@@ -635,7 +654,10 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -671,6 +693,22 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 .c24:-moz-placeholder,
 .c24::-moz-placeholder {
   opacity: 1;
+}
+
+.c24::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c24::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c24:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c24::placeholder {
+  font-size: 14px;
 }
 
 .c1 {

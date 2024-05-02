@@ -684,7 +684,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -719,6 +722,22 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c32::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c32::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c32:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c32::placeholder {
+  font-size: 14px;
+}
+
 .c35 {
   box-sizing: border-box;
   font-size: inherit;
@@ -728,7 +747,10 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -764,6 +786,22 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c35::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c35::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c35:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c35::placeholder {
+  font-size: 14px;
+}
+
 .c31 {
   position: relative;
   width: 100%;
@@ -784,7 +822,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   pointer-events: none;
-  right: 12px;
+  right: 6px;
 }
 
 .c13 {

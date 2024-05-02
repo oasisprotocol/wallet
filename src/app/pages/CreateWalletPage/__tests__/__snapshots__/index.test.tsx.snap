@@ -261,7 +261,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-right: 12px;
+  margin-right: 1.5ex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -288,7 +288,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  border: solid 2px rgba(0,0,0,0.15);
+  border: solid 2px #16213E;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -536,6 +536,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .c22:hover input:not([disabled]) + div,
@@ -653,13 +655,13 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c23 {
-    margin-right: 6px;
+    margin-right: 1.5ex;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c26 {
-    border: solid 2px rgba(0,0,0,0.15);
+    border: solid 2px #16213E;
   }
 }
 
