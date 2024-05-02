@@ -1,6 +1,7 @@
 import { selectIsPersistenceUnsupported } from 'app/state/persist/selectors'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { Box } from 'grommet/es6/components/Box'
+import { Text } from 'grommet/es6/components/Text'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { FormField } from 'grommet/es6/components/FormField'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
@@ -31,7 +32,7 @@ export function ChoosePasswordFields() {
     <Box as="fieldset" margin={{ top: 'medium' }} pad="medium">
       <FormField contentProps={{ border: false, pad: 'none' }} margin={{ top: 'xsmall' }}>
         <CheckBox
-          label={t('persist.createProfile.startPersistingToggle', 'Create a profile')}
+          label={<Text>{t('persist.createProfile.startPersistingToggle', 'Create a profile')}</Text>}
           toggle
           onChange={event => setStartPersisting(event.target.checked)}
           {...(isChoiceDisabled

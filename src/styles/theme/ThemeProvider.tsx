@@ -281,6 +281,14 @@ const grommetCustomTheme: ThemeType = {
         light: 'grayMedium',
       },
     },
+    border: {
+      color: 'text',
+    },
+    gap: '1.5ex',
+    extend: css`
+      font-size: 14px;
+      line-height: 1.2;
+    `,
   },
   layer: {
     /**
