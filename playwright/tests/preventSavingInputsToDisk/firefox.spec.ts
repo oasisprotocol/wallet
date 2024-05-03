@@ -34,7 +34,7 @@ test('Firefox expect mnemonic, privateKey, and password to NOT leak with prevent
     await tab2.getByRole('button', { name: 'Show password' }).nth(0).click()
 
     await tab2.getByPlaceholder('Enter your private key here').fill(privateKey)
-    await tab2.getByPlaceholder('Enter your password here').fill(password)
+    await tab2.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await tab2.getByPlaceholder('Re-enter your password').fill(password)
     // Do not submit form.
   })

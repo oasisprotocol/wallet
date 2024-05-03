@@ -26,7 +26,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
   await test.step('start migration', async () => {
     await addPersistedStorageV0(page, extensionManifestURL)
     await page.goto(`${extensionPopupURL}/`)
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
   })
 

@@ -44,7 +44,7 @@ test.describe('Persist', () => {
     })
     await test.step('Expect password must be chosen', async () => {
       await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
     })
     await test.step('Expect repeated password must match', async () => {
@@ -63,10 +63,10 @@ test.describe('Persist', () => {
     await test.step('Expect correct password is required to unlock', async () => {
       await page.goto('/')
       await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-      await page.getByPlaceholder('Enter your password here').fill(wrongPassword)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(wrongPassword)
       await page.keyboard.press('Enter')
       await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
 
@@ -89,7 +89,7 @@ test.describe('Persist', () => {
     })
     await test.step('Expect password must be chosen', async () => {
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
     })
     await test.step('Expect repeated password must match', async () => {
@@ -106,10 +106,10 @@ test.describe('Persist', () => {
     await test.step('Expect correct password is required to unlock', async () => {
       await page.goto('/')
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await page.getByPlaceholder('Enter your password here').fill(wrongPassword)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(wrongPassword)
       await page.keyboard.press('Enter')
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
 
@@ -128,7 +128,7 @@ test.describe('Persist', () => {
         persistenceCheckboxDisabled: true,
       })
       await page.goto('/')
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       await page.getByTestId('account-selector').click({ timeout: 15_000 })
       await expect(page.getByTestId('account-choice')).toHaveCount(2)
@@ -142,14 +142,14 @@ test.describe('Persist', () => {
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await mockApi(context, 123)
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
     await expect(page.getByTestId('account-balance-summary')).toContainText('123.0')
     await expect(page.getByTestId('account-balance-summary')).toContainText('ROSE')
     await page.getByRole('button', { name: /Lock profile/ }).click()
     await mockApi(context, 456)
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await expect(page.getByTestId('account-balance-summary')).toContainText('456.0')
     await expect(page.getByTestId('account-balance-summary')).toContainText('ROSE')
@@ -165,7 +165,7 @@ test.describe('Persist', () => {
     await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
 
     await page.getByText('Store private keys locally, protected by a password').check()
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await page.getByPlaceholder('Re-enter your password').fill(password)
     await page.getByText('Store private keys locally, protected by a password').uncheck()
@@ -177,7 +177,7 @@ test.describe('Persist', () => {
 
     await page.goto('/')
     await expect(page.getByRole('button', { name: /^(Open wallet)|(Unlock)$/ })).toBeVisible()
-    await expect(page.getByPlaceholder('Enter your password here')).toBeHidden()
+    await expect(page.getByPlaceholder('Enter your password', { exact: true })).toBeHidden()
     await expect(page.getByTestId('account-selector')).toBeHidden()
   })
 
@@ -195,7 +195,7 @@ test.describe('Persist', () => {
       persistenceCheckboxDisabled: true,
     })
     await page.goto('/')
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await page.getByTestId('account-selector').click({ timeout: 15_000 })
     await expect(page.getByTestId('account-choice')).toHaveCount(1)
@@ -241,9 +241,9 @@ test.describe('Persist', () => {
   test('Password should not be cached in input field', async ({ page }) => {
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await page.getByRole('button', { name: /Lock profile/ }).click()
-    await expect(page.getByPlaceholder('Enter your password here')).toHaveValue('')
+    await expect(page.getByPlaceholder('Enter your password', { exact: true })).toHaveValue('')
   })
 })

@@ -105,7 +105,7 @@ test.describe('syncTabs', () => {
     test('persisted', async ({ page, context }) => {
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       const tab2 = await context.newPage()
       await testSyncingNetwork(page, tab2)
@@ -146,7 +146,7 @@ test.describe('syncTabs', () => {
     test('persisted', async ({ page, context }) => {
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       const tab2 = await context.newPage()
       await testSyncingContacts(page, tab2)
@@ -210,7 +210,7 @@ test.describe('syncTabs', () => {
     test('persisted', async ({ page, context }) => {
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
-      await page.getByPlaceholder('Enter your password here').fill(password)
+      await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
       await page.keyboard.press('Enter')
       const tab2 = await context.newPage()
       await testSelectedAccountNotSync(page, tab2)
@@ -302,7 +302,7 @@ test.describe('syncTabs', () => {
   }) => {
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await page.getByRole('link', { name: /Home/ }).click()
     await page.getByRole('button', { name: /Open wallet/ }).click()

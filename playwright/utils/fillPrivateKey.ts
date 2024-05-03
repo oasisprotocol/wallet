@@ -48,7 +48,7 @@ export async function fillPrivateKeyAndPassword(
     await persistence.check()
 
     await page.getByPlaceholder('Enter your private key here').fill(params.privateKey ?? privateKey)
-    await page.getByPlaceholder('Enter your password here').fill(password)
+    await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.getByPlaceholder('Re-enter your password').fill(password)
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${params.privateKeyAddress ?? privateKeyAddress}`))
