@@ -182,7 +182,7 @@ exports[`<ConnectDevicePage /> should render component 1`] = `
   margin-top: 0px;
   font-size: 34px;
   line-height: 40px;
-  max-width: 816px;
+  max-width: none;
   font-weight: 600;
   overflow-wrap: break-word;
   text-align: center;
@@ -222,7 +222,7 @@ exports[`<ConnectDevicePage /> should render component 1`] = `
   .c3 {
     font-size: 26px;
     line-height: 32px;
-    max-width: 624px;
+    max-width: none;
   }
 }
 
