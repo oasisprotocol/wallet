@@ -131,7 +131,10 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -185,6 +188,22 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   opacity: 1;
 }
 
+.c6::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c6::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c6:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c6::placeholder {
+  font-size: 14px;
+}
+
 .c3 {
   position: relative;
   width: 100%;
@@ -205,7 +224,7 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   pointer-events: none;
-  right: 12px;
+  right: 6px;
 }
 
 .c0 {

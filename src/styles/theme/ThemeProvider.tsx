@@ -39,6 +39,20 @@ const grommetCustomTheme: ThemeType = {
       },
     },
   },
+  textInput: {
+    extend: css`
+      &::placeholder {
+        font-size: 14px;
+      }
+    `,
+  },
+  textArea: {
+    extend: css`
+      &::placeholder {
+        font-size: 14px;
+      }
+    `,
+  },
   tip: {
     content: {
       // Default background is background-contrast, but we made that one transparent
@@ -199,6 +213,12 @@ const grommetCustomTheme: ThemeType = {
     font: {
       family: 'Rubik, sans-serif',
     },
+    input: {
+      padding: {
+        horizontal: '5px',
+        vertical: '12px',
+      },
+    },
   },
   notification: {
     toast: {
@@ -252,6 +272,22 @@ const grommetCustomTheme: ThemeType = {
           margin-top: -5px;
         }
       }
+    `,
+  },
+  checkBox: {
+    toggle: {
+      color: {
+        dark: 'text',
+        light: 'grayMedium',
+      },
+    },
+    border: {
+      color: 'text',
+    },
+    gap: '1.5ex',
+    extend: css`
+      font-size: 14px;
+      line-height: 1.2;
     `,
   },
   layer: {

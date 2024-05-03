@@ -36,7 +36,7 @@ test.describe('Persist', () => {
       await expect(uncheckedAccounts).toHaveCount(3)
       for (const account of await uncheckedAccounts.elementHandles()) await account.click()
 
-      const persistence = await page.getByText('Store private keys locally, protected by a password')
+      const persistence = await page.getByText('Create a profile')
       await expect(persistence).toBeEnabled()
       await expect(persistence).not.toBeChecked()
       await persistence.check()
@@ -49,10 +49,11 @@ test.describe('Persist', () => {
     })
     await test.step('Expect repeated password must match', async () => {
       await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-      await page.getByPlaceholder('Re-enter your password').fill(wrongPassword)
+      await page.getByPlaceholder('Confirm your password').fill(wrongPassword)
+      await page.getByText('I understand this password and profile do not substitute my mnemonic.').check()
       await page.keyboard.press('Enter')
       await expect(page).not.toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
-      await page.getByPlaceholder('Re-enter your password').fill(password)
+      await page.getByPlaceholder('Confirm your password').fill(password)
       await page.keyboard.press('Enter')
       await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))
 
@@ -79,7 +80,7 @@ test.describe('Persist', () => {
     await test.step('Import from private key', async () => {
       await page.goto('/open-wallet/private-key')
 
-      const persistence = await page.getByText('Store private keys locally, protected by a password')
+      const persistence = await page.getByText('Create a profile')
       await expect(persistence).toBeEnabled()
       await expect(persistence).not.toBeChecked()
       await persistence.check()
@@ -94,10 +95,11 @@ test.describe('Persist', () => {
     })
     await test.step('Expect repeated password must match', async () => {
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await page.getByPlaceholder('Re-enter your password').fill(wrongPassword)
+      await page.getByPlaceholder('Confirm your password').fill(wrongPassword)
+      await page.getByText('I understand this password and profile do not substitute my mnemonic.').check()
       await page.keyboard.press('Enter')
       await expect(page).not.toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
-      await page.getByPlaceholder('Re-enter your password').fill(password)
+      await page.getByPlaceholder('Confirm your password').fill(password)
       await page.keyboard.press('Enter')
       await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
       await expect(page.getByText('Loading account')).toBeVisible()
@@ -164,11 +166,12 @@ test.describe('Persist', () => {
     await page.getByRole('button', { name: /Import my wallet/ }).click()
     await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
 
-    await page.getByText('Store private keys locally, protected by a password').check()
+    await page.getByText('Create a profile').check()
     await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
+    await page.getByText('I understand this password and profile do not substitute my mnemonic.').check()
     await page.keyboard.press('Enter')
-    await page.getByPlaceholder('Re-enter your password').fill(password)
-    await page.getByText('Store private keys locally, protected by a password').uncheck()
+    await page.getByPlaceholder('Confirm your password').fill(password)
+    await page.getByText('Create a profile').uncheck()
 
     await page.getByRole('button', { name: /Open/ }).click()
     await expect(page).toHaveURL(new RegExp(`/account/${mnemonicAddress0}`))

@@ -247,7 +247,10 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -281,6 +284,22 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
 .c12:-moz-placeholder,
 .c12::-moz-placeholder {
   opacity: 1;
+}
+
+.c12::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c12::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c12:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c12::placeholder {
+  font-size: 14px;
 }
 
 .c11 {

@@ -259,7 +259,10 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   font-size: 18px;
@@ -314,6 +317,22 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 .c7:-moz-placeholder,
 .c7::-moz-placeholder {
   opacity: 1;
+}
+
+.c7::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c7::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c7:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c7::placeholder {
+  font-size: 14px;
 }
 
 @media only screen and (max-width:768px) {

@@ -314,7 +314,10 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   background: transparent;
   color: inherit;
   width: 100%;
-  padding: 11px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
   border: 1px solid rgba(0,0,0,0.33);
@@ -367,6 +370,22 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 .c9:-moz-placeholder,
 .c9::-moz-placeholder {
   opacity: 1;
+}
+
+.c9::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c9::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c9:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c9::placeholder {
+  font-size: 14px;
 }
 
 .c8 {

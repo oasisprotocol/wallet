@@ -391,10 +391,11 @@
   },
   "persist": {
     "createProfile": {
-      "choosePassword": "Choose a password",
       "passwordMismatch": "Entered password does not match",
-      "repeatPassword": "Re-enter your password",
-      "startPersisting": "Store private keys locally, protected by a password",
+      "repeatPassword": "Confirm your password",
+      "startPersisting": "Store your private keys locally and protect them with a password by creating a profile.",
+      "startPersistingToggle": "Create a profile",
+      "undependableAcknowledge": "I understand this password and profile do not substitute my mnemonic.",
       "unsupported": "Persistence is not supported in this browser."
     },
     "loading": "Loading",

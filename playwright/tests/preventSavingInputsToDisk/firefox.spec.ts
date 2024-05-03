@@ -28,14 +28,14 @@ test('Firefox expect mnemonic, privateKey, and password to NOT leak with prevent
 
     const tab2 = await context.newPage()
     await tab2.goto('/open-wallet/private-key')
-    await tab2.getByText('Store private keys locally, protected by a password').check()
+    await tab2.getByText('Create a profile').check()
     await tab2.getByRole('button', { name: /Show private key/ }).click()
     await tab2.getByRole('button', { name: 'Show password' }).nth(1).click()
     await tab2.getByRole('button', { name: 'Show password' }).nth(0).click()
 
     await tab2.getByPlaceholder('Enter your private key here').fill(privateKey)
     await tab2.getByPlaceholder('Enter your password', { exact: true }).fill(password)
-    await tab2.getByPlaceholder('Re-enter your password').fill(password)
+    await tab2.getByPlaceholder('Confirm your password').fill(password)
     // Do not submit form.
   })
 
