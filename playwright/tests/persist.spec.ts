@@ -184,7 +184,8 @@ test.describe('Persist', () => {
     await expect(page.getByTestId('account-selector')).toBeHidden()
   })
 
-  test('Should NOT persist changes after user skips unlocking', async ({ page }) => {
+  test.skip('Should NOT persist changes after user skips unlocking', async ({ page }) => {
+    // TODO: remove all code related to "Continue without the profile"
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByRole('button', { name: /Continue without the profile/ }).click()
@@ -204,7 +205,8 @@ test.describe('Persist', () => {
     await expect(page.getByTestId('account-choice')).toHaveCount(1)
   })
 
-  test('Should NOT crash after quickly locking a wallet', async ({ page }) => {
+  test.skip('Should NOT crash after quickly locking a wallet', async ({ page }) => {
+    // TODO: re-enable and change so it doesn't depend on "Continue without the profile"
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
     await page.getByRole('button', { name: /Continue without the profile/ }).click()

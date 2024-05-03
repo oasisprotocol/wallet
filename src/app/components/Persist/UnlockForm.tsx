@@ -9,14 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { PasswordField } from 'app/components/PasswordField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
-import { useNavigate } from 'react-router-dom'
 import { DeleteProfileButton } from './DeleteProfileButton'
 import { LoginModalLayout } from './LoginModalLayout'
 
 export function UnlockForm() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const enteredWrongPassword = useSelector(selectEnteredWrongPassword)
   const [password, setPassword] = React.useState('')
 
@@ -50,6 +48,7 @@ export function UnlockForm() {
         <Box direction="row-responsive" gap="large" justify="between" margin={{ top: 'medium' }}>
           <Button type="submit" label={t('persist.loginToProfile.unlock', 'Unlock')} primary />
 
+          {/* TODO: remove all code related to "Continue without the profile"
           <Button
             label={t('persist.loginToProfile.skipUnlocking', 'Continue without the profile')}
             onClick={() => {
@@ -58,6 +57,7 @@ export function UnlockForm() {
             }}
             plain
           />
+          */}
         </Box>
       </Form>
       <Box direction="row" margin={{ top: 'large' }}>
