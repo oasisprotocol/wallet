@@ -20,6 +20,11 @@ export function LoginModalLayout(props: {
       <Navigation />
       <ResponsiveLayer
         modal
+        responsive={false}
+        style={{
+          width: '100%',
+          maxWidth: '500px',
+        }}
         background="background-front"
         onClickOutside={props.onClickOutside}
         onEsc={props.onEsc}
@@ -33,7 +38,7 @@ export function LoginModalLayout(props: {
             />
           </Box>
 
-          <Header level={2} textAlign="center">
+          <Header level={2} fill textAlign="center">
             {props.title}
           </Header>
 

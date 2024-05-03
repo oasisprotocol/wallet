@@ -89,7 +89,7 @@ export function MigrateV0StateForm() {
           messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
           {...preventSavingInputsToUserData}
         >
-          <Paragraph>
+          <Paragraph fill>
             <label htmlFor="password">
               {t(
                 'persist.loginToProfile.description',
@@ -121,7 +121,7 @@ export function MigrateV0StateForm() {
           messages={{ required: t('migrateV0Extension.requiredField', 'This field is required') }}
           {...preventSavingInputsToUserData}
         >
-          <Paragraph>
+          <Paragraph fill>
             {t(
               'migrateV0Extension.backupMnemonic.description',
               'The new version of the wallet extension will no longer store your mnemonic. This phrase is the only way to restore your account if you have lost access. You now have a final chance to backup your mnemonic.',
@@ -188,7 +188,7 @@ export function MigrateV0StateForm() {
               '1 of your private keys has typos and won’t be stored by the new wallet extension. Please make sure to copy it and store it elsewhere before proceeding, so you can correct it later.',
             ) && null}
           </>
-          <Paragraph>
+          <Paragraph fill>
             {t(
               'migrateV0Extension.backupInvalidPrivateKeys.description',
               '{{count}} of your private keys have typos and won’t be stored by the new wallet extension. Please make sure to copy them and store them elsewhere before proceeding, so you can correct them later.',

@@ -50,7 +50,7 @@ export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonP
           onEsc={onCancel}
         >
           <DeleteInputForm onCancel={onCancel} onConfirm={onConfirm}>
-            <Paragraph>
+            <Paragraph fill>
               <label htmlFor="type_delete">
                 {variant === 'forgot-password' && (
                   <span>
@@ -80,7 +80,7 @@ export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonP
   )
 }
 
-export function ModalLayout(props: {
+function ModalLayout(props: {
   title: string
   children: React.ReactNode
   onClickOutside?: () => void
@@ -89,7 +89,7 @@ export function ModalLayout(props: {
   return (
     <Layer modal background="background-front" onClickOutside={props.onClickOutside} onEsc={props.onEsc}>
       <Box pad="medium">
-        <Header level={2} textAlign="center" margin={{ top: 'medium' }}>
+        <Header level={2} fill textAlign="center" margin={{ top: 'medium' }}>
           {props.title}
         </Header>
 
