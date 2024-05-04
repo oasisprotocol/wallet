@@ -111,6 +111,8 @@ export function CreateWalletPage(props: CreateWalletProps) {
           <Box margin="xsmall" pad="small" background="background-contrast" style={{ wordSpacing: '14px' }}>
             <NoTranslate>
               <strong data-testid="generated-mnemonic">{mnemonic.join(' ')}</strong>
+              {/* Chrome workaround: Prevent copying extra newlines after user triple clicks mnemonic to copy */}
+              <span style={{ userSelect: 'none' }}></span>
             </NoTranslate>
             <Box direction="row" justify="start" margin={{ top: 'medium' }}>
               <Button

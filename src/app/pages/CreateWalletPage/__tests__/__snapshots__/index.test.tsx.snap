@@ -1424,6 +1424,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           >
             test test test test test test test test test test test test test test test test test test test test test test test test
           </strong>
+          <span
+            style="user-select: none;"
+          />
         </span>
         <div
           class="c9"
