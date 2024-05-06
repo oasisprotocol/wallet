@@ -31,8 +31,10 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Build app
+      - name: Build web ROSE Wallet
         run: yarn build
+      - name: Build extension ROSE Wallet
+        run: yarn build:ext
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
@@ -40,10 +42,14 @@ jobs:
         # and use short SHA of the commit for file name.
         run: |
           echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/^v//')" >> "$GITHUB_OUTPUT"
-      - name: Create zip file
+      - name: Create web ROSE Wallet zip file
         run: |
           cd build/
           zip -r ../rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip .
+      - name: Create extension ROSE Wallet zip file
+        run: |
+          cd build-ext/
+          zip -r ../rose-wallet-ext-${{ steps.vars.outputs.VERSION }}.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         uses: buberdds/extract-changelog-action@v1
         id: changelog
@@ -54,6 +60,7 @@ jobs:
         with:
           files: |
             rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
+            rose-wallet-ext-${{ steps.vars.outputs.VERSION }}.zip
             build/Content-Security-Policy.txt
             build/Permissions-Policy.txt
           name: ROSE Wallet ${{ steps.vars.outputs.VERSION }}
