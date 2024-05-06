@@ -17,7 +17,8 @@
     "reclaimEscrow": {
       "convertedToShares": "Corresponding number of gigashares: {{shares}}",
       "reclaim": "Reclaim",
-      "reclaimAll": "Reclaim all"
+      "reclaimAll": "Reclaim all",
+      "reclaimableAmount": "Available:"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
