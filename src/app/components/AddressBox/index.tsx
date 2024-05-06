@@ -49,45 +49,51 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
   }
 
   return (
-    <Box
-      align="center"
-      border={border && { color: 'brand' }}
-      direction={isMobile ? 'column' : 'row'}
-      gap={isMobile ? 'medium' : undefined}
-      pad={{ right: 'small' }}
-      round="5px"
-    >
+    <>
       <Box
         align="center"
-        border={
-          separator
-            ? {
-                color: 'background-front-border',
-                side: 'bottom',
-              }
-            : undefined
-        }
-        direction="row"
-        flex
-        pad={{ bottom: isMobile ? 'small' : 'xsmall' }}
-        margin={{ right: isMobile ? undefined : 'large' }}
-        width="690px" // keep the same width for address and name variants
+        border={border && { color: 'brand' }}
+        direction={isMobile ? 'column' : 'row'}
+        gap={isMobile ? 'medium' : undefined}
+        pad={{ right: 'small' }}
+        round="5px"
       >
-        {copyToClipboard === 'icon' && (
-          <Button onClick={() => copyAddress()} icon={<Copy size="18px" />} data-testid="copy-address-icon" />
-        )}
-        <Box flex>{children}</Box>
-      </Box>
+        <Box
+          align="center"
+          border={
+            separator
+              ? {
+                  color: 'background-front-border',
+                  side: 'bottom',
+                }
+              : undefined
+          }
+          direction="row"
+          flex
+          pad={{ bottom: isMobile ? 'small' : 'xsmall' }}
+          margin={{ right: isMobile ? undefined : 'large' }}
+          width="690px" // keep the same width for address and name variants
+        >
+          {copyToClipboard === 'icon' && (
+            <Button
+              onClick={() => copyAddress()}
+              icon={<Copy size="18px" />}
+              data-testid="copy-address-icon"
+            />
+          )}
+          <Box flex>{children}</Box>
+        </Box>
 
-      {copyToClipboard === 'button' && (
-        <StyledButton
-          label={trimLongString(address, 8, 6)}
-          onClick={() => copyAddress()}
-          icon={<Copy size="18px" />}
-          data-testid="copy-address-button"
-          reverse
-        />
-      )}
+        {copyToClipboard === 'button' && (
+          <StyledButton
+            label={trimLongString(address, 8, 6)}
+            onClick={() => copyAddress()}
+            icon={<Copy size="18px" />}
+            data-testid="copy-address-button"
+            reverse
+          />
+        )}
+      </Box>
       {notificationVisible && (
         <Notification
           toast
@@ -96,7 +102,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
           onClose={hideNotification}
         />
       )}
-    </Box>
+    </>
   )
 }
 

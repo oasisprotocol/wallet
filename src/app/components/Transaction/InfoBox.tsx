@@ -30,21 +30,23 @@ export function InfoBox({ children, copyToClipboardValue, icon: IconComponent, l
   }
 
   return (
-    <Box
-      direction="row"
-      gap="small"
-      hoverIndicator={{ color: 'background-contrast' }}
-      pad={{ horizontal: 'small', vertical: 'small' }}
-      onClick={copyToClipboardValue ? copyValue : undefined}
-    >
-      <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
-        <IconComponent color="brand" size="20px" />
-      </Box>
-      <Box justify="center">
-        <Text weight="bold" color="grayMedium" style={{ opacity: 0.5 }}>
-          {label}
-        </Text>
-        {children}
+    <>
+      <Box
+        direction="row"
+        gap="small"
+        hoverIndicator={{ color: 'background-contrast' }}
+        pad={{ horizontal: 'small', vertical: 'small' }}
+        onClick={copyToClipboardValue ? copyValue : undefined}
+      >
+        <Box fill="vertical" align="center" justify="center" alignSelf="center" pad={{ right: 'xsmall' }}>
+          <IconComponent color="brand" size="20px" />
+        </Box>
+        <Box justify="center">
+          <Text weight="bold" color="grayMedium" style={{ opacity: 0.5 }}>
+            {label}
+          </Text>
+          {children}
+        </Box>
       </Box>
       {notificationVisible && (
         <Notification
@@ -54,6 +56,6 @@ export function InfoBox({ children, copyToClipboardValue, icon: IconComponent, l
           onClose={hideNotification}
         />
       )}
-    </Box>
+    </>
   )
 }
