@@ -1,7 +1,10 @@
 const execSync = require('child_process').execSync
 const semver = require('semver')
 const glob = require('glob')
+const fs = require('fs')
+const prettier = require('prettier')
 const packageJson = require('../../package.json')
+const extensionManifest = require('../../public/manifest.json')
 
 const folderPath = '.changelog/'
 const majorPattern = `${folderPath}*breaking*.md`
@@ -34,4 +37,18 @@ if (semver.lte(version, packageJson.version)) {
 }
 
 execSync(`yarn version --no-git-tag-version --new-version ${version}`, { stdio: 'inherit' })
+
+// Extension needs to bump version in manifest file too
+extensionManifest.version = version
+prettier
+  .format(JSON.stringify(extensionManifest), {
+    parser: 'json',
+  })
+  .then(formattedManifestJsonString => {
+    fs.writeFileSync('./public/manifest.json', formattedManifestJsonString)
+  })
+  .catch(error => {
+    console.error('Error formatting manifest:', error)
+  })
+
 execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
