@@ -621,7 +621,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         class="c2"
       >
         <label
-          for="password1"
+          for="currentPassword"
         >
           Set a new password
         </label>

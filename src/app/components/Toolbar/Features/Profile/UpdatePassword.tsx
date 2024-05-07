@@ -66,7 +66,7 @@ export const UpdatePassword = () => {
       value={value}
     >
       <Paragraph>
-        <label htmlFor="password1">{t('toolbar.profile.password.title', 'Set a new password')}</label>
+        <label htmlFor="currentPassword">{t('toolbar.profile.password.title', 'Set a new password')}</label>
       </Paragraph>
       <PasswordField<FormValue>
         placeholder={t('toolbar.profile.password.current', 'Current password')}
