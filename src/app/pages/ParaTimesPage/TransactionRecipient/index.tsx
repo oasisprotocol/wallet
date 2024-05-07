@@ -13,6 +13,7 @@ import { useParaTimes } from '../useParaTimes'
 import { useParaTimesNavigation } from '../useParaTimesNavigation'
 import { PasswordField } from 'app/components/PasswordField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { stripHexPrefix } from '../../../lib/eth-helpers'
 
 export const TransactionRecipient = () => {
   const { t } = useTranslation()
@@ -65,13 +66,19 @@ export const TransactionRecipient = () => {
         onChange={nextValue =>
           setTransactionForm({
             ...nextValue,
-            ethPrivateKey:
-              typeof nextValue.ethPrivateKey === 'object'
-                ? (nextValue.ethPrivateKey as any).value // from suggestions
-                : nextValue.ethPrivateKey,
+            ethPrivateRawKey:
+              typeof nextValue.ethPrivateRawKey === 'object'
+                ? (nextValue.ethPrivateRawKey as any).value // from suggestions
+                : nextValue.ethPrivateRawKey,
           })
         }
-        onSubmit={navigateToAmount}
+        onSubmit={formData => {
+          setTransactionForm({
+            ...formData.value,
+            ethPrivateKey: stripHexPrefix(formData.value.ethPrivateRawKey),
+          })
+          navigateToAmount()
+        }}
         value={transactionForm}
         style={{ width: isMobile ? '100%' : '465px' }}
         {...preventSavingInputsToUserData}
@@ -79,15 +86,15 @@ export const TransactionRecipient = () => {
         <Box margin={{ bottom: 'medium' }}>
           {isEvmcParaTime && !isDepositing && (
             <PasswordField
-              inputElementId="ethPrivateKey"
-              name="ethPrivateKey"
-              validate={ethPrivateKey =>
-                !isValidEthPrivateKeyLength(ethPrivateKey)
+              inputElementId="ethPrivateRawKey"
+              name="ethPrivateRawKey"
+              validate={ethPrivateRawKey =>
+                !isValidEthPrivateKeyLength(stripHexPrefix(ethPrivateRawKey))
                   ? t(
                       'paraTimes.validation.invalidEthPrivateKeyLength',
                       'Private key should be 64 characters long',
                     )
-                  : !isValidEthPrivateKey(ethPrivateKey)
+                  : !isValidEthPrivateKey(stripHexPrefix(ethPrivateRawKey))
                   ? t(
                       'paraTimes.validation.invalidEthPrivateKey',
                       'Ethereum-compatible private key is invalid',
@@ -98,7 +105,7 @@ export const TransactionRecipient = () => {
                 'paraTimes.recipient.ethPrivateKeyPlaceholder',
                 'Enter Ethereum-compatible private key',
               )}
-              value={transactionForm.ethPrivateKey}
+              value={transactionForm.ethPrivateRawKey}
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
               suggestions={evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey }))}

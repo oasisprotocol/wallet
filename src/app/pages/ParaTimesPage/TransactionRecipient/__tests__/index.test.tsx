@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { TransactionTypes } from 'app/state/paratimes/types'
+import { TransactionForm, TransactionTypes } from 'app/state/paratimes/types'
 import { useParaTimes, ParaTimesHook } from '../../useParaTimes'
 import { useParaTimesNavigation, ParaTimesNavigationHook } from '../../useParaTimesNavigation'
 import { TransactionRecipient } from '..'
@@ -25,7 +25,7 @@ describe('<TransactionRecipient />', () => {
     ticker: 'ROSE',
     transactionForm: {
       recipient: '',
-      ethPrivateKey: '',
+      ethPrivateRawKey: '',
     },
     usesOasisAddress: true,
   } as ParaTimesHook
@@ -123,7 +123,7 @@ describe('<TransactionRecipient />', () => {
       ...mockUseParaTimesEVMcResult,
       transactionForm: {
         ...mockUseParaTimesEVMcResult.transactionForm,
-        ethPrivateKey: '123',
+        ethPrivateRawKey: '123',
       },
     })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -144,7 +144,7 @@ describe('<TransactionRecipient />', () => {
       ...mockUseParaTimesEVMcResult,
       transactionForm: {
         ...mockUseParaTimesEVMcResult.transactionForm,
-        ethPrivateKey: '----------------------------------------------------------------',
+        ethPrivateRawKey: '----------------------------------------------------------------',
       },
     })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -160,13 +160,18 @@ describe('<TransactionRecipient />', () => {
   })
 
   it('should navigate to amount selection step when address is valid', async () => {
+    const ethPrivateKey = mockUseParaTimesEVMcResult.evmAccounts[0].ethPrivateKey
+    const ethPrivateKeyWith0xPrefix = `0x${ethPrivateKey}`
+    const setTransactionForm = jest.fn()
     const navigateToAmount = jest.fn()
     jest.mocked(useParaTimes).mockReturnValue({
       ...mockUseParaTimesResult,
+      setTransactionForm,
       transactionForm: {
         recipient: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-      },
-    } as ParaTimesHook)
+        ethPrivateRawKey: ethPrivateKeyWith0xPrefix,
+      } as TransactionForm,
+    })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
       ...mockUseParaTimesNavigationResult,
       navigateToAmount,
@@ -175,6 +180,11 @@ describe('<TransactionRecipient />', () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Next' }))
 
+    expect(setTransactionForm).toHaveBeenCalledWith({
+      ethPrivateKey: ethPrivateKey,
+      ethPrivateRawKey: ethPrivateKeyWith0xPrefix,
+      recipient: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+    })
     expect(navigateToAmount).toHaveBeenCalled()
   })
 
