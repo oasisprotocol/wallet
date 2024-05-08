@@ -150,37 +150,19 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
   margin-top: 40px;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .c17 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin-top: 48px;
-  -webkit-align-items: flex-end;
-  -webkit-box-align: flex-end;
-  -ms-flex-align: flex-end;
-  align-items: flex-end;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -209,10 +191,10 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
-  height: 12px;
+  width: 24px;
 }
 
-.c20 {
+.c18 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -220,11 +202,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   -ms-flex-item-align: stretch;
   align-self: stretch;
   width: 12px;
-}
-
-.c14 {
-  font-size: 18px;
-  line-height: 24px;
 }
 
 .c9 {
@@ -360,7 +337,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border: 0;
 }
 
-.c16 {
+.c14 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -389,8 +366,78 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   font-weight: bold;
 }
 
-.c16:hover {
+.c14:hover {
   box-shadow: 0px 0px 0px 2px #d24c00;
+}
+
+.c14:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c14:focus > circle,
+.c14:focus > ellipse,
+.c14:focus > line,
+.c14:focus > path,
+.c14:focus > polygon,
+.c14:focus > polyline,
+.c14:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c14:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c14:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c14:focus:not(:focus-visible) > circle,
+.c14:focus:not(:focus-visible) > ellipse,
+.c14:focus:not(:focus-visible) > line,
+.c14:focus:not(:focus-visible) > path,
+.c14:focus:not(:focus-visible) > polygon,
+.c14:focus:not(:focus-visible) > polyline,
+.c14:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c14:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c16 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0500e2;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 18px;
+  line-height: 24px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c16:hover {
+  box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
 .c16:focus {
@@ -430,76 +477,6 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 .c16:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c18 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #0500e2;
-  border-radius: 4px;
-  color: #16213E;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
-}
-
-.c18:hover {
-  box-shadow: 0px 0px 0px 2px #0500e2;
-}
-
-.c18:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c18:focus > circle,
-.c18:focus > ellipse,
-.c18:focus > line,
-.c18:focus > path,
-.c18:focus > polygon,
-.c18:focus > polyline,
-.c18:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c18:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c18:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c18:focus:not(:focus-visible) > circle,
-.c18:focus:not(:focus-visible) > ellipse,
-.c18:focus:not(:focus-visible) > line,
-.c18:focus:not(:focus-visible) > path,
-.c18:focus:not(:focus-visible) > polygon,
-.c18:focus:not(:focus-visible) > polyline,
-.c18:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c18:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -622,14 +599,8 @@ exports[`<Profile  /> should render unavailable state 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c17 {
-    margin-top: 24px;
-  }
-}
-
-@media only screen and (max-width:768px) {
   .c15 {
-    height: 6px;
+    width: 12px;
   }
 }
 
@@ -818,35 +789,26 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         </button>
       </div>
     </form>
-    <div
-      class="c13"
-    >
-      <span
-        class="c14"
-      >
-        Deletion
-      </span>
-      <div
-        class="c15"
-      />
-      <button
-        class="c16"
-        type="button"
-      >
-        Delete profile
-      </button>
-    </div>
   </div>
   <div
-    class="c17"
+    class="c13"
   >
     <button
-      class="c18"
+      class="c14"
+      type="button"
+    >
+      Delete profile
+    </button>
+    <div
+      class="c15"
+    />
+    <button
+      class="c16"
       data-testid="profile-modal-lock-wallet"
       type="button"
     >
       <div
-        class="c19"
+        class="c17"
       >
         <svg
           aria-label="Lock"
@@ -859,7 +821,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
           />
         </svg>
         <div
-          class="c20"
+          class="c18"
         />
         Lock profile
       </div>
