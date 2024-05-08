@@ -6,7 +6,7 @@ import { Button } from 'grommet/es6/components/Button'
 import { Text } from 'grommet/es6/components/Text'
 import { canAccessBle, canAccessNavigatorUsb } from '../../../../lib/ledger'
 import { useTranslation } from 'react-i18next'
-import { runtimeIs } from 'config'
+import { Capacitor } from '@capacitor/core'
 
 type SelectOpenMethodProps = {
   webExtensionUSBLedgerAccess?: () => void
@@ -21,8 +21,8 @@ export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProp
     async function getLedgerSupport() {
       const usbLedgerSupported = await canAccessNavigatorUsb()
 
-      const isExtension = runtimeIs === 'extension'
-      const bleLedgerSupported = !isExtension && (await canAccessBle())
+      const isNativePlatform = Capacitor.isNativePlatform()
+      const bleLedgerSupported = isNativePlatform && (await canAccessBle())
 
       setSupportsUsbLedger(usbLedgerSupported)
       setSupportsBleLedger(bleLedgerSupported)
