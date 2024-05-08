@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
-import { Text } from 'grommet/es6/components/Text'
 import { User } from 'grommet-icons/es6/icons/User'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { UpdatePassword } from './UpdatePassword'
@@ -70,17 +69,10 @@ export const Profile = ({ closeHandler }: ProfileProps) => {
           </ProfileEmptyState>
         )}
 
-        {isProfileAvailable && (
-          <>
-            <UpdatePassword />
-            <Box gap="small" margin={{ top: 'medium' }} alignSelf="start">
-              <Text>{t('toolbar.profile.deletion', 'Deletion')}</Text>
-              <DeleteProfileButton prominent variant="voluntary" />
-            </Box>
-          </>
-        )}
+        {isProfileAvailable && <UpdatePassword />}
       </Box>
-      <Box align="end" margin={{ top: 'large' }}>
+      <Box direction="row" justify="between" gap="medium" margin={{ top: '40px' }}>
+        {isProfileAvailable ? <DeleteProfileButton prominent variant="voluntary" /> : <span />}
         {isLockableOrCloseable === 'closeable' && (
           <Button
             data-testid="profile-modal-close-wallet"

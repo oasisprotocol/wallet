@@ -453,7 +453,6 @@
       "testnet": "Testnet"
     },
     "profile": {
-      "deletion": "Deletion",
       "notAvailable": "You can setup your profile while <OpenWalletButton>opening a wallet</OpenWalletButton>.",
       "password": {
         "current": "Current password",
