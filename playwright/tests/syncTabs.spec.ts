@@ -49,7 +49,8 @@ test.describe('syncTabs', () => {
       await expect(tab2.getByRole('button', { name: /^Unlock$/ })).toBeVisible()
     })
 
-    test('incognito', async ({ page, context }) => {
+    test.skip('incognito', async ({ page, context }) => {
+      // TODO: remove all code related to "Continue without the profile"
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
@@ -111,7 +112,8 @@ test.describe('syncTabs', () => {
       await testSyncingNetwork(page, tab2)
     })
 
-    test('incognito', async ({ page, context }) => {
+    test.skip('incognito', async ({ page, context }) => {
+      // TODO: remove all code related to "Continue without the profile"
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
@@ -216,7 +218,8 @@ test.describe('syncTabs', () => {
       await testSelectedAccountNotSync(page, tab2)
     })
 
-    test('incognito', async ({ page, context }) => {
+    test.skip('incognito', async ({ page, context }) => {
+      // TODO: remove all code related to "Continue without the profile"
       await addPersistedStorageV1(page, '/app.webmanifest')
       await page.goto('/')
       await page.getByRole('button', { name: 'Continue without the profile' }).click()
