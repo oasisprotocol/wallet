@@ -12,12 +12,10 @@ import { Trans, useTranslation } from 'react-i18next'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
-import { canAccessBle, canAccessNavigatorUsb } from 'app/lib/ledger'
 import { runtimeIs } from 'config'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
-  const [supportsLedger, setSupportsLedger] = React.useState<boolean | undefined>(true)
   const navigate = useNavigate()
   const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
 
@@ -28,14 +26,6 @@ export function SelectOpenMethod() {
       navigate('/open-wallet/ledger/usb')
     }
   }, [navigate, showAccountsSelectionModal])
-
-  useEffect(() => {
-    async function getLedgerSupport() {
-      setSupportsLedger((await canAccessNavigatorUsb()) || (await canAccessBle()))
-    }
-
-    getLedgerSupport()
-  }, [])
 
   return (
     <Box
@@ -55,12 +45,7 @@ export function SelectOpenMethod() {
           <ButtonLink to="private-key" label={t('openWallet.method.privateKey', 'Private key')} primary />
         </span>
         <span>
-          <ButtonLink
-            to="ledger"
-            label={t('openWallet.method.ledger', 'Ledger')}
-            primary
-            disabled={!supportsLedger}
-          />
+          <ButtonLink to="ledger" label={t('openWallet.method.ledger', 'Ledger')} primary />
         </span>
       </Box>
 
