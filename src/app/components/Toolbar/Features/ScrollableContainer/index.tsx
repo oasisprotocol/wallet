@@ -15,7 +15,7 @@ export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
   return (
     <Box
       gap="small"
-      pad={{ vertical: 'medium', right: 'small', left: spaceForFocusIndicator }}
+      pad={{ right: 'small', left: spaceForFocusIndicator }}
       overflow={{ vertical: 'auto' }}
       style={{ maxHeight: layerScrollableAreaHeight }}
       margin={{ bottom: isMobile ? 'large' : 'none', left: `-${spaceForFocusIndicator}` }}

@@ -152,8 +152,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-top: 24px;
-  padding-bottom: 24px;
   padding-left: 2px;
   padding-right: 12px;
   overflow-y: auto;
@@ -344,10 +342,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-
-}
-
-@media only screen and (max-width:768px) {
   .c3 {
     border: solid 1px #0500e2;
   }
@@ -368,13 +362,6 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 @media only screen and (max-width:768px) {
   .c2 {
     margin-left: -2px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c2 {
-    padding-top: 12px;
-    padding-bottom: 12px;
   }
 }
 

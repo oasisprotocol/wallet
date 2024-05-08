@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
-import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { Notification } from 'grommet/es6/components/Notification'
 import {
   ChoosePasswordInputFields,
@@ -65,9 +64,7 @@ export const UpdatePassword = () => {
       onChange={nextValue => setValue(nextValue)}
       value={value}
     >
-      <Paragraph>
-        <label htmlFor="currentPassword">{t('toolbar.profile.password.title', 'Set a new password')}</label>
-      </Paragraph>
+      <label htmlFor="currentPassword">{t('toolbar.profile.password.title', 'Set a new password')}</label>
       <PasswordField<FormValue>
         placeholder={t('toolbar.profile.password.current', 'Current password')}
         inputElementId="currentPassword"
