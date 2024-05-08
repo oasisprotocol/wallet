@@ -145,7 +145,7 @@
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
-    "bluetoothTransportNotSupported": "Your device does not support Bluetooth.",
+    "bluetoothTransportNotSupported": "Bluetooth may be turned off or your current platform does not support Bluetooth capability.",
     "cannotSendToSelf": "Cannot send to yourself",
     "disconnectedError": "Lost connection.",
     "duplicateTransaction": "Duplicate transaction",

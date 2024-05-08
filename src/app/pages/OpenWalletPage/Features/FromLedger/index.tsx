@@ -85,7 +85,10 @@ export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProp
           </div>
           {!supportsBleLedger && (
             <Text size="small" textAlign="center">
-              {t('errors.bluetoothTransportNotSupported', 'Your device does not support Bluetooth.')}
+              {t(
+                'errors.bluetoothTransportNotSupported',
+                'Bluetooth may be turned off or your current platform does not support Bluetooth capability.',
+              )}
             </Text>
           )}
         </div>
