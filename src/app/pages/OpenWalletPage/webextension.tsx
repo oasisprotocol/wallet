@@ -1,10 +1,18 @@
 import React from 'react'
-import { useHref } from 'react-router-dom'
+import { useHref, useNavigate } from 'react-router-dom'
 import { openLedgerAccessPopup } from 'utils/webextension'
-import { SelectOpenMethod } from './'
+import { FromLedger } from './Features/FromLedger'
 
-export function OpenWalletPageWebExtension() {
-  const href = useHref('connect-device')
+export function FromLedgerWebExtension() {
+  const href = useHref('/open-wallet/connect-device')
+  const navigate = useNavigate()
 
-  return <SelectOpenMethod webExtensionLedgerAccess={() => openLedgerAccessPopup(href)} />
+  return (
+    <FromLedger
+      webExtensionUSBLedgerAccess={() => {
+        navigate('/open-wallet/ledger/usb')
+        openLedgerAccessPopup(href)
+      }}
+    />
+  )
 }

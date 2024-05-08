@@ -145,7 +145,7 @@
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
-    "bluetoothTransportNotSupported": "Your device does not support Bluetooth.",
+    "bluetoothTransportNotSupported": "Bluetooth may be turned off or your current platform does not support Bluetooth capability.",
     "cannotSendToSelf": "Cannot send to yourself",
     "disconnectedError": "Lost connection.",
     "duplicateTransaction": "Duplicate transaction",
@@ -164,7 +164,7 @@
     "unknownLedgerError": "Unknown ledger error: {{message}}",
     "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
-    "usbTransportNotSupported": "Your browser does not support WebUSB (e.g. Firefox). Try using Chrome."
+    "usbTransportNotSupported": "Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome)."
   },
   "fatalError": {
     "checkStatus": "Check network status",
@@ -222,16 +222,18 @@
     },
     "instructionSteps": {
       "closeLedgerLive": "Close Ledger Live app on the computer",
-      "connectLedger": "Connect your Ledger device to the computer",
+      "connectBluetoothLedger": "Connect your Ledger to this device via Bluetooth",
+      "connectUsbLedger": "Connect your USB Ledger device to the computer",
+      "deviceIsPaired": "Make sure your Ledger is paired with this device",
       "header": "Steps:",
       "openOasisApp": "Open the Oasis App on your Ledger device"
     },
     "steps": {
+      "accessingLedger": "Connecting with Ledger device",
       "idle": "Idle",
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
-      "loadingBluetoothDevices": "Loading bluetooth devices",
-      "openingUsb": "Opening Ledger through USB"
+      "loadingBluetoothDevices": "Loading bluetooth devices"
     }
   },
   "menu": {
@@ -272,15 +274,21 @@
     },
     "header": "How do you want to open your wallet?",
     "importAccounts": {
+      "NoBLEDevicesFound": "No Bluetooth devices found",
       "accountCounter": "{{count}} accounts selected",
       "accountCounter_one": "One account selected",
       "accountCounter_plural": "{{count}} accounts selected",
       "accountCounter_zero": "No account selected",
+      "bluetoothLedger": "Bluetooth Ledger",
+      "connectDeviceHeader": "How do you want to connect your Ledger device?",
       "next": "Next",
       "openWallets": "Open",
       "pageNumber": "Page {{pageNum}} of {{totalPages}}",
       "prev": "Prev",
-      "selectWallets": "Select accounts to open"
+      "selectDevice": "Select device",
+      "selectLedgerDevice": "Select Ledger device",
+      "selectWallets": "Select accounts to open",
+      "usbLedger": "USB Ledger"
     },
     "ledger": {
       "header": "Open from Ledger device"
