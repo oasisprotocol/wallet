@@ -16,14 +16,14 @@ export const routes: RouteObject[] = [
         path: 'open-wallet',
         element: <SelectOpenMethod />,
       },
+      {
+        path: 'open-wallet/ledger',
+        element: <FromLedgerWebExtension />,
+      },
     ],
   },
   {
     path: 'open-wallet/connect-device',
     element: <ConnectDevicePage />,
-  },
-  {
-    path: 'open-wallet/ledger',
-    element: <FromLedgerWebExtension />,
   },
 ]
