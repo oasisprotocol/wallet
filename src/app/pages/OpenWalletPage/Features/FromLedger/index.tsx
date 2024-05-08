@@ -69,7 +69,7 @@ export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProp
             <Text size="small" textAlign="center">
               {t(
                 'errors.usbTransportNotSupported',
-                'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',
+                'Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome).',
               )}
             </Text>
           )}

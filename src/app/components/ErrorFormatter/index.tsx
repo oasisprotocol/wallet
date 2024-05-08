@@ -36,7 +36,7 @@ export function ErrorFormatter(props: Props) {
     [WalletErrors.NoOpenWallet]: t('errors.noOpenWallet', 'No wallet opened'),
     [WalletErrors.USBTransportNotSupported]: t(
       'errors.usbTransportNotSupported',
-      'Your browser does not support WebUSB (e.g. Firefox). Try using Chrome.',
+      'Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome).',
     ),
     [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error: {{message}}.', {
       message,
