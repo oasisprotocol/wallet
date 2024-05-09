@@ -22,6 +22,7 @@ import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
 import { BuildBanner } from 'app/components/BuildBanner'
+import { IonicProvider } from './components/Ionic/IonicProvider'
 
 export function App() {
   useRouteRedirects()
@@ -30,31 +31,33 @@ export function App() {
 
   return (
     <FatalErrorHandler>
-      <ModalProvider>
-        <Helmet
-          titleTemplate="%s - ROSE Wallet"
-          defaultTitle="ROSE Wallet"
-          htmlAttributes={{ lang: i18n.language }}
-        >
-          <meta name="description" content="A wallet for Oasis" />
-        </Helmet>
-        {!isMobile && <BuildBanner />}
-        <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100dvh' }}>
-          <PersistLoadingGate>
-            <UnlockGate>
-              <Navigation />
-              <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
-                <Main>
-                  {isMobile && <BuildBanner />}
-                  <Toolbar />
-                  <Outlet />
-                  <Footer />
-                </Main>
-              </Box>
-            </UnlockGate>
-          </PersistLoadingGate>
-        </Box>
-      </ModalProvider>
+      <IonicProvider>
+        <ModalProvider>
+          <Helmet
+            titleTemplate="%s - ROSE Wallet"
+            defaultTitle="ROSE Wallet"
+            htmlAttributes={{ lang: i18n.language }}
+          >
+            <meta name="description" content="A wallet for Oasis" />
+          </Helmet>
+          {!isMobile && <BuildBanner />}
+          <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100dvh' }}>
+            <PersistLoadingGate>
+              <UnlockGate>
+                <Navigation />
+                <Box flex pad={{ top: isMobile ? '64px' : undefined }}>
+                  <Main>
+                    {isMobile && <BuildBanner />}
+                    <Toolbar />
+                    <Outlet />
+                    <Footer />
+                  </Main>
+                </Box>
+              </UnlockGate>
+            </PersistLoadingGate>
+          </Box>
+        </ModalProvider>
+      </IonicProvider>
     </FatalErrorHandler>
   )
 }
