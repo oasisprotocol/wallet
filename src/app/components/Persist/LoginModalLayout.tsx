@@ -3,8 +3,8 @@ import { ResponsiveLayer } from '../ResponsiveLayer'
 import React, { useContext } from 'react'
 import { Header } from 'app/components/Header'
 import { Navigation } from '../Sidebar'
-import walletBlueLogotype from '../../../../public/Rose Wallet Logo Blue cropped.svg'
-import walletWhiteLogotype from '../../../../public/Rose Wallet Logo White cropped.svg'
+import walletBlueLogotype from '../../../../public/Rose Wallet Blue.svg'
+import walletWhiteLogotype from '../../../../public/Rose Wallet White.svg'
 import { ThemeContext } from 'styled-components'
 
 export function LoginModalLayout(props: {
