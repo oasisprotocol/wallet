@@ -1,4 +1,4 @@
-export const sidebarSmallSizeLogo = 30
+export const sidebarSmallSizeLogo = 32
 export const sidebarMediumSizeLogo = 40
 export const sidebarLargeSizeLogo = 40
 export const mobileToolbarZIndex = 3
