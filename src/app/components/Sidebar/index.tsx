@@ -139,13 +139,11 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
       alignSelf={size === 'large' ? undefined : 'center'}
     >
       <Link to="/">
-        <Box align="center" direction="row" gap="small">
-          <img
-            alt="ROSE Wallet logo"
-            src={dark ? walletWhiteLogotype : walletBlueLogotype}
-            style={{ height: sizeLogo[size] }}
-          />
-        </Box>
+        <img
+          alt="ROSE Wallet logo"
+          src={dark ? walletWhiteLogotype : walletBlueLogotype}
+          style={{ height: sizeLogo[size] }}
+        />
       </Link>
     </Box>
   )
