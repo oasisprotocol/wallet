@@ -135,7 +135,7 @@ const SidebarHeader = (props: SidebarHeaderProps) => {
     <Box
       align="center"
       margin={{ bottom: size !== 'small' ? 'medium' : undefined }}
-      pad="small"
+      pad={{ horizontal: 'medium', vertical: 'small' }}
       alignSelf={size === 'large' ? undefined : 'center'}
     >
       <Link to="/">
