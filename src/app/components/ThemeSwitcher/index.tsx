@@ -5,6 +5,7 @@
  */
 import { Moon } from 'grommet-icons/es6/icons/Moon'
 import { Sun } from 'grommet-icons/es6/icons/Sun'
+import { System } from 'grommet-icons/es6/icons/System'
 import { memo } from 'react'
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
@@ -13,12 +14,14 @@ import { themeActions } from 'styles/theme/slice'
 import { selectTheme } from 'styles/theme/slice/selectors'
 import { SelectWithIcon } from '../SelectWithIcon'
 import { SidebarButton } from '../Sidebar'
+import { getTargetTheme } from 'styles/theme/utils'
 
 interface Props {}
 
 const getThemesIcons = (t: TFunction) => ({
   light: <Sun aria-label={t('theme.lightMode', 'Light mode')} />,
   dark: <Moon aria-label={t('theme.darkMode', 'Dark mode')} />,
+  system: <System aria-label={t('theme.system', 'System')} />,
 })
 
 export const ThemeSwitcher = memo((props: Props) => {
@@ -36,10 +39,9 @@ export const ThemeSwitcher = memo((props: Props) => {
       label: t('theme.lightMode', 'Light mode'),
     },
   }
-
-  const currentMode = modes[theme]
+  const currentMode = modes[getTargetTheme(theme)]
   const switchTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    const newTheme = getTargetTheme(theme) === 'dark' ? 'light' : 'dark'
     dispatch(themeActions.changeTheme(newTheme))
   }
 
@@ -51,7 +53,7 @@ export const ThemeSelect = () => {
   const theme = useSelector(selectTheme)
   const dispatch = useDispatch()
   const icons = getThemesIcons(t)
-  const themeOptions: { value: 'dark' | 'light'; label: string }[] = [
+  const themeOptions: { value: 'dark' | 'light' | 'system'; label: string }[] = [
     {
       value: 'light',
       label: t('theme.lightMode', 'Light mode'),
@@ -60,6 +62,10 @@ export const ThemeSelect = () => {
       value: 'dark',
       label: t('theme.darkMode', 'Dark mode'),
     },
+    {
+      value: 'system',
+      label: t('theme.system', 'System'),
+    },
   ]
 
   return (
@@ -67,7 +73,7 @@ export const ThemeSelect = () => {
       label={t('theme.title', 'Theme')}
       id="theme"
       name="theme"
-      icon={theme === 'light' ? icons.light : icons.dark}
+      icon={icons[theme]}
       value={theme}
       options={themeOptions}
       onChange={option => dispatch(themeActions.changeTheme(option))}

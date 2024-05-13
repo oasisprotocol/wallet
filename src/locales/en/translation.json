@@ -428,6 +428,7 @@
   "theme": {
     "darkMode": "Dark mode",
     "lightMode": "Light mode",
+    "system": "System",
     "title": "Theme"
   },
   "toolbar": {
