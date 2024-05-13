@@ -2,55 +2,57 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <FatalErrorHandler>
-  <ModalProvider>
-    <Helmet
-      defaultTitle="ROSE Wallet"
-      defer={true}
-      encodeSpecialCharacters={true}
-      htmlAttributes={
-        {
-          "lang": "en-US",
+  <IonicProvider>
+    <ModalProvider>
+      <Helmet
+        defaultTitle="ROSE Wallet"
+        defer={true}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          {
+            "lang": "en-US",
+          }
         }
-      }
-      prioritizeSeoTags={false}
-      titleTemplate="%s - ROSE Wallet"
-    >
-      <meta
-        content="A wallet for Oasis"
-        name="description"
-      />
-    </Helmet>
-    <BuildBanner />
-    <Box
-      background="background-back"
-      direction="row-responsive"
-      fill={true}
-      style={
-        {
-          "minHeight": "100dvh",
+        prioritizeSeoTags={false}
+        titleTemplate="%s - ROSE Wallet"
+      >
+        <meta
+          content="A wallet for Oasis"
+          name="description"
+        />
+      </Helmet>
+      <BuildBanner />
+      <Box
+        background="background-back"
+        direction="row-responsive"
+        fill={true}
+        style={
+          {
+            "minHeight": "100dvh",
+          }
         }
-      }
-    >
-      <PersistLoadingGate>
-        <UnlockGate>
-          <Navigation />
-          <Box
-            flex={true}
-            pad={
-              {
-                "top": undefined,
+      >
+        <PersistLoadingGate>
+          <UnlockGate>
+            <Navigation />
+            <Box
+              flex={true}
+              pad={
+                {
+                  "top": undefined,
+                }
               }
-            }
-          >
-            <Main>
-              <Toolbar />
-              <Outlet />
-              <Memo />
-            </Main>
-          </Box>
-        </UnlockGate>
-      </PersistLoadingGate>
-    </Box>
-  </ModalProvider>
+            >
+              <Main>
+                <Toolbar />
+                <Outlet />
+                <Memo />
+              </Main>
+            </Box>
+          </UnlockGate>
+        </PersistLoadingGate>
+      </Box>
+    </ModalProvider>
+  </IonicProvider>
 </FatalErrorHandler>
 `;
