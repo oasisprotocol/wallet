@@ -190,8 +190,12 @@ Adding a new language:
 
 1. first add it to Transifex and translate the strings,
 2. create a folder with the new language code in `src/locales`
-and download the translation file there,
+   and download the translation file there,
 3. add the new language to the [list of resources][i18n.ts]
+
+## Mobile app development
+
+[Capacitor and Ionic docs](docs/mobile-development.md)
 
 ## Preparing a Release
 
