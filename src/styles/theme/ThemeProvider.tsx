@@ -285,6 +285,11 @@ const grommetCustomTheme: ThemeType = {
     border: {
       color: 'text',
     },
+    hover: {
+      border: {
+        color: 'focus',
+      },
+    },
     gap: '1.5ex',
     extend: css`
       font-size: 14px;
