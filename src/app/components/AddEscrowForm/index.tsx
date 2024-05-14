@@ -81,7 +81,7 @@ export const AddEscrowForm = memo((props: Props) => {
               'This validator is ranked in the top 20 by stake. Please consider delegating to a smaller validator to increase network security and decentralization.',
             )}
           </Text>
-          <Text size={isMobile ? 'small' : 'medium'} weight="bold">
+          <Text weight="bold">
             <CheckBox
               label={t('account.addEscrow.confirmDelegatingToTop.acknowledge', 'Delegate anyway')}
               checked={!showNotice}
