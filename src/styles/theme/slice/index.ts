@@ -12,7 +12,7 @@ export const themeSlice = createSlice({
   name: 'theme',
   initialState: () => getInitialState(),
   reducers: {
-    changeTheme(state, action: PayloadAction<'dark' | 'light'>) {
+    changeTheme(state, action: PayloadAction<'dark' | 'light' | 'system'>) {
       saveTheme(action.payload)
       state.selected = action.payload
     },

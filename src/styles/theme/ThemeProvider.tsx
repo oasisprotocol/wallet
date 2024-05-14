@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import { selectTheme } from './slice/selectors'
 import { dataTableTheme } from './dataTableTheme'
 import { css } from 'styled-components'
+import { getTargetTheme } from './utils'
 
 /**
  * React-data-table by default sets its own background and text colors
@@ -340,7 +341,7 @@ export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const mode = useSelector(selectTheme)
 
   return (
-    <Grommet theme={theme} themeMode={mode} style={{ minHeight: '100dvh' }}>
+    <Grommet theme={theme} themeMode={getTargetTheme(mode)} style={{ minHeight: '100dvh' }}>
       {React.Children.only(props.children)}
     </Grommet>
   )
