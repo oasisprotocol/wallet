@@ -1,12 +1,17 @@
-import { createContext, FC, PropsWithChildren, useEffect } from 'react'
+import { createContext, FC, PropsWithChildren, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Capacitor } from '@capacitor/core'
 import { App } from '@capacitor/app'
+import { useDispatch } from 'react-redux'
+import { persistActions } from '../../state/persist'
+import { deltaMsToLockProfile } from '../../../ionicConfig'
 
 const IonicContext = createContext<undefined>(undefined)
 
 const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const lockTimestamp = useRef<number>()
 
   useEffect(() => {
     /**
@@ -21,10 +26,25 @@ const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
       }
     })
 
+    // TODO: appStateChange triggers on the web platform as well, using visibilitychange listener, consider reusing the code(downside @capacitor/app dependency on web & extension)
+    const appStateChangeListenerHandle = App.addListener('appStateChange', ({ isActive }) => {
+      const shouldLock = lockTimestamp.current && Date.now() - lockTimestamp.current > deltaMsToLockProfile
+      if (isActive && shouldLock) {
+        dispatch(persistActions.lockAsync())
+      } else if (isActive && !shouldLock) {
+        lockTimestamp.current = undefined
+      }
+
+      if (!isActive) {
+        lockTimestamp.current = Date.now()
+      }
+    })
+
     return () => {
       backButtonListenerHandle.remove()
+      appStateChangeListenerHandle.remove()
     }
-  }, [navigate])
+  }, [dispatch, navigate])
 
   return <IonicContext.Provider value={undefined}>{children}</IonicContext.Provider>
 }
