@@ -66,7 +66,7 @@ export function TransactionModal() {
     <ResponsiveLayer modal position="center" background="background-front">
       <Box pad="medium" gap="medium" width="800px">
         <Box>
-          <ModalHeader level={4} margin={{ top: 'xsmall', bottom: 'medium' }}>
+          <ModalHeader level={3} margin={{ top: 'xsmall', bottom: 'medium' }}>
             {t('transaction.step.preview', 'Preview transaction')}
           </ModalHeader>
           <StyledBox>

@@ -29,7 +29,7 @@ function Layout(props: { children?: React.ReactNode }) {
       alignSelf="center"
       width={{ max: '651px' }} // Padding + Transak threshold for >mobile layout
     >
-      <Header>{t('fiatOnramp.header', 'Buy ROSE')}</Header>
+      <Header level="2">{t('fiatOnramp.header', 'Buy ROSE')}</Header>
 
       <Paragraph size="small" fill margin={{ top: '0px' }}>
         {t('fiatOnramp.description', 'Convert your fiat currency into crypto.')}{' '}

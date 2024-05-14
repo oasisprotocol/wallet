@@ -1,5 +1,5 @@
 import { Grommet } from 'grommet/es6/components/Grommet'
-import { grommet, ThemeType } from 'grommet/es6/themes'
+import { base as baseTheme, grommet, ThemeType } from 'grommet/es6/themes'
 import { deepMerge } from 'grommet/es6/utils'
 import * as React from 'react'
 import { createTheme as dataTableCreateTheme } from 'react-data-table-component'
@@ -230,6 +230,15 @@ const grommetCustomTheme: ThemeType = {
   },
   paragraph: {
     medium: { size: '16px', height: '20px' },
+  },
+  heading: {
+    level: {
+      1: baseTheme.heading?.level?.['2'],
+      2: baseTheme.heading?.level?.['3'],
+      3: baseTheme.heading?.level?.['4'],
+      4: baseTheme.heading?.level?.['5'],
+      5: baseTheme.heading?.level?.['6'],
+    },
   },
   notification: {
     toast: {
