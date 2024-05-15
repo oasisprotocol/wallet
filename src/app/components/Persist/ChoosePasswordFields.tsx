@@ -14,7 +14,7 @@ export function ChoosePasswordFields() {
   const { t } = useTranslation()
   const unlockedStatus = useSelector(selectUnlockedStatus)
   const isPersistenceUnsupported = useSelector(selectIsPersistenceUnsupported)
-  const [startPersisting, setStartPersisting] = useState(false)
+  const [startPersisting, setStartPersisting] = useState(true)
 
   const isChoiceDisabled =
     isPersistenceUnsupported ||
