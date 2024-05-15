@@ -1,37 +1,13 @@
-import { createContext, FC, PropsWithChildren, useEffect, useRef } from 'react'
+import { createContext, FC, PropsWithChildren } from 'react'
 import { Capacitor } from '@capacitor/core'
-import { App } from '@capacitor/app'
-import { useDispatch } from 'react-redux'
-import { persistActions } from '../../state/persist'
-import { deltaMsToLockProfile } from '../../../ionicConfig'
 import { useIonicBackButtonListener } from './hooks/useIonicBackButtonListener'
+import { useIonicAppStateChangeListener } from './hooks/useIonicAppStateChangeListener'
 
 const IonicContext = createContext<undefined>(undefined)
 
 const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const dispatch = useDispatch()
-  const lockTimestamp = useRef<number>()
-
   useIonicBackButtonListener()
-
-  useEffect(() => {
-    const appStateChangeListenerHandle = App.addListener('appStateChange', ({ isActive }) => {
-      const shouldLock = lockTimestamp.current && Date.now() - lockTimestamp.current > deltaMsToLockProfile
-      if (isActive && shouldLock) {
-        dispatch(persistActions.lockAsync())
-      } else if (isActive && !shouldLock) {
-        lockTimestamp.current = undefined
-      }
-
-      if (!isActive) {
-        lockTimestamp.current = Date.now()
-      }
-    })
-
-    return () => {
-      appStateChangeListenerHandle.remove()
-    }
-  }, [dispatch])
+  useIonicAppStateChangeListener()
 
   return <IonicContext.Provider value={undefined}>{children}</IonicContext.Provider>
 }
