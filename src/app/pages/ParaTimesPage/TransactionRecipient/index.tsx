@@ -66,16 +66,16 @@ export const TransactionRecipient = () => {
         onChange={nextValue =>
           setTransactionForm({
             ...nextValue,
-            ethPrivateRawKey:
-              typeof nextValue.ethPrivateRawKey === 'object'
-                ? (nextValue.ethPrivateRawKey as any).value // from suggestions
-                : nextValue.ethPrivateRawKey,
+            ethPrivateKeyRaw:
+              typeof nextValue.ethPrivateKeyRaw === 'object'
+                ? (nextValue.ethPrivateKeyRaw as any).value // from suggestions
+                : nextValue.ethPrivateKeyRaw,
           })
         }
         onSubmit={formData => {
           setTransactionForm({
             ...formData.value,
-            ethPrivateKey: stripHexPrefix(formData.value.ethPrivateRawKey),
+            ethPrivateKey: stripHexPrefix(formData.value.ethPrivateKeyRaw),
           })
           navigateToAmount()
         }}
@@ -86,15 +86,15 @@ export const TransactionRecipient = () => {
         <Box margin={{ bottom: 'medium' }}>
           {isEvmcParaTime && !isDepositing && (
             <PasswordField
-              inputElementId="ethPrivateRawKey"
-              name="ethPrivateRawKey"
-              validate={ethPrivateRawKey =>
-                !isValidEthPrivateKeyLength(stripHexPrefix(ethPrivateRawKey))
+              inputElementId="ethPrivateKeyRaw"
+              name="ethPrivateKeyRaw"
+              validate={ethPrivateKeyRaw =>
+                !isValidEthPrivateKeyLength(stripHexPrefix(ethPrivateKeyRaw))
                   ? t(
                       'paraTimes.validation.invalidEthPrivateKeyLength',
                       'Private key should be 64 characters long',
                     )
-                  : !isValidEthPrivateKey(stripHexPrefix(ethPrivateRawKey))
+                  : !isValidEthPrivateKey(stripHexPrefix(ethPrivateKeyRaw))
                   ? t(
                       'paraTimes.validation.invalidEthPrivateKey',
                       'Ethereum-compatible private key is invalid',
@@ -105,7 +105,7 @@ export const TransactionRecipient = () => {
                 'paraTimes.recipient.ethPrivateKeyPlaceholder',
                 'Enter Ethereum-compatible private key',
               )}
-              value={transactionForm.ethPrivateRawKey}
+              value={transactionForm.ethPrivateKeyRaw}
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
               suggestions={evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey }))}

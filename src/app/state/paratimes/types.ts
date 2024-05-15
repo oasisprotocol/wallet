@@ -26,7 +26,7 @@ export interface TransactionForm {
   // compatible with oasisRT.signatureSecp256k1
   ethPrivateKey: string
   // provided by user and used in form inputs allowing back and forth form navigation
-  ethPrivateRawKey: string
+  ethPrivateKeyRaw: string
   feeAmount: string
   feeGas: string
   paraTime?: ParaTime

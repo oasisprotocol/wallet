@@ -14,7 +14,7 @@ export const initialState: ParaTimesState = {
     confirmTransferToForeignAccount: false,
     defaultFeeAmount: '',
     ethPrivateKey: '',
-    ethPrivateRawKey: '',
+    ethPrivateKeyRaw: '',
     feeAmount: '',
     feeGas: '',
     paraTime: undefined,

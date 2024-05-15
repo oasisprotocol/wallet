@@ -25,7 +25,7 @@ describe('<TransactionRecipient />', () => {
     ticker: 'ROSE',
     transactionForm: {
       recipient: '',
-      ethPrivateRawKey: '',
+      ethPrivateKeyRaw: '',
     },
     usesOasisAddress: true,
   } as ParaTimesHook
@@ -123,7 +123,7 @@ describe('<TransactionRecipient />', () => {
       ...mockUseParaTimesEVMcResult,
       transactionForm: {
         ...mockUseParaTimesEVMcResult.transactionForm,
-        ethPrivateRawKey: '123',
+        ethPrivateKeyRaw: '123',
       },
     })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -144,7 +144,7 @@ describe('<TransactionRecipient />', () => {
       ...mockUseParaTimesEVMcResult,
       transactionForm: {
         ...mockUseParaTimesEVMcResult.transactionForm,
-        ethPrivateRawKey: '----------------------------------------------------------------',
+        ethPrivateKeyRaw: '----------------------------------------------------------------',
       },
     })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -169,7 +169,7 @@ describe('<TransactionRecipient />', () => {
       setTransactionForm,
       transactionForm: {
         recipient: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-        ethPrivateRawKey: ethPrivateKeyWith0xPrefix,
+        ethPrivateKeyRaw: ethPrivateKeyWith0xPrefix,
       } as TransactionForm,
     })
     jest.mocked(useParaTimesNavigation).mockReturnValue({
@@ -182,7 +182,7 @@ describe('<TransactionRecipient />', () => {
 
     expect(setTransactionForm).toHaveBeenCalledWith({
       ethPrivateKey: ethPrivateKey,
-      ethPrivateRawKey: ethPrivateKeyWith0xPrefix,
+      ethPrivateKeyRaw: ethPrivateKeyWith0xPrefix,
       recipient: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
     })
     expect(navigateToAmount).toHaveBeenCalled()
