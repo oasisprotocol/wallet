@@ -44,7 +44,7 @@ export const ParaTimeFormFooter = ({
             label={secondaryLabel || t('paraTimes.footer.back', 'Back')}
             onClick={secondaryAction}
             plain
-            style={{ textAlign: 'center', fontSize: '14px', textDecoration: 'underline', color: 'brand' }}
+            style={{ textAlign: 'center', fontSize: '14px', textDecoration: 'underline' }}
           />
         )}
       </Box>
