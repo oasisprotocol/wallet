@@ -1,7 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
 import { bytesToHex, isValidPrivate, privateToAddress, toChecksumAddress } from '@ethereumjs/util'
-export { isValidAddress as isValidEthAddress } from '@ethereumjs/util'
+export { isValidAddress as isValidEthAddress, stripHexPrefix } from '@ethereumjs/util'
 
 export const hexToBuffer = (value: string): Buffer => Buffer.from(value, 'hex')
 export const isValidEthPrivateKey = (ethPrivateKey: string): boolean => {
