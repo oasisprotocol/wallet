@@ -108,9 +108,9 @@ export function AccountPage(props: AccountPageProps) {
       {active && <TransactionModal />}
       {(stake.loading || account.loading) && (
         <Layer modal background="background-front" responsive={false}>
-          <Box pad="medium" gap="medium" direction="row" align="center">
+          <Box pad="medium" gap="medium" direction="row" align="center" width="max-content">
             <Spinner size="medium" />
-            <Text size="large">{t('account.loading', 'Loading account')}</Text>
+            <Text size="medium">{t('account.loading', 'Loading account')}</Text>
           </Box>
         </Layer>
       )}

@@ -107,19 +107,19 @@ export function TransactionModal() {
         {step === TransactionStep.Building && (
           <Box direction="row" align="center" gap="medium">
             <Spinner size="medium" />
-            <Text size="large">{t('transaction.step.building', 'Building transaction')}</Text>
+            <Text size="medium">{t('transaction.step.building', 'Building transaction')}</Text>
           </Box>
         )}
         {step === TransactionStep.Signing && (
           <Box direction="row" align="center" gap="medium">
             <Spinner size="medium" />
-            <Text size="large">{t('transaction.step.signing', 'Signing transaction')}</Text>
+            <Text size="medium">{t('transaction.step.signing', 'Signing transaction')}</Text>
           </Box>
         )}
         {step === TransactionStep.Submitting && (
           <Box direction="row" align="center" gap="medium">
             <Spinner size="medium" />
-            <Text size="large">{t('transaction.step.submitting', 'Submitting transaction')}</Text>
+            <Text size="medium">{t('transaction.step.submitting', 'Submitting transaction')}</Text>
           </Box>
         )}
       </Box>
