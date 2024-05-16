@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Profile  /> should render unavailable state 1`] = `
-.c10 {
+.c9 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,25 +12,25 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   stroke: currentColor;
 }
 
-.c10 g {
+.c9 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c10 *:not([stroke])[fill='none'] {
+.c9 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c10 *[stroke*='#'],
-.c10 *[STROKE*='#'] {
+.c9 *[stroke*='#'],
+.c9 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c10 *[fill-rule],
-.c10 *[FILL-RULE],
-.c10 *[fill*='#'],
-.c10 *[FILL*='#'] {
+.c9 *[fill-rule],
+.c9 *[FILL-RULE],
+.c9 *[fill*='#'],
+.c9 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -65,7 +65,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex: 1 0 auto;
 }
 
-.c3 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -80,7 +80,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   max-width: 384px;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -95,7 +95,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex-direction: column;
 }
 
-.c5 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -110,7 +110,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -128,7 +128,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex-direction: row;
 }
 
-.c11 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -143,7 +143,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   flex-direction: row;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -162,7 +162,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   justify-content: space-between;
 }
 
-.c17 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -184,7 +184,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   justify-content: center;
 }
 
-.c15 {
+.c14 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -194,7 +194,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   width: 24px;
 }
 
-.c18 {
+.c17 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -204,7 +204,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   width: 12px;
 }
 
-.c9 {
+.c8 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -224,47 +224,47 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   padding: 12px;
 }
 
-.c9:focus {
+.c8:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c9:focus::-moz-focus-inner {
+.c8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9:focus:not(:focus-visible) {
+.c8:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
+.c8:focus:not(:focus-visible) > circle,
+.c8:focus:not(:focus-visible) > ellipse,
+.c8:focus:not(:focus-visible) > line,
+.c8:focus:not(:focus-visible) > path,
+.c8:focus:not(:focus-visible) > polygon,
+.c8:focus:not(:focus-visible) > polyline,
+.c8:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
+.c8:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c12 {
+.c11 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -293,51 +293,51 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   font-weight: bold;
 }
 
-.c12:hover {
+.c11:hover {
   box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
-.c12:focus {
+.c11:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c12:focus > circle,
-.c12:focus > ellipse,
-.c12:focus > line,
-.c12:focus > path,
-.c12:focus > polygon,
-.c12:focus > polyline,
-.c12:focus > rect {
+.c11:focus > circle,
+.c11:focus > ellipse,
+.c11:focus > line,
+.c11:focus > path,
+.c11:focus > polygon,
+.c11:focus > polyline,
+.c11:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c12:focus::-moz-focus-inner {
+.c11:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c12:focus:not(:focus-visible) {
+.c11:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible) > circle,
-.c12:focus:not(:focus-visible) > ellipse,
-.c12:focus:not(:focus-visible) > line,
-.c12:focus:not(:focus-visible) > path,
-.c12:focus:not(:focus-visible) > polygon,
-.c12:focus:not(:focus-visible) > polyline,
-.c12:focus:not(:focus-visible) > rect {
+.c11:focus:not(:focus-visible) > circle,
+.c11:focus:not(:focus-visible) > ellipse,
+.c11:focus:not(:focus-visible) > line,
+.c11:focus:not(:focus-visible) > path,
+.c11:focus:not(:focus-visible) > polygon,
+.c11:focus:not(:focus-visible) > polyline,
+.c11:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c12:focus:not(:focus-visible)::-moz-focus-inner {
+.c11:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c14 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -366,51 +366,51 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   font-weight: bold;
 }
 
-.c14:hover {
+.c13:hover {
   box-shadow: 0px 0px 0px 2px #d24c00;
 }
 
-.c14:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c14:focus > circle,
-.c14:focus > ellipse,
-.c14:focus > line,
-.c14:focus > path,
-.c14:focus > polygon,
-.c14:focus > polyline,
-.c14:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c14:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c14:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,
-.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,
-.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,
-.c14:focus:not(:focus-visible) > polyline,
-.c14:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,
+.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,
+.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,
+.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c16 {
+.c15 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -436,57 +436,51 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   font-weight: bold;
 }
 
-.c16:hover {
+.c15:hover {
   box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
-.c16:focus {
+.c15:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c16:focus > circle,
-.c16:focus > ellipse,
-.c16:focus > line,
-.c16:focus > path,
-.c16:focus > polygon,
-.c16:focus > polyline,
-.c16:focus > rect {
+.c15:focus > circle,
+.c15:focus > ellipse,
+.c15:focus > line,
+.c15:focus > path,
+.c15:focus > polygon,
+.c15:focus > polyline,
+.c15:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c16:focus::-moz-focus-inner {
+.c15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c16:focus:not(:focus-visible) {
+.c15:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible) > circle,
-.c16:focus:not(:focus-visible) > ellipse,
-.c16:focus:not(:focus-visible) > line,
-.c16:focus:not(:focus-visible) > path,
-.c16:focus:not(:focus-visible) > polygon,
-.c16:focus:not(:focus-visible) > polyline,
-.c16:focus:not(:focus-visible) > rect {
+.c15:focus:not(:focus-visible) > circle,
+.c15:focus:not(:focus-visible) > ellipse,
+.c15:focus:not(:focus-visible) > line,
+.c15:focus:not(:focus-visible) > path,
+.c15:focus:not(:focus-visible) > polygon,
+.c15:focus:not(:focus-visible) > polyline,
+.c15:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c16:focus:not(:focus-visible)::-moz-focus-inner {
+.c15:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c2 {
-  font-size: 18px;
-  line-height: 24px;
-  max-width: 432px;
-}
-
-.c8 {
+.c7 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -507,99 +501,99 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border: none;
 }
 
-.c8:focus {
+.c7:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
+.c7:focus > circle,
+.c7:focus > ellipse,
+.c7:focus > line,
+.c7:focus > path,
+.c7:focus > polygon,
+.c7:focus > polyline,
+.c7:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus::-moz-focus-inner {
+.c7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c8::-webkit-input-placeholder {
+.c7::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c8::-moz-placeholder {
+.c7::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c8:-ms-input-placeholder {
+.c7:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c8::-webkit-search-decoration {
+.c7::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c8::-moz-focus-inner {
+.c7::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c8:-moz-placeholder,
-.c8::-moz-placeholder {
+.c7:-moz-placeholder,
+.c7::-moz-placeholder {
   opacity: 1;
 }
 
-.c8::-webkit-input-placeholder {
+.c7::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.c8::-moz-placeholder {
+.c7::-moz-placeholder {
   font-size: 14px;
 }
 
-.c8:-ms-input-placeholder {
+.c7:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.c8::placeholder {
+.c7::placeholder {
   font-size: 14px;
 }
 
-.c7 {
+.c6 {
   position: relative;
   width: 100%;
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c3 {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c4 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c11 {
+  .c10 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c12 {
     margin-top: 40px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     width: 12px;
   }
 }
@@ -617,35 +611,31 @@ exports[`<Profile  /> should render unavailable state 1`] = `
       autocorrect="off"
       spellcheck="false"
     >
-      <p
+      <label
+        for="currentPassword"
+      >
+        Set a new password
+      </label>
+      <div
         class="c2"
       >
-        <label
-          for="currentPassword"
-        >
-          Set a new password
-        </label>
-      </p>
-      <div
-        class="c3"
-      >
         <div
-          class="c4 "
+          class="c3 "
         >
           <div
-            class="c5 "
+            class="c4 "
           >
             <div
-              class="c6"
+              class="c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <input
                   autocapitalize="off"
                   autocomplete="off"
                   autocorrect="off"
-                  class="c8"
+                  class="c7"
                   id="currentPassword"
                   name="currentPassword"
                   placeholder="Current password"
@@ -657,12 +647,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
               </div>
               <button
                 aria-label="Show password"
-                class="c9"
+                class="c8"
                 type="button"
               >
                 <svg
                   aria-label="Hide"
-                  class="c10"
+                  class="c9"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -678,25 +668,25 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         </div>
       </div>
       <div
-        class="c3"
+        class="c2"
       >
         <div
-          class="c4 "
+          class="c3 "
         >
           <div
-            class="c5 "
+            class="c4 "
           >
             <div
-              class="c6"
+              class="c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <input
                   autocapitalize="off"
                   autocomplete="off"
                   autocorrect="off"
-                  class="c8"
+                  class="c7"
                   id="password1"
                   name="password1"
                   placeholder="New password"
@@ -708,12 +698,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
               </div>
               <button
                 aria-label="Show password"
-                class="c9"
+                class="c8"
                 type="button"
               >
                 <svg
                   aria-label="Hide"
-                  class="c10"
+                  class="c9"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -729,25 +719,25 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         </div>
       </div>
       <div
-        class="c3"
+        class="c2"
       >
         <div
-          class="c4 "
+          class="c3 "
         >
           <div
-            class="c5 "
+            class="c4 "
           >
             <div
-              class="c6"
+              class="c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <input
                   autocapitalize="off"
                   autocomplete="off"
                   autocorrect="off"
-                  class="c8"
+                  class="c7"
                   id="password2"
                   name="password2"
                   placeholder="Re-enter new password"
@@ -758,12 +748,12 @@ exports[`<Profile  /> should render unavailable state 1`] = `
               </div>
               <button
                 aria-label="Show password"
-                class="c9"
+                class="c8"
                 type="button"
               >
                 <svg
                   aria-label="Hide"
-                  class="c10"
+                  class="c9"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -779,10 +769,10 @@ exports[`<Profile  /> should render unavailable state 1`] = `
         </div>
       </div>
       <div
-        class="c11"
+        class="c10"
       >
         <button
-          class="c12"
+          class="c11"
           type="submit"
         >
           Update password
@@ -791,28 +781,28 @@ exports[`<Profile  /> should render unavailable state 1`] = `
     </form>
   </div>
   <div
-    class="c13"
+    class="c12"
   >
     <button
-      class="c14"
+      class="c13"
       type="button"
     >
       Delete profile
     </button>
     <div
-      class="c15"
+      class="c14"
     />
     <button
-      class="c16"
+      class="c15"
       data-testid="profile-modal-lock-wallet"
       type="button"
     >
       <div
-        class="c17"
+        class="c16"
       >
         <svg
           aria-label="Lock"
-          class="c10"
+          class="c9"
           viewBox="0 0 24 24"
         >
           <path
@@ -821,7 +811,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
           />
         </svg>
         <div
-          class="c18"
+          class="c17"
         />
         Lock profile
       </div>
