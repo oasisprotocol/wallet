@@ -1,30 +1,13 @@
-import { createContext, FC, PropsWithChildren, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { createContext, FC, PropsWithChildren } from 'react'
 import { Capacitor } from '@capacitor/core'
-import { App } from '@capacitor/app'
+import { useIonicBackButtonListener } from './hooks/useIonicBackButtonListener'
+import { useIonicAppStateChangeListener } from './hooks/useIonicAppStateChangeListener'
 
 const IonicContext = createContext<undefined>(undefined)
 
 const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    /**
-     * The back button refers to the physical back button on an Android device and should not be confused
-     * with either the browser back button or ion-back-button.
-     */
-    const backButtonListenerHandle = App.addListener('backButton', ({ canGoBack }) => {
-      if (!canGoBack) {
-        App.exitApp()
-      } else {
-        navigate(-1)
-      }
-    })
-
-    return () => {
-      backButtonListenerHandle.remove()
-    }
-  }, [navigate])
+  useIonicBackButtonListener()
+  useIonicAppStateChangeListener()
 
   return <IonicContext.Provider value={undefined}>{children}</IonicContext.Provider>
 }
