@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> should render mobile version of footer 1`] = `
-.c8 {
+.c9 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,25 +12,25 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   stroke: currentColor;
 }
 
-.c8 g {
+.c9 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c8 *:not([stroke])[fill='none'] {
+.c9 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c8 *[stroke*='#'],
-.c8 *[STROKE*='#'] {
+.c9 *[stroke*='#'],
+.c9 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c8 *[fill-rule],
-.c8 *[FILL-RULE],
-.c8 *[fill*='#'],
-.c8 *[FILL*='#'] {
+.c9 *[fill-rule],
+.c9 *[FILL-RULE],
+.c9 *[fill*='#'],
+.c9 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -63,17 +63,15 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   border-radius: 5px;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  margin-left: 6px;
+  margin-right: 6px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -81,7 +79,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   flex-direction: column;
 }
 
-.c7 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,7 +102,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   justify-content: center;
 }
 
-.c9 {
+.c10 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -141,13 +139,20 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   text-align: center;
 }
 
-.c3 {
+.c4 {
+  margin-top: 12px;
   font-size: 14px;
   line-height: 20px;
   text-align: center;
 }
 
-.c5 {
+.c11 {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.c6 {
   background-color: #FFFFFF;
   position: fixed;
   bottom: 0;
@@ -173,7 +178,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   flex-direction: row;
 }
 
-.c6 {
+.c7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -183,8 +188,66 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
   flex-basis: 0;
 }
 
-.c6:hover {
+.c7:hover {
   background-color: #11111108;
+}
+
+.c5 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: #0500e2;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c5:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c5:focus > circle,
+.c5:focus > ellipse,
+.c5:focus > line,
+.c5:focus > path,
+.c5:focus > polygon,
+.c5:focus > polyline,
+.c5:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c5:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c5:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c5:focus:not(:focus-visible) > circle,
+.c5:focus:not(:focus-visible) > ellipse,
+.c5:focus:not(:focus-visible) > line,
+.c5:focus:not(:focus-visible) > path,
+.c5:focus:not(:focus-visible) > polygon,
+.c5:focus:not(:focus-visible) > polyline,
+.c5:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c5:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
 }
 
 @media only screen and (max-width:768px) {
@@ -213,7 +276,19 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c9 {
+  .c3 {
+    margin-left: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c3 {
+    margin-right: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
     height: 6px;
   }
 }
@@ -237,27 +312,34 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
         open source
       </span>
     </a>
-    <span>
-       - Feedback and issues are appreciated!
-    </span>
-  </span>
-  <span
-    class="c1"
-  >
-    <a
-      class="c2"
-      href="https://wallet.oasis.io/t-c.pdf"
-      rel="noopener noreferrer"
-      target="_blank"
+    <div
+      class="c3"
+      style="display: inline-block;"
     >
-      <span>
-        Terms and Conditions
-      </span>
-    </a>
+      Powered by Oasis Scan API & Oasis gRPC
+    </div>
   </span>
   <span
-    class="c3"
+    class="c4"
   >
+    <span>
+      <a
+        class="c2"
+        href="https://wallet.oasis.io/t-c.pdf"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span>
+          Terms and Conditions
+        </span>
+      </a>
+      <div
+        class="c3"
+        style="display: inline-block;"
+      >
+        |
+      </div>
+    </span>
     <span>
       Version: 
     </span>
@@ -270,39 +352,47 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       1.0.0-dev.1
     </a>
     <span>
-       (commit: 
+       
+    </span>
+    <span>
+      <button
+        class="c5"
+        type="button"
+      >
+        [show details]
+      </button>
+      <span />
+    </span>
+  </span>
+  <span
+    class="c4"
+  >
+    <span>
+      We’d love your feedback at 
     </span>
     <a
       class="c2"
-      href="https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000"
-      rel="noopener noreferrer"
-      target="_blank"
+      href="mailto:wallet@oasisprotocol.org"
     >
-      sha0000
+      <span>
+        wallet@oasisprotocol.org
+      </span>
     </a>
-    <span>
-      ) built at 1/1/1970, 12:00:00 AM
-    </span>
-    <div
-      class="c4"
-    >
-      Powered by Oasis Scan API & Oasis gRPC
-    </div>
   </span>
   <nav
-    class="c5"
+    class="c6"
     data-testid="mobile-footer-navigation"
   >
     <a
-      class="c6"
+      class="c7"
       href="/account/dummy"
     >
       <span
-        class="c7"
+        class="c8"
       >
         <svg
           aria-label="Money"
-          class="c8"
+          class="c9"
           viewBox="0 0 24 24"
         >
           <path
@@ -313,10 +403,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           />
         </svg>
         <span
-          class="c9"
+          class="c10"
         />
         <span
-          class="c3"
+          class="c11"
           style="line-height: 1;"
         >
           ROSE Wallet
@@ -324,15 +414,15 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       </span>
     </a>
     <a
-      class="c6"
+      class="c7"
       href="/account/dummy/stake"
     >
       <span
-        class="c7"
+        class="c8"
       >
         <svg
           aria-label="LineChart"
-          class="c8"
+          class="c9"
           viewBox="0 0 24 24"
         >
           <path
@@ -343,10 +433,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           />
         </svg>
         <span
-          class="c9"
+          class="c10"
         />
         <span
-          class="c3"
+          class="c11"
           style="line-height: 1;"
         >
           Stake
@@ -354,15 +444,15 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       </span>
     </a>
     <a
-      class="c6"
+      class="c7"
       href="/account/dummy/paratimes"
     >
       <span
-        class="c7"
+        class="c8"
       >
         <svg
           aria-label="Inherit"
-          class="c8"
+          class="c9"
           viewBox="0 0 24 24"
         >
           <path
@@ -373,10 +463,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           />
         </svg>
         <span
-          class="c9"
+          class="c10"
         />
         <span
-          class="c3"
+          class="c11"
           style="line-height: 1;"
         >
           ParaTimes
@@ -384,15 +474,15 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
       </span>
     </a>
     <a
-      class="c6"
+      class="c7"
       href="/account/dummy/fiat"
     >
       <span
-        class="c7"
+        class="c8"
       >
         <svg
           aria-label="CreditCard"
-          class="c8"
+          class="c9"
           viewBox="0 0 24 24"
         >
           <path
@@ -403,10 +493,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           />
         </svg>
         <span
-          class="c9"
+          class="c10"
         />
         <span
-          class="c3"
+          class="c11"
           style="line-height: 1;"
         >
           Buy
