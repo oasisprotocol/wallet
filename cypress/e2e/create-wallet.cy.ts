@@ -46,6 +46,7 @@ describe('Create wallet', () => {
     cy.findByPlaceholderText('Enter your keyphrase here').type(generatedMnemonic, { delay: 0 })
     cy.findByRole('button', { name: /Import my wallet/ }).click()
     cy.contains('mnemonic does not match').should('not.exist')
+    cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
     cy.findByRole('button', { name: /Open/ }).click()
     cy.findByRole('button', { name: /Send/ }).should('exist')
   })

@@ -22,6 +22,7 @@ export async function fillPrivateKeyWithoutPassword(
       await expect(persistence).not.toBeChecked()
     } else {
       await expect(persistence).toBeEnabled()
+      await persistence.uncheck()
     }
 
     await page.getByPlaceholder('Enter your private key here').fill(params.privateKey ?? privateKey)

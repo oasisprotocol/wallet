@@ -10,6 +10,7 @@ describe('Scenario : multiple accounts', () => {
       { delay: 0 },
     )
     cy.findByRole('button', { name: /Import my wallet/ }).click()
+    cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
     cy.findByRole('button', { name: /Open/ }).click()
     cy.url().should('include', '/account/oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l')
 
@@ -18,6 +19,7 @@ describe('Scenario : multiple accounts', () => {
     // Open account 2 through private
     cy.findByRole('link', { name: /Open wallet/ }).click()
     cy.findByRole('link', { name: /Private key/ }).click()
+    cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
     cy.findByPlaceholderText('Enter your private key here').type(
       'X0jlpvskP1q8E6rHxWRJr7yTvpCuOPEKBGW8gtuVTxfnViTI0s2fBizgMxNzo75Q7w7MxdJXtOLeqDoFUGxxMg==',
       { delay: 0 },

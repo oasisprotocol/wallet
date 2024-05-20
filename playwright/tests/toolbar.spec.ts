@@ -110,6 +110,7 @@ test.describe('My Accounts tab', () => {
     await page.goto('/open-wallet/mnemonic')
     await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
+    await page.getByText('Create a profile').uncheck()
     const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })
     await expect(uncheckedAccounts).toHaveCount(3)
     for (const account of await uncheckedAccounts.elementHandles()) await account.click()
