@@ -57,7 +57,6 @@ test.describe('The extension popup should load', () => {
     await fillPrivateKeyWithoutPassword(page, {
       privateKey: privateKey,
       privateKeyAddress: privateKeyAddress,
-      persistenceCheckboxChecked: false,
       persistenceCheckboxDisabled: false,
     })
     await expect(page.getByTestId('account-selector')).toBeVisible()

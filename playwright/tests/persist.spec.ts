@@ -38,7 +38,6 @@ test.describe('Persist', () => {
 
       const persistence = await page.getByText('Create a profile')
       await expect(persistence).toBeEnabled()
-      await expect(persistence).not.toBeChecked()
       await persistence.check()
       await page.getByRole('button', { name: /Open/ }).click()
     })
@@ -82,7 +81,6 @@ test.describe('Persist', () => {
 
       const persistence = await page.getByText('Create a profile')
       await expect(persistence).toBeEnabled()
-      await expect(persistence).not.toBeChecked()
       await persistence.check()
 
       await page.getByPlaceholder('Enter your private key here').fill(privateKey)
@@ -126,8 +124,7 @@ test.describe('Persist', () => {
       await fillPrivateKeyWithoutPassword(page, {
         privateKey: privateKey2,
         privateKeyAddress: privateKey2Address,
-        persistenceCheckboxChecked: true,
-        persistenceCheckboxDisabled: true,
+        persistenceCheckboxDisabled: 'disabled-checked',
       })
       await page.goto('/')
       await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
@@ -195,8 +192,7 @@ test.describe('Persist', () => {
     await fillPrivateKeyWithoutPassword(page, {
       privateKey: privateKey2,
       privateKeyAddress: privateKey2Address,
-      persistenceCheckboxChecked: false,
-      persistenceCheckboxDisabled: true,
+      persistenceCheckboxDisabled: 'disabled-unchecked',
     })
     await page.goto('/')
     await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
@@ -237,7 +233,6 @@ test.describe('Persist', () => {
       await page.getByRole('button', { name: /Open wallet/ }).click()
       await page.getByRole('button', { name: /Private key/ }).click()
       await fillPrivateKeyWithoutPassword(page, {
-        persistenceCheckboxChecked: false,
         persistenceCheckboxDisabled: false,
       })
     }

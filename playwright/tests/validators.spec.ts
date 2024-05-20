@@ -21,7 +21,6 @@ test.beforeEach(async ({ page }) => {
   await fillPrivateKeyWithoutPassword(page, {
     privateKey: privateKey,
     privateKeyAddress: privateKeyAddress,
-    persistenceCheckboxChecked: false,
     persistenceCheckboxDisabled: false,
   })
   await expect(page.getByTestId('account-selector')).toBeVisible()

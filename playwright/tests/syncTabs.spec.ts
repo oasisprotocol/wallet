@@ -29,7 +29,6 @@ test.describe('syncTabs', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(page, {
-        persistenceCheckboxChecked: false,
         persistenceCheckboxDisabled: false,
       })
       await expect(page.getByTestId('account-selector')).toBeVisible()
@@ -62,8 +61,7 @@ test.describe('syncTabs', () => {
       await expect(tab2.getByRole('button', { name: /^Unlock$/ })).toBeHidden()
       await tab2.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(tab2, {
-        persistenceCheckboxChecked: false,
-        persistenceCheckboxDisabled: true,
+        persistenceCheckboxDisabled: 'disabled-unchecked',
       })
       await expect(tab2.getByTestId('account-selector')).toBeVisible()
       await expect(page.getByTestId('account-selector')).toBeVisible()
@@ -96,7 +94,6 @@ test.describe('syncTabs', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(page, {
-        persistenceCheckboxChecked: false,
         persistenceCheckboxDisabled: false,
       })
       const tab2 = await context.newPage()
@@ -120,8 +117,7 @@ test.describe('syncTabs', () => {
       const tab2 = await context.newPage()
       await tab2.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(tab2, {
-        persistenceCheckboxChecked: false,
-        persistenceCheckboxDisabled: true,
+        persistenceCheckboxDisabled: 'disabled-unchecked',
       })
       await testSyncingNetwork(page, tab2)
     })
@@ -202,7 +198,6 @@ test.describe('syncTabs', () => {
     test('unpersisted', async ({ page, context }) => {
       await page.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(page, {
-        persistenceCheckboxChecked: false,
         persistenceCheckboxDisabled: false,
       })
       const tab2 = await context.newPage()
@@ -226,8 +221,7 @@ test.describe('syncTabs', () => {
       const tab2 = await context.newPage()
       await tab2.goto('/open-wallet/private-key')
       await fillPrivateKeyWithoutPassword(tab2, {
-        persistenceCheckboxChecked: false,
-        persistenceCheckboxDisabled: true,
+        persistenceCheckboxDisabled: 'disabled-unchecked',
       })
       await testSelectedAccountNotSync(page, tab2)
     })
