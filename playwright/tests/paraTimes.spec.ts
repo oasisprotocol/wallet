@@ -15,7 +15,6 @@ test.describe('ParaTimes', () => {
     await fillPrivateKeyWithoutPassword(page, {
       privateKey: privateKey,
       privateKeyAddress: privateKeyAddress,
-      persistenceCheckboxChecked: false,
       persistenceCheckboxDisabled: false,
     })
     await page.getByTestId('nav-paratime').click()
