@@ -39,7 +39,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
       ),
     ).toBeVisible()
     await page.getByText('I’ve safely stored my mnemonic').check()
-    await page.getByRole('button', { name: /Next/ }).click()
+    await page.getByRole('button', { name: /Next/ }).click({ timeout: 8000 })
 
     // await expect(page).toHaveScreenshot({ fullPage: true })
     await page.getByRole('button', { name: /Tap to show/ }).click()
@@ -49,7 +49,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
       ),
     ).toBeVisible()
     await page.getByText('I’ve safely stored my private keys').check()
-    await page.getByRole('button', { name: /Open the new version of the wallet/ }).click()
+    await page.getByRole('button', { name: /Open the new version of the wallet/ }).click({ timeout: 8000 })
   })
 
   await test.step('should result in valid RootState', async () => {

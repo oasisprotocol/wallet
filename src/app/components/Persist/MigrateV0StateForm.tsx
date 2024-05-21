@@ -23,6 +23,7 @@ import { themeActions } from '../../../styles/theme/slice'
 import { RevealOverlayButton } from '../RevealOverlayButton'
 import { PrivateKeyFormatter } from '../PrivateKeyFormatter'
 import { PasswordWrongError } from '../../../types/errors'
+import { CountdownButton } from '../CountdownButton'
 
 export function MigrateV0StateForm() {
   const { t, i18n } = useTranslation()
@@ -155,14 +156,14 @@ export function MigrateV0StateForm() {
             />
           </FormField>
           {migratingV0State.invalidPrivateKeys.length > 0 ? (
-            <Button
+            <CountdownButton
               type="submit"
               label={t('migrateV0Extension.nextStep', 'Next')}
               fill="horizontal"
               primary
             />
           ) : (
-            <Button
+            <CountdownButton
               type="submit"
               label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
               fill="horizontal"
@@ -224,7 +225,7 @@ export function MigrateV0StateForm() {
               )}
             />
           </FormField>
-          <Button
+          <CountdownButton
             type="submit"
             label={t('migrateV0Extension.finishMigration', 'Open the new version of the wallet')}
             fill="horizontal"
