@@ -22,7 +22,7 @@ import { useRouteRedirects } from './useRouteRedirects'
 import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
 import { BuildBanner } from 'app/components/BuildBanner'
-import { IonicProvider } from './components/Ionic/IonicProvider'
+import { IonicNativePlatformProvider } from './components/Ionic/components/IonicNativePlatformProvider'
 
 export function App() {
   useRouteRedirects()
@@ -31,7 +31,7 @@ export function App() {
 
   return (
     <FatalErrorHandler>
-      <IonicProvider>
+      <IonicNativePlatformProvider>
         <ModalProvider>
           <Helmet
             titleTemplate="%s - ROSE Wallet"
@@ -57,7 +57,7 @@ export function App() {
             </PersistLoadingGate>
           </Box>
         </ModalProvider>
-      </IonicProvider>
+      </IonicNativePlatformProvider>
     </FatalErrorHandler>
   )
 }
