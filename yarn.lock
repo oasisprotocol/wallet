@@ -1192,6 +1192,11 @@
   resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-6.0.0.tgz#b04ce2967d732c73ebf29ec38b4b585255930e43"
   integrity sha512-7mAs3gjWiE5DPM4AGPduqFSDGXCPwwqQRMzbohVway7/cTWnHomHV8mIojMZE4GILeWO2fILbyu3C8q9pHg2vg==
 
+"@capawesome/capacitor-app-update@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-6.0.0.tgz#cda175030417f5bfa3b2b7c8bbe22a531854aa40"
+  integrity sha512-T4k0dC3XoJDgtX1QOQx0Rr5eMi3NhJn93QawQ6ZYYMmssnqCoRPpo2rg3VKVKMUZgAmIUN5Rwons9T4QkjTOzA==
+
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
