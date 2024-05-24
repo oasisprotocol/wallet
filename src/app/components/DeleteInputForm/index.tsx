@@ -21,7 +21,9 @@ export function DeleteInputForm({ children, onCancel, onConfirm }: DeleteInputFo
       <FormField
         name="type_delete"
         validate={(value: string | undefined) =>
-          !value || value.toLowerCase() !== t('deleteForm.confirmationKeyword', 'delete').toLowerCase()
+          !value ||
+          value.toLowerCase().replace(/['"“”]/g, '') !==
+            t('deleteForm.confirmationKeyword', 'delete').toLowerCase()
             ? t('deleteForm.hint', `Type '{{confirmationKeyword}}'`, {
                 confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
               })
