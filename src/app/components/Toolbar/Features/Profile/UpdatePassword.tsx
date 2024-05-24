@@ -61,7 +61,10 @@ export const UpdatePassword = () => {
     <Form<FormValue>
       onSubmit={onSubmit}
       {...preventSavingInputsToUserData}
-      onChange={nextValue => setValue(nextValue)}
+      onChange={nextValue => {
+        dispatch(persistActions.resetWrongPassword())
+        setValue(nextValue)
+      }}
       value={value}
     >
       <label htmlFor="currentPassword">{t('toolbar.profile.password.title', 'Set a new password')}</label>
@@ -73,7 +76,6 @@ export const UpdatePassword = () => {
           value ? undefined : t('toolbar.profile.password.enterCurrent', 'Enter your current password')
         }
         error={enteredWrongPassword ? t('persist.loginToProfile.wrongPassword', 'Wrong password') : false}
-        required
         showTip={t('persist.loginToProfile.showPassword', 'Show password')}
         hideTip={t('persist.loginToProfile.hidePassword', 'Hide password')}
         width="medium"

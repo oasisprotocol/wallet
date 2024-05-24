@@ -542,7 +542,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 .c22:hover input:not([disabled]) + div,
 .c22:hover input:not([disabled]) + span {
-  border-color: #000000;
+  border-color: #00A9FF;
 }
 
 .c25 {

@@ -20,6 +20,7 @@ interface Props<TFormValue> {
   suggestions?: Array<{ label: string; value: any }>
   validate?: (password: string, form: TFormValue) => string | undefined
   error?: string | false
+  /** @deprecated Use `validate` */
   required?: boolean
   showTip: string
   hideTip: string

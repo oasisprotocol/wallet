@@ -402,6 +402,7 @@
     "createProfile": {
       "passwordMismatch": "Entered password does not match",
       "repeatPassword": "Confirm your password",
+      "requiredField": "This field is required",
       "startPersisting": "Store your private keys locally and protect them with a password by creating a profile.",
       "startPersistingToggle": "Create a profile",
       "undependableAcknowledge": "I understand this password and profile do not substitute my mnemonic.",
