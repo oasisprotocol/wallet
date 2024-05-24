@@ -188,13 +188,16 @@
     "thirdPartyDisclaimer": "This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
-    "github": "ROSE Wallet is fully <GithubLink>open source</GithubLink> - Feedback and issues are appreciated!",
+    "feedback": "We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>",
+    "github": "ROSE Wallet is fully <GithubLink>open source</GithubLink>",
+    "hideDetails": "[hide details]",
     "poweredBy": {
       "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
     },
+    "showDetails": "[show details]",
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",
-    "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
+    "version": "Version: <ReleaseLink/> <CommitLink/>"
   },
   "home": {
     "create": {
@@ -421,6 +424,7 @@
       "enterPasswordHere": "Enter your password",
       "hidePassword": "Hide password",
       "showPassword": "Show password",
+      "skipUnlocking": "Continue without the profile",
       "title": "Welcome Back!",
       "unlock": "Unlock",
       "wrongPassword": "Wrong password"
