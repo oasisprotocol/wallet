@@ -62,27 +62,29 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
   }
 
   return (
-    <Box flex="grow" justify="between" gap="medium">
-      {!contacts.length && (
-        <ContactsListEmptyState>
-          {t('toolbar.contacts.emptyList', 'You have no contacts yet.')}
-        </ContactsListEmptyState>
-      )}
-      {!!contacts.length && (
-        <ScrollableContainer>
-          {contacts.map(contact => (
-            <ContactAccount key={contact.address} contact={contact} />
-          ))}
-        </ScrollableContainer>
-      )}
-      <Box align="end">
-        <Button
-          primary
-          label={t('toolbar.contacts.add', 'Add contact')}
-          onClick={() => setLayerVisibility(true)}
-        />
+    <>
+      <Box flex="grow" justify="between" gap="medium">
+        {!contacts.length && (
+          <ContactsListEmptyState>
+            {t('toolbar.contacts.emptyList', 'You have no contacts yet.')}
+          </ContactsListEmptyState>
+        )}
+        {!!contacts.length && (
+          <ScrollableContainer>
+            {contacts.map(contact => (
+              <ContactAccount key={contact.address} contact={contact} />
+            ))}
+          </ScrollableContainer>
+        )}
+        <Box align="end">
+          <Button
+            primary
+            label={t('toolbar.contacts.add', 'Add contact')}
+            onClick={() => setLayerVisibility(true)}
+          />
+        </Box>
       </Box>
       {layerVisibility && <AddContact setLayerVisibility={setLayerVisibility} />}
-    </Box>
+    </>
   )
 }
