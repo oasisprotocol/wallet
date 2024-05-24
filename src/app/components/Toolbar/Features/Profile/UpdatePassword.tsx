@@ -61,7 +61,10 @@ export const UpdatePassword = () => {
     <Form<FormValue>
       onSubmit={onSubmit}
       {...preventSavingInputsToUserData}
-      onChange={nextValue => setValue(nextValue)}
+      onChange={nextValue => {
+        dispatch(persistActions.resetWrongPassword())
+        setValue(nextValue)
+      }}
       value={value}
     >
       <label htmlFor="currentPassword">{t('toolbar.profile.password.title', 'Set a new password')}</label>
