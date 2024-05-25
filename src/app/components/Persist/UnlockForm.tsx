@@ -19,7 +19,7 @@ export function UnlockForm() {
   const [password, setPassword] = React.useState('test')
 
   const onSubmit = () => dispatch(persistActions.unlockAsync({ password: password }))
-  if (location.hash !== '#locked') onSubmit()
+  if (location.hash !== '#locked' && location.hash !== '#delete') onSubmit()
 
   return (
     <LoginModalLayout title={t('persist.loginToProfile.title', 'Welcome Back!')}>

@@ -19,7 +19,7 @@ export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonP
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [layerVisibility, setLayerVisibility] = useState(false)
+  const [layerVisibility, setLayerVisibility] = useState(location.hash !== '#locked')
 
   const onCancel = () => {
     setLayerVisibility(false)
