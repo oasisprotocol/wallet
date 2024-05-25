@@ -135,7 +135,7 @@
   "deleteForm": {
     "confirm": "Da, izbriši",
     "confirmationKeyword": "izbriši",
-    "hint": "Vtipkajte '{{confirmationKeyword}}'"
+    "hint": "Vtipkajte <strong>{{confirmationKeyword}}</strong>"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Račun ne pripada trenutno povezanemu Ledgerju",
@@ -460,7 +460,7 @@
       "contacts": "Stiki",
       "delete": {
         "description": "Ali ste prepričani, da želite izbrisati ta račun?",
-        "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite '{{confirmationKeyword}}'.",
+        "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite <strong>{{confirmationKeyword}}</strong>.",
         "title": "Izbriši Račun",
         "tooltip": "V denarnici morate imeti vsaj en račun."
       },

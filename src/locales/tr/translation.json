@@ -135,7 +135,7 @@
   "deleteForm": {
     "confirm": "Evet, Sil",
     "confirmationKeyword": "Sil",
-    "hint": "'{{confirmationKeyword}}' yazın"
+    "hint": "<strong>{{confirmationKeyword}}</strong> yazın"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Bu hesap şu anda bağlı olan Ledger'a ait değil.",
@@ -446,7 +446,7 @@
       "contacts": "Kontaklar",
       "delete": {
         "description": "Aşağıdaki hesabı silmek istediğinizden emin misiniz?",
-        "inputHelp": "Bu eylem geri alınamaz. Devam etmek için lütfen aşağıya {{confirmationKeyword}} girin.",
+        "inputHelp": "Bu eylem geri alınamaz. Devam etmek için lütfen aşağıya <strong>{{confirmationKeyword}}</strong> girin.",
         "title": "Hesabı sil",
         "tooltip": "Her zaman en az bir hesabınızın olması gerekir."
       },
