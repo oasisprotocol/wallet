@@ -140,7 +140,7 @@
   "deleteForm": {
     "confirm": "Yes, delete",
     "confirmationKeyword": "delete",
-    "hint": "Type '{{confirmationKeyword}}'"
+    "hint": "Type <strong>{{confirmationKeyword}}</strong>"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
@@ -415,7 +415,7 @@
     "loginToProfile": {
       "deleteProfile": {
         "button": "Delete profile",
-        "description": "This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type '{{confirmationKeyword}}' below.",
+        "description": "This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type <strong>{{confirmationKeyword}}</strong> below.",
         "forgotPasswordButton": "Forgot password?",
         "forgotPasswordDescription": "ROSE Wallet does not store your password and cannot help you retrieve it. If you forgot your password, you can delete your locked profile here. After that, you can create a new one using your mnemonic phrase or private keys, and use your ROSE tokens again.",
         "title": "Delete Profile"
@@ -483,7 +483,7 @@
       "contacts": "Contacts",
       "delete": {
         "description": "Are you sure you want to delete the following account?",
-        "inputHelp": "This action cannot be undone. To continue please type '{{confirmationKeyword}}' below.",
+        "inputHelp": "This action cannot be undone. To continue please type <strong>{{confirmationKeyword}}</strong> below.",
         "title": "Delete Account",
         "tooltip": "You must have at least one account at all times."
       },

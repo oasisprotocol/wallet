@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { TextInput } from 'grommet/es6/components/TextInput'
 import { Form } from 'grommet/es6/components/Form'
 import { FormField } from 'grommet/es6/components/FormField'
@@ -21,11 +21,16 @@ export function DeleteInputForm({ children, onCancel, onConfirm }: DeleteInputFo
       <FormField
         name="type_delete"
         validate={(value: string | undefined) =>
-          !value || value.toLowerCase() !== t('deleteForm.confirmationKeyword', 'delete').toLowerCase()
-            ? t('deleteForm.hint', `Type '{{confirmationKeyword}}'`, {
+          !value || value.toLowerCase() !== t('deleteForm.confirmationKeyword', 'delete').toLowerCase() ? (
+            <Trans
+              i18nKey="deleteForm.hint"
+              t={t}
+              defaults="Type <strong>{{confirmationKeyword}}</strong>"
+              values={{
                 confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
-              })
-            : undefined
+              }}
+            />
+          ) : undefined
         }
       >
         <TextInput data-testid="account-delete-confirmation-input" id="type_delete" name="type_delete" />

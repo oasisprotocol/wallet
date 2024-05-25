@@ -95,7 +95,7 @@
   "deleteForm": {
     "confirm": "Ja, löschen",
     "confirmationKeyword": "löschen",
-    "hint": "Typ '{{confirmationKeyword}}'"
+    "hint": "Eingeben <strong>{{confirmationKeyword}}</strong>"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Dieses Konto gehört nicht zu dem aktuell verbundenen Ledger.",
@@ -312,7 +312,7 @@
       "contacts": "Kontakte",
       "delete": {
         "description": "Bist du sicher, dass du das folgende Konto löschen möchtest?",
-        "inputHelp": "Diese Aktion kann nicht rückgängig gemacht werden. Um fortzufahren, gib bitte '{{confirmationKeyword}}' unten ein.",
+        "inputHelp": "Diese Aktion kann nicht rückgängig gemacht werden. Um fortzufahren, gib bitte <strong>{{confirmationKeyword}}</strong> unten ein.",
         "title": "Konto löschen",
         "tooltip": "Du musst immer mindestens ein Konto haben."
       },

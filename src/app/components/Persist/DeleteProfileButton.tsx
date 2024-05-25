@@ -66,7 +66,7 @@ export function DeleteProfileButton({ prominent, variant }: DeleteProfileButtonP
                 <Trans
                   t={t}
                   i18nKey="persist.loginToProfile.deleteProfile.description"
-                  defaults="This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type '{{confirmationKeyword}}' below."
+                  defaults="This will <strong>permanently remove your private keys from this device.</strong><br/><br/>To confirm and proceed, please type <strong>{{confirmationKeyword}}</strong> below."
                   values={{
                     confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
                   }}
