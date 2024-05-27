@@ -3,7 +3,7 @@ import { all, call, delay, fork, join, put, select, take, takeLatest } from 'typ
 import { WalletError, WalletErrors } from 'types/errors'
 
 import { accountActions } from '.'
-import { getExplorerAPIs } from '../network/saga'
+import { getExplorerAPIs, getOasisNic } from '../network/saga'
 import { takeLatestCancelable } from '../takeLatestCancelable'
 import { stakingActions } from '../staking'
 import { fetchAccount as stakingFetchAccount } from '../staking/saga'
@@ -13,6 +13,10 @@ import { selectAddress } from '../wallet/selectors'
 import { selectAccountAddress, selectAccount } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import { walletActions } from '../wallet'
+import { selectSelectedNetwork } from '../network/selectors'
+import { OasisTransaction } from '../../lib/transaction'
+import { getSigner } from '../transaction/saga'
+import { Signer } from '@oasisprotocol/client/dist/signature'
 
 const ACCOUNT_REFETCHING_INTERVAL = process.env.REACT_APP_E2E_TEST ? 5 * 1000 : 30 * 1000
 const TRANSACTIONS_LIMIT = 20
@@ -47,11 +51,12 @@ export function* fetchAccount(action: PayloadAction<string>) {
     join(
       yield* fork(function* () {
         try {
-          const transactions = yield* call(getTransactionsList, {
+          const { transactions, total } = yield* call(getTransactionsList, {
             accountId: address,
             limit: TRANSACTIONS_LIMIT,
           })
-          yield* put(accountActions.transactionsLoaded(transactions))
+          const networkType = yield* select(selectSelectedNetwork)
+          yield* put(accountActions.transactionsLoaded({ networkType, transactions, total }))
         } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
           if (e instanceof WalletError) {
@@ -61,6 +66,21 @@ export function* fetchAccount(action: PayloadAction<string>) {
               accountActions.transactionsError({ code: WalletErrors.UnknownError, message: e.message }),
             )
           }
+        }
+      }),
+    ),
+    join(
+      yield* fork(function* () {
+        try {
+          const nic = yield* call(getOasisNic)
+          const signer = yield* getSigner()
+          const nonce = yield* call(OasisTransaction.getNonce, nic, signer as Signer)
+
+          yield* put(accountActions.setNonce(nonce.toString()))
+        } catch (e: any) {
+          console.error('setNonce', e)
+          // Silently fail
+          yield* put(accountActions.setNonce('0'))
         }
       }),
     ),

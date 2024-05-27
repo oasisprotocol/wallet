@@ -50,19 +50,26 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     return data
   }
 
-  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
+  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<{
+    transactions: Transaction[],
+    total: number
+  }> {
     const transactionsList = await operations.getTransactionsList({
       address: params.accountId,
       size: params.limit,
       runtime: true,
     })
+
     if (!transactionsList || transactionsList.code !== 0) throw new Error('Wrong response code') // TODO
 
     const list = await Promise.all(
       transactionsList.data.list.map(async tx => (tx.runtimeId ? getRuntimeTransactionInfo(tx) : tx)),
     )
 
-    return parseTransactionsList(list)
+    return {
+      transactions: parseTransactionsList(list),
+      total: transactionsList.data.totalSize,
+    }
   }
 
   async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
@@ -197,6 +204,7 @@ export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
     return parsed
   })
 }
+
 export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDelegation[] {
   return debonding.map(debonding => {
     const parsed: DebondingDelegation = {

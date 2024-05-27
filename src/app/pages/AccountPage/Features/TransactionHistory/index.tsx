@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-syntax */
+
 /**
  *
  * TransactionHistory
@@ -11,38 +13,57 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 import {
+  hasAccountUnknownPendingTransactions,
   selectAccountAddress,
+  selectPendingTransactionForAccount,
   selectTransactions,
   selectTransactionsError,
 } from 'app/state/account/selectors'
 import { selectSelectedNetwork } from 'app/state/network/selectors'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 
-interface Props {}
-
 /**
  * Displays the past transactions from the state for a given account
  */
-export function TransactionHistory(props: Props) {
+export function TransactionHistory() {
   const { t } = useTranslation()
   const allTransactions = useSelector(selectTransactions)
   const transactionsError = useSelector(selectTransactionsError)
   const address = useSelector(selectAccountAddress)
+  // TODO: Remove pending transaction once it is available in allTransactions in transactionsLoaded
+  const pendingTransactions = useSelector(selectPendingTransactionForAccount)
+  const hasUnknownPendingTransactions = useSelector(hasAccountUnknownPendingTransactions)
   const network = useSelector(selectSelectedNetwork)
-  const transactionComponents = allTransactions.map((t, i) => (
-    <Transaction key={i} transaction={t} referenceAddress={address} network={network} />
+  const transactionComponents = allTransactions.map(t => (
+    <Transaction key={t.hash} transaction={t} referenceAddress={address} network={network} />
   ))
+  const pendingTransactionComponents = pendingTransactions
+    .filter(({ hash: pendingTxHash }) => !allTransactions.some(({ hash }) => hash === pendingTxHash))
+    .map(t => <Transaction key={t.hash} transaction={t} referenceAddress={address} network={network} />)
 
   return (
     <Box gap="medium" margin="none">
       {transactionsError && (
         <p>
-          {t('account.transaction.loadingError', "Couldn't load transactions.")}{' '}
+          {t('account.transaction.loadingError', `Couldn't load transactions.`)}{' '}
           <ErrorFormatter code={transactionsError.code} message={transactionsError.message} />
         </p>
       )}
+      {hasUnknownPendingTransactions && (
+        <>
+          <Heading level="3">Has pending transactions, check on Explorer</Heading>
+        </>
+      )}
+      {!!pendingTransactionComponents.length && (
+        <>
+          {/*TODO: Translation*/}
+          <Heading level="3">Pending transactions</Heading>
+          {pendingTransactionComponents}
+        </>
+      )}
+      {/*TODO: Translation*/}
+      <Heading level="3">Activity</Heading>
       {allTransactions.length ? (
-        // eslint-disable-next-line no-restricted-syntax -- transactionComponents is not a plain text node
         transactionComponents
       ) : (
         <Box

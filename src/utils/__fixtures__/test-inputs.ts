@@ -49,6 +49,11 @@ export const privateKeyUnlockedState = {
     transactions: [],
     transactionsError: undefined,
     loading: false,
+    pendingTransactions: {
+      local: [],
+      testnet: [],
+      mainnet: [],
+    },
   },
   contacts: {},
   evmAccounts: {},
@@ -229,6 +234,11 @@ export const walletExtensionV0UnlockedState = {
     transactions: [],
     loading: false,
     allowances: [],
+    pendingTransactions: {
+      local: [],
+      testnet: [],
+      mainnet: [],
+    },
   },
   contacts: {
     oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe: {

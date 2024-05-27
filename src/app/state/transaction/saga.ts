@@ -11,11 +11,12 @@ import { transactionActions } from '.'
 import { sign } from '../importaccounts/saga'
 import { getOasisNic } from '../network/saga'
 import { selectAccountAddress, selectAccountAllowances } from '../account/selectors'
-import { selectChainContext } from '../network/selectors'
+import { selectChainContext, selectSelectedNetwork } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
-import { TransactionPayload, TransactionStep } from './types'
+import { Transaction, TransactionPayload, TransactionStep, TransactionType } from './types'
 import { ParaTimeTransaction, Runtime, TransactionTypes } from '../paratimes/types'
+import { accountActions } from '../account'
 
 export function* transactionSaga() {
   yield* takeEvery(transactionActions.sendTransaction, doTransaction)
@@ -47,7 +48,7 @@ function* expectConfirmation() {
 /**
  * Yields the appropriate signer for the currently active wallet
  */
-function* getSigner() {
+export function* getSigner() {
   const wallet = yield* select(selectActiveWallet)
   if (!wallet) {
     throw new WalletError(WalletErrors.NoOpenWallet, 'Cannot send transaction without an active wallet')
@@ -201,6 +202,43 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     // Notify that the transaction was a success
     yield* put(transactionActions.transactionSent(action.payload))
+
+    const hash = yield* call([tw, tw.hash])
+
+    const transaction: Transaction = {
+      status: undefined,
+      fee: undefined,
+      level: undefined,
+      to: undefined,
+      round: undefined,
+      runtimeId: undefined,
+      runtimeName: undefined,
+      timestamp: undefined,
+      hash,
+      type: tw.transaction.method as TransactionType,
+      from: activeWallet.address,
+      amount: action.payload.amount,
+      ...(action.payload.type === 'transfer'
+        ? {
+            to: action.payload.to,
+          }
+        : {}),
+      ...(action.payload.type === 'addEscrow'
+        ? {
+            to: action.payload.validator,
+          }
+        : {}),
+      ...(action.payload.type === 'reclaimEscrow'
+        ? {
+            to: action.payload.validator,
+          }
+        : {}),
+    }
+
+    const networkType = yield* select(selectSelectedNetwork)
+
+    // TODO: Handle ParaTime transactions elsewhere
+    yield* put(accountActions.addPendingTransaction({ transaction, from: activeWallet.address, networkType }))
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {

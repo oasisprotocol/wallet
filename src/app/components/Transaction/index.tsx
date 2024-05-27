@@ -456,9 +456,11 @@ export function Transaction(props: TransactionProps) {
               </Box>
 
               <Box pad="none">
-                <InfoBox icon={Clock} label={t('common.time', 'Time')}>
-                  {intlDateTimeFormat(transaction.timestamp!)}
-                </InfoBox>
+                {transaction.timestamp && (
+                  <InfoBox icon={Clock} label={t('common.time', 'Time')}>
+                    {intlDateTimeFormat(transaction.timestamp)}
+                  </InfoBox>
+                )}
 
                 {!transaction.runtimeId && transaction.level && (
                   <InfoBox icon={Cube} label={t('common.block', 'Block')}>
@@ -479,12 +481,33 @@ export function Transaction(props: TransactionProps) {
           <Text weight="bold" size={isMobile ? 'medium' : 'xlarge'}>
             <AmountFormatter amount={transaction.amount!} smallTicker />
           </Text>
-          <Text color={transaction.status ? 'successful-label' : 'status-error'} size="small" weight="bold">
-            {transaction.status ? (
-              <span>{t('account.transaction.successful', 'Successful')}</span>
-            ) : (
-              <span>{t('account.transaction.failed', 'Failed')}</span>
-            )}
+          <Text
+            color={(() => {
+              switch (transaction.status) {
+                case true:
+                  return 'successful-label'
+                case false:
+                  return 'status-error'
+                case undefined:
+                default:
+                  return 'status-warning'
+              }
+            })()}
+            size="small"
+            weight="bold"
+          >
+            {(() => {
+              switch (transaction.status) {
+                case true:
+                  return <span>{t('account.transaction.successful', 'Successful')}</span>
+                case false:
+                  return <span>{t('account.transaction.failed', 'Failed')}</span>
+                case undefined:
+                default:
+                  /* TODO: Add translation */
+                  return <span>Pending</span>
+              }
+            })()}
           </Text>
         </Box>
       </StyledCardBody>

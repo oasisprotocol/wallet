@@ -38,12 +38,18 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
     return parseValidatorsList(validators)
   }
 
-  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<Transaction[]> {
+  async function getTransactionsList(params: { accountId: string; limit: number }): Promise<{
+    transactions: Transaction[],
+    total: number
+  }> {
     const transactions = await operations.getTransactionsList({
       accountId: params.accountId,
       limit: params.limit,
     })
-    return parseTransactionsList(transactions)
+    return {
+      transactions: parseTransactionsList(transactions),
+      total: 0,
+    }
   }
 
   async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
