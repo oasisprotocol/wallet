@@ -5,6 +5,7 @@ import { Collapsible } from 'grommet/es6/components/Collapsible'
 import { FormField } from 'grommet/es6/components/FormField'
 import { TextInput } from 'grommet/es6/components/TextInput'
 import { useTranslation } from 'react-i18next'
+import { usePreventChangeOnNumberInputScroll } from 'app/lib/usePreventChangeOnNumberInputScroll'
 
 type FeesSectionProps = {
   feeAmount: string
@@ -46,6 +47,7 @@ export const FeesSection = ({ feeAmount, feeGas, ticker }: FeesSectionProps) => 
             step="1"
             type="number"
             value={feeAmount}
+            {...usePreventChangeOnNumberInputScroll()}
           />
         </FormField>
         <FormField
@@ -62,6 +64,7 @@ export const FeesSection = ({ feeAmount, feeGas, ticker }: FeesSectionProps) => 
             step="1"
             type="number"
             value={feeGas}
+            {...usePreventChangeOnNumberInputScroll()}
           />
         </FormField>
       </Collapsible>

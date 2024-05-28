@@ -19,8 +19,8 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import React, { memo, useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-
 import { TransactionStatus } from '../TransactionStatus'
+import { usePreventChangeOnNumberInputScroll } from '../../lib/usePreventChangeOnNumberInputScroll'
 
 interface Props {
   validatorAddress: string
@@ -39,6 +39,7 @@ export const AddEscrowForm = memo((props: Props) => {
   const minStaking = useSelector(selectMinStaking)
   const ticker = useSelector(selectTicker)
   const isMobile = useContext(ResponsiveContext) === 'small'
+  const { ref, onWheel, onFocus, onMouseOut } = usePreventChangeOnNumberInputScroll()
   const delegate = () => {
     dispatch(
       transactionActions.addEscrow({
@@ -111,6 +112,10 @@ export const AddEscrowForm = memo((props: Props) => {
                   </Text>
                 }
                 reverse
+                ref={ref}
+                onWheel={onWheel}
+                onFocus={onFocus}
+                onMouseOut={onMouseOut}
               />
             </Box>
             <Button label={t('account.addEscrow.delegate', 'Delegate')} type="submit" primary />
