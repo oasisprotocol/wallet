@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
@@ -50,13 +50,14 @@ export const DeleteAccount = ({ onCancel, onDelete, wallet }: DeleteAccountProps
           <DeleteInputForm onCancel={onCancel} onConfirm={onDelete}>
             <label htmlFor="type_delete">
               <Paragraph fill textAlign="center">
-                {t(
-                  'toolbar.settings.delete.inputHelp',
-                  `This action cannot be undone. To continue please type <strong>{{confirmationKeyword}}</strong> below.`,
-                  {
+                <Trans
+                  i18nKey="toolbar.settings.delete.inputHelp"
+                  t={t}
+                  defaults="This action cannot be undone. To continue please type <strong>{{confirmationKeyword}}</strong> below."
+                  values={{
                     confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
-                  },
-                )}
+                  }}
+                />
               </Paragraph>
             </label>
           </DeleteInputForm>
