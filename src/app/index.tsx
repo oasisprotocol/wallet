@@ -23,11 +23,13 @@ import { PersistLoadingGate } from 'app/components/Persist/PersistLoadingGate'
 import { UnlockGate } from 'app/components/Persist/UnlockGate'
 import { BuildBanner } from 'app/components/BuildBanner'
 import { IonicProvider } from './components/Ionic/IonicProvider'
+import { usePreventChangeOnNumberInputScroll } from './lib/usePreventChangeOnNumberInputScroll'
 
 export function App() {
   useRouteRedirects()
   const { i18n } = useTranslation()
   const isMobile = useContext(ResponsiveContext) === 'small'
+  usePreventChangeOnNumberInputScroll()
 
   return (
     <FatalErrorHandler>
