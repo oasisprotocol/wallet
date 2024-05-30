@@ -45,8 +45,8 @@ const getCsp = ({ isExtension, isDev }) =>
       'self';
     connect-src
       'self'
-      https://grpc.oasis.dev
-      https://testnet.grpc.oasis.dev
+      https://grpc.oasis.io
+      https://testnet.grpc.oasis.io
       https://api.oasisscan.com
       ${isDev ? localnet : ''}
       ${isDev ? hmr : ''}
