@@ -10,7 +10,7 @@ import { fetchAccount as stakingFetchAccount } from '../staking/saga'
 import { refreshAccount as walletRefreshAccount } from '../wallet/saga'
 import { transactionActions } from '../transaction'
 import { selectAddress } from '../wallet/selectors'
-import { selectAccountAddress, selectAccountAvailableBalance } from './selectors'
+import { selectAccountAddress, selectAccount } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import { walletActions } from '../wallet'
 
@@ -110,7 +110,7 @@ export function* fetchingOnAccountPage() {
         yield* put(stakingActions.fetchAccount(address))
         yield* take(accountActions.accountLoaded)
 
-        // Start refetching balance. If balance changes then fetch transactions and staking too.
+        // Continuously refresh balance. If balance changes then fetch transactions and staking too.
         while (true) {
           yield* delay(ACCOUNT_REFETCHING_INTERVAL)
           if (document.hidden) continue
@@ -123,8 +123,13 @@ export function* fetchingOnAccountPage() {
             console.error('refetching account failed, continuing without updated account.', apiError)
             continue // Ignore error when refetching, and don't fallback to more expensive gRPC
           }
-          const staleAvailableBalance = yield* select(selectAccountAvailableBalance)
-          if (staleAvailableBalance !== refreshedAccount.available) {
+
+          const staleBalances = yield* select(selectAccount)
+          if (
+            staleBalances.available !== refreshedAccount.available ||
+            staleBalances.delegations !== refreshedAccount.delegations ||
+            staleBalances.debonding !== refreshedAccount.debonding
+          ) {
             yield* call(fetchAccount, startAction)
             yield* call(stakingFetchAccount, startAction)
             yield* call(walletRefreshAccount, address)
