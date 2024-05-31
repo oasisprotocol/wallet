@@ -28,7 +28,7 @@ type BackendConfig = {
 
 export const config: BackendConfig = {
   mainnet: {
-    grpc: 'https://grpc.oasis.dev',
+    grpc: 'https://grpc.oasis.io',
     ticker: 'ROSE',
     min_delegation: 100,
     [BackendAPIs.OasisMonitor]: {
@@ -42,7 +42,7 @@ export const config: BackendConfig = {
     },
   },
   testnet: {
-    grpc: 'https://testnet.grpc.oasis.dev',
+    grpc: 'https://testnet.grpc.oasis.io',
     ticker: 'TEST',
     min_delegation: 100,
     [BackendAPIs.OasisMonitor]: {
