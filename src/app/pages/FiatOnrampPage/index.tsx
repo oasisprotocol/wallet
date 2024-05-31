@@ -16,8 +16,10 @@ import { selectThirdPartyAcknowledged } from './slice/selectors'
 import { fiatOnrampActions } from './slice'
 import { useContext } from 'react'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { ShareRounded } from 'grommet-icons/es6/icons/ShareRounded'
+import { Paragraph } from 'grommet/es6/components/Paragraph'
 
-function HeaderLayout(props: { children?: React.ReactNode }) {
+function Layout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
   return (
     <Box
@@ -25,18 +27,20 @@ function HeaderLayout(props: { children?: React.ReactNode }) {
       border={{ color: 'background-front-border', size: '1px' }}
       background="background-front"
       pad="medium"
+      alignSelf="center"
+      width={{ max: '651px' }} // Padding + Transak threshold for >mobile layout
     >
       <Header>{t('fiatOnramp.header', 'Buy ROSE')}</Header>
-      <p>
-        {t(
-          'fiatOnramp.description',
-          'This feature allows you to convert your fiat currency into cryptocurrency.',
-        )}
-      </p>
 
-      <Box align="start" gap="medium">
-        {props.children}
-      </Box>
+      <Paragraph size="small" fill margin={{ top: '0px' }}>
+        {t('fiatOnramp.description', 'Convert your fiat currency into crypto.')}{' '}
+        {t(
+          'fiatOnramp.thirdPartyDisclaimer',
+          'This service is provided by Transak - an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
+        )}
+      </Paragraph>
+
+      {props.children}
     </Box>
   )
 }
@@ -53,30 +57,34 @@ export function FiatOnramp() {
 
   if (selectedNetwork !== 'mainnet') {
     return (
-      <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
-        </AlertBox>
+      <Layout>
+        <Box align="start" gap="medium">
+          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
+            {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
+          </AlertBox>
 
-        <Button
-          onClick={() => dispatch(networkActions.selectNetwork('mainnet'))}
-          label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
-          primary
-        />
-      </HeaderLayout>
+          <Button
+            onClick={() => dispatch(networkActions.selectNetwork('mainnet'))}
+            label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
+            primary
+          />
+        </Box>
+      </Layout>
     )
   }
   if (accountIsLoading) {
-    return <HeaderLayout />
+    return <Layout />
   }
   if (!walletAddress || !isAddressInWallet) {
     return (
-      <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
-        </AlertBox>
-        <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
-      </HeaderLayout>
+      <Layout>
+        <Box align="start" gap="medium">
+          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
+            {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
+          </AlertBox>
+          <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
+        </Box>
+      </Layout>
     )
   }
 
@@ -94,25 +102,8 @@ export function FiatOnramp() {
   }).toString()}`
 
   return (
-    <Box gap="small">
-      <HeaderLayout></HeaderLayout>
-
-      <Box
-        round="5px"
-        border={{ color: 'background-front-border', size: '1px' }}
-        background="background-front"
-        pad="medium"
-        alignSelf="center"
-        width="601px" // Transak threshold for >mobile layout
-        style={{ boxSizing: 'content-box' }}
-      >
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t(
-            'fiatOnramp.thirdPartyDisclaimer',
-            'This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
-          )}
-        </AlertBox>
-
+    <Layout>
+      <Box align="stretch" gap="large">
         {!thirdPartyAcknowledged ? (
           <Box margin={{ top: '20px' }}>
             <CheckBox
@@ -136,8 +127,9 @@ export function FiatOnramp() {
                     {t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')} <ShareRounded />
                   </span>
                 }
+                fill="horizontal"
                 margin={{ top: 'small' }}
-                style={{ fontSize: '14px' }}
+                style={{ fontSize: '14px', textAlign: 'center' }}
                 primary
               />
             ) : (
@@ -176,7 +168,6 @@ export function FiatOnramp() {
           </div>
         )}
 
-        <br />
         <AlertBox status="info">
           <Box direction="row" gap="xsmall">
             <span>*</span>
@@ -189,6 +180,6 @@ export function FiatOnramp() {
           </Box>
         </AlertBox>
       </Box>
-    </Box>
+    </Layout>
   )
 }

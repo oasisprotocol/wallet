@@ -178,7 +178,7 @@
   "fiatOnramp": {
     "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.",
     "buyNowInNewTab": "Buy ROSE now",
-    "description": "This feature allows you to convert your fiat currency into cryptocurrency.",
+    "description": "Convert your fiat currency into crypto.",
     "header": "Buy ROSE",
     "headerInWidget": "Purchase ROSE to your wallet",
     "notMainnet": "You can only use this feature when your are on the mainnet.",
@@ -186,7 +186,7 @@
     "openYourWallet": "Open your wallet",
     "switchToMainnet": "Switch to Mainnet",
     "thirdPartyAcknowledge": "I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.",
-    "thirdPartyDisclaimer": "This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
+    "thirdPartyDisclaimer": "This service is provided by Transak - an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
     "feedback": "We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>",
