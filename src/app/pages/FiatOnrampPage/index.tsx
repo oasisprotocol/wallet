@@ -14,6 +14,8 @@ import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { selectThirdPartyAcknowledged } from './slice/selectors'
 import { fiatOnrampActions } from './slice'
+import { useContext } from 'react'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 
 function HeaderLayout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
@@ -47,6 +49,7 @@ export function FiatOnramp() {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
   const thirdPartyAcknowledged = useSelector(selectThirdPartyAcknowledged)
+  const isSmallScreen = useContext(ResponsiveContext) === 'small' || window.innerHeight < 700 // TODO: make reactive
 
   if (selectedNetwork !== 'mainnet') {
     return (
@@ -122,37 +125,55 @@ export function FiatOnramp() {
             />
           </Box>
         ) : (
-          <iframe
-            height="875"
-            title="Transak On/Off Ramp Widget"
-            // Expands on https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
-            // and somewhat matches https://docs.transak.com/docs/web-integration#embediframe-webapp
-            allow="accelerometer;camera;microphone;fullscreen;gyroscope;payment"
-            // Restrict top-navigation
-            sandbox={[
-              'allow-downloads',
-              'allow-forms',
-              'allow-modals',
-              'allow-orientation-lock',
-              'allow-pointer-lock',
-              'allow-popups',
-              'allow-popups-to-escape-sandbox',
-              'allow-presentation',
-              'allow-same-origin',
-              'allow-scripts',
-              // 'allow-storage-access-by-user-activation',
-              // 'allow-top-navigation',
-              // 'allow-top-navigation-by-user-activation',
-            ].join(' ')}
-            src={transakUrl}
-            style={{
-              display: 'block',
-              width: '100%',
-              maxHeight: '875px',
-              borderRadius: '3px',
-              border: 'none',
-            }}
-          ></iframe>
+          <div>
+            {isSmallScreen ? (
+              <Button
+                href={transakUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                label={
+                  <span>
+                    {t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')} <ShareRounded />
+                  </span>
+                }
+                margin={{ top: 'small' }}
+                style={{ fontSize: '14px' }}
+                primary
+              />
+            ) : (
+              <iframe
+                height="875"
+                title="Transak On/Off Ramp Widget"
+                // Expands on https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
+                // and somewhat matches https://docs.transak.com/docs/web-integration#embediframe-webapp
+                allow="accelerometer;camera;microphone;fullscreen;gyroscope;payment"
+                // Restrict top-navigation
+                sandbox={[
+                  'allow-downloads',
+                  'allow-forms',
+                  'allow-modals',
+                  'allow-orientation-lock',
+                  'allow-pointer-lock',
+                  'allow-popups',
+                  'allow-popups-to-escape-sandbox',
+                  'allow-presentation',
+                  'allow-same-origin',
+                  'allow-scripts',
+                  // 'allow-storage-access-by-user-activation',
+                  // 'allow-top-navigation',
+                  // 'allow-top-navigation-by-user-activation',
+                ].join(' ')}
+                src={transakUrl}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  maxHeight: '875px',
+                  borderRadius: '3px',
+                  border: 'none',
+                }}
+              ></iframe>
+            )}
+          </div>
         )}
 
         <br />

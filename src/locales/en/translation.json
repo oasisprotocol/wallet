@@ -177,6 +177,7 @@
   },
   "fiatOnramp": {
     "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.",
+    "buyNowInNewTab": "Buy ROSE now",
     "description": "This feature allows you to convert your fiat currency into cryptocurrency.",
     "header": "Buy ROSE",
     "headerInWidget": "Purchase ROSE to your wallet",
