@@ -77,6 +77,19 @@ export function FiatOnramp() {
     )
   }
 
+  const transakUrl = `${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
+    // https://docs.transak.com/docs/query-parameters
+    apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
+    productsAvailed: 'BUY',
+    cryptoCurrencyCode: 'ROSE',
+    walletAddress: walletAddress,
+    disableWalletAddressForm: 'true',
+    isFeeCalculationHidden: 'false',
+
+    exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
+    themeColor: '0500e2',
+  }).toString()}`
+
   return (
     <Box gap="small">
       <HeaderLayout></HeaderLayout>
@@ -131,18 +144,7 @@ export function FiatOnramp() {
               // 'allow-top-navigation',
               // 'allow-top-navigation-by-user-activation',
             ].join(' ')}
-            src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
-              // https://docs.transak.com/docs/query-parameters
-              apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
-              productsAvailed: 'BUY',
-              cryptoCurrencyCode: 'ROSE',
-              walletAddress: walletAddress,
-              disableWalletAddressForm: 'true',
-              isFeeCalculationHidden: 'false',
-
-              exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
-              themeColor: '0500e2',
-            }).toString()}`}
+            src={transakUrl}
             style={{
               display: 'block',
               width: '100%',
