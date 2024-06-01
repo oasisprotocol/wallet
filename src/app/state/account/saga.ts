@@ -15,6 +15,7 @@ import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFa
 import { walletActions } from '../wallet'
 
 const ACCOUNT_REFETCHING_INTERVAL = process.env.REACT_APP_E2E_TEST ? 5 * 1000 : 30 * 1000
+const TRANSACTIONS_UPDATE_DELAY = 35 * 1000 // Measured between 8 and 31 second additional delay after balance updates
 const TRANSACTIONS_LIMIT = 20
 
 export function* fetchAccount(action: PayloadAction<string>) {
@@ -130,6 +131,8 @@ export function* fetchingOnAccountPage() {
             staleBalances.delegations !== refreshedAccount.delegations ||
             staleBalances.debonding !== refreshedAccount.debonding
           ) {
+            // Wait for oasisscan to update transactions (it updates balances faster)
+            yield* delay(TRANSACTIONS_UPDATE_DELAY)
             yield* call(fetchAccount, startAction)
             yield* call(stakingFetchAccount, startAction)
             yield* call(walletRefreshAccount, address)
