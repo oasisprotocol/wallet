@@ -11,17 +11,15 @@ describe('usePreventChangeOnNumberInputScroll', () => {
     const { getByRole } = render(<TextInputFormItem />)
 
     const numberInput = getByRole('input')
-
-    numberInput.blur = jest.fn()
-    const focusMock = jest.spyOn(numberInput, 'focus')
+    fireEvent.change(numberInput, { target: { value: '123' } })
 
     act(() => {
       fireEvent.focus(numberInput)
       fireEvent.wheel(numberInput)
     })
 
-    expect(numberInput.blur).toHaveBeenCalled()
-    await waitFor(() => expect(focusMock).toHaveBeenCalled())
+    waitFor(() => expect(numberInput).toHaveFocus())
+    expect(numberInput).toHaveValue(123)
   })
 
   it('Should not focus on input that is not focused', async () => {
@@ -29,14 +27,10 @@ describe('usePreventChangeOnNumberInputScroll', () => {
 
     const numberInput = getByRole('input')
 
-    numberInput.blur = jest.fn()
-    const focusMock = jest.spyOn(numberInput, 'focus')
-
     act(() => {
       fireEvent.wheel(numberInput)
     })
 
-    expect(numberInput.blur).toHaveBeenCalled()
-    await waitFor(() => expect(focusMock).not.toHaveBeenCalled())
+    expect(numberInput).not.toHaveFocus()
   })
 })
