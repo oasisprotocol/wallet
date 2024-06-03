@@ -212,6 +212,11 @@
       "header": "Access existing wallet"
     }
   },
+  "icons": {
+    "wallet": {
+      "label": "Wallet"
+    }
+  },
   "infoBox": {
     "valueCopied": "{{label}} copied."
   },
@@ -271,6 +276,11 @@
     "nextStep": "Next",
     "requiredField": "This field is required",
     "title": "Important Wallet Update"
+  },
+  "mobileUpdate": {
+    "updateDescription": "A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.",
+    "updateNow": "Update now",
+    "updatePending": "Update pending..."
   },
   "openWallet": {
     "bitpie": {

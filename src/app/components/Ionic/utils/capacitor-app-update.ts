@@ -5,13 +5,14 @@ export const updateAvailable = async () => {
   const result = await AppUpdate.getAppUpdateInfo()
   const { updateAvailability, currentVersionCode, availableVersionCode } = result
 
-  if (updateAvailability === AppUpdateAvailability.UPDATE_IN_PROGRESS) {
-    return undefined
-  }
-
-  // TODO: Skips in case there is no internet connection
-  if (updateAvailability !== AppUpdateAvailability.UPDATE_AVAILABLE) {
-    return false
+  switch (updateAvailability) {
+    case AppUpdateAvailability.UPDATE_IN_PROGRESS:
+      return undefined
+    case AppUpdateAvailability.UPDATE_NOT_AVAILABLE:
+      return false
+    // Returns UNKNOWN when unable to determine with mobile app store if update is available or not
+    case AppUpdateAvailability.UNKNOWN:
+      return true
   }
 
   if (Capacitor.getPlatform() === 'android') {
