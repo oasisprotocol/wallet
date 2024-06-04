@@ -1,23 +1,35 @@
-import { useEffect } from 'react'
-import { IonicProviderState } from '../providers/IonicContext'
+import { Dispatch, SetStateAction, useEffect } from 'react'
+import { IonicProviderState, UpdateAvailability } from '../providers/IonicContext'
 import { updateAvailable } from '../utils/capacitor-app-update'
 
-export const useIonicRequiresUpdate = (setState: (state: IonicProviderState) => void) => {
+export const useIonicRequiresUpdate = (
+  state: IonicProviderState,
+  setState: Dispatch<SetStateAction<IonicProviderState>>,
+) => {
+  const checkForUpdateAvailability = async () => {
+    if (state.updateAvailability === UpdateAvailability.LOADING) {
+      return
+    }
+
+    setState(prevState => ({ ...prevState, updateAvailability: UpdateAvailability.LOADING }))
+
+    try {
+      const updateAvailability = await updateAvailable()
+
+      setState(prevState => ({ ...prevState, updateAvailability }))
+    } catch (error) {
+      setState(prevState => ({
+        ...prevState,
+        updateAvailability: UpdateAvailability.ERROR,
+        error: error as Error,
+      }))
+    }
+  }
+
   useEffect(() => {
-    let inProgress = true
+    checkForUpdateAvailability()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    const init = async () => {
-      const requiresUpdate = await updateAvailable()
-
-      if (inProgress) {
-        setState({ requiresUpdate })
-      }
-    }
-
-    init()
-
-    return () => {
-      inProgress = false
-    }
-  }, [setState])
+  return { checkForUpdateAvailability }
 }

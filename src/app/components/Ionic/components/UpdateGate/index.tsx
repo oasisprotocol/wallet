@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren, useContext } from 'react'
-import { IonicContext } from '../../providers/IonicContext'
+import { IonicContext, UpdateAvailability } from '../../providers/IonicContext'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { navigateToAppStore } from '../../utils/capacitor-app-update'
@@ -14,6 +14,7 @@ import { MuiWalletIcon } from '../../../../../styles/theme/icons/mui-icons/MuiWa
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 
 const SpinKeyFrames = keyframes`
   0% {
@@ -37,30 +38,69 @@ const CTAButton = styled(Button)`
   border-radius: 8px;
 `
 
+const getUpdateStatusMap: (t: TFunction) => { [key in UpdateAvailability]?: any } = t => ({
+  [UpdateAvailability.UPDATE_AVAILABLE]: {
+    title: t('mobileUpdate.updateAvailableTitle', 'Update pending...'),
+    desc: t(
+      'mobileUpdate.updateAvailableDescription',
+      'A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.',
+    ),
+  },
+  [UpdateAvailability.UPDATE_IN_PROGRESS]: {
+    title: t('mobileUpdate.updateInProgressTitle', 'Update in progress...'),
+    desc: t(
+      'mobileUpdate.updateInProgressDescription',
+      'Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the "Retry" button.',
+    ),
+  },
+  [UpdateAvailability.UNKNOWN]: {
+    title: t('mobileUpdate.unknownTitle', 'Unknown error'),
+    desc: t(
+      'mobileUpdate.unknownOrErrorDescription',
+      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "Retry" button.',
+    ),
+  },
+  [UpdateAvailability.ERROR]: {
+    title: t('mobileUpdate.errorTitle', 'Unexpected error'),
+    desc: t(
+      'mobileUpdate.unknownOrErrorDescription',
+      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "Retry" button.',
+    ),
+  },
+})
+
 export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation()
   const isMobile = useContext(ResponsiveContext) === 'small'
   const {
-    state: { requiresUpdate },
+    state: { updateAvailability },
+    checkForUpdateAvailability,
   } = useContext(IonicContext)
 
-  if (requiresUpdate === false) return children
+  if (updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE) return children
 
   const handleNavigateToAppStore = () => {
     navigateToAppStore()
   }
+
+  const updateStatusMap = getUpdateStatusMap(t)
 
   return (
     <Box direction="column" background="brand-blue" fill pad="large" style={{ minHeight: '100dvh' }}>
       <Box alignSelf={isMobile ? 'start' : 'center'}>
         <img alt="ROSE Wallet" src={walletWhiteLogotype} style={{ height: '35px' }} />
       </Box>
-      {requiresUpdate === undefined && (
+      {[UpdateAvailability.NOT_INITIALIZED, UpdateAvailability.LOADING].includes(updateAvailability) && (
         <Box align="center" justify="center" flex="grow">
           <Spinner />
         </Box>
       )}
-      {requiresUpdate === true && (
+      {[
+        UpdateAvailability.UPDATE_AVAILABLE,
+        UpdateAvailability.UPDATE_IN_PROGRESS,
+        UpdateAvailability.UNKNOWN,
+        UpdateAvailability.ERROR,
+      ].includes(updateAvailability) && (
         <Box flex="grow">
           <Box align="center" justify="center" flex="grow">
             <Box margin={{ bottom: '70px', top: 'none' }} align="center">
@@ -74,7 +114,7 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
               textAlign={isMobile ? 'start' : 'center'}
               margin={{ bottom: 'small', top: 'none' }}
             >
-              <Text weight="bolder">{t('mobileUpdate.updatePending', 'Update pending...')}</Text>
+              <Text weight="bolder">{updateStatusMap[updateAvailability]?.title}</Text>
             </Paragraph>
             <Paragraph
               size="small"
@@ -83,26 +123,32 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
               textAlign={isMobile ? 'start' : 'center'}
               margin="none"
             >
-              {t(
-                'mobileUpdate.updateDescription',
-                'A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.',
-              )}
+              {updateStatusMap[updateAvailability]?.desc}
             </Paragraph>
           </Box>
           <Box align="center" justify="end" flex="shrink">
-            <CTAButton
-              type="button"
-              onClick={handleNavigateToAppStore}
-              margin="medium"
-              pad={{ vertical: 'small', horizontal: 'large' }}
-              label={
-                <Text color="brand-blue" weight="bolder" size="medium">
-                  {t('mobileUpdate.updateNow', 'Update now')}
+            {updateAvailability === UpdateAvailability.UPDATE_AVAILABLE && (
+              <CTAButton
+                type="button"
+                onClick={handleNavigateToAppStore}
+                margin="medium"
+                pad={{ vertical: 'small', horizontal: 'large' }}
+                label={
+                  <Text color="brand-blue" weight="bolder" size="medium">
+                    {t('mobileUpdate.updateNow', 'Update now')}
+                  </Text>
+                }
+                icon={<ShareRounded color="brand-blue" size="18px" />}
+                reverse
+              />
+            )}
+            {updateAvailability !== UpdateAvailability.UPDATE_AVAILABLE && (
+              <Button type="button" onClick={checkForUpdateAvailability}>
+                <Text color="white" weight="bolder" size="small">
+                  {t('mobileUpdate.retry', 'Retry')}
                 </Text>
-              }
-              icon={<ShareRounded color="brand-blue" size="18px" />}
-              reverse
-            />
+              </Button>
+            )}
           </Box>
         </Box>
       )}

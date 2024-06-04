@@ -212,13 +212,13 @@
       "header": "Access existing wallet"
     }
   },
+  "infoBox": {
+    "valueCopied": "{{label}} copied."
+  },
   "icons": {
     "wallet": {
       "label": "Wallet"
     }
-  },
-  "infoBox": {
-    "valueCopied": "{{label}} copied."
   },
   "language": "Language",
   "ledger": {
@@ -278,9 +278,15 @@
     "title": "Important Wallet Update"
   },
   "mobileUpdate": {
-    "updateDescription": "A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.",
-    "updateNow": "Update now",
-    "updatePending": "Update pending..."
+    "errorTitle": "Unexpected error",
+    "retry": "Retry",
+    "unknownOrErrorDescription": "Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the \"Retry\" button.",
+    "unknownTitle": "Unknown error",
+    "updateAvailableDescription": "A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.",
+    "updateAvailableTitle": "Update pending...",
+    "updateInProgressDescription": "Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the \"Retry\" button.",
+    "updateInProgressTitle": "Update in progress...",
+    "updateNow": "Update now"
   },
   "openWallet": {
     "bitpie": {

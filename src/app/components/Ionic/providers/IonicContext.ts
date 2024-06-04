@@ -1,17 +1,23 @@
 import { createContext } from 'react'
 
+export enum UpdateAvailability {
+  NOT_INITIALIZED,
+  LOADING,
+  UPDATE_AVAILABLE,
+  UPDATE_NOT_AVAILABLE,
+  UPDATE_IN_PROGRESS,
+  ERROR,
+  UNKNOWN,
+}
+
 export interface IonicProviderState {
-  /**
-   * Indicates whether an update is required.
-   * In an undefined state, it indicates that the application is currently in loading phase.
-   *
-   * @type {boolean | undefined}
-   */
-  requiresUpdate: boolean | undefined
+  updateAvailability: UpdateAvailability
+  error: Error | null
 }
 
 export interface IonicProviderContext {
   readonly state: IonicProviderState
+  checkForUpdateAvailability: () => void
 }
 
 export const IonicContext = createContext<IonicProviderContext>({} as IonicProviderContext)

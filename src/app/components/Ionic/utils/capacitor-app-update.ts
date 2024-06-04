@@ -1,26 +1,32 @@
-import { AppUpdate, AppUpdateAvailability } from '@capawesome/capacitor-app-update'
+import {
+  AppUpdate,
+  AppUpdateAvailability as IonicAppUpdateAvailability,
+} from '@capawesome/capacitor-app-update'
 import { Capacitor } from '@capacitor/core'
+import { UpdateAvailability } from '../providers/IonicContext'
 
-export const updateAvailable = async () => {
+// TODO: Skip on local builds
+export const updateAvailable = async (): Promise<UpdateAvailability> => {
   const result = await AppUpdate.getAppUpdateInfo()
   const { updateAvailability, currentVersionCode, availableVersionCode } = result
 
   switch (updateAvailability) {
-    case AppUpdateAvailability.UPDATE_IN_PROGRESS:
-      return undefined
-    case AppUpdateAvailability.UPDATE_NOT_AVAILABLE:
-      return false
+    case IonicAppUpdateAvailability.UPDATE_IN_PROGRESS:
+      return UpdateAvailability.UPDATE_IN_PROGRESS
+    case IonicAppUpdateAvailability.UPDATE_NOT_AVAILABLE:
+      return UpdateAvailability.UPDATE_NOT_AVAILABLE
     // Returns UNKNOWN when unable to determine with mobile app store if update is available or not
-    case AppUpdateAvailability.UNKNOWN:
-      return true
+    case IonicAppUpdateAvailability.UNKNOWN:
+      return UpdateAvailability.UNKNOWN
   }
 
-  if (Capacitor.getPlatform() === 'android') {
-    // Example of version code -> "1", "2", ...
-    return (
-      parseInt(availableVersionCode ?? `${Number.MAX_SAFE_INTEGER}`, 10) >
+  // Example of version code -> "1", "2", ...
+  if (
+    Capacitor.getPlatform() === 'android' &&
+    parseInt(availableVersionCode ?? `${Number.MAX_SAFE_INTEGER}`, 10) >
       parseInt(currentVersionCode ?? '0', 10)
-    )
+  ) {
+    return UpdateAvailability.UPDATE_AVAILABLE
   }
 
   // TODO: Add for iOS
