@@ -15,7 +15,8 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
-import { selectTicker } from '../../../../state/network/selectors'
+import { selectTicker } from 'app/state/network/selectors'
+import { usePreventChangeOnNumberInputScroll } from 'app/lib/usePreventChangeOnNumberInputScroll'
 
 export interface SendTransactionProps {
   isAddressInWallet: boolean
@@ -118,6 +119,7 @@ export function SendTransaction(props: SendTransactionProps) {
                 </Text>
               }
               reverse
+              {...usePreventChangeOnNumberInputScroll()}
             />
           </FormField>
           <Box direction="row" justify="between" margin={{ top: 'medium' }}>

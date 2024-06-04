@@ -20,6 +20,7 @@ import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { TransactionStatus } from '../TransactionStatus'
 import { selectTicker } from '../../state/network/selectors'
 import { AmountFormatter } from '../AmountFormatter'
+import { usePreventChangeOnNumberInputScroll } from '../../lib/usePreventChangeOnNumberInputScroll'
 
 interface Props {
   /** Currently delegated amount */
@@ -109,6 +110,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
               </Text>
             }
             reverse
+            {...usePreventChangeOnNumberInputScroll()}
           />
           <Box align="end" margin={{ top: 'xsmall' }}>
             <Text weight="bolder" size="small">
