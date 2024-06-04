@@ -14,8 +14,7 @@ import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { selectThirdPartyAcknowledged } from './slice/selectors'
 import { fiatOnrampActions } from './slice'
-import { useContext } from 'react'
-import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
+import { useState } from 'react'
 import { ShareRounded } from 'grommet-icons/es6/icons/ShareRounded'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 
@@ -53,7 +52,9 @@ export function FiatOnramp() {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
   const thirdPartyAcknowledged = useSelector(selectThirdPartyAcknowledged)
-  const isSmallScreen = useContext(ResponsiveContext) === 'small' || window.innerHeight < 700 // TODO: make reactive
+  // Intentionally not responsive. If it initializes with embedded iframe, user
+  // inputs some data, then resizes: do not lose user's inputs!
+  const [shouldOpenTransakInNewTab] = useState(window.innerWidth <= 768 || window.innerHeight <= 700)
 
   if (selectedNetwork !== 'mainnet') {
     return (
@@ -117,7 +118,7 @@ export function FiatOnramp() {
           </Box>
         ) : (
           <div>
-            {isSmallScreen ? (
+            {shouldOpenTransakInNewTab ? (
               <Button
                 href={transakUrl}
                 target="_blank"
