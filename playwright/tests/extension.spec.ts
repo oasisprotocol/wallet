@@ -43,7 +43,13 @@ test.describe('The extension popup should load', () => {
     await expect(popup.getByText('error').or(popup.getByText('fail'))).toBeHidden()
   })
 
-  test('should allow embedded Transak widget', async ({ page, extensionPopupURL }) => {
+  /**
+   * Extension should be able to show embedded Transak, but we currently link to
+   * it instead. Ext popup is too small and loses all progress when it closes.
+   */
+  test('should allow embedded Transak widget in large popups', async ({ page, extensionPopupURL }) => {
+    await page.setViewportSize({ width: 1280, height: 720 })
+
     await expectNoErrorsInConsole(page, {
       ignoreError: msg => {
         // Odd errors inside Transak

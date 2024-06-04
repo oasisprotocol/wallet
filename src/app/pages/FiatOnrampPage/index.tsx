@@ -14,8 +14,11 @@ import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { selectThirdPartyAcknowledged } from './slice/selectors'
 import { fiatOnrampActions } from './slice'
+import { useState } from 'react'
+import { ShareRounded } from 'grommet-icons/es6/icons/ShareRounded'
+import { Paragraph } from 'grommet/es6/components/Paragraph'
 
-function HeaderLayout(props: { children?: React.ReactNode }) {
+function Layout(props: { children?: React.ReactNode }) {
   const { t } = useTranslation()
   return (
     <Box
@@ -23,18 +26,20 @@ function HeaderLayout(props: { children?: React.ReactNode }) {
       border={{ color: 'background-front-border', size: '1px' }}
       background="background-front"
       pad="medium"
+      alignSelf="center"
+      width={{ max: '651px' }} // Padding + Transak threshold for >mobile layout
     >
       <Header>{t('fiatOnramp.header', 'Buy ROSE')}</Header>
-      <p>
-        {t(
-          'fiatOnramp.description',
-          'This feature allows you to convert your fiat currency into cryptocurrency.',
-        )}
-      </p>
 
-      <Box align="start" gap="medium">
-        {props.children}
-      </Box>
+      <Paragraph size="small" fill margin={{ top: '0px' }}>
+        {t('fiatOnramp.description', 'Convert your fiat currency into crypto.')}{' '}
+        {t(
+          'fiatOnramp.thirdPartyDisclaimer',
+          'This service is provided by Transak - an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
+        )}
+      </Paragraph>
+
+      {props.children}
     </Box>
   )
 }
@@ -47,56 +52,59 @@ export function FiatOnramp() {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
   const thirdPartyAcknowledged = useSelector(selectThirdPartyAcknowledged)
+  // Intentionally not responsive. If it initializes with embedded iframe, user
+  // inputs some data, then resizes: do not lose user's inputs!
+  const [shouldOpenTransakInNewTab] = useState(window.innerWidth <= 768 || window.innerHeight <= 700)
 
   if (selectedNetwork !== 'mainnet') {
     return (
-      <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
-        </AlertBox>
+      <Layout>
+        <Box align="start" gap="medium">
+          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
+            {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
+          </AlertBox>
 
-        <Button
-          onClick={() => dispatch(networkActions.selectNetwork('mainnet'))}
-          label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
-          primary
-        />
-      </HeaderLayout>
+          <Button
+            onClick={() => dispatch(networkActions.selectNetwork('mainnet'))}
+            label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
+            primary
+          />
+        </Box>
+      </Layout>
     )
   }
   if (accountIsLoading) {
-    return <HeaderLayout />
+    return <Layout />
   }
   if (!walletAddress || !isAddressInWallet) {
     return (
-      <HeaderLayout>
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
-        </AlertBox>
-        <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
-      </HeaderLayout>
+      <Layout>
+        <Box align="start" gap="medium">
+          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
+            {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
+          </AlertBox>
+          <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
+        </Box>
+      </Layout>
     )
   }
 
+  const transakUrl = `${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
+    // https://docs.transak.com/docs/query-parameters
+    apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
+    productsAvailed: 'BUY',
+    cryptoCurrencyCode: 'ROSE',
+    walletAddress: walletAddress,
+    disableWalletAddressForm: 'true',
+    isFeeCalculationHidden: 'false',
+
+    exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
+    themeColor: '0500e2',
+  }).toString()}`
+
   return (
-    <Box gap="small">
-      <HeaderLayout></HeaderLayout>
-
-      <Box
-        round="5px"
-        border={{ color: 'background-front-border', size: '1px' }}
-        background="background-front"
-        pad="medium"
-        alignSelf="center"
-        width="601px" // Transak threshold for >mobile layout
-        style={{ boxSizing: 'content-box' }}
-      >
-        <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-          {t(
-            'fiatOnramp.thirdPartyDisclaimer',
-            'This service is provided by an external party. Oasis* does not carry any responsibility. All fees charged by Transak.',
-          )}
-        </AlertBox>
-
+    <Layout>
+      <Box align="stretch" gap="large">
         {!thirdPartyAcknowledged ? (
           <Box margin={{ top: '20px' }}>
             <CheckBox
@@ -109,51 +117,58 @@ export function FiatOnramp() {
             />
           </Box>
         ) : (
-          <iframe
-            height="875"
-            title="Transak On/Off Ramp Widget"
-            // Expands on https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
-            // and somewhat matches https://docs.transak.com/docs/web-integration#embediframe-webapp
-            allow="accelerometer;camera;microphone;fullscreen;gyroscope;payment"
-            // Restrict top-navigation
-            sandbox={[
-              'allow-downloads',
-              'allow-forms',
-              'allow-modals',
-              'allow-orientation-lock',
-              'allow-pointer-lock',
-              'allow-popups',
-              'allow-popups-to-escape-sandbox',
-              'allow-presentation',
-              'allow-same-origin',
-              'allow-scripts',
-              // 'allow-storage-access-by-user-activation',
-              // 'allow-top-navigation',
-              // 'allow-top-navigation-by-user-activation',
-            ].join(' ')}
-            src={`${process.env.REACT_APP_TRANSAK_URL}/?${new URLSearchParams({
-              // https://docs.transak.com/docs/query-parameters
-              apiKey: process.env.REACT_APP_TRANSAK_PARTNER_ID,
-              productsAvailed: 'BUY',
-              cryptoCurrencyCode: 'ROSE',
-              walletAddress: walletAddress,
-              disableWalletAddressForm: 'true',
-              isFeeCalculationHidden: 'false',
-
-              exchangeScreenTitle: t('fiatOnramp.headerInWidget', 'Purchase ROSE to your wallet'),
-              themeColor: '0500e2',
-            }).toString()}`}
-            style={{
-              display: 'block',
-              width: '100%',
-              maxHeight: '875px',
-              borderRadius: '3px',
-              border: 'none',
-            }}
-          ></iframe>
+          <div>
+            {shouldOpenTransakInNewTab ? (
+              <Button
+                href={transakUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                label={
+                  <span>
+                    {t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')} <ShareRounded />
+                  </span>
+                }
+                fill="horizontal"
+                margin={{ top: 'small' }}
+                style={{ fontSize: '14px', textAlign: 'center' }}
+                primary
+              />
+            ) : (
+              <iframe
+                height="875"
+                title="Transak On/Off Ramp Widget"
+                // Expands on https://github.com/Transak/transak-sdk/blob/2ebb3bd/src/index.js#L52
+                // and somewhat matches https://docs.transak.com/docs/web-integration#embediframe-webapp
+                allow="accelerometer;camera;microphone;fullscreen;gyroscope;payment"
+                // Restrict top-navigation
+                sandbox={[
+                  'allow-downloads',
+                  'allow-forms',
+                  'allow-modals',
+                  'allow-orientation-lock',
+                  'allow-pointer-lock',
+                  'allow-popups',
+                  'allow-popups-to-escape-sandbox',
+                  'allow-presentation',
+                  'allow-same-origin',
+                  'allow-scripts',
+                  // 'allow-storage-access-by-user-activation',
+                  // 'allow-top-navigation',
+                  // 'allow-top-navigation-by-user-activation',
+                ].join(' ')}
+                src={transakUrl}
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  maxHeight: '875px',
+                  borderRadius: '3px',
+                  border: 'none',
+                }}
+              ></iframe>
+            )}
+          </div>
         )}
 
-        <br />
         <AlertBox status="info">
           <Box direction="row" gap="xsmall">
             <span>*</span>
@@ -166,6 +181,6 @@ export function FiatOnramp() {
           </Box>
         </AlertBox>
       </Box>
-    </Box>
+    </Layout>
   )
 }
