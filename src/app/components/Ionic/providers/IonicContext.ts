@@ -18,6 +18,7 @@ export interface IonicProviderState {
 export interface IonicProviderContext {
   readonly state: IonicProviderState
   checkForUpdateAvailability: () => void
+  skipUpdate: () => void
 }
 
 export const IonicContext = createContext<IonicProviderContext>({} as IonicProviderContext)

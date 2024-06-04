@@ -38,7 +38,9 @@ const CTAButton = styled(Button)`
   border-radius: 8px;
 `
 
-const getUpdateStatusMap: (t: TFunction) => { [key in UpdateAvailability]?: any } = t => ({
+const getUpdateStatusMap: (t: TFunction) => {
+  [key in UpdateAvailability]?: { title: string; desc: string }
+} = t => ({
   [UpdateAvailability.UPDATE_AVAILABLE]: {
     title: t('mobileUpdate.updateAvailableTitle', 'Update pending...'),
     desc: t(
@@ -50,21 +52,24 @@ const getUpdateStatusMap: (t: TFunction) => { [key in UpdateAvailability]?: any 
     title: t('mobileUpdate.updateInProgressTitle', 'Update in progress...'),
     desc: t(
       'mobileUpdate.updateInProgressDescription',
-      'Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the "Retry" button.',
+      'Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the "{{retryButtonLabel}}" button.',
+      { retryButtonLabel: t('mobileUpdate.retry', 'Retry') },
     ),
   },
   [UpdateAvailability.UNKNOWN]: {
     title: t('mobileUpdate.unknownTitle', 'Unknown error'),
     desc: t(
       'mobileUpdate.unknownOrErrorDescription',
-      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "Retry" button.',
+      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "{{retryButtonLabel}}" button.',
+      { retryButtonLabel: t('mobileUpdate.retry', 'Retry') },
     ),
   },
   [UpdateAvailability.ERROR]: {
     title: t('mobileUpdate.errorTitle', 'Unexpected error'),
     desc: t(
       'mobileUpdate.unknownOrErrorDescription',
-      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "Retry" button.',
+      'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "{{retryButtonLabel}}" button.',
+      { retryButtonLabel: t('mobileUpdate.retry', 'Retry') },
     ),
   },
 })
@@ -75,6 +80,7 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   const {
     state: { updateAvailability },
     checkForUpdateAvailability,
+    skipUpdate,
   } = useContext(IonicContext)
 
   if (updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE) return children
@@ -143,9 +149,22 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
               />
             )}
             {updateAvailability !== UpdateAvailability.UPDATE_AVAILABLE && (
-              <Button type="button" onClick={checkForUpdateAvailability}>
+              <CTAButton
+                type="button"
+                onClick={checkForUpdateAvailability}
+                margin="medium"
+                pad={{ vertical: 'small', horizontal: 'large' }}
+                label={
+                  <Text color="brand-blue" weight="bolder" size="medium">
+                    {t('mobileUpdate.retry', 'Retry')}
+                  </Text>
+                }
+              />
+            )}
+            {[UpdateAvailability.UNKNOWN, UpdateAvailability.ERROR].includes(updateAvailability) && (
+              <Button type="button" onClick={skipUpdate}>
                 <Text color="white" weight="bolder" size="small">
-                  {t('mobileUpdate.retry', 'Retry')}
+                  {t('mobileUpdate.later', 'Later')}
                 </Text>
               </Button>
             )}

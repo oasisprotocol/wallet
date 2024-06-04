@@ -31,5 +31,9 @@ export const useIonicRequiresUpdate = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { checkForUpdateAvailability }
+  const skipUpdate = () => {
+    setState(prevState => ({ ...prevState, updateAvailability: UpdateAvailability.UPDATE_NOT_AVAILABLE }))
+  }
+
+  return { checkForUpdateAvailability, skipUpdate }
 }

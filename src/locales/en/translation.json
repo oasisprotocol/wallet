@@ -279,12 +279,13 @@
   },
   "mobileUpdate": {
     "errorTitle": "Unexpected error",
+    "later": "Later",
     "retry": "Retry",
-    "unknownOrErrorDescription": "Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the \"Retry\" button.",
+    "unknownOrErrorDescription": "Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the \"{{retryButtonLabel}}\" button.",
     "unknownTitle": "Unknown error",
     "updateAvailableDescription": "A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.",
     "updateAvailableTitle": "Update pending...",
-    "updateInProgressDescription": "Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the \"Retry\" button.",
+    "updateInProgressDescription": "Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the \"{{retryButtonLabel}}\" button.",
     "updateInProgressTitle": "Update in progress...",
     "updateNow": "Update now"
   },

@@ -12,13 +12,14 @@ const ionicProviderInitialState: IonicProviderState = {
 export const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [state, setState] = useState<IonicProviderState>({ ...ionicProviderInitialState })
 
-  const { checkForUpdateAvailability } = useIonicRequiresUpdate(state, setState)
+  const { checkForUpdateAvailability, skipUpdate } = useIonicRequiresUpdate(state, setState)
   useIonicAppStateChangeListener()
   useIonicBackButtonListener()
 
   const providerState: IonicProviderContext = {
     state,
     checkForUpdateAvailability,
+    skipUpdate,
   }
 
   return <IonicContext.Provider value={providerState}>{children}</IonicContext.Provider>
