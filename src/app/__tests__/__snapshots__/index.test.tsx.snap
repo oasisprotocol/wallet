@@ -2,7 +2,7 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <FatalErrorHandler>
-  <IonicProvider>
+  <IonicNativePlatformProvider>
     <ModalProvider>
       <Helmet
         defaultTitle="ROSE Wallet"
@@ -53,6 +53,6 @@ exports[`<App /> should render and match the snapshot 1`] = `
         </PersistLoadingGate>
       </Box>
     </ModalProvider>
-  </IonicProvider>
+  </IonicNativePlatformProvider>
 </FatalErrorHandler>
 `;

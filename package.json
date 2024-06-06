@@ -63,6 +63,7 @@
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.0.0",
     "@capacitor/ios": "6.0.0",
+    "@capawesome/capacitor-app-update": "6.0.0",
     "@ethereumjs/util": "9.0.3",
     "@ledgerhq/hw-transport-webusb": "6.28.5",
     "@metamask/browser-passworder": "=3.0.0",
