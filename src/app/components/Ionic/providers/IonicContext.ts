@@ -10,13 +10,13 @@ export enum UpdateAvailability {
   UNKNOWN,
 }
 
-export interface IonicProviderState {
+export interface IonicRequiresUpdateState {
   updateAvailability: UpdateAvailability
   error: Error | null
 }
 
 export interface IonicProviderContext {
-  readonly state: IonicProviderState
+  readonly requiresUpdateState: IonicRequiresUpdateState
   checkForUpdateAvailability: () => void
   skipUpdate: () => void
 }

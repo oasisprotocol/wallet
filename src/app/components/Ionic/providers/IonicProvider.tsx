@@ -1,23 +1,16 @@
-import { FC, PropsWithChildren, useState } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import { useIonicBackButtonListener } from '../hooks/useIonicBackButtonListener'
 import { useIonicAppStateChangeListener } from '../hooks/useIonicAppStateChangeListener'
-import { IonicContext, IonicProviderContext, IonicProviderState, UpdateAvailability } from './IonicContext'
+import { IonicContext, IonicProviderContext } from './IonicContext'
 import { useIonicRequiresUpdate } from '../hooks/useIonicRequiresUpdate'
 
-const ionicProviderInitialState: IonicProviderState = {
-  updateAvailability: UpdateAvailability.NOT_INITIALIZED,
-  error: null,
-}
-
 export const IonicContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [state, setState] = useState<IonicProviderState>({ ...ionicProviderInitialState })
-
-  const { checkForUpdateAvailability, skipUpdate } = useIonicRequiresUpdate(state, setState)
+  const { requiresUpdateState, checkForUpdateAvailability, skipUpdate } = useIonicRequiresUpdate()
   useIonicAppStateChangeListener()
   useIonicBackButtonListener()
 
   const providerState: IonicProviderContext = {
-    state,
+    requiresUpdateState,
     checkForUpdateAvailability,
     skipUpdate,
   }

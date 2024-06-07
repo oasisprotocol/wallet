@@ -1,11 +1,15 @@
-import { Dispatch, SetStateAction, useEffect } from 'react'
-import { IonicProviderState, UpdateAvailability } from '../providers/IonicContext'
+import { useEffect, useState } from 'react'
+import { IonicRequiresUpdateState, UpdateAvailability } from '../providers/IonicContext'
 import { updateAvailable } from '../utils/capacitor-app-update'
 
-export const useIonicRequiresUpdate = (
-  state: IonicProviderState,
-  setState: Dispatch<SetStateAction<IonicProviderState>>,
-) => {
+const ionicRequiresUpdateInitialState: IonicRequiresUpdateState = {
+  updateAvailability: UpdateAvailability.NOT_INITIALIZED,
+  error: null,
+}
+
+export const useIonicRequiresUpdate = () => {
+  const [state, setState] = useState<IonicRequiresUpdateState>({ ...ionicRequiresUpdateInitialState })
+
   const checkForUpdateAvailability = async () => {
     if (state.updateAvailability === UpdateAvailability.LOADING) {
       return
@@ -35,5 +39,5 @@ export const useIonicRequiresUpdate = (
     setState(prevState => ({ ...prevState, updateAvailability: UpdateAvailability.UPDATE_NOT_AVAILABLE }))
   }
 
-  return { checkForUpdateAvailability, skipUpdate }
+  return { requiresUpdateState: state, checkForUpdateAvailability, skipUpdate }
 }

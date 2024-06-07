@@ -78,7 +78,7 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation()
   const isMobile = useContext(ResponsiveContext) === 'small'
   const {
-    state: { updateAvailability },
+    requiresUpdateState: { updateAvailability },
     checkForUpdateAvailability,
     skipUpdate,
   } = useContext(IonicContext)
