@@ -1,7 +1,7 @@
 import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
-import { Transaction, TransactionType } from 'app/state/transaction/types'
+import { Transaction, TransactionStatus, TransactionType } from 'app/state/transaction/types'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import {
   AccountsApi,
@@ -158,7 +158,7 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
         from: t.ctx.from,
         hash: t.txHash,
         level: undefined,
-        status: t.result,
+        status: t.result ? TransactionStatus.Successful : TransactionStatus.Failed,
         timestamp: t.timestamp * 1000,
         to: t.ctx.to ?? undefined,
         type: transactionMethodMap[t.ctx.method] ?? t.ctx.method,
@@ -174,7 +174,7 @@ export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionI
         from: t.from,
         hash: t.txHash,
         level: t.height,
-        status: t.status,
+        status: t.status ? TransactionStatus.Successful : TransactionStatus.Failed,
         timestamp: t.timestamp * 1000,
         to: t.to ?? undefined,
         type: transactionMethodMap[t.method] ?? t.method,

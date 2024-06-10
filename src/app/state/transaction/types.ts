@@ -32,13 +32,18 @@ export enum TransactionType {
   ConsensusAccount = 'consensus.Account',
 }
 
+export enum TransactionStatus {
+  Failed,
+  Successful,
+}
+
 export interface Transaction {
   amount: StringifiedBigInt | undefined
   fee: StringifiedBigInt | undefined
   from: string | undefined
   hash: string
   level: number | undefined
-  status: boolean | undefined
+  status: TransactionStatus | undefined
   timestamp: number | undefined
   to: string | undefined
   type: TransactionType

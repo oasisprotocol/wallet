@@ -38,6 +38,7 @@ import { intlDateTimeFormat } from '../DateFormatter/intlDateTimeFormat'
 import { trimLongString } from '../ShortAddress/trimLongString'
 import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'
+import { TransactionStatus } from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
 import { config } from 'config'
 import { backend } from 'vendors/backend'
@@ -479,8 +480,12 @@ export function Transaction(props: TransactionProps) {
           <Text weight="bold" size={isMobile ? 'medium' : 'xlarge'}>
             <AmountFormatter amount={transaction.amount!} smallTicker />
           </Text>
-          <Text color={transaction.status ? 'successful-label' : 'status-error'} size="small" weight="bold">
-            {transaction.status ? (
+          <Text
+            color={transaction.status === TransactionStatus.Successful ? 'successful-label' : 'status-error'}
+            size="small"
+            weight="bold"
+          >
+            {transaction.status === TransactionStatus.Successful ? (
               <span>{t('account.transaction.successful', 'Successful')}</span>
             ) : (
               <span>{t('account.transaction.failed', 'Failed')}</span>
