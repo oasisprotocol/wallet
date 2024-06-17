@@ -60,10 +60,14 @@ export function FiatOnramp() {
     return (
       <Layout>
         <Box align="start" gap="medium">
-          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-            {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
-          </AlertBox>
-
+          <AlertBox
+            status="error"
+            icon={<CircleAlert size="24px" />}
+            content={t(
+              'fiatOnramp.notMainnet',
+              'You can only use this feature when your are on the mainnet.',
+            )}
+          />
           <Button
             onClick={() => dispatch(networkActions.selectNetwork('mainnet'))}
             label={t('fiatOnramp.switchToMainnet', 'Switch to Mainnet')}
@@ -80,9 +84,14 @@ export function FiatOnramp() {
     return (
       <Layout>
         <Box align="start" gap="medium">
-          <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-            {t('fiatOnramp.notYourAccount', 'You can only use this feature when your wallet is open.')}
-          </AlertBox>
+          <AlertBox
+            status="error"
+            icon={<CircleAlert size="24px" />}
+            content={t(
+              'fiatOnramp.notYourAccount',
+              'You can only use this feature when your wallet is open.',
+            )}
+          />
           <ButtonLink to="/" label={t('fiatOnramp.openYourWallet', 'Open your wallet')} primary />
         </Box>
       </Layout>
@@ -169,17 +178,20 @@ export function FiatOnramp() {
           </div>
         )}
 
-        <AlertBox status="info">
-          <Box direction="row" gap="xsmall">
-            <span>*</span>
-            <span>
-              {t(
-                'fiatOnramp.astarFootnote',
-                'It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.',
-              )}
-            </span>
-          </Box>
-        </AlertBox>
+        <AlertBox
+          status="info"
+          content={
+            <Box direction="row" gap="xsmall">
+              <span>*</span>
+              <span>
+                {t(
+                  'fiatOnramp.astarFootnote',
+                  'It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.',
+                )}
+              </span>
+            </Box>
+          }
+        />
       </Box>
     </Layout>
   )

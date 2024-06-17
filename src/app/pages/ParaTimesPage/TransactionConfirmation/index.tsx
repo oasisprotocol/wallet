@@ -35,11 +35,14 @@ export const ConfirmationCheckbox = ({
   return (
     <Box margin={{ bottom: 'medium' }}>
       <Box margin={{ bottom: 'small' }} responsive={false}>
-        <AlertBox status={warning ? 'warning' : 'error'}>
-          <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
-            {description}
-          </Text>
-        </AlertBox>
+        <AlertBox
+          status={warning ? 'warning' : 'error'}
+          content={
+            <Text textAlign="center" size={isMobile ? '16px' : 'medium'}>
+              {description}
+            </Text>
+          }
+        />
       </Box>
       <FormField name={name} required>
         <CheckBox checked={checked} label={label} name={name} />

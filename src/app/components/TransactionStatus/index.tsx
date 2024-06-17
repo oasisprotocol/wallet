@@ -21,17 +21,16 @@ export const TransactionStatus = memo((props: Props) => {
   return (
     <>
       {error && (
-        <AlertBox status="error">
-          <ErrorFormatter code={error.code} message={error.message} />
-        </AlertBox>
+        <AlertBox status="error" content={<ErrorFormatter code={error.code} message={error.message} />} />
       )}
       {success && (
-        <AlertBox status="ok-weak">
-          {t(
+        <AlertBox
+          status="ok-weak"
+          content={t(
             'account.sendTransaction.success',
             'Transaction successfully sent. The transaction might take up to a minute to appear on your account.',
           )}
-        </AlertBox>
+        />
       )}
     </>
   )

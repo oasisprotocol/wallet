@@ -115,19 +115,29 @@ export function AccountPage(props: AccountPageProps) {
         </Layer>
       )}
       {account.accountError && (
-        <AlertBox status="error">
-          {t('account.loadingError', "Couldn't load account.")}{' '}
-          <ErrorFormatter code={account.accountError.code} message={account.accountError.message} />
-        </AlertBox>
+        <AlertBox
+          status="error"
+          content={
+            <>
+              {t('account.loadingError', "Couldn't load account.")}{' '}
+              <ErrorFormatter code={account.accountError.code} message={account.accountError.message} />
+            </>
+          }
+        />
       )}
       {stake.updateDelegationsError && (
-        <AlertBox status="error">
-          {t('delegations.loadingError', "Couldn't load delegations.")}{' '}
-          <ErrorFormatter
-            code={stake.updateDelegationsError.code}
-            message={stake.updateDelegationsError.message}
-          />
-        </AlertBox>
+        <AlertBox
+          status="error"
+          content={
+            <>
+              {t('delegations.loadingError', "Couldn't load delegations.")}{' '}
+              <ErrorFormatter
+                code={stake.updateDelegationsError.code}
+                message={stake.updateDelegationsError.message}
+              />
+            </>
+          }
+        />
       )}
       {address && address !== '' && (
         <>

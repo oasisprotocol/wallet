@@ -117,20 +117,24 @@ export function AccountSummary({
     <>
       <Box margin={{ bottom: 'small' }}>
         {(!walletHasAccounts || wallet?.address !== address) && (
-          <AlertBox status="error">
-            {t('account.summary.notYourAccount', 'This is not your account.')}
-          </AlertBox>
+          <AlertBox
+            status="error"
+            content={t('account.summary.notYourAccount', 'This is not your account.')}
+          />
         )}
         {!walletHasAccounts && (
-          <AlertBox status="error">
-            <Trans
-              i18nKey="account.summary.noWalletIsOpen"
-              t={t}
-              components={{ HomeLink: <AnchorLink to="/" /> }}
-              values={{ ticker }}
-              defaults="To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>."
-            />
-          </AlertBox>
+          <AlertBox
+            status="error"
+            content={
+              <Trans
+                i18nKey="account.summary.noWalletIsOpen"
+                t={t}
+                components={{ HomeLink: <AnchorLink to="/" /> }}
+                values={{ ticker }}
+                defaults="To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>."
+              />
+            }
+          />
         )}
       </Box>
       <Box

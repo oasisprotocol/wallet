@@ -68,9 +68,10 @@ export function CreateWalletPage(props: CreateWalletProps) {
   return (
     <>
       {showMnemonicMismatch && (
-        <AlertBox status="error">
-          {t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}
-        </AlertBox>
+        <AlertBox
+          status="error"
+          content={t('createWallet.mnemonicMismatch', 'Entered mnemonic does not match.')}
+        />
       )}
       {showConfirmation && (
         <Layer
@@ -135,12 +136,13 @@ export function CreateWalletPage(props: CreateWalletProps) {
               ></Trans>
             </Text>
           </Box>
-          <AlertBox status="warning">
-            {t(
+          <AlertBox
+            status="warning"
+            content={t(
               'createWallet.doNotShare',
               'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
             )}
-          </AlertBox>
+          />
           <Box pad={{ vertical: 'medium' }}>
             <CheckBox
               label={t('createWallet.confirmSaved', 'I saved my keyphrase')}

@@ -77,12 +77,11 @@ export function TransactionModal() {
                   <Alert size="20px" color="alert-box-warning-background" />
                 </Box>
               }
-            >
-              {t(
+              content={t(
                 'transaction.preview.warning',
                 'Once you confirm this transaction you will not be able to cancel it. Carefully review it, and confirm once you are sure that you want to send it.',
               )}
-            </AlertBox>
+            />
           </StyledBox>
           {preview && (
             <TransactionPreview

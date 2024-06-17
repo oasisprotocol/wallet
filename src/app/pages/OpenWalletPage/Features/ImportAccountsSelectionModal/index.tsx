@@ -119,9 +119,10 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
               </Box>
             )}
             {error && (
-              <AlertBox status="error">
-                <ErrorFormatter code={error.code} message={error.message} />
-              </AlertBox>
+              <AlertBox
+                status="error"
+                content={<ErrorFormatter code={error.code} message={error.message} />}
+              />
             )}
           </Box>
           <Box direction="row" gap="large" justify="center" align="baseline" pad={{ top: 'medium' }}>

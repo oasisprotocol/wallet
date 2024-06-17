@@ -172,9 +172,7 @@ function DemoAlertBoxes() {
 function DemoAlertBox({ status }: { status: AlertBoxStatus }) {
   return (
     <>
-      <AlertBox status={status} icon={<Info />}>
-        LOREM {status}
-      </AlertBox>
+      <AlertBox status={status} icon={<Info />} content={<>LOREM {status}</>} />
       <br />
     </>
   )

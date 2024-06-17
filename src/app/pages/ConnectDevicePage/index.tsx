@@ -123,9 +123,10 @@ export function ConnectDevicePage() {
                 label={t('ledger.extension.failed', 'Connection failed')}
                 withMargin
               />
-              <AlertBox status="error">
-                <ErrorFormatter code={WalletErrors.LedgerNoDeviceSelected} />
-              </AlertBox>
+              <AlertBox
+                status="error"
+                content={<ErrorFormatter code={WalletErrors.LedgerNoDeviceSelected} />}
+              />
             </Box>
           )}
           {connection !== 'connected' && (

@@ -2,18 +2,26 @@ import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { normalizeColor } from 'grommet/es6/utils'
 import * as React from 'react'
-import { useContext } from 'react'
+import { ReactElement, useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 
 export type AlertBoxStatus = 'error' | 'warning' | 'warning-weak' | 'ok' | 'ok-weak' | 'info'
 
-interface Props {
+type Props = {
   status: AlertBoxStatus
   center?: boolean
-  /** Example `icon={<Info size="20px" />}` */
-  icon?: React.ReactNode
-  children: React.ReactNode
-}
+} & (
+  | {
+      content: React.ReactNode
+      icon?: React.ReactNode
+      children?: undefined
+    }
+  | {
+      children: ReactElement | Iterable<React.ReactNode>
+      content?: undefined
+      icon?: undefined
+    }
+)
 
 const mapStatus = {
   error: {
@@ -61,12 +69,15 @@ export function AlertBox(props: Props) {
       background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
-      <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
-        {props.icon && <Text color={color}>{props.icon}</Text>}
-        <Text weight="bold" size="12px" style={{ marginTop: 10, marginBottom: 10 }}>
-          {props.children}
-        </Text>
-      </Box>
+      {!props.children && props.content && (
+        <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
+          {props.icon && <Text color={color}>{props.icon}</Text>}
+          <Text weight="bold" size="12px" style={{ marginTop: 10, marginBottom: 10 }}>
+            {props.content}
+          </Text>
+        </Box>
+      )}
+      {props.children}
     </Box>
   )
 }
