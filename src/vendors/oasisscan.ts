@@ -18,12 +18,12 @@ import {
   RuntimeTransactionInfoRow,
 } from 'vendors/oasisscan/index'
 
-import { throwAPIErrors } from './helpers'
+import { APIMiddleware } from './helpers'
 
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
   const explorerConfig = new Configuration({
     basePath: url,
-    ...throwAPIErrors,
+    ...APIMiddleware(),
   })
 
   const accounts = new AccountsApi(explorerConfig)

@@ -16,12 +16,12 @@ import {
 } from 'vendors/explorer'
 import { addressToPublicKey } from 'app/lib/helpers'
 
-import { throwAPIErrors } from './helpers'
+import { APIMiddleware } from './helpers'
 
 export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
   const explorerConfig = new Configuration({
     basePath: url,
-    ...throwAPIErrors,
+    ...APIMiddleware(),
   })
 
   const accounts = new AccountsApi(explorerConfig)
