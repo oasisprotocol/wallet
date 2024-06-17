@@ -16,17 +16,24 @@ import {
   OperationsRowMethodEnum,
   ParaTimeCtxRowMethodEnum,
   RuntimeTransactionInfoRow,
+  ConfigurationParameters,
 } from 'vendors/oasisscan/index'
 
 import { APIMiddleware } from './helpers'
 
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
-  const explorerConfig = new Configuration({
+  const configurationParameters: ConfigurationParameters = {
     basePath: url,
-    ...APIMiddleware(),
+  }
+
+  const explorerConfig = new Configuration({ ...configurationParameters, ...APIMiddleware() })
+  const explorerWithCacheConfig = new Configuration({
+    ...configurationParameters,
+    ...APIMiddleware({ cache: true }),
   })
 
-  const accounts = new AccountsApi(explorerConfig)
+  // const accounts = new AccountsApi(explorerConfig)
+  const accounts = new AccountsApi(explorerWithCacheConfig)
   const operations = new OperationsListApi(explorerConfig)
   const runtime = new RuntimeApi(explorerConfig)
 
@@ -197,6 +204,7 @@ export function parseDelegations(delegations: DelegationRow[]): Delegation[] {
     return parsed
   })
 }
+
 export function parseDebonding(debonding: DebondingDelegationRow[]): DebondingDelegation[] {
   return debonding.map(debonding => {
     const parsed: DebondingDelegation = {
