@@ -181,7 +181,7 @@
     "description": "Convert your fiat currency into crypto.",
     "header": "Buy ROSE",
     "headerInWidget": "Purchase ROSE to your wallet",
-    "notMainnet": "You can only use this feature when your are on the mainnet.",
+    "notMainnet": "You can only use this feature when you are on the mainnet.",
     "notYourAccount": "You can only use this feature when your wallet is open.",
     "openYourWallet": "Open your wallet",
     "switchToMainnet": "Switch to Mainnet",
