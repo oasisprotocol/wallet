@@ -457,6 +457,7 @@ components:
             - beacon.PVSSReveal
             - beacon.VRFProve
             - consensus.Meta
+            - vault.Create
         fee:
           type: string
         amount:

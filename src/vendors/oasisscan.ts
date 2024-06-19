@@ -142,6 +142,7 @@ export const transactionMethodMap: {
   [OperationsRowMethodEnum.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
   [OperationsRowMethodEnum.BeaconVrfProve]: TransactionType.BeaconVrfProve,
   [OperationsRowMethodEnum.ConsensusMeta]: TransactionType.ConsensusMeta,
+  [OperationsRowMethodEnum.VaultCreate]: TransactionType.VaultCreate,
   [ParaTimeCtxRowMethodEnum.ConsensusDeposit]: TransactionType.ConsensusDeposit,
   [ParaTimeCtxRowMethodEnum.ConsensusWithdraw]: TransactionType.ConsensusWithdraw,
   [ParaTimeCtxRowMethodEnum.ConsensusAccountsParameters]: TransactionType.ConsensusAccountsParameters,

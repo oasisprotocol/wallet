@@ -382,6 +382,10 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Received]: genericTransaction,
       [TransactionSide.Sent]: genericTransaction,
     },
+    [transactionTypes.TransactionType.VaultCreate]: {
+      [TransactionSide.Received]: genericTransaction,
+      [TransactionSide.Sent]: genericTransaction,
+    },
   }
 
   const isTypeRecognized = (type: string | undefined): type is transactionTypes.TransactionType =>
