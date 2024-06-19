@@ -61,7 +61,7 @@ export function FiatOnramp() {
       <Layout>
         <Box align="start" gap="medium">
           <AlertBox status="error" icon={<CircleAlert size="24px" />}>
-            {t('fiatOnramp.notMainnet', 'You can only use this feature when your are on the mainnet.')}
+            {t('fiatOnramp.notMainnet', 'You can only use this feature when you are on the mainnet.')}
           </AlertBox>
 
           <Button

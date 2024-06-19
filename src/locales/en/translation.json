@@ -173,7 +173,7 @@
     "description": "The error that has occurred triggers the wallet to stop. <strong>Your funds are safe.</strong><br/><br/>Please try refreshing the page and reopening your wallet to see if the issue persists. You can check the current status of the network below.",
     "heading": "An error occurred.",
     "instruction": "If the issue is not resolved after refreshing, please email our support team at  <Email/> and attach the error report.",
-    "reloadExtension": "Reload extension"
+    "reloadApp": "Reload app"
   },
   "fiatOnramp": {
     "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.",
@@ -181,7 +181,7 @@
     "description": "Convert your fiat currency into crypto.",
     "header": "Buy ROSE",
     "headerInWidget": "Purchase ROSE to your wallet",
-    "notMainnet": "You can only use this feature when your are on the mainnet.",
+    "notMainnet": "You can only use this feature when you are on the mainnet.",
     "notYourAccount": "You can only use this feature when your wallet is open.",
     "openYourWallet": "Open your wallet",
     "switchToMainnet": "Switch to Mainnet",

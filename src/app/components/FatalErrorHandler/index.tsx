@@ -104,15 +104,16 @@ export function FatalErrorHandler({ children }: Props) {
             }
           />
         </Box>
-        {isExtension && (
-          <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
-            <BrandButton
-              onClick={() => (window as any).chrome?.runtime?.reload()}
-              icon={<Refresh />}
-              label={t('fatalError.reloadExtension', 'Reload extension')}
-            />
-          </Box>
-        )}
+        <Box align={isMobile ? 'stretch' : 'end'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
+          <BrandButton
+            onClick={() => {
+              ;(window as any).chrome?.runtime?.reload()
+              window.location.reload()
+            }}
+            icon={<Refresh />}
+            label={t('fatalError.reloadApp', 'Reload app')}
+          />
+        </Box>
         <Text size="small">
           <Trans
             i18nKey="fatalError.instruction"

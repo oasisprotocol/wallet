@@ -102,7 +102,13 @@ test.describe('The extension popup should load', () => {
       // Gets unstuck with a button
       const page = await context.newPage()
       await page.goto(`${extensionPopupURL}/`)
-      await page.getByRole('button', { name: 'Reload extension' }).click()
+      await page
+        .getByRole('button', { name: 'Reload app' })
+        .click()
+        .catch(e => {
+          // Ignore error. Reloading extension's background page auto-closes its popups.
+          expect(e.toString()).toContain('Target page, context or browser has been closed')
+        })
       await page.close()
     }
 
