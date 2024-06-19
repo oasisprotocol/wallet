@@ -223,10 +223,6 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -236,9 +232,29 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-.c21 {
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,7 +270,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   padding-bottom: 24px;
 }
 
-.c23 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -277,7 +293,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c26 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -303,7 +319,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 4px;
 }
 
-.c27 {
+.c28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -343,9 +359,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c20 {
+.c21 {
   font-size: 12px;
-  line-height: normal;
+  line-height: 18px;
   font-weight: bold;
 }
 
@@ -436,7 +452,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c28 {
+.c29 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -467,43 +483,43 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c28:focus {
+.c29:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c28:focus > circle,
-.c28:focus > ellipse,
-.c28:focus > line,
-.c28:focus > path,
-.c28:focus > polygon,
-.c28:focus > polyline,
-.c28:focus > rect {
+.c29:focus > circle,
+.c29:focus > ellipse,
+.c29:focus > line,
+.c29:focus > path,
+.c29:focus > polygon,
+.c29:focus > polyline,
+.c29:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c28:focus::-moz-focus-inner {
+.c29:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c28:focus:not(:focus-visible) {
+.c29:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c28:focus:not(:focus-visible) > circle,
-.c28:focus:not(:focus-visible) > ellipse,
-.c28:focus:not(:focus-visible) > line,
-.c28:focus:not(:focus-visible) > path,
-.c28:focus:not(:focus-visible) > polygon,
-.c28:focus:not(:focus-visible) > polyline,
-.c28:focus:not(:focus-visible) > rect {
+.c29:focus:not(:focus-visible) > circle,
+.c29:focus:not(:focus-visible) > ellipse,
+.c29:focus:not(:focus-visible) > line,
+.c29:focus:not(:focus-visible) > path,
+.c29:focus:not(:focus-visible) > polygon,
+.c29:focus:not(:focus-visible) > polyline,
+.c29:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c28:focus:not(:focus-visible)::-moz-focus-inner {
+.c29:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -516,7 +532,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c22 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -540,12 +556,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   line-height: 1.2;
 }
 
-.c22:hover input:not([disabled]) + div,
-.c22:hover input:not([disabled]) + span {
+.c23:hover input:not([disabled]) + div,
+.c23:hover input:not([disabled]) + span {
   border-color: #00A9FF;
 }
 
-.c25 {
+.c26 {
   opacity: 0;
   -moz-appearance: none;
   width: 0;
@@ -554,12 +570,12 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
-.c25:checked + span > span {
+.c26:checked + span > span {
   left: calc( 48px - 24px );
   background: #0500e2;
 }
 
-.c24 {
+.c25 {
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -647,26 +663,33 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c21 {
+  .c19 {
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c22 {
     padding-top: 12px;
     padding-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c23 {
+  .c24 {
     margin-right: 1.5ex;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c26 {
+  .c27 {
     border: solid 2px #16213E;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c27 {
+  .c28 {
     margin-top: 12px;
   }
 }
@@ -1480,29 +1503,33 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
         <div
           class="c19"
         >
-          <span
+          <div
             class="c20"
-            style="margin-top: 10px; margin-bottom: 10px;"
           >
-            createWallet.doNotShare
-          </span>
+            <span
+              class="c21"
+              style="vertical-align: middle;"
+            >
+              createWallet.doNotShare
+            </span>
+          </div>
         </div>
       </div>
       <div
-        class="c21"
+        class="c22"
       >
         <label
-          class="c22"
+          class="c23"
         >
           <div
-            class="c23 c24"
+            class="c24 c25"
           >
             <input
-              class="c25"
+              class="c26"
               type="checkbox"
             />
             <div
-              class="c26 "
+              class="c27 "
             />
           </div>
           <span>
@@ -1510,10 +1537,10 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
           </span>
         </label>
         <div
-          class="c27"
+          class="c28"
         >
           <button
-            class="c28"
+            class="c29"
             disabled=""
             type="submit"
           >

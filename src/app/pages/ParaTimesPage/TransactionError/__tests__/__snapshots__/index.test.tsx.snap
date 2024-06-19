@@ -43,6 +43,10 @@ exports[`<TransactionError /> should render EVMc withdraw variant component 1`] 
 
 }
 
+@media only screen and (max-width:768px) {
+
+}
+
 <span
   class="c0"
   data-testid="paraTime-content-description"
@@ -207,10 +211,6 @@ exports[`<TransactionError /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -220,9 +220,29 @@ exports[`<TransactionError /> should render component 1`] = `
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-.c12 {
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -241,7 +261,7 @@ exports[`<TransactionError /> should render component 1`] = `
   flex-direction: column;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,7 +286,7 @@ exports[`<TransactionError /> should render component 1`] = `
   height: 24px;
 }
 
-.c11 {
+.c12 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -282,9 +302,9 @@ exports[`<TransactionError /> should render component 1`] = `
   text-align: center;
 }
 
-.c10 {
+.c11 {
   font-size: 12px;
-  line-height: normal;
+  line-height: 18px;
   font-weight: bold;
 }
 
@@ -297,7 +317,7 @@ exports[`<TransactionError /> should render component 1`] = `
   overflow-wrap: break-word;
 }
 
-.c14 {
+.c15 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -326,47 +346,47 @@ exports[`<TransactionError /> should render component 1`] = `
   width: 100%;
 }
 
-.c14:hover {
+.c15:hover {
   box-shadow: 0px 0px 0px 2px #7D4CDB;
 }
 
-.c14:focus {
+.c15:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus > circle,
-.c14:focus > ellipse,
-.c14:focus > line,
-.c14:focus > path,
-.c14:focus > polygon,
-.c14:focus > polyline,
-.c14:focus > rect {
+.c15:focus > circle,
+.c15:focus > ellipse,
+.c15:focus > line,
+.c15:focus > path,
+.c15:focus > polygon,
+.c15:focus > polyline,
+.c15:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c14:focus::-moz-focus-inner {
+.c15:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c14:focus:not(:focus-visible) {
+.c15:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,
-.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,
-.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,
-.c14:focus:not(:focus-visible) > polyline,
-.c14:focus:not(:focus-visible) > rect {
+.c15:focus:not(:focus-visible) > circle,
+.c15:focus:not(:focus-visible) > ellipse,
+.c15:focus:not(:focus-visible) > line,
+.c15:focus:not(:focus-visible) > path,
+.c15:focus:not(:focus-visible) > polygon,
+.c15:focus:not(:focus-visible) > polyline,
+.c15:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible)::-moz-focus-inner {
+.c15:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -396,13 +416,20 @@ exports[`<TransactionError /> should render component 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
-    margin-bottom: 24px;
+  .c9 {
+    padding-top: 3px;
+    padding-bottom: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c13 {
+    margin-bottom: 24px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c14 {
     margin-bottom: 12px;
   }
 }
@@ -500,26 +527,30 @@ exports[`<TransactionError /> should render component 1`] = `
           <div
             class="c9"
           >
-            <span
+            <div
               class="c10"
-              style="margin-top: 10px; margin-bottom: 10px;"
             >
-              Unknown ParaTime error: error message
-            </span>
+              <span
+                class="c11"
+                style="vertical-align: middle;"
+              >
+                Unknown ParaTime error: error message
+              </span>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="c11"
+        class="c12"
       />
       <div
-        class="c12"
+        class="c13"
       >
         <div
-          class="c13"
+          class="c14"
         >
           <button
-            class="c14"
+            class="c15"
             type="button"
           >
             Navigate to ParaTime Transfers
