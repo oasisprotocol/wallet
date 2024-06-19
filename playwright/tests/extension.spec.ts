@@ -102,7 +102,7 @@ test.describe('The extension popup should load', () => {
       // Gets unstuck with a button
       const page = await context.newPage()
       await page.goto(`${extensionPopupURL}/`)
-      await page.getByRole('button', { name: 'Reload extension' }).click()
+      await page.getByRole('button', { name: 'Reload app' }).click()
       await page.close()
     }
 
