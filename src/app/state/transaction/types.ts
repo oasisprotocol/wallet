@@ -23,6 +23,7 @@ export enum TransactionType {
   BeaconPvssReveal = 'beacon.PVSSReveal',
   BeaconVrfProve = 'beacon.VRFProve',
   ConsensusMeta = 'consensus.Meta',
+  VaultCreate = 'vault.Create',
 
   // ParaTime
   ConsensusDeposit = 'consensus.Deposit',
