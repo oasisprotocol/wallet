@@ -22,6 +22,9 @@ import {
 
 import { throwAPIErrors } from './helpers'
 
+const getTransactionCacheMap: Record<string, Transaction> = {}
+const getRuntimeTransactionInfoCacheMap: Record<string, RuntimeTransactionInfoRow> = {}
+
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
   const explorerConfig = new Configuration({
     basePath: url,
@@ -45,20 +48,54 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     return parseValidatorsList(validators.data.list)
   }
 
+  function getRuntimeTransactionInfoUrl(filter: { id: string; hash: string }) {
+    const searchParams = new URLSearchParams(filter)
+    searchParams.sort()
+    return `${url}/runtime/transaction/info?${searchParams.toString()}`
+  }
+
   async function getRuntimeTransactionInfo(tx: OperationsRow) {
-    const { data } = await runtime.getRuntimeTransactionInfo({
+    const cacheId = getRuntimeTransactionInfoUrl({ id: tx.runtimeId!, hash: tx.txHash })
+
+    if (cacheId in getRuntimeTransactionInfoCacheMap) {
+      return getRuntimeTransactionInfoCacheMap[cacheId]
+    }
+
+    const { data, code } = await runtime.getRuntimeTransactionInfo({
       id: tx.runtimeId!,
       hash: tx.txHash,
     })
+
+    // returns {"code": 0,"data": null} for missing or unprocessed transactions, we want to skip caching those requests
+    if (code === 0 && !!data) {
+      getRuntimeTransactionInfoCacheMap[cacheId] = data
+    }
+
     return data
   }
 
+  function getTransactionUrl({ hash }: { hash: string }) {
+    return `${url}/chain/transaction/${hash}`
+  }
+
   async function getTransaction({ hash }: { hash: string }) {
+    const cacheId = getTransactionUrl({ hash })
+
+    if (cacheId in getTransactionCacheMap) {
+      return getTransactionCacheMap[cacheId]
+    }
+
     const transaction = await operationsEntity.getTransaction({
       hash,
     })
 
-    const [parsedTx] = parseTransactionsList([transaction.data])
+    const [parsedTx] = parseTransactionsList([transaction.data ?? {}])
+
+    // returns {"code": 0,"data": null} for missing or unprocessed transactions, we want to skip caching those requests
+    if (transaction.code === 0 && !!transaction.data) {
+      getTransactionCacheMap[cacheId] = parsedTx
+    }
+
     return parsedTx
   }
 
