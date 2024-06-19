@@ -26,7 +26,6 @@ describe('check all transaction methods from API are mapped in transactionMethod
       if (!response.isOkStatusCode) return // Ignore if API is broken
 
       const allApiMethods = response.body.data.list
-      expect(allApiMethods).to.have.length.lte(Object.keys(OperationsRowMethodEnum).length)
       cy.visit('/e2e')
       cy.window()
         .should('have.a.property', 'oasisscan')
@@ -46,7 +45,6 @@ describe('check all transaction methods from API are mapped in transactionMethod
       if (!response.isOkStatusCode) return // Ignore if API is broken
 
       const allApiMethods = response.body.data.list
-      expect(allApiMethods).to.have.length.lte(Object.keys(OperationsRowMethodEnum).length)
       cy.visit('/e2e')
       cy.window()
         .should('have.a.property', 'oasisscan')

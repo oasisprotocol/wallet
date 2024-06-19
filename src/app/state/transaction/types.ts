@@ -30,6 +30,8 @@ export enum TransactionType {
   ConsensusAccountsParameters = 'consensus.Parameters',
   ConsensusBalance = 'consensus.Balance',
   ConsensusAccount = 'consensus.Account',
+
+  VaultCreate = 'vault.create',
 }
 
 export enum TransactionStatus {

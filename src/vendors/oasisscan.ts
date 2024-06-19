@@ -147,6 +147,7 @@ export const transactionMethodMap: {
   [ParaTimeCtxRowMethodEnum.ConsensusAccountsParameters]: TransactionType.ConsensusAccountsParameters,
   [ParaTimeCtxRowMethodEnum.ConsensusBalance]: TransactionType.ConsensusBalance,
   [ParaTimeCtxRowMethodEnum.ConsensusAccount]: TransactionType.ConsensusAccount,
+  [OperationsRowMethodEnum.VaultCreate]: TransactionType.VaultCreate
 }
 
 export function parseTransactionsList(list: (OperationsRow | RuntimeTransactionInfoRow)[]): Transaction[] {
