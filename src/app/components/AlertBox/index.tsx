@@ -1,4 +1,4 @@
-import { Box } from 'grommet/es6/components/Box'
+import { Box, BoxProps } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { normalizeColor } from 'grommet/es6/utils'
 import * as React from 'react'
@@ -9,10 +9,11 @@ export type AlertBoxStatus = 'error' | 'warning' | 'warning-weak' | 'ok' | 'ok-w
 
 interface Props {
   status: AlertBoxStatus
-  center?: boolean
+  justify?: BoxProps['justify']
   /** Example `icon={<Info size="20px" />}` */
   icon?: React.ReactNode
   children: React.ReactNode
+  endSlot?: React.ReactNode
 }
 
 const mapStatus = {
@@ -61,11 +62,14 @@ export function AlertBox(props: Props) {
       background={{ color: mapStatus[props.status].background }}
       pad={{ horizontal: 'small' }}
     >
-      <Box direction="row" gap="small" align="center" justify={props.center ? 'center' : 'start'}>
-        {props.icon && <Text color={color}>{props.icon}</Text>}
-        <Text weight="bold" size="12px" style={{ marginTop: 10, marginBottom: 10 }}>
-          {props.children}
-        </Text>
+      <Box direction="row" justify={props.justify ?? 'start'} pad={{ vertical: 'xsmall' }}>
+        <Box direction="row" gap="small" align="center">
+          {props.icon && <Text color={color}>{props.icon}</Text>}
+          <Text size="xsmall" weight="bold" style={{ verticalAlign: 'middle' }}>
+            {props.children}
+          </Text>
+        </Box>
+        {props.endSlot}
       </Box>
     </Box>
   )
