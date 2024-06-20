@@ -59,13 +59,13 @@ export function* fetchAccount(action: PayloadAction<string>) {
           const detailedTransactions = yield* call(() =>
             Promise.allSettled(transactions.map(({ hash }) => getTransaction({ hash }))),
           )
-          const transactionsWithDetails = transactions.map((t, i) => {
+          const transactionsWithUpdatedNonce = transactions.map((t, i) => {
             const { status, value } = detailedTransactions[i] as PromiseFulfilledResult<Transaction>
-            // Skip failed txs
+            // Skip in case transaction detail request failed
             if (status === 'fulfilled') {
               return {
                 ...t,
-                ...value,
+                nonce: value.nonce,
               }
             }
 
@@ -73,7 +73,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
           })
 
           yield* put(
-            accountActions.transactionsLoaded({ networkType, transactions: transactionsWithDetails }),
+            accountActions.transactionsLoaded({ networkType, transactions: transactionsWithUpdatedNonce }),
           )
         } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
