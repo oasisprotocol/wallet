@@ -534,7 +534,9 @@ exports[`<TransactionError /> should render component 1`] = `
                 class="c11"
                 style="vertical-align: middle;"
               >
-                Unknown ParaTime error: error message
+                <span>
+                  Unknown ParaTime error: error message
+                </span>
               </span>
             </div>
           </div>

@@ -68,6 +68,21 @@ const noGoogleTranslateCrashingSyntax = [
       'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
   },
 
+  // Ban components returning text or variables inside fragments `return <>{t('text')}</>` (just in case vars return a string and parent components are conditionally inserted)
+  // TODO: doesn't catch `return t('text')`
+  {
+    selector:
+      ':matches(ArrowFunctionExpression, ReturnStatement) > JSXFragment > JSXExpressionContainer > :not(' +
+      '  JSXEmptyExpression, ' + // Allow `<>{/* Comment */}</>`
+      '  ConditionalExpression[consequent.type="JSXElement"][alternate.type="JSXElement"], ' + // Allow `<><Box></Box>{condition ? <Box></Box> : <Box></Box>}</>`
+      '  LogicalExpression[right.type="JSXElement"], ' + // Allow `<><Box></Box>{condition && <Box></Box>}</>`
+      '  Identifier[name="children"], ' + // Allow `<>{children}</>`
+      '  MemberExpression[property.name="children"]' + // Allow `<>{someProps.children}</>`
+      ')',
+    message:
+      'Text nodes inside React fragments could break React if used with Google Translate. Identifier could possibly return a string, and parent components could be conditionally inserted, so wrap it into an element.',
+  },
+
   // TODO: Nesting is not supported. Detect it as error for now
   {
     selector: 'JSXElement > JSXExpressionContainer > ConditionalExpression > ConditionalExpression',

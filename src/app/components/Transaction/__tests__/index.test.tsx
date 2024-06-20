@@ -19,7 +19,7 @@ jest.mock('copy-to-clipboard')
 
 type TransType = typeof Trans
 jest.mock('react-i18next', () => ({
-  Trans: (({ i18nKey }) => <>{i18nKey}</>) as TransType,
+  Trans: (({ i18nKey }) => i18nKey) as TransType,
   useTranslation: () => {
     return {
       t: (str: string) => str,

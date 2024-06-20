@@ -19,5 +19,5 @@ export const ImportAccountsStepFormatter = memo((props: Props) => {
   }
 
   const message = stepMap[step]
-  return <>{message}</>
+  return <span>{message}</span>
 })
