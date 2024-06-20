@@ -3,7 +3,9 @@
 exports[`<CommissionBounds  /> should match snapshot when empty 1`] = `
 <body>
   <div>
-    No bounds set (0% - 100%)
+    <span>
+      No bounds set (0% - 100%)
+    </span>
   </div>
 </body>
 `;

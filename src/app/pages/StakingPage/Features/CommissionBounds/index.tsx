@@ -68,6 +68,6 @@ export const CommissionBounds = memo((props: Props) => {
       </Box>
     )
   } else {
-    return <>{t('validator.boundsNotSet', 'No bounds set (0% - 100%)')}</>
+    return <span>{t('validator.boundsNotSet', 'No bounds set (0% - 100%)')}</span>
   }
 })
