@@ -11,5 +11,5 @@ interface Props {
 }
 
 export function DateFormatter(props: Props) {
-  return <>{intlDateTimeFormat(props.date)}</>
+  return <span>{intlDateTimeFormat(props.date)}</span>
 }

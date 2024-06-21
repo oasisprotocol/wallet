@@ -595,7 +595,9 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                     id="cell-debondingTimeEnd-test-validator+100"
                     role="gridcell"
                   >
-                    in 4 days
+                    <span>
+                      in 4 days
+                    </span>
                   </div>
                 </div>
               </div>

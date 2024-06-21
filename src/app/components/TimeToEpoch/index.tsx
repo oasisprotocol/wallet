@@ -20,5 +20,5 @@ export function TimeToEpoch(props: Props) {
       ? relativeFormat.format(Math.round(remainingHours / 24), 'day')
       : relativeFormat.format(remainingHours, 'hour')
 
-  return <>{formattedRemainingTime}</>
+  return <span>{formattedRemainingTime}</span>
 }

@@ -105,5 +105,5 @@ export function ErrorFormatter(props: Props) {
   }
 
   const error = errorMap[props.code]
-  return <>{error}</>
+  return <span>{error}</span>
 }
