@@ -6,13 +6,16 @@ export const CountdownButton = (props: Omit<ButtonExtendedProps, 'disabled'>) =>
   const isDisabled = countdown > 0
 
   useEffect(() => {
-    const timerId = setInterval(() => {
-      setCountdown(prevCountdown => {
-        const newCount = prevCountdown - 1
-        if (newCount <= 0) clearInterval(timerId)
-        return newCount
-      })
-    }, 1000)
+    const timerId = setInterval(
+      () => {
+        setCountdown(prevCountdown => {
+          const newCount = prevCountdown - 1
+          if (newCount <= 0) clearInterval(timerId)
+          return newCount
+        })
+      },
+      process.env.REACT_APP_E2E_TEST ? 200 : 1000,
+    )
 
     return () => clearInterval(timerId)
   }, [])
