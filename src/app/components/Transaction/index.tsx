@@ -411,6 +411,7 @@ export function Transaction(props: TransactionProps) {
       round="xsmall"
       elevation="none"
       background="background-front"
+      border={transaction.status === TransactionStatus.Failed && { color: 'status-error' }}
     >
       <CardHeader
         margin={{ bottom: 'small' }}
