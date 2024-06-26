@@ -14,7 +14,7 @@ const noGoogleTranslateCrashingSyntax = [
   {
     selector:
       'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
-      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/], JSXExpressionContainer)',
     message:
       '[b] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },
@@ -47,7 +47,7 @@ const noGoogleTranslateCrashingSyntax = [
   {
     selector:
       'JSXElement > JSXExpressionContainer > ConditionalExpression' +
-      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/], JSXExpressionContainer)',
     message:
       '[f] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },

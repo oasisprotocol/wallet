@@ -40,6 +40,8 @@ const textBeforeAndOperator = (
       {!condition && <span>good</span>}
       {!condition && (
         <>
+          {/* good */}
+          {!condition && <span>good</span>}
           <span>good</span>
           <span>good</span>
         </>
@@ -167,6 +169,8 @@ const textInTernaryOperator = (
       {!condition ? <span>{good}</span> : <span>{good}</span>}
       {!condition ? (
         <>
+          {/* good */}
+          {!condition && <span>good</span>}
           <span>good</span>
           <span>good</span>
         </>

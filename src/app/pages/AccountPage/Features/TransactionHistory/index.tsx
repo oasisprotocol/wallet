@@ -96,13 +96,11 @@ export function TransactionHistory() {
               'Some transactions are currently in a pending state.',
             )}
           </AlertBox>
-          {/* eslint-disable no-restricted-syntax */}
           {!!pendingTransactionComponents.length && (
             <Box gap="medium" data-testid="pending-txs" margin={{ top: 'small' }}>
               {pendingTransactionComponents}
             </Box>
           )}
-          {/* eslint-enable no-restricted-syntax */}
         </>
       )}
       <Heading level="2">{t('account.summary.activity', 'Activity')}</Heading>
