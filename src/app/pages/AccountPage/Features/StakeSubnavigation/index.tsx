@@ -59,8 +59,8 @@ export function StakeSubnavigation() {
       wrap
     >
       <NavItem
-        label={t('account.subnavigation.transactions', 'Transactions')}
-        route={`/account/${address}`}
+        label={t('account.subnavigation.validators', 'Validators')}
+        route={`/account/${address}/stake`}
       />
 
       <NavItem
@@ -70,7 +70,7 @@ export function StakeSubnavigation() {
             ? t('account.subnavigation.mobileActiveDelegations', 'Delegations')
             : t('account.subnavigation.activeDelegations', 'Active delegations')
         }
-        route="active-delegations"
+        route={`/account/${address}/active-delegations`}
       />
 
       <NavItem
@@ -80,7 +80,7 @@ export function StakeSubnavigation() {
             ? t('account.subnavigation.mobileDebondingDelegations', 'Debonding')
             : t('account.subnavigation.debondingDelegations', 'Debonding delegations')
         }
-        route="debonding-delegations"
+        route={`/account/${address}/debonding-delegations`}
       />
     </Nav>
   )

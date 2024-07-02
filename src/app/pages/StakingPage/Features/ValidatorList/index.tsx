@@ -31,6 +31,7 @@ import { isWebUri } from 'valid-url'
 import { ValidatorItem } from './ValidatorItem'
 import { formatCommissionPercent } from 'app/lib/helpers'
 import { intlDateTimeFormat } from 'app/components/DateFormatter/intlDateTimeFormat'
+import { StakeSubnavigation } from '../../../AccountPage/Features/StakeSubnavigation'
 
 interface Props {}
 
@@ -107,48 +108,51 @@ export const ValidatorList = memo((props: Props) => {
   ]
 
   return (
-    <Box pad="medium" background="background-front">
-      <Header>{t('common.validators', 'Validators')}</Header>
-      {updateValidatorsError && (
-        <p>
-          <span>{t('account.validator.loadingError', "Couldn't load validators.")}</span>
-          {validators.length > 0 && (
-            <span>
-              {t('account.validator.showingStale', 'Showing validator list as of {{staleTimestamp}}.', {
-                staleTimestamp: intlDateTimeFormat(validatorsTimestamp!),
-              })}
-            </span>
-          )}
-          <br />
-          {validators.length <= 0 && (
-            <ErrorFormatter code={updateValidatorsError.code} message={updateValidatorsError.message} />
-          )}
-        </p>
-      )}
-      <TypeSafeDataTable
-        noHeader={true}
-        columns={columns}
-        data={validators}
-        keyField="address"
-        style={{}}
-        customStyles={dataTableCustomStyles}
-        expandableRowsHideExpander
-        expandableRows={true}
-        expandableRowsComponent={
-          <ValidatorItem
-            data={{} as any}
-            details={validatorDetails}
-            isAddressInWallet={isAddressInWallet}
-            key={selectedAddress}
-          />
-        }
-        expandableRowExpanded={row => row.address === selectedAddress}
-        sortIcon={<Down />}
-        theme="blank"
-        onRowClicked={rowClicked}
-        highlightOnHover
-        pointerOnHover
-      />
-    </Box>
+    <>
+      <StakeSubnavigation />
+      <Box pad="medium" background="background-front">
+        <Header>{t('common.validators', 'Validators')}</Header>
+        {updateValidatorsError && (
+          <p>
+            <span>{t('account.validator.loadingError', "Couldn't load validators.")}</span>
+            {validators.length > 0 && (
+              <span>
+                {t('account.validator.showingStale', 'Showing validator list as of {{staleTimestamp}}.', {
+                  staleTimestamp: intlDateTimeFormat(validatorsTimestamp!),
+                })}
+              </span>
+            )}
+            <br />
+            {validators.length <= 0 && (
+              <ErrorFormatter code={updateValidatorsError.code} message={updateValidatorsError.message} />
+            )}
+          </p>
+        )}
+        <TypeSafeDataTable
+          noHeader={true}
+          columns={columns}
+          data={validators}
+          keyField="address"
+          style={{}}
+          customStyles={dataTableCustomStyles}
+          expandableRowsHideExpander
+          expandableRows={true}
+          expandableRowsComponent={
+            <ValidatorItem
+              data={{} as any}
+              details={validatorDetails}
+              isAddressInWallet={isAddressInWallet}
+              key={selectedAddress}
+            />
+          }
+          expandableRowExpanded={row => row.address === selectedAddress}
+          sortIcon={<Down />}
+          theme="blank"
+          onRowClicked={rowClicked}
+          highlightOnHover
+          pointerOnHover
+        />
+      </Box>
+    </>
   )
 })

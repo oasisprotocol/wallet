@@ -6,14 +6,18 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 import { DelegationList } from '.'
+import { StakeSubnavigation } from '../../../AccountPage/Features/StakeSubnavigation'
 
 export const DebondingDelegationList = () => {
   const { t } = useTranslation()
   const delegations = useSelector(selectDebondingDelegations)
   return (
-    <Box pad="medium" background="background-front">
-      <Header>{t('delegations.debondingDelegations', 'Debonding delegations')}</Header>
-      <DelegationList type="debonding" delegations={delegations ?? []} />
-    </Box>
+    <>
+      <StakeSubnavigation />
+      <Box pad="medium" background="background-front">
+        <Header>{t('delegations.debondingDelegations', 'Debonding delegations')}</Header>
+        <DelegationList type="debonding" delegations={delegations ?? []} />
+      </Box>
+    </>
   )
 }

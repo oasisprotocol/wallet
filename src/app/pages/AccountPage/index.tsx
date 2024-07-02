@@ -25,7 +25,6 @@ import { selectActiveWallet, selectHasAccounts, selectHasOneAccount } from 'app/
 import { walletActions } from 'app/state/wallet'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
-import { StakeSubnavigation } from './Features/StakeSubnavigation'
 
 interface AccountPageProps {}
 
@@ -108,7 +107,6 @@ export function AccountPage(props: AccountPageProps) {
             walletHasAccounts={walletHasAccounts}
           />
           <Box margin={{ bottom: 'small' }}></Box>
-          <StakeSubnavigation />
           <Outlet />
         </>
       )}

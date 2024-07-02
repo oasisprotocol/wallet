@@ -16,15 +16,17 @@ export const AccountDetails = memo((props: Props) => {
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
 
   return (
-    <Box direction="row" wrap style={{ gap: '24px' }}>
-      {isAddressInWallet && (
-        <Box flex={{ grow: 1 }} basis="32ex" width={{ max: '100%' }}>
-          <SendTransaction isAddressInWallet={isAddressInWallet} />
+    <>
+      <Box direction="row" wrap style={{ gap: '24px' }}>
+        {isAddressInWallet && (
+          <Box flex={{ grow: 1 }} basis="32ex" width={{ max: '100%' }}>
+            <SendTransaction isAddressInWallet={isAddressInWallet} />
+          </Box>
+        )}
+        <Box flex={{ grow: 3 }} basis="80ex" width={{ max: '100%' }}>
+          <TransactionHistory />
         </Box>
-      )}
-      <Box flex={{ grow: 3 }} basis="80ex" width={{ max: '100%' }}>
-        <TransactionHistory />
       </Box>
-    </Box>
+    </>
   )
 })
