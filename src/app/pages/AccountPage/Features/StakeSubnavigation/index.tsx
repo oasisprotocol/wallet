@@ -67,8 +67,8 @@ export function StakeSubnavigation() {
         counter={stake.delegations?.length}
         label={
           isMobile
-            ? t('account.subnavigation.mobileActiveDelegations', 'Delegations')
-            : t('account.subnavigation.activeDelegations', 'Active delegations')
+            ? t('account.subnavigation.mobileActiveDelegations', 'Staked')
+            : t('account.subnavigation.activeDelegations', 'Staked')
         }
         route={`/account/${address}/active-delegations`}
       />
@@ -78,7 +78,7 @@ export function StakeSubnavigation() {
         label={
           isMobile
             ? t('account.subnavigation.mobileDebondingDelegations', 'Debonding')
-            : t('account.subnavigation.debondingDelegations', 'Debonding delegations')
+            : t('account.subnavigation.debondingDelegations', 'Debonding')
         }
         route={`/account/${address}/debonding-delegations`}
       />
