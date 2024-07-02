@@ -42,11 +42,11 @@ export const commonRoutes: RouteObject[] = [
         element: <ValidatorList />,
       },
       {
-        path: 'active-delegations',
+        path: 'stake/active-delegations',
         element: <ActiveDelegationList />,
       },
       {
-        path: 'debonding-delegations',
+        path: 'stake/debonding-delegations',
         element: <DebondingDelegationList />,
       },
       {
