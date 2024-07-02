@@ -9,6 +9,7 @@ import { configureAppStore } from 'store/configureStore'
 
 import { ValidatorList } from '..'
 import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
+import { MemoryRouter } from 'react-router-dom'
 
 jest.mock('@oasisprotocol/client/dist/client')
 
@@ -52,7 +53,9 @@ const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ValidatorList />
+        <MemoryRouter>
+          <ValidatorList />
+        </MemoryRouter>
       </ThemeProvider>
     </Provider>,
   )
@@ -85,7 +88,7 @@ describe('<ValidatorList  />', () => {
   })
 
   it('empty should match snapshot', () => {
-    const component = renderComponent(store)
+    renderComponent(store)
     act(() => {
       store.dispatch(
         stakingActions.updateValidators({
@@ -95,11 +98,11 @@ describe('<ValidatorList  />', () => {
         }),
       )
     })
-    expect(component.container.firstChild).toMatchSnapshot()
+    expect(screen.getByTestId('validators-list')).toMatchSnapshot()
   })
 
   it('list should match snapshot', () => {
-    const component = renderComponent(store)
+    renderComponent(store)
     act(() => {
       store.dispatch(
         stakingActions.updateValidators({
@@ -109,7 +112,7 @@ describe('<ValidatorList  />', () => {
         }),
       )
     })
-    expect(component.container.firstChild).toMatchSnapshot()
+    expect(screen.getByTestId('validators-list')).toMatchSnapshot()
   })
 
   it('should display validator details on click', async () => {

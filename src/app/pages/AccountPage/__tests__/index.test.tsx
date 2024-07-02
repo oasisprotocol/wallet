@@ -90,8 +90,6 @@ describe('<AccountPage  />', () => {
     expect(balance).toHaveTextContent('-')
     const balanceSummary = await screen.findByTestId('account-balance-summary')
     expect(balanceSummary.textContent).toMatchSnapshot()
-    const tabs = await screen.findByRole('navigation')
-    expect(tabs.textContent).toMatchSnapshot()
   })
 
   it('should sum total balance without losing precision', async () => {

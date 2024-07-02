@@ -14,9 +14,11 @@ export const ActiveDelegationList = () => {
   return (
     <>
       <StakeSubnavigation />
-      <Box pad="medium" background="background-front">
-        <Header>{t('delegations.activeDelegations', 'Active delegations')}</Header>
-        <DelegationList type="active" delegations={delegations ?? []} />
+      <Box as="section" data-testid="active-delegations">
+        <Box pad="medium" background="background-front">
+          <Header>{t('delegations.activeDelegations', 'Active delegations')}</Header>
+          <DelegationList type="active" delegations={delegations ?? []} />
+        </Box>
       </Box>
     </>
   )

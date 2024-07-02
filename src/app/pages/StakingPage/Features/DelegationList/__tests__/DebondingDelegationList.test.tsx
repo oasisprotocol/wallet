@@ -8,12 +8,15 @@ import { DebondingDelegationList } from '../DebondingDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
 import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
+import { MemoryRouter } from 'react-router-dom'
 
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <DebondingDelegationList />
+        <MemoryRouter>
+          <DebondingDelegationList />
+        </MemoryRouter>
       </ThemeProvider>
     </Provider>,
   )
@@ -26,7 +29,7 @@ describe('<DebondingDelegationList  />', () => {
   })
 
   it('should match snapshot', () => {
-    const component = renderComponent(store)
+    renderComponent(store)
     act(() => {
       store.dispatch(
         stakingActions.updateDelegations({
@@ -52,7 +55,7 @@ describe('<DebondingDelegationList  />', () => {
       )
     })
 
-    expect(component.baseElement).toMatchSnapshot()
+    expect(screen.getByTestId('debonding-delegations')).toMatchSnapshot()
   })
 
   it('should expand and display the delegation on click', async () => {

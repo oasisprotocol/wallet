@@ -6,12 +6,15 @@ import { ActiveDelegationList } from '../ActiveDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
 import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
+import { MemoryRouter } from 'react-router-dom'
 
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ActiveDelegationList />
+        <MemoryRouter>
+          <ActiveDelegationList />
+        </MemoryRouter>
       </ThemeProvider>
     </Provider>,
   )
@@ -24,7 +27,7 @@ describe('<ActiveDelegationList  />', () => {
   })
 
   it('should match snapshot', () => {
-    const component = renderComponent(store)
+    renderComponent(store)
     act(() => {
       store.dispatch(
         stakingActions.updateDelegations({
@@ -49,7 +52,7 @@ describe('<ActiveDelegationList  />', () => {
       )
     })
 
-    expect(component.baseElement).toMatchSnapshot()
+    expect(screen.getByTestId('active-delegations')).toMatchSnapshot()
 
     expect(screen.getByText('7%')).toBeInTheDocument()
     expect(screen.queryByText('7.000000000000001%')).not.toBeInTheDocument()
