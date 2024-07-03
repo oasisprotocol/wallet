@@ -118,6 +118,7 @@ export const ValidatorList = memo((props: Props) => {
               <span>{t('account.validator.loadingError', "Couldn't load validators.")}</span>
               {validators.length > 0 && (
                 <span>
+                  {' '}
                   {t('account.validator.showingStale', 'Showing validator list as of {{staleTimestamp}}.', {
                     staleTimestamp: intlDateTimeFormat(validatorsTimestamp!),
                   })}
