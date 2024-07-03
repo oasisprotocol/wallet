@@ -23,7 +23,7 @@ test('Chromium expect mnemonic, privateKey, and password to NOT leak with preven
 }) => {
   await test.step('fill sensitive inputs and toggle visibility', async () => {
     await page.goto('/open-wallet/mnemonic')
-    await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+    await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
     await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
     await page.getByText('Create a profile').uncheck()

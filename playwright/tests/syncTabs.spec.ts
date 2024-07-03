@@ -262,7 +262,7 @@ test.describe('syncTabs', () => {
       await page.getByTestId('network-selector').click()
       await page.getByRole('menuitem', { name: 'Testnet' }).click()
 
-      await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+      await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
       await page.getByRole('button', { name: /Import my wallet/ }).click()
       await page.getByText('Create a profile').uncheck()
       await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })

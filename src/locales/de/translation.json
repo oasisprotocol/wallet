@@ -83,8 +83,8 @@
     "validators": "Validatoren"
   },
   "createWallet": {
-    "confirmSaved": "Ich habe meine Keyphrase gespeichert.",
-    "doNotShare": "Gib niemals deine Keyphrase weiter, denn jeder, der deine Keyphrase hat, kann auf deine Wallet und deine Token zugreifen."
+    "confirmSaved": "Ich habe meine mnemonic gespeichert.",
+    "doNotShare": "Gib niemals deine mnemonic weiter, denn jeder, der deine mnemonic hat, kann auf deine Wallet und deine Token zugreifen."
   },
   "delegations": {
     "activeDelegations": "Aktive Delegationen",

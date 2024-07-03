@@ -23,7 +23,7 @@ test('Firefox expect mnemonic, privateKey, and password to NOT leak with prevent
 }) => {
   await test.step('fill sensitive inputs (visibility pre-toggled)', async () => {
     await page.goto('/open-wallet/mnemonic')
-    await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+    await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
     // Do not submit form.
 
     const tab2 = await context.newPage()
