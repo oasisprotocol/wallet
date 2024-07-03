@@ -9,7 +9,7 @@ import { MuiMarginIcon } from 'styles/theme/icons/mui-icons/MuiMarginIcon'
 import { MuiVpnKeyIcon } from 'styles/theme/icons/mui-icons/MuiVpnKeyIcon'
 
 export interface DerivationFormatterProps {
-  type: WalletType
+  type?: WalletType
   pathDisplay: string | undefined
 }
 
@@ -38,7 +38,9 @@ export const DerivationFormatter = (props: DerivationFormatterProps) => {
   }
   return (
     <Box align="start" direction="row">
-      {walletTypes[props.type]} {props.pathDisplay && <Text size="80%">({props.pathDisplay})</Text>}
+      {/* eslint-disable-next-line no-restricted-syntax -- children are not a plain text node */}
+      {props.type && walletTypes[props.type]}
+      {props.pathDisplay && <Text size="80%">({props.pathDisplay})</Text>}
     </Box>
   )
 }

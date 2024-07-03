@@ -18,7 +18,6 @@ export const ImportableAccount = ({
       displayCheckbox={true}
       displayAccountNumber={true}
       displayDerivation={{
-        type: account.type,
         pathDisplay: account.pathDisplay,
       }}
       path={account.path}
