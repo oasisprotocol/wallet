@@ -212,13 +212,13 @@
       "header": "Access existing wallet"
     }
   },
-  "infoBox": {
-    "valueCopied": "{{label}} copied."
-  },
   "icons": {
     "wallet": {
       "label": "Wallet"
     }
+  },
+  "infoBox": {
+    "valueCopied": "{{label}} copied."
   },
   "language": "Language",
   "ledger": {
