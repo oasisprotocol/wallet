@@ -41,7 +41,7 @@ describe('<CreateWalletPage  />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  it('can regenerate the keyphrase', () => {
+  it('can regenerate mnemonic', () => {
     const { getByText } = renderPage(store)
     fireEvent.click(getByText(/createWallet.newMnemonic/))
     expect(generateMnemonicMock).toHaveBeenCalledTimes(1)

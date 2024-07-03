@@ -49,16 +49,16 @@ export function MnemonicValidation(props: Props) {
     >
       <Grid gap="small" pad="none" columns={size === 'small' ? '100%' : ['1fr', '1fr']}>
         <Form onSubmit={onSubmit} {...preventSavingInputsToUserData}>
-          <Header>{t('openWallet.mnemonic.header', 'Enter your keyphrase')}</Header>
+          <Header>{t('openWallet.mnemonic.header', 'Enter your mnemonic')}</Header>
           <Paragraph>
             {t(
               'openWallet.mnemonic.instruction',
-              'Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words.',
+              'Enter all your mnemonic words below separated by spaces. Most mnemonics are made of either 24 or 12 words.',
             )}
           </Paragraph>
           <MnemonicField
             inputElementId="mnemonic"
-            placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your keyphrase here')}
+            placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your mnemonic here')}
             autoFocus
             value={rawMnemonic}
             onChange={onChange}
@@ -66,7 +66,7 @@ export function MnemonicValidation(props: Props) {
               mnemonicIsValid === false
                 ? t(
                     'openWallet.mnemonic.error',
-                    'Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.',
+                    'Invalid mnemonic. Please make sure to input the words in the right order, all lowercase.',
                   )
                 : ''
             }

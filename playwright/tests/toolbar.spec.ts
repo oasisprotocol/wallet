@@ -108,7 +108,7 @@ test.describe('My Accounts tab', () => {
 
   async function openAccountSelectorWithMultipleItems(page: Page) {
     await page.goto('/open-wallet/mnemonic')
-    await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+    await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
     await page.getByText('Create a profile').uncheck()
     const uncheckedAccounts = page.getByRole('checkbox', { name: /oasis1/, checked: false })

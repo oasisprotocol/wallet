@@ -26,7 +26,7 @@ describe('Scenario : from mnemonic', () => {
     cy.visit('/')
     cy.findByRole('link', { name: /Open wallet/ }).click()
     cy.findByRole('link', { name: /Mnemonic/ }).click()
-    cy.findByPlaceholderText('Enter your keyphrase here').type(
+    cy.findByPlaceholderText('Enter your mnemonic here').type(
       'abuse gown claw final toddler wedding sister parade useful typical spatial skate decrease bulk student manual cloth shove fat car little swamp tag ginger',
       { delay: 1 },
     )

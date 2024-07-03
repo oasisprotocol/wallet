@@ -26,22 +26,22 @@ describe('Open wallet', () => {
     })
 
     it('Should reject invalid mnemonics', () => {
-      cy.findByPlaceholderText('Enter your keyphrase here').type('this is an invalid mnemonic')
+      cy.findByPlaceholderText('Enter your mnemonic here').type('this is an invalid mnemonic')
       cy.findByRole('button', { name: /Import my wallet/ }).click()
-      cy.findByText(/Invalid keyphrase/).should('be.visible')
+      cy.findByText(/Invalid mnemonic/).should('be.visible')
     })
 
     it('Should accept valid mnemonic', () => {
-      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your mnemonic here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
-      cy.findByText(/Invalid keyphrase/).should('not.exist')
+      cy.findByText(/Invalid mnemonic/).should('not.exist')
       cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
       cy.findByRole('button', { name: /Open/ }).click()
       cy.url().should('include', 'oasis1qqca0gplrfn63ljg9c833te7em36lkz0cv8djffh')
     })
 
     it('Should open multiple accounts from mnemonic', () => {
-      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your mnemonic here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
       cy.findAllByTestId('account-choice').should('have.length', 4)
@@ -58,7 +58,7 @@ describe('Open wallet', () => {
       cy.findByRole('link', { name: /Mnemonic/ }).click()
       cy.url().should('include', '/open-wallet/mnemonic')
 
-      cy.findByPlaceholderText('Enter your keyphrase here').type(mnemonic, { delay: 1 })
+      cy.findByPlaceholderText('Enter your mnemonic here').type(mnemonic, { delay: 1 })
       cy.findByRole('button', { name: /Import my wallet/ }).click()
       cy.findByRole('checkbox', { name: /Create a profile/ }).uncheck({ force: true })
       cy.findAllByTestId('account-choice').should('have.length', 4)

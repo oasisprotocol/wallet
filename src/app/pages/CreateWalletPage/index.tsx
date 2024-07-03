@@ -131,19 +131,19 @@ export function CreateWalletPage(props: CreateWalletProps) {
               <Trans
                 i18nKey="createWallet.instruction"
                 t={t}
-                defaults="Save your keyphrase <strong>in the right order</strong> in a secure location, you will need it to open your wallet."
+                defaults="Save your mnemonic <strong>in the right order</strong> in a secure location, you will need it to open your wallet."
               ></Trans>
             </Text>
           </Box>
           <AlertBox status="warning">
             {t(
               'createWallet.doNotShare',
-              'Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.',
+              'Never share your mnemonic, anyone with your mnemonic can access your wallet and your tokens.',
             )}
           </AlertBox>
           <Box pad={{ vertical: 'medium' }}>
             <CheckBox
-              label={t('createWallet.confirmSaved', 'I saved my keyphrase')}
+              label={t('createWallet.confirmSaved', 'I saved my mnemonic')}
               disabled={mnemonic.length <= 0}
               checked={checked}
               onChange={event => setChecked(event.target.checked)}

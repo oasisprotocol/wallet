@@ -29,7 +29,7 @@ test.describe('Persist', () => {
   test('Should persist multiple mnemonic accounts', async ({ page }) => {
     await test.step('Import from mnemonic', async () => {
       await page.goto('/open-wallet/mnemonic')
-      await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+      await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
       await page.getByRole('button', { name: /Import my wallet/ }).click()
       await page.getByText('Create a profile').uncheck()
       await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })
@@ -160,7 +160,7 @@ test.describe('Persist', () => {
   }) => {
     await page.goto('/open-wallet/mnemonic')
 
-    await page.getByPlaceholder('Enter your keyphrase here').fill(mnemonic)
+    await page.getByPlaceholder('Enter your mnemonic here').fill(mnemonic)
     await page.getByRole('button', { name: /Import my wallet/ }).click()
     await page.getByText('Create a profile').uncheck()
     await expect(page.getByText('One account selected')).toBeVisible({ timeout: 10_000 })

@@ -122,9 +122,9 @@
     "validators": "Validators"
   },
   "createWallet": {
-    "confirmSaved": "I saved my keyphrase",
-    "doNotShare": "Never share your keyphrase, anyone with your keyphrase can access your wallet and your tokens.",
-    "instruction": "Save your keyphrase <strong>in the right order</strong> in a secure location, you will need it to open your wallet.",
+    "confirmSaved": "I saved my mnemonic",
+    "doNotShare": "Never share your mnemonic, anyone with your mnemonic can access your wallet and your tokens.",
+    "instruction": "Save your mnemonic <strong>in the right order</strong> in a secure location, you will need it to open your wallet.",
     "mnemonicMismatch": "Entered mnemonic does not match.",
     "newMnemonic": "Generate a new mnemonic",
     "thisIsYourPhrase": "This is your mnemonic"
@@ -320,11 +320,11 @@
       "privateKey": "Private key"
     },
     "mnemonic": {
-      "enterPhraseHere": "Enter your keyphrase here",
-      "error": "Invalid keyphrase. Please make sure to input the words in the right order, all lowercase.",
-      "header": "Enter your keyphrase",
+      "enterPhraseHere": "Enter your mnemonic here",
+      "error": "Invalid mnemonic. Please make sure to input the words in the right order, all lowercase.",
+      "header": "Enter your mnemonic",
       "import": "Import my wallet",
-      "instruction": "Enter all your keyphrase words below separated by spaces. Most keyphrases are made of either 24 or 12 words."
+      "instruction": "Enter all your mnemonic words below separated by spaces. Most mnemonics are made of either 24 or 12 words."
     },
     "privateKey": {
       "enterPrivateKeyHere": "Enter your private key here",
