@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ValidatorList  /> empty should match snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -79,23 +93,18 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   background-color: unset;
 }
 
-.c0 {
-  font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #16213E;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+@media only screen and (max-width:768px) {
+
 }
 
 @media only screen and (max-width:768px) {
   .c1 {
     padding: 12px;
   }
+}
+
+@media only screen and (max-width:768px) {
+
 }
 
 @media only screen and (max-width:768px) {
@@ -112,9 +121,13 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   }
 }
 
-<div
+@media only screen and (max-width:768px) {
+
+}
+
+<section
   class="c0"
-  style="min-height: 100dvh;"
+  data-testid="validators-list"
 >
   <div
     class="c1"
@@ -147,7 +160,7 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
 
 exports[`<ValidatorList  /> list should match snapshot 1`] = `
@@ -219,7 +232,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: none;
 }
 
-.c22 {
+.c21 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -230,27 +243,41 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #d24c00;
 }
 
-.c22 g {
+.c21 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c22 *:not([stroke])[fill='none'] {
+.c21 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c22 *[stroke*='#'],
-.c22 *[STROKE*='#'] {
+.c21 *[stroke*='#'],
+.c21 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c22 *[fill-rule],
-.c22 *[FILL-RULE],
-.c22 *[fill*='#'],
-.c22 *[FILL*='#'] {
+.c21 *[fill-rule],
+.c21 *[FILL-RULE],
+.c21 *[fill*='#'],
+.c21 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c1 {
@@ -271,20 +298,6 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 }
 
 .c20 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c21 {
   font-size: 18px;
   line-height: 24px;
   color: #0500e2;
@@ -574,23 +587,18 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   display: table;
 }
 
-.c0 {
-  font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  background-color: #ffffff;
-  color: #16213E;
-  box-sizing: border-box;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+@media only screen and (max-width:768px) {
+
 }
 
 @media only screen and (max-width:768px) {
   .c1 {
     padding: 12px;
   }
+}
+
+@media only screen and (max-width:768px) {
+
 }
 
 @media only screen and (max-width:768px) {
@@ -619,9 +627,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   }
 }
 
-<div
+@media only screen and (max-width:768px) {
+
+}
+
+<section
   class="c0"
-  style="min-height: 100dvh;"
+  data-testid="validators-list"
 >
   <div
     class="c1"
@@ -798,13 +810,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <span>
                   <div
-                    class="c20"
+                    class="c0"
                     style="display: inline-flex; white-space: nowrap;"
                   >
                     0
                   </div>
                   <span
-                    class="c21"
+                    class="c20"
                   >
                     <span
                       class="notranslate"
@@ -843,7 +855,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <svg
                   aria-label="Status is unknown"
-                  class="c22"
+                  class="c21"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -870,13 +882,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <span>
                   <div
-                    class="c20"
+                    class="c0"
                     style="display: inline-flex; white-space: nowrap;"
                   >
                     0
                   </div>
                   <span
-                    class="c21"
+                    class="c20"
                   >
                     <span
                       class="notranslate"
@@ -915,7 +927,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <svg
                   aria-label="Status is critical"
-                  class="c22"
+                  class="c21"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -942,13 +954,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               >
                 <span>
                   <div
-                    class="c20"
+                    class="c0"
                     style="display: inline-flex; white-space: nowrap;"
                   >
                     0
                   </div>
                   <span
-                    class="c21"
+                    class="c20"
                   >
                     <span
                       class="notranslate"
@@ -973,5 +985,5 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
       </div>
     </div>
   </div>
-</div>
+</section>
 `;

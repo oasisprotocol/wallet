@@ -6,14 +6,20 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 import { DelegationList } from '.'
+import { StakeSubnavigation } from '../../../AccountPage/Features/StakeSubnavigation'
 
 export const ActiveDelegationList = () => {
   const { t } = useTranslation()
   const delegations = useSelector(selectActiveDelegations)
   return (
-    <Box pad="medium" background="background-front">
-      <Header>{t('delegations.activeDelegations', 'Active delegations')}</Header>
-      <DelegationList type="active" delegations={delegations ?? []} />
-    </Box>
+    <>
+      <StakeSubnavigation />
+      <Box as="section" data-testid="active-delegations">
+        <Box pad="medium" background="background-front">
+          <Header>{t('delegations.activeDelegations', 'Active delegations')}</Header>
+          <DelegationList type="active" delegations={delegations ?? []} />
+        </Box>
+      </Box>
+    </>
   )
 }
