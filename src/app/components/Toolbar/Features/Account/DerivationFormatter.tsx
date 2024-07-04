@@ -13,34 +13,39 @@ export interface DerivationFormatterProps {
   pathDisplay: string | undefined
 }
 
+const iconProps = {
+  size: '20px',
+  color: '#fff',
+}
+
 export const DerivationFormatter = (props: DerivationFormatterProps) => {
   const walletTypes: { [type in WalletType]: ReactNode } = {
     [WalletType.UsbLedger]: (
       <Circle color="#0092F6">
-        <MuiUsbIcon />
+        <MuiUsbIcon {...iconProps} />
       </Circle>
     ),
     [WalletType.BleLedger]: (
       <Circle color="#3333c4">
-        <MuiBluetoothIcon />
+        <MuiBluetoothIcon {...iconProps} />
       </Circle>
     ),
     [WalletType.Mnemonic]: (
       <Circle color="#6665D8">
-        <MuiMarginIcon />
+        <MuiMarginIcon {...iconProps} />
       </Circle>
     ),
     [WalletType.PrivateKey]: (
       <Circle color="#0500E1">
-        <MuiVpnKeyIcon />
+        <MuiVpnKeyIcon {...iconProps} />
       </Circle>
     ),
   }
   return (
-    <Box align="start" direction="row">
+    <Box align="center" gap="xsmall" direction="row">
       {/* eslint-disable-next-line no-restricted-syntax -- children are not a plain text node */}
       {props.type && walletTypes[props.type]}
-      {props.pathDisplay && <Text size="80%">({props.pathDisplay})</Text>}
+      {props.pathDisplay && <Text size="small">({props.pathDisplay})</Text>}
     </Box>
   )
 }
@@ -51,6 +56,7 @@ const StyledCircle = styled.div`
   align-items: center;
   width: 32px;
   height: 32px;
+  min-width: 32px;
   border-radius: 50%;
   background-color: ${props => props.color};
 `

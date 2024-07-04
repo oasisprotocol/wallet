@@ -125,7 +125,7 @@ export const ManageableAccountDetails = ({
                 </FormField>
                 <Box>
                   <AddressBox address={wallet.address} border />
-                  <Text size="small" margin={'small'}>
+                  <Text size="small" margin={{ top: 'small' }}>
                     <DerivationFormatter pathDisplay={wallet.pathDisplay} type={wallet.type} />
                   </Text>
                 </Box>
