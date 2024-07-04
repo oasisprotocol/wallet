@@ -58,6 +58,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
         label: t('menu.wallet', 'Account'),
         Icon: Money,
         to: `/account/${address}`,
+        exactActive: true,
       },
       {
         label: t('menu.stake-mobile', 'Stake'),
@@ -88,16 +89,26 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
 
   return (
     <StyledMobileFooterNavigation data-testid="mobile-footer-navigation">
-      {getMenuItems.map(({ label, Icon, to }) => (
-        <MobileFooterButton key={to} label={label} Icon={Icon} to={to} />
+      {getMenuItems.map(params => (
+        <MobileFooterButton key={params.to} {...params} />
       ))}
     </StyledMobileFooterNavigation>
   )
 }
 
-function MobileFooterButton({ label, Icon, to }: { label: string; Icon: Icon; to: string }) {
+function MobileFooterButton({
+  label,
+  Icon,
+  to,
+  exactActive,
+}: {
+  label: string
+  Icon: Icon
+  to: string
+  exactActive?: boolean | undefined
+}) {
   const location = useLocation()
-  const isActive = to === location.pathname
+  const isActive = exactActive ? location.pathname === to : location.pathname.startsWith(to)
 
   return (
     <StyledNavLink to={to}>

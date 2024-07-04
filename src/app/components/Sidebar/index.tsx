@@ -38,6 +38,8 @@ import {
   mobileToolbarZIndex,
 } from '../../../styles/theme/elementSizes'
 import { ThemeContext } from 'styled-components'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { MobileFooterNavigation } from '../MobileFooterNavigation'
 
 interface SidebarButtonBaseProps {
   needsWalletOpen?: boolean
@@ -47,9 +49,10 @@ interface SidebarButtonBaseProps {
 
 type SidebarButtonProps = SidebarButtonBaseProps &
   (
-    | { route: string; newTab?: boolean; onClick?: undefined }
+    | { route: string; exactActive?: boolean; newTab?: boolean; onClick?: undefined }
     | {
         route?: undefined
+        exactActive?: undefined
         newTab?: undefined
         onClick: React.MouseEventHandler<HTMLButtonElement> & React.MouseEventHandler<HTMLAnchorElement>
       }
@@ -61,12 +64,17 @@ export const SidebarButton = ({
   label,
   route,
   newTab,
+  exactActive,
   onClick,
   ...rest
 }: SidebarButtonProps) => {
   const walletHasAccounts = useSelector(selectHasAccounts)
   const location = useLocation()
-  const isActive = route ? route === location.pathname : false
+  const isActive = route
+    ? exactActive
+      ? location.pathname === route
+      : location.pathname.startsWith(route)
+    : false
 
   if (!walletHasAccounts && needsWalletOpen) {
     return null
@@ -229,18 +237,28 @@ const SidebarFooter = (props: SidebarFooterProps) => {
   )
 }
 
+/** See also {@link MobileFooterNavigation} */
 function SidebarMenuItems() {
   const address = useSelector(selectAddress)
   const { t } = useTranslation()
   const { getParaTimesRoutePath, paraTimesRouteLabel } = useParaTimesNavigation()
   const menu = {
-    home: <SidebarButton icon={<Home />} label={t('menu.home', 'Home')} route="/" data-testid="nav-home" />,
+    home: (
+      <SidebarButton
+        icon={<Home />}
+        label={t('menu.home', 'Home')}
+        route="/"
+        exactActive
+        data-testid="nav-home"
+      />
+    ),
     wallet: (
       <SidebarButton
         icon={<Money />}
         label={t('menu.wallet', 'Account')}
         needsWalletOpen={true}
         route={`/account/${address}`}
+        exactActive
         data-testid="nav-myaccount"
       />
     ),
