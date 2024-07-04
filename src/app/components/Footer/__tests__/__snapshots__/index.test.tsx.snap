@@ -409,7 +409,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
           class="c11"
           style="line-height: 1;"
         >
-          ROSE Wallet
+          Account
         </span>
       </span>
     </a>
