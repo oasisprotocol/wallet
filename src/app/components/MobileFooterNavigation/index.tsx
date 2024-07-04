@@ -55,7 +55,7 @@ export const MobileFooterNavigation = ({ walletHasAccounts, isMobile }: MobileFo
   const getMenuItems = useMemo(() => {
     const menuItems = [
       {
-        label: t('menu.wallet', 'ROSE Wallet'),
+        label: t('menu.wallet', 'Account'),
         Icon: Money,
         to: `/account/${address}`,
       },

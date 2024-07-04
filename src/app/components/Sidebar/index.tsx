@@ -238,7 +238,7 @@ function SidebarMenuItems() {
     wallet: (
       <SidebarButton
         icon={<Money />}
-        label={t('menu.wallet', 'ROSE Wallet')}
+        label={t('menu.wallet', 'Account')}
         needsWalletOpen={true}
         route={`/account/${address}`}
         data-testid="nav-myaccount"

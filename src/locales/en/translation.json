@@ -257,7 +257,7 @@
     "stake": "Stake ROSE",
     "stake-mobile": "Stake",
     "unlockProfile": "Unlock profile",
-    "wallet": "ROSE Wallet"
+    "wallet": "Account"
   },
   "migrateV0Extension": {
     "backupInvalidPrivateKeys": {
