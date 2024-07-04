@@ -200,6 +200,7 @@ export async function decryptWithPasswordV0(
               debonding: null,
               delegations: null,
               total: null,
+              nonce: '0',
             },
             name: acc.accountName,
           }
@@ -215,6 +216,7 @@ export async function decryptWithPasswordV0(
               debonding: null,
               delegations: null,
               total: null,
+              nonce: '0',
             },
             name: acc.accountName,
           }
@@ -231,6 +233,7 @@ export async function decryptWithPasswordV0(
               debonding: null,
               delegations: null,
               total: null,
+              nonce: '0',
             },
             name: acc.accountName,
           }

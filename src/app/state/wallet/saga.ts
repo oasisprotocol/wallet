@@ -48,13 +48,11 @@ export function* openWalletsFromLedger({ payload }: PayloadAction<OpenSelectedAc
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    const { nonce: _, ...balance } = account.balance!
-
     yield* call(addWallet, {
       address: account.address,
       publicKey: account.publicKey,
       type: WalletType.UsbLedger,
-      balance,
+      balance: account.balance!,
       path: account.path,
       pathDisplay: account.pathDisplay,
       selectImmediately: account === accounts[0], // Select first
@@ -91,11 +89,9 @@ export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedA
   const accounts: ImportAccountsListAccount[] = yield* select(selectSelectedAccounts)
   yield* put(importAccountsActions.clear())
   for (const account of accounts) {
-    const { nonce: _, ...balance } = account.balance!
-
     yield* call(addWallet, {
       address: account.address,
-      balance,
+      balance: account.balance!,
       path: account.path,
       pathDisplay: account.pathDisplay,
       privateKey: account.privateKey,

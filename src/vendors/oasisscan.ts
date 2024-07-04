@@ -33,10 +33,10 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
   const operationsEntity = new OperationsEntityApi(explorerConfig)
   const runtime = new RuntimeApi(explorerConfig)
 
-  async function getAccount(address: string, { includeNonce = true } = {}): Promise<Account> {
+  async function getAccount(address: string): Promise<Account> {
     const account = await accounts.getAccount({ accountId: address })
     if (!account || account.code !== 0) throw new Error('Wrong response code') // TODO
-    return parseAccount(account.data, { includeNonce })
+    return parseAccount(account.data)
   }
 
   async function getAllValidators(): Promise<Validator[]> {
@@ -103,7 +103,7 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
   }
 }
 
-export function parseAccount(account: AccountsRow, { includeNonce = true } = {}): Account {
+export function parseAccount(account: AccountsRow): Account {
   return {
     address: account.address,
     allowances: account.allowances.map(allowance => ({
@@ -114,7 +114,7 @@ export function parseAccount(account: AccountsRow, { includeNonce = true } = {})
     delegations: parseRoseStringToBaseUnitString(account.escrow),
     debonding: parseRoseStringToBaseUnitString(account.debonding),
     total: parseRoseStringToBaseUnitString(account.total),
-    ...(includeNonce ? { nonce: BigInt(account.nonce ?? 0).toString() } : {}),
+    nonce: BigInt(account.nonce ?? 0).toString(),
   }
 }
 
@@ -207,7 +207,9 @@ export function parseTransactionsList(
         runtimeId: undefined,
         round: undefined,
         nonce:
-          (t as OperationsEntity).nonce >= 0 ? BigInt((t as OperationsEntity).nonce).toString() : undefined,
+          (t as OperationsEntity).nonce == null
+            ? undefined
+            : BigInt((t as OperationsEntity).nonce).toString(),
       }
       return parsed
     }

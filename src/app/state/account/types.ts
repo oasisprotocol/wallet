@@ -11,7 +11,7 @@ export interface BalanceDetails {
   delegations: StringifiedBigInt | null
   /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
   total: StringifiedBigInt | null
-  nonce?: StringifiedBigInt | null
+  nonce: StringifiedBigInt
 }
 
 export interface Allowance {
@@ -22,7 +22,6 @@ export interface Allowance {
 export interface Account extends BalanceDetails {
   address: string
   allowances?: Allowance[]
-  nonce?: StringifiedBigInt
 }
 
 /* --- STATE --- */

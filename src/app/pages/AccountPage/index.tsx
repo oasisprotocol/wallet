@@ -52,6 +52,7 @@ export function AccountPage() {
       account.available == null || balanceDelegations == null || balanceDebondingDelegations == null
         ? null
         : (BigInt(account.available) + balanceDelegations + balanceDebondingDelegations).toString(),
+    nonce: account.nonce,
   }
 
   // Restart fetching account balances if address or network changes
