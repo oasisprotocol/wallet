@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { LineChart } from 'grommet-icons/es6/icons/LineChart'
 import { Inherit } from 'grommet-icons/es6/icons/Inherit'
-import { Money } from 'grommet-icons/es6/icons/Money'
+import { MuiWalletIcon } from '../../../styles/theme/icons/mui-icons/MuiWalletIcon'
 import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
@@ -51,7 +51,7 @@ export const MobileFooterNavigation = () => {
     const menuItems = [
       {
         label: t('menu.wallet', 'Account'),
-        Icon: Money,
+        Icon: MuiWalletIcon,
         to: `/account/${address}`,
         exactActive: true,
       },
