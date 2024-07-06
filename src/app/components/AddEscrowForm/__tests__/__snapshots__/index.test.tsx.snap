@@ -33,6 +33,39 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 }
 
 .c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-top: 6px;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c10 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -50,6 +83,12 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 }
 
 .c8 {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bolder;
+}
+
+.c11 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -78,47 +117,47 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c8:hover {
+.c11:hover {
   box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
-.c8:focus {
+.c11:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
+.c11:focus > circle,
+.c11:focus > ellipse,
+.c11:focus > line,
+.c11:focus > path,
+.c11:focus > polygon,
+.c11:focus > polyline,
+.c11:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus::-moz-focus-inner {
+.c11:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c8:focus:not(:focus-visible) {
+.c11:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,
-.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,
-.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,
-.c8:focus:not(:focus-visible) > polyline,
-.c8:focus:not(:focus-visible) > rect {
+.c11:focus:not(:focus-visible) > circle,
+.c11:focus:not(:focus-visible) > ellipse,
+.c11:focus:not(:focus-visible) > line,
+.c11:focus:not(:focus-visible) > path,
+.c11:focus:not(:focus-visible) > polygon,
+.c11:focus:not(:focus-visible) > polyline,
+.c11:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible)::-moz-focus-inner {
+.c11:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -248,6 +287,12 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c7 {
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c10 {
     width: 6px;
   }
 }
@@ -287,12 +332,43 @@ exports[`<AddEscrowForm /> should match snapshot 1`] = `
             value=""
           />
         </div>
+        <div
+          class="c7"
+        >
+          <span
+            class="c8"
+          >
+            <span>
+              account.addEscrow.availableAmount
+               
+            </span>
+            <span>
+              <div
+                class="c9"
+                style="display: inline-flex; white-space: nowrap;"
+              >
+                456.542341274
+              </div>
+              <span
+                class="c5"
+              >
+                <span
+                  class="notranslate"
+                  translate="no"
+                >
+                   
+                </span>
+              </span>
+            </span>
+          </span>
+        </div>
       </div>
       <div
-        class="c7"
+        class="c10"
       />
       <button
-        class="c8"
+        class="c11"
+        style="height: 48px;"
         type="submit"
       >
         account.addEscrow.delegate

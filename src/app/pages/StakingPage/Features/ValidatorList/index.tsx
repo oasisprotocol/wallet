@@ -32,6 +32,7 @@ import { ValidatorItem } from './ValidatorItem'
 import { formatCommissionPercent } from 'app/lib/helpers'
 import { intlDateTimeFormat } from 'app/components/DateFormatter/intlDateTimeFormat'
 import { StakeSubnavigation } from '../../../AccountPage/Features/StakeSubnavigation'
+import { selectAccountAvailableBalance } from '../../../../state/account/selectors'
 
 interface Props {}
 
@@ -42,6 +43,7 @@ export const ValidatorList = memo((props: Props) => {
   const validatorsTimestamp = useSelector(selectValidatorsTimestamp)
   const updateValidatorsError = useSelector(selectUpdateValidatorsError)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
+  const accountAvailableBalance = useSelector(selectAccountAvailableBalance)
   const selectedAddress = useSelector(selectSelectedAddress)
   const validatorDetails = useSelector(selectValidatorDetails)
 
@@ -143,6 +145,7 @@ export const ValidatorList = memo((props: Props) => {
               <ValidatorItem
                 data={{} as any}
                 details={validatorDetails}
+                accountAvailableBalance={accountAvailableBalance}
                 isAddressInWallet={isAddressInWallet}
                 key={selectedAddress}
               />
