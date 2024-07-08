@@ -47,7 +47,7 @@ export function* selectNetwork({
   const networkState = {
     chainContext: chainContext,
     ticker: config[network].ticker,
-    epoch: Number(epoch), // TODO: numeric precision
+    epoch: Number(epoch), // Will lose precision in a few billion years at 1 epoch per hour
     selectedNetwork: network,
     minimumStakingAmount: config[network].min_delegation,
   }
