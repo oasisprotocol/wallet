@@ -15,7 +15,7 @@ import { LineChart } from 'grommet-icons/es6/icons/LineChart'
 import { MuiLockIcon } from '../../../styles/theme/icons/mui-icons/MuiLockIcon'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
 import { Menu as MenuIcon } from 'grommet-icons/es6/icons/Menu'
-import { Money } from 'grommet-icons/es6/icons/Money'
+import { MuiWalletIcon } from '../../../styles/theme/icons/mui-icons/MuiWalletIcon'
 import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import * as React from 'react'
 import { useContext } from 'react'
@@ -254,7 +254,7 @@ function SidebarMenuItems() {
     ),
     wallet: (
       <SidebarButton
-        icon={<Money />}
+        icon={<MuiWalletIcon />}
         label={t('menu.wallet', 'Account')}
         needsWalletOpen={true}
         route={`/account/${address}`}
