@@ -15,7 +15,12 @@ const renderComponent = (store: any, address: string, validatorStatus: Validator
     <Provider store={store}>
       <ThemeProvider>
         <ModalProvider>
-          <AddEscrowForm validatorAddress={address} validatorStatus={validatorStatus} validatorRank={21} />
+          <AddEscrowForm
+            validatorAddress={address}
+            validatorStatus={validatorStatus}
+            validatorRank={21}
+            accountAvailableBalance={456542341274n.toString()}
+          />
         </ModalProvider>
       </ThemeProvider>
     </Provider>,

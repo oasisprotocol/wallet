@@ -21,11 +21,14 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { TransactionStatus } from '../TransactionStatus'
 import { usePreventChangeOnNumberInputScroll } from '../../lib/usePreventChangeOnNumberInputScroll'
+import { AmountFormatter } from '../AmountFormatter'
+import { StringifiedBigInt } from '../../../types/StringifiedBigInt'
 
 interface Props {
   validatorAddress: string
   validatorStatus: Validator['status']
   validatorRank: number
+  accountAvailableBalance: StringifiedBigInt | null
 }
 
 export const AddEscrowForm = memo((props: Props) => {
@@ -114,8 +117,19 @@ export const AddEscrowForm = memo((props: Props) => {
                 reverse
                 onWheel={onWheel}
               />
+              <Box align="end" margin={{ top: 'xsmall' }}>
+                <Text weight="bolder" size="small">
+                  <span>{t('account.addEscrow.availableAmount', 'Available:')} </span>
+                  <AmountFormatter amount={props.accountAvailableBalance} smallTicker />
+                </Text>
+              </Box>
             </Box>
-            <Button label={t('account.addEscrow.delegate', 'Delegate')} type="submit" primary />
+            <Button
+              label={t('account.addEscrow.delegate', 'Delegate')}
+              type="submit"
+              primary
+              style={{ height: 48 }}
+            />
           </Box>
           <TransactionStatus error={error} success={success} />
         </Form>

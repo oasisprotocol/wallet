@@ -4,10 +4,12 @@ import { Box } from 'grommet/es6/components/Box'
 import React from 'react'
 
 import { ValidatorInformations } from './ValidatorInformations'
+import { StringifiedBigInt } from '../../../../../types/StringifiedBigInt'
 
 interface ValidatorProps {
   data: Validator
   details: ValidatorDetails | null
+  accountAvailableBalance: StringifiedBigInt | null
   isAddressInWallet: boolean
 }
 export const ValidatorItem = (props: ValidatorProps) => {
@@ -24,6 +26,7 @@ export const ValidatorItem = (props: ValidatorProps) => {
             validatorAddress={validator.address}
             validatorStatus={validator.status}
             validatorRank={validator.rank}
+            accountAvailableBalance={props.accountAvailableBalance}
           />
         )}
       </Box>

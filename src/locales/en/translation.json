@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Available:",
       "confirmDelegatingToInactive": {
         "description": "Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.",
         "title": "Are you sure you want to continue?"
