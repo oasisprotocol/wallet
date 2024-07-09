@@ -56,7 +56,7 @@ jobs:
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/release.jks
       - name: Sign Android bundle
         run: |
-          jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEY_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
+          jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEY_SIGNER_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars

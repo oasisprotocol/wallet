@@ -66,14 +66,14 @@ jobs:
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/release.jks
       - name: Sign AAB using jarsigner
         run: |
-          jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEY_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
+          jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEY_SIGNER_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
       # Targeting version 30 and above we need to align the APK so that all uncompressed data starts on a 4-byte boundary
       - name: Zipalign APK
         run: |
           $ANDROID_SDK_ROOT/build-tools/31.0.0/zipalign -v 4 android/app/build/outputs/apk/release/app-release-unsigned.apk android/app/build/outputs/apk/release/app-release-aligned.apk
       - name: Sign APK using apksigner
         run: |
-          $ANDROID_SDK_ROOT/build-tools/31.0.0/apksigner sign --ks android/release.jks --ks-pass pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass pass:${{ secrets.KEY_PASSWORD }} --ks-key-alias ${{ secrets.KEY_ALIAS }} android/app/build/outputs/apk/release/app-release-aligned.apk
+          $ANDROID_SDK_ROOT/build-tools/31.0.0/apksigner sign --ks android/release.jks --ks-pass pass:${{ secrets.KEYSTORE_PASSWORD }} --key-pass pass:${{ secrets.KEY_SIGNER_PASSWORD }} --ks-key-alias ${{ secrets.KEY_ALIAS }} android/app/build/outputs/apk/release/app-release-aligned.apk
       - name: Upload Android AAB build artifacts
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
