@@ -6,7 +6,7 @@
 import { Transaction } from 'app/components/Transaction'
 import { Box } from 'grommet/es6/components/Box'
 import { Heading } from 'grommet/es6/components/Heading'
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
@@ -39,6 +39,14 @@ export function TransactionHistory() {
   const pendingTransactions = useSelector(selectPendingTransactionForAccount)
   const hasUnknownPendingTransactions = useSelector(hasAccountUnknownPendingTransactions)
   const network = useSelector(selectSelectedNetwork)
+
+  const [isInitialLoading, setInitialLoading] = useState(true)
+  useEffect(() => {
+    if (!!address && !accountIsLoading) {
+      setInitialLoading(false)
+    }
+  }, [address, accountIsLoading])
+
   const backendLinks = config[network][backend()]
   const transactionComponents = allTransactions.map(t => (
     <Transaction key={t.hash} transaction={t} referenceAddress={address} network={network} />
@@ -46,8 +54,6 @@ export function TransactionHistory() {
   const pendingTransactionComponents = pendingTransactions
     .filter(({ hash: pendingTxHash }) => !allTransactions.some(({ hash }) => hash === pendingTxHash))
     .map(t => <Transaction key={t.hash} transaction={t} referenceAddress={address} network={network} />)
-
-  const showPendingSection = !accountIsLoading && !!address
 
   return (
     <Box margin="none">
@@ -58,7 +64,7 @@ export function TransactionHistory() {
         </p>
       )}
       {/* eslint-disable no-restricted-syntax */}
-      {showPendingSection && (!!pendingTransactionComponents.length || hasUnknownPendingTransactions) && (
+      {!isInitialLoading && (!!pendingTransactionComponents.length || hasUnknownPendingTransactions) && (
         <>
           <Heading level="3">{t('account.summary.pendingTransactions', 'Pending transactions')}</Heading>
           <AlertBox
