@@ -69,7 +69,7 @@ export function* openWalletFromPrivateKey({ payload }: PayloadAction<OpenFromPri
   const publicKeyBytes = nacl.sign.keyPair.fromSecretKey(hex2uint(payload.privateKey)).publicKey
   const walletAddress = yield* call(publicKeyToAddress, publicKeyBytes)
   const publicKey = uint2hex(publicKeyBytes)
-  const balance = yield* call(getAccountBalanceWithFallback, walletAddress)
+  const balance = yield* call(getAccountBalanceWithFallback, walletAddress, { includeNonce: false })
 
   yield* call(addWallet, {
     address: walletAddress,
@@ -127,7 +127,7 @@ export function* addWallet(payload: AddWalletPayload) {
 
 function* fetchWallet(action: PayloadAction<Wallet>) {
   const wallet = action.payload
-  const balance = yield* call(getAccountBalanceWithFallback, wallet.address)
+  const balance = yield* call(getAccountBalanceWithFallback, wallet.address, { includeNonce: false })
   yield* put(
     walletActions.updateBalance({
       address: wallet.address,

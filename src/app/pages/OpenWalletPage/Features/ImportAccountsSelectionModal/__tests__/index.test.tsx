@@ -52,7 +52,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
         importAccountsActions.accountsListed([
           {
             address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-            balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
+            balance: { available: '0', debonding: '0', delegations: '0', total: '0', nonce: '0' },
             path: [44, 474, 0],
             pathDisplay: `m/44'/474'/0'`,
             publicKey: '00',
@@ -77,7 +77,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
         importAccountsActions.accountsListed([
           {
             address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-            balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
+            balance: { available: '0', debonding: '0', delegations: '0', total: '0', nonce: '0' },
             path: [44, 474, 0],
             pathDisplay: `m/44'/474'/0'`,
             publicKey: '00',
@@ -86,7 +86,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
           },
           {
             address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
-            balance: { available: '0', debonding: '0', delegations: '0', total: '0' },
+            balance: { available: '0', debonding: '0', delegations: '0', total: '0', nonce: '0' },
             path: [44, 474, 1],
             pathDisplay: `m/44'/474'/1'`,
             publicKey: '00',

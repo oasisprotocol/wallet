@@ -26,9 +26,7 @@ import { walletActions } from 'app/state/wallet'
 import { AccountSummary } from './Features/AccountSummary'
 import { AccountPageParams } from './validateAccountPageRoute'
 
-interface AccountPageProps {}
-
-export function AccountPage(props: AccountPageProps) {
+export function AccountPage() {
   const { t } = useTranslation()
   const address = useParams<keyof AccountPageParams>().address!
   const dispatch = useDispatch()
@@ -54,6 +52,7 @@ export function AccountPage(props: AccountPageProps) {
       account.available == null || balanceDelegations == null || balanceDebondingDelegations == null
         ? null
         : (BigInt(account.available) + balanceDelegations + balanceDebondingDelegations).toString(),
+    nonce: account.nonce,
   }
 
   // Restart fetching account balances if address or network changes
@@ -64,10 +63,14 @@ export function AccountPage(props: AccountPageProps) {
     }
   }, [dispatch, address, selectedNetwork])
 
+  const isStakeInitialLoading = stake.loading && stake.delegations === null
+  const isAccountInitialLoading = account.loading && !account.address
+
   return (
     <Box pad="small">
       {active && <TransactionModal />}
-      {(stake.loading || account.loading) && (
+      {/* Prevent showing Loading account popup unless initial load */}
+      {(isStakeInitialLoading || isAccountInitialLoading) && (
         <Layer modal background="background-front" responsive={false}>
           <Box pad="medium" gap="medium" direction="row" align="center" width="max-content">
             <Spinner size="medium" />

@@ -14,12 +14,12 @@ function* getBalanceGRPC(address: string) {
     delegations: null,
     debonding: null,
     total: null,
+    nonce: account.general?.nonce?.toString() ?? '0',
   }
 }
 
 export function* getAccountBalanceWithFallback(address: string) {
   const { getAccount } = yield* call(getExplorerAPIs)
-
   try {
     const account: Account = yield* call(getAccount, address)
     return account
