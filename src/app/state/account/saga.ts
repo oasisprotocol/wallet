@@ -57,7 +57,17 @@ export function* fetchAccount(action: PayloadAction<string>) {
           })
 
           const detailedTransactions = yield* call(() =>
-            Promise.allSettled(transactions.map(({ hash }) => getTransaction({ hash }))),
+            Promise.allSettled(
+              transactions.map(tx => {
+                const { hash, runtimeId, runtimeName, round } = tx
+
+                if (!!runtimeId || !!runtimeName || !!round) {
+                  return Promise.reject()
+                }
+
+                return getTransaction({ hash })
+              }),
+            ),
           )
           const transactionsWithUpdatedNonce = transactions.map((t, i) => {
             const { status, value } = detailedTransactions[i] as PromiseFulfilledResult<Transaction>

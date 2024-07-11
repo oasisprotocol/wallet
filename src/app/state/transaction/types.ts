@@ -49,12 +49,12 @@ export interface Transaction {
   timestamp: number | undefined
   to: string | undefined
   type: TransactionType
+  nonce: StringifiedBigInt | undefined
   // These are undefined on consensus transaction
   // Only appear on ParaTime transaction
   runtimeName: string | undefined
   runtimeId: string | undefined
   round: number | undefined
-  nonce: StringifiedBigInt | undefined
 }
 
 /* --- STATE --- */
