@@ -190,6 +190,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qz086axf5hreqpehv5hlgmtw7sfem79gz55v68wp',
           to: 'oasis1qpm97z4c28juhdea220jtq2e3mz4gruyg54xktlm',
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.AddEscrow&address=oasis1qz0rx0h3v8fyukfrr0npldrrzvpdg4wj2qxvg0kj
@@ -206,6 +207,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qz0rx0h3v8fyukfrr0npldrrzvpdg4wj2qxvg0kj',
           to: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.ReclaimEscrow&address=oasis1qzah5wn48ekakmq5405qvcg4czp8hjvrcvcywvhp
@@ -222,6 +224,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qzah5wn48ekakmq5405qvcg4czp8hjvrcvcywvhp',
           to: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.AmendCommissionSchedule&address=oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6
@@ -238,6 +241,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qzl58e7v7pk50h66s2tv3u9rzf87twp7pcv7hul6',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=staking.Allow&address=oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj
@@ -254,6 +258,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qq3833fnmkqe94h0ca6w8qa84sq8pu92qsjmfayj',
           to: 'oasis1qzvlg0grjxwgjj58tx2xvmv26era6t2csqn22pte',
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=roothash.ExecutorCommit&address=oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg
@@ -270,6 +275,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qzr9p9fpjqekr8dev66wuaedcpq5n09hwvpkd4pg',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=roothash.ExecutorProposerTimeout&address=oasis1qz6k3gky5d43h70xh2c5vk5fztmzmxmmhc6rh72x
@@ -286,6 +292,7 @@ describe('oasisscan', () => {
           status: false,
           from: 'oasis1qz6k3gky5d43h70xh2c5vk5fztmzmxmmhc6rh72x',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=registry.RegisterEntity&address=oasis1qpdlqz373hcqvafadd3lxptj42x84sws35s02r4r
@@ -302,6 +309,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qpdlqz373hcqvafadd3lxptj42x84sws35s02r4r',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=registry.RegisterNode&address=oasis1qzwl8jlxzwjgz2m6d3ns0vt9hzfp2h63qsxs76ys
@@ -318,6 +326,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qzwl8jlxzwjgz2m6d3ns0vt9hzfp2h63qsxs76ys',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=registry.RegisterRuntime&address=oasis1qrvmxhcjpjvgel9dqfs6zrnza3hqjpa6ug2arc0d
@@ -334,6 +343,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qrvmxhcjpjvgel9dqfs6zrnza3hqjpa6ug2arc0d',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=governance.CastVote&address=oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq
@@ -350,6 +360,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=beacon.PVSSCommit&address=oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t
@@ -366,6 +377,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qrd64zucfaugv677fwkhynte4dz450yffgp0k06t',
           to: null,
+          nonce: 1,
         },
 
         // https://api.oasisscan.com/mainnet/chain/transactions?size=200&runtime=false&method=beacon.PVSSReveal&address=oasis1qptn9zmdn5ksvq85vxg2mg84e9m6jp2875dyfl73
@@ -382,6 +394,7 @@ describe('oasisscan', () => {
           status: true,
           from: 'oasis1qptn9zmdn5ksvq85vxg2mg84e9m6jp2875dyfl73',
           to: null,
+          nonce: 1,
         },
       ]),
     ).toMatchSnapshot()
