@@ -132,11 +132,10 @@ export class OasisTransaction {
   ): Promise<RTW<oasisRT.types.ConsensusDeposit | oasisRT.types.ConsensusWithdraw>> {
     const { amount, recipient: targetAddress, type } = transaction
     const isDepositing = type === TransactionTypes.Deposit
-    const consensusRuntimeId = oasis.misc.fromHex(runtime.id)
-    const txWrapper = new oasisRT.consensusAccounts.Wrapper(consensusRuntimeId)[
-      isDepositing ? 'callDeposit' : 'callWithdraw'
-    ]()
-    const accountsWrapper = new oasisRT.accounts.Wrapper(consensusRuntimeId)
+    const rtw = isDepositing
+      ? new oasisRT.consensusAccounts.Wrapper(oasis.misc.fromHex(runtime.id)).callDeposit()
+      : new oasisRT.consensusAccounts.Wrapper(oasis.misc.fromHex(runtime.id)).callWithdraw()
+    const accountsWrapper = new oasisRT.accounts.Wrapper(oasis.misc.fromHex(runtime.id))
     const nonce = await accountsWrapper
       .queryNonce()
       .setArgs({ address: oasis.staking.addressFromBech32(fromAddress) })
@@ -152,7 +151,7 @@ export class OasisTransaction {
       nonce,
     }
 
-    txWrapper
+    rtw
       .setBody({
         amount: [
           oasis.quantity.fromBigInt(BigInt(parseRoseStringToBigNumber(amount, runtime.decimals).toFixed(0))),
@@ -167,7 +166,7 @@ export class OasisTransaction {
       .setFeeConsensusMessages(1)
       .setSignerInfo([signerInfo])
 
-    return txWrapper
+    return rtw
   }
 
   public static async signUsingLedger<T>(
