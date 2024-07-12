@@ -22,7 +22,7 @@ import {
 
 import { throwAPIErrors } from './helpers'
 
-const getTransactionCacheMap: Record<string, Transaction> = {}
+const getTransactionCacheMap: Record<string, OperationsEntity> = {}
 const getRuntimeTransactionInfoCacheMap: Record<string, RuntimeTransactionInfoRow> = {}
 
 export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainnet') {
@@ -85,18 +85,16 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
       return getTransactionCacheMap[cacheId]
     }
 
-    const transaction = await operationsEntity.getTransaction({
+    const { data, code } = await operationsEntity.getTransaction({
       hash,
     })
 
-    const [parsedTx] = parseTransactionsList([transaction.data ?? {}])
-
     // returns {"code": 0,"data": null} for missing or unprocessed transactions, we want to skip caching those requests
-    if (transaction.code === 0 && !!transaction.data) {
-      getTransactionCacheMap[cacheId] = parsedTx
+    if (code === 0 && !!data) {
+      getTransactionCacheMap[cacheId] = data
     }
 
-    return parsedTx
+    return data
   }
 
   async function getTransactionsList(params: { accountId: string; limit: number }) {
@@ -108,7 +106,14 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     if (!transactionsList || transactionsList.code !== 0) throw new Error('Wrong response code') // TODO
 
     const list = await Promise.all(
-      transactionsList.data.list.map(async tx => (tx.runtimeId ? getRuntimeTransactionInfo(tx) : tx)),
+      transactionsList.data.list.map(async tx => {
+        if (tx.runtimeId) {
+          return await getRuntimeTransactionInfo(tx)
+        } else {
+          const { nonce } = await getTransaction({ hash: tx.txHash })
+          return { ...tx, nonce }
+        }
+      }),
     )
 
     return parseTransactionsList(list)
@@ -134,7 +139,6 @@ export function getOasisscanAPIs(url: string | 'https://api.oasisscan.com/mainne
     operations,
     getAccount,
     getAllValidators,
-    getTransaction,
     getTransactionsList,
     getDelegations,
   }
@@ -209,7 +213,7 @@ export const transactionMethodMap: {
 }
 
 export function parseTransactionsList(
-  list: (OperationsRow | RuntimeTransactionInfoRow | OperationsEntity)[],
+  list: ((OperationsRow & { nonce: number }) | RuntimeTransactionInfoRow)[],
 ): Transaction[] {
   return list.map(t => {
     if ('ctx' in t) {
@@ -243,10 +247,7 @@ export function parseTransactionsList(
         runtimeName: undefined,
         runtimeId: undefined,
         round: undefined,
-        nonce:
-          (t as OperationsEntity).nonce == null
-            ? undefined
-            : BigInt((t as OperationsEntity).nonce).toString(),
+        nonce: t.nonce == null ? undefined : BigInt(t.nonce).toString(),
       }
       return parsed
     }

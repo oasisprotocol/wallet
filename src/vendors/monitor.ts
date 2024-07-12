@@ -38,10 +38,6 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
     return parseValidatorsList(validators)
   }
 
-  async function getTransaction({ hash }: { hash: string }) {
-    throw new Error('Not implemented')
-  }
-
   async function getTransactionsList(params: { accountId: string; limit: number }) {
     const transactions = await operations.getTransactionsList({
       accountId: params.accountId,
@@ -74,7 +70,6 @@ export function getMonitorAPIs(url: string | 'https://monitor.oasis.dev') {
     blocks,
     getAccount,
     getAllValidators,
-    getTransaction,
     getTransactionsList,
     getDelegations,
   }

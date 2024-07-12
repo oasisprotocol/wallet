@@ -23,7 +23,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
   const address = action.payload
 
   yield* put(accountActions.setLoading(true))
-  const { getTransactionsList, getTransaction } = yield* call(getExplorerAPIs)
+  const { getTransactionsList } = yield* call(getExplorerAPIs)
 
   yield* all([
     join(
@@ -56,35 +56,7 @@ export function* fetchAccount(action: PayloadAction<string>) {
             limit: TRANSACTIONS_LIMIT,
           })
 
-          const detailedTransactions = yield* call(() =>
-            Promise.allSettled(
-              transactions.map(tx => {
-                const { hash, runtimeId, runtimeName, round } = tx
-
-                if (!!runtimeId || !!runtimeName || !!round) {
-                  return Promise.reject()
-                }
-
-                return getTransaction({ hash })
-              }),
-            ),
-          )
-          const transactionsWithUpdatedNonce = transactions.map((t, i) => {
-            const { status, value } = detailedTransactions[i] as PromiseFulfilledResult<Transaction>
-            // Skip in case transaction detail request failed
-            if (status === 'fulfilled') {
-              return {
-                ...t,
-                nonce: value.nonce,
-              }
-            }
-
-            return t
-          })
-
-          yield* put(
-            accountActions.transactionsLoaded({ networkType, transactions: transactionsWithUpdatedNonce }),
-          )
+          yield* put(accountActions.transactionsLoaded({ networkType, transactions }))
         } catch (e: any) {
           console.error('get transactions list failed, continuing without updated list.', e)
           if (e instanceof WalletError) {
