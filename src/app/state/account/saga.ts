@@ -132,6 +132,7 @@ export function* fetchingOnAccountPage() {
           const staleBalances = yield* select(selectAccount)
           const hasPendingTxs = yield* select(hasAccountUnknownPendingTransactions)
           if (
+            staleBalances.nonce !== refreshedAccount.nonce || // If a new transaction fails it won't change balances
             staleBalances.available !== refreshedAccount.available ||
             staleBalances.delegations !== refreshedAccount.delegations ||
             staleBalances.debonding !== refreshedAccount.debonding ||
