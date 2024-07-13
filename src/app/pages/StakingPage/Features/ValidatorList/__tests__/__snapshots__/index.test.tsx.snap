@@ -418,8 +418,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   -webkit-flex-basis: 0;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  max-width: 100%;
-  min-width: 100px;
+  max-width: 40ex;
+  min-width: 15ex;
 }
 
 .c13 {
@@ -435,6 +435,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   flex-basis: 0;
   max-width: 100%;
   min-width: 100px;
+  min-width: 28ex;
+  max-width: 28ex;
 }
 
 .c14 {

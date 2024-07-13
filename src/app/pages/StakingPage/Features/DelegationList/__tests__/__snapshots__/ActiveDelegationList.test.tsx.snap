@@ -35,7 +35,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   stroke: none;
 }
 
-.c18 {
+.c19 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -46,25 +46,25 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   stroke: #2ad5ab;
 }
 
-.c18 g {
+.c19 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c18 *:not([stroke])[fill='none'] {
+.c19 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c18 *[stroke*='#'],
-.c18 *[STROKE*='#'] {
+.c19 *[stroke*='#'],
+.c19 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c18 *[fill-rule],
-.c18 *[FILL-RULE],
-.c18 *[fill*='#'],
-.c18 *[FILL*='#'] {
+.c19 *[fill-rule],
+.c19 *[FILL-RULE],
+.c19 *[fill*='#'],
+.c19 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -109,7 +109,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c19 {
+.c20 {
   font-size: 18px;
   line-height: 24px;
   color: #0500e2;
@@ -176,7 +176,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   padding-right: 16px;
 }
 
-.c16 {
+.c17 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -221,11 +221,28 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   -webkit-flex-basis: 0;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  max-width: 100%;
-  min-width: 100px;
+  max-width: 40ex;
+  min-width: 15ex;
 }
 
 .c13 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+  min-width: 28ex;
+  max-width: 28ex;
+}
+
+.c14 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -242,11 +259,11 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   max-width: 100px;
 }
 
-.c17 {
+.c18 {
   font-weight: 400;
 }
 
-.c15 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -266,13 +283,13 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   min-height: 48px;
 }
 
-.c15:not(:last-of-type) {
+.c16:not(:last-of-type) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #AAAAAAaa;
 }
 
-.c15:hover {
+.c16:hover {
   color: unset;
   background-color: #88888833;
   -webkit-transition-duration: 0.15s;
@@ -285,7 +302,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   outline-color: unset;
 }
 
-.c15:hover {
+.c16:hover {
   cursor: pointer;
 }
 
@@ -350,7 +367,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
-.c14 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -404,6 +421,12 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
     font-size: 26px;
     line-height: 32px;
     max-width: 624px;
+  }
+}
+
+@media screen and (max-width:599px) {
+  .c14 {
+    display: none;
   }
 }
 
@@ -478,7 +501,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c8 c10 rdt_TableCol"
+                class="c8 c13 rdt_TableCol"
               >
                 <div
                   class="c11 rdt_TableCol_Sortable"
@@ -508,7 +531,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c8 c13 rdt_TableCol"
+                class="c8 c14 rdt_TableCol"
               >
                 <div
                   class="c11 rdt_TableCol_Sortable"
@@ -540,30 +563,30 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c14 rdt_TableBody"
+            class="c15 rdt_TableBody"
             offset="250px"
             role="rowgroup"
           >
             <div
-              class="c15 rdt_TableRow"
+              class="c16 rdt_TableRow"
               id="row-test-validator"
               role="row"
             >
               <div
-                class="c16 c9 c17 rdt_TableCell"
+                class="c17 c9 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-icon-test-validator"
                 role="gridcell"
               />
               <div
-                class="c16 c9 c17 rdt_TableCell"
+                class="c17 c9 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-status-test-validator"
                 role="gridcell"
               >
                 <svg
                   aria-label="Status is okay"
-                  class="c18"
+                  class="c19"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -575,7 +598,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                 </svg>
               </div>
               <div
-                class="c16 c10 c17 rdt_TableCell"
+                class="c17 c10 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-test-validator"
                 role="gridcell"
@@ -583,7 +606,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                 test-validator
               </div>
               <div
-                class="c16 c10 c17 rdt_TableCell"
+                class="c17 c13 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-amount-test-validator"
                 role="gridcell"
@@ -596,7 +619,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                     0.0000001
                   </div>
                   <span
-                    class="c19"
+                    class="c20"
                   >
                     <span
                       class="notranslate"
@@ -608,7 +631,7 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c16 c13 c17 rdt_TableCell"
+                class="c17 c14 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-fee-test-validator"
                 role="gridcell"
