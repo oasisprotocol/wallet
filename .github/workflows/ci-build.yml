@@ -56,6 +56,7 @@ jobs:
         run: |
           $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
       - name: Build Android App Bundle (AAB)
+        if: github.event_name == 'push'
         run: ./gradlew bundleRelease
         working-directory: android
       - name: Build Android Package (APK)
@@ -65,6 +66,7 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/release.jks
       - name: Sign AAB using jarsigner
+        if: github.event_name == 'push'
         run: |
           jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEYSTORE_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
       # Targeting version 30 and above we need to align the APK so that all uncompressed data starts on a 4-byte boundary
