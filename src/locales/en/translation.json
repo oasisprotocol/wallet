@@ -218,13 +218,13 @@
     }
   },
   "icons": {
-    "wallet": {
-      "label": "Wallet"
-    },
-    "usb": "Usb",
     "bluetooth": "Bluetooth",
     "mnemonic": "Mnemonic",
-    "privateKey": "Private key"
+    "privateKey": "Private key",
+    "usb": "Usb",
+    "wallet": {
+      "label": "Wallet"
+    }
   },
   "infoBox": {
     "valueCopied": "{{label}} copied."
@@ -530,13 +530,7 @@
       "settings": "Settings"
     },
     "wallets": {
-      "select": "Select",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "Mnemonic",
-        "privateKey": "Private key",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "Select"
     }
   },
   "transaction": {

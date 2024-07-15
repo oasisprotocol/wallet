@@ -466,13 +466,7 @@
       "settings": "Ayarlar"
     },
     "wallets": {
-      "select": "Seç",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "Anahtar kelime",
-        "privateKey": "Özel anahtar",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "Seç"
     }
   },
   "transaction": {

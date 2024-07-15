@@ -330,13 +330,7 @@
       "settings": "Einstellungen"
     },
     "wallets": {
-      "select": "Auswählen",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "Mnemonic",
-        "privateKey": "Privater Schlüssel",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "Auswählen"
     }
   },
   "transaction": {
