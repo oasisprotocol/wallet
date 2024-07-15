@@ -218,6 +218,10 @@
     }
   },
   "icons": {
+    "bluetooth": "Bluetooth",
+    "mnemonic": "Mnemonic",
+    "privateKey": "Private key",
+    "usb": "Usb",
     "wallet": {
       "label": "Wallet"
     }
@@ -526,13 +530,7 @@
       "settings": "Settings"
     },
     "wallets": {
-      "select": "Select",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "Mnemonic",
-        "privateKey": "Private key",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "Select"
     }
   },
   "transaction": {

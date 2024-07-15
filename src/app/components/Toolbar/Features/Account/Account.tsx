@@ -89,8 +89,7 @@ export const Account = memo((props: AccountProps) => {
         <Box>
           <Text weight="bold">{address}</Text>
         </Box>
-        <Box direction="row" gap="large" justify="between" wrap>
-          {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
+        <Box direction="row" gap="small" wrap>
           {props.displayManageButton && (
             <Box direction="row">
               <StyledManageButton
@@ -103,8 +102,9 @@ export const Account = memo((props: AccountProps) => {
               />
             </Box>
           )}
+          {props.displayDerivation && <DerivationFormatter {...props.displayDerivation} />}
           {props.displayBalance && (
-            <Box height="24px">
+            <Box height="24px" margin={{ left: 'auto' }} alignSelf="center">
               {props.balance ? <AmountFormatter amount={props.balance.total} /> : <Spinner />}
             </Box>
           )}

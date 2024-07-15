@@ -1,6 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Account  /> should match snapshot 1`] = `
+.c15 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  stroke: #fff;
+}
+
+.c15 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c15 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c15 *[stroke*='#'],
+.c15 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c15 *[fill-rule],
+.c15 *[FILL-RULE],
+.c15 *[fill*='#'],
+.c15 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c0 {
   font-family: Rubik,sans-serif;
   font-size: 18px;
@@ -162,10 +196,6 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -178,10 +208,10 @@ exports[`<Account  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
@@ -189,13 +219,17 @@ exports[`<Account  /> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c16 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: auto;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -204,14 +238,24 @@ exports[`<Account  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c15 {
+.c16 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
-  width: 48px;
+  width: 6px;
+}
+
+.c18 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 12px;
 }
 
 .c9 {
@@ -220,12 +264,12 @@ exports[`<Account  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c14 {
-  font-size: 80%;
-  line-height: normal;
+.c17 {
+  font-size: 14px;
+  line-height: 20px;
 }
 
-.c17 {
+.c20 {
   font-size: 18px;
   line-height: 24px;
   color: #0500e2;
@@ -276,6 +320,26 @@ exports[`<Account  /> should match snapshot 1`] = `
   flex-shrink: 0;
 }
 
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background-color: #6665D8;
+}
+
 @media only screen and (max-width:768px) {
   .c1 {
     border: solid 1px #0500e2;
@@ -319,12 +383,24 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
+  .c19 {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width:768px) {
 
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
-    width: 24px;
+  .c16 {
+    width: 3px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c18 {
+    width: 6px;
   }
 }
 
@@ -405,10 +481,25 @@ exports[`<Account  /> should match snapshot 1`] = `
             <div
               class="c13"
             >
-              toolbar.wallets.type.mnemonic
-               
-              <span
+              <div
                 class="c14"
+                color="#6665D8"
+              >
+                <svg
+                  aria-label="icons.mnemonic"
+                  class="c15"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 3v18h18V3zm16 16H5V5h14zM11 7h2v2h-2zM7 7h2v2H7zm8 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="c16"
+              />
+              <span
+                class="c17"
               >
                 (
                 m/44'/474'/0'/0'/0'
@@ -416,10 +507,10 @@ exports[`<Account  /> should match snapshot 1`] = `
               </span>
             </div>
             <div
-              class="c15"
+              class="c18"
             />
             <div
-              class="c16"
+              class="c19"
             >
               <span>
                 <div
@@ -429,7 +520,7 @@ exports[`<Account  /> should match snapshot 1`] = `
                   0.000001
                 </div>
                 <span
-                  class="c17"
+                  class="c20"
                 >
                   <span
                     class="notranslate"

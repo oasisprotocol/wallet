@@ -480,13 +480,7 @@
       "settings": "设置"
     },
     "wallets": {
-      "select": "选择",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "助记词",
-        "privateKey": "私钥",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "选择"
     }
   },
   "transaction": {

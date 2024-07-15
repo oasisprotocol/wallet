@@ -480,13 +480,7 @@
       "settings": "Nastavitve"
     },
     "wallets": {
-      "select": "Izberi",
-      "type": {
-        "bluetoothLedger": "BLE Ledger",
-        "mnemonic": "Mnemonik",
-        "privateKey": "Zasebni ključ",
-        "usbLedger": "USB Ledger"
-      }
+      "select": "Izberi"
     }
   },
   "transaction": {

@@ -35,6 +35,10 @@ export const ManageableAccount = ({
         isActive={isActive}
         path={wallet.path}
         displayBalance={true}
+        displayDerivation={{
+          type: wallet.type,
+          pathDisplay: wallet.pathDisplay,
+        }}
         displayManageButton={{
           onClickManage: () => setLayerVisibility(true),
         }}
