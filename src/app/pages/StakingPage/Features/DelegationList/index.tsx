@@ -92,6 +92,8 @@ export const DelegationList = memo((props: Props) => {
       name: t('validator.name', 'Name'),
       id: 'name',
       selector: 'name',
+      maxWidth: '40ex',
+      minWidth: '15ex',
       cell: datum =>
         datum.validator?.name ?? (
           <Text data-tag="allowRowEvents">
@@ -111,6 +113,8 @@ export const DelegationList = memo((props: Props) => {
           : t('delegations.reclaimedAmount', 'Amount to reclaim'),
       id: 'amount',
       selector: 'amount',
+      width: '28ex',
+      right: true,
       cell: datum => datum.amount && <AmountFormatter amount={datum.amount} />,
       sortable: true,
       sortFunction: (row1, row2) => Number(BigInt(row1.amount) - BigInt(row2.amount)),
@@ -120,6 +124,8 @@ export const DelegationList = memo((props: Props) => {
       id: 'fee',
       selector: 'fee',
       width: '100px',
+      right: true,
+      hide: 'sm',
       cell: datum =>
         datum.validator?.current_rate !== undefined
           ? `${formatCommissionPercent(datum.validator.current_rate)}%`

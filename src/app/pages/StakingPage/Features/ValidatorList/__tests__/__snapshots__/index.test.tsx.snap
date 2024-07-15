@@ -418,8 +418,8 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   -webkit-flex-basis: 0;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
-  max-width: 100%;
-  min-width: 100px;
+  max-width: 40ex;
+  min-width: 15ex;
 }
 
 .c13 {
@@ -435,6 +435,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   flex-basis: 0;
   max-width: 100%;
   min-width: 100px;
+  min-width: 28ex;
+  max-width: 28ex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c14 {
@@ -452,6 +458,10 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   min-width: 100px;
   min-width: 110px;
   max-width: 110px;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c18 {
@@ -706,9 +716,6 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                   role="columnheader"
                   tabindex="0"
                 >
-                  <div>
-                    validator.escrow
-                  </div>
                   <span
                     class="asc __rdt_custom_sort_icon__"
                   >
@@ -725,6 +732,9 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <div>
+                    validator.escrow
+                  </div>
                 </div>
               </div>
               <div
@@ -736,9 +746,6 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                   role="columnheader"
                   tabindex="0"
                 >
-                  <div>
-                    validator.fee
-                  </div>
                   <span
                     class="asc __rdt_custom_sort_icon__"
                   >
@@ -755,6 +762,9 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <div>
+                    validator.fee
+                  </div>
                 </div>
               </div>
             </div>

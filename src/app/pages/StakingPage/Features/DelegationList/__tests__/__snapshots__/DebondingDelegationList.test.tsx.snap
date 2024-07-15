@@ -75,7 +75,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c18 {
+.c20 {
   font-size: 18px;
   line-height: 24px;
   color: #0500e2;
@@ -142,7 +142,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   padding-right: 16px;
 }
 
-.c16 {
+.c18 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -187,15 +187,51 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   -webkit-flex-basis: 0;
   -ms-flex-preferred-size: 0;
   flex-basis: 0;
+  max-width: 40ex;
+  min-width: 15ex;
+}
+
+.c13 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  max-width: 100%;
+  min-width: 100px;
+  min-width: 28ex;
+  max-width: 28ex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c14 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
   max-width: 100%;
   min-width: 100px;
 }
 
-.c17 {
+.c19 {
   font-weight: 400;
 }
 
-.c15 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -215,13 +251,13 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   min-height: 48px;
 }
 
-.c15:not(:last-of-type) {
+.c17:not(:last-of-type) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #AAAAAAaa;
 }
 
-.c15:hover {
+.c17:hover {
   color: unset;
   background-color: #88888833;
   -webkit-transition-duration: 0.15s;
@@ -234,7 +270,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   outline-color: unset;
 }
 
-.c15:hover {
+.c17:hover {
   cursor: pointer;
 }
 
@@ -299,7 +335,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   opacity: 1;
 }
 
-.c13 {
+.c15 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -317,16 +353,16 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   color: unset;
 }
 
-.c13:focus {
+.c15:focus {
   outline: none;
 }
 
-.c13:hover:not(:focus) {
+.c15:hover:not(:focus) {
   color: unset;
 }
 
-.c13 span.__rdt_custom_sort_icon__ i,
-.c13 span.__rdt_custom_sort_icon__ svg {
+.c15 span.__rdt_custom_sort_icon__ i,
+.c15 span.__rdt_custom_sort_icon__ svg {
   opacity: 1;
   color: inherit;
   font-size: 18px !important;
@@ -344,18 +380,18 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   transition-property: transform;
 }
 
-.c13 span.__rdt_custom_sort_icon__.asc i,
-.c13 span.__rdt_custom_sort_icon__.asc svg {
+.c15 span.__rdt_custom_sort_icon__.asc i,
+.c15 span.__rdt_custom_sort_icon__.asc svg {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-.c13:hover {
+.c15:hover {
   cursor: pointer;
 }
 
-.c14 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -480,7 +516,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c8 c10 rdt_TableCol"
+                class="c8 c13 rdt_TableCol"
               >
                 <div
                   class="c11 rdt_TableCol_Sortable"
@@ -488,9 +524,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                   role="columnheader"
                   tabindex="0"
                 >
-                  <div>
-                    delegations.reclaimedAmount
-                  </div>
                   <span
                     class="asc __rdt_custom_sort_icon__"
                   >
@@ -507,13 +540,16 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <div>
+                    delegations.reclaimedAmount
+                  </div>
                 </div>
               </div>
               <div
-                class="c8 c10 rdt_TableCol"
+                class="c8 c14 rdt_TableCol"
               >
                 <div
-                  class="c13 rdt_TableCol_Sortable"
+                  class="c15 rdt_TableCol_Sortable"
                   id="column-epoch"
                   role="columnheader"
                   tabindex="0"
@@ -542,23 +578,23 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c14 rdt_TableBody"
+            class="c16 rdt_TableBody"
             offset="250px"
             role="rowgroup"
           >
             <div
-              class="c15 rdt_TableRow"
+              class="c17 rdt_TableRow"
               id="row-test-validator+100"
               role="row"
             >
               <div
-                class="c16 c9 c17 rdt_TableCell"
+                class="c18 c9 c19 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-icon-test-validator+100"
                 role="gridcell"
               />
               <div
-                class="c16 c10 c17 rdt_TableCell"
+                class="c18 c10 c19 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-test-validator+100"
                 role="gridcell"
@@ -566,7 +602,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 test-validator
               </div>
               <div
-                class="c16 c10 c17 rdt_TableCell"
+                class="c18 c13 c19 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-amount-test-validator+100"
                 role="gridcell"
@@ -579,7 +615,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                     0.0000001
                   </div>
                   <span
-                    class="c18"
+                    class="c20"
                   >
                     <span
                       class="notranslate"
@@ -591,7 +627,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c16 c10 c17 rdt_TableCell"
+                class="c18 c14 c19 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-debondingTimeEnd-test-validator+100"
                 role="gridcell"
