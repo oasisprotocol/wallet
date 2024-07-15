@@ -92,6 +92,7 @@ export const ValidatorList = memo((props: Props) => {
       id: 'escrow',
       selector: 'escrow',
       width: '28ex',
+      right: true,
       hide: 'sm',
       cell: datum => (
         <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
@@ -105,6 +106,7 @@ export const ValidatorList = memo((props: Props) => {
       selector: 'fee',
       sortable: true,
       width: '110px',
+      right: true,
       cell: datum =>
         datum.current_rate !== undefined ? `${formatCommissionPercent(datum.current_rate)}%` : 'Unknown',
       sortFunction: (row1, row2) => (row1.current_rate ?? 0) - (row2.current_rate ?? 0),

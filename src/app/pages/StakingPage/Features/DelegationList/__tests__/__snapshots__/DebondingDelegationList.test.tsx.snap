@@ -206,6 +206,10 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   min-width: 100px;
   min-width: 28ex;
   max-width: 28ex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c14 {
@@ -520,9 +524,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                   role="columnheader"
                   tabindex="0"
                 >
-                  <div>
-                    delegations.reclaimedAmount
-                  </div>
                   <span
                     class="asc __rdt_custom_sort_icon__"
                   >
@@ -539,6 +540,9 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                       />
                     </svg>
                   </span>
+                  <div>
+                    delegations.reclaimedAmount
+                  </div>
                 </div>
               </div>
               <div

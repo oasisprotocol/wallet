@@ -114,6 +114,7 @@ export const DelegationList = memo((props: Props) => {
       id: 'amount',
       selector: 'amount',
       width: '28ex',
+      right: true,
       cell: datum => datum.amount && <AmountFormatter amount={datum.amount} />,
       sortable: true,
       sortFunction: (row1, row2) => Number(BigInt(row1.amount) - BigInt(row2.amount)),
@@ -123,6 +124,7 @@ export const DelegationList = memo((props: Props) => {
       id: 'fee',
       selector: 'fee',
       width: '100px',
+      right: true,
       hide: 'sm',
       cell: datum =>
         datum.validator?.current_rate !== undefined
