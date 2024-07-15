@@ -677,7 +677,7 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
         <span>
           <div
             class="c15"
-            style="display: inline-flex; white-space: nowrap;"
+            style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
           >
             0.001
           </div>
@@ -1411,7 +1411,7 @@ exports[`<Transaction  /> should match snapshot 1`] = `
         <span>
           <div
             class="c15"
-            style="display: inline-flex; white-space: nowrap;"
+            style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
           >
             0.001
           </div>

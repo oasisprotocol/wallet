@@ -968,7 +968,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               <span>
                 <div
                   class="c15"
-                  style="display: inline-flex; white-space: nowrap;"
+                  style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   100.000001111
                 </div>
@@ -991,7 +991,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               <span>
                 <div
                   class="c15"
-                  style="display: inline-flex; white-space: nowrap;"
+                  style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   100.0
                 </div>
@@ -1015,7 +1015,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               <span>
                 <div
                   class="c15"
-                  style="display: inline-flex; white-space: nowrap;"
+                  style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   0.000001111
                 </div>
@@ -1038,7 +1038,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
               <span>
                 <div
                   class="c15"
-                  style="display: inline-flex; white-space: nowrap;"
+                  style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   0.0
                 </div>

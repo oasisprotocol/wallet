@@ -734,7 +734,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
                   <span>
                     <div
                       class="c5"
-                      style="display: inline-flex; white-space: nowrap;"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
                       0.0000001
                     </div>
