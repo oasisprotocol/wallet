@@ -683,7 +683,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
                 <span>
                   <div
                     class="c15"
-                    style="display: inline-flex; white-space: nowrap;"
+                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                   >
                     1.0
                   </div>

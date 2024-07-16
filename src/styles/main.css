@@ -20,6 +20,18 @@
     url("./../fonts/roboto-mono/roboto-mono-v13-latin-300.woff") format("woff");
 }
 
+/** Use Rubik for "." and "," instead of Roboto Mono. */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url("./../fonts/rubik/rubik-v20-latin-ext_latin-300.woff2") format("woff2"),
+    url("./../fonts/rubik/rubik-v20-latin-ext_latin-300.woff") format("woff");
+  unicode-range: U+002E, U+002C;
+}
+
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */

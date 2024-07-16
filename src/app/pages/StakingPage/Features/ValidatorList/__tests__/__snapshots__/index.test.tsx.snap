@@ -765,7 +765,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span>
                   <div
                     class="c0"
-                    style="display: inline-flex; white-space: nowrap;"
+                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                   >
                     0
                   </div>
@@ -837,7 +837,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span>
                   <div
                     class="c0"
-                    style="display: inline-flex; white-space: nowrap;"
+                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                   >
                     0
                   </div>
@@ -909,7 +909,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 <span>
                   <div
                     class="c0"
-                    style="display: inline-flex; white-space: nowrap;"
+                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                   >
                     0
                   </div>

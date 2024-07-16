@@ -59,7 +59,16 @@ export const AmountFormatter = memo(
 
     return (
       <span>
-        <Box style={{ display: 'inline-flex', whiteSpace: 'nowrap' }}>{amountString}</Box>
+        <Box
+          style={{
+            display: 'inline-flex',
+            whiteSpace: 'nowrap',
+            fontFamily: '"Roboto mono", monospace',
+            letterSpacing: 0,
+          }}
+        >
+          {amountString}
+        </Box>
         {!hideTicker && (
           <Text size={size} {...tickerProps} {...colorProps}>
             <NoTranslate>{` ${ticker}`}</NoTranslate>
