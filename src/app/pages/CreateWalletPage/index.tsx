@@ -13,7 +13,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Grid } from 'grommet/es6/components/Grid'
-import { Layer } from 'grommet/es6/components/Layer'
+import { ThemeContext } from 'grommet/es6/contexts/ThemeContext'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Text } from 'grommet/es6/components/Text'
 import { Refresh } from 'grommet-icons/es6/icons/Refresh'
@@ -73,14 +73,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
         </AlertBox>
       )}
       {showConfirmation && (
-        <Layer
-          plain
-          full
-          style={{ backdropFilter: 'blur(5px)' }}
-          // Needed to prevent keyboard accessibility issues with layer inside
-          // layer: https://github.com/oasisprotocol/oasis-wallet-web/issues/863
-          modal={false}
-        >
+        <ThemeContext.Extend value={{ layer: { overlay: { backdropFilter: 'blur(5px)' } } }}>
           <ResponsiveLayer
             style={{
               width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
@@ -95,7 +88,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
               abortHandler={() => setConfirmation(false)}
             ></MnemonicValidation>
           </ResponsiveLayer>
-        </Layer>
+        </ThemeContext.Extend>
       )}
       {showAccountsSelectionModal && (
         <ImportAccountsSelectionModal
