@@ -272,7 +272,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c31 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -393,7 +393,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c32 {
+.c31 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
@@ -793,13 +793,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c31 {
+  .c32 {
     border: solid 1px #EDEDED;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c31 {
+  .c32 {
     padding: 24px;
   }
 }
@@ -829,7 +829,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c32 {
+  .c31 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1168,14 +1168,19 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         <div
           class="c30"
         >
-          <div
+          <h3
             class="c31"
           >
-            <h3
-              class="c32"
+            Activity
+          </h3>
+          <div
+            class="c32"
+          >
+            <span
+              class="c14"
             >
               No transactions found.
-            </h3>
+            </span>
           </div>
         </div>
       </div>

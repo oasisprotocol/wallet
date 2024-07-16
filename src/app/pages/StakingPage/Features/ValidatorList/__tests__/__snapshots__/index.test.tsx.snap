@@ -32,16 +32,7 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c2 {
-  margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
-.c5 {
+.c4 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -58,7 +49,7 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   background-color: unset;
 }
 
-.c3 {
+.c2 {
   position: relative;
   width: 100%;
   border-radius: inherit;
@@ -67,13 +58,13 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   min-height: 0;
 }
 
-.c4 {
+.c3 {
   position: relative;
   width: 100%;
   display: table;
 }
 
-.c6 {
+.c5 {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -108,20 +99,6 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c2 {
-    margin-top: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c2 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
-  }
-}
-
-@media only screen and (max-width:768px) {
 
 }
 
@@ -132,23 +109,18 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
   <div
     class="c1"
   >
-    <h1
+    <div
       class="c2"
     >
-      common.validators
-    </h1>
-    <div
-      class="c3"
-    >
       <div
-        class="c4"
+        class="c3"
       >
         <div
-          class="c5 rdt_Table"
+          class="c4 rdt_Table"
           role="table"
         >
           <div
-            class="c6"
+            class="c5"
           >
             <div
               style="padding: 24px;"
@@ -164,7 +136,7 @@ exports[`<ValidatorList  /> empty should match snapshot 1`] = `
 `;
 
 exports[`<ValidatorList  /> list should match snapshot 1`] = `
-.c12 {
+.c11 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -175,30 +147,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: currentColor;
 }
 
-.c12 g {
+.c11 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c12 *:not([stroke])[fill='none'] {
+.c11 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c12 *[stroke*='#'],
-.c12 *[STROKE*='#'] {
+.c11 *[stroke*='#'],
+.c11 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c12 *[fill-rule],
-.c12 *[FILL-RULE],
-.c12 *[fill*='#'],
-.c12 *[FILL*='#'] {
+.c11 *[fill-rule],
+.c11 *[FILL-RULE],
+.c11 *[fill*='#'],
+.c11 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
 
-.c19 {
+.c18 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -209,30 +181,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #2ad5ab;
 }
 
-.c19 g {
+.c18 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c19 *:not([stroke])[fill='none'] {
+.c18 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c19 *[stroke*='#'],
-.c19 *[STROKE*='#'] {
+.c18 *[stroke*='#'],
+.c18 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c19 *[fill-rule],
-.c19 *[FILL-RULE],
-.c19 *[fill*='#'],
-.c19 *[FILL*='#'] {
+.c18 *[fill-rule],
+.c18 *[FILL-RULE],
+.c18 *[fill*='#'],
+.c18 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
 
-.c21 {
+.c20 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -243,25 +215,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #d24c00;
 }
 
-.c21 g {
+.c20 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c21 *:not([stroke])[fill='none'] {
+.c20 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c21 *[stroke*='#'],
-.c21 *[STROKE*='#'] {
+.c20 *[stroke*='#'],
+.c20 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c21 *[fill-rule],
-.c21 *[FILL-RULE],
-.c21 *[fill*='#'],
-.c21 *[FILL*='#'] {
+.c20 *[fill-rule],
+.c20 *[FILL-RULE],
+.c20 *[fill*='#'],
+.c20 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -297,22 +269,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c20 {
+.c19 {
   font-size: 18px;
   line-height: 24px;
   color: #0500e2;
 }
 
-.c2 {
-  margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
-  font-weight: 600;
-  overflow-wrap: break-word;
-}
-
-.c5 {
+.c4 {
   position: relative;
   box-sizing: border-box;
   display: -webkit-box;
@@ -329,7 +292,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   background-color: unset;
 }
 
-.c6 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -337,7 +300,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   text-align: left;
 }
 
-.c7 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -354,7 +317,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   border-bottom-style: solid;
 }
 
-.c8 {
+.c7 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -373,7 +336,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   padding-right: 16px;
 }
 
-.c17 {
+.c16 {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -390,7 +353,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   word-break: break-word;
 }
 
-.c9 {
+.c8 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -407,7 +370,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   max-width: 34px;
 }
 
-.c10 {
+.c9 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -422,7 +385,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   min-width: 15ex;
 }
 
-.c13 {
+.c12 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -443,7 +406,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   justify-content: flex-end;
 }
 
-.c14 {
+.c13 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -464,11 +427,11 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   justify-content: flex-end;
 }
 
-.c18 {
+.c17 {
   font-weight: 400;
 }
 
-.c16 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -488,13 +451,13 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   min-height: 48px;
 }
 
-.c16:not(:last-of-type) {
+.c15:not(:last-of-type) {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #AAAAAAaa;
 }
 
-.c16:hover {
+.c15:hover {
   color: unset;
   background-color: #88888833;
   -webkit-transition-duration: 0.15s;
@@ -507,11 +470,11 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   outline-color: unset;
 }
 
-.c16:hover {
+.c15:hover {
   cursor: pointer;
 }
 
-.c11 {
+.c10 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -528,17 +491,17 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   user-select: none;
 }
 
-.c11:focus {
+.c10:focus {
   outline: none;
   color: unset;
 }
 
-.c11:hover {
+.c10:hover {
   color: unset;
 }
 
-.c11 span.__rdt_custom_sort_icon__ i,
-.c11 span.__rdt_custom_sort_icon__ svg {
+.c10 span.__rdt_custom_sort_icon__ i,
+.c10 span.__rdt_custom_sort_icon__ svg {
   opacity: 0;
   color: inherit;
   font-size: 18px !important;
@@ -556,23 +519,23 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   transition-property: transform;
 }
 
-.c11 span.__rdt_custom_sort_icon__.asc i,
-.c11 span.__rdt_custom_sort_icon__.asc svg {
+.c10 span.__rdt_custom_sort_icon__.asc i,
+.c10 span.__rdt_custom_sort_icon__.asc svg {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
-.c11:hover {
+.c10:hover {
   cursor: pointer;
 }
 
-.c11:hover span,
-.c11:hover span.__rdt_custom_sort_icon__ * {
+.c10:hover span,
+.c10:hover span.__rdt_custom_sort_icon__ * {
   opacity: 1;
 }
 
-.c15 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -582,7 +545,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c3 {
+.c2 {
   position: relative;
   width: 100%;
   border-radius: inherit;
@@ -591,7 +554,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   min-height: 0;
 }
 
-.c4 {
+.c3 {
   position: relative;
   width: 100%;
   display: table;
@@ -611,28 +574,14 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
 
 }
 
-@media only screen and (max-width:768px) {
-  .c2 {
-    margin-top: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c2 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
-  }
-}
-
 @media screen and (max-width:599px) {
-  .c13 {
+  .c12 {
     display: none;
   }
 }
 
 @media screen and (max-width:599px) {
-  .c14 {
+  .c13 {
     display: none;
   }
 }
@@ -648,40 +597,35 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   <div
     class="c1"
   >
-    <h1
+    <div
       class="c2"
     >
-      common.validators
-    </h1>
-    <div
-      class="c3"
-    >
       <div
-        class="c4"
+        class="c3"
       >
         <div
-          class="c5 rdt_Table"
+          class="c4 rdt_Table"
           role="table"
         >
           <div
-            class="c6 rdt_TableHead"
+            class="c5 rdt_TableHead"
             role="rowgroup"
           >
             <div
-              class="c7 rdt_TableHeadRow"
+              class="c6 rdt_TableHeadRow"
               role="row"
             >
               <div
-                class="c8 c9 rdt_TableCol"
+                class="c7 c8 rdt_TableCol"
               />
               <div
-                class="c8 c9 rdt_TableCol"
+                class="c7 c8 rdt_TableCol"
               />
               <div
-                class="c8 c10 rdt_TableCol"
+                class="c7 c9 rdt_TableCol"
               >
                 <div
-                  class="c11 rdt_TableCol_Sortable"
+                  class="c10 rdt_TableCol_Sortable"
                   id="column-name"
                   role="columnheader"
                   tabindex="0"
@@ -694,7 +638,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                   >
                     <svg
                       aria-label="Down"
-                      class="c12"
+                      class="c11"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -708,10 +652,10 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c8 c13 rdt_TableCol"
+                class="c7 c12 rdt_TableCol"
               >
                 <div
-                  class="c11 rdt_TableCol_Sortable"
+                  class="c10 rdt_TableCol_Sortable"
                   id="column-escrow"
                   role="columnheader"
                   tabindex="0"
@@ -721,7 +665,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                   >
                     <svg
                       aria-label="Down"
-                      class="c12"
+                      class="c11"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -738,10 +682,10 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="c8 c14 rdt_TableCol"
+                class="c7 c13 rdt_TableCol"
               >
                 <div
-                  class="c11 rdt_TableCol_Sortable"
+                  class="c10 rdt_TableCol_Sortable"
                   id="column-fee"
                   role="columnheader"
                   tabindex="0"
@@ -751,7 +695,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                   >
                     <svg
                       aria-label="Down"
-                      class="c12"
+                      class="c11"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -770,30 +714,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="c15 rdt_TableBody"
+            class="c14 rdt_TableBody"
             offset="250px"
             role="rowgroup"
           >
             <div
-              class="c16 rdt_TableRow"
+              class="c15 rdt_TableRow"
               id="row-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
               role="row"
             >
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-icon-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
               />
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-status-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
               >
                 <svg
                   aria-label="Status is okay"
-                  class="c19"
+                  class="c18"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -805,7 +749,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </svg>
               </div>
               <div
-                class="c17 c10 c18 rdt_TableCell"
+                class="c16 c9 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
@@ -813,7 +757,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 test-validator1
               </div>
               <div
-                class="c17 c13 c18 rdt_TableCell"
+                class="c16 c12 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-escrow-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
@@ -826,7 +770,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                     0
                   </div>
                   <span
-                    class="c20"
+                    class="c19"
                   >
                     <span
                       class="notranslate"
@@ -838,7 +782,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c17 c14 c18 rdt_TableCell"
+                class="c16 c13 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-fee-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
@@ -847,25 +791,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="c16 rdt_TableRow"
+              class="c15 rdt_TableRow"
               id="row-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
               role="row"
             >
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-icon-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
               />
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-status-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
               >
                 <svg
                   aria-label="Status is unknown"
-                  class="c21"
+                  class="c20"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -877,7 +821,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </svg>
               </div>
               <div
-                class="c17 c10 c18 rdt_TableCell"
+                class="c16 c9 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
@@ -885,7 +829,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 test-validator3
               </div>
               <div
-                class="c17 c13 c18 rdt_TableCell"
+                class="c16 c12 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-escrow-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
@@ -898,7 +842,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                     0
                   </div>
                   <span
-                    class="c20"
+                    class="c19"
                   >
                     <span
                       class="notranslate"
@@ -910,7 +854,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c17 c14 c18 rdt_TableCell"
+                class="c16 c13 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-fee-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
@@ -919,25 +863,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
               </div>
             </div>
             <div
-              class="c16 rdt_TableRow"
+              class="c15 rdt_TableRow"
               id="row-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
               role="row"
             >
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-icon-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               />
               <div
-                class="c17 c9 c18 rdt_TableCell"
+                class="c16 c8 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-status-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               >
                 <svg
                   aria-label="Status is critical"
-                  class="c21"
+                  class="c20"
                   viewBox="0 0 24 24"
                 >
                   <path
@@ -949,7 +893,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </svg>
               </div>
               <div
-                class="c17 c10 c18 rdt_TableCell"
+                class="c16 c9 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
@@ -957,7 +901,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 test-validator2
               </div>
               <div
-                class="c17 c13 c18 rdt_TableCell"
+                class="c16 c12 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
@@ -970,7 +914,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                     0
                   </div>
                   <span
-                    class="c20"
+                    class="c19"
                   >
                     <span
                       class="notranslate"
@@ -982,7 +926,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 </span>
               </div>
               <div
-                class="c17 c14 c18 rdt_TableCell"
+                class="c16 c13 c17 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-fee-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
