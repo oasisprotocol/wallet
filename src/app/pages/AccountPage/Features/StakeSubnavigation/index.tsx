@@ -58,10 +58,7 @@ export function StakeSubnavigation() {
       gap="none"
       wrap
     >
-      <NavItem
-        label={t('account.subnavigation.validators', 'Validators')}
-        route={`/account/${address}/stake`}
-      />
+      <NavItem label={t('common.validators', 'Validators')} route={`/account/${address}/stake`} />
 
       <NavItem
         counter={stake.delegations?.length}

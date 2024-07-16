@@ -4,7 +4,6 @@
  *
  */
 import { AmountFormatter } from 'app/components/AmountFormatter'
-import { Header } from 'app/components/Header'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
@@ -119,7 +118,6 @@ export const ValidatorList = memo((props: Props) => {
       <StakeSubnavigation />
       <Box as="section" data-testid="validators-list">
         <Box pad="medium" background="background-front">
-          <Header>{t('common.validators', 'Validators')}</Header>
           {updateValidatorsError && (
             <p>
               <span>{t('account.validator.loadingError', "Couldn't load validators.")}</span>

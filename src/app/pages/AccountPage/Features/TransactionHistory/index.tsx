@@ -102,9 +102,9 @@ export function TransactionHistory() {
               {pendingTransactionComponents}
             </Box>
           )}
-          <Heading level="3">{t('account.summary.activity', 'Activity')}</Heading>
         </>
       )}
+      <Heading level="3">{t('account.summary.activity', 'Activity')}</Heading>
       {/* eslint-enable no-restricted-syntax */}
       {allTransactions.length ? (
         <Box gap="medium" margin="none" data-testid="completed-txs">
@@ -117,7 +117,7 @@ export function TransactionHistory() {
           background="background-front"
           pad="large"
         >
-          <Heading level="3">{t('account.summary.noTransactionFound', 'No transactions found.')}</Heading>
+          <Text>{t('account.summary.noTransactionFound', 'No transactions found.')}</Text>
         </Box>
       )}
     </Box>
