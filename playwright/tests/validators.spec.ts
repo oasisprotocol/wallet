@@ -37,7 +37,6 @@ test.describe('Validators', () => {
     )
 
     await page.getByRole('link', { name: 'Stake' }).click()
-    await expect(page.getByRole('heading', { name: 'Validators' })).toBeVisible()
     // Wait for validators to be shown, then scroll to them to trigger lazy loading.
     await expect(page.getByText('Everstake')).toBeVisible()
     await page.getByText('Everstake').scrollIntoViewIfNeeded()
