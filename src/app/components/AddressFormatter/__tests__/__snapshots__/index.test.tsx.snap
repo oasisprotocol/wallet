@@ -29,8 +29,8 @@ exports[`<AddressFormatter  /> should match snapshot 1`] = `
 }
 
 .c3 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: inherit;
+  line-height: normal;
 }
 
 .c2 {
