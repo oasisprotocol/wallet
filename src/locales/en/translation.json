@@ -36,8 +36,7 @@
       "activeDelegations": "Staked",
       "debondingDelegations": "Debonding",
       "mobileActiveDelegations": "Staked",
-      "mobileDebondingDelegations": "Debonding",
-      "validators": "Validators"
+      "mobileDebondingDelegations": "Debonding"
     },
     "summary": {
       "activity": "Activity",
@@ -136,8 +135,6 @@
     "thisIsYourPhrase": "This is your mnemonic"
   },
   "delegations": {
-    "activeDelegations": "Active delegations",
-    "debondingDelegations": "Debonding delegations",
     "debondingTimeEnd": "End of debonding",
     "delegatedAmount": "Delegated amount",
     "loadingError": "Couldn't load delegations.",
