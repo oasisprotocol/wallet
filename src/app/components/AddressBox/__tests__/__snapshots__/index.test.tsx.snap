@@ -76,7 +76,6 @@ exports[`<AddressBox /> should render address properly 1`] = `
   -webkit-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
-  padding-bottom: 6px;
 }
 
 .c4 {
@@ -177,12 +176,6 @@ exports[`<AddressBox /> should render address properly 1`] = `
 @media only screen and (max-width:768px) {
   .c1 {
     margin-right: 24px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding-bottom: 3px;
   }
 }
 

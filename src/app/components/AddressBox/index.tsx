@@ -80,7 +80,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
           }
           direction="row"
           flex
-          pad={{ bottom: isMobile ? 'small' : 'xsmall' }}
+          pad={{ bottom: isMobile ? 'small' : separator ? 'xsmall' : undefined }}
           margin={{ right: isMobile ? undefined : 'large' }}
           width="690px" // keep the same width for address and name variants
         >
