@@ -193,6 +193,21 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  margin: 0px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -203,7 +218,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c20 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -218,7 +233,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c26 {
+.c28 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -237,7 +252,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c28 {
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -255,21 +270,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   -webkit-flex-basis: 80ex;
   -ms-flex-preferred-size: 80ex;
   flex-basis: 80ex;
-}
-
-.c29 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  margin: 0px;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 
 .c31 {
@@ -350,7 +350,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-bottom: 12px;
 }
 
-.c23 {
+.c25 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -379,7 +379,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: 600;
 }
 
-.c19 {
+.c21 {
   margin-left: 12px;
   margin-right: 12px;
   margin-top: 6px;
@@ -393,7 +393,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   line-height: 24px;
 }
 
-.c30 {
+.c19 {
   font-size: 26px;
   line-height: 32px;
   max-width: 624px;
@@ -461,7 +461,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c27 {
+.c29 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -490,51 +490,51 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c27:hover {
+.c29:hover {
   box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
-.c27:focus {
+.c29:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c27:focus > circle,
-.c27:focus > ellipse,
-.c27:focus > line,
-.c27:focus > path,
-.c27:focus > polygon,
-.c27:focus > polyline,
-.c27:focus > rect {
+.c29:focus > circle,
+.c29:focus > ellipse,
+.c29:focus > line,
+.c29:focus > path,
+.c29:focus > polygon,
+.c29:focus > polyline,
+.c29:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c27:focus::-moz-focus-inner {
+.c29:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c27:focus:not(:focus-visible) {
+.c29:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c27:focus:not(:focus-visible) > circle,
-.c27:focus:not(:focus-visible) > ellipse,
-.c27:focus:not(:focus-visible) > line,
-.c27:focus:not(:focus-visible) > path,
-.c27:focus:not(:focus-visible) > polygon,
-.c27:focus:not(:focus-visible) > polyline,
-.c27:focus:not(:focus-visible) > rect {
+.c29:focus:not(:focus-visible) > circle,
+.c29:focus:not(:focus-visible) > ellipse,
+.c29:focus:not(:focus-visible) > line,
+.c29:focus:not(:focus-visible) > path,
+.c29:focus:not(:focus-visible) > polygon,
+.c29:focus:not(:focus-visible) > polyline,
+.c29:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c27:focus:not(:focus-visible)::-moz-focus-inner {
+.c29:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c22 {
+.c24 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -555,49 +555,49 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border: none;
 }
 
-.c22::-webkit-input-placeholder {
+.c24::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c22::-moz-placeholder {
+.c24::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c22:-ms-input-placeholder {
+.c24:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c22::-webkit-search-decoration {
+.c24::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c22::-moz-focus-inner {
+.c24::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c22:-moz-placeholder,
-.c22::-moz-placeholder {
+.c24:-moz-placeholder,
+.c24::-moz-placeholder {
   opacity: 1;
 }
 
-.c22::-webkit-input-placeholder {
+.c24::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.c22::-moz-placeholder {
+.c24::-moz-placeholder {
   font-size: 14px;
 }
 
-.c22:-ms-input-placeholder {
+.c24:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.c22::placeholder {
+.c24::placeholder {
   font-size: 14px;
 }
 
-.c25 {
+.c27 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -619,54 +619,54 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding-right: 48px;
 }
 
-.c25::-webkit-input-placeholder {
+.c27::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c25::-moz-placeholder {
+.c27::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c25:-ms-input-placeholder {
+.c27:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c25::-webkit-search-decoration {
+.c27::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c25::-moz-focus-inner {
+.c27::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c25:-moz-placeholder,
-.c25::-moz-placeholder {
+.c27:-moz-placeholder,
+.c27::-moz-placeholder {
   opacity: 1;
 }
 
-.c25::-webkit-input-placeholder {
+.c27::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.c25::-moz-placeholder {
+.c27::-moz-placeholder {
   font-size: 14px;
 }
 
-.c25:-ms-input-placeholder {
+.c27:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.c25::placeholder {
+.c27::placeholder {
   font-size: 14px;
 }
 
-.c21 {
+.c23 {
   position: relative;
   width: 100%;
 }
 
-.c24 {
+.c26 {
   position: absolute;
   display: -webkit-box;
   display: -webkit-flex;
@@ -770,25 +770,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c18 {
-    padding: 12px;
+    margin: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
   .c20 {
+    padding: 12px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .c22 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c26 {
+  .c28 {
     margin-top: 12px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c29 {
-    margin: 0px;
   }
 }
 
@@ -823,13 +823,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c23 {
+  .c25 {
     height: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c30 {
+  .c19 {
     font-size: 18px;
     line-height: 24px;
     max-width: 432px;
@@ -1051,107 +1051,116 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         class="c17"
       >
         <div
-          class="c3"
+          class="c18"
         >
-          <form>
-            <div
-              class="c18"
-            >
+          <h3
+            class="c19"
+          >
+            Send
+          </h3>
+          <div
+            class="c3"
+          >
+            <form>
               <div
-                class="c2 "
+                class="c20"
               >
-                <label
-                  class="c19"
-                  for="recipient-id"
-                >
-                  Recipient
-                </label>
                 <div
-                  class="c20 "
+                  class="c2 "
                 >
-                  <div
+                  <label
                     class="c21"
+                    for="recipient-id"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-expanded="false"
-                      autocomplete="off"
-                      class="c22"
-                      id="recipient-id"
-                      name="recipient"
-                      placeholder="Enter an address"
-                      required=""
-                      role="combobox"
-                      value=""
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="c23"
-              />
-              <div
-                class="c2 "
-              >
-                <label
-                  class="c19"
-                  for="amount-id"
-                >
-                  Amount
-                </label>
-                <div
-                  class="c20 "
-                >
+                    Recipient
+                  </label>
                   <div
-                    class="c21"
+                    class="c22 "
                   >
                     <div
-                      class="c24"
+                      class="c23"
                     >
-                      <span
-                        class="c15"
+                      <input
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        autocomplete="off"
+                        class="c24"
+                        id="recipient-id"
+                        name="recipient"
+                        placeholder="Enter an address"
+                        required=""
+                        role="combobox"
+                        value=""
                       />
                     </div>
-                    <input
-                      autocomplete="off"
-                      class="c25"
-                      id="amount-id"
-                      min="0"
-                      name="amount"
-                      placeholder="Enter an amount"
-                      required=""
-                      step="any"
-                      type="number"
-                      value=""
-                    />
                   </div>
                 </div>
-              </div>
-              <div
-                class="c23"
-              />
-              <div
-                class="c26"
-              >
-                <button
-                  class="c27"
-                  type="submit"
+                <div
+                  class="c25"
+                />
+                <div
+                  class="c2 "
                 >
-                  Send
-                </button>
+                  <label
+                    class="c21"
+                    for="amount-id"
+                  >
+                    Amount
+                  </label>
+                  <div
+                    class="c22 "
+                  >
+                    <div
+                      class="c23"
+                    >
+                      <div
+                        class="c26"
+                      >
+                        <span
+                          class="c15"
+                        />
+                      </div>
+                      <input
+                        autocomplete="off"
+                        class="c27"
+                        id="amount-id"
+                        min="0"
+                        name="amount"
+                        placeholder="Enter an amount"
+                        required=""
+                        step="any"
+                        type="number"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c25"
+                />
+                <div
+                  class="c28"
+                >
+                  <button
+                    class="c29"
+                    type="submit"
+                  >
+                    Send
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
       <div
-        class="c28"
+        class="c30"
       >
         <div
-          class="c29"
+          class="c18"
         >
           <h3
-            class="c30"
+            class="c19"
           >
             Activity
           </h3>
