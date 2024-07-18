@@ -152,6 +152,11 @@ export const DelegationList = memo((props: Props) => {
   return (
     <TypeSafeDataTable
       noHeader={true}
+      noDataComponent={
+        type === 'active'
+          ? t('account.emptyActiveDelegationsList', 'There are currently no active delegations.')
+          : t('account.emptyDebondingDelegationsList', 'There are no debonding delegations for this account.')
+      }
       columns={columns}
       data={delegations}
       defaultSortField={defaultSortField}

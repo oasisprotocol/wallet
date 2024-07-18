@@ -13,6 +13,8 @@
       "delegate": "Delegate"
     },
     "addressCopied": "Address copied.",
+    "emptyActiveDelegationsList": "There are currently no active delegations.",
+    "emptyDebondingDelegationsList": "There are no debonding delegations for this account.",
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "reclaimEscrow": {
