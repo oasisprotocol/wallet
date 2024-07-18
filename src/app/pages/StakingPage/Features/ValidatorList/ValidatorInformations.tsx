@@ -46,7 +46,7 @@ export const ValidatorInformations = (props: ValidatorProps) => {
         )}
       </Box>
       <Text size={isMobile ? 'small' : 'medium'}>
-        <AddressBox address={validator!.address} />
+        <AddressBox address={validator!.address} trimMobile />
       </Text>
       {/* Validator details */}
       <Grid

@@ -5,9 +5,9 @@
  */
 import { useContext, memo, useState, ReactNode } from 'react'
 import copy from 'copy-to-clipboard'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
-import { Box } from 'grommet/es6/components/Box'
+import { Box, BoxProps } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Text } from 'grommet/es6/components/Text'
 import { Notification } from 'grommet/es6/components/Notification'
@@ -18,17 +18,29 @@ import { useTranslation } from 'react-i18next'
 import { trimLongString } from '../ShortAddress/trimLongString'
 import { PrettyAddress } from '../PrettyAddress'
 
-const StyledBox = styled(Box)`
+interface StyledBoxProps extends BoxProps {
+  plain?: boolean
+}
+
+const StyledBox = styled(Box)<StyledBoxProps>`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   gap: 12px;
-  background-color: ${({ theme }) => normalizeColor('background-custom-2', theme)};
-  border-radius: ${({ theme }) => theme.button?.border?.radius};
-  color: ${({ theme }) => normalizeColor('text-custom', theme)};
-  padding: ${({ theme }) => `${theme.global?.edgeSize?.xsmall} ${theme.global?.edgeSize?.medium}`};
-  border: ${({ theme }) => `solid ${theme.global?.borderSize?.xsmall} ${normalizeColor('brand', theme)}`};
   font-weight: 700;
+  padding-top: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+  padding-bottom: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+
+  ${({ theme, plain }) =>
+    !plain &&
+    css`
+      background-color: ${normalizeColor('background-custom-2', theme)};
+      border-radius: ${theme.button?.border?.radius};
+      color: ${normalizeColor('text-custom', theme)};
+      padding-right: ${`${theme.global?.edgeSize?.medium}`};
+      padding-left: ${`${theme.global?.edgeSize?.medium}`};
+      border: ${`solid ${theme.global?.borderSize?.xsmall} ${normalizeColor('brand', theme)}`};
+    `}
 `
 
 interface AddressBoxProps {
@@ -109,7 +121,7 @@ export const AddressBox = memo((props: AddressBoxProps) => {
       separator={props.separator}
     >
       <TextWrapper>
-        {props.trimMobile && isMobile && <MobileAddress address={props.address} />}
+        {props.trimMobile && isMobile && <MobileAddress address={props.address} plain />}
         {(!props.trimMobile || !isMobile) && <PrettyAddress address={props.address} />}
         {props.children}
       </TextWrapper>
@@ -150,12 +162,13 @@ export const EditableNameBox = ({ address, openEditModal, name }: EditableNameBo
 
 interface MobileAddressProps {
   address: string
+  plain?: boolean
 }
 
-const MobileAddress = ({ address }: MobileAddressProps) => {
+const MobileAddress = ({ address, plain }: MobileAddressProps) => {
   return (
     <CopyAddressButton address={address}>
-      <StyledBox>
+      <StyledBox plain={plain}>
         {trimLongString(address, 8, 6)}
         <Copy size="18px" />
       </StyledBox>
