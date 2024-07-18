@@ -127,7 +127,7 @@ export function AccountSummary({
       >
         <Box pad="small" direction="row-responsive" flex justify="between">
           <Box width={{ max: isMobile ? '100%' : '75%' }}>
-            {!canEditName && <AddressBox address={address} separator />}
+            {!canEditName && <AddressBox address={address} separator trimMobile />}
             {canEditName && !wallet?.name && (
               <EditableAddressBox address={address} openEditModal={() => setLayerVisibility(true)} />
             )}
