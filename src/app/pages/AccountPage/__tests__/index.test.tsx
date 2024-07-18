@@ -123,7 +123,7 @@ describe('<AccountPage  />', () => {
       } as PersistState,
     })
     renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
-    expect(screen.getByText('oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk')).toBeInTheDocument()
+    expect(screen.getByText('oasis1qz...jghuwk')).toBeInTheDocument()
     expect(screen.getByTestId('editable-address-edit-button')).toBeInTheDocument()
   })
 

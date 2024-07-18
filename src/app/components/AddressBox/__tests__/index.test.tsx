@@ -19,14 +19,14 @@ describe('<AddressBox />', () => {
 
   it('should be able to copy address to clipboard', async () => {
     renderComponent()
-    await userEvent.click(screen.getByTestId('copy-address-icon'))
+    await userEvent.click(screen.getByTestId('copy-address-button'))
     expect(copy).toHaveBeenCalledWith(testAddress)
   })
 
   it('should be able to show a notification', async () => {
     renderComponent()
     jest.mocked(copy).mockReturnValue(true) // Copy must return true so that the notification is actually displayed
-    await userEvent.click(screen.getByTestId('copy-address-icon'))
+    await userEvent.click(screen.getByTestId('copy-address-button'))
     expect(await screen.getByText('account.addressCopied')).toBeInTheDocument()
   })
 })
@@ -69,8 +69,7 @@ describe('<EditableAddressBox />', () => {
 
   it('should be able to copy address to clipboard', async () => {
     renderEditableAddressBoxComponent()
-    expect(screen.queryByTestId('copy-address-button')).not.toBeInTheDocument()
-    await userEvent.click(screen.getByTestId('copy-address-icon'))
+    await userEvent.click(screen.getByTestId('copy-address-button'))
     expect(copy).toHaveBeenCalledWith(testAddress)
   })
 })

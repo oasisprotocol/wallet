@@ -195,7 +195,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
     >
       <button
         class="c2"
-        data-testid="copy-address-icon"
+        data-testid="copy-address-button"
         type="button"
       >
         <svg
@@ -271,7 +271,7 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   stroke: none;
 }
 
-.c11 {
+.c10 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -282,25 +282,25 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   stroke: #666666;
 }
 
-.c11 g {
+.c10 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c11 *:not([stroke])[fill='none'] {
+.c10 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c11 *[stroke*='#'],
-.c11 *[STROKE*='#'] {
+.c10 *[stroke*='#'],
+.c10 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c11 *[fill-rule],
-.c11 *[FILL-RULE],
-.c11 *[fill*='#'],
-.c11 *[FILL*='#'] {
+.c10 *[fill-rule],
+.c10 *[FILL-RULE],
+.c10 *[fill*='#'],
+.c10 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -382,36 +382,18 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   padding-left: 12px;
 }
 
-.c9 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c10 {
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  -webkit-align-self: stretch;
-  -ms-flex-item-align: stretch;
-  align-self: stretch;
-  width: 12px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .c4 {
@@ -492,22 +474,11 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   background: transparent;
   overflow: visible;
   text-transform: none;
-  border: 2px solid #7D4CDB;
-  border-radius: 18px;
-  color: #444444;
-  padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-}
-
-.c7:hover {
-  box-shadow: 0px 0px 0px 2px #7D4CDB;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
 }
 
 .c7:focus {
@@ -550,10 +521,28 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   border: 0;
 }
 
-.c8 {
+.c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  padding-top: 6px;
+  padding-bottom: 6px;
   background-color: background-custom-2;
-  border-width: 1px;
+  border-radius: 18px;
   color: text-custom;
+  padding-right: 24px;
+  padding-left: 24px;
+  border: solid 1px #7D4CDB;
 }
 
 @media only screen and (max-width:768px) {
@@ -627,20 +616,17 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
       </div>
     </div>
     <button
-      class="c7 c8"
+      class="c7"
       data-testid="copy-address-button"
       type="button"
     >
       <div
-        class="c9"
+        class="c8 c9"
       >
         oasis1qq...7ftqph
-        <div
-          class="c10"
-        />
         <svg
           aria-label="Copy"
-          class="c11"
+          class="c10"
           viewBox="0 0 24 24"
         >
           <path
