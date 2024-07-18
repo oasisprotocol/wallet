@@ -22,14 +22,16 @@ export function DeleteInputForm({ children, onCancel, onConfirm }: DeleteInputFo
         name="type_delete"
         validate={(value: string | undefined) =>
           !value || value.toLowerCase() !== t('deleteForm.confirmationKeyword', 'delete').toLowerCase() ? (
-            <Trans
-              i18nKey="deleteForm.hint"
-              t={t}
-              defaults="Type <strong>{{confirmationKeyword}}</strong>"
-              values={{
-                confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
-              }}
-            />
+            <span>
+              <Trans
+                i18nKey="deleteForm.hint"
+                t={t}
+                defaults="Type <strong>{{confirmationKeyword}}</strong>"
+                values={{
+                  confirmationKeyword: t('deleteForm.confirmationKeyword', 'delete'),
+                }}
+              />
+            </span>
           ) : undefined
         }
       >
