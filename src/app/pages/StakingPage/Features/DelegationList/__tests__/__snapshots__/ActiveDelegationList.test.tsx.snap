@@ -405,10 +405,6 @@ exports[`<ActiveDelegationList  /> should match snapshot 1`] = `
 
 }
 
-@media only screen and (max-width:768px) {
-
-}
-
 @media screen and (max-width:599px) {
   .c13 {
     display: none;

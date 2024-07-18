@@ -9,9 +9,9 @@ import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 
 import { AccountPageParams } from '../../validateAccountPageRoute'
-import { Button } from 'grommet/es6/components/Button'
 
 const StyledNavItem = styled(NavLink)`
+  letter-spacing: 0;
   padding: ${({ theme }) => theme.global?.edgeSize?.small};
 
   :hover {
@@ -23,7 +23,8 @@ const StyledNavItem = styled(NavLink)`
   }
 
   @media only screen and (max-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {
-    padding: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+    padding-top: ${({ theme }) => theme.global?.edgeSize?.xsmall};
+    padding-bottom: ${({ theme }) => theme.global?.edgeSize?.xsmall};
   }
 `
 
@@ -36,9 +37,13 @@ interface NavItemProps {
 const NavItem = ({ counter, label, route }: NavItemProps) => {
   return (
     <StyledNavItem end to={route}>
-      <Button badge={counter} tabIndex={-1}>
-        {label}
-      </Button>
+      {counter ? (
+        <span>
+          {label} ({counter})
+        </span>
+      ) : (
+        <span>{label}</span>
+      )}
     </StyledNavItem>
   )
 }

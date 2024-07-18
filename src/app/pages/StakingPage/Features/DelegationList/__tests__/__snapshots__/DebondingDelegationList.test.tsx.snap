@@ -425,10 +425,6 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 
 }
 
-@media only screen and (max-width:768px) {
-
-}
-
 <section
   class="c0"
   data-testid="debonding-delegations"
