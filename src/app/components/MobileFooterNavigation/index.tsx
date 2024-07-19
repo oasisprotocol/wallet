@@ -111,7 +111,7 @@ function MobileFooterButton({
         background={isActive ? 'control' : undefined}
         gap="small"
       >
-        <Icon />
+        <Icon size="24px" />
         <Text size="small" textAlign="center" style={{ lineHeight: 1 }}>
           {label}
         </Text>

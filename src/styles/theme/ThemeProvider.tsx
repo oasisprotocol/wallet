@@ -294,8 +294,23 @@ const grommetCustomTheme: ThemeType = {
       }
     `,
   },
+  icon: {
+    size: {
+      medium: '20px',
+    },
+  },
+  radioButton: {
+    icon: {
+      size: '20px',
+    },
+  },
   checkBox: {
+    size: '20px',
+    icon: {
+      size: '20px',
+    },
     toggle: {
+      size: '40px',
       color: {
         dark: 'text',
         light: 'grayMedium',
@@ -312,7 +327,7 @@ const grommetCustomTheme: ThemeType = {
     gap: '1.5ex',
     extend: css`
       font-size: 14px;
-      line-height: 1.2;
+      line-height: 1.25;
     `,
   },
   layer: {
