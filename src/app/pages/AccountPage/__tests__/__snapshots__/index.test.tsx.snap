@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AccountPage  /> should match snapshot 1`] = `
-.c9 {
+.c13 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,25 +12,25 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   stroke: currentColor;
 }
 
-.c9 g {
+.c13 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c9 *:not([stroke])[fill='none'] {
+.c13 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c9 *[stroke*='#'],
-.c9 *[STROKE*='#'] {
+.c13 *[stroke*='#'],
+.c13 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c9 *[fill-rule],
-.c9 *[FILL-RULE],
-.c9 *[fill*='#'],
-.c9 *[FILL*='#'] {
+.c13 *[fill-rule],
+.c13 *[FILL-RULE],
+.c13 *[fill*='#'],
+.c13 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -118,7 +118,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c10 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -135,7 +135,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   flex: 1 1;
 }
 
-.c14 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -360,16 +360,11 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   height: 24px;
 }
 
-.c11 {
+.c9 {
   font-size: inherit;
   line-height: normal;
   font-weight: bold;
   word-break: break-word;
-}
-
-.c12 {
-  font-size: inherit;
-  line-height: normal;
 }
 
 .c15 {
@@ -399,66 +394,6 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   max-width: 624px;
   font-weight: 600;
   overflow-wrap: break-word;
-}
-
-.c8 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  color: inherit;
-  outline: none;
-  border: none;
-  padding: 0;
-  text-align: inherit;
-  line-height: 0;
-  padding: 12px;
-}
-
-.c8:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c8:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c8:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c8:focus:not(:focus-visible) > circle,
-.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,
-.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,
-.c8:focus:not(:focus-visible) > polyline,
-.c8:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c8:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
 }
 
 .c29 {
@@ -532,6 +467,82 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 .c29:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
+}
+
+.c10 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  text-align: inherit;
+}
+
+.c10:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c10:focus > circle,
+.c10:focus > ellipse,
+.c10:focus > line,
+.c10:focus > path,
+.c10:focus > polygon,
+.c10:focus > polyline,
+.c10:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c10:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c10:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c10:focus:not(:focus-visible) > circle,
+.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,
+.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,
+.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c10:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c12 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .c24 {
@@ -684,7 +695,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   right: 6px;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -699,13 +710,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   padding: 12px 12px 6px;
 }
 
-.c13 dt,
-.c13 dd {
+.c14 dt,
+.c14 dd {
   margin: 0;
 }
 
-.c13 dt:first-of-type,
-.c13 dd:first-of-type {
+.c14 dt:first-of-type,
+.c14 dd:first-of-type {
   font-weight: bold;
 }
 
@@ -837,37 +848,37 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 }
 
 @media only screen and (min-width:768px) {
-  .c13 dt {
+  .c14 dt {
     width: 40%;
   }
 
-  .c13 dd {
+  .c14 dd {
     width: 60%;
   }
 
-  .c13 dt:not(:last-of-type),
-  .c13 dd:not(:last-of-type) {
+  .c14 dt:not(:last-of-type),
+  .c14 dd:not(:last-of-type) {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 dt {
+  .c14 dt {
     width: 30%;
   }
 
-  .c13 dd {
+  .c14 dd {
     width: 70%;
     text-align: right;
   }
 
-  .c13 dt,
-  .c13 dd {
+  .c14 dt,
+  .c14 dd {
     font-size: 16px;
   }
 
-  .c13 dt:not(:last-of-type),
-  .c13 dd:not(:last-of-type) {
+  .c14 dt:not(:last-of-type),
+  .c14 dd:not(:last-of-type) {
     margin-bottom: 3px;
   }
 }
@@ -897,48 +908,42 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <div
               class="c7"
             >
-              <button
-                class="c8"
-                data-testid="copy-address-icon"
-                type="button"
-              >
-                <svg
-                  aria-label="Copy"
-                  class="c9"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9 15h8-8zm0-4h10H9zm0-4h4-4zm7-6v6h6M6 5H2v18h16v-4m4 0H6V1h11l5 5v13z"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
-              </button>
               <div
-                class="c10"
+                class="c8"
               >
                 <span
-                  class="c11"
+                  class="c9"
                   style="display: inline-flex; align-items: center; justify-content: space-between; flex: 1;"
                 >
-                  <span
-                    class="c12"
-                    style="font-family: "Roboto mono", monospace; letter-spacing: 0;"
+                  <button
+                    class="c10"
+                    data-testid="copy-address-button"
+                    type="button"
                   >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                    <div
+                      class="c11 c12"
                     >
-                      oasis1 qz0k 5q8v jqvu 4s4n wxyj 406y lnfl kc4v rcjg huwk
-                    </span>
-                  </span>
+                      oasis1qz...jghuwk
+                      <svg
+                        aria-label="Copy"
+                        class="c13"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M9 15h8-8zm0-4h10H9zm0-4h4-4zm7-6v6h6M6 5H2v18h16v-4m4 0H6V1h11l5 5v13z"
+                          fill="none"
+                          stroke="#000"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </div>
+                  </button>
                 </span>
               </div>
             </div>
           </div>
           <dl
-            class="c13"
+            class="c14"
             data-testid="account-balance-summary"
           >
             <dt>
@@ -949,7 +954,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             >
               <span>
                 <div
-                  class="c14"
+                  class="c11"
                   style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   100.000001111
@@ -972,7 +977,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <dd>
               <span>
                 <div
-                  class="c14"
+                  class="c11"
                   style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   100.0
@@ -996,7 +1001,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <dd>
               <span>
                 <div
-                  class="c14"
+                  class="c11"
                   style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   0.000001111
@@ -1019,7 +1024,7 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
             <dd>
               <span>
                 <div
-                  class="c14"
+                  class="c11"
                   style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                 >
                   0.0
