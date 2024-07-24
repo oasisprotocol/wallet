@@ -3,8 +3,8 @@
 exports[`<Contacts  /> should match snapshot 1`] = `
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -164,8 +164,8 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 }
 
 .c6 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: bold;
 }
 
@@ -259,8 +259,8 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;

@@ -182,11 +182,11 @@ exports[`<FromUsbLedger /> should render component 1`] = `
   <div
     class="c0"
   >
-    <h1
+    <h2
       class="c1"
     >
       openWallet.ledger.header
-    </h1>
+    </h2>
     <h3
       class="c2"
     >

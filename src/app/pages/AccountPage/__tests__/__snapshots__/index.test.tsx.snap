@@ -37,8 +37,8 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -379,13 +379,13 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   margin-right: 12px;
   margin-top: 6px;
   margin-bottom: 6px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c32 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c19 {
@@ -411,8 +411,8 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -1058,11 +1058,11 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         <div
           class="c18"
         >
-          <h3
+          <h2
             class="c19"
           >
             Send
-          </h3>
+          </h2>
           <div
             class="c3"
           >
@@ -1164,11 +1164,11 @@ exports[`<AccountPage  /> should match snapshot 1`] = `
         <div
           class="c18"
         >
-          <h3
+          <h2
             class="c19"
           >
             Activity
-          </h3>
+          </h2>
           <div
             class="c31"
           >

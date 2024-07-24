@@ -6,8 +6,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: #F8F8F8;
   stroke: #F8F8F8;
 }
@@ -310,8 +310,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -349,14 +349,14 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 .c6 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c17 {
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c21 {
@@ -394,8 +394,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -467,8 +467,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -525,9 +525,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 .c15 {
   margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
   font-weight: 600;
   overflow-wrap: break-word;
 }
@@ -553,7 +553,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   width: fit-content;
   cursor: pointer;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .c23:hover input:not([disabled]) + div,
@@ -571,7 +571,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 }
 
 .c26:checked + span > span {
-  left: calc( 48px - 24px );
+  left: calc( 40px - 20px );
   background: #0500e2;
 }
 
@@ -583,8 +583,8 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -712,9 +712,9 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c15 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 432px;
   }
 }
 
@@ -1485,11 +1485,11 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
     <div
       class="c14"
     >
-      <h1
+      <h2
         class="c15"
       >
         createWallet.thisIsYourPhrase
-      </h1>
+      </h2>
       <div
         class="c16"
       >

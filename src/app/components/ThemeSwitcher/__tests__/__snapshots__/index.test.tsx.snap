@@ -40,8 +40,8 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: #0500e2;
   stroke: #0500e2;
 }
@@ -71,8 +71,8 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -176,8 +176,8 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
   margin-right: 12px;
   margin-top: 6px;
   margin-bottom: 6px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c7 {

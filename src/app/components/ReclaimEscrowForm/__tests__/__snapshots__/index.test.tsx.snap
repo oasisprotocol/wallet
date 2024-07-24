@@ -46,7 +46,7 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  height: 50px;
+  height: 46px;
 }
 
 .c1 {
@@ -128,8 +128,8 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -207,8 +207,8 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -283,8 +283,8 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
   padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
   padding-right: 48px;
@@ -377,8 +377,8 @@ exports[`<ReclaimEscrowForm /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
