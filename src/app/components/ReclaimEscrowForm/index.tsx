@@ -119,7 +119,7 @@ export const ReclaimEscrowForm = memo((props: Props) => {
             </Text>
           </Box>
         </Box>
-        <Box direction="row" gap="medium" height="50px">
+        <Box direction="row" gap="medium" height="46px">
           <Box fill={isMobile}>
             <Button fill label={t('account.reclaimEscrow.reclaim', 'Reclaim')} type="submit" primary />
           </Box>
