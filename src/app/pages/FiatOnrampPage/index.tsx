@@ -123,11 +123,9 @@ export function FiatOnramp() {
                 href={transakUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                label={
-                  <span>
-                    {t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')} <ShareRounded />
-                  </span>
-                }
+                label={t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')}
+                icon={<ShareRounded />}
+                reverse
                 fill="horizontal"
                 margin={{ top: 'small' }}
                 style={{ fontSize: '14px', textAlign: 'center' }}
