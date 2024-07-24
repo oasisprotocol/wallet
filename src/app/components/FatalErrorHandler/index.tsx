@@ -65,9 +65,7 @@ export function FatalErrorHandler({ children }: Props) {
       </Box>
       <Box margin={{ horizontal: 'large', bottom: 'large' }}>
         <Box direction="row" align="center" gap="small">
-          <Heading style={{ fontSize: '20px' }} margin="none">
-            {t('fatalError.heading', 'An error occurred.')}
-          </Heading>
+          <Heading style={{ fontSize: '20px' }}>{t('fatalError.heading', 'An error occurred.')}</Heading>
         </Box>
         <Text size="small" margin={{ bottom: 'small' }}>
           <Trans

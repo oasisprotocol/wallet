@@ -215,6 +215,8 @@ const grommetCustomTheme: ThemeType = {
     },
     font: {
       family: 'Rubik, sans-serif',
+      size: '16px',
+      height: '20px',
     },
     input: {
       padding: {
@@ -222,6 +224,12 @@ const grommetCustomTheme: ThemeType = {
         vertical: '12px',
       },
     },
+  },
+  text: {
+    medium: { size: '16px', height: '20px' },
+  },
+  paragraph: {
+    medium: { size: '16px', height: '20px' },
   },
   notification: {
     toast: {
