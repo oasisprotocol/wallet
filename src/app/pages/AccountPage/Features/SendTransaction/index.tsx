@@ -81,7 +81,7 @@ export function SendTransaction(props: SendTransactionProps) {
 
   return (
     <Box margin="none">
-      <Heading level="3">{t('account.sendTransaction.send', 'Send')}</Heading>
+      <Heading level="2">{t('account.sendTransaction.send', 'Send')}</Heading>
       <Box
         border={{ color: 'background-front-border', size: '1px' }}
         round="5px"

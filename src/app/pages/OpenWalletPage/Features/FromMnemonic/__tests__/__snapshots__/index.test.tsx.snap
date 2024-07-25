@@ -3,8 +3,8 @@
 exports[`<FromMnemonic/> should match snapshot 1`] = `
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -158,8 +158,8 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 .c14 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .c9 {
@@ -177,8 +177,8 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -236,16 +236,16 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 .c4 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   max-width: 432px;
 }
 
 .c3 {
   margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
   font-weight: 600;
   overflow-wrap: break-word;
 }
@@ -265,8 +265,8 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding-bottom: 12px;
   font-weight: 600;
   margin: 0;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   border: 1px solid rgba(0,0,0,0.33);
   border-radius: 4px;
   height: 100%;
@@ -413,9 +413,9 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c3 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 432px;
   }
 }
 
@@ -435,11 +435,11 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
         autocorrect="off"
         spellcheck="false"
       >
-        <h1
+        <h2
           class="c3"
         >
           openWallet.mnemonic.header
-        </h1>
+        </h2>
         <p
           class="c4"
         >

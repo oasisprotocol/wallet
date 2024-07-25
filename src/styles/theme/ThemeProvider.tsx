@@ -1,5 +1,5 @@
 import { Grommet } from 'grommet/es6/components/Grommet'
-import { grommet, ThemeType } from 'grommet/es6/themes'
+import { base as baseTheme, grommet, ThemeType } from 'grommet/es6/themes'
 import { deepMerge } from 'grommet/es6/utils'
 import * as React from 'react'
 import { createTheme as dataTableCreateTheme } from 'react-data-table-component'
@@ -215,12 +215,29 @@ const grommetCustomTheme: ThemeType = {
     },
     font: {
       family: 'Rubik, sans-serif',
+      size: '16px',
+      height: '20px',
     },
     input: {
       padding: {
         horizontal: '5px',
         vertical: '12px',
       },
+    },
+  },
+  text: {
+    medium: { size: '16px', height: '20px' },
+  },
+  paragraph: {
+    medium: { size: '16px', height: '20px' },
+  },
+  heading: {
+    level: {
+      1: baseTheme.heading?.level?.['2'],
+      2: baseTheme.heading?.level?.['3'],
+      3: baseTheme.heading?.level?.['4'],
+      4: baseTheme.heading?.level?.['5'],
+      5: baseTheme.heading?.level?.['6'],
     },
   },
   notification: {
@@ -277,8 +294,23 @@ const grommetCustomTheme: ThemeType = {
       }
     `,
   },
+  icon: {
+    size: {
+      medium: '20px',
+    },
+  },
+  radioButton: {
+    icon: {
+      size: '20px',
+    },
+  },
   checkBox: {
+    size: '20px',
+    icon: {
+      size: '20px',
+    },
     toggle: {
+      size: '40px',
       color: {
         dark: 'text',
         light: 'grayMedium',
@@ -295,7 +327,7 @@ const grommetCustomTheme: ThemeType = {
     gap: '1.5ex',
     extend: css`
       font-size: 14px;
-      line-height: 1.2;
+      line-height: 1.25;
     `,
   },
   layer: {

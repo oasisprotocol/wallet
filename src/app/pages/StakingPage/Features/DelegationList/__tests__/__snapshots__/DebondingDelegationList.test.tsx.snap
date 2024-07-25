@@ -6,8 +6,8 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   fill: currentColor;
   stroke: currentColor;
 }
@@ -67,8 +67,8 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 }
 
 .c19 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   color: #0500e2;
 }
 
@@ -126,7 +126,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   align-items: center;
   box-sizing: border-box;
   line-height: normal;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   color: unset;
   padding-left: 16px;
@@ -236,7 +236,7 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   align-content: stretch;
   width: 100%;
   box-sizing: border-box;
-  font-size: 16x;
+  font-size: 16px;
   color: unset;
   background-color: unset;
   min-height: 48px;

@@ -128,7 +128,7 @@ export const AddEscrowForm = memo((props: Props) => {
               label={t('account.addEscrow.delegate', 'Delegate')}
               type="submit"
               primary
-              style={{ height: 48 }}
+              style={{ height: 45 }}
             />
           </Box>
           <TransactionStatus error={error} success={success} />

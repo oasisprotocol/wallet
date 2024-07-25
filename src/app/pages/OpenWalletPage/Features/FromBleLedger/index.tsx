@@ -29,7 +29,7 @@ export function FromBleLedger() {
     >
       <Header>{t('openWallet.ledger.header', 'Open from Ledger device')}</Header>
 
-      <Heading level="3" margin="0">
+      <Heading level="2" margin="0">
         {t('ledger.instructionSteps.header', 'Steps:')}
       </Heading>
       <ol>

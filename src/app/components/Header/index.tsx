@@ -9,14 +9,13 @@ interface HeaderProps extends Pick<HeadingProps, 'level' | 'size' | 'margin' | '
 
 export const Header = ({
   children,
-  level = 1,
-  size = 'small',
+  level = 2,
   margin = { top: 'none' },
   textAlign,
   fill,
   ...props
 }: HeaderProps) => (
-  <Heading level={level} size={size} margin={margin} textAlign={textAlign} fill={fill} {...props}>
+  <Heading level={level} margin={margin} textAlign={textAlign} fill={fill} {...props}>
     {children}
   </Heading>
 )

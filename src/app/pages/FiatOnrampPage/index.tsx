@@ -29,7 +29,7 @@ function Layout(props: { children?: React.ReactNode }) {
       alignSelf="center"
       width={{ max: '651px' }} // Padding + Transak threshold for >mobile layout
     >
-      <Header>{t('fiatOnramp.header', 'Buy ROSE')}</Header>
+      <Header level="2">{t('fiatOnramp.header', 'Buy ROSE')}</Header>
 
       <Paragraph size="small" fill margin={{ top: '0px' }}>
         {t('fiatOnramp.description', 'Convert your fiat currency into crypto.')}{' '}
@@ -123,11 +123,9 @@ export function FiatOnramp() {
                 href={transakUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                label={
-                  <span>
-                    {t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')} <ShareRounded />
-                  </span>
-                }
+                label={t('fiatOnramp.buyNowInNewTab', 'Buy ROSE now')}
+                icon={<ShareRounded />}
+                reverse
                 fill="horizontal"
                 margin={{ top: 'small' }}
                 style={{ fontSize: '14px', textAlign: 'center' }}

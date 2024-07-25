@@ -37,8 +37,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -255,8 +255,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 }
 
 .c17 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   color: #0500e2;
 }
 
@@ -393,8 +393,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -463,8 +463,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -713,8 +713,8 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 
 .c1 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;

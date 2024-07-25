@@ -25,11 +25,11 @@ exports[`<Header /> should render component 1`] = `
 }
 
 <div>
-  <h1
+  <h2
     class="c0"
   >
     Title
-  </h1>
+  </h2>
 </div>
 `;
 

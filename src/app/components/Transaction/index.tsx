@@ -86,9 +86,7 @@ export function Transaction(props: TransactionProps) {
   const isMobile = React.useContext(ResponsiveContext) === 'small'
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
-  const Amount = (
-    <AmountFormatter amount={transaction.amount!} size={isMobile ? '16px' : 'medium'} plainTicker />
-  )
+  const Amount = <AmountFormatter amount={transaction.amount!} size="inherit" plainTicker />
   let side: TransactionSide
   let otherAddress = ''
 
@@ -424,7 +422,7 @@ export function Transaction(props: TransactionProps) {
         gap="small"
       >
         <Icon size={isMobile ? '20px' : 'medium'} color="brand" />
-        <Text weight="bold" size={isMobile ? '16px' : 'medium'}>
+        <Text weight="bold" size={isMobile ? '14px' : 'medium'}>
           {header}
         </Text>
       </CardHeader>

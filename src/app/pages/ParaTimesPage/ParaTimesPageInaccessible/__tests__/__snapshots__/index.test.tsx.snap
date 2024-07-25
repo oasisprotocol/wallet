@@ -56,9 +56,9 @@ exports[`<ParaTimesPageInaccessible /> should render component 1`] = `
 
 .c1 {
   margin-bottom: 48px;
-  font-size: 26px;
-  line-height: 32px;
-  max-width: 624px;
+  font-size: 34px;
+  line-height: 40px;
+  max-width: 816px;
   font-weight: 600;
   overflow-wrap: break-word;
 }
@@ -83,9 +83,9 @@ exports[`<ParaTimesPageInaccessible /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c1 {
-    font-size: 18px;
-    line-height: 24px;
-    max-width: 432px;
+    font-size: 26px;
+    line-height: 32px;
+    max-width: 624px;
   }
 }
 
@@ -94,11 +94,11 @@ exports[`<ParaTimesPageInaccessible /> should render component 1`] = `
     class="c0"
     style="max-width: min(100%, 550px);"
   >
-    <h3
+    <h2
       class="c1"
     >
       paraTimes.common.header
-    </h3>
+    </h2>
     <div
       class="c2"
     >

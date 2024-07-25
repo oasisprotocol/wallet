@@ -21,7 +21,7 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
 
   return (
     <Box align="center" style={{ maxWidth: 'min(100%, 550px)' }}>
-      <Heading level={3} margin={{ bottom: 'large' }}>
+      <Heading level={2} margin={{ bottom: 'large' }}>
         {header ||
           (isDepositing
             ? t('paraTimes.common.depositHeader', 'Deposit to ParaTime')

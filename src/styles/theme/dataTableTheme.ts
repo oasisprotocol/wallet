@@ -20,12 +20,12 @@ export const dataTableTheme = {
 export const dataTableCustomStyles: IDataTableStyles = {
   headCells: {
     style: {
-      fontSize: '18px',
+      fontSize: '16px',
     },
   },
   rows: {
     style: {
-      fontSize: '16x',
+      fontSize: '16px',
     },
   },
 }

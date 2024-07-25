@@ -245,11 +245,11 @@ exports[`<ConnectDevicePage /> should render component 1`] = `
           width="75"
         />
       </div>
-      <h1
+      <h2
         class="c3"
       >
         ledger.extension.grantAccess
-      </h1>
+      </h2>
       <div
         class="c4"
       >

@@ -35,10 +35,44 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   stroke: none;
 }
 
+.c17 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.c17 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c17 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c17 *[stroke*='#'],
+.c17 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c17 *[fill-rule],
+.c17 *[FILL-RULE],
+.c17 *[fill*='#'],
+.c17 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -194,7 +228,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   width: 24px;
 }
 
-.c17 {
+.c18 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -279,8 +313,8 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -352,8 +386,8 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #d24c00;
   color: #F8F8F8;
   border-radius: 4px;
@@ -425,8 +459,8 @@ exports[`<Profile  /> should render unavailable state 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -800,7 +834,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
       >
         <svg
           aria-label="Lock"
-          class="c9"
+          class="c17"
           viewBox="0 0 24 24"
         >
           <path
@@ -809,7 +843,7 @@ exports[`<Profile  /> should render unavailable state 1`] = `
           />
         </svg>
         <div
-          class="c17"
+          class="c18"
         />
         Lock profile
       </div>

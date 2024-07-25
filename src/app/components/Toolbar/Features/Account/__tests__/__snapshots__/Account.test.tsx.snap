@@ -37,8 +37,8 @@ exports[`<Account  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -127,8 +127,8 @@ exports[`<Account  /> should match snapshot 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -259,8 +259,8 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 .c9 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: bold;
 }
 
@@ -270,8 +270,8 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 .c20 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   color: #0500e2;
 }
 
@@ -292,7 +292,7 @@ exports[`<Account  /> should match snapshot 1`] = `
   width: fit-content;
   cursor: pointer;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .c3:hover input:not([disabled]) + div,
@@ -310,7 +310,7 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 .c6:checked + span > span {
-  left: calc( 48px - 24px );
+  left: calc( 40px - 20px );
   background: #0500e2;
 }
 

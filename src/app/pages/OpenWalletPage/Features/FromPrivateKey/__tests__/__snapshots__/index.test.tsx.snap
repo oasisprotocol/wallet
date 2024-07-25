@@ -37,8 +37,8 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 
 .c0 {
   font-family: Rubik,sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #ffffff;
   color: #16213E;
   box-sizing: border-box;
@@ -167,8 +167,8 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 }
 
 .c3 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   max-width: 432px;
 }
 
@@ -247,8 +247,8 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
   border-radius: 4px;
   color: #16213E;
   padding: 4px 22px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   background-color: #0500e2;
   color: #F8F8F8;
   border-radius: 4px;
@@ -395,9 +395,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 
 .c2 {
   margin-top: 0px;
-  font-size: 34px;
-  line-height: 40px;
-  max-width: 816px;
+  font-size: 26px;
+  line-height: 32px;
+  max-width: 624px;
   font-weight: 600;
   overflow-wrap: break-word;
 }
@@ -453,9 +453,9 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
 
 @media only screen and (max-width:768px) {
   .c2 {
-    font-size: 26px;
-    line-height: 32px;
-    max-width: 624px;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 432px;
   }
 }
 
@@ -472,11 +472,11 @@ exports[`<FromPrivateKey  /> should match snapshot 1`] = `
       autocorrect="off"
       spellcheck="false"
     >
-      <h1
+      <h2
         class="c2"
       >
         openWallet.privateKey.header
-      </h1>
+      </h2>
       <p
         class="c3"
       >

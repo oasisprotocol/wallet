@@ -66,7 +66,7 @@ export function TransactionHistory() {
       {/* eslint-disable no-restricted-syntax */}
       {!isInitialLoading && (!!pendingTransactionComponents.length || hasUnknownPendingTransactions) && (
         <>
-          <Heading level="3">{t('account.summary.pendingTransactions', 'Pending transactions')}</Heading>
+          <Heading level="2">{t('account.summary.pendingTransactions', 'Pending transactions')}</Heading>
           <AlertBox
             status="ok-weak"
             justify="between"
@@ -104,7 +104,7 @@ export function TransactionHistory() {
           )}
         </>
       )}
-      <Heading level="3">{t('account.summary.activity', 'Activity')}</Heading>
+      <Heading level="2">{t('account.summary.activity', 'Activity')}</Heading>
       {/* eslint-enable no-restricted-syntax */}
       {allTransactions.length ? (
         <Box gap="medium" margin="none" data-testid="completed-txs">

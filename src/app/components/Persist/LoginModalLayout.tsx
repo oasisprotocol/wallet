@@ -38,7 +38,7 @@ export function LoginModalLayout(props: {
             />
           </Box>
 
-          <Header level={2} fill textAlign="center">
+          <Header fill textAlign="center">
             {props.title}
           </Header>
 

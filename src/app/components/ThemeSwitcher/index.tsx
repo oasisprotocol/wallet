@@ -19,9 +19,9 @@ import { getTargetTheme } from 'styles/theme/utils'
 interface Props {}
 
 const getThemesIcons = (t: TFunction) => ({
-  light: <Sun aria-label={t('theme.lightMode', 'Light mode')} />,
-  dark: <Moon aria-label={t('theme.darkMode', 'Dark mode')} />,
-  system: <System aria-label={t('theme.system', 'System')} />,
+  light: <Sun aria-label={t('theme.lightMode', 'Light mode')} size="24px" />,
+  dark: <Moon aria-label={t('theme.darkMode', 'Dark mode')} size="24px" />,
+  system: <System aria-label={t('theme.system', 'System')} size="24px" />,
 })
 
 export const ThemeSwitcher = memo((props: Props) => {

@@ -20,7 +20,7 @@ export const LanguageSelect = () => {
 
   return (
     <SelectWithIcon
-      icon={<Language />}
+      icon={<Language size="24px" />}
       id="language"
       label={t('language', 'Language')}
       name="language"
