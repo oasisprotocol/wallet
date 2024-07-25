@@ -63,11 +63,14 @@ const grommetCustomTheme: ThemeType = {
     },
   },
   select: {
-    options: {
-      container: {
-        // Remove padding to match ParaTimeOption when displayed as value and as option
-        pad: 'none',
-      },
+    container: {
+      // Remove padding from selects with custom elements inside options.
+      // Needed to match ParaTimeOption when displayed as value and as option
+      extend: css`
+        button > div:has(span *) {
+          padding: 0;
+        }
+      `,
     },
   },
   global: {
