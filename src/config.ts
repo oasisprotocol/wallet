@@ -1,7 +1,7 @@
 import { NetworkType } from 'app/state/network/types'
 
-const interceptors: [string, (...args: any[]) => { body: string }][] = []
-function intercept(substr: string, getResponse: (...args: any[]) => { body: string }) {
+const interceptors: [string, (...args: any[]) => { body: string; contentType?: string }][] = []
+function intercept(substr: string, getResponse: (...args: any[]) => { body: string; contentType?: string }) {
   interceptors.push([substr, getResponse])
 }
 
@@ -14,9 +14,47 @@ window.fetch = async (...args) => {
   console.log('intercepted fetch', args)
   const response = await interceptor[1](...args)
   console.log('responded fetch', response)
-  return new Response(response.body)
+  const ret = new Response(response.body)
+  if (response.contentType) ret.headers.set('Content-Type', response.contentType)
+  return ret
 }
 
+const origOpen = XMLHttpRequest.prototype.open
+const origSend = XMLHttpRequest.prototype.send
+XMLHttpRequest.prototype.open = function (this: any, method, url) {
+  this._customUrl = url
+  // eslint-disable-next-line prefer-rest-params
+  origOpen.apply(this, arguments as any)
+}
+XMLHttpRequest.prototype.send = function (this: any) {
+  const url = this._customUrl
+  // eslint-disable-next-line prefer-rest-params
+  if (typeof url !== 'string') return origSend.apply(this, arguments as any)
+  const interceptor = interceptors.find(([substr, getResponse]) => url.includes(substr))
+  // eslint-disable-next-line prefer-rest-params
+  if (!interceptor) return origSend.apply(this, arguments as any)
+  console.log('intercepted xhr', url)
+  const response = interceptor[1](url)
+  console.log('responded xhr', response)
+
+  Object.defineProperty(this, 'readyState', { writable: true, enumerable: true, value: 4 })
+  Object.defineProperty(this, 'status', { writable: true, enumerable: true, value: 200 })
+  Object.defineProperty(this, 'statusText', { writable: true, enumerable: true, value: 'OK' })
+  Object.defineProperty(this, 'responseURL', { writable: true, enumerable: true, value: url })
+  Object.defineProperty(this, 'responseType', { writable: true, enumerable: true, value: 'text' })
+  Object.defineProperty(this, 'responseText', { writable: true, enumerable: true, value: response.body })
+  Object.defineProperty(this, 'response', { writable: true, enumerable: true, value: response.body })
+  this.getResponseHeader = (name: string) => (name === 'Content-Type' ? response.contentType ?? null : null)
+
+  setTimeout(() => {
+    this.onreadystatechange && this.onreadystatechange()
+    this.dispatchEvent(new Event('readystatechange'))
+    this.onload?.()
+    this.dispatchEvent(new Event('load'))
+    this.onloadend?.()
+    this.dispatchEvent(new Event('loadend'))
+  }, 10)
+}
 
 intercept('/chain/account/info/', () => {
   return {
@@ -410,6 +448,25 @@ intercept('/validator/list?', () => {
         ],
       },
     }),
+  }
+})
+
+intercept('/oasis-core.Consensus/GetChainContext', () => {
+  return {
+    contentType: 'application/grpc-web-text+proto',
+    body: 'AAAAAEJ4QGIxMWIzNjllMGRhNWJiMjMwYjIyMDEyN2Y1ZTdiMjQyZDM4NWVmOGM2ZjU0OTA2MjQzZjMwYWY2M2M4MTU1MzU=gAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
+  }
+})
+intercept('/oasis-core.Beacon/GetEpoch', () => {
+  return {
+    contentType: 'application/grpc-web-text+proto',
+    body: 'AAAAAAMZR8Q=gAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
+  }
+})
+intercept('/oasis-core.Staking/Account', () => {
+  return {
+    contentType: 'application/grpc-web-text+proto',
+    body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
   }
 })
 
