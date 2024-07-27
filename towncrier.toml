@@ -9,6 +9,7 @@ directory = ".changelog"
 check_ignore_files = [
   # File where we store app version.
   "package.json",
+  "public/manifest.json",
 ]
 issue_format = "[#{issue}](https://github.com/oasisprotocol/oasis-wallet-web/issues/{issue})"
 start_string = "<!-- TOWNCRIER -->\n"
