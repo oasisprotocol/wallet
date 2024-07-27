@@ -9,7 +9,7 @@ import { MuiWalletIcon } from '../../../styles/theme/icons/mui-icons/MuiWalletIc
 import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
@@ -40,6 +40,11 @@ const StyledNavLink = styled(NavLink)`
   flex-basis: 0;
   &:hover {
     background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
+  }
+
+  &.active {
+    color: ${({ theme }) => normalizeColor('text', theme, true)};
+    background-color: ${({ theme }) => normalizeColor('control', theme)};
   }
 `
 
@@ -98,19 +103,9 @@ function MobileFooterButton({
   to: string
   exactActive?: boolean | undefined
 }) {
-  const location = useLocation()
-  const isActive = exactActive ? location.pathname === to : location.pathname.startsWith(to)
-
   return (
-    <StyledNavLink to={to}>
-      <Box
-        as="span"
-        justify="center"
-        align="center"
-        fill="vertical"
-        background={isActive ? 'control' : undefined}
-        gap="small"
-      >
+    <StyledNavLink to={to} end={exactActive}>
+      <Box as="span" justify="center" align="center" fill="vertical" gap="small">
         <Icon size="24px" />
         <Text size="small" textAlign="center" style={{ lineHeight: 1 }}>
           {label}
