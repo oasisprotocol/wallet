@@ -14,12 +14,14 @@ const StyledNavItem = styled(NavLink)`
   letter-spacing: 0;
   padding: ${({ theme }) => theme.global?.edgeSize?.small};
 
-  :hover {
-    background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
+  &:hover {
+    color: ${({ theme }) => normalizeColor('text', theme)};
+    background-color: ${({ theme }) => normalizeColor('active', theme)};
   }
 
   &.active {
-    background-color: ${({ theme }) => normalizeColor('background-back', theme)};
+    color: ${({ theme }) => normalizeColor('text', theme, true)};
+    background-color: ${({ theme }) => normalizeColor('control', theme)};
   }
 
   @media only screen and (max-width: ${({ theme }) => `${theme.global?.breakpoints?.small?.value}px`}) {

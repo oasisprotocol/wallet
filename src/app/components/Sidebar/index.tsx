@@ -113,6 +113,11 @@ const UnstyledSidebarButton = ({
   }
 }
 export const SidebarButton = styled(UnstyledSidebarButton)`
+  &:hover {
+    color: ${({ theme }) => normalizeColor('text', theme)};
+    background-color: ${({ theme }) => normalizeColor('active', theme)};
+  }
+
   &.active {
     color: ${({ theme }) => normalizeColor('text', theme, true)};
     background-color: ${({ theme }) => normalizeColor('control', theme)};

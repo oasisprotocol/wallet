@@ -38,8 +38,10 @@ const StyledNavLink = styled(NavLink)`
   // Make items equal width
   flex-grow: 1;
   flex-basis: 0;
+
   &:hover {
-    background-color: ${({ theme }) => normalizeColor('background-contrast', theme)};
+    color: ${({ theme }) => normalizeColor('text', theme)};
+    background-color: ${({ theme }) => normalizeColor('active', theme)};
   }
 
   &.active {
