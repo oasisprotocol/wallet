@@ -12,6 +12,156 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 1.12.0 (2024-07-27)
+
+### Features
+
+- Ionic Bluetooth UI
+  ([#1841](https://github.com/oasisprotocol/oasis-wallet-web/issues/1841))
+
+- Remove "Continue without the profile" button
+  ([#1914](https://github.com/oasisprotocol/oasis-wallet-web/issues/1914))
+
+- Allow to use eth private key that starts with 0x
+  ([#1923](https://github.com/oasisprotocol/oasis-wallet-web/issues/1923))
+
+- Lock profile when user leaves app on Ionic platform
+  ([#1933](https://github.com/oasisprotocol/oasis-wallet-web/issues/1933))
+
+- Make creating an account the default flow
+  ([#1939](https://github.com/oasisprotocol/oasis-wallet-web/issues/1939))
+
+- Prevent app content from being captured in screenshots or apps view
+  ([#1940](https://github.com/oasisprotocol/oasis-wallet-web/issues/1940))
+
+- Add Android update screen
+  ([#1945](https://github.com/oasisprotocol/oasis-wallet-web/issues/1945),
+   [#1969](https://github.com/oasisprotocol/oasis-wallet-web/issues/1969))
+
+- Pending transactions
+  ([#1954](https://github.com/oasisprotocol/oasis-wallet-web/issues/1954),
+   [#1998](https://github.com/oasisprotocol/oasis-wallet-web/issues/1998),
+   [#1999](https://github.com/oasisprotocol/oasis-wallet-web/issues/1999),
+   [#2001](https://github.com/oasisprotocol/oasis-wallet-web/issues/2001))
+
+  Introduces a section for pending transactions within the transaction history
+  interface. It is designed to display transactions currently in a pending
+  state that are made within the wallet. The section will also show up in case
+  there is a discrepancy between transaction history nonce and wallet nonce,
+  indicating that some transactions are currently in pending state.
+
+### Bug Fixes and Improvements
+
+- Fix hiding body scrollbar in extension again for Chrome 121 and newer
+  ([#1902](https://github.com/oasisprotocol/oasis-wallet-web/issues/1902))
+
+- Add active state to mobile navigation buttons
+  ([#1903](https://github.com/oasisprotocol/oasis-wallet-web/issues/1903))
+
+- Add logo to login form
+  ([#1904](https://github.com/oasisprotocol/oasis-wallet-web/issues/1904))
+
+- Denser tab buttons in settings
+  ([#1905](https://github.com/oasisprotocol/oasis-wallet-web/issues/1905))
+
+- Restyle Transak notices
+  ([#1908](https://github.com/oasisprotocol/oasis-wallet-web/issues/1908))
+
+- Make buttons to manage accounts more prominent
+  ([#1909](https://github.com/oasisprotocol/oasis-wallet-web/issues/1909))
+
+- Simplify login text
+  ([#1912](https://github.com/oasisprotocol/oasis-wallet-web/issues/1912))
+
+- Improve the text for creating a profile
+  ([#1913](https://github.com/oasisprotocol/oasis-wallet-web/issues/1913))
+
+- Show debondable amount next to debonding input
+  ([#1915](https://github.com/oasisprotocol/oasis-wallet-web/issues/1915))
+
+- Fix layout when showing notifications
+  ([#1920](https://github.com/oasisprotocol/oasis-wallet-web/issues/1920))
+
+  - Grommet Box with gap prop generates gaps for React null elements.
+    Notification component is using Layer which is null before portal is created
+
+- Sync extension manifest version during version bump
+  ([#1921](https://github.com/oasisprotocol/oasis-wallet-web/issues/1921))
+
+- Fix physical back button behavior on Android
+  ([#1928](https://github.com/oasisprotocol/oasis-wallet-web/issues/1928),
+   [#1932](https://github.com/oasisprotocol/oasis-wallet-web/issues/1932))
+
+- Make settings tabs consistent height
+  ([#1935](https://github.com/oasisprotocol/oasis-wallet-web/issues/1935))
+
+- Add a delay before user can finish V0 migration to encourage reading
+  ([#1943](https://github.com/oasisprotocol/oasis-wallet-web/issues/1943))
+
+- Stop settings dialog resizing when clicking "Add contact"
+  ([#1950](https://github.com/oasisprotocol/oasis-wallet-web/issues/1950))
+
+- Prevent value change on number input wheel scroll
+  ([#1956](https://github.com/oasisprotocol/oasis-wallet-web/issues/1956))
+
+- Fix refreshing transactions after making a debonding transaction
+  ([#1963](https://github.com/oasisprotocol/oasis-wallet-web/issues/1963))
+
+- Migrate from grpc.oasis.dev to grpc.oasis.io
+  ([#1965](https://github.com/oasisprotocol/oasis-wallet-web/issues/1965))
+
+- Restyle "Buy ROSE" page
+  ([#1966](https://github.com/oasisprotocol/oasis-wallet-web/issues/1966))
+
+- Fix updating transactions list by adding more delay
+  ([#1967](https://github.com/oasisprotocol/oasis-wallet-web/issues/1967))
+
+- Fix crash when expanding delegation translated by Google
+  ([#1983](https://github.com/oasisprotocol/oasis-wallet-web/issues/1983))
+
+- Only show Delegations and Debonding tabs in Stake view
+  ([#1985](https://github.com/oasisprotocol/oasis-wallet-web/issues/1985))
+
+- Make Stake button active in delegations and debonding routes
+  ([#1986](https://github.com/oasisprotocol/oasis-wallet-web/issues/1986))
+
+- Fix losing mnemonic input when changing phone orientation
+  ([#2008](https://github.com/oasisprotocol/oasis-wallet-web/issues/2008))
+
+- Move staked and debonding count badge into text parentheses
+  ([#2014](https://github.com/oasisprotocol/oasis-wallet-web/issues/2014))
+
+- Reduce font size to improve UI on mobile
+  ([#2017](https://github.com/oasisprotocol/oasis-wallet-web/issues/2017))
+
+### Internal Changes
+
+- Update and deduplicate sub-dependencies using `npx yarn-deduplicate yarn.lock`
+  ([#1900](https://github.com/oasisprotocol/oasis-wallet-web/issues/1900))
+
+  This reduces the size of node_modules and speeds up installing dependencies.
+
+- Add extension build artifacts to GitHub workflows
+  ([#1922](https://github.com/oasisprotocol/oasis-wallet-web/issues/1922))
+
+- Add Android bundle to GitHub Action build artifacts
+  ([#1944](https://github.com/oasisprotocol/oasis-wallet-web/issues/1944))
+
+- Upgrade Capacitor to v6
+  ([#1957](https://github.com/oasisprotocol/oasis-wallet-web/issues/1957))
+
+- Refactor transactions status to enum
+  ([#1970](https://github.com/oasisprotocol/oasis-wallet-web/issues/1970))
+
+- Add transaction detail API cache
+  ([#1979](https://github.com/oasisprotocol/oasis-wallet-web/issues/1979))
+
+- Update Oasis Scan OperationsRow swagger spec
+  ([#1981](https://github.com/oasisprotocol/oasis-wallet-web/issues/1981))
+
+- Lint rule to detect broken Google Translate in CommissionBounds
+  ([#1984](https://github.com/oasisprotocol/oasis-wallet-web/issues/1984))
+
 ## 1.11.0 (2024-04-19)
 
 ### Features
