@@ -7,6 +7,7 @@ import { Nav } from 'grommet/es6/components/Nav'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Sidebar as GSidebar } from 'grommet/es6/components/Sidebar'
 import { Text } from 'grommet/es6/components/Text'
+import { normalizeColor } from 'grommet/es6/utils'
 import { Github } from 'grommet-icons/es6/icons/Github'
 import { FormDown } from 'grommet-icons/es6/icons/FormDown'
 import { Home } from 'grommet-icons/es6/icons/Home'
@@ -37,7 +38,7 @@ import {
   sidebarLargeSizeLogo,
   mobileToolbarZIndex,
 } from '../../../styles/theme/elementSizes'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { MobileFooterNavigation } from '../MobileFooterNavigation'
 
@@ -58,7 +59,7 @@ type SidebarButtonProps = SidebarButtonBaseProps &
       }
   )
 
-export const SidebarButton = ({
+const UnstyledSidebarButton = ({
   needsWalletOpen,
   icon,
   label,
@@ -69,12 +70,6 @@ export const SidebarButton = ({
   ...rest
 }: SidebarButtonProps) => {
   const walletHasAccounts = useSelector(selectHasAccounts)
-  const location = useLocation()
-  const isActive = route
-    ? exactActive
-      ? location.pathname === route
-      : location.pathname.startsWith(route)
-    : false
 
   if (!walletHasAccounts && needsWalletOpen) {
     return null
@@ -83,7 +78,6 @@ export const SidebarButton = ({
   const component = (
     <Box
       pad={{ vertical: 'small', left: 'medium' }}
-      background={isActive ? 'control' : undefined}
       responsive={false}
       direction="row"
       gap="medium"
@@ -106,7 +100,7 @@ export const SidebarButton = ({
         {component}
       </a>
     ) : (
-      <NavLink aria-label={label} to={route} {...rest}>
+      <NavLink aria-label={label} to={route} end={exactActive} {...rest}>
         {component}
       </NavLink>
     )
@@ -118,6 +112,17 @@ export const SidebarButton = ({
     )
   }
 }
+export const SidebarButton = styled(UnstyledSidebarButton)`
+  &:hover {
+    color: ${({ theme }) => normalizeColor('text', theme)};
+    background-color: ${({ theme }) => normalizeColor('active', theme)};
+  }
+
+  &.active {
+    color: ${({ theme }) => normalizeColor('text', theme, true)};
+    background-color: ${({ theme }) => normalizeColor('control', theme)};
+  }
+`
 
 type Size = 'small' | 'medium' | 'large'
 
