@@ -154,7 +154,10 @@ export const DelegationList = memo((props: Props) => {
       noHeader={true}
       noDataComponent={
         type === 'active'
-          ? t('account.emptyActiveDelegationsList', 'There are currently no active delegations.')
+          ? t(
+              'account.emptyActiveDelegationsList',
+              'There are currently no active delegations for this account.',
+            )
           : t('account.emptyDebondingDelegationsList', 'There are no debonding delegations for this account.')
       }
       columns={columns}
