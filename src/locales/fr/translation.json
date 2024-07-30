@@ -126,7 +126,7 @@
       "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Termes et Conditions</TermsLink>",
-    "version": "Version: <CommitLink/> construit à {{buildTime}}"
+    "version": "Version: <ReleaseLink/> (<CommitLink/>) construit à {{buildTime}}"
   },
   "home": {
     "create": {
