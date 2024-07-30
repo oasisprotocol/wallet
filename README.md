@@ -13,17 +13,6 @@
 
 [demo-video]
 
-- [ROSE Wallet](#rose-wallet)
-  - [Features](#features)
-  - [Getting started](#getting-started)
-    - [Installing and running from source code][install-link]
-    - [Test accounts](#test-accounts)
-  - [Architecture](#architecture)
-  - [Contributing & development](#contributing--development)
-    - [Running the tests](#running-the-tests)
-    - [Code style](#code-style)
-    - [Internationalization](#internationalization)
-
 ## Deploys
 
 - `stable` branch: <https://wallet.oasis.io>
@@ -233,4 +222,3 @@ Adding a new language:
 [license-link]: https://opensource.org/licenses/Apache-2.0
 [codecov-badge]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
-[install-link]: #installing-and-running-from-source-code
