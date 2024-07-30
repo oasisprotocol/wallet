@@ -25,32 +25,18 @@ export const selectPendingTransactionForAccount = createSelector(
 export const hasAccountUnknownPendingTransactions = createSelector(
   [selectAccountNonce, selectTransactions, selectAccountAddress],
   (accountNonce, transactions, accountAddress) => {
-    // TODO: This logic fails, in case transaction are not from the initial page of account's transactions
-    const filteredTransactions = transactions.filter(({ from }) => from && from === accountAddress)
+    const noncesFromTxs = transactions
+      .filter(tx => tx.from !== undefined)
+      .filter(tx => tx.from === accountAddress)
+      .filter(tx => tx.nonce !== undefined)
+      .map(tx => BigInt(tx.nonce!))
 
-    if (filteredTransactions.length === 0 && BigInt(accountNonce) === 0n) return false
-
-    const maxNonceFromTxs = filteredTransactions.reduce(
-      (acc, { nonce }) => {
-        if (!nonce) {
-          return acc
-        }
-
-        const bigNonce = BigInt(nonce)
-
-        if (!acc) {
-          return bigNonce
-        }
-
-        return bigNonce > acc ? bigNonce : acc
-      },
-      undefined as bigint | undefined,
-    )
-
-    if (maxNonceFromTxs === undefined) {
+    if (noncesFromTxs.length <= 0) {
+      // TODO: last transaction that affected nonce is not in the initial page of account's transactions
       return BigInt(accountNonce) > 0n
     }
 
-    return BigInt(maxNonceFromTxs) + BigInt(1) < BigInt(accountNonce)
+    const maxNonceFromTxs = noncesFromTxs.reduce((acc, nonce) => (nonce > acc ? nonce : acc))
+    return BigInt(accountNonce) > maxNonceFromTxs + 1n
   },
 )
