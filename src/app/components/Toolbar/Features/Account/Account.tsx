@@ -6,12 +6,12 @@ import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { memo, useContext, useState } from 'react'
+import { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { BalanceDetails } from '../../../../state/account/types'
 import { Button } from 'grommet/es6/components/Button'
 import { DerivationFormatter, DerivationFormatterProps } from './DerivationFormatter'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 
 const StyledManageButton = styled(Button)`
   border-radius: ${({ theme }) => theme.button?.border?.radius};
@@ -42,7 +42,7 @@ export interface AccountProps {
 export const Account = memo((props: AccountProps) => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
-  const [isHovering, setIsHovering] = useState(false)
+  const { dark } = useContext<any>(ThemeContext)
 
   const address =
     size === 'small' ? <ShortAddress address={props.address} /> : <PrettyAddress address={props.address} />
@@ -53,18 +53,14 @@ export const Account = memo((props: AccountProps) => {
     <Box
       data-testid="account-choice"
       round="5px"
-      background={isHovering ? 'brand' : props.isActive ? 'neutral-2' : undefined}
-      border={{ color: props.isActive ? 'neutral-2' : 'brand' }}
+      background={props.isActive ? 'control' : undefined}
+      border={{ color: 'control' }}
       pad="small"
       flex={{ shrink: 0 }}
       role="checkbox"
       aria-checked={props.isActive}
       onClick={props.onClick ? () => props.onClick!(props.address) : undefined}
-      // `hoverIndicator={{ background: 'brand' }}` does not detect dark background
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-      onFocus={() => setIsHovering(true)}
-      onBlur={() => setIsHovering(false)}
+      hoverIndicator={!props.isActive && { color: 'active', dark: dark }}
       direction="row"
     >
       {props.displayCheckbox && (
