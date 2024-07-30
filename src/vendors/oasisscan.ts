@@ -230,7 +230,8 @@ export function parseTransactionsList(
         runtimeName: t.runtimeName,
         runtimeId: t.runtimeId,
         round: t.round,
-        nonce: undefined,
+        nonce:
+          t.ctx?.nonce ?? t.etx?.nonce != null ? BigInt(t.ctx?.nonce ?? t.etx?.nonce).toString() : undefined,
       }
       return parsed
     } else {
