@@ -56,6 +56,11 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   cursor: pointer;
 }
 
+.c3:hover {
+  background-color: rgba(221,221,221,0.5);
+  color: black;
+}
+
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
