@@ -34,29 +34,11 @@ export const NetworkSelector = memo((props: Props) => {
   }
 
   const network = networkLabels[selectedNetworkType]
-  const menuItems = [
-    {
-      label: networkLabels['mainnet'],
-      onClick: () => {
-        switchNetwork('mainnet')
-      },
-    },
-    {
-      label: networkLabels['testnet'],
-      onClick: () => {
-        switchNetwork('testnet')
-      },
-    },
+  const networks = [
+    'mainnet' as const,
+    'testnet' as const,
+    ...(process.env.REACT_APP_LOCALNET ? ['local' as const] : []),
   ]
-
-  if (process.env.REACT_APP_LOCALNET) {
-    menuItems.push({
-      label: networkLabels['local'],
-      onClick: () => {
-        switchNetwork('local')
-      },
-    })
-  }
 
   return (
     <Menu
@@ -66,7 +48,11 @@ export const NetworkSelector = memo((props: Props) => {
         align: { top: 'bottom', left: 'left' },
         elevation: 'xlarge',
       }}
-      items={menuItems}
+      items={networks.map(value => ({
+        label: networkLabels[value],
+        onClick: () => switchNetwork(value),
+        primary: value === selectedNetworkType,
+      }))}
       fill
       a11yTitle={t('toolbar.networks.selector', 'Select network')}
     >
