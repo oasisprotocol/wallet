@@ -27,6 +27,7 @@ export const hasAccountUnknownPendingTransactions = createSelector(
   [selectAccountNonce, selectTransactions, selectAccountAddress],
   (accountNonce, transactions, accountAddress) => {
     const noncesFromTxs = transactions
+      .filter(tx => !tx.runtimeId)
       .filter(tx => tx.from !== undefined)
       .filter(tx => tx.from === accountAddress)
       .filter(tx => tx.nonce !== undefined)

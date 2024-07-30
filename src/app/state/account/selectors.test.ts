@@ -102,6 +102,29 @@ describe('hasAccountUnknownPendingTransactions', () => {
     ).toBe(true)
   })
 
+  it('paratime transaction updates a different nonce within the paratime', () => {
+    expect(
+      hasAccountUnknownPendingTransactions({
+        account: {
+          address: currentAddress,
+          nonce: 1n.toString(),
+          transactions: [
+            {
+              from: currentAddress, // Sent on Emerald
+              to: 'oasis1qq235lqj77855qcemcr5w2qm372s4amqcc4v3ztc', // 0xC3ecf872F643C6238Aa20673798eed6F7dA199e9
+              status: TransactionStatus.Successful,
+              runtimeName: 'Emerald',
+              runtimeId: '000000000000000000000000000000000000000000000000e2eaa99fc008f87f',
+              round: 11129138,
+              type: 'consensus.Deposit',
+              nonce: 0n.toString(), // Misleading Emerald nonce
+            },
+          ] as Transaction[],
+        },
+      } as RootState),
+    ).toBe(true)
+  })
+
   it('multiple pages of transactions', () => {
     const onePageOfReceivedTxs = new Array(TRANSACTIONS_LIMIT).fill(null).map(() => ({
       from: 'oasis1qp2frld759c6u92pxs768nd2ctnrduhqp5f6f273',
