@@ -1,5 +1,7 @@
 import { NetworkType } from 'app/state/network/types'
 
+export const TRANSACTIONS_LIMIT = 20
+
 export const consensusDecimals = 9
 
 // Moved outside backend.ts to avoid circular dependency

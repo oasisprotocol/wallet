@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit'
 import { RootState } from 'types'
 import { initialState } from '.'
 import { selectSelectedNetwork } from '../network/selectors'
+import { TRANSACTIONS_LIMIT } from '../../../config'
 
 const selectSlice = (state: RootState) => state.account || initialState
 
@@ -33,6 +34,8 @@ export const hasAccountUnknownPendingTransactions = createSelector(
 
     if (noncesFromTxs.length <= 0) {
       // TODO: last transaction that affected nonce is not in the initial page of account's transactions
+      if (transactions.length >= TRANSACTIONS_LIMIT) return false
+      // Waiting for first transactions
       return BigInt(accountNonce) > 0n
     }
 

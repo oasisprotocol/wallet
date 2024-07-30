@@ -1,3 +1,4 @@
+import { TRANSACTIONS_LIMIT } from '../../../config'
 import { RootState } from '../../../types'
 import { Transaction, TransactionStatus } from '../transaction/types'
 import { hasAccountUnknownPendingTransactions } from './selectors'
@@ -102,7 +103,7 @@ describe('hasAccountUnknownPendingTransactions', () => {
   })
 
   it('multiple pages of transactions', () => {
-    const onePageOfReceivedTxs = new Array(20).fill(null).map(() => ({
+    const onePageOfReceivedTxs = new Array(TRANSACTIONS_LIMIT).fill(null).map(() => ({
       from: 'oasis1qp2frld759c6u92pxs768nd2ctnrduhqp5f6f273',
       to: currentAddress, // Received
       status: TransactionStatus.Successful,
@@ -116,7 +117,7 @@ describe('hasAccountUnknownPendingTransactions', () => {
           transactions: onePageOfReceivedTxs,
         },
       } as RootState),
-    ).toBe(true) // Can't determine within first page.
+    ).toBe(false) // Can't determine within first page. Assume false.
 
     const onePageIncludingSentTx = [...onePageOfReceivedTxs]
     onePageIncludingSentTx[4] = {
