@@ -194,7 +194,6 @@
     "thirdPartyDisclaimer": "This service is provided by Transak - an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
   },
   "footer": {
-    "buildDetails": "(commit: <CommitLink/>) built at {{buildTime}}",
     "feedback": "We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>",
     "github": "ROSE Wallet is <GithubLink>open source</GithubLink> and powered by",
     "poweredBy": {
@@ -202,7 +201,7 @@
       "oasisscan": "Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",
-    "version": "Version: <ReleaseLink/>"
+    "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
   },
   "home": {
     "create": {

@@ -221,7 +221,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
         </a>
         <br />
         <span>
-          (commit: 
+           (commit: 
         </span>
         <a
           class="c3"

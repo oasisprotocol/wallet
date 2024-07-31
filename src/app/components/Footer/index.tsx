@@ -147,26 +147,18 @@ const Version = () => {
         t={t}
         components={{
           ReleaseLink: process.env.REACT_APP_BUILD_VERSION ? (
-            <Anchor
-              href={githubReleaseLink(process.env.REACT_APP_BUILD_VERSION)}
-              label={process.env.REACT_APP_BUILD_VERSION.replace('v', '')}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
+            <>
+              <Anchor
+                href={githubReleaseLink(process.env.REACT_APP_BUILD_VERSION)}
+                label={process.env.REACT_APP_BUILD_VERSION.replace('v', '')}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+              {isMobileOrTablet ? <br /> : <span>&nbsp;</span>}
+            </>
           ) : (
             <NoReleaseLink />
           ),
-        }}
-        values={{
-          buildTime: intlDateTimeFormat(Number(process.env.REACT_APP_BUILD_DATETIME)),
-        }}
-        defaults="Version: <ReleaseLink/>"
-      />
-      {isMobileOrTablet ? <br /> : <span> </span>}
-      <Trans
-        i18nKey="footer.buildDetails"
-        t={t}
-        components={{
           CommitLink: (
             <Anchor
               href={`${githubLink}commit/${process.env.REACT_APP_BUILD_SHA}`}
@@ -179,7 +171,7 @@ const Version = () => {
         values={{
           buildTime: intlDateTimeFormat(Number(process.env.REACT_APP_BUILD_DATETIME)),
         }}
-        defaults="(commit: <CommitLink/>) built at {{buildTime}}"
+        defaults="Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
       />
     </span>
   )
