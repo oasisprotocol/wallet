@@ -214,6 +214,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
             items={languageLabels.map(([key, label]) => ({
               label: label,
               onClick: () => setLanguage(key),
+              primary: key === i18n.resolvedLanguage,
             }))}
             a11yTitle="Language"
           >

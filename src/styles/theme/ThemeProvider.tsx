@@ -227,6 +227,9 @@ const grommetCustomTheme: ThemeType = {
         vertical: '12px',
       },
     },
+    selected: {
+      background: 'control',
+    },
   },
   text: {
     medium: { size: '16px', height: '20px' },
