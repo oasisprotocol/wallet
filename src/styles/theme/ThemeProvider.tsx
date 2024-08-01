@@ -94,6 +94,7 @@ const grommetCustomTheme: ThemeType = {
         dark: '#00A9FF',
         light: '#00A9FF',
       },
+      active: 'rgba(183, 183, 183, 0.5)',
       'accent-1': 'focus',
       'brand-background-light': '#e3e8ed',
       'brand-white': '#f8f8f8',

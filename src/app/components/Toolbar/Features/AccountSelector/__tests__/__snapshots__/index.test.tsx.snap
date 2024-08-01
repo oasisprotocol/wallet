@@ -125,7 +125,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c3:hover {
-  background-color: rgba(221,221,221,0.5);
+  background-color: rgba(183,183,183,0.5);
   color: black;
 }
 
@@ -367,7 +367,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
 }
 
 .c9:hover {
-  background-color: rgba(221,221,221,0.4);
+  background-color: rgba(183,183,183,0.4);
   color: #000000;
   box-shadow: 0px 0px 0px 2px #0500e2;
 }

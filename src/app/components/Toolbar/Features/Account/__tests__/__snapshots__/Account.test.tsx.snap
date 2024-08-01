@@ -70,7 +70,7 @@ exports[`<Account  /> should match snapshot 1`] = `
 }
 
 .c1:hover {
-  background-color: rgba(221,221,221,0.5);
+  background-color: rgba(183,183,183,0.5);
   color: black;
 }
 
