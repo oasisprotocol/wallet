@@ -21,7 +21,7 @@ const noGoogleTranslateCrashingSyntax = [
   // Ban text nodes before or after a condition `text {condition && <span/>} text`
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> LogicalExpression[operator="&&"]))' +
       ' > JSXText[value!=/^\\s+$/]',
     message:
       '[c] Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
@@ -29,7 +29,7 @@ const noGoogleTranslateCrashingSyntax = [
   // Ban variables before or after `{var} {condition && <span/>} {var}` (just in case they return a string)
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> LogicalExpression[operator="&&"]))' +
       ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
     message:
       '[d] Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
@@ -54,7 +54,7 @@ const noGoogleTranslateCrashingSyntax = [
   // Ban text nodes before or after a condition `text {condition ? <span/> : <span/>} text`
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> ConditionalExpression))' +
       ' > JSXText[value!=/^\\s+$/]',
     message:
       '[g] Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
@@ -62,7 +62,7 @@ const noGoogleTranslateCrashingSyntax = [
   // Ban variables before or after `{var} {condition ? <span/> : <span/>} {var}` (just in case they return a string)
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> ConditionalExpression))' +
       ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
     message:
       '[h] Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
@@ -94,7 +94,7 @@ const noGoogleTranslateCrashingSyntax = [
   },
 ]
 
-/** @type { import('eslint').Linter.Config } */
+/** @type { import('eslint').Linter.LegacyConfig } */
 const config = {
   extends: [
     'eslint:recommended', // https://eslint.org/docs/rules/

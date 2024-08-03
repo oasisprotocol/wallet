@@ -63,7 +63,6 @@ export function TransactionHistory() {
           <ErrorFormatter code={transactionsError.code} message={transactionsError.message} />
         </p>
       )}
-      {/* eslint-disable no-restricted-syntax */}
       {!isInitialLoading && (!!pendingTransactionComponents.length || hasUnknownPendingTransactions) && (
         <>
           <Heading level="2">{t('account.summary.pendingTransactions', 'Pending transactions')}</Heading>
@@ -97,15 +96,16 @@ export function TransactionHistory() {
               'Some transactions are currently in a pending state.',
             )}
           </AlertBox>
+          {/* eslint-disable no-restricted-syntax */}
           {!!pendingTransactionComponents.length && (
             <Box gap="medium" data-testid="pending-txs" margin={{ top: 'small' }}>
               {pendingTransactionComponents}
             </Box>
           )}
+          {/* eslint-enable no-restricted-syntax */}
         </>
       )}
       <Heading level="2">{t('account.summary.activity', 'Activity')}</Heading>
-      {/* eslint-enable no-restricted-syntax */}
       {allTransactions.length ? (
         <Box gap="medium" margin="none" data-testid="completed-txs">
           {transactionComponents}

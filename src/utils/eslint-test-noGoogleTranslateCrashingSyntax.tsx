@@ -181,6 +181,7 @@ const textInTernaryOperator = (
 )
 const textAfterTernaryOperator = (
   <div>
+    {/* eslint-disable-next-line no-restricted-syntax */}
     <span>
       bad
       {/* eslint-disable-next-line no-restricted-syntax */}
