@@ -77,6 +77,9 @@ const textAfterAndOperator = (
       {!condition && <span>good</span>}
       bad
     </span>
+    good
+    {good}
+    {/* good */}
     <span>
       {!condition && <span>good</span>}
       {/* eslint-disable-next-line no-restricted-syntax */}
@@ -99,6 +102,9 @@ const textBeforeTernaryOperator = (
       bad
       {!condition ? <span>good</span> : <span>good</span>}
     </span>
+    good
+    {good}
+    {/* good */}
     <span>
       {/* eslint-disable-next-line no-restricted-syntax */}
       {bad}
@@ -176,10 +182,14 @@ const textInTernaryOperator = (
 const textAfterTernaryOperator = (
   <div>
     <span>
+      bad
       {/* eslint-disable-next-line no-restricted-syntax */}
       {!condition ? <span>good</span> : <span>good</span>}
       bad
     </span>
+    good
+    {good}
+    {/* good */}
     <span>
       {!condition ? <span>good</span> : <span>good</span>}
       {/* eslint-disable-next-line no-restricted-syntax */}
