@@ -106,12 +106,12 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - run: docker-compose pull
+      - run: docker compose pull
       - uses: satackey/action-docker-layer-caching@v0.0.11
         # Ignore the failure of a step and avoid terminating the job.
         continue-on-error: true
       - run: NODE_ENV=test REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start &
-      - run: docker-compose up --build -d
+      - run: docker compose up --build -d
       - run: npx wait-on http://localhost:3000/ --timeout 60000
       - run: yarn cypress:run
       - name: 'Upload coverage report'
