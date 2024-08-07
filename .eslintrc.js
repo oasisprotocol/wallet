@@ -8,31 +8,31 @@ const noGoogleTranslateCrashingSyntax = [
       'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
       '[right.type!="JSXElement"][right.type!="JSXFragment"]',
     message:
-      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+      '[a] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban `condition && <>text node</>`
   {
     selector:
       'JSXElement > JSXExpressionContainer > LogicalExpression[operator="&&"]' +
-      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/], JSXExpressionContainer)',
     message:
-      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+      '[b] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban text nodes before or after a condition `text {condition && <span/>} text`
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> LogicalExpression[operator="&&"]))' +
       ' > JSXText[value!=/^\\s+$/]',
     message:
-      'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
+      '[c] Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban variables before or after `{var} {condition && <span/>} {var}` (just in case they return a string)
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > LogicalExpression[operator="&&"])' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> LogicalExpression[operator="&&"]))' +
       ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
     message:
-      'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
+      '[d] Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
   },
 
   // Ban `condition ? text node : <span/>`
@@ -41,31 +41,31 @@ const noGoogleTranslateCrashingSyntax = [
       'JSXElement > JSXExpressionContainer > ConditionalExpression' +
       ' > :matches(.consequent, .alternate):not(JSXElement, JSXFragment)',
     message:
-      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+      '[e] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban `condition ? <>text node</> : <span/>`
   {
     selector:
       'JSXElement > JSXExpressionContainer > ConditionalExpression' +
-      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/])',
+      ' > JSXFragment > .children:not(JSXElement, JSXText[value=/^\\s+$/], JSXExpressionContainer)',
     message:
-      'Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
+      '[f] Conditional plain text nodes could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban text nodes before or after a condition `text {condition ? <span/> : <span/>} text`
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> ConditionalExpression))' +
       ' > JSXText[value!=/^\\s+$/]',
     message:
-      'Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
+      '[g] Plain text nodes before or after a condition could break React if used with Google Translate. Wrap text into an element.',
   },
   // Ban variables before or after `{var} {condition ? <span/> : <span/>} {var}` (just in case they return a string)
   {
     selector:
-      'JSXElement:has(JSXExpressionContainer.children > ConditionalExpression)' +
+      'JSXElement:has(> JSXExpressionContainer.children:has(> ConditionalExpression))' +
       ' > JSXExpressionContainer:matches([expression.type="Identifier"], [expression.type="CallExpression"])',
     message:
-      'Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
+      '[h] Plain text nodes before or after a condition could break React if used with Google Translate. Identifier could possibly return a string, so wrap it into an element.',
   },
 
   // Ban components returning text or variables inside fragments `return <>{t('text')}</>` (just in case vars return a string and parent components are conditionally inserted)
@@ -80,21 +80,21 @@ const noGoogleTranslateCrashingSyntax = [
       '  MemberExpression[property.name="children"]' + // Allow `<>{someProps.children}</>`
       ')',
     message:
-      'Text nodes inside React fragments could break React if used with Google Translate. Identifier could possibly return a string, and parent components could be conditionally inserted, so wrap it into an element.',
+      '[i] Text nodes inside React fragments could break React if used with Google Translate. Identifier could possibly return a string, and parent components could be conditionally inserted, so wrap it into an element.',
   },
 
   // TODO: Nesting is not supported. Detect it as error for now
   {
     selector: 'JSXElement > JSXExpressionContainer > ConditionalExpression > ConditionalExpression',
-    message: 'noGoogleTranslateCrashingSyntax can not check nested conditions.',
+    message: '[j] noGoogleTranslateCrashingSyntax can not check nested conditions.',
   },
   {
     selector: 'JSXElement > JSXExpressionContainer > ConditionalExpression > LogicalExpression',
-    message: 'noGoogleTranslateCrashingSyntax can not check nested conditions.',
+    message: '[k] noGoogleTranslateCrashingSyntax can not check nested conditions.',
   },
 ]
 
-/** @type { import('eslint').Linter.Config } */
+/** @type { import('eslint').Linter.LegacyConfig } */
 const config = {
   extends: [
     'eslint:recommended', // https://eslint.org/docs/rules/
