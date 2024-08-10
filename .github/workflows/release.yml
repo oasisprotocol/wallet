@@ -70,16 +70,23 @@ jobs:
         run: |
           echo "VERSION=$(echo "$REF_NAME" | sed 's/^v//')" >> "$GITHUB_OUTPUT"
       - name: Copy and rename Android bundle
+        env:
+          # Need to escape again
+          VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
-          cp android/app/build/outputs/bundle/release/app-release-signed.aab rose-wallet-android-${{ steps.vars.outputs.VERSION }}.aab
+          cp android/app/build/outputs/bundle/release/app-release-signed.aab rose-wallet-android-$VERSION.aab
       - name: Create web ROSE Wallet zip file
+        env:
+          VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
           cd build/
-          zip -r ../rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip .
+          zip -r ../rose-wallet-web-$VERSION.zip .
       - name: Create extension ROSE Wallet zip file
+        env:
+          VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
           cd build-ext/
-          zip -r ../rose-wallet-ext-${{ steps.vars.outputs.VERSION }}.zip .
+          zip -r ../rose-wallet-ext-$VERSION.zip .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         uses: buberdds/extract-changelog-action@v1
         id: changelog
