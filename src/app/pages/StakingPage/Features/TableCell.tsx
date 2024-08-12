@@ -6,6 +6,7 @@ import { formatCommissionPercent } from '../../../lib/helpers'
 import { ShortAddress } from '../../../components/ShortAddress'
 import { AmountFormatter } from '../../..//components/AmountFormatter'
 import { ValidatorStatus } from './ValidatorList/ValidatorStatus'
+import { TimeToEpoch } from 'app/components/TimeToEpoch'
 
 interface ExpandableCellProps {
   children: ReactNode
@@ -70,12 +71,23 @@ export const NameCell: FC<NameCellProps> = ({ address, onClick }) => {
 interface AmountCellProps {
   amount: StringifiedBigInt
   onClick: () => void
+  minimumFractionDigits?: number
+  maximumFractionDigits?: number
 }
 
-export const AmountCell: FC<AmountCellProps> = ({ amount, onClick }) => {
+export const AmountCell: FC<AmountCellProps> = ({
+  amount,
+  onClick,
+  minimumFractionDigits,
+  maximumFractionDigits,
+}) => {
   return (
     <ExpandableCell onClick={onClick}>
-      <AmountFormatter amount={amount} minimumFractionDigits={0} maximumFractionDigits={0} />
+      <AmountFormatter
+        amount={amount}
+        minimumFractionDigits={minimumFractionDigits}
+        maximumFractionDigits={maximumFractionDigits}
+      />
     </ExpandableCell>
   )
 }
@@ -89,6 +101,19 @@ export const FeeCell: FC<FeeCellProps> = ({ fee, onClick }) => {
   return (
     <ExpandableCell onClick={onClick}>
       {fee !== undefined ? <span>{`${formatCommissionPercent(fee)}%`}</span> : <span>Unknown</span>}
+    </ExpandableCell>
+  )
+}
+
+interface TimeEndCellProps {
+  epoch: number
+  onClick: () => void
+}
+
+export const TimeEndCell: FC<TimeEndCellProps> = ({ epoch, onClick }) => {
+  return (
+    <ExpandableCell onClick={onClick}>
+      <TimeToEpoch epoch={epoch} />
     </ExpandableCell>
   )
 }

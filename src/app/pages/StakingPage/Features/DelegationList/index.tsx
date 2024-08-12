@@ -3,25 +3,19 @@
  * DelegationList
  *
  */
-import { AmountFormatter } from 'app/components/AmountFormatter'
-import { ShortAddress } from 'app/components/ShortAddress'
-import { TimeToEpoch } from 'app/components/TimeToEpoch'
-import { formatCommissionPercent } from 'app/lib/helpers'
-import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { stakingActions } from 'app/state/staking'
 import { selectSelectedAddress, selectValidatorDetails } from 'app/state/staking/selectors'
 import { DebondingDelegation, Delegation } from 'app/state/staking/types'
-import { Text } from 'grommet/es6/components/Text'
 import { Down } from 'grommet-icons/es6/icons/Down'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableCustomStyles } from 'styles/theme/dataTableTheme'
 import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
 import { isWebUri } from 'valid-url'
-
 import { DelegationItem } from './DelegationItem'
+import { AmountCell, FeeCell, IconCell, NameCell, StatusCell, TimeEndCell } from '../TableCell'
 
 type Props =
   | {
@@ -75,7 +69,7 @@ export const DelegationList = memo((props: Props) => {
       cell: datum =>
         datum.validator?.media?.logotype &&
         isWebUri(datum.validator?.media.logotype) && (
-          <img src={datum.validator?.media.logotype} loading="lazy" className={'logotype-small'} alt="" />
+          <IconCell onClick={() => rowClicked(datum)} src={datum.validator?.media.logotype} />
         ),
       width: '34px',
     },
@@ -83,9 +77,7 @@ export const DelegationList = memo((props: Props) => {
       name: '',
       id: 'status',
       cell: datum =>
-        datum.validator && (
-          <ValidatorStatus status={datum.validator.status} showLabel={false}></ValidatorStatus>
-        ),
+        datum.validator && <StatusCell onClick={() => rowClicked(datum)} status={datum.validator.status} />,
       width: '34px',
     },
     name: {
@@ -96,9 +88,7 @@ export const DelegationList = memo((props: Props) => {
       minWidth: '15ex',
       cell: datum =>
         datum.validator?.name ?? (
-          <Text data-tag="allowRowEvents">
-            <ShortAddress address={datum.validatorAddress} />
-          </Text>
+          <NameCell address={datum.validatorAddress} onClick={() => rowClicked(datum)} />
         ),
       sortable: true,
       sortFunction: (row1, row2) =>
@@ -117,7 +107,12 @@ export const DelegationList = memo((props: Props) => {
       right: true,
       cell: datum =>
         datum.amount && (
-          <AmountFormatter amount={datum.amount} maximumFractionDigits={2} minimumFractionDigits={2} />
+          <AmountCell
+            amount={datum.amount}
+            onClick={() => rowClicked(datum)}
+            maximumFractionDigits={2}
+            minimumFractionDigits={2}
+          />
         ),
       sortable: true,
       sortFunction: (row1, row2) => Number(BigInt(row1.amount) - BigInt(row2.amount)),
@@ -129,10 +124,8 @@ export const DelegationList = memo((props: Props) => {
       width: '100px',
       right: true,
       hide: 'sm',
-      cell: datum =>
-        datum.validator?.current_rate !== undefined
-          ? `${formatCommissionPercent(datum.validator.current_rate)}%`
-          : 'Unknown',
+      cell: datum => <FeeCell fee={datum.validator?.current_rate} onClick={() => rowClicked(datum)} />,
+
       sortable: true,
       sortFunction: (row1, row2) => (row1.validator?.current_rate ?? 0) - (row2.validator?.current_rate ?? 0),
     },
@@ -141,7 +134,9 @@ export const DelegationList = memo((props: Props) => {
       id: 'debondingTimeEnd',
       selector: 'epoch',
       sortable: true,
-      cell: datum => <TimeToEpoch epoch={(datum as DebondingDelegation).epoch} />,
+      cell: datum => (
+        <TimeEndCell epoch={(datum as DebondingDelegation).epoch} onClick={() => rowClicked(datum)} />
+      ),
     },
   }
 

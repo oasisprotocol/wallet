@@ -84,7 +84,14 @@ export const ValidatorList = memo((props: Props) => {
       width: '28ex',
       right: true,
       hide: 'sm',
-      cell: datum => <AmountCell amount={datum.escrow} onClick={() => rowClicked(datum)} />,
+      cell: datum => (
+        <AmountCell
+          amount={datum.escrow}
+          onClick={() => rowClicked(datum)}
+          minimumFractionDigits={0}
+          maximumFractionDigits={0}
+        />
+      ),
       sortable: true,
       sortFunction: (row1, row2) => Number(BigInt(row1.escrow ?? 0) - BigInt(row2.escrow ?? 0)),
     },
