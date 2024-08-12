@@ -20,7 +20,7 @@ import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { Box } from 'grommet/es6/components/Box'
 import { Text } from 'grommet/es6/components/Text'
 import { Down } from 'grommet-icons/es6/icons/Down'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableCustomStyles } from 'styles/theme/dataTableTheme'
@@ -32,6 +32,7 @@ import { formatCommissionPercent } from 'app/lib/helpers'
 import { intlDateTimeFormat } from 'app/components/DateFormatter/intlDateTimeFormat'
 import { StakeSubnavigation } from '../../../AccountPage/Features/StakeSubnavigation'
 import { selectAccountAvailableBalance } from '../../../../state/account/selectors'
+import { ExpandableCell } from '../TableCell'
 
 interface Props {}
 
@@ -61,14 +62,20 @@ export const ValidatorList = memo((props: Props) => {
       cell: datum =>
         datum.media?.logotype &&
         isWebUri(datum.media.logotype) && (
-          <img src={datum.media.logotype} loading="lazy" className={'logotype-small'} alt="" />
+          <ExpandableCell onClick={() => rowClicked(datum)}>
+            <img src={datum.media.logotype} loading="lazy" className={'logotype-small'} alt="" />
+          </ExpandableCell>
         ),
       width: '34px',
     },
     {
       name: '',
       id: 'status',
-      cell: datum => <ValidatorStatus status={datum.status} showLabel={false}></ValidatorStatus>,
+      cell: datum => (
+        <ExpandableCell onClick={() => rowClicked(datum)}>
+          <ValidatorStatus status={datum.status} showLabel={false}></ValidatorStatus>
+        </ExpandableCell>
+      ),
       width: '34px',
     },
     {
@@ -79,9 +86,11 @@ export const ValidatorList = memo((props: Props) => {
       minWidth: '15ex',
       cell: datum =>
         datum.name ?? (
-          <Text data-tag="allowRowEvents">
-            <ShortAddress address={datum.address} />
-          </Text>
+          <ExpandableCell onClick={() => rowClicked(datum)}>
+            <Text>
+              <ShortAddress address={datum.address} />
+            </Text>
+          </ExpandableCell>
         ),
       sortable: true,
       sortFunction: (row1, row2) => (row1.name ?? row1.address).localeCompare(row2.name ?? row2.address),
@@ -94,7 +103,9 @@ export const ValidatorList = memo((props: Props) => {
       right: true,
       hide: 'sm',
       cell: datum => (
-        <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
+        <ExpandableCell onClick={() => rowClicked(datum)}>
+          <AmountFormatter amount={datum.escrow} minimumFractionDigits={0} maximumFractionDigits={0} />
+        </ExpandableCell>
       ),
       sortable: true,
       sortFunction: (row1, row2) => Number(BigInt(row1.escrow ?? 0) - BigInt(row2.escrow ?? 0)),
