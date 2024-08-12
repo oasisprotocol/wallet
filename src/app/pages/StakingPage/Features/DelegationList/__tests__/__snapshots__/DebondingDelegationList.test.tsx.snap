@@ -67,9 +67,18 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
 }
 
 .c19 {
-  font-size: 16px;
-  line-height: 20px;
-  color: #0500e2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .c4 {
@@ -407,6 +416,12 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
   display: table;
 }
 
+.c20 {
+  font-size: 16px;
+  line-height: 20px;
+  color: #0500e2;
+}
+
 @media only screen and (max-width:768px) {
 
 }
@@ -575,24 +590,30 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 id="cell-amount-test-validator+100"
                 role="gridcell"
               >
-                <span>
-                  <div
-                    class="c0"
-                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
-                  >
-                    0.00
-                  </div>
-                  <span
-                    class="c19"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                <div
+                  class="c19"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    <div
+                      class="c0"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
-                       
+                      0.00
+                    </div>
+                    <span
+                      class="c20"
+                    >
+                      <span
+                        class="notranslate"
+                        translate="no"
+                      >
+                         
+                      </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
               <div
                 class="c17 c13 c18 rdt_TableCell"
@@ -600,9 +621,15 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 id="cell-debondingTimeEnd-test-validator+100"
                 role="gridcell"
               >
-                <span>
-                  in 4 days
-                </span>
+                <div
+                  class="c19"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    in 4 days
+                  </span>
+                </div>
               </div>
             </div>
           </div>

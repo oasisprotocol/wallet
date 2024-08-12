@@ -170,7 +170,7 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: none;
 }
 
-.c18 {
+.c19 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -181,30 +181,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #2ad5ab;
 }
 
-.c18 g {
+.c19 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c18 *:not([stroke])[fill='none'] {
+.c19 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c18 *[stroke*='#'],
-.c18 *[STROKE*='#'] {
+.c19 *[stroke*='#'],
+.c19 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c18 *[fill-rule],
-.c18 *[FILL-RULE],
-.c18 *[fill*='#'],
-.c18 *[FILL*='#'] {
+.c19 *[fill-rule],
+.c19 *[FILL-RULE],
+.c19 *[fill*='#'],
+.c19 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
 
-.c20 {
+.c21 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -215,25 +215,25 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   stroke: #d24c00;
 }
 
-.c20 g {
+.c21 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c20 *:not([stroke])[fill='none'] {
+.c21 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c20 *[stroke*='#'],
-.c20 *[STROKE*='#'] {
+.c21 *[stroke*='#'],
+.c21 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c20 *[fill-rule],
-.c20 *[FILL-RULE],
-.c20 *[fill*='#'],
-.c20 *[FILL*='#'] {
+.c21 *[fill-rule],
+.c21 *[FILL-RULE],
+.c21 *[fill*='#'],
+.c21 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -269,10 +269,19 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   padding: 24px;
 }
 
-.c19 {
-  font-size: 16px;
-  line-height: 20px;
-  color: #0500e2;
+.c18 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .c4 {
@@ -560,6 +569,12 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
   display: table;
 }
 
+.c20 {
+  font-size: 16px;
+  line-height: 20px;
+  color: #0500e2;
+}
+
 @media only screen and (max-width:768px) {
 
 }
@@ -735,18 +750,24 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-status-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
               >
-                <svg
-                  aria-label="Status is okay"
+                <div
                   class="c18"
-                  viewBox="0 0 24 24"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
                 >
-                  <path
-                    d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    aria-label="Status is okay"
+                    class="c19"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM7 12l4 3 5-7"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 class="c16 c9 c17 rdt_TableCell"
@@ -762,24 +783,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-escrow-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
               >
-                <span>
-                  <div
-                    class="c0"
-                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
-                  >
-                    0
-                  </div>
-                  <span
-                    class="c19"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    <div
+                      class="c0"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
-                       ROSE
+                      0
+                    </div>
+                    <span
+                      class="c20"
+                    >
+                      <span
+                        class="notranslate"
+                        translate="no"
+                      >
+                         ROSE
+                      </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
               <div
                 class="c16 c13 c17 rdt_TableCell"
@@ -787,7 +814,15 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-fee-oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz"
                 role="gridcell"
               >
-                10%
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    10%
+                  </span>
+                </div>
               </div>
             </div>
             <div
@@ -807,18 +842,24 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-status-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
               >
-                <svg
-                  aria-label="Status is unknown"
-                  class="c20"
-                  viewBox="0 0 24 24"
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
                 >
-                  <path
-                    d="M2 3.99C2 2.892 2.898 2 3.99 2h16.02C21.108 2 22 2.898 22 3.99v16.02c0 1.099-.898 1.99-1.99 1.99H3.99A1.995 1.995 0 0 1 2 20.01V3.99zM12 15v-1c0-1 0-1.5 1-2s2-1 2-2.5c0-1-1-2.5-3-2.5s-3 1.264-3 3m3 6v2"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    aria-label="Status is unknown"
+                    class="c21"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M2 3.99C2 2.892 2.898 2 3.99 2h16.02C21.108 2 22 2.898 22 3.99v16.02c0 1.099-.898 1.99-1.99 1.99H3.99A1.995 1.995 0 0 1 2 20.01V3.99zM12 15v-1c0-1 0-1.5 1-2s2-1 2-2.5c0-1-1-2.5-3-2.5s-3 1.264-3 3m3 6v2"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 class="c16 c9 c17 rdt_TableCell"
@@ -834,24 +875,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-escrow-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
               >
-                <span>
-                  <div
-                    class="c0"
-                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
-                  >
-                    0
-                  </div>
-                  <span
-                    class="c19"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    <div
+                      class="c0"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
-                       ROSE
+                      0
+                    </div>
+                    <span
+                      class="c20"
+                    >
+                      <span
+                        class="notranslate"
+                        translate="no"
+                      >
+                         ROSE
+                      </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
               <div
                 class="c16 c13 c17 rdt_TableCell"
@@ -859,7 +906,15 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-fee-oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7"
                 role="gridcell"
               >
-                20%
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    20%
+                  </span>
+                </div>
               </div>
             </div>
             <div
@@ -879,18 +934,24 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-status-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               >
-                <svg
-                  aria-label="Status is critical"
-                  class="c20"
-                  viewBox="0 0 24 24"
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
                 >
-                  <path
-                    d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
-                    fill="none"
-                    stroke="#000"
-                    stroke-width="2"
-                  />
-                </svg>
+                  <svg
+                    aria-label="Status is critical"
+                    class="c21"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12.703 2.703a.99.99 0 0 0-1.406 0l-8.594 8.594a.99.99 0 0 0 0 1.406l8.594 8.594a.99.99 0 0 0 1.406 0l8.594-8.594a.99.99 0 0 0 0-1.406l-8.594-8.594zM8.983 14.7 14.7 8.983m-5.717 0L14.7 14.7"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
               </div>
               <div
                 class="c16 c9 c17 rdt_TableCell"
@@ -906,24 +967,30 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-escrow-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               >
-                <span>
-                  <div
-                    class="c0"
-                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
-                  >
-                    0
-                  </div>
-                  <span
-                    class="c19"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    <div
+                      class="c0"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
-                       ROSE
+                      0
+                    </div>
+                    <span
+                      class="c20"
+                    >
+                      <span
+                        class="notranslate"
+                        translate="no"
+                      >
+                         ROSE
+                      </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
               <div
                 class="c16 c13 c17 rdt_TableCell"
@@ -931,7 +998,15 @@ exports[`<ValidatorList  /> list should match snapshot 1`] = `
                 id="cell-fee-oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe"
                 role="gridcell"
               >
-                20%
+                <div
+                  class="c18"
+                  style="display: inline; box-shadow: none;"
+                  tabindex="0"
+                >
+                  <span>
+                    20%
+                  </span>
+                </div>
               </div>
             </div>
           </div>
