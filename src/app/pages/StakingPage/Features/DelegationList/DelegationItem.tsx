@@ -11,6 +11,7 @@ interface DelegationProps {
   data: Delegation | DebondingDelegation
   validatorDetails: ValidatorDetails | null
   canReclaim: boolean
+  type: 'active' | 'debonding'
 }
 
 export const DelegationItem = memo((props: DelegationProps) => {
@@ -23,7 +24,14 @@ export const DelegationItem = memo((props: DelegationProps) => {
   return (
     <Box pad={{ vertical: 'medium' }} data-testid="validator-item">
       <Box style={{ maxWidth: '85vw' }}>
-        {validator && <ValidatorInformations validator={validator} details={details} />}
+        {validator && (
+          <ValidatorInformations
+            validator={validator}
+            details={details}
+            delegation={props.type === 'active' ? delegation.amount : null}
+            debonding={props.type === 'debonding' ? delegation.amount : null}
+          />
+        )}
         {!validator && (
           <div>
             <AddressBox address={delegation.validatorAddress} trimMobile />

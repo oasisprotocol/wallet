@@ -172,7 +172,12 @@ export const DelegationList = memo((props: Props) => {
       expandableRowsHideExpander
       expandableRows={true}
       expandableRowsComponent={
-        <DelegationItem data={{} as any} validatorDetails={validatorDetails} canReclaim={canReclaim} />
+        <DelegationItem
+          data={{} as any}
+          validatorDetails={validatorDetails}
+          canReclaim={canReclaim}
+          type={type}
+        />
       }
       expandableRowExpanded={row => row.validatorAddress === selectedAddress}
       sortIcon={<Down />}
