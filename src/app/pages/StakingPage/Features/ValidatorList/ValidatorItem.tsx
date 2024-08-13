@@ -20,7 +20,7 @@ export const ValidatorItem = (props: ValidatorProps) => {
   return (
     <Box pad={{ vertical: 'medium' }} data-testid="validator-item">
       <Box style={{ maxWidth: '85vw' }}>
-        <ValidatorInformations validator={validator} details={details} />
+        <ValidatorInformations validator={validator} details={details} delegation={null} debonding={null} />
         {isAddressInWallet && (
           <AddEscrowForm
             validatorAddress={validator.address}

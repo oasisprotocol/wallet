@@ -12,6 +12,7 @@ import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
+import { StringifiedBigInt } from '../../../../../types/StringifiedBigInt'
 
 import { CommissionBounds } from '../CommissionBounds'
 import { ValidatorMediaInfo } from '../ValidatorMediaInfo'
@@ -19,6 +20,8 @@ import { ValidatorMediaInfo } from '../ValidatorMediaInfo'
 interface ValidatorProps {
   validator: Validator
   details: ValidatorDetails | null
+  delegation: StringifiedBigInt | null
+  debonding: StringifiedBigInt | null
 }
 
 export const ValidatorInformations = (props: ValidatorProps) => {
@@ -74,6 +77,19 @@ export const ValidatorInformations = (props: ValidatorProps) => {
           label={t('validator.status', 'Status')}
           value={<ValidatorStatus status={validator.status} showLabel={true}></ValidatorStatus>}
         />
+
+        {props.delegation && (
+          <ResponsiveGridRow
+            label={t('delegations.delegatedAmount', 'Delegated amount')}
+            value={<AmountFormatter amount={props.delegation} size="inherit" />}
+          />
+        )}
+        {props.debonding && (
+          <ResponsiveGridRow
+            label={t('delegations.reclaimedAmount', 'Amount to reclaim')}
+            value={<AmountFormatter amount={props.debonding} size="inherit" />}
+          />
+        )}
       </Grid>
     </>
   )
