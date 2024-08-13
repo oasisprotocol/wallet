@@ -44,6 +44,6 @@ jobs:
             git config --local user.name "$(git log --pretty=format:'%an' -1)"
             git add "$FILE_NAME"
             git commit --amend --no-edit
-            git push --force-with-lease origin HEAD:refs/heads/$HEAD_REF
-            echo "FILE_EXISTS=false" >> $GITHUB_OUTPUT
+            git push --force-with-lease origin "HEAD:refs/heads/$HEAD_REF"
+            echo "FILE_EXISTS=false" >> "$GITHUB_OUTPUT"
           fi

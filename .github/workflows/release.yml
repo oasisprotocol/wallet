@@ -43,11 +43,11 @@ jobs:
       - name: Sync Capacitor for Android
         run: yarn cap sync android
       - name: Accept SDK licenses
-        run: yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
+        run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
       # Capacitor v6 sets a deployment target of Android 14 (SDK 34)
       - name: Install SDK components
         run: |
-          $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
       - name: Build Android ROSE Wallet
         run: ./gradlew bundleRelease
         working-directory: android
@@ -56,7 +56,7 @@ jobs:
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > android/release.jks
       - name: Sign Android bundle
         run: |
-          jarsigner -verbose -keystore android/release.jks -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEYSTORE_PASSWORD }} -signedjar android/app/build/outputs/bundle/release/app-release-signed.aab android/app/build/outputs/bundle/release/app-release.aab ${{ secrets.KEY_ALIAS }}
+          jarsigner -verbose -keystore "android/release.jks" -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEYSTORE_PASSWORD }}" -signedjar "android/app/build/outputs/bundle/release/app-release-signed.aab" "android/app/build/outputs/bundle/release/app-release.aab" "${{ secrets.KEY_ALIAS }}"
       - name: Set workflow variables
         # Id is needed to access output in a next step.
         id: vars
@@ -74,19 +74,19 @@ jobs:
           # Need to escape again
           VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
-          cp android/app/build/outputs/bundle/release/app-release-signed.aab rose-wallet-android-$VERSION.aab
+          cp "android/app/build/outputs/bundle/release/app-release-signed.aab" "rose-wallet-android-$VERSION.aab"
       - name: Create web ROSE Wallet zip file
         env:
           VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
           cd build/
-          zip -r ../rose-wallet-web-$VERSION.zip .
+          zip -r "../rose-wallet-web-$VERSION.zip" .
       - name: Create extension ROSE Wallet zip file
         env:
           VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
           cd build-ext/
-          zip -r ../rose-wallet-ext-$VERSION.zip .
+          zip -r "../rose-wallet-ext-$VERSION.zip" .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         uses: buberdds/extract-changelog-action@v1
         id: changelog
