@@ -17,6 +17,7 @@ The format is inspired by [Keep a Changelog].
 ### Spotlight changes
 
 - Transition the **ROSE Wallet - Browser Extension** to this common code base
+
 - Initial version of the **ROSE Wallet - Android Mobile App**
 
 ### Bug Fixes and Improvements
