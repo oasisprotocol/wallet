@@ -12,6 +12,35 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.0.0 (2024-08-13)
+
+### Spotlight changes
+
+- Transition the **ROSE Wallet - Browser Extension** to this common code base
+- Initial version of the **ROSE Wallet - Android Mobile App**
+
+### Bug Fixes and Improvements
+
+- Don't detect pending transactions if no nonce in 20 latest transactions
+  ([#2022](https://github.com/oasisprotocol/oasis-wallet-web/issues/2022))
+
+- Change menu colors
+  ([#2024](https://github.com/oasisprotocol/oasis-wallet-web/issues/2024))
+
+- Fix footer to work with existing translations
+  ([#2026](https://github.com/oasisprotocol/oasis-wallet-web/issues/2026))
+
+- Fix display of delegations to non-validators
+  ([#2031](https://github.com/oasisprotocol/oasis-wallet-web/issues/2031))
+
+### Internal Changes
+
+- Exclude manifest.json from towncrier check
+  ([#2021](https://github.com/oasisprotocol/oasis-wallet-web/issues/2021))
+
+- Fix `noGoogleTranslateCrashingSyntax` to use shallow `:has(>...)`
+  ([#2029](https://github.com/oasisprotocol/oasis-wallet-web/issues/2029))
+
 ## 1.12.0 (2024-07-27)
 
 ### Features
