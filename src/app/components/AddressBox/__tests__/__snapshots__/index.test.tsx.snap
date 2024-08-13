@@ -72,7 +72,7 @@ exports[`<AddressBox /> should render address properly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  width: 690px;
+  width: min(690px,100%);
   -webkit-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
@@ -336,7 +336,7 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  width: 690px;
+  width: min(690px,100%);
   -webkit-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;

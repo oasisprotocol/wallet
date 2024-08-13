@@ -82,7 +82,7 @@ const Container = ({ address, border, children, copyToClipboard, separator }: Co
           flex
           pad={{ bottom: isMobile ? 'small' : separator ? 'xsmall' : undefined }}
           margin={{ right: isMobile ? undefined : 'large' }}
-          width="690px" // keep the same width for address and name variants
+          width="min(690px, 100%)" // keep the same width for address and name variants
         >
           {copyToClipboard === 'icon' && <CopyAddressButton address={address} />}
           <Box flex>{children}</Box>
