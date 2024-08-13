@@ -17,7 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: bash ./.github/dump_validators.sh
-      - run: echo "Update dumped validators" > ".changelog/${{ github.event.pull_request.number }}.internal.md"
+      - name: Create Change Log fragment
+        env:
+          FILE_NAME: .changelog/${{ github.event.pull_request.number }}.internal.md
+        run: echo "Update dumped validators" > "$FILE_NAME"
       - name: Create Pull Request with updated dumped validators
         # https://github.com/peter-evans/create-pull-request
         uses: peter-evans/create-pull-request@v5

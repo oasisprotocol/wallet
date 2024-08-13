@@ -29,20 +29,21 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           # Needed to enable checks re-run.
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
-      - name: Set workflow variables
-        # Id is needed to access output in a next step.
-        id: vars
-        run: |
-          echo "FILE_NAME=.changelog/${{ github.event.pull_request.number }}.internal.md" >> $GITHUB_OUTPUT
       - name: Create and commit Change Log fragment if it does not exist
+        env:
+          # There's no support for escaping this for use in a shell command.
+          # GitHub's recommendation is to pass it through the environment.
+          # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          FILE_NAME: .changelog/${{ github.event.pull_request.number }}.internal.md
+          HEAD_REF: ${{ github.head_ref }}
         run: |
-          if [[ ! -f "${{ steps.vars.outputs.FILE_NAME }}" ]]; then
-            echo "Update dependencies" > ${{ steps.vars.outputs.FILE_NAME }}
+          if [[ ! -f "$FILE_NAME" ]]; then
+            echo "Update dependencies" > "$FILE_NAME"
             # Set git user email and name to match author of the last commit.
             git config --local user.email "$(git log --pretty='%ae' -1)"
             git config --local user.name "$(git log --pretty=format:'%an' -1)"
-            git add ${{ steps.vars.outputs.FILE_NAME }}
+            git add "$FILE_NAME"
             git commit --amend --no-edit
-            git push --force-with-lease origin HEAD:refs/heads/${{ github.head_ref }}
-            echo "FILE_EXISTS=false" >> $GITHUB_OUTPUT
+            git push --force-with-lease origin "HEAD:refs/heads/$HEAD_REF"
+            echo "FILE_EXISTS=false" >> "$GITHUB_OUTPUT"
           fi
