@@ -129,10 +129,6 @@
     "switchToMainnet": "Wechsel zu Mainnet."
   },
   "footer": {
-    "poweredBy": {
-      "oasismonitor": "Powered by Oasis Monitor API & Oasis gRPC",
-      "oasisscan": "Powered by Oasis Scan API & Oasis gRPC"
-    },
     "terms": "<TermsLink>Allgemeine Geschäftsbedingungen</TermsLink>",
     "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) gebaut um {{buildTime}}."
   },
