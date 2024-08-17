@@ -560,14 +560,18 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 data-tag="allowRowEvents"
                 id="cell-icon-test-validator+100"
                 role="gridcell"
-              />
+              >
+                <div />
+              </div>
               <div
                 class="c17 c9 c18 rdt_TableCell"
                 data-tag="allowRowEvents"
                 id="cell-name-test-validator+100"
                 role="gridcell"
               >
-                test-validator
+                <div>
+                  test-validator
+                </div>
               </div>
               <div
                 class="c17 c12 c18 rdt_TableCell"
@@ -575,24 +579,26 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 id="cell-amount-test-validator+100"
                 role="gridcell"
               >
-                <span>
-                  <div
-                    class="c0"
-                    style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
-                  >
-                    0.00
-                  </div>
-                  <span
-                    class="c19"
-                  >
-                    <span
-                      class="notranslate"
-                      translate="no"
+                <div>
+                  <span>
+                    <div
+                      class="c0"
+                      style="display: inline-flex; white-space: nowrap; font-family: "Roboto mono", monospace; letter-spacing: 0;"
                     >
-                       
+                      0.00
+                    </div>
+                    <span
+                      class="c19"
+                    >
+                      <span
+                        class="notranslate"
+                        translate="no"
+                      >
+                         
+                      </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
               <div
                 class="c17 c13 c18 rdt_TableCell"
@@ -600,9 +606,11 @@ exports[`<DebondingDelegationList  /> should match snapshot 1`] = `
                 id="cell-debondingTimeEnd-test-validator+100"
                 role="gridcell"
               >
-                <span>
-                  in 4 days
-                </span>
+                <div>
+                  <span>
+                    in 4 days
+                  </span>
+                </div>
               </div>
             </div>
           </div>
