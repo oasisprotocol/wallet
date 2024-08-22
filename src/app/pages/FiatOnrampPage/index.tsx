@@ -8,13 +8,13 @@ import { selectAddress } from 'app/state/wallet/selectors'
 import { AlertBox } from 'app/components/AlertBox'
 import { CircleAlert } from 'grommet-icons/es6/icons/CircleAlert'
 import { selectSelectedNetwork } from '../../state/network/selectors'
-import { selectAccountIsLoading } from '../../state/account/selectors'
+import { selectAccountAddress, selectAccountIsLoading } from '../../state/account/selectors'
 import { Button } from 'grommet/es6/components/Button'
 import { networkActions } from '../../state/network'
 import { CheckBox } from 'grommet/es6/components/CheckBox'
 import { selectThirdPartyAcknowledged } from './slice/selectors'
 import { fiatOnrampActions } from './slice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ShareRounded } from 'grommet-icons/es6/icons/ShareRounded'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 
@@ -48,6 +48,7 @@ export function FiatOnramp() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const selectedNetwork = useSelector(selectSelectedNetwork)
+  const address = useSelector(selectAccountAddress)
   const accountIsLoading = useSelector(selectAccountIsLoading)
   const isAddressInWallet = useSelector(selectIsAddressInWallet)
   const walletAddress = useSelector(selectAddress)
@@ -55,6 +56,14 @@ export function FiatOnramp() {
   // Intentionally not responsive. If it initializes with embedded iframe, user
   // inputs some data, then resizes: do not lose user's inputs!
   const [shouldOpenTransakInNewTab] = useState(window.innerWidth <= 768 || window.innerHeight <= 700)
+
+  // Ignore refreshing account balance. Don't destroy and re-create iframe if balance changes and account balance is loading again.
+  const [isInitialLoading, setInitialLoading] = useState(true)
+  useEffect(() => {
+    if (!!address && !accountIsLoading) {
+      setInitialLoading(false)
+    }
+  }, [address, accountIsLoading])
 
   if (selectedNetwork !== 'mainnet') {
     return (
@@ -73,7 +82,7 @@ export function FiatOnramp() {
       </Layout>
     )
   }
-  if (accountIsLoading) {
+  if (isInitialLoading) {
     return <Layout />
   }
   if (!walletAddress || !isAddressInWallet) {

@@ -136,7 +136,7 @@ export function* fetchingOnAccountPage() {
             staleBalances.available !== refreshedAccount.available ||
             staleBalances.delegations !== refreshedAccount.delegations ||
             staleBalances.debonding !== refreshedAccount.debonding ||
-            hasPendingTxs
+            hasPendingTxs // TODO: reduce setLoading if reloaded transactions haven't changed
           ) {
             // Wait for oasisscan to update transactions (it updates balances faster)
             yield* call(fetchAccount, startAction)
