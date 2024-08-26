@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/oasisprotocol/oasis-wallet-web.git"
+    "url": "https://github.com/oasisprotocol/wallet.git"
   },
   "scripts": {
     "build": "node ./internals/scripts/build-web.js",

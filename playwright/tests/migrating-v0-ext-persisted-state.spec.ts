@@ -65,7 +65,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
       ...walletExtensionV0UnlockedState,
 
       // TODO: fix mockApi inside extension tests to get consistent responses
-      // https://github.com/oasisprotocol/oasis-wallet-web/issues/1770
+      // https://github.com/oasisprotocol/wallet/issues/1770
       account: expect.any(Object),
       network: expect.any(Object),
       staking: expect.any(Object),

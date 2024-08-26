@@ -334,7 +334,7 @@ test.describe('syncTabs', () => {
     })
     await page.waitForTimeout(100)
 
-    // TODO: https://github.com/oasisprotocol/oasis-wallet-web/pull/975#discussion_r1019567305
+    // TODO: https://github.com/oasisprotocol/wallet/pull/975#discussion_r1019567305
     // await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
     await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
     await page.close() // Just to avoid expectNoFatal in afterEach
