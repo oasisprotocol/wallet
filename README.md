@@ -214,7 +214,7 @@ Adding a new language:
 [prettier]: https://prettier.io/
 [eslint]: https://github.com/eslint/eslint
 [How To Write a Git Commit Message]: https://chris.beams.io/posts/git-commit/
-[Transifex]: https://www.transifex.com/oasisprotocol/wallet/
+[Transifex]: https://www.transifex.com/oasisprotocol/oasis-wallet-web/
 [react-i18next]: https://react.i18next.com/
 [useTranslation hook]: https://react.i18next.com/latest/usetranslation-hook
 [English translation.json]: src/locales/en/translation.json
@@ -231,5 +231,5 @@ Adding a new language:
 [github-renovate-link]: https://www.mend.io/renovate/
 [license-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg
 [license-link]: https://opensource.org/licenses/Apache-2.0
-[codecov-badge]: https://codecov.io/gh/oasisprotocol/wallet/branch/master/graph/badge.svg
-[codecov-link]: https://codecov.io/gh/oasisprotocol/wallet
+[codecov-badge]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg
+[codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
