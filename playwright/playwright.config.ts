@@ -13,7 +13,6 @@ const doubleIfDev = (time: number) => (process.env.BASE_URL ? time : time * 2)
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
   /* Maximum time one test can run for. */
   timeout: doubleIfDev(30 * 1000),
   expect: {
@@ -48,7 +47,16 @@ const config: PlaywrightTestConfig = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'main',
+      testDir: './tests',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+    },
+
+    {
+      name: 'screenshots',
+      testDir: './screenshots',
       use: {
         ...devices['Desktop Chrome'],
       },
