@@ -413,7 +413,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
     <a
       aria-label="GitHub"
       class="c5"
-      href="https://github.com/oasisprotocol/oasis-wallet-web"
+      href="https://github.com/oasisprotocol/wallet"
       rel="noopener"
       target="_blank"
     >
@@ -978,7 +978,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
     <a
       aria-label="GitHub"
       class="c5"
-      href="https://github.com/oasisprotocol/oasis-wallet-web"
+      href="https://github.com/oasisprotocol/wallet"
       rel="noopener"
       target="_blank"
     >

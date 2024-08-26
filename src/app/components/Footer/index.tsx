@@ -11,7 +11,7 @@ import { backend } from 'vendors/backend'
 import { BackendAPIs } from 'config'
 import { t } from 'i18next'
 
-const githubLink = 'https://github.com/oasisprotocol/oasis-wallet-web/'
+const githubLink = 'https://github.com/oasisprotocol/wallet/'
 const githubReleaseLink = (tag: string) => `${githubLink}releases/tag/${tag}`
 
 function NoReleaseLink() {

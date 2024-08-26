@@ -4,7 +4,7 @@ import {
 
 function ignoreTimeoutError() {
   // Note: This is strongly discouraged. If it stops working, we converted to
-  // jest in https://github.com/oasisprotocol/oasis-wallet-web/pull/736
+  // jest in https://github.com/oasisprotocol/wallet/pull/736
   cy.on('fail', error => {
     if (error.name === 'CypressError' && error.message.includes('timed out waiting')) {
       return false

@@ -236,7 +236,7 @@ const SidebarFooter = (props: SidebarFooterProps) => {
       <SidebarButton
         icon={<Github />}
         label="GitHub"
-        route="https://github.com/oasisprotocol/oasis-wallet-web"
+        route="https://github.com/oasisprotocol/wallet"
         newTab
       ></SidebarButton>
     </Nav>

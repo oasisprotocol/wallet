@@ -47,7 +47,7 @@ describe('<Footer />', () => {
     const commitLink = await screen.findByRole('link', { name: /sha0000/i })
     expect(commitLink).toHaveAttribute(
       'href',
-      'https://github.com/oasisprotocol/oasis-wallet-web/commit/sha0000000000000000000000000000000000000',
+      'https://github.com/oasisprotocol/wallet/commit/sha0000000000000000000000000000000000000',
     )
   })
 
@@ -56,7 +56,7 @@ describe('<Footer />', () => {
 
     expect(screen.getByRole('link', { name: '1.0.0-dev.1' })).toHaveAttribute(
       'href',
-      'https://github.com/oasisprotocol/oasis-wallet-web/releases/tag/v1.0.0-dev.1',
+      'https://github.com/oasisprotocol/wallet/releases/tag/v1.0.0-dev.1',
     )
   })
 

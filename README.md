@@ -201,7 +201,7 @@ Adding a new language:
 
 [Release process doc](docs/release-process.md)
 
-[demo-video]: https://github.com/oasisprotocol/oasis-wallet-web/assets/3758846/ef11fbea-dd55-42b1-87a4-1b74509a2809
+[demo-video]: https://github.com/oasisprotocol/wallet/assets/3758846/ef11fbea-dd55-42b1-87a4-1b74509a2809
 [docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
 [oasis-monitor]: https://oasismonitor.com
@@ -219,14 +219,14 @@ Adding a new language:
 [useTranslation hook]: https://react.i18next.com/latest/usetranslation-hook
 [English translation.json]: src/locales/en/translation.json
 [i18n.ts]: src/locales/i18n.ts
-[github-ci-build-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-build.yml/badge.svg
-[github-ci-build-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-build+branch:master
-[github-ci-test-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-test.yml/badge.svg
-[github-ci-test-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-test+branch:master
-[github-ci-lint-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/ci-lint.yml/badge.svg
-[github-ci-lint-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:ci-lint+branch:master
-[github-release-badge]: https://github.com/oasisprotocol/oasis-wallet-web/actions/workflows/release.yml/badge.svg
-[github-release-link]: https://github.com/oasisprotocol/oasis-wallet-web/actions?query=workflow:release
+[github-ci-build-badge]: https://github.com/oasisprotocol/wallet/actions/workflows/ci-build.yml/badge.svg
+[github-ci-build-link]: https://github.com/oasisprotocol/wallet/actions?query=workflow:ci-build+branch:master
+[github-ci-test-badge]: https://github.com/oasisprotocol/wallet/actions/workflows/ci-test.yml/badge.svg
+[github-ci-test-link]: https://github.com/oasisprotocol/wallet/actions?query=workflow:ci-test+branch:master
+[github-ci-lint-badge]: https://github.com/oasisprotocol/wallet/actions/workflows/ci-lint.yml/badge.svg
+[github-ci-lint-link]: https://github.com/oasisprotocol/wallet/actions?query=workflow:ci-lint+branch:master
+[github-release-badge]: https://github.com/oasisprotocol/wallet/actions/workflows/release.yml/badge.svg
+[github-release-link]: https://github.com/oasisprotocol/wallet/actions?query=workflow:release
 [github-renovate-badge]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg
 [github-renovate-link]: https://www.mend.io/renovate/
 [license-badge]: https://img.shields.io/badge/License-Apache%202.0-blue.svg

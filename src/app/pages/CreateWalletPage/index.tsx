@@ -62,7 +62,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
   }, [dispatch])
 
   //@TODO Remove when firefox supports backdropFilter (used inside MnemonicValidation)
-  // https://github.com/oasisprotocol/oasis-wallet-web/issues/287
+  // https://github.com/oasisprotocol/wallet/issues/287
   const blurMnemonicInFirefox = showConfirmation ? { filter: 'blur(5px)' } : {}
 
   return (
