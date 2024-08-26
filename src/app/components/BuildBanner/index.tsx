@@ -25,7 +25,7 @@ export const BuildBanner = () => {
 
   if (window.location.origin === deploys.staging) {
     return (
-      <StickyBanner>
+      <StickyBanner data-testid="build-banner">
         <AlertBox status="warning" justify="center" icon={<Alert size="20px" />}>
           {t(
             'banner.buildStaging',
@@ -37,7 +37,7 @@ export const BuildBanner = () => {
   }
 
   return (
-    <StickyBanner>
+    <StickyBanner data-testid="build-banner">
       <AlertBox status="warning" justify="center" icon={<Alert size="20px" />}>
         {t(
           'banner.buildPreview',
