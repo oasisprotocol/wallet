@@ -47,8 +47,9 @@ const test = base.extend<{
   },
 })
 
-test.use({
-  viewport: { width: 360, height: 600 },
-})
+/** file://./../../extension/src/popup.html `min-width: 375px; min-height: 600px` */
+const extensionViewport = { width: 375, height: 600 }
 
-export { test }
+test.use({ viewport: extensionViewport })
+
+export { test, extensionViewport }
