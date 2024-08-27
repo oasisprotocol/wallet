@@ -1,8 +1,8 @@
-import { test, extensionViewport } from '../utils/extensionTestExtend'
+import { extensionViewport } from '../utils/extensionTestExtend'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
 import { privateKey } from '../../src/utils/__fixtures__/test-inputs'
-import { expect, Page } from '@playwright/test'
+import { test, expect, Page } from '@playwright/test'
 
 const screenshotCss = `
   * { scrollbar-width: none; }
@@ -24,12 +24,8 @@ test.use({
   },
 })
 
-async function setup(
-  page: Page,
-  extensionManifestURL: `chrome-extension://${string}/manifest.json`,
-  url: `chrome-extension://${string}`,
-) {
-  await page.goto(extensionManifestURL)
+async function setup(page: Page, url: string) {
+  await page.goto('/app.webmanifest')
   await page.setContent(`
     <style>
       body {
@@ -56,8 +52,8 @@ test.beforeEach(async ({ context }) => {
   await mockApi(context, 0)
 })
 
-test('make screenshots for Chrome Web Store', async ({ page, extensionManifestURL, extensionPopupURL }) => {
-  const frame = await setup(page, extensionManifestURL, `${extensionPopupURL}/`)
+test('make screenshots for Chrome Web Store', async ({ page }) => {
+  const frame = await setup(page, `/`)
   await page.screenshot({
     path: './screenshots/extension-store-1.png',
     style: screenshotCss,
