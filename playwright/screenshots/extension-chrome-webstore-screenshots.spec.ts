@@ -1,9 +1,8 @@
 import { test, extensionViewport } from '../utils/extensionTestExtend'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
-import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
-import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
-import { Page } from '@playwright/test'
+import { privateKey } from '../../src/utils/__fixtures__/test-inputs'
+import { expect, Page } from '@playwright/test'
 
 const screenshotCss = `
   * { scrollbar-width: none; }
@@ -38,7 +37,6 @@ async function setup(
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #e6e6e6;
       }
       iframe {
         width: ${extensionViewport.width}px;
@@ -58,12 +56,57 @@ test.beforeEach(async ({ context }) => {
   await mockApi(context, 0)
 })
 
-test.describe('make screenshots for Chrome Web Store', () => {
-  test('start screen', async ({ page, extensionPopupURL, extensionManifestURL }) => {
-    await setup(page, extensionManifestURL, `${extensionPopupURL}/`)
-    await page.screenshot({
-      path: './screenshots/extension-store-1.png',
-      style: screenshotCss,
-    })
+test('make screenshots for Chrome Web Store', async ({ page, extensionManifestURL, extensionPopupURL }) => {
+  const frame = await setup(page, extensionManifestURL, `${extensionPopupURL}/`)
+  await page.screenshot({
+    path: './screenshots/extension-store-1.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('button', { name: /Open wallet/ }).click()
+  await frame.getByRole('button', { name: /Private key/ }).click()
+  await frame.getByText('Create a profile').uncheck()
+  await frame.getByPlaceholder('Enter your private key here').fill(privateKey)
+  await page.keyboard.press('Enter')
+  await expect(frame.getByText('Loading account')).toBeVisible()
+  await expect(frame.getByText('Loading account')).toBeHidden()
+  await page.screenshot({
+    path: './screenshots/extension-store-2.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('link', { name: 'Stake' }).click()
+  await frame.getByRole('columnheader', { name: 'Name' }).click()
+  await frame.getByRole('img', { name: 'Status is okay' }).nth(3).click()
+  await frame.getByRole('link', { name: 'Staked' }).scrollIntoViewIfNeeded()
+  await page.waitForTimeout(1000)
+  await page.screenshot({
+    path: './screenshots/extension-store-3.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('link', { name: 'Staked' }).click()
+  await page.screenshot({
+    path: './screenshots/extension-store-4.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('link', { name: 'ParaTimes' }).click()
+  await page.evaluate(() => {
+    window.frames[0].scrollBy(0, 10000)
+  })
+  await page.screenshot({
+    path: './screenshots/extension-store-5.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
   })
 })
