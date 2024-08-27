@@ -1,7 +1,7 @@
 import { extensionViewport } from '../utils/extensionTestExtend'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApiMoreData } from '../utils/mockApi'
-import { privateKey } from '../../src/utils/__fixtures__/test-inputs'
+import { ethAccount, privateKey } from '../../src/utils/__fixtures__/test-inputs'
 import { test, expect, Page } from '@playwright/test'
 
 const screenshotCss = `
@@ -101,6 +101,36 @@ test('make screenshots for Chrome Web Store', async ({ page }) => {
   })
   await page.screenshot({
     path: './screenshots/extension-store-5.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('button', { name: 'Deposit to ParaTime' }).click()
+  await frame.getByRole('textbox', { name: 'Select a ParaTime' }).click()
+  await page.screenshot({
+    path: './screenshots/extension-store-6.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('option', { name: 'Sapphire' }).click()
+  await frame.getByRole('button', { name: 'Next' }).click()
+  await frame.getByRole('textbox', { name: 'recipient' }).fill(ethAccount.address)
+  await frame.getByRole('button', { name: 'Next' }).click()
+
+  await frame.getByRole('textbox', { name: 'amount' }).fill('10.0')
+  await page.screenshot({
+    path: './screenshots/extension-store-7.png',
+    style: screenshotCss,
+    animations: 'disabled',
+    omitBackground: true,
+  })
+
+  await frame.getByRole('button', { name: 'Next' }).click()
+  await page.screenshot({
+    path: './screenshots/extension-store-8.png',
     style: screenshotCss,
     animations: 'disabled',
     omitBackground: true,
