@@ -13,6 +13,12 @@
 
 [demo-video]
 
+<!-- markdownlint-disable MD013 -->
+|     |     |     |     |     |
+| --- | --- | --- | --- | --- |
+| ![screenshot](./playwright/screenshots/extension-store-1.png) | ![screenshot](./playwright/screenshots/extension-store-2.png) | ![screenshot](./playwright/screenshots/extension-store-3.png) | ![screenshot](./playwright/screenshots/extension-store-4.png) | ![screenshot](./playwright/screenshots/extension-store-5.png) |
+<!-- markdownlint-enable MD013 -->
+
 ## Deploys
 
 - Production / Stable deploy: <https://wallet.oasis.io>
