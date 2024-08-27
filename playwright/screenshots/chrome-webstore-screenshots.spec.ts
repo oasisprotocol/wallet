@@ -1,6 +1,6 @@
 import { extensionViewport } from '../utils/extensionTestExtend'
 import { warnSlowApi } from '../utils/warnSlowApi'
-import { mockApi } from '../utils/mockApi'
+import { mockApiMoreData } from '../utils/mockApi'
 import { privateKey } from '../../src/utils/__fixtures__/test-inputs'
 import { test, expect, Page } from '@playwright/test'
 
@@ -49,7 +49,7 @@ async function setup(page: Page, url: string) {
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApiMoreData(context)
 })
 
 test('make screenshots for Chrome Web Store', async ({ page }) => {
