@@ -31,13 +31,26 @@
 
 ## Features
 
-- Opening wallets through private key or mnemonic
-- Transaction history, currently all transactions are listed
-- Multiple languages (English and French currently supported)
-- Submitting transactions
-- [Ledger](http://ledger.com/) support
-- Multiple accounts open in parallel
-- Staking (Adding / reclaiming escrow)
+### Wallet and Accounts
+
+- Create/Restore wallets using standard [BIP-0039] mnemonic phrases
+- Import accounts from your [Ledger] hardware wallet
+- Import accounts directly from their private keys
+- Address book of your saved contacts
+- Create a profile to quickly access stored accounts with a password
+
+### Transactions
+
+- View transaction history
+- Send ROSE tokens between Consensus accounts
+- Stake/Debond ROSE tokens
+- Deposit and withdraw from ParaTimes (Sapphire, Emerald, Cipher)
+- Purchase ROSE using [Transak On-Ramp]
+
+### Accessibility
+
+- Available in multiple languages
+- Should not crash when using Google Translate
 
 ## Getting started
 
@@ -233,3 +246,6 @@ Adding a new language:
 [license-link]: https://opensource.org/licenses/Apache-2.0
 [codecov-badge]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web/branch/master/graph/badge.svg
 [codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
+[BIP-0039]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+[Ledger]: https://ledger.com/
+[Transak On-Ramp]: https://transak.com/
