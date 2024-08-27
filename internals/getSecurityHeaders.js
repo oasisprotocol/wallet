@@ -52,8 +52,9 @@ const getCsp = ({ isExtension, isDev }) =>
       ${isDev ? hmr : ''}
       ;
     frame-ancestors
-      ${isExtension ? dappFrameAncestors : `'none'`};
+      ${isExtension ? dappFrameAncestors : `'self'`};
     frame-src
+      'self'
       https://global.transak.com
       https://global-stg.transak.com;
     img-src 'self' data: https:;
