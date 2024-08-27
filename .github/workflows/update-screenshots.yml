@@ -1,0 +1,56 @@
+name: update-screenshots
+
+on:
+  push:
+  # Triggered monthly or manually in https://github.com/oasisprotocol/wallet/actions/workflows/update-screenshots.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+permissions: # Limit secrets.GITHUB_TOKEN permissions
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-screenshots:
+    if: github.repository == 'oasisprotocol/wallet'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - run: REACT_APP_E2E_TEST=1 yarn start &
+      - name: Install playwright's npm dependencies
+        working-directory: ./playwright/
+        run: yarn install --frozen-lockfile
+      - name: Install playwright's system dependencies
+        working-directory: ./playwright/
+        run: npx playwright install --with-deps
+      - run: npx wait-on http://localhost:3000/ --timeout 60000
+      - name: Run playwright tests (with xvfb-run to support headed extension test)
+        working-directory: ./playwright/
+        run: xvfb-run yarn test:screenshots
+
+      - name: Create Change Log fragment
+        env:
+          FILE_NAME: .changelog/${{ github.event.pull_request.number }}.internal.md
+        run: echo "Update screenshots" > "$FILE_NAME"
+      - name: Create Pull Request with updated screenshots
+        # https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          commit-message: 'Update screenshots'
+          title: 'Update screenshots'
+          body: |
+            Created by https://github.com/oasisprotocol/wallet/blob/master/.github/workflows/update-screenshots.yml
+
+            If CI actions and checks don't run in this PR: close it and reopen.
+            https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
+          labels: bot
