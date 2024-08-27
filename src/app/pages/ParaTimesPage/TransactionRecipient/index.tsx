@@ -122,6 +122,7 @@ export const TransactionRecipient = () => {
             }
           >
             <TextInput
+              aria-label={t('account.sendTransaction.recipient', 'Recipient')}
               name="recipient"
               suggestions={usesOasisAddress ? [] : evmAccounts.map(acc => acc.ethAddress)}
               placeholder={usesOasisAddress ? accountAddress : t('paraTimes.recipient.placeholder', '0x...')}

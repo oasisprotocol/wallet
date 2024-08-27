@@ -653,6 +653,7 @@ exports[`<TransactionAmount /> should render component 1`] = `
                     class="c9"
                   >
                     <input
+                      aria-label="Amount"
                       autocomplete="off"
                       class="c10"
                       inputmode="decimal"

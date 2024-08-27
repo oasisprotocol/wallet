@@ -3,10 +3,11 @@
   "version": "0.0.0-development",
   "private": true,
   "scripts": {
-    "test": "playwright test",
-    "test:prod": "BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/  playwright test"
+    "test": "playwright test --project main",
+    "test:prod": "BASE_URL=http://localhost:5000 EXTENSION_PATH=../build-ext/  playwright test --project main",
+    "test:screenshots": "playwright test --project screenshots"
   },
   "devDependencies": {
-    "@playwright/test": "1.40.1"
+    "@playwright/test": "1.46.1"
   }
 }
