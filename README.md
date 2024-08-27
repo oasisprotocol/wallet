@@ -151,6 +151,9 @@ yarn start:prod
 # Open http://localhost:5000/account/oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe/stake
 # and switch to testnet. This exercises at least: fonts, grpc, testnet grpc, API,
 # and validator logos.
+
+# Update screenshots
+(cd playwright; yarn test:screenshots)
 ```
 
 ### Code style
