@@ -32,6 +32,10 @@ export async function addPersistedStorageV1(
     },
     [privateKeyPersistedState],
   )
+  await page.evaluate(() => {
+    const chrome = (window as any).chrome
+    chrome?.extension?.getBackgroundPage?.().location.reload()
+  })
 }
 
 export async function addPersistedStorageV0(page: Page, url: `chrome-extension://${string}/manifest.json`) {
