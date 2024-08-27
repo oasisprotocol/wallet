@@ -1,0 +1,36 @@
+name: dump-validators
+
+on:
+  # Triggered monthly or manually in https://github.com/oasisprotocol/wallet/actions/workflows/dump-validators.yml
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 * *'
+
+permissions: # Limit secrets.GITHUB_TOKEN permissions
+  contents: write
+  pull-requests: write
+
+jobs:
+  dump-validators:
+    if: github.repository == 'oasisprotocol/wallet'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash ./.github/dump_validators.sh
+      - name: Create Change Log fragment
+        env:
+          FILE_NAME: .changelog/${{ github.event.pull_request.number }}.internal.md
+        run: echo "Update dumped validators" > "$FILE_NAME"
+      - name: Create Pull Request with updated dumped validators
+        # https://github.com/peter-evans/create-pull-request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          commit-message: 'Update dumped validators'
+          title: 'Update dumped validators'
+          body: |
+            Created by https://github.com/oasisprotocol/wallet/blob/master/.github/workflows/dump-validators.yml
+
+            If CI actions and checks don't run in this PR: close it and reopen.
+            https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
+          labels: bot
