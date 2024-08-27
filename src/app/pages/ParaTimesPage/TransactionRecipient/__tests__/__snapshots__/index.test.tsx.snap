@@ -395,6 +395,7 @@ exports[`<TransactionRecipient /> should render component 1`] = `
                 class="c8"
               >
                 <input
+                  aria-label="Recipient"
                   autocomplete="off"
                   class="c9"
                   name="recipient"

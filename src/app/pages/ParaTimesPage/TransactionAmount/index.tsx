@@ -177,6 +177,7 @@ export const TransactionAmount = () => {
                 ]}
               >
                 <TextInput
+                  aria-label={t('common.amount', 'Amount')}
                   disabled={disabled}
                   inputMode="decimal"
                   name="amount"
