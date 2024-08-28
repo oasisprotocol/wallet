@@ -26,6 +26,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
+          branch: create-pull-request/dump-validators
           commit-message: 'Update dumped validators'
           title: 'Update dumped validators'
           body: |
