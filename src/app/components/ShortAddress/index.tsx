@@ -14,6 +14,7 @@ interface Props {
 const MiddleEllipsisSpan = styled.span`
   display: flex;
   white-space: nowrap;
+  user-select: all;
 
   > :first-child {
     text-overflow: ellipsis;
