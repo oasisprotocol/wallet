@@ -10,12 +10,12 @@ const screenshotCss = `
 `
 
 const chromeWebStoreDimensions = {
-  width: 1200,
+  width: 1280,
   height: 800,
 }
 
 /** Scale for higher quality larger screenshots */
-const deviceScaleFactor = (chromeWebStoreDimensions.height - 20) / extensionViewport.height
+const deviceScaleFactor = chromeWebStoreDimensions.height / extensionViewport.height
 test.use({
   deviceScaleFactor: deviceScaleFactor,
   viewport: {
@@ -36,7 +36,7 @@ async function setup(page: Page, url: string) {
       }
       iframe {
         width: ${extensionViewport.width}px;
-        height: ${extensionViewport.height}px;
+        height: ${extensionViewport.height * 0.975}px;
         border: 5px solid #0500e2;
       }
     </style>
