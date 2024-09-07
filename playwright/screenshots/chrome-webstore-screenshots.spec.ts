@@ -53,6 +53,9 @@ test.beforeEach(async ({ context }) => {
 })
 
 test('make screenshots for Chrome Web Store', async ({ page }) => {
+  expect(page.viewportSize()!.width * deviceScaleFactor).toBe(chromeWebStoreDimensions.width)
+  expect(page.viewportSize()!.height * deviceScaleFactor).toBe(chromeWebStoreDimensions.height)
+
   const frame = await setup(page, `/`)
   await page.screenshot({
     path: './screenshots/extension-store-1.png',
