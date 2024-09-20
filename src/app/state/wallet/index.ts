@@ -50,6 +50,13 @@ export const walletSlice = createSlice({
       if (state.wallets[action.payload.address]?.balance) {
         Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
       }
+      // If user imports a wallet from mnemonic when offline, the wallet won't
+      // have `balance` field despite ensureAllBalancesArePresentOnCurrentPage.
+      // When user is back online ACCOUNT_REFETCHING_INTERVAL will updateBalance
+      // but it is ignored above.
+      if (state.wallets[action.payload.address] && !state.wallets[action.payload.address].balance) {
+        state.wallets[action.payload.address].balance = action.payload.balance
+      }
     },
     walletOpened(state, action: PayloadAction<Wallet>) {
       const newWallet = action.payload
