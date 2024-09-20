@@ -4,7 +4,7 @@ import { selectChainContext } from 'app/state/network/selectors'
 import { transactionActions } from 'app/state/transaction'
 import { selectTransaction } from 'app/state/transaction/selectors'
 import { TransactionStep } from 'app/state/transaction/types'
-import { selectAddress, selectBalance } from 'app/state/wallet/selectors'
+import { selectAddress } from 'app/state/wallet/selectors'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Spinner } from 'grommet/es6/components/Spinner'
@@ -45,13 +45,8 @@ export function TransactionModal() {
   const { t } = useTranslation()
   const { preview, step } = useSelector(selectTransaction)
   const walletAddress = useSelector(selectAddress)
-  const balance = useSelector(selectBalance)
   const chainContext = useSelector(selectChainContext)
   const isMobile = useContext(ResponsiveContext) === 'small'
-
-  if (!balance) {
-    throw new Error('No balance found for wallet')
-  }
 
   const dispatch = useDispatch()
 
