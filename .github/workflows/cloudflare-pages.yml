@@ -65,6 +65,8 @@ jobs:
           projectName: oasis-wallet
           # Use output directory of build command.
           directory: build
+          branch: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
+          wranglerVersion: '3'
       # On a subsequent run the original comment will be updated.
       - name: Update PR comment
         uses: mshick/add-pr-comment@v2
@@ -84,6 +86,10 @@ jobs:
               <tr>
                 <td><strong>Preview URL:</strong></td>
                 <td><a href="${{ steps.cloudflare.outputs.url }}">${{ steps.cloudflare.outputs.url }}</a></td>
+              </tr>
+              <tr>
+                <td><strong>Alias:</strong></td>
+                <td><a href="${{ steps.cloudflare.outputs.alias }}">${{ steps.cloudflare.outputs.alias }}</a></td>
               </tr>
             </table>
           message-failure: |
