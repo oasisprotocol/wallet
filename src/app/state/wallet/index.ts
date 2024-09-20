@@ -47,15 +47,11 @@ export const walletSlice = createSlice({
       // - Refactor redux-state-sync to ignore actions until tab2 receives
       //   synced state. But tab1 needs to listen to actions too, even tho it
       //   never asks for synced state.
-      if (state.wallets[action.payload.address]?.balance) {
-        Object.assign(state.wallets[action.payload.address].balance, action.payload.balance)
-      }
-      // If user imports a wallet from mnemonic when offline, the wallet won't
-      // have `balance` field despite ensureAllBalancesArePresentOnCurrentPage.
-      // When user is back online ACCOUNT_REFETCHING_INTERVAL will updateBalance
-      // but it is ignored above.
-      if (state.wallets[action.payload.address] && !state.wallets[action.payload.address].balance) {
-        state.wallets[action.payload.address].balance = action.payload.balance
+      if (state.wallets[action.payload.address]) {
+        state.wallets[action.payload.address].balance = {
+          ...state.wallets[action.payload.address].balance,
+          ...action.payload.balance,
+        }
       }
     },
     walletOpened(state, action: PayloadAction<Wallet>) {

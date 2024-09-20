@@ -91,7 +91,7 @@ export function* openWalletFromMnemonic({ payload }: PayloadAction<OpenSelectedA
   for (const account of accounts) {
     yield* call(addWallet, {
       address: account.address,
-      balance: account.balance!, // can be missing despite ensureAllBalancesArePresentOnCurrentPage
+      balance: account.balance!, // should be defined due to ensureAllBalancesArePresentOnCurrentPage
       path: account.path,
       pathDisplay: account.pathDisplay,
       privateKey: account.privateKey,

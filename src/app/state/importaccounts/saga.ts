@@ -119,7 +119,6 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
     }
     yield* put(importAccountsActions.accountsListed(wallets))
     yield* setStep(ImportAccountsStep.Idle)
-    yield* ensureAllBalancesArePresentOnCurrentPage()
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
@@ -130,6 +129,7 @@ function* enumerateAccountsFromMnemonic(action: PayloadAction<string>) {
 
     yield* put(importAccountsActions.operationFailed(payload))
   }
+  yield* ensureAllBalancesArePresentOnCurrentPage()
 }
 
 function* fetchBalanceForAccount(account: ImportAccountsListAccount) {
