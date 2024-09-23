@@ -60,10 +60,16 @@ export function ErrorFormatter(props: Props) {
               href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
               target="_blank"
               rel="noopener"
+              style={{ display: 'inline' }}
             />
           ),
           ChromeHelp: (
-            <Anchor href="https://support.google.com/chrome/answer/114662" target="_blank" rel="noopener" />
+            <Anchor
+              href="https://support.google.com/chrome/answer/114662"
+              target="_blank"
+              rel="noopener"
+              style={{ display: 'inline' }}
+            />
           ),
         }}
       />
