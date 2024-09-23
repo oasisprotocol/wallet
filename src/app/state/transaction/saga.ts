@@ -323,7 +323,7 @@ function assertValidAddress(address: string) {
 function* assertSufficientBalance(amount: bigint) {
   const wallet = yield* select(selectActiveWallet)
   // If balance is missing, allow this to pass. It's just more likely that transaction will fail after submitting.
-  if (wallet?.balance.available == null) return
+  if (wallet?.balance?.available == null) return
 
   const balance = BigInt(wallet.balance.available)
   if (amount > balance) {
