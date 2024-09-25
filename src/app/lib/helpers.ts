@@ -113,7 +113,7 @@ export function getFeeAmount(gasPrice: bigint, feeGas: bigint): string {
 
 const defaultDepositFeeAmount = '0'
 export const getDefaultFeeAmount = (isDepositing: boolean, paraTimeConfig: ParaTimeConfig): string => {
-  return isDepositing ? defaultDepositFeeAmount : getFeeAmount(paraTimeConfig.feeGas, paraTimeConfig.gasPrice)
+  return isDepositing ? defaultDepositFeeAmount : getFeeAmount(paraTimeConfig.gasPrice, paraTimeConfig.feeGas)
 }
 
 export function parseConsensusToLayerBaseUnit(feeAmount: string, decimals: number): BigNumber {
