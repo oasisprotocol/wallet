@@ -71,7 +71,7 @@ export const privateKeyUnlockedState = {
   },
   network: {
     ticker: 'ROSE',
-    chainContext: 'b11b369e0da5bb230b220127f5e7b242d385ef8c6f54906243f30af63c815535',
+    chainContext: '',
     selectedNetwork: 'mainnet',
     epoch: 18372,
     minimumStakingAmount: 100,
@@ -271,7 +271,7 @@ export const walletExtensionV0UnlockedState = {
     showBleLedgerDevicesModal: false,
   },
   network: {
-    chainContext: 'b11b369e0da5bb230b220127f5e7b242d385ef8c6f54906243f30af63c815535',
+    chainContext: '',
     ticker: 'ROSE',
     selectedNetwork: 'mainnet',
     epoch: 27884,

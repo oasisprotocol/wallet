@@ -191,7 +191,9 @@ describe('importAccounts Sagas', () => {
       const mockTransport = { close: jest.fn() }
 
       return expectSaga(sign, mockSigner as unknown as LedgerSigner, {} as any)
-        .withState({ network: {} })
+        .withState({
+          network: { chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76' },
+        })
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
@@ -212,7 +214,9 @@ describe('importAccounts Sagas', () => {
           expect(err).toEqual(new Error('Dummy error'))
         }
       })
-        .withState({ network: {} })
+        .withState({
+          network: { chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76' },
+        })
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],

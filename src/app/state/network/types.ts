@@ -9,7 +9,7 @@ export interface NetworkState {
   ticker: string
 
   /** chainContext / Genesis Hash */
-  chainContext: string
+  chainContext?: string
 
   /** Current epoch */
   epoch: number
