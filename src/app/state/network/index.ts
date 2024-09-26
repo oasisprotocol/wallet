@@ -15,12 +15,17 @@ export const networkSlice = createSlice({
   initialState,
   reducers: {
     initializeNetwork() {},
-    selectNetwork(state, action: PayloadAction<NetworkType>) {},
+    selectNetwork(state, action: PayloadAction<NetworkType>) {
+      state.chainContext = initialState.chainContext
+    },
     initialNetworkSelected(state, action: PayloadAction<NetworkState>) {
       Object.assign(state, action.payload)
     },
     networkSelected(state, action: PayloadAction<NetworkState>) {
-      Object.assign(state, action.payload)
+      Object.assign(state, action.payload, { chainContext: initialState.chainContext })
+    },
+    setChainContext(state, action: PayloadAction<string>) {
+      state.chainContext = action.payload
     },
   },
 })

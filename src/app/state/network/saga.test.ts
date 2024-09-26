@@ -1,6 +1,7 @@
-import { testSaga } from 'redux-saga-test-plan'
+import { expectSaga, testSaga } from 'redux-saga-test-plan'
+import * as matchers from 'redux-saga-test-plan/matchers'
+import { getChainContext, getOasisNic, networkSaga, selectNetwork } from './saga'
 import { networkActions } from '.'
-import { networkSaga, selectNetwork } from './saga'
 
 describe('Network Sagas', () => {
   const env = process.env
@@ -21,5 +22,41 @@ describe('Network Sagas', () => {
       .put(networkActions.selectNetwork('mainnet'))
       .next()
       .isDone()
+  })
+
+  describe('getChainContext', () => {
+    const mockChainContext = '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76'
+    const mockSelectedNetwork = 'testnet'
+    const mockNic = {
+      consensusGetChainContext: jest.fn().mockResolvedValue(mockChainContext),
+    }
+
+    it('should return existing chainContext if available', () => {
+      return expectSaga(getChainContext)
+        .withState({
+          network: {
+            chainContext: mockChainContext,
+            selectedNetwork: mockSelectedNetwork,
+          },
+        })
+        .returns(mockChainContext)
+        .run()
+    })
+
+    it('should fetch and return chainContext when not present in state', () => {
+      return expectSaga(getChainContext)
+        .withState({
+          network: {
+            selectedNetwork: mockSelectedNetwork,
+          },
+        })
+        .provide([
+          [matchers.call.fn(getOasisNic), mockNic],
+          [matchers.call.fn(mockNic.consensusGetChainContext), mockChainContext],
+        ])
+        .put(networkActions.setChainContext(mockChainContext))
+        .returns(mockChainContext)
+        .run()
+    })
   })
 })

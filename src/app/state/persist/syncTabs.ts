@@ -61,6 +61,7 @@ export const whitelistTabSyncActions: Record<AllActions, boolean> = {
   [rootSlices.wallet.actions.walletOpened.type]: true,
   [rootSlices.wallet.actions.updateBalance.type]: true,
   [rootSlices.network.actions.networkSelected.type]: true,
+  [rootSlices.network.actions.setChainContext.type]: true,
   [rootSlices.persist.actions.setUnlockedRootState.type]: true,
   [rootSlices.persist.actions.resetRootState.type]: true,
   [rootSlices.persist.actions.skipUnlocking.type]: true,

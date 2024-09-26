@@ -9,9 +9,9 @@ import { call, delay, put, race, select, take, takeEvery } from 'typed-redux-sag
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 import { transactionActions } from '.'
 import { sign } from '../importaccounts/saga'
-import { getOasisNic } from '../network/saga'
+import { getChainContext, getOasisNic } from '../network/saga'
 import { selectAccountAddress, selectAccountAllowances } from '../account/selectors'
-import { selectChainContext, selectSelectedNetwork } from '../network/selectors'
+import { selectSelectedNetwork } from '../network/selectors'
 import { selectActiveWallet } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
 import { Transaction, TransactionPayload, TransactionStatus, TransactionStep, TransactionType } from './types'
@@ -137,7 +137,7 @@ function* prepareReclaimEscrow(signer: Signer, shares: bigint, validator: string
 export function* doTransaction(action: PayloadAction<TransactionPayload>) {
   const wallet = yield* select(selectActiveWallet)
   const nic = yield* call(getOasisNic)
-  const chainContext = yield* select(selectChainContext)
+  const chainContext = yield* call(getChainContext)
   const networkType = yield* select(selectSelectedNetwork)
 
   try {
@@ -282,7 +282,7 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
     ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.ethPrivateKey))
     : yield* select(selectAccountAddress)
   const nic = yield* call(getOasisNic)
-  const chainContext = yield* select(selectChainContext)
+  const chainContext = yield* call(getChainContext)
   const paraTimeTransactionSigner = transaction.ethPrivateKey
     ? yield* call(signerFromEthPrivateKey, misc.fromHex(transaction.ethPrivateKey))
     : yield* getSigner()

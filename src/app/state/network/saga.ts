@@ -8,8 +8,9 @@ import { backend, backendApi } from 'vendors/backend'
 
 import { networkActions } from '.'
 import { SyncedRootState } from '../persist/types'
-import { selectSelectedNetwork } from './selectors'
+import { selectChainContext, selectSelectedNetwork } from './selectors'
 import { NetworkType } from './types'
+import { WalletError, WalletErrors } from 'types/errors'
 
 /**
  * Return a nic client for the specified network,
@@ -32,6 +33,23 @@ export function* getExplorerAPIs() {
   return backendApi(url)
 }
 
+export function* getChainContext() {
+  const chainContext = yield* select(selectChainContext)
+  if (chainContext) {
+    return chainContext
+  }
+
+  try {
+    const selectedNetwork = yield* select(selectSelectedNetwork)
+    const nic = yield* call(getOasisNic, selectedNetwork)
+    const fetchedChainContext = yield* call([nic, nic.consensusGetChainContext])
+    yield* put(networkActions.setChainContext(fetchedChainContext))
+    return fetchedChainContext
+  } catch (error) {
+    throw new WalletError(WalletErrors.UnknownGrpcError, 'Could not fetch data')
+  }
+}
+
 export function* selectNetwork({
   network,
   isInitializing,
@@ -40,12 +58,10 @@ export function* selectNetwork({
   isInitializing: boolean
 }) {
   const nic = yield* call(getOasisNic, network)
-  const { epoch, chainContext } = yield* all({
+  const { epoch } = yield* all({
     epoch: call([nic, nic.beaconGetEpoch], oasis.consensus.HEIGHT_LATEST),
-    chainContext: call([nic, nic.consensusGetChainContext]),
   })
   const networkState = {
-    chainContext: chainContext,
     ticker: config[network].ticker,
     epoch: Number(epoch), // Will lose precision in a few billion years at 1 epoch per hour
     selectedNetwork: network,

@@ -16,7 +16,7 @@ import { TransactionTypeFormatter } from '../TransactionTypeFormatter'
 interface Props {
   preview: Preview
   walletAddress: string
-  chainContext: string
+  chainContext?: string
 }
 
 export const TransactionPreview = memo((props: Props) => {

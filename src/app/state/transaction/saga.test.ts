@@ -19,6 +19,10 @@ const makeState = (wallet: Partial<Wallet>, rootState: DeepPartialRootState = {}
       wallets: { [wallet.address!]: wallet },
       selectedWallet: wallet.address,
     },
+    network: {
+      selectedNetwork: 'testnet',
+      chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76',
+    },
     ...rootState,
   }
 }
