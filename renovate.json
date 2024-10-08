@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "groupName": "lint dependencies",
-      "matchPackagePatterns": ["eslint", "prettier", "stylelint"]
+      "matchPackagePatterns": ["eslint", "prettier"]
     },
     {
       "groupName": "test dependencies",
