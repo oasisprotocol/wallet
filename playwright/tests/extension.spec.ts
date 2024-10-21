@@ -75,6 +75,10 @@ test.describe('The extension popup should load', () => {
       )
       .click()
     await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
+    // Wait for conversion to be loaded otherwise clicking "Buy now" early reloads the iframe
+    await expect(page.frameLocator('iframe')!.locator('#transak-calculator-source:disabled')).toHaveValue(
+      /\d/,
+    )
     await page.frameLocator('iframe')!.getByText('Buy now').click()
     await expect(page.frameLocator('iframe')!.getByText(/email/i).first()).toBeVisible()
   })

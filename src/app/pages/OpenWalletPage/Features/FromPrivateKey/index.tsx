@@ -13,6 +13,7 @@ import { Header } from 'app/components/Header'
 import { ChoosePasswordFields } from 'app/components/Persist/ChoosePasswordFields'
 import { FormValue as ChoosePasswordFieldsFormValue } from 'app/components/Persist/ChoosePasswordInputFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { isValidEthPrivateKey, stripHexPrefix } from 'app/lib/eth-helpers'
 
 interface Props {}
 
@@ -65,7 +66,18 @@ export function FromPrivateKey(props: Props) {
           placeholder={t('openWallet.privateKey.enterPrivateKeyHere', 'Enter your private key here')}
           autoFocus
           validate={privateKey =>
-            isValidKey(privateKey) ? undefined : t('openWallet.privateKey.error', 'Invalid private key')
+            isValidKey(privateKey)
+              ? undefined
+              : isValidEthPrivateKey(stripHexPrefix(privateKey))
+              ? t(
+                  'openWallet.privateKey.errorKeyIsInEthFormat',
+                  'This input is intended for Oasis Consensus private keys. The private key you entered looks like an Ethereum-compatible private key (e.g. from MetaMask for Sapphire). If you want to use your Ethereum-compatible private key to move ROSE from Sapphire to Consensus, click "{{paratimesMenu}}", then "{{withdrawButton}}", and paste it there.',
+                  {
+                    paratimesMenu: t('menu.paraTimes', 'ParaTimes'),
+                    withdrawButton: t('paraTimes.transfers.withdraw', 'Withdraw from ParaTime'),
+                  },
+                )
+              : t('openWallet.privateKey.error', 'Invalid private key')
           }
           showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
           hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}

@@ -336,6 +336,7 @@
     "privateKey": {
       "enterPrivateKeyHere": "Enter your private key here",
       "error": "Invalid private key",
+      "errorKeyIsInEthFormat": "This input is intended for Oasis Consensus private keys. The private key you entered looks like an Ethereum-compatible private key (e.g. from MetaMask for Sapphire). If you want to use your Ethereum-compatible private key to move ROSE from Sapphire to Consensus, click \"{{paratimesMenu}}\", then \"{{withdrawButton}}\", and paste it there.",
       "header": "Enter your private key",
       "hidePrivateKey": "Hide private key",
       "instruction": "Enter your private key in Base64 format.",
