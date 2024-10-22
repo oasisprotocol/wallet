@@ -15,7 +15,7 @@ export const DebondingDelegationList = () => {
 
   useEffect(() => {
     dispatch(networkActions.getEpoch())
-  }, [dispatch])
+  }, [dispatch, currentEpoch])
 
   return (
     <>
