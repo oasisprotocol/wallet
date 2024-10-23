@@ -1,5 +1,6 @@
 import * as oasis from '@oasisprotocol/client'
 import { Account } from 'app/state/account/types'
+import { Transaction, TransactionStatus, TransactionType } from 'app/state/transaction/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import {
@@ -7,12 +8,17 @@ import {
   AccountDebondingInfo,
   AccountDelegationsInfo,
   AccountInfoResponse,
+  ChainApi,
+  ChainTransactionInfoResponse,
+  ChainTransactionListInfo,
   Configuration,
   ValidatorApi,
   ValidatorInfo,
 } from 'vendors/oasisscan-v2/index'
 
 import { throwAPIErrors } from './helpers'
+
+const getTransactionCacheMap: Record<string, ChainTransactionInfoResponse> = {}
 
 export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/mainnet') {
   const explorerConfig = new Configuration({
@@ -21,6 +27,7 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
   })
 
   const accountApi = new AccountApi(explorerConfig)
+  const chainApi = new ChainApi(explorerConfig)
   const validatorApi = new ValidatorApi(explorerConfig)
 
   async function getAccount(address: string): Promise<Account> {
@@ -37,8 +44,43 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
     return parseValidatorsList(validators.list)
   }
 
+  function getTransactionUrl({ hash }: { hash: string }) {
+    return `${url}/chain/transaction/${hash}`
+  }
+
+  async function getTransaction({ hash }: { hash: string }) {
+    const cacheId = getTransactionUrl({ hash })
+
+    if (cacheId in getTransactionCacheMap) {
+      return getTransactionCacheMap[cacheId]
+    }
+
+    const transaction = await chainApi.chainTransactionInfoHandler({
+      hash,
+    })
+
+    if (transaction) {
+      getTransactionCacheMap[cacheId] = transaction
+    }
+
+    return transaction
+  }
+
   async function getTransactionsList(params: { accountId: string; limit: number }) {
-    return []
+    const transactionsList = await chainApi.chainTransactionsHandler({
+      address: params.accountId,
+      size: params.limit,
+      page: 1,
+    })
+    if (!transactionsList) throw new Error('Wrong response code')
+    const list = await Promise.all(
+      transactionsList.list.map(async tx => {
+        const { nonce } = await getTransaction({ hash: tx.txHash! })
+        return { ...tx, nonce }
+      }),
+    )
+
+    return parseTransactionsList(list)
   }
 
   async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
@@ -103,6 +145,27 @@ function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
         website_link: v.website ?? undefined,
       },
       rank: v.rank,
+    }
+    return parsed
+  })
+}
+
+function parseTransactionsList(list: ChainTransactionListInfo[]): Transaction[] {
+  return list.map(t => {
+    const parsed: Transaction = {
+      amount: t.amount == null ? undefined : parseRoseStringToBaseUnitString(t.amount),
+      fee: t.fee ? parseRoseStringToBaseUnitString(t.fee) : undefined,
+      from: t.from,
+      hash: t.txHash!,
+      level: t.height,
+      status: t.status ? TransactionStatus.Successful : TransactionStatus.Failed,
+      timestamp: t.timestamp ? t.timestamp * 1000 : undefined,
+      to: t.to ?? undefined,
+      type: t.method as TransactionType,
+      runtimeName: undefined,
+      runtimeId: undefined,
+      round: undefined,
+      nonce: undefined,
     }
     return parsed
   })
