@@ -1,6 +1,14 @@
-import { Validator } from 'app/state/staking/types'
+import * as oasis from '@oasisprotocol/client'
+import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
-import { Configuration, ValidatorApi, ValidatorInfo } from 'vendors/oasisscan-v2/index'
+import {
+  AccountApi,
+  AccountDebondingInfo,
+  AccountDelegationsInfo,
+  Configuration,
+  ValidatorApi,
+  ValidatorInfo,
+} from 'vendors/oasisscan-v2/index'
 
 import { throwAPIErrors } from './helpers'
 
@@ -10,6 +18,7 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
     ...throwAPIErrors,
   })
 
+  const accountApi = new AccountApi(explorerConfig)
   const validatorApi = new ValidatorApi(explorerConfig)
 
   async function getAllValidators(): Promise<Validator[]> {
@@ -23,9 +32,34 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
     return []
   }
 
+  async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
+    delegations: Delegation[]
+    debonding: DebondingDelegation[]
+  }> {
+    const delegations = await accountApi.accountDelegationsHandler({
+      all: true,
+      address: params.accountId,
+      page: 1,
+      size: 500,
+    })
+    const debonding = await accountApi.accountDebondingHandler({
+      address: params.accountId,
+      page: 1,
+      size: 500,
+    })
+    if (!delegations) throw new Error('Wrong response code')
+    if (!debonding) throw new Error('Wrong response code')
+
+    return {
+      delegations: parseDelegations(delegations.list),
+      debonding: parseDebonding(debonding.list),
+    }
+  }
+
   return {
     getAllValidators,
     getTransactionsList,
+    getDelegations,
   }
 }
 
@@ -44,6 +78,30 @@ function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
         website_link: v.website ?? undefined,
       },
       rank: v.rank,
+    }
+    return parsed
+  })
+}
+
+export function parseDelegations(delegations: AccountDelegationsInfo[]): Delegation[] {
+  return delegations.map(delegation => {
+    const parsed: Delegation = {
+      amount: parseRoseStringToBaseUnitString(delegation.amount),
+      shares: parseRoseStringToBaseUnitString(delegation.shares),
+      validatorAddress: delegation.validatorAddress ?? delegation.entityAddress,
+    }
+    return parsed
+  })
+}
+export function parseDebonding(debonding: AccountDebondingInfo[]): DebondingDelegation[] {
+  return debonding.map(debonding => {
+    const parsed: DebondingDelegation = {
+      // TODO: use amount field, or share price when it is available. Until then,
+      // using shares is inaccurate if debonding pool gets slashed.
+      amount: parseRoseStringToBaseUnitString(debonding.shares),
+      shares: parseRoseStringToBaseUnitString(debonding.shares),
+      validatorAddress: debonding.validatorAddress,
+      epoch: debonding.debondEnd,
     }
     return parsed
   })
