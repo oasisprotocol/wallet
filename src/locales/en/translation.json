@@ -108,6 +108,7 @@
   "backends": {
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API",
+    "oasisscanV2": "Oasis Scan API v2",
     "nexus": "Nexus API"
   },
   "banner": {
@@ -200,6 +201,7 @@
     "poweredBy": {
       "oasismonitor": "Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Oasis Scan API & Oasis gRPC",
+      "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC",
       "nexus": "Nexus API & Oasis gRPC"
     },
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",

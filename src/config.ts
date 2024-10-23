@@ -8,6 +8,7 @@ export const consensusDecimals = 9
 export enum BackendAPIs {
   OasisMonitor = 'oasismonitor',
   OasisScan = 'oasisscan',
+  OasisScanV2 = 'oasisscanV2',
   Nexus = 'nexus',
 }
 
@@ -24,6 +25,7 @@ type BackendProviders = {
   min_delegation: number // from nic.stakingConsensusParameters().min_delegation
   [BackendAPIs.OasisMonitor]: BackendApiUrls
   [BackendAPIs.OasisScan]: BackendApiUrls
+  [BackendAPIs.OasisScanV2]: BackendApiUrls
   [BackendAPIs.Nexus]: BackendApiUrls
 }
 
@@ -42,6 +44,12 @@ export const config: BackendConfig = {
     },
     [BackendAPIs.OasisScan]: {
       explorer: 'https://api.oasisscan.com/mainnet',
+      blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
+      blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
+    },
+    [BackendAPIs.OasisScanV2]: {
+      explorer: 'https://api.oasisscan.com/v2/mainnet',
       blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
       blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
       blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
@@ -67,6 +75,13 @@ export const config: BackendConfig = {
       blockExplorerParatimes: 'https://testnet.oasisscan.com/paratimes/tx/{{txHash}}',
       blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
     },
+    [BackendAPIs.OasisScanV2]: {
+      explorer: 'https://api.oasisscan.com/testnet',
+      blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
+      blockExplorerParatimes:
+        'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
+    },
     [BackendAPIs.Nexus]: {
       explorer: 'https://testnet.nexus.oasis.io/v1',
       blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
@@ -83,6 +98,13 @@ export const config: BackendConfig = {
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
     },
     [BackendAPIs.OasisScan]: {
+      explorer: 'http://localhost:9001',
+      blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
+      blockExplorerParatimes:
+        'http://localhost:9001/data/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'http://localhost:9001/data/accounts/detail/{{address}}',
+    },
+    [BackendAPIs.OasisScanV2]: {
       explorer: 'http://localhost:9001',
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
       blockExplorerParatimes:
