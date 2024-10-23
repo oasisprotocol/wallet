@@ -1,10 +1,12 @@
 import * as oasis from '@oasisprotocol/client'
+import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { parseRoseStringToBaseUnitString } from 'app/lib/helpers'
 import {
   AccountApi,
   AccountDebondingInfo,
   AccountDelegationsInfo,
+  AccountInfoResponse,
   Configuration,
   ValidatorApi,
   ValidatorInfo,
@@ -20,6 +22,13 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
 
   const accountApi = new AccountApi(explorerConfig)
   const validatorApi = new ValidatorApi(explorerConfig)
+
+  async function getAccount(address: string): Promise<Account> {
+    const account = await accountApi.accountInfoHandler({ address })
+    if (!account) throw new Error('Wrong response code')
+
+    return parseAccount(account)
+  }
 
   async function getAllValidators(): Promise<Validator[]> {
     const validators = await validatorApi.validatorListHandler({ orderBy: 'escrow', sort: 'desc' })
@@ -57,9 +66,25 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
   }
 
   return {
+    getAccount,
     getAllValidators,
     getTransactionsList,
     getDelegations,
+  }
+}
+
+function parseAccount(account: AccountInfoResponse): Account {
+  return {
+    address: account.address,
+    allowances: account.allowances.map(allowance => ({
+      address: allowance.address,
+      amount: parseRoseStringToBaseUnitString(allowance.amount),
+    })),
+    available: parseRoseStringToBaseUnitString(account.available),
+    delegations: parseRoseStringToBaseUnitString(account.escrow),
+    debonding: parseRoseStringToBaseUnitString(account.debonding),
+    total: parseRoseStringToBaseUnitString(account.total),
+    nonce: BigInt(account.nonce ?? 0).toString(),
   }
 }
 
