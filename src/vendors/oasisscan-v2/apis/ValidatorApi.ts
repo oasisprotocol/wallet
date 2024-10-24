@@ -298,7 +298,7 @@ export class ValidatorApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorListResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorListResponseFromJSON(jsonValue.data));
     }
 
     /**
