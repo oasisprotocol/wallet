@@ -5,12 +5,17 @@ import {
   Delegation as NexusDelegation,
   DebondingDelegation as NexusDebondingDelegation,
   DefaultApi as NexusApi,
+  Transaction as NexusTransaction,
   Validator as NexusValidator,
+  ConsensusTxMethod,
 } from 'vendors/nexus/index'
 import { Account } from 'app/state/account/types'
+import { Transaction, TransactionStatus, TransactionType } from 'app/state/transaction/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { throwAPIErrors } from './helpers'
+
+const getTransactionCacheMap: Record<string, NexusTransaction> = {}
 
 export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   const explorerConfig = new Configuration({
@@ -34,8 +39,42 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
     return parseValidatorsList(validatorsResponse.validators)
   }
 
+  function getTransactionUrl({ hash }: { hash: string }) {
+    return `${url}/consensus/transactions/${hash}`
+  }
+
+  async function getTransaction({ hash }: { hash: string }) {
+    const cacheId = getTransactionUrl({ hash })
+
+    if (cacheId in getTransactionCacheMap) {
+      return getTransactionCacheMap[cacheId]
+    }
+
+    const transaction = await api.consensusTransactionsTxHashGet({
+      txHash: hash,
+    })
+
+    if (transaction) {
+      getTransactionCacheMap[cacheId] = transaction
+    }
+
+    return transaction
+  }
+
   async function getTransactionsList(params: { accountId: string; limit: number }) {
-    return []
+    const transactionsResponse = await api.consensusTransactionsGet({
+      rel: params.accountId,
+      limit: params.limit,
+    })
+    if (!transactionsResponse) throw new Error('Wrong response code')
+    const list = await Promise.all(
+      transactionsResponse.transactions.map(async tx => {
+        const { nonce } = await getTransaction({ hash: tx.hash })
+        return { ...tx, nonce }
+      }),
+    )
+
+    return parseTransactionsList(list)
   }
 
   async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
@@ -112,6 +151,58 @@ export function parseDelegations(delegations: NexusDelegation[]): Delegation[] {
       amount: delegation.amount,
       shares: delegation.shares,
       validatorAddress: delegation.validator,
+    }
+    return parsed
+  })
+}
+
+export const transactionMethodMap: {
+  [k in ConsensusTxMethod]: TransactionType
+} = {
+  [ConsensusTxMethod.StakingTransfer]: TransactionType.StakingTransfer,
+  [ConsensusTxMethod.StakingAddEscrow]: TransactionType.StakingAddEscrow,
+  [ConsensusTxMethod.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
+  [ConsensusTxMethod.StakingAmendCommissionSchedule]: TransactionType.StakingAmendCommissionSchedule,
+  [ConsensusTxMethod.StakingAllow]: TransactionType.StakingAllow,
+  [ConsensusTxMethod.StakingWithdraw]: TransactionType.StakingWithdraw,
+  [ConsensusTxMethod.StakingBurn]: TransactionType.StakingBurn,
+  [ConsensusTxMethod.RoothashExecutorCommit]: TransactionType.RoothashExecutorCommit,
+  [ConsensusTxMethod.RoothashExecutorProposerTimeout]: TransactionType.RoothashExecutorProposerTimeout,
+  [ConsensusTxMethod.RoothashSubmitMsg]: TransactionType.RoothashSubmitMsg,
+  [ConsensusTxMethod.RegistryDeregisterEntity]: TransactionType.RegistryDeregisterEntity,
+  [ConsensusTxMethod.RegistryRegisterEntity]: TransactionType.RegistryRegisterEntity,
+  [ConsensusTxMethod.RegistryRegisterNode]: TransactionType.RegistryRegisterNode,
+  [ConsensusTxMethod.RegistryRegisterRuntime]: TransactionType.RegistryRegisterRuntime,
+  [ConsensusTxMethod.RegistryUnfreezeNode]: TransactionType.RegistryUnfreezeNode,
+  [ConsensusTxMethod.GovernanceCastVote]: TransactionType.GovernanceCastVote,
+  [ConsensusTxMethod.GovernanceSubmitProposal]: TransactionType.GovernanceSubmitProposal,
+  [ConsensusTxMethod.BeaconPvssCommit]: TransactionType.BeaconPvssCommit,
+  [ConsensusTxMethod.BeaconPvssReveal]: TransactionType.BeaconPvssReveal,
+  [ConsensusTxMethod.BeaconVrfProve]: TransactionType.BeaconVrfProve,
+  [ConsensusTxMethod.ConsensusMeta]: TransactionType.ConsensusMeta,
+  [ConsensusTxMethod.VaultCreate]: TransactionType.VaultCreate,
+}
+
+function parseTransactionsList(list: NexusTransaction[]): Transaction[] {
+  return list.map(t => {
+    const transactionDate = new Date(t.timestamp)
+    const parsed: Transaction = {
+      amount:
+        (t.body as { amount?: StringifiedBigInt }).amount ||
+        (t.body as { amount_change?: StringifiedBigInt }).amount_change ||
+        undefined,
+      fee: t.fee,
+      from: t.sender,
+      hash: t.hash,
+      level: t.block,
+      status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
+      timestamp: transactionDate.getTime(),
+      to: (t.body as { to?: string }).to ?? undefined,
+      type: transactionMethodMap[t.method] ?? t.method,
+      runtimeName: undefined,
+      runtimeId: undefined,
+      round: undefined,
+      nonce: BigInt(t.nonce).toString(),
     }
     return parsed
   })
