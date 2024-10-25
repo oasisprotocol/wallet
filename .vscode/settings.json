@@ -38,6 +38,12 @@
     "src/vendors/oasisscan/.openapi-generator": true,
     "src/vendors/oasisscan/.openapi-generator-ignore": true,
     "src/vendors/oasisscan/runtime.ts": true,
-    "src/vendors/oasisscan/index.ts": true
+    "src/vendors/oasisscan/index.ts": true,
+    "src/vendors/nexus/apis": true,
+    "src/vendors/nexus/models": true,
+    "src/vendors/nexus/.openapi-generator": true,
+    "src/vendors/nexus/.openapi-generator-ignore": true,
+    "src/vendors/nexus/runtime.ts": true,
+    "src/vendors/nexus/index.ts": true
   }
 }
