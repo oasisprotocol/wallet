@@ -8,6 +8,7 @@ export const consensusDecimals = 9
 export enum BackendAPIs {
   OasisMonitor = 'oasismonitor',
   OasisScan = 'oasisscan',
+  Nexus = 'nexus',
 }
 
 type BackendApiUrls = {
@@ -23,6 +24,7 @@ type BackendProviders = {
   min_delegation: number // from nic.stakingConsensusParameters().min_delegation
   [BackendAPIs.OasisMonitor]: BackendApiUrls
   [BackendAPIs.OasisScan]: BackendApiUrls
+  [BackendAPIs.Nexus]: BackendApiUrls
 }
 
 type BackendConfig = {
@@ -44,6 +46,12 @@ export const config: BackendConfig = {
       blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
       blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
     },
+    [BackendAPIs.Nexus]: {
+      explorer: 'https://nexus.oasis.io/v1',
+      blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
+      blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
+    },
   },
   testnet: {
     grpc: 'https://testnet.grpc.oasis.io',
@@ -60,6 +68,13 @@ export const config: BackendConfig = {
         'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
       blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
     },
+    [BackendAPIs.Nexus]: {
+      explorer: 'https://testnet.nexus.oasis.io/v1',
+      blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
+      blockExplorerParatimes:
+        'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
+    },
   },
   local: {
     grpc: 'http://localhost:42280',
@@ -70,6 +85,13 @@ export const config: BackendConfig = {
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
     },
     [BackendAPIs.OasisScan]: {
+      explorer: 'http://localhost:9001',
+      blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
+      blockExplorerParatimes:
+        'http://localhost:9001/data/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerAccount: 'http://localhost:9001/data/accounts/detail/{{address}}',
+    },
+    [BackendAPIs.Nexus]: {
       explorer: 'http://localhost:9001',
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
       blockExplorerParatimes:
