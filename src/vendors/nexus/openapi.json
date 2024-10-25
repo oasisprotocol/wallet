@@ -1,0 +1,5501 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Oasis Nexus API V1",
+    "description": "An API for accessing indexed data from the Oasis Network.\n\n<!-- Acts as a separator after search in sidebar -->\n# Endpoints\n",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "https://nexus.oasis.io/v1",
+      "description": "Mainnet index endpoint."
+    },
+    {
+      "url": "https://testnet.nexus.oasis.io/v1",
+      "description": "Testnet index endpoint."
+    }
+  ],
+  "x-query-params": [
+    {
+      "in": "query",
+      "name": "offset",
+      "schema": {
+        "type": "integer",
+        "format": "uint64",
+        "default": 0
+      },
+      "description": "The number of items to skip before starting to collect the result set.\n"
+    },
+    {
+      "in": "query",
+      "name": "limit",
+      "schema": {
+        "type": "integer",
+        "format": "uint64",
+        "default": 100,
+        "minimum": 1,
+        "maximum": 1000
+      },
+      "description": "The maximum numbers of items to return.\n"
+    },
+    {
+      "in": "query",
+      "name": "height",
+      "schema": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "description": "The block height from which to query state. Oasis Nexus does not\nmake any guarantees about availability of historical state data.\n"
+    },
+    {
+      "in": "path",
+      "name": "runtime",
+      "required": true,
+      "schema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Runtime"
+          }
+        ]
+      },
+      "description": "The runtime which to query.\n"
+    },
+    {
+      "in": "query",
+      "name": "window_size_seconds",
+      "schema": {
+        "type": "integer",
+        "format": "uint32",
+        "default": 86400
+      },
+      "description": "The size of windows into which the statistic is grouped, in seconds.\nThe backend supports a limited number of window sizes: 300 (5 minutes) and\n86400 (1 day). Requests with other values may be rejected.\n"
+    },
+    {
+      "in": "query",
+      "name": "window_step_seconds",
+      "schema": {
+        "type": "integer",
+        "format": "uint32",
+        "default": 86400
+      },
+      "description": "The size of the step between returned statistic windows, in seconds.\nThe backend supports a limited number of step sizes: 300 (5 minutes) and\n86400 (1 day). Requests with other values may be rejected.\n"
+    }
+  ],
+  "x-examples": {
+    "block-height": [8048956, 8049555],
+    "block-hash": ["0a29ac21fa69bb9e43e5cb25d10826ff3946f1ce977e82f99a2614206a50765c"],
+    "state-root": ["8e39bf193f8a954ab8f8d7cb6388c591fd0785ea060bbd8e3752e266b54499d3"],
+    "tx-hash": ["0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"],
+    "tx-body": ["{\"amount\":\"1000000000\",\"account\":\"oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p\"}"],
+    "parameters-change": [
+      "{\"min_validators\":null,\"max_validators\":\"120\",\"voting_power_distribution\":null}"
+    ],
+    "epoch": [13402, 13403],
+    "event-type": ["staking.escrow.take"],
+    "roothash-message-type": ["staking.transfer"],
+    "entity-id": ["gb8SHLeDc69Elk7OTfqhtVgE2sqxrBCDQI84xKR+Bjg="],
+    "node-id": ["lbxs4hlud9XNloIOdhJPaCahd7HtiY8QATCgGnFfCM0="],
+    "staking-address": [
+      "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p",
+      "oasis1qprtzrg97jk0wxnqkhxwyzy5qys47r7alvfl3fcg"
+    ],
+    "eth-address": [1.2367698861069356e48],
+    "proposal-id": [1],
+    "proposal-state": ["active"],
+    "runtime-block-round": [3283246],
+    "runtime-block-hash": ["21c243cd34bedfc234f1b45615d10a868f0655f59578f063a7d2fc8c6e5b4009"],
+    "runtime-event-type": ["consensus_accounts.deposit"],
+    "iso-timestamp": ["2022-03-01T00:00:00Z", "2019-04-01T00:00:00Z", "2022-10-15T00:05:34Z"],
+    "time-duration": ["72h3m0.5s"],
+    "validator-media": [
+      "{\"email\":\"validator@example.net\",\"keybase\":\"validator_keybase\",\"name\":\"Example Validator\",\"twitter\":\"validator_twitter\",\"url\":\"https://example.com\",\"logoUrl\": \"https://example.com/logo.png\"}"
+    ]
+  },
+  "x-err-responses": {
+    "common-errors": {
+      "400": {
+        "$ref": "#/components/responses/HumanReadableError"
+      },
+      "404": {
+        "$ref": "#/components/responses/NotFoundError"
+      },
+      "500": {
+        "$ref": "#/components/responses/HumanReadableError"
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getStatus",
+        "summary": "Returns the status of indexing.",
+        "responses": {
+          "200": {
+            "description": "A JSON object containing status metadata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/blocks": {
+      "get": {
+        "summary": "Returns a list of consensus blocks, sorted from most to least recent.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on minimum block height, inclusive.",
+            "example": 8048956
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on maximum block height, inclusive.",
+            "example": 8049555
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on minimum block time, inclusive.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on maximum block time, exclusive.",
+            "example": "2019-04-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "hash",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the block hash.",
+            "example": "0a29ac21fa69bb9e43e5cb25d10826ff3946f1ce977e82f99a2614206a50765c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of consensus blocks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlockList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/blocks/{height}": {
+      "get": {
+        "summary": "Returns a consensus block.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "height",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "The block height of the block to return.",
+            "example": 8048956
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a consensus block.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Block"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/transactions": {
+      "get": {
+        "summary": "Returns a list of consensus transactions.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "block",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on block height.",
+            "example": 8048956
+          },
+          {
+            "in": "query",
+            "name": "method",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ConsensusTxMethod"
+                }
+              ]
+            },
+            "description": "A filter on transaction method."
+          },
+          {
+            "in": "query",
+            "name": "sender",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "A filter on transaction sender."
+          },
+          {
+            "in": "query",
+            "name": "rel",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on related accounts.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on minimum transaction time, inclusive.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on maximum transaction time, exclusive.",
+            "example": "2019-04-01T00:00:00Z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of consensus transactions.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/transactions/{tx_hash}": {
+      "get": {
+        "summary": "Returns a consensus transaction.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "tx_hash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The transaction hash of the transaction to return.",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a consensus transaction.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/events": {
+      "get": {
+        "summary": "Returns a list of consensus events.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "block",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on block height.",
+            "example": 8048956
+          },
+          {
+            "in": "query",
+            "name": "tx_index",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "A filter on transaction index. The returned events all need to originate\nfrom a transaction that appeared in `tx_index`-th position in the block.\nIt is invalid to specify this filter without also specifying a `block`.\nSpecifying `tx_index` and `block` is an alternative to specifying `tx_hash`;\neither works to fetch events from a specific transaction.\n",
+            "example": 3
+          },
+          {
+            "in": "query",
+            "name": "tx_hash",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the hash of the transaction that originated the events.\nSpecifying `tx_index` and `block` is an alternative to specifying `tx_hash`;\neither works to fetch events from a specific transaction.\n",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          },
+          {
+            "in": "query",
+            "name": "rel",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "A filter on related accounts. Every returned event will refer to\nthis account. For example, for a `Transfer` event, this will be the\nthe sender or the recipient of tokens.\n"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ConsensusEventType"
+                }
+              ]
+            },
+            "description": "A filter on the event type.",
+            "example": "staking.escrow.take"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consensus events matching the filters, sorted by most recent first.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsensusEventList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/roothash_messages": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "round",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RoothashMessageType"
+                }
+              ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "rel",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of roothash messages.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoothashMessageList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/entities": {
+      "get": {
+        "summary": "Returns a list of entities registered at the consensus layer.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of entities registered\nat the consensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntityList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/entities/{address}": {
+      "get": {
+        "summary": "Returns an entity registered at the consensus layer.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The address of the entity to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing an entity registered\nat the consensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Entity"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/entities/{address}/nodes": {
+      "get": {
+        "summary": "Returns a list of nodes registered at the consensus layer.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The address of the controlling entity of the nodes to return.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of nodes registered at the consensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NodeList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/entities/{address}/nodes/{node_id}": {
+      "get": {
+        "summary": "Returns a node registered at the consensus layer.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The entity ID of the entity controlling the node to return.\n",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          {
+            "in": "path",
+            "name": "node_id",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Ed25519PubKey"
+                }
+              ]
+            },
+            "description": "The node ID of the node to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a node registered at the consensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/validators": {
+      "get": {
+        "summary": "Returns a list of validators registered at the consensus layer (the list includes all registered entities, even those without a currently active validator node).",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the validator name. Every returned validator will have\na name that is a superstring of the input param.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of validators registered\nat the consensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidatorList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/validators/{address}": {
+      "get": {
+        "summary": "Returns a validator registered at the consensus layer.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The address of the entity to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a validator registered at the\nconsensus layer.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidatorList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/validators/{address}/history": {
+      "get": {
+        "summary": "Returns historical information for a single validator.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on minimum epoch number, inclusive.",
+            "example": 13402
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on maximum epoch number, inclusive.",
+            "example": 13403
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The address of the entity to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing historical information for a \nvalidator, grouped by epoch in reverse chronological order.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidatorHistory"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts": {
+      "get": {
+        "summary": "Returns a list of consensus layer accounts.\nNote that for performance reasons, the info returned by this endpoint\nmay be slightly stale (<2 minutes). For the most up-to-date account state,\nquery the single-account endpoint.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of consensus layer accounts.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts/{address}": {
+      "get": {
+        "summary": "Returns a consensus layer account.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the account to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a consensus layer account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Account"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts/{address}/delegations": {
+      "get": {
+        "summary": "Returns an account's delegations.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the account that delegated."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of delegations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts/{address}/delegations_to": {
+      "get": {
+        "summary": "Returns a list of delegations to an account.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the account that is being delegated to."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of delegations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DelegationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts/{address}/debonding_delegations": {
+      "get": {
+        "summary": "Returns an account's debonding delegations.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the account that delegated."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of debonding delegations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DebondingDelegationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/accounts/{address}/debonding_delegations_to": {
+      "get": {
+        "summary": "Returns a list of debonding delegations to an account.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the that is being delegated to."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of debonding delegations.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DebondingDelegationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/epochs": {
+      "get": {
+        "summary": "Returns a list of consensus epochs.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of consensus epochs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EpochList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/epochs/{epoch}": {
+      "get": {
+        "summary": "Returns a consensus epoch.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "epoch",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "The epoch number of the epoch to return.",
+            "example": 13402
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a consensus epoch.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Epoch"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/proposals": {
+      "get": {
+        "summary": "Returns a list of governance proposals.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "submitter",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "Filter on the submitter of the proposal."
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ProposalState"
+                }
+              ]
+            },
+            "description": "Filter on the state of the proposal.",
+            "example": "active"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of governance proposals.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/proposals/{proposal_id}": {
+      "get": {
+        "summary": "Returns a governance proposal.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "uint64"
+            },
+            "description": "The unique identifier of the proposal to return.",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a governance proposal.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Proposal"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/consensus/proposals/{proposal_id}/votes": {
+      "get": {
+        "summary": "Returns a list of votes for a governance proposal.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "proposal_id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "uint64"
+            },
+            "description": "The unique identifier of the proposal for which votes are returned.\n",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of votes for a governance proposal.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProposalVotes"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/blocks": {
+      "get": {
+        "summary": "Returns a list of Runtime blocks.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on minimum block height, inclusive.",
+            "example": 8048956
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on maximum block height, inclusive.",
+            "example": 8049555
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on minimum block time, inclusive.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on maximum block time, exclusive.",
+            "example": "2019-04-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "hash",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the block hash.",
+            "example": "0a29ac21fa69bb9e43e5cb25d10826ff3946f1ce977e82f99a2614206a50765c"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of Runtime blocks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeBlockList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/transactions": {
+      "get": {
+        "summary": "Returns a list of Runtime transactions.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "query",
+            "name": "block",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on block round.",
+            "example": 3283246
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on minimum transaction time, inclusive.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "A filter on maximum transaction time, exclusive.",
+            "example": "2019-04-01T00:00:00Z"
+          },
+          {
+            "in": "query",
+            "name": "rel",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "A filter on related accounts. Every returned transaction will refer to\nthis account in a way. For example, for an `accounts.Transfer` tx, this will be\nthe sender or the recipient of tokens.\nNexus detects related accounts inside EVM transactions and events on a\nbest-effort basis. For example, it inspects ERC20 methods inside `evm.Call` txs.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of Runtime transactions.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeTransactionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/transactions/{tx_hash}": {
+      "get": {
+        "summary": "Returns runtime transactions with the given transaction hash.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "tx_hash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The transaction hash of the transaction(s) to return. This can be an\nEthereum transaction hash; the query will compare against both a\ntransaction's regular tx_hash and eth_tx_hash (if it exists).\nThis endpoint can return multiple transactions in extremely rare cases,\ne.g. when a hash matches multiple Oasis runtime transactions or both\nan Oasis runtime transaction and the eth_tx_hash of an evm-transaction.\n",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested runtime transactions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeTransactionList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/events": {
+      "get": {
+        "summary": "Returns a list of runtime events.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "query",
+            "name": "block",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "A filter on block round.",
+            "example": 3283246
+          },
+          {
+            "in": "query",
+            "name": "tx_index",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "A filter on transaction index. The returned events all need to originate\nfrom a transaction that appeared in `tx_index`-th position in the block.\nIt is invalid to specify this filter without also specifying a `block`.\nSpecifying `tx_index` and `round` is an alternative to specifying `tx_hash`;\neither works to fetch events from a specific transaction.\n",
+            "example": 3
+          },
+          {
+            "in": "query",
+            "name": "tx_hash",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the hash of the transaction that originated the events.\nSpecifying `tx_index` and `round` is an alternative to specifying `tx_hash`;\neither works to fetch events from a specific transaction.\nThis can be an Ethereum transaction hash; the query will compare against\nboth a transaction's regular tx_hash and eth_tx_hash (if it exists).\n",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          },
+          {
+            "in": "query",
+            "name": "type",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RuntimeEventType"
+                }
+              ]
+            },
+            "description": "A filter on the event type."
+          },
+          {
+            "in": "query",
+            "name": "rel",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "A filter on related accounts. Every returned event will refer to\nthis account. For example, for a `accounts.Transfer` event, this will be\nthe sender or the recipient of tokens.\n"
+          },
+          {
+            "in": "query",
+            "name": "evm_log_signature",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the evm log signatures.\nNote: The filter will only match on parsed (verified) EVM events.\n",
+            "example": "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
+          },
+          {
+            "in": "query",
+            "name": "contract_address",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "A filter on a smart contract. Every returned event will have been\nemitted by the contract at this address.\n"
+          },
+          {
+            "in": "query",
+            "name": "nft_id",
+            "schema": {
+              "type": "string"
+            },
+            "example": "999",
+            "description": "A filter on NFT events. Every returned event will be specifically\nabout this NFT instance ID. You must specify the contract_address\nfilter with this filter.\nCurrently this only supports ERC-721 Transfer events.\nThis may expand to support other event types in the future.\nIf you want only ERC-721 Transfer events, specify\nevm_log_signature=ddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef\nto avoid inadvertently getting other event types if they are\nsupported later.\nUsing an evm_log_signature filter with this set to any other value\nwill match no events.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Runtime events matching the filters, sorted by most recent first.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeEventList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/evm_tokens": {
+      "get": {
+        "summary": "Returns a list of EVM (ERC-20, ...) tokens on the runtime.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the name, the name or symbol must contain this value as a substring."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested tokens.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmTokenList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/evm_tokens/{address}": {
+      "get": {
+        "summary": "Returns info on an EVM (ERC-20, ...) token on the runtime.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "The staking address of the token contract."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmToken"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/evm_tokens/{address}/holders": {
+      "get": {
+        "summary": "Returns the list of holders of an EVM (ERC-20, ...) token.\nThis endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "The staking address of the token contract for which to return the holders."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested holders.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenHolderList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/evm_tokens/{address}/nfts": {
+      "get": {
+        "summary": "Returns the list of non-fungible token (NFT) instances of an EVM (ERC-721, ...) token.\nThis endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "The staking address of the token contract for which to return the NFT instances."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested instances.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmNftList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/evm_tokens/{address}/nfts/{id}": {
+      "get": {
+        "summary": "Returns the non-fungible token (NFT) instance of an EVM (ERC-721, ...) token.\n",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "The staking address of the token contract of the NFT instance."
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/TextBigInt"
+                }
+              ]
+            },
+            "description": "The ID of the NFT instance."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested instances.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmNft"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/accounts/{address}": {
+      "get": {
+        "summary": "Returns a runtime account.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "description": "The staking address of the account to return."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a runtime layer account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeAccount"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/accounts/{address}/nfts": {
+      "get": {
+        "summary": "Returns the list of non-fungible token (NFT) instances owned by an account.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          },
+          {
+            "in": "path",
+            "name": "address",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "The staking address of the owner of the NFT instances."
+          },
+          {
+            "in": "query",
+            "name": "token_address",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EthOrOasisAddress"
+                }
+              ]
+            },
+            "examples": {
+              "eth": {
+                "$ref": "#/components/examples/EthAddress"
+              },
+              "oasis": {
+                "$ref": "#/components/examples/StakingAddress"
+              }
+            },
+            "description": "Only return NFT instances from the token contract at the given staking address."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested instances.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvmNftList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{runtime}/status": {
+      "get": {
+        "summary": "Returns the runtime status.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "runtime",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Runtime"
+                }
+              ]
+            },
+            "description": "The runtime which to query.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing latest runtime status.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RuntimeStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{layer}/stats/tx_volume": {
+      "get": {
+        "summary": "Returns a timeline of the transaction volume at the chosen granularity,\nfor either consensus or one of the paratimes.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "window_size_seconds",
+            "schema": {
+              "type": "integer",
+              "format": "uint32",
+              "default": 86400
+            },
+            "description": "The size of windows into which the statistic is grouped, in seconds.\nThe backend supports a limited number of window sizes: 300 (5 minutes) and\n86400 (1 day). Requests with other values may be rejected.\n"
+          },
+          {
+            "in": "query",
+            "name": "window_step_seconds",
+            "schema": {
+              "type": "integer",
+              "format": "uint32",
+              "default": 86400
+            },
+            "description": "The size of the step between returned statistic windows, in seconds.\nThe backend supports a limited number of step sizes: 300 (5 minutes) and\n86400 (1 day). Requests with other values may be rejected.\n"
+          },
+          {
+            "in": "path",
+            "name": "layer",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Layer"
+                }
+              ]
+            },
+            "description": "The layer for which to return the transaction volume timeline.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of TPS values for each interval.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TxVolumeList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    },
+    "/{layer}/stats/active_accounts": {
+      "get": {
+        "summary": "Returns a (sliding) timeline of the recorded daily unique active accounts for\neither consensus or one of the paratimes.\n",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 1000
+            },
+            "description": "The maximum numbers of items to return.\n"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "format": "uint64",
+              "default": 0
+            },
+            "description": "The number of items to skip before starting to collect the result set.\n"
+          },
+          {
+            "in": "query",
+            "name": "window_step_seconds",
+            "schema": {
+              "type": "integer",
+              "format": "uint32",
+              "default": 86400
+            },
+            "description": "The size of the step between returned statistic windows, in seconds.\nThe backend supports a limited number of step sizes: 300 (5 minutes) and\n86400 (1 day). Requests with other values may be rejected.\n"
+          },
+          {
+            "in": "path",
+            "name": "layer",
+            "required": true,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Layer"
+                }
+              ]
+            },
+            "description": "The layer for which to return the active accounts timeline.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A JSON object containing a list of unique active accounts values for each interval.\n",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ActiveAccountsList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/HumanReadableError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          },
+          "500": {
+            "$ref": "#/components/responses/HumanReadableError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Layer": {
+        "type": "string",
+        "enum": ["emerald", "sapphire", "pontusxtest", "pontusxdev", "cipher", "consensus"]
+      },
+      "Runtime": {
+        "type": "string",
+        "enum": ["emerald", "sapphire", "pontusxtest", "pontusxdev", "cipher"]
+      },
+      "StakingAddress": {
+        "type": "string",
+        "pattern": "^oasis1[a-z0-9]{40}$",
+        "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p",
+        "x-go-type": "staking.Address",
+        "x-go-type-import": {
+          "name": "staking",
+          "path": "github.com/oasisprotocol/nexus/coreapi/v22.2.11/staking/api"
+        },
+        "description": "An Oasis-style (bech32) address."
+      },
+      "TextBigInt": {
+        "type": "string",
+        "pattern": "^-?[0-9]+$",
+        "format": "bigint",
+        "example": "1234567890123456789012",
+        "x-go-type": "common.BigInt",
+        "x-go-type-import": {
+          "name": "common",
+          "path": "github.com/oasisprotocol/nexus/common"
+        }
+      },
+      "Address": {
+        "type": "string",
+        "pattern": "^oasis1[a-z0-9]{40}$",
+        "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p",
+        "description": "An Oasis-style (bech32) address."
+      },
+      "EthOrOasisAddress": {
+        "type": "string",
+        "pattern": "^oasis1[a-z0-9]{40}$|^(0x)?[0-9a-fA-F]{40}$"
+      },
+      "Ed25519PubKey": {
+        "type": "string",
+        "format": "byte",
+        "example": "lbxs4hlud9XNloIOdhJPaCahd7HtiY8QATCgGnFfCM0=",
+        "x-go-type": "signature.PublicKey",
+        "x-go-type-import": {
+          "name": "signature",
+          "path": "github.com/oasisprotocol/oasis-core/go/common/crypto/signature"
+        },
+        "description": "A base64-encoded ed25519 public key."
+      },
+      "CallFormat": {
+        "type": "string",
+        "example": "encrypted/x25519-deoxysii",
+        "x-go-type": "common.CallFormat",
+        "x-go-type-import": {
+          "name": "common",
+          "path": "github.com/oasisprotocol/nexus/common"
+        }
+      },
+      "List": {
+        "type": "object",
+        "required": ["total_count", "is_total_count_clipped"],
+        "properties": {
+          "total_count": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The total number of records that match the query, i.e. the number of records\nthe query would return with limit=infinity.\n",
+            "example": 412
+          },
+          "is_total_count_clipped": {
+            "type": "boolean",
+            "description": "Whether total_count is clipped for performance reasons.",
+            "example": true
+          }
+        }
+      },
+      "Status": {
+        "type": "object",
+        "required": ["latest_block", "latest_node_block", "latest_block_time", "latest_update_age_ms"],
+        "properties": {
+          "latest_block": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The height of the most recent indexed block. Compare with latest_node_block to measure\nhow far behind Nexus is from the chain.\n",
+            "example": 8048956
+          },
+          "latest_node_block": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The height of the most recently produced block on-chain as seen by Nexus.",
+            "example": 8049555
+          },
+          "latest_block_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The RFC 3339 formatted consensus time of when the most recently indexed block was produced.",
+            "example": "2019-04-01T00:00:00Z"
+          },
+          "latest_update_age_ms": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of milliseconds since Nexus processed the latest block.",
+            "example": 352
+          }
+        }
+      },
+      "BlockList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["blocks"],
+            "properties": {
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Block"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "description": "A list of consensus blocks.\n"
+      },
+      "Block": {
+        "type": "object",
+        "required": ["height", "hash", "timestamp", "num_transactions", "gas_limit", "epoch", "state_root"],
+        "properties": {
+          "height": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height.",
+            "example": 8048956
+          },
+          "hash": {
+            "type": "string",
+            "description": "The block header hash.",
+            "example": "0a29ac21fa69bb9e43e5cb25d10826ff3946f1ce977e82f99a2614206a50765c"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          "num_transactions": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of transactions in the block.",
+            "example": 17
+          },
+          "gas_limit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The gas limit for the block. A gas limit 0 means that the max block gas was unlimited.\nBlocks from Cobalt, Damask, and early Eden had no gas limit as their sizes were only\nrestricted by byte size until an upgrade during Eden introduced a gas limit.\n"
+          },
+          "size_limit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The size limit for the block in bytes.\n"
+          },
+          "epoch": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch number of the epoch in which the block was produced.",
+            "example": 13402
+          },
+          "state_root": {
+            "type": "string",
+            "description": "The Merkle root of the state tree after applying the block.",
+            "example": "8e39bf193f8a954ab8f8d7cb6388c591fd0785ea060bbd8e3752e266b54499d3"
+          }
+        },
+        "description": "A consensus block.\n"
+      },
+      "Delegation": {
+        "type": "object",
+        "required": ["amount", "shares", "validator", "delegator"],
+        "properties": {
+          "amount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens delegated in base units."
+          },
+          "shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens delegated."
+          },
+          "validator": {
+            "type": "string",
+            "description": "The delegatee (validator) address.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "delegator": {
+            "type": "string",
+            "description": "The delegator address.",
+            "example": "oasis1qprtzrg97jk0wxnqkhxwyzy5qys47r7alvfl3fcg"
+          }
+        },
+        "description": "A delegation.\n"
+      },
+      "DelegationList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["delegations"],
+            "properties": {
+              "delegations": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Delegation"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of delegations.\n"
+          }
+        ]
+      },
+      "DebondingDelegation": {
+        "type": "object",
+        "required": ["amount", "shares", "validator", "delegator", "debond_end"],
+        "properties": {
+          "amount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens delegated in base units."
+          },
+          "shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens delegated."
+          },
+          "validator": {
+            "type": "string",
+            "description": "The delegatee (validator) address.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "delegator": {
+            "type": "string",
+            "description": "The delegator address.",
+            "example": "oasis1qprtzrg97jk0wxnqkhxwyzy5qys47r7alvfl3fcg"
+          },
+          "debond_end": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch at which the debonding ends."
+          }
+        },
+        "description": "A debonding delegation.\n"
+      },
+      "DebondingDelegationList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["debonding_delegations"],
+            "properties": {
+              "debonding_delegations": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DebondingDelegation"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of debonding delegations.\n"
+          }
+        ]
+      },
+      "ConsensusTxMethod": {
+        "type": "string",
+        "enum": [
+          "beacon.PVSSCommit",
+          "beacon.PVSSReveal",
+          "beacon.VRFProve",
+          "consensus.Meta",
+          "governance.CastVote",
+          "governance.SubmitProposal",
+          "keymanager.PublishEphemeralSecret",
+          "keymanager.PublishMasterSecret",
+          "keymanager.UpdatePolicy",
+          "registry.DeregisterEntity",
+          "registry.ProveFreshness",
+          "registry.RegisterEntity",
+          "registry.RegisterNode",
+          "registry.RegisterRuntime",
+          "registry.UnfreezeNode",
+          "roothash.Evidence",
+          "roothash.ExecutorCommit",
+          "roothash.ExecutorProposerTimeout",
+          "roothash.SubmitMsg",
+          "staking.AddEscrow",
+          "staking.Allow",
+          "staking.AmendCommissionSchedule",
+          "staking.Burn",
+          "staking.ReclaimEscrow",
+          "staking.Transfer",
+          "staking.Withdraw",
+          "keymanager/churp.Apply",
+          "keymanager/churp.Confirm",
+          "keymanager/churp.Create",
+          "keymanager/churp.Update",
+          "vault.AuthorizeAction",
+          "vault.CancelAction",
+          "vault.Create"
+        ],
+        "example": "staking.Transfer"
+      },
+      "TransactionList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["transactions"],
+            "properties": {
+              "transactions": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Transaction"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of consensus transactions.\n"
+          }
+        ]
+      },
+      "Transaction": {
+        "type": "object",
+        "required": [
+          "block",
+          "index",
+          "timestamp",
+          "hash",
+          "sender",
+          "nonce",
+          "fee",
+          "gas_limit",
+          "method",
+          "body",
+          "success"
+        ],
+        "properties": {
+          "block": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height at which this transaction was executed.",
+            "example": 8048956
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "0-based index of this transaction in its block",
+            "example": 17
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time of this tx's block, i.e. roughly when the\n[block was proposed](https://github.com/tendermint/tendermint/blob/v0.34.x/spec/core/data_structures.md#header).\n",
+            "example": "2022-10-15T00:05:34Z"
+          },
+          "hash": {
+            "type": "string",
+            "description": "The cryptographic hash of this transaction's encoding.",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          },
+          "sender": {
+            "type": "string",
+            "description": "The address of who sent this transaction.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "nonce": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The nonce used with this transaction, to prevent replay.",
+            "example": 0
+          },
+          "fee": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The fee that this transaction's sender committed\nto pay to execute it.\n",
+            "example": 1000
+          },
+          "gas_limit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The maximum gas that a transaction can use.\n"
+          },
+          "method": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConsensusTxMethod"
+              }
+            ],
+            "description": "The method that was called."
+          },
+          "body": {
+            "type": "object",
+            "description": "The method call body. This spec does not encode the many possible types; instead, see [the Go API](https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go) of oasis-core. This object will conform to one of the types passed to variable instantiations using `NewMethodName` two levels down the hierarchy, e.g. `MethodTransfer` from `oasis-core/go/staking/api` seen [here](https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go@v0.2300.10/staking/api#pkg-variables).",
+            "example": "{\"amount\":\"1000000000\",\"account\":\"oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p\"}"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Whether this transaction successfully executed."
+          },
+          "error": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TxError"
+              }
+            ],
+            "description": "Error details of a failed transaction."
+          }
+        },
+        "description": "A consensus transaction.\n"
+      },
+      "TxError": {
+        "type": "object",
+        "required": ["code"],
+        "properties": {
+          "module": {
+            "type": "string",
+            "description": "The module of a failed transaction."
+          },
+          "code": {
+            "type": "integer",
+            "format": "uint32",
+            "description": "The status code of a failed transaction."
+          },
+          "message": {
+            "type": "string",
+            "description": "The message of a failed transaction.\nThis field, like `code` and `module`, can represent an error that originated\nanywhere in the paratime, i.e. either inside or outside a smart contract.\n\nA common special case worth calling out: When the paratime is\nEVM-compatible (e.g. Emerald or Sapphire) and the error originates\ninside a smart contract (using `revert` in solidity), the following\nwill be true:\n- `module` will be \"evm\" and `code` will be 8; see [here](https://github.com/oasisprotocol/oasis-sdk/blob/runtime-sdk/v0.8.3/runtime-sdk/modules/evm/src/lib.rs#L128) for other possible errors in the `evm` module.\n- `message` will contain the best-effort human-readable revert reason.\n"
+          },
+          "revert_params": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EvmAbiParam"
+                }
+              ]
+            },
+            "description": "The error parameters, as decoded using the contract abi. Present only when\n- the error originated from within a smart contract (e.g. via `revert` in Solidity), and\n- the contract is verified or the revert reason is a plain String.\nIf this field is present, `message` will include the name of the error, e.g. 'InsufficentBalance'.\nNote that users should be cautious when evaluating error data since the\ndata origin is not tracked and error information can be faked.\n"
+          }
+        }
+      },
+      "ConsensusEventType": {
+        "type": "string",
+        "enum": [
+          "governance.proposal_executed",
+          "governance.proposal_finalized",
+          "governance.proposal_submitted",
+          "governance.vote",
+          "registry.entity",
+          "registry.node_unfrozen",
+          "registry.node",
+          "registry.runtime",
+          "registry.runtime_suspended",
+          "roothash.execution_discrepancy",
+          "roothash.executor_committed",
+          "roothash.finalized",
+          "roothash.message",
+          "roothash.in_msg_processed",
+          "staking.allowance_change",
+          "staking.burn",
+          "staking.escrow.add",
+          "staking.escrow.debonding_start",
+          "staking.escrow.reclaim",
+          "staking.escrow.take",
+          "staking.transfer"
+        ],
+        "example": "staking.escrow.take"
+      },
+      "ConsensusEventList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["events"],
+            "properties": {
+              "events": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ConsensusEvent"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of consensus events.\n"
+          }
+        ]
+      },
+      "ConsensusEvent": {
+        "type": "object",
+        "required": ["block", "type", "body"],
+        "properties": {
+          "block": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height at which this event was generated.",
+            "example": 8048956
+          },
+          "tx_index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "0-based index of this event's originating transaction within its block.\nAbsent if the event did not originate from a transaction.\n",
+            "example": 5
+          },
+          "tx_hash": {
+            "type": "string",
+            "description": "Hash of this event's originating transaction.\nAbsent if the event did not originate from a transaction.\n",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          },
+          "roothash_runtime_id": {
+            "type": "string",
+            "description": "The ID of the runtime to which the event relates, encoded in hex.\nPresent only for events of type `roothash.*`.\n",
+            "example": "000000000000000000000000000000000000000000000000e2eaa99fc008f87f"
+          },
+          "roothash_runtime": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Runtime"
+              }
+            ],
+            "description": "The runtime to which the event relates.\nPresent only for events of type `roothash.*`.\n",
+            "example": "emerald"
+          },
+          "roothash_runtime_round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "When applicable, the round in the runtime to which this event\nrelates.\nPresent only for events of type `roothash.*` except for\n`roothash.execution_discrepancy` before Eden.\n"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ConsensusEventType"
+              }
+            ],
+            "description": "The type of the event."
+          },
+          "body": {
+            "type": "object",
+            "description": "The event contents. This spec does not encode the many possible types;\ninstead, see [the Go API](https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/consensus/api/transaction/results#Event) of oasis-core.\nThis object will conform to one of the `*Event` types two levels down\nthe hierarchy, e.g. `TransferEvent` from `Event > staking.Event > TransferEvent`\n"
+          }
+        },
+        "description": "An event emitted by the consensus layer.\n"
+      },
+      "RoothashMessageType": {
+        "type": "string",
+        "enum": [
+          "staking.transfer",
+          "staking.withdraw",
+          "staking.add_escrow",
+          "staking.reclaim_escrow",
+          "registry.update_runtime",
+          "governance.cast_vote",
+          "governance.submit_proposal"
+        ],
+        "example": "staking.transfer"
+      },
+      "RoothashMessageList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["roothash_messages"],
+            "properties": {
+              "roothash_messages": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RoothashMessage"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "RoothashMessage": {
+        "type": "object",
+        "required": ["runtime", "round", "index"],
+        "properties": {
+          "runtime": {
+            "type": "string",
+            "description": "The runtime that sent this message.\n",
+            "example": "sapphire"
+          },
+          "round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block round when the runtime sent this message.\n",
+            "example": 1357490
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The 0-based index of this message in the block.\n",
+            "example": 0
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RoothashMessageType"
+              }
+            ],
+            "description": "The type of thies message.\n",
+            "example": "staking.withdraw"
+          },
+          "body": {
+            "type": "object",
+            "description": "The \"body\" of a message is a structure within the\n`github.com/oasisprotocol/oasis-core/go/roothash/api/message`\n`Message` structure\n(https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/roothash/api/message#Message).\nFor example, if the type is `staking.withdraw`, the body is the Go\n`Message` structure's `.Staking.Withdraw` field, which is a\n`github.com/oasisprotocol/oasis-core/go/staking/api` `Withdraw`\nstructure\n(https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/staking/api#Withdraw),\nwith `from` and `amount` fields in JSON.\n",
+            "example": {
+              "from": "oasis1qqzjq6lqjf8d07ehhvu5ytc47dck8w7a6qgn7efh",
+              "amount": "500000000"
+            }
+          },
+          "error_module": {
+            "type": "string",
+            "description": "If executing this message resulted in an error, this is the\nerror's module.\n",
+            "example": "staking"
+          },
+          "error_code": {
+            "type": "integer",
+            "format": "int32",
+            "description": "If executing this message resulted in an error, this is the\nerror's code.\n",
+            "example": 3
+          },
+          "result": {
+            "description": "A result value that consensus provided after executing this\nmessage. These aren't centrally registered anywhere, so look at\nthe consensus apps' `ExecuteMessage`\n(https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/consensus/cometbft/api#MessageSubscriber)\nimplementations to see what they return. For example, a\n`staking.withdraw` type message gives a\n`github.com/oasisprotocol/oasis-core/go/staking/api`\n`WithdrawResult` structure as its result\n(`https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/staking/api#WithdrawResult`)\nwith `owner`, `beneficiary`, `allowance`, and `amount_change`\nfields.\n",
+            "example": {
+              "owner": "oasis1qqzjq6lqjf8d07ehhvu5ytc47dck8w7a6qgn7efh",
+              "beneficiary": "oasis1qrd3mnzhhgst26hsp96uf45yhq6zlax0cuzdgcfc",
+              "allowance": "97000000000",
+              "amount_change": "500000000"
+            }
+          }
+        }
+      },
+      "EntityList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["entities"],
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Entity"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of entities registered at the consensus layer.\n"
+          }
+        ]
+      },
+      "Entity": {
+        "type": "object",
+        "required": ["id", "address", "nodes"],
+        "properties": {
+          "id": {
+            "x-go-name": "ID",
+            "type": "string",
+            "description": "The public key identifying this entity.",
+            "example": "gb8SHLeDc69Elk7OTfqhtVgE2sqxrBCDQI84xKR+Bjg="
+          },
+          "address": {
+            "type": "string",
+            "description": "The staking address belonging to this entity; derived from the entity's public key.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "nodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The vector of nodes owned by this entity."
+          }
+        },
+        "description": "An entity registered at the consensus layer.\n"
+      },
+      "ValidatorsResponse": {
+        "type": "object",
+        "required": ["validator_list", "stats"],
+        "properties": {
+          "validator_list": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValidatorList"
+              }
+            ]
+          },
+          "stats": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValidatorAggStats"
+              }
+            ],
+            "description": "Summary statistics across all consensus validators."
+          }
+        }
+      },
+      "ValidatorList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["validators", "stats"],
+            "properties": {
+              "validators": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Validator"
+                    }
+                  ]
+                }
+              },
+              "stats": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ValidatorAggStats"
+                  }
+                ],
+                "description": "Summary statistics across all consensus validators."
+              }
+            },
+            "description": "A list of validators registered at the consensus layer, plus summary\nstatistics across all consensus validators.\n"
+          }
+        ]
+      },
+      "ValidatorAggStats": {
+        "type": "object",
+        "required": ["total_voting_power", "total_delegators", "total_staked_balance"],
+        "properties": {
+          "total_voting_power": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total voting power across all validators."
+          },
+          "total_delegators": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The total number of delegators in the network."
+          },
+          "total_staked_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The total amount of token staked to validators."
+          }
+        }
+      },
+      "ValidatorCommissionBound": {
+        "type": "object",
+        "required": ["lower", "upper", "epoch_start", "epoch_end"],
+        "properties": {
+          "lower": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "upper": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "epoch_start": {
+            "type": "integer",
+            "format": "uint64"
+          },
+          "epoch_end": {
+            "type": "integer",
+            "format": "uint64"
+          }
+        }
+      },
+      "ValidatorMedia": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "An URL associated with the entity."
+          },
+          "email": {
+            "type": "string",
+            "description": "An email address associated with the entity."
+          },
+          "twitter": {
+            "type": "string",
+            "description": "Twitter handle."
+          },
+          "keybase": {
+            "type": "string",
+            "description": "Keybase handle."
+          },
+          "name": {
+            "type": "string",
+            "description": "The human-readable name of this entity.",
+            "example": "WhaleStake"
+          },
+          "logoUrl": {
+            "type": "string",
+            "description": "URL to a logo image for the entity."
+          }
+        }
+      },
+      "Validator": {
+        "type": "object",
+        "required": [
+          "entity_address",
+          "entity_id",
+          "escrow",
+          "voting_power",
+          "active",
+          "start_date",
+          "rank",
+          "in_validator_set",
+          "current_rate",
+          "current_commission_bound"
+        ],
+        "properties": {
+          "entity_address": {
+            "type": "string",
+            "description": "The staking address identifying this validator.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "entity_id": {
+            "x-go-name": "EntityID",
+            "type": "string",
+            "description": "The public key identifying this validator.",
+            "example": "gb8SHLeDc69Elk7OTfqhtVgE2sqxrBCDQI84xKR+Bjg="
+          },
+          "node_id": {
+            "x-go-name": "NodeID",
+            "type": "string",
+            "description": "The public key identifying this validator's node.",
+            "example": "lbxs4hlud9XNloIOdhJPaCahd7HtiY8QATCgGnFfCM0="
+          },
+          "escrow": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Escrow"
+              }
+            ],
+            "description": "The escrow account data for this validator."
+          },
+          "voting_power": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The voting power of this validator."
+          },
+          "voting_power_cumulative": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The cumulative voting power of this validator and all other validators ranked higher than itself."
+          },
+          "active": {
+            "type": "boolean",
+            "description": "Whether the entity has a node that is registered for being a validator, node is up to date, and has successfully registered itself. It may or may not be part of validator set."
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time.",
+            "example": "2022-10-15T00:05:34Z"
+          },
+          "rank": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The rank of the validator, determined by voting power."
+          },
+          "in_validator_set": {
+            "type": "boolean",
+            "description": "Whether the entity is part of the validator set (top <scheduler.params.max_validators> by stake among active entities)."
+          },
+          "media": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValidatorMedia"
+              }
+            ],
+            "example": "{\"email\":\"validator@example.net\",\"keybase\":\"validator_keybase\",\"name\":\"Example Validator\",\"twitter\":\"validator_twitter\",\"url\":\"https://example.com\",\"logoUrl\": \"https://example.com/logo.png\"}"
+          },
+          "current_rate": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "Commission rate."
+          },
+          "current_commission_bound": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ValidatorCommissionBound"
+              }
+            ]
+          }
+        },
+        "description": "An validator registered at the consensus layer.\n"
+      },
+      "Escrow": {
+        "type": "object",
+        "properties": {
+          "active_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens that are delegated to this validator account, and are NOT in the process of debonding."
+          },
+          "active_shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens that are delegated to this validator account, and are NOT in the process of debonding."
+          },
+          "debonding_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens that are delegated to this validator account, but are also in the process of debonding (i.e. they will be unstaked within ~2 weeks)."
+          },
+          "debonding_shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens that are delegated to this validator account, but are also in the process of debonding (i.e. they will be unstaked within ~2 weeks)."
+          },
+          "self_delegation_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of token this validator has delegated to itself, and are NOT in the process of debonding."
+          },
+          "self_delegation_shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens this validator has delegated to itself, and are NOT in the process of debonding."
+          },
+          "active_balance_24": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The active_balance of this validator account 24 hours ago."
+          },
+          "num_delegators": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The number of accounts that have delegated token to this account."
+          }
+        }
+      },
+      "ValidatorHistory": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["history"],
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "The staking address of the validator.",
+                "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+              },
+              "history": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ValidatorHistoryPoint"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Historical escrow balance data for a single address."
+          }
+        ]
+      },
+      "ValidatorHistoryPoint": {
+        "type": "object",
+        "required": ["epoch"],
+        "properties": {
+          "epoch": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch number.",
+            "example": 13402
+          },
+          "active_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens that were delegated to this validator account, \nat the start of this epoch, and are NOT in the process of debonding.\n"
+          },
+          "active_shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens that were delegated to this validator account, \nat the start of this epoch, and are NOT in the process of debonding.\n"
+          },
+          "debonding_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding \n(i.e. they will be unstaked within ~2 weeks).\n"
+          },
+          "debonding_shares": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The shares of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding \n(i.e. they will be unstaked within ~2 weeks).\n"
+          },
+          "num_delegators": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The number of accounts that have delegated token to this account."
+          }
+        }
+      },
+      "NodeList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["entity_id", "nodes"],
+            "properties": {
+              "entity_id": {
+                "x-go-name": "EntityID",
+                "type": "string"
+              },
+              "nodes": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Node"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of nodes registered at the consensus layer.\n"
+          }
+        ]
+      },
+      "Node": {
+        "type": "object",
+        "required": [
+          "id",
+          "entity_id",
+          "expiration",
+          "tls_pubkey",
+          "tls_next_pubkey",
+          "p2p_pubkey",
+          "consensus_pubkey",
+          "roles"
+        ],
+        "properties": {
+          "id": {
+            "x-go-name": "ID",
+            "type": "string",
+            "description": "The public key identifying this node.",
+            "example": "lbxs4hlud9XNloIOdhJPaCahd7HtiY8QATCgGnFfCM0="
+          },
+          "entity_id": {
+            "x-go-name": "EntityID",
+            "type": "string",
+            "description": "The public key identifying the entity controlling this node.\n",
+            "example": "gb8SHLeDc69Elk7OTfqhtVgE2sqxrBCDQI84xKR+Bjg="
+          },
+          "expiration": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch in which this node's commitment expires."
+          },
+          "tls_pubkey": {
+            "x-go-name": "TLSPubkey",
+            "type": "string",
+            "description": "The public key used for establishing TLS connections."
+          },
+          "tls_next_pubkey": {
+            "x-go-name": "TLSNextPubkey",
+            "type": "string",
+            "description": "The public key that will be used for establishing TLS connections\nupon rotation.\n"
+          },
+          "p2p_pubkey": {
+            "x-go-name": "P2PPubkey",
+            "type": "string",
+            "description": "The unique identifier of this node on the P2P transport."
+          },
+          "consensus_pubkey": {
+            "type": "string",
+            "description": "The unique identifier of this node as a consensus member"
+          },
+          "roles": {
+            "type": "string",
+            "description": "A bitmask representing this node's roles."
+          }
+        },
+        "description": "A node registered at the consensus layer.\n"
+      },
+      "AccountList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["accounts"],
+            "properties": {
+              "accounts": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Account"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of consensus layer accounts.\n"
+          }
+        ]
+      },
+      "AddressDerivationContext": {
+        "type": "string",
+        "enum": [
+          "oasis-core/address: staking",
+          "oasis-runtime-sdk/address: secp256k1eth",
+          "oasis-runtime-sdk/address: sr25519",
+          "oasis-runtime-sdk/address: multisig",
+          "oasis-runtime-sdk/address: module",
+          "oasis-runtime-sdk/address: runtime"
+        ]
+      },
+      "AddressPreimage": {
+        "description": "The data from which a consensus-style address (`oasis1...`)\nwas derived. Notably, for EVM runtimes like Sapphire,\nthis links the Oasis address and the Ethereum address.\n\nOasis addresses are derived from a piece of data, such as an ed25519\npublic key or an Ethereum address. For example, [this](https://github.com/oasisprotocol/oasis-sdk/blob/b37e6da699df331f5a2ac62793f8be099c68469c/client-sdk/go/helpers/address.go#L90-L91)\nis how an Ethereum is converted to an Oasis address. The type of underlying data usually also\ndetermines how the signatuers for this address are verified.\n\nConsensus supports only \"staking addresses\" (`context=\"oasis-core/address: staking\"`\nbelow; always ed25519-backed).\nRuntimes support all types. This means that every consensus address is also\nvalid in every runtime. For example, in EVM runtimes, you can use staking\naddresses, but only with Oasis tools (e.g. a wallet); EVM contracts such as\nERC20 tokens or tools such as Metamask cannot interact with staking addresses.\n",
+        "type": "object",
+        "required": ["context", "address_data"],
+        "properties": {
+          "context": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressDerivationContext"
+              }
+            ],
+            "description": "The method by which the Oasis address was derived from `address_data`.\n",
+            "example": "oasis-runtime-sdk/address: secp256k1eth"
+          },
+          "context_version": {
+            "type": "integer",
+            "default": 0,
+            "description": "Version of the `context`."
+          },
+          "address_data": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded data from which the Oasis address was derived.\nWhen `context = \"oasis-runtime-sdk/address: secp256k1eth\"`, this\nis the Ethereum address (in base64, not hex!).\n",
+            "example": "INLp2Ih3YIdcA+zFNhM+SIGyFgKsYYc9SKQeKRKe2uI="
+          }
+        }
+      },
+      "RuntimeSdkBalance": {
+        "description": "Balance of an account for a specific runtime and oasis-sdk token (e.g. ROSE).",
+        "type": "object",
+        "required": ["balance", "token_symbol", "token_decimals"],
+        "properties": {
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "Number of tokens held, in base units."
+          },
+          "token_symbol": {
+            "type": "string",
+            "description": "The token ticker symbol. Unique across all oasis-sdk tokens in the same runtime.",
+            "example": "ROSE"
+          },
+          "token_decimals": {
+            "type": "integer",
+            "description": "The number of decimals of precision for this token.",
+            "example": 18
+          }
+        }
+      },
+      "RuntimeEvmBalance": {
+        "description": "Balance of an account for a specific runtime and EVM token.",
+        "type": "object",
+        "required": [
+          "balance",
+          "token_contract_addr",
+          "token_contract_addr_eth",
+          "token_decimals",
+          "token_type"
+        ],
+        "properties": {
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "Number of tokens held, in base units."
+          },
+          "token_contract_addr": {
+            "type": "string",
+            "description": "The Oasis address of this token's contract.",
+            "example": "oasis1qzk5pr2x8ah04lgjee3lv06fmyvqvz45egjv4ps0"
+          },
+          "token_contract_addr_eth": {
+            "type": "string",
+            "description": "The EVM address of this token's contract.",
+            "example": "0xF8E3DE55D24D13607A12628E0A113B66BA578bDC"
+          },
+          "token_symbol": {
+            "type": "string",
+            "description": "The token ticker symbol. Not guaranteed to be unique across distinct EVM tokens."
+          },
+          "token_name": {
+            "type": "string",
+            "description": "The name of the token. Not guaranteed to be unique across distinct EVM tokens."
+          },
+          "token_type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmTokenType"
+              }
+            ]
+          },
+          "token_decimals": {
+            "type": "integer",
+            "description": "The number of decimals of precision for this token.",
+            "example": 18
+          }
+        }
+      },
+      "TokenHolderList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["holders"],
+            "properties": {
+              "holders": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/BareTokenHolder"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of token holders for a specific (implied) runtime and token.\n"
+          }
+        ]
+      },
+      "BareTokenHolder": {
+        "description": "Balance of an account for a specific (implied) runtime and token.\n",
+        "type": "object",
+        "required": ["holder_address", "balance"],
+        "properties": {
+          "holder_address": {
+            "type": "string",
+            "description": "The Oasis address of the account holder.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "eth_holder_address": {
+            "type": "string",
+            "description": "The Ethereum address of the same account holder, if meaningfully defined.",
+            "example": 1.2367698861069356e48
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "Number of tokens held, in base units."
+          }
+        }
+      },
+      "Account": {
+        "type": "object",
+        "required": [
+          "address",
+          "nonce",
+          "available",
+          "escrow",
+          "debonding",
+          "delegations_balance",
+          "debonding_delegations_balance",
+          "allowances",
+          "stats"
+        ],
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "The staking address for this account.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "nonce": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The expected nonce for the next transaction (= last used nonce + 1)",
+            "example": 0
+          },
+          "available": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The available balance, in base units."
+          },
+          "escrow": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The active escrow balance, in base units."
+          },
+          "debonding": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The debonding escrow balance, in base units."
+          },
+          "delegations_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The balance of this accounts' (outgoing) delegations, in base units.",
+            "example": 10000000000
+          },
+          "debonding_delegations_balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The balance of this accounts' (outgoing) debonding delegations, in base units.",
+            "example": 10000000000
+          },
+          "first_activity": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time of the block in which this account was first active.\nDates before Cobalt (2021-04-28) are approximate.\n",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          "allowances": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Allowance"
+                }
+              ]
+            },
+            "description": "The allowances made by this account.\nThis field is omitted when listing multiple accounts.\n"
+          },
+          "stats": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccountStats"
+              }
+            ]
+          }
+        },
+        "description": "A consensus layer account.\n"
+      },
+      "Allowance": {
+        "type": "object",
+        "required": ["address", "amount"],
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "The allowed account.",
+            "example": "oasis1qprtzrg97jk0wxnqkhxwyzy5qys47r7alvfl3fcg"
+          },
+          "amount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The amount allowed for the allowed account.\nThis field is omitted when listing multiple accounts.\n"
+          }
+        }
+      },
+      "EpochList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["epochs"],
+            "properties": {
+              "epochs": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Epoch"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of consensus epochs.\n"
+          }
+        ]
+      },
+      "Epoch": {
+        "type": "object",
+        "required": ["id", "start_height"],
+        "properties": {
+          "id": {
+            "x-go-name": "ID",
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch number.",
+            "example": 13402
+          },
+          "start_height": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The (inclusive) height at which this epoch started.",
+            "example": 8048956
+          },
+          "end_height": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The (inclusive) height at which this epoch ended. Omitted if the epoch is still active.",
+            "example": 8049555
+          }
+        },
+        "description": "A consensus epoch.\n"
+      },
+      "ProposalList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["proposals"],
+            "properties": {
+              "proposals": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Proposal"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of governance proposals.\n"
+          }
+        ]
+      },
+      "ProposalTarget": {
+        "type": "object",
+        "properties": {
+          "consensus_protocol": {
+            "type": "string"
+          },
+          "runtime_host_protocol": {
+            "type": "string"
+          },
+          "runtime_committee_protocol": {
+            "type": "string"
+          }
+        },
+        "description": "The target propotocol versions for this upgrade proposal."
+      },
+      "ProposalState": {
+        "type": "string",
+        "enum": ["active", "passed", "failed", "rejected"],
+        "description": "The state of the proposal.",
+        "example": "active"
+      },
+      "Proposal": {
+        "type": "object",
+        "required": ["id", "submitter", "state", "deposit", "created_at", "closes_at", "invalid_votes"],
+        "properties": {
+          "id": {
+            "x-go-name": "ID",
+            "type": "integer",
+            "format": "uint64",
+            "description": "The unique identifier of the proposal.",
+            "example": 1
+          },
+          "submitter": {
+            "type": "string",
+            "description": "The staking address of the proposal submitter.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProposalState"
+              }
+            ]
+          },
+          "deposit": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The deposit attached to this proposal."
+          },
+          "title": {
+            "type": "string",
+            "description": "The (optional) title of the proposal."
+          },
+          "description": {
+            "type": "string",
+            "description": "The (optional) description of the proposal."
+          },
+          "handler": {
+            "type": "string",
+            "description": "The name of the upgrade handler."
+          },
+          "target": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProposalTarget"
+              }
+            ]
+          },
+          "epoch": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The epoch at which the proposed upgrade will happen.",
+            "example": 13402
+          },
+          "cancels": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The proposal to cancel, if this proposal proposes\ncancelling an existing proposal.\n"
+          },
+          "parameters_change_module": {
+            "type": "string",
+            "description": "The name of the module whose parameters are to be changed\nby this 'parameters_change' proposal.\n"
+          },
+          "parameters_change": {
+            "description": "The parameters change proposal body. This spec does not encode the many possible types; instead, see [the Go API](https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go) of oasis-core. This object will conform to one of the `ConsensusParameterChanges` types, depending on the `parameters_change_module`.",
+            "example": "{\"min_validators\":null,\"max_validators\":\"120\",\"voting_power_distribution\":null}"
+          },
+          "created_at": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch at which this proposal was created.",
+            "example": 13402
+          },
+          "closes_at": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The epoch at which voting for this proposal will close.",
+            "example": 13403
+          },
+          "invalid_votes": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The number of invalid votes for this proposal, after tallying.\n"
+          }
+        },
+        "description": "A governance proposal.\n"
+      },
+      "ProposalVotes": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["proposal_id", "votes"],
+            "properties": {
+              "proposal_id": {
+                "x-go-name": "ProposalID",
+                "type": "integer",
+                "format": "uint64",
+                "description": "The unique identifier of the proposal."
+              },
+              "votes": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProposalVote"
+                    }
+                  ]
+                },
+                "description": "The list of votes for the proposal."
+              }
+            },
+            "description": "A list of votes for a governance proposal.\n"
+          }
+        ]
+      },
+      "ProposalVote": {
+        "type": "object",
+        "required": ["address", "vote"],
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "The staking address casting this vote.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "vote": {
+            "type": "string",
+            "description": "The vote cast.",
+            "example": "yes"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height at which this vote was recorded.",
+            "example": 8048956
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time of the block in which this vote was cast.",
+            "example": "2022-03-01T00:00:00Z"
+          }
+        }
+      },
+      "RuntimeBlockList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["blocks"],
+            "properties": {
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RuntimeBlock"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of consensus blocks.\n"
+          }
+        ]
+      },
+      "RuntimeBlock": {
+        "type": "object",
+        "required": ["round", "hash", "timestamp", "num_transactions", "size", "gas_used"],
+        "properties": {
+          "round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block round.",
+            "example": 3283246
+          },
+          "hash": {
+            "type": "string",
+            "description": "The block header hash.",
+            "example": "21c243cd34bedfc234f1b45615d10a868f0655f59578f063a7d2fc8c6e5b4009"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time.",
+            "example": "2022-10-15T00:05:34Z"
+          },
+          "num_transactions": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of transactions in the block.",
+            "example": 1
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The total byte size of all transactions in the block.",
+            "example": 203
+          },
+          "gas_used": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total gas used by all transactions in the block.",
+            "example": 118597
+          }
+        },
+        "description": "A ParaTime block.\n"
+      },
+      "RuntimeEventList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["events"],
+            "properties": {
+              "events": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RuntimeEvent"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of runtime events.\n"
+          }
+        ]
+      },
+      "RuntimeEvent": {
+        "type": "object",
+        "required": ["round", "timestamp", "type", "body"],
+        "properties": {
+          "round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height at which this event was generated.",
+            "example": 3283246
+          },
+          "tx_index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "0-based index of this event's originating transaction within its block.\nAbsent if the event did not originate from a transaction.\n"
+          },
+          "tx_hash": {
+            "type": "string",
+            "description": "Hash of this event's originating transaction.\nAbsent if the event did not originate from a transaction.\n",
+            "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
+          },
+          "eth_tx_hash": {
+            "type": "string",
+            "description": "Ethereum trasnsaction hash of this event's originating transaction.\nAbsent if the event did not originate from an EVM transaction.\n"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time of this event's block.\n",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RuntimeEventType"
+              }
+            ],
+            "description": "The type of the event."
+          },
+          "body": {
+            "type": "object",
+            "description": "The decoded event contents, possibly augmented with additional address info.\nThis spec does not encode the many possible types; instead, see [the Go API](https://pkg.go.dev/github.com/oasisprotocol/oasis-sdk/client-sdk/go/modules).\nThis object will conform to one of the `*Event` types two levels down\nthe hierarchy (e.g. `MintEvent` from `accounts > Event > MintEvent`),\nOR `evm > Event`. For object fields that specify an oasis-style address, Nexus\nwill add a field specifying the corresponding Ethereum address, if known. Currently,\nthe only such possible fields are `from_eth`, `to_eth`, and `owner_eth`.\n"
+          },
+          "evm_log_name": {
+            "type": "string",
+            "description": "If the event type is `evm.log`, this field describes the human-readable type of\nevm event, e.g. `Transfer`.\nAbsent if the event type is not `evm.log`.\n",
+            "example": "Transfer"
+          },
+          "evm_log_params": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EvmAbiParam"
+                }
+              ]
+            },
+            "description": "The decoded `evm.log` event data.\nAbsent if the event type is not `evm.log`.\n"
+          },
+          "evm_token": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmEventToken"
+              }
+            ]
+          }
+        },
+        "description": "An event emitted by the runtime layer"
+      },
+      "RuntimeEventType": {
+        "type": "string",
+        "enum": [
+          "accounts.transfer",
+          "accounts.burn",
+          "accounts.mint",
+          "consensus_accounts.deposit",
+          "consensus_accounts.withdraw",
+          "consensus_accounts.delegate",
+          "consensus_accounts.undelegate_start",
+          "consensus_accounts.undelegate_done",
+          "core.gas_used",
+          "evm.log"
+        ],
+        "example": "consensus_accounts.deposit"
+      },
+      "EvmAbiParam": {
+        "type": "object",
+        "required": ["name", "evm_type", "value"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The parameter name."
+          },
+          "evm_type": {
+            "type": "string",
+            "description": "The solidity type of the parameter."
+          },
+          "value": {
+            "description": "The parameter value."
+          }
+        },
+        "description": "A decoded parameter of an event or error emitted from an EVM runtime.\nValues of EVM type `int128`, `uint128`, `int256`, `uint256`, `fixed`, and `ufixed` are represented as strings.\nValues of EVM type `address` and `address payable` are represented as lowercase hex strings with a \"0x\" prefix.\nValues of EVM type `bytes` and `bytes<N>` are represented as base64 strings.\nValues of other EVM types (integer types, strings, arrays, etc.) are represented as their JSON counterpart.\n"
+      },
+      "EvmEventToken": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmTokenType"
+              }
+            ]
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol of the token, as provided by token contract's `symbol()` method.",
+            "example": "USDT"
+          },
+          "decimals": {
+            "type": "integer",
+            "description": "The number of least significant digits in base units that should be displayed as\ndecimals when displaying tokens. `tokens = base_units / (10**decimals)`.\nAffects display only. Often equals 18, to match ETH.\n",
+            "example": 18
+          }
+        },
+        "description": "Details about the EVM token involved in the event, if any.\n"
+      },
+      "RuntimeEvmContract": {
+        "type": "object",
+        "required": ["gas_used"],
+        "properties": {
+          "creation_tx": {
+            "type": "string",
+            "description": "The Oasis cryptographic hash of the transaction that created the smart contract.\nCan be omitted for contracts that were created by another contract, as opposed\nto a direct `Create` call.\n"
+          },
+          "eth_creation_tx": {
+            "type": "string",
+            "description": "The Ethereum transaction hash of the transaction in `creation_tx`.\nEncoded as a lowercase hex string.\n",
+            "example": "dc19a122e268128b5ee20366299fc7b5b199c8e3"
+          },
+          "creation_bytecode": {
+            "type": "string",
+            "format": "byte",
+            "description": "The creation bytecode of the smart contract. This includes the constructor logic\nand the constructor parameters. When run, this code generates the runtime bytecode.\nCan be omitted for contracts that were created by another contract, as opposed\nto a direct `Create` call.\n"
+          },
+          "runtime_bytecode": {
+            "type": "string",
+            "format": "byte",
+            "description": "The runtime bytecode of the smart contract. This is the code stored on-chain that\ndescribes a smart contract. Every contract has this info, but Nexus fetches\nit separately, so the field may be missing for very fresh contracts (or if the fetching\nprocess is stalled).\n"
+          },
+          "gas_used": {
+            "description": "The total amount of gas used to create or call this contract.",
+            "type": "integer",
+            "format": "uint64",
+            "example": 153852
+          },
+          "verification": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RuntimeEvmContractVerification"
+              }
+            ],
+            "description": "Additional information obtained from contract verification. Only available for smart\ncontracts that have been verified successfully by Sourcify.\n"
+          }
+        }
+      },
+      "VerificationLevel": {
+        "type": "string",
+        "enum": ["partial", "full"],
+        "description": "The level of verification of a smart contract, as defined by Sourcify.\nAn absence of this field means that the contract has not been verified.\nSee also https://docs.sourcify.dev/docs/full-vs-partial-match/\n"
+      },
+      "RuntimeEvmContractVerification": {
+        "type": "object",
+        "properties": {
+          "verification_level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/VerificationLevel"
+              }
+            ]
+          },
+          "compilation_metadata": {
+            "type": "object",
+            "description": "The smart contract's [metadata.json](https://docs.soliditylang.org/en/latest/metadata.html) file in JSON format as defined by Solidity.\nIncludes the smart contract's [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html).\n"
+          },
+          "source_files": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Array of all contract source files, in JSON format as returned by [Sourcify](https://sourcify.dev/server/api-docs/#/Repository/get_files_any__chain___address_).\n"
+          }
+        }
+      },
+      "RuntimeTransactionList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["transactions"],
+            "properties": {
+              "transactions": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RuntimeTransaction"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "A list of runtime transactions.\n"
+          }
+        ]
+      },
+      "RuntimeTransaction": {
+        "type": "object",
+        "required": [
+          "round",
+          "index",
+          "timestamp",
+          "hash",
+          "sender_0",
+          "nonce_0",
+          "fee",
+          "fee_symbol",
+          "charged_fee",
+          "gas_limit",
+          "gas_used",
+          "size"
+        ],
+        "properties": {
+          "round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block round at which this transaction was executed.",
+            "example": 3379702
+          },
+          "index": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The 0-based index of this transaction in the block.",
+            "example": 0
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time when this tx's block was proposed.",
+            "example": "2022-10-15T00:05:34Z"
+          },
+          "hash": {
+            "type": "string",
+            "description": "The Oasis cryptographic hash of this transaction's encoding.",
+            "example": "8394f682150e5f62b02f197d16b4769d032cb1c1b7a6dcf853ba1b12626e080b"
+          },
+          "eth_hash": {
+            "type": "string",
+            "description": "The Ethereum cryptographic hash of this transaction's encoding.\nAbsent for non-Ethereum-format transactions.\n",
+            "example": "9e6a5837c6366d4a7e477c71ffe32d40915cdef7ef209792259e5ee70caf2705"
+          },
+          "sender_0": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "description": "The Oasis address of this transaction's 0th signer.\nUnlike Ethereum, Oasis natively supports multiple-signature transactions.\nHowever, the great majority of transactions only have a single signer in practice.\nRetrieving the other signers is currently not supported by this API.\n",
+            "example": "oasis1qz670t637yyxshnlxhjj5074wgwl94d0x5x69zqd"
+          },
+          "sender_0_eth": {
+            "type": "string",
+            "description": "The Ethereum address of this transaction's 0th signer.\n",
+            "example": 1.2367698861069356e48
+          },
+          "nonce_0": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The nonce used with this transaction's 0th signer, to prevent replay.",
+            "example": 114194
+          },
+          "fee": {
+            "type": "string",
+            "description": "The fee that this transaction's sender committed to pay to execute\nit (total ParaTime base units, as a string).\n",
+            "example": "3000000000000000"
+          },
+          "fee_symbol": {
+            "type": "string",
+            "description": "The denomination of the fee.\n"
+          },
+          "fee_proxy_module": {
+            "type": "string",
+            "description": "The module of the fee proxy.\n"
+          },
+          "fee_proxy_id": {
+            "type": "string",
+            "format": "byte",
+            "description": "the base64-encoded id of the fee proxy.\n"
+          },
+          "gas_limit": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The maximum gas that this transaction's sender committed to use to\nexecute it.\n",
+            "example": 30000
+          },
+          "gas_used": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The total gas used by the transaction."
+          },
+          "charged_fee": {
+            "type": "string",
+            "description": "The fee that was charged for the transaction execution (total, native denomination,\nParaTime base units, as a string).\nFor EVM transactions this is calculated as `gas_price * gas_used`, where `gas_price = fee / gas_limit`, for compatibility with Ethereum.\nFor other transactions this equals to `fee`.\n"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The total byte size of the transaction."
+          },
+          "method": {
+            "type": "string",
+            "description": "The method that was called. Defined by the runtime. In theory, this could be any string as the runtimes evolve.\nIn practice, Nexus currently expects only the following methods:\n  - \"accounts.Transfer\"\n  - \"consensus.Deposit\"\n  - \"consensus.Withdraw\"\n  - \"consensus.Delegate\"\n  - \"consensus.Undelegate\"\n  - \"evm.Create\"\n  - \"evm.Call\"\nMay be null if the transaction was malformed or encrypted.\n",
+            "example": "evm.Call"
+          },
+          "body": {
+            "type": "object",
+            "description": "The method call body. May be null if the transaction was malformed.",
+            "example": {
+              "address": "t1mAPucIdVnrYBpJOcLV2nZoOFo=",
+              "data": "RBo+cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=\"",
+              "value": ""
+            }
+          },
+          "is_likely_native_token_transfer": {
+            "type": "boolean",
+            "description": "Whether this transaction likely represents a native token transfer.\nThis is based on a heuristic, and can change at any time without warning and possibly without updating the documentation.\nThe current heuristic sets this to `true` for:\n - Transactions with method \"accounts.Transfer\". Those are always native token transfers.\n - Transactions with method \"evm.Call\" that have no `data` field in their `body`. Those tend to be transfers, but the runtimes provides no reliable visibility into whether a transfer happened.\nNote: Other transactions with method \"evm.Call\", and possibly \"evm.Create\", may also be (or include) native token transfers. The heuristic will be `false` for those.\n",
+            "example": true
+          },
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "description": "A reasonable \"to\" Oasis address associated with this transaction,\nif applicable. The meaning varies based on the transaction method. Some notable examples:\n  - For `method = \"accounts.Transfer\"`, this is the paratime account receiving the funds.\n  - For `method = \"consensus.Deposit\"`, this is the paratime account receiving the funds.\n  - For `method = \"consensus.Withdraw\"`, this is the consensus (!) account receiving the funds.\n  - For `method = \"consensus.Delegate\"`, this is the consensus (!) account receiving the funds.\n  - For `method = \"consensus.Undelegate\"`, this is the consensus (!) account to which funds were previously delegated. Note that this corresponds with the `.from` field in the transaction body.\n  - For `method = \"evm.Create\"`, this is the address of the newly created smart contract.\n  - For `method = \"evm.Call\"`, this is the address of the called smart contract\n",
+            "example": "oasis1qq6ulxmcagnp5nr56ylva7nhmwnxtf0krumg9dkq"
+          },
+          "to_eth": {
+            "type": "string",
+            "description": "A reasonable \"to\" Ethereum address associated with this transaction,\n",
+            "example": 1.2367698861069356e48
+          },
+          "amount": {
+            "type": "string",
+            "description": "A reasonable \"amount\" associated with this transaction, if\napplicable. The meaning varies based on the transaction method.\nUsually in native denomination, ParaTime units. As a string.\n",
+            "example": "100000001666393459"
+          },
+          "amount_symbol": {
+            "type": "string",
+            "description": "The denomination of the \"amount\" associated with this transaction, if applicable.\n",
+            "example": "ROSE"
+          },
+          "encryption_envelope": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RuntimeTransactionEncryptionEnvelope"
+              }
+            ],
+            "description": "The data relevant to the encrypted transaction. Only present for encrypted\ntransactions in confidential EVM runtimes like Sapphire.\nNote: The term \"envelope\" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)\nwhich differ slightly from [digital envelopes](hhttps://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).\n"
+          },
+          "success": {
+            "type": "boolean",
+            "description": "Whether this transaction successfully executed.\nCan be absent (meaning \"unknown\") for confidential runtimes.\n"
+          },
+          "evm_fn_name": {
+            "type": "string",
+            "description": "The name of the smart contract function called by the transaction.\nOnly present for `evm.log` transaction calls to contracts that have been verified.\n",
+            "example": "acceptTaskResults"
+          },
+          "evm_fn_params": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EvmAbiParam"
+                }
+              ]
+            },
+            "description": "The decoded parameters with which the smart contract function was called.\nOnly present for `evm.log` transaction calls to contracts that have been verified.\n"
+          },
+          "error": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TxError"
+              }
+            ],
+            "description": "Error details of a failed transaction."
+          }
+        },
+        "description": "A runtime transaction.\n"
+      },
+      "RuntimeTransactionEncryptionEnvelope": {
+        "type": "object",
+        "required": ["format"],
+        "properties": {
+          "format": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CallFormat"
+              }
+            ],
+            "description": "The format of the encrypted evm transaction envelope."
+          },
+          "public_key": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded public key used to encrypt the transaction."
+          },
+          "data_nonce": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded nonce used to encrypt the transaction data."
+          },
+          "data": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded encrypted transaction data."
+          },
+          "result_nonce": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded nonce used to encrypt the transaction results."
+          },
+          "result": {
+            "type": "string",
+            "format": "byte",
+            "description": "The base64-encoded encrypted result data."
+          }
+        }
+      },
+      "RuntimeAccount": {
+        "type": "object",
+        "required": ["address", "balances", "evm_balances", "stats"],
+        "properties": {
+          "address": {
+            "type": "string",
+            "description": "The staking address for this account.",
+            "example": "oasis1qpg2xuz46g53737343r20yxeddhlvc2ldqsjh70p"
+          },
+          "address_preimage": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AddressPreimage"
+              }
+            ]
+          },
+          "balances": {
+            "description": "The balance(s) of this account in this runtime. Most runtimes use only one denomination, and thus\nproduce only one balance here. These balances do not include \"layer (n+1) tokens\", i.e. tokens\nmanaged by smart contracts deployed in this runtime. For example, in EVM-compatible runtimes,\nthis does not include ERC-20 tokens\n",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RuntimeSdkBalance"
+                }
+              ]
+            }
+          },
+          "evm_contract": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RuntimeEvmContract"
+              }
+            ],
+            "description": "Data on the EVM smart contract associated with this account address. Only present for accounts\nthat represent a smart contract on EVM.\n"
+          },
+          "evm_balances": {
+            "description": "The balances of this account in each runtime, as managed by EVM smart contracts (notably, ERC-20).\nNOTE: This field is limited to 1000 entries. If you need more, please let us know in a GitHub issue.\n",
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RuntimeEvmBalance"
+                }
+              ]
+            }
+          },
+          "stats": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccountStats"
+              }
+            ]
+          }
+        }
+      },
+      "RuntimeStatus": {
+        "type": "object",
+        "required": ["active_nodes", "latest_block", "latest_block_time", "latest_update_age_ms"],
+        "properties": {
+          "active_nodes": {
+            "type": "integer",
+            "description": "The number of compute nodes that are registered and can run the runtime.",
+            "example": 42
+          },
+          "latest_block": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The height of the most recent indexed block (also sometimes referred to as \"round\") for this runtime. Query a synced Oasis node for the latest block produced.",
+            "example": 8048956
+          },
+          "latest_block_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The RFC 3339 formatted consensus time of when the latest indexed block for this runtime was produced.",
+            "example": "2019-04-01T00:00:00Z"
+          },
+          "latest_update_age_ms": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of milliseconds since Nexus processed the latest block.",
+            "example": 352
+          }
+        }
+      },
+      "EvmTokenType": {
+        "type": "string",
+        "enum": ["ERC20", "ERC721"],
+        "description": "The type of a EVM token.\n"
+      },
+      "EvmTokenList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["evm_tokens"],
+            "properties": {
+              "evm_tokens": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/EvmToken"
+                    }
+                  ]
+                },
+                "description": "A list of L2 EVM tokens (ERC-20, ERC-721, ...)."
+              }
+            },
+            "description": "A list of tokens in a runtime."
+          }
+        ]
+      },
+      "EvmToken": {
+        "type": "object",
+        "required": ["contract_addr", "eth_contract_addr", "num_holders", "type", "is_verified"],
+        "properties": {
+          "contract_addr": {
+            "type": "string",
+            "description": "The Oasis address of this token's contract.",
+            "example": "oasis1qp2hssandc7dekjdr6ygmtzt783k3gn38uupdeys"
+          },
+          "eth_contract_addr": {
+            "type": "string",
+            "description": "The Ethereum address of this token's contract.",
+            "example": 1.2367698861069356e48
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the token, as provided by token contract's `name()` method.",
+            "example": "Uniswap"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol of the token, as provided by token contract's `symbol()` method.",
+            "example": "USDT"
+          },
+          "decimals": {
+            "type": "integer",
+            "description": "The number of least significant digits in base units that should be displayed as\ndecimals when displaying tokens. `tokens = base_units / (10**decimals)`.\nAffects display only. Often equals 18, to match ETH.\n",
+            "example": 18
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmTokenType"
+              }
+            ],
+            "description": "The heuristically determined interface that the token contract implements.\nA less specialized variant of the token might be detected; for example, an\nERC-1363 token might be labeled as ERC-20 here. If the type cannot be\ndetected or is not supported, this field will be null/absent.\n"
+          },
+          "total_supply": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The total number of base units available."
+          },
+          "num_transfers": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total number of transfers of this token.\n"
+          },
+          "num_holders": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The number of addresses that have a nonzero balance of this token.\n",
+            "example": 123
+          },
+          "is_verified": {
+            "deprecated": true,
+            "type": "boolean",
+            "description": "Whether the contract has been successfully verified by Sourcify.\nAdditional information on verified contracts is available via\nthe `/{runtime}/accounts/{address}` endpoint.\nDEPRECATED: This field will be removed in the future in favor of verification_level\n",
+            "example": false
+          },
+          "verification_level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/VerificationLevel"
+              }
+            ]
+          }
+        }
+      },
+      "EvmNftList": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/List"
+          },
+          {
+            "type": "object",
+            "required": ["evm_nfts"],
+            "properties": {
+              "evm_nfts": {
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/EvmNft"
+                    }
+                  ]
+                },
+                "description": "A list of L2 EVM NFT (ERC-721, ...) instances."
+              }
+            },
+            "description": "A list of NFT instances."
+          }
+        ]
+      },
+      "EvmNft": {
+        "type": "object",
+        "required": ["token", "id"],
+        "properties": {
+          "token": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmToken"
+              }
+            ]
+          },
+          "id": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The instance ID of this NFT within the collection represented by `token`."
+          },
+          "owner": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "description": "The Oasis address of this NFT instance's owner.",
+            "example": "oasis1qpclnnm0wu44pn43mt6vv3me59kl8zk9ty7qyj03"
+          },
+          "owner_eth": {
+            "type": "string",
+            "description": "The Ethereum address of this NFT instance's owner.",
+            "example": "0xDEF1009df2d6872C214cd9148c6883893B7c4D91"
+          },
+          "num_transfers": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The total number of transfers of this NFT instance.\n"
+          },
+          "metadata_uri": {
+            "type": "string"
+          },
+          "metadata_accessed": {
+            "type": "string"
+          },
+          "metadata": {
+            "description": "A metadata document for this NFT instance.\nCurrently only ERC-721 is supported, where the document is an Asset Metadata from the ERC721 Metadata JSON Schema.\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Identifies the asset which this NFT represents"
+          },
+          "description": {
+            "type": "string",
+            "description": "Describes the asset which this NFT represents"
+          },
+          "image": {
+            "type": "string",
+            "description": "A URI pointing to a resource with mime type image/* representing\nthe asset which this NFT represents. (Additional\nnon-descriptive text from ERC-721 omitted.)\n"
+          }
+        }
+      },
+      "AccountStats": {
+        "type": "object",
+        "required": ["num_txns"],
+        "properties": {
+          "total_sent": {
+            "deprecated": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The total amount of native tokens sent, in base units.\nDEPRECATED: This field might be inaccurate. Nexus is currently not able to track\ncertain actions which subtract/add tokens.\n"
+          },
+          "total_received": {
+            "deprecated": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The total amount of native tokens received, in base units.\nDEPRECATED: This field might be inaccurate. Nexus is currently not able to track\ncertain actions which subtract/add tokens.\n"
+          },
+          "num_txns": {
+            "description": "The total number of transactions this account was involved with.",
+            "type": "integer",
+            "format": "uint64",
+            "example": 4184
+          }
+        }
+      },
+      "TxVolumeList": {
+        "type": "object",
+        "required": ["window_size_seconds", "windows"],
+        "properties": {
+          "window_size_seconds": {
+            "type": "integer",
+            "format": "uint32"
+          },
+          "windows": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/TxVolume"
+                }
+              ]
+            },
+            "description": "The list of daily transaction volumes."
+          }
+        },
+        "description": "A list of daily transaction volumes.\n"
+      },
+      "TxVolume": {
+        "type": "object",
+        "required": ["window_end", "tx_volume"],
+        "properties": {
+          "window_end": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The end timestamp for this daily transaction volume measurement.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          "tx_volume": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The transaction volume for this window.",
+            "example": 420
+          }
+        }
+      },
+      "ActiveAccountsList": {
+        "type": "object",
+        "required": ["window_size_seconds", "windows"],
+        "properties": {
+          "window_size_seconds": {
+            "type": "integer",
+            "format": "uint32"
+          },
+          "windows": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ActiveAccounts"
+                }
+              ]
+            },
+            "description": "The list of daily unique active account windows."
+          }
+        },
+        "description": "A list of daily unique active account windows.\n"
+      },
+      "ActiveAccounts": {
+        "type": "object",
+        "required": ["window_end", "active_accounts"],
+        "properties": {
+          "window_end": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date for the end of the daily active accounts measurement window.",
+            "example": "2022-03-01T00:00:00Z"
+          },
+          "active_accounts": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The number of active accounts for the 24hour window ending at window_end.",
+            "example": 420
+          }
+        }
+      }
+    },
+    "responses": {
+      "HumanReadableError": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "required": ["msg"],
+              "properties": {
+                "msg": {
+                  "type": "string",
+                  "description": "An error message.",
+                  "example": "internal storage error"
+                }
+              }
+            }
+          }
+        },
+        "description": "A human-readable error message."
+      },
+      "NotFoundError": {
+        "description": "An empty response indicating that the requested resource was not found.",
+        "content": {
+          "application/json": {
+            "schema": {}
+          }
+        }
+      }
+    },
+    "examples": {
+      "StakingAddress": {
+        "value": "oasis1qp2hssandc7dekjdr6ygmtzt783k3gn38uupdeys",
+        "description": "A native Oasis address, bech32-encoded."
+      },
+      "EthAddress": {
+        "value": "0xDEF1009df2d6872C214cd9148c6883893B7c4D91",
+        "description": "An Ethereum-compatible address, hex-encoded. Capitalization does not matter."
+      }
+    }
+  }
+}
