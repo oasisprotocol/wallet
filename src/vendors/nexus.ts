@@ -1,11 +1,13 @@
 import * as oasis from '@oasisprotocol/client'
 import {
   Configuration,
+  Account as NexusAccount,
   Delegation as NexusDelegation,
   DebondingDelegation as NexusDebondingDelegation,
   DefaultApi as NexusApi,
   Validator as NexusValidator,
 } from 'vendors/nexus/index'
+import { Account } from 'app/state/account/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { throwAPIErrors } from './helpers'
@@ -17,6 +19,13 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   })
 
   const api = new NexusApi(explorerConfig)
+
+  async function getAccount(address: string): Promise<Account> {
+    const account = await api.consensusAccountsAddressGet({ address })
+    if (!account) throw new Error('Wrong response code')
+
+    return parseAccount(account)
+  }
 
   async function getAllValidators(): Promise<Validator[]> {
     const validatorsResponse = await api.consensusValidatorsGet({})
@@ -49,9 +58,31 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   }
 
   return {
+    getAccount,
     getAllValidators,
     getTransactionsList,
     getDelegations,
+  }
+}
+
+function parseAccount(account: NexusAccount): Account {
+  const total = (
+    BigInt(account.available) +
+    BigInt(account.delegations_balance) +
+    BigInt(account.debonding_delegations_balance)
+  ).toString()
+
+  return {
+    address: account.address,
+    allowances: account.allowances.map(allowance => ({
+      address: allowance.address,
+      amount: allowance.amount,
+    })),
+    available: account.available,
+    delegations: account.delegations_balance,
+    debonding: account.debonding_delegations_balance,
+    total,
+    nonce: BigInt(account.nonce ?? 0).toString(),
   }
 }
 
