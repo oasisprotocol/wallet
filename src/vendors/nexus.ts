@@ -316,7 +316,10 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
         level: t.block,
         status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
         timestamp: transactionDate.getTime(),
-        to: (t.body as { to?: string }).to ?? undefined,
+        to:
+          (t.body as { to?: StringifiedBigInt }).to ||
+          (t.body as { beneficiary?: StringifiedBigInt }).beneficiary ||
+          undefined,
         type: transactionMethodMap[t.method] ?? t.method,
         runtimeName: undefined,
         runtimeId: undefined,
