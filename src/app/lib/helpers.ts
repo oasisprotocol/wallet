@@ -119,3 +119,8 @@ export const getDefaultFeeAmount = (isDepositing: boolean, paraTimeConfig: ParaT
 export function parseConsensusToLayerBaseUnit(feeAmount: string, decimals: number): BigNumber {
   return new BigNumber(feeAmount).shiftedBy(decimals).shiftedBy(-consensusDecimals)
 }
+
+export function removeTrailingZeros(value: string, zeros: number): string {
+  const bigValue = new BigNumber(value)
+  return bigValue.dividedBy(new BigNumber(10).pow(zeros)).toFixed()
+}

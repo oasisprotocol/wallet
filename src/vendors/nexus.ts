@@ -6,16 +6,28 @@ import {
   DebondingDelegation as NexusDebondingDelegation,
   DefaultApi as NexusApi,
   Transaction as NexusTransaction,
+  RuntimeTransaction as NexusRuntimeTransaction,
   Validator as NexusValidator,
   ConsensusTxMethod,
+  Runtime,
+  RuntimeTransaction,
 } from 'vendors/nexus/index'
 import { Account } from 'app/state/account/types'
 import { Transaction, TransactionStatus, TransactionType } from 'app/state/transaction/types'
 import { DebondingDelegation, Delegation, Validator } from 'app/state/staking/types'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
 import { throwAPIErrors } from './helpers'
+import { removeTrailingZeros } from 'app/lib/helpers'
+import { consensusDecimals, paraTimesConfig } from '../config'
+
+export interface ExtendedRuntimeTransaction extends NexusRuntimeTransaction {
+  decimals: number
+  runtimeId: Runtime
+  runtimeName: string
+}
 
 const getTransactionCacheMap: Record<string, NexusTransaction> = {}
+const getRuntimeTransactionInfoCacheMap: Record<string, ExtendedRuntimeTransaction> = {}
 
 export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   const explorerConfig = new Configuration({
@@ -43,6 +55,10 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
     return `${url}/consensus/transactions/${hash}`
   }
 
+  function getRuntimeTransactionUrl({ hash }: { hash: string }) {
+    return `${url}/sapphire/transactions/${hash}`
+  }
+
   async function getTransaction({ hash }: { hash: string }) {
     const cacheId = getTransactionUrl({ hash })
 
@@ -61,20 +77,104 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
     return transaction
   }
 
-  async function getTransactionsList(params: { accountId: string; limit: number }) {
-    const transactionsResponse = await api.consensusTransactionsGet({
-      rel: params.accountId,
-      limit: params.limit,
-    })
-    if (!transactionsResponse) throw new Error('Wrong response code')
-    const list = await Promise.all(
-      transactionsResponse.transactions.map(async tx => {
-        const { nonce } = await getTransaction({ hash: tx.hash })
-        return { ...tx, nonce }
-      }),
-    )
+  function extendRuntimeTransaction(
+    runtime: Runtime,
+    runtimeTransaction: RuntimeTransaction,
+  ): ExtendedRuntimeTransaction {
+    const config =
+      runtime === Runtime.Sapphire
+        ? paraTimesConfig.sapphire
+        : runtime === Runtime.Emerald
+        ? paraTimesConfig.emerald
+        : undefined
 
-    return parseTransactionsList(list)
+    return {
+      ...runtimeTransaction,
+      decimals: config?.decimals || consensusDecimals,
+      runtimeId: runtime,
+      runtimeName: runtime.charAt(0).toUpperCase() + runtime.slice(1),
+    }
+  }
+
+  async function getRuntimeTransaction({ hash, runtimeId }: { hash: string; runtimeId: Runtime }) {
+    const cacheId = getRuntimeTransactionUrl({ hash })
+
+    if (cacheId in getRuntimeTransactionInfoCacheMap) {
+      return getRuntimeTransactionInfoCacheMap[cacheId]
+    }
+
+    const runtimeTransaction = await api.runtimeTransactionsTxHashGet({
+      runtime: runtimeId,
+      txHash: hash,
+    })
+
+    if (runtimeTransaction) {
+      getRuntimeTransactionInfoCacheMap[cacheId] = extendRuntimeTransaction(
+        runtimeId,
+        runtimeTransaction.transactions[0],
+      )
+    }
+
+    return extendRuntimeTransaction(runtimeId, runtimeTransaction.transactions[0])
+  }
+
+  function mergeTransactions(
+    limit: number,
+    ...responses: (NexusTransaction | ExtendedRuntimeTransaction)[][]
+  ): (NexusTransaction | ExtendedRuntimeTransaction)[] {
+    const mergedList = responses.flat()
+    mergedList.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+
+    return mergedList.slice(0, limit)
+  }
+
+  async function getTransactionsList(params: { accountId: string; limit: number }) {
+    try {
+      const [consensusResponse, sapphireResponse, emeraldResponse] = await Promise.all([
+        api.consensusTransactionsGet({
+          rel: params.accountId,
+          limit: params.limit,
+        }),
+        api.runtimeTransactionsGet({
+          runtime: Runtime.Sapphire,
+          rel: params.accountId,
+          limit: params.limit,
+        }),
+        api.runtimeTransactionsGet({
+          runtime: Runtime.Emerald,
+          rel: params.accountId,
+          limit: params.limit,
+        }),
+      ])
+      const extendedSapphireResponse = sapphireResponse.transactions.map(runtimeTransaction =>
+        extendRuntimeTransaction(Runtime.Sapphire, runtimeTransaction),
+      )
+      const extendedEmeraldResponse = emeraldResponse.transactions.map(runtimeTransaction =>
+        extendRuntimeTransaction(Runtime.Emerald, runtimeTransaction),
+      )
+      const mergedTransactions = mergeTransactions(
+        params.limit,
+        consensusResponse.transactions,
+        extendedSapphireResponse,
+        extendedEmeraldResponse,
+      )
+
+      const list = await Promise.all(
+        mergedTransactions.map(async tx => {
+          if ('round' in tx) {
+            return await getRuntimeTransaction(tx)
+          } else {
+            const { nonce } = await getTransaction({ hash: tx.hash })
+            return { ...tx, nonce }
+          }
+        }),
+      )
+
+      return parseTransactionsList(list)
+    } catch (error) {
+      console.error('Could not fetch Nexus', error)
+      throw error
+    }
   }
 
   async function getDelegations(params: { accountId: string; nic: oasis.client.NodeInternal }): Promise<{
@@ -183,28 +283,48 @@ export const transactionMethodMap: {
   [ConsensusTxMethod.VaultCreate]: TransactionType.VaultCreate,
 }
 
-function parseTransactionsList(list: NexusTransaction[]): Transaction[] {
+function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransaction)[]): Transaction[] {
   return list.map(t => {
-    const transactionDate = new Date(t.timestamp)
-    const parsed: Transaction = {
-      amount:
-        (t.body as { amount?: StringifiedBigInt }).amount ||
-        (t.body as { amount_change?: StringifiedBigInt }).amount_change ||
-        undefined,
-      fee: t.fee,
-      from: t.sender,
-      hash: t.hash,
-      level: t.block,
-      status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
-      timestamp: transactionDate.getTime(),
-      to: (t.body as { to?: string }).to ?? undefined,
-      type: transactionMethodMap[t.method] ?? t.method,
-      runtimeName: undefined,
-      runtimeId: undefined,
-      round: undefined,
-      nonce: BigInt(t.nonce).toString(),
+    if ('round' in t) {
+      const transactionDate = new Date(t.timestamp)
+      const parsed: Transaction = {
+        amount: t.amount ? removeTrailingZeros(t.amount, t.decimals - consensusDecimals) : undefined,
+        fee: t.fee ? removeTrailingZeros(t.fee, t.decimals - consensusDecimals) : undefined,
+        from: t.sender_0_eth || t.sender_0,
+        hash: t.hash,
+        level: undefined,
+        status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
+        timestamp: transactionDate.getTime(),
+        to: (t.body as { to?: string }).to ?? undefined,
+        type: transactionMethodMap[t.method] ?? t.method,
+        runtimeName: t.runtimeName,
+        runtimeId: t.runtimeId,
+        round: t.round,
+        nonce: BigInt(t.nonce_0).toString(),
+      }
+      return parsed
+    } else {
+      const transactionDate = new Date(t.timestamp)
+      const parsed: Transaction = {
+        amount:
+          (t.body as { amount?: StringifiedBigInt }).amount ||
+          (t.body as { amount_change?: StringifiedBigInt }).amount_change ||
+          undefined,
+        fee: t.fee,
+        from: t.sender,
+        hash: t.hash,
+        level: t.block,
+        status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
+        timestamp: transactionDate.getTime(),
+        to: (t.body as { to?: string }).to ?? undefined,
+        type: transactionMethodMap[t.method] ?? t.method,
+        runtimeName: undefined,
+        runtimeId: undefined,
+        round: undefined,
+        nonce: BigInt(t.nonce).toString(),
+      }
+      return parsed
     }
-    return parsed
   })
 }
 
