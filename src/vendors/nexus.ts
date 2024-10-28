@@ -319,6 +319,7 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
         to:
           (t.body as { to?: StringifiedBigInt }).to ||
           (t.body as { beneficiary?: StringifiedBigInt }).beneficiary ||
+          (t.body as { account?: StringifiedBigInt }).account ||
           undefined,
         type: transactionMethodMap[t.method] ?? t.method,
         runtimeName: undefined,
