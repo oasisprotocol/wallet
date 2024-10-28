@@ -49,7 +49,7 @@ export const config: BackendConfig = {
     [BackendAPIs.Nexus]: {
       explorer: 'https://nexus.oasis.io/v1',
       blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
-      blockExplorerParatimes: 'https://oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerParatimes: 'https://explorer.oasis.io/mainnet/{{runtimeId}}/tx/{{txHash}}',
       blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
     },
   },
@@ -64,15 +64,13 @@ export const config: BackendConfig = {
     [BackendAPIs.OasisScan]: {
       explorer: 'https://api.oasisscan.com/testnet',
       blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
-      blockExplorerParatimes:
-        'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerParatimes: 'https://testnet.oasisscan.com/paratimes/tx/{{txHash}}',
       blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
     },
     [BackendAPIs.Nexus]: {
       explorer: 'https://testnet.nexus.oasis.io/v1',
       blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
-      blockExplorerParatimes:
-        'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
+      blockExplorerParatimes: 'https://explorer.oasis.io/testnet/{{runtimeId}}/transactions/{{txHash}}',
       blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
     },
   },
