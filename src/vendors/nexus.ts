@@ -307,8 +307,8 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
       const transactionDate = new Date(t.timestamp)
       const parsed: Transaction = {
         amount:
-          (t.body as { amount?: StringifiedBigInt }).amount ||
-          (t.body as { amount_change?: StringifiedBigInt }).amount_change ||
+          (t.body as { amount?: StringifiedBigInt })?.amount ||
+          (t.body as { amount_change?: StringifiedBigInt })?.amount_change ||
           undefined,
         fee: t.fee,
         from: t.sender,
@@ -317,9 +317,9 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
         status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
         timestamp: transactionDate.getTime(),
         to:
-          (t.body as { to?: StringifiedBigInt }).to ||
-          (t.body as { beneficiary?: StringifiedBigInt }).beneficiary ||
-          (t.body as { account?: StringifiedBigInt }).account ||
+          (t.body as { to?: StringifiedBigInt })?.to ||
+          (t.body as { beneficiary?: StringifiedBigInt })?.beneficiary ||
+          (t.body as { account?: StringifiedBigInt })?.account ||
           undefined,
         type: transactionMethodMap[t.method] ?? t.method,
         runtimeName: undefined,
