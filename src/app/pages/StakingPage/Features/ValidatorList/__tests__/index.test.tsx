@@ -15,7 +15,6 @@ jest.mock('@oasisprotocol/client/dist/client')
 
 const activeValidator: Validator = {
   address: 'oasis1qpc4ze5zzq3aa5mu5ttu4ku4ctp5t6x0asemymfz',
-  nodeAddress: 'oasis1qpwrtzadlddfuvdhjlta85268ju7dj0flsrfgg5x',
   current_rate: 0.1,
   rank: 0,
   status: 'active',
@@ -30,7 +29,6 @@ const activeValidator: Validator = {
 }
 const inactiveValidator: Validator = {
   address: 'oasis1qzyqaxestzlum26e2vdgvkerm6d9qgdp7gh2pxqe',
-  nodeAddress: 'oasis1qrdlqcv3tnv7qzuucnq0fncua52n66x7n5pm3n93',
   current_rate: 0.2,
   rank: 1,
   status: 'inactive',
@@ -40,7 +38,6 @@ const inactiveValidator: Validator = {
 }
 const unknownValidator: Validator = {
   address: 'oasis1qrfe9n26nq3t6vc9hlu9gnupwf4rm6wr0uglh3r7',
-  nodeAddress: 'oasis1qq672rjh7mldhaj35mlf4w34m8jtl9vu2c8qspkz',
   current_rate: 0.2,
   rank: 2,
   status: 'unknown',

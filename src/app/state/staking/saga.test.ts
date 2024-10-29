@@ -179,6 +179,8 @@ describe('Staking Sagas', () => {
       }
       nic.schedulerGetValidators.mockResolvedValue([
         {
+          // oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe
+          entity_id: oasis.misc.fromHex('799b9a717cb9b37fe7a2507f137805e2fa9461dbdf3a555a6815c67d9706c0a7'),
           // oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar
           id: oasis.misc.fromHex('91e7768ae47cd1641d6f883b97e3ea6d0286240bc3e3e2953c5c2e0dce6753a3'),
           voting_power: 1,
