@@ -124,17 +124,17 @@ function* getFallbackValidators(network: NetworkType, errorApi: Error) {
   }
 
   // Fall back to dump_validators with refreshed validators' status from RPC
-  const activeNodes: { [nodeAddress: string]: true } = {}
+  const activeNodes: { [address: string]: true } = {}
   for (const rpcValidator of rpcActiveValidators) {
-    const nodeAddress = yield* call(publicKeyToAddress, rpcValidator.id)
-    activeNodes[nodeAddress] = true
+    const address = yield* call(publicKeyToAddress, rpcValidator.entity_id)
+    activeNodes[address] = true
   }
   fallbackValidators = {
     ...fallbackValidators,
     list: fallbackValidators.list.map(v => {
       return {
         ...v,
-        status: activeNodes[v.nodeAddress] ? ('active' as const) : ('inactive' as const),
+        status: activeNodes[v.address] ? ('active' as const) : ('inactive' as const),
       }
     }),
   }
