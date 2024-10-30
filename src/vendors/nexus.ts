@@ -11,6 +11,7 @@ import {
   ConsensusTxMethod,
   Runtime,
   RuntimeTransaction,
+  ConsensusEventType,
 } from 'vendors/nexus/index'
 import { Account } from 'app/state/account/types'
 import { Transaction, TransactionStatus, TransactionType } from 'app/state/transaction/types'
@@ -157,6 +158,26 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
         consensusResponse.transactions,
         extendedSapphireResponse,
         extendedEmeraldResponse,
+      )
+
+      // Temporary workaround for missing amount in staking.ReclaimEscrow
+      await Promise.all(
+        mergedTransactions.map(async transaction => {
+          if (transaction.method === ConsensusTxMethod.StakingReclaimEscrow) {
+            const eventsResponse = await api.consensusEventsGet({
+              limit: 1,
+              txHash: transaction.hash,
+              type: ConsensusEventType.StakingEscrowDebondingStart,
+            })
+            const amount = (eventsResponse.events[0].body as { amount?: number })?.amount
+            if (transaction.body) {
+              ;(transaction.body as { amount?: typeof amount }).amount = amount
+            }
+            return transaction
+          }
+
+          return transaction
+        }),
       )
 
       const list = await Promise.all(
