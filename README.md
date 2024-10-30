@@ -15,6 +15,8 @@
 
 ## Deploys
 
+- Production browser extension: [chromewebstore.google.com]
+
 - Production / Stable deploy: <https://wallet.oasis.io>
 
   The main deploy of the wallet available to the general public.
@@ -218,6 +220,7 @@ Adding a new language:
 [Release process doc](docs/release-process.md)
 
 [demo-video]: https://github.com/oasisprotocol/wallet/assets/3758846/ef11fbea-dd55-42b1-87a4-1b74509a2809
+[chromewebstore.google.com]: https://chromewebstore.google.com/detail/rose-wallet/ppdadbejkmjnefldpcdjhnkpbjkikoip
 [docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
 [oasis-monitor]: https://oasismonitor.com
