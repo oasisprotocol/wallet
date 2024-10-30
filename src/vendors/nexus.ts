@@ -27,9 +27,6 @@ export interface ExtendedRuntimeTransaction extends NexusRuntimeTransaction {
   runtimeName: string
 }
 
-const getTransactionCacheMap: Record<string, NexusTransaction> = {}
-const getRuntimeTransactionInfoCacheMap: Record<string, ExtendedRuntimeTransaction> = {}
-
 export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   const explorerConfig = new Configuration({
     basePath: url,
@@ -52,32 +49,6 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
     return parseValidatorsList(validatorsResponse.validators)
   }
 
-  function getTransactionUrl({ hash }: { hash: string }) {
-    return `${url}/consensus/transactions/${hash}`
-  }
-
-  function getRuntimeTransactionUrl({ hash }: { hash: string }) {
-    return `${url}/sapphire/transactions/${hash}`
-  }
-
-  async function getTransaction({ hash }: { hash: string }) {
-    const cacheId = getTransactionUrl({ hash })
-
-    if (cacheId in getTransactionCacheMap) {
-      return getTransactionCacheMap[cacheId]
-    }
-
-    const transaction = await api.consensusTransactionsTxHashGet({
-      txHash: hash,
-    })
-
-    if (transaction) {
-      getTransactionCacheMap[cacheId] = transaction
-    }
-
-    return transaction
-  }
-
   function extendRuntimeTransaction(
     runtime: Runtime,
     runtimeTransaction: RuntimeTransaction,
@@ -95,28 +66,6 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
       runtimeId: runtime,
       runtimeName: runtime.charAt(0).toUpperCase() + runtime.slice(1),
     }
-  }
-
-  async function getRuntimeTransaction({ hash, runtimeId }: { hash: string; runtimeId: Runtime }) {
-    const cacheId = getRuntimeTransactionUrl({ hash })
-
-    if (cacheId in getRuntimeTransactionInfoCacheMap) {
-      return getRuntimeTransactionInfoCacheMap[cacheId]
-    }
-
-    const runtimeTransaction = await api.runtimeTransactionsTxHashGet({
-      runtime: runtimeId,
-      txHash: hash,
-    })
-
-    if (runtimeTransaction) {
-      getRuntimeTransactionInfoCacheMap[cacheId] = extendRuntimeTransaction(
-        runtimeId,
-        runtimeTransaction.transactions[0],
-      )
-    }
-
-    return extendRuntimeTransaction(runtimeId, runtimeTransaction.transactions[0])
   }
 
   function mergeTransactions(
@@ -180,18 +129,7 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
         }),
       )
 
-      const list = await Promise.all(
-        mergedTransactions.map(async tx => {
-          if ('round' in tx) {
-            return await getRuntimeTransaction(tx)
-          } else {
-            const { nonce } = await getTransaction({ hash: tx.hash })
-            return { ...tx, nonce }
-          }
-        }),
-      )
-
-      return parseTransactionsList(list)
+      return parseTransactionsList(mergedTransactions)
     } catch (error) {
       console.error('Could not fetch Nexus', error)
       throw error
