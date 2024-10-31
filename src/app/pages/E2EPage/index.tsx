@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
 import * as oasis from '@oasisprotocol/client'
+import * as oasisRT from '@oasisprotocol/client-rt'
 import { useDispatch, useStore } from 'react-redux'
 import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
@@ -33,6 +34,7 @@ interface e2eWindow extends Window {
   monitor: any
   oasisscan: any
   oasis: any
+  oasisRT: any
   store: any
 }
 declare const window: e2eWindow
@@ -43,6 +45,7 @@ function ExposeInternals() {
     window.monitor = monitor
     window.oasisscan = oasisscan
     window.oasis = oasis
+    window.oasisRT = oasisRT
     window.store = store
     return () => {
       // Keep globals even after redirecting away

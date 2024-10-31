@@ -177,7 +177,7 @@ export const paraTimesConfig: ParaTimesConfig = {
 }
 
 // https://github.com/mozilla/webextension-polyfill/blob/6e3e26c/src/browser-polyfill.js#L9
-export const runtimeIs = (window as any).chrome?.runtime?.id ? 'extension' : 'webapp'
+export const runtimeIs = (globalThis as any).chrome?.runtime?.id ? 'extension' : 'webapp'
 
 export const deploys = {
   production: 'https://wallet.oasis.io',
