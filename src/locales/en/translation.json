@@ -358,6 +358,7 @@
     "common": {
       "cipher": "Cipher",
       "depositHeader": "Deposit to ParaTime",
+      "discouragedType": "(experimental)",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "ParaTime Transfers",

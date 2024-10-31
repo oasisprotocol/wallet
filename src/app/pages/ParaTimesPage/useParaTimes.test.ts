@@ -284,7 +284,7 @@ describe('useParaTimes', () => {
 
       const { result } = renderHook(() => useParaTimes())
 
-      expect(result.current.paraTimeName).toEqual('paraTimes.common.cipher')
+      expect(result.current.paraTimeName).toEqual('paraTimes.common.cipher paraTimes.common.discouragedType')
     })
   })
 
