@@ -7,7 +7,7 @@ const extensionPath = path.join(__dirname, '..', process.env.EXTENSION_PATH ?? '
 const getPopupFile = () => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const extensionManifest = require(path.join(extensionPath, '/manifest.json'))
-  return extensionManifest.browser_action.default_popup
+  return extensionManifest.action.default_popup
 }
 
 // From https://playwright.dev/docs/chrome-extensions

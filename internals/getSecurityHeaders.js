@@ -34,9 +34,10 @@ const getCsp = ({ isExtension, isDev }) =>
     default-src 'none';
     script-src
       'self'
-      ${isDev ? reactErrorOverlay : ''}
-      ${isDev ? hmrScripts : ''}
-      'report-sample';
+      ${!isExtension && isDev ? reactErrorOverlay : '' /* Manifest v3 doesn't allow anything */}
+      ${!isExtension && isDev ? hmrScripts : ''}
+      ${!isExtension ? 'report-sample' : ''}
+      ;
     style-src
       'self'
       'unsafe-inline'
