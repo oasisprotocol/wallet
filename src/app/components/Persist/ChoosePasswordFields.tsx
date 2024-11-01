@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { ChoosePasswordInputFields } from './ChoosePasswordInputFields'
+import { runtimeIs } from 'config'
 
 export function ChoosePasswordFields() {
   const { t } = useTranslation()
@@ -16,6 +17,8 @@ export function ChoosePasswordFields() {
   const isPersistenceUnsupported = useSelector(selectIsPersistenceUnsupported)
   const hasUnpersistedAccounts = unlockedStatus === 'openUnpersisted'
   const [startPersisting, setStartPersisting] = useState(!hasUnpersistedAccounts)
+
+  const isExtension = runtimeIs === 'extension'
 
   const isChoiceDisabled =
     isPersistenceUnsupported ||
@@ -40,6 +43,12 @@ export function ChoosePasswordFields() {
             ? {
                 disabled: true,
                 checked: unlockedStatus === 'unlockedProfile',
+              }
+            : isExtension
+            ? {
+                disabled: true,
+                // Force creating a profile in Manifest v3 extension because we can't keep state in memory
+                checked: true,
               }
             : {
                 checked: startPersisting,
