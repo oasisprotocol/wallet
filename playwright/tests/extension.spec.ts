@@ -3,7 +3,7 @@ import { expect } from '@playwright/test'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
 import { expectNoErrorsInConsole } from '../utils/expectNoErrorsInConsole'
-import { fillPrivateKeyWithoutPassword } from '../utils/fillPrivateKey'
+import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
 import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
 
 test.beforeEach(async ({ context }) => {
@@ -60,10 +60,10 @@ test.describe('The extension popup should load', () => {
       },
     })
     await page.goto(`${extensionPopupURL}/open-wallet/private-key`)
-    await fillPrivateKeyWithoutPassword(page, {
+    await fillPrivateKeyAndPassword(page, {
       privateKey: privateKey,
       privateKeyAddress: privateKeyAddress,
-      persistenceCheckboxDisabled: false,
+      persistenceCheckboxDisabled: 'disabled-checked',
     })
     await expect(page.getByTestId('account-selector')).toBeVisible()
     await page.getByRole('link', { name: 'Buy' }).click()
