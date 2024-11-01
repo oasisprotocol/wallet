@@ -35,6 +35,11 @@ import { routes } from './routes'
     window.close()
   } else {
     console.log('This is the single tab.')
+    await browser.action.setBadgeText({ text: '🗔' })
+    window.addEventListener('beforeunload', () => {
+      browser.action.setBadgeText({ text: null })
+    })
+
     const container = document.getElementById('root') as HTMLElement
     const root = createRoot(container!)
     const store = configureAppStore()
