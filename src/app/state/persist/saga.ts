@@ -4,18 +4,26 @@ import { isActionSynced } from 'redux-state-sync'
 import { persistActions, STORAGE_FIELD } from './index'
 import {
   base64andStringify,
+  decryptWithKey,
   decryptWithPassword,
   deriveKeyFromPassword,
   encryptWithKey,
   fromBase64andParse,
 } from './encryption'
 import { RootState } from 'types'
-import { EncryptedString, KeyWithSalt, PersistedRootState, SetUnlockedRootStatePayload } from './types'
+import {
+  EncryptedString,
+  KeyWithSalt,
+  PersistState,
+  PersistedRootState,
+  SetUnlockedRootStatePayload,
+} from './types'
 import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { runtimeIs } from 'config'
 import { backupAndDeleteV0ExtProfile, readStorageV0 } from '../../../utils/walletExtensionV0'
+import { selectStringifiedEncryptionKey } from './selectors'
 
 function* watchPersistAsync() {
   yield* fork(function* () {
@@ -211,8 +219,55 @@ function* encryptAndPersistState(action: AnyAction) {
   window.localStorage.setItem(STORAGE_FIELD, encryptedState)
 }
 
+function* retainEncryptionKeyBetweenPopupReopenings() {
+  if (runtimeIs !== 'extension') return
+  yield* fork(function* () {
+    const channelQueue = yield* actionChannel<AnyAction>('*')
+    let previousStringifiedEncryptionKey: PersistState['stringifiedEncryptionKey'] = undefined
+    while (true) {
+      yield* take(channelQueue)
+      const stringifiedEncryptionKey = yield* select(selectStringifiedEncryptionKey)
+      if (stringifiedEncryptionKey !== previousStringifiedEncryptionKey) {
+        previousStringifiedEncryptionKey = stringifiedEncryptionKey
+        yield* call(writeSharedExtMemory, stringifiedEncryptionKey)
+      }
+    }
+  })
+
+  yield* fork(function* () {
+    const encryptedState = window.localStorage.getItem(
+      STORAGE_FIELD,
+    ) as EncryptedString<PersistedRootState> | null
+    if (!encryptedState) return // Ignore
+    try {
+      const stringifiedEncryptionKey = yield* call(readSharedExtMemory)
+      if (!stringifiedEncryptionKey) return // Ignore
+      if (stringifiedEncryptionKey === 'skipped') return // Ignore
+      const keyWithSalt: KeyWithSalt = fromBase64andParse(stringifiedEncryptionKey)
+      const persistedRootState = yield* call(decryptWithKey<PersistedRootState>, keyWithSalt, encryptedState)
+      yield* put(persistActions.setUnlockedRootState({ persistedRootState, stringifiedEncryptionKey }))
+    } catch (error) {
+      // Ignore
+    }
+  })
+}
+
+async function writeSharedExtMemory(stringifiedEncryptionKey: PersistState['stringifiedEncryptionKey']) {
+  if (runtimeIs !== 'extension') return
+  const browser = await import('webextension-polyfill')
+  await browser.storage.session.set({ stringifiedEncryptionKey })
+}
+
+async function readSharedExtMemory() {
+  if (runtimeIs !== 'extension') return
+  const browser = await import('webextension-polyfill')
+  const storage = await browser.storage.session.get('stringifiedEncryptionKey')
+  return storage.stringifiedEncryptionKey as PersistState['stringifiedEncryptionKey']
+}
+
 export function* persistSaga() {
   yield* watchPersistAsync()
+  yield* retainEncryptionKeyBetweenPopupReopenings()
   const storageV0 = yield* call(readStorageV0)
   yield* put(persistActions.setHasV0StorageToMigrate(!!storageV0?.chromeStorageLocal.keyringData))
 }
