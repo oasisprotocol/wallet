@@ -215,9 +215,15 @@ export function parseDelegations(delegations: NexusDelegation[]): Delegation[] {
   })
 }
 
-export const transactionMethodMap: {
+function getTransactionType(method: string | undefined): TransactionType {
+  const type = transactionMethodMap[method as keyof typeof transactionMethodMap]
+  // Not handled mappings are rendered as unrecognizedTransaction
+  return type ?? (method as TransactionType)
+}
+
+export const transactionMethodMap: Partial<{
   [k in ConsensusTxMethod]: TransactionType
-} = {
+}> = {
   [ConsensusTxMethod.StakingTransfer]: TransactionType.StakingTransfer,
   [ConsensusTxMethod.StakingAddEscrow]: TransactionType.StakingAddEscrow,
   [ConsensusTxMethod.StakingReclaimEscrow]: TransactionType.StakingReclaimEscrow,
@@ -255,7 +261,7 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
         status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
         timestamp: transactionDate.getTime(),
         to: (t.body as { to?: string }).to ?? undefined,
-        type: transactionMethodMap[t.method] ?? t.method,
+        type: getTransactionType(t.method),
         runtimeName: t.runtimeName,
         runtimeId: t.runtimeId,
         round: t.round,
@@ -280,7 +286,7 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
           (t.body as { beneficiary?: StringifiedBigInt })?.beneficiary ||
           (t.body as { account?: StringifiedBigInt })?.account ||
           undefined,
-        type: transactionMethodMap[t.method] ?? t.method,
+        type: getTransactionType(t.method),
         runtimeName: undefined,
         runtimeId: undefined,
         round: undefined,
