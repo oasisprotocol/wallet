@@ -1,7 +1,6 @@
 import { useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
-import { TFunction } from 'i18next'
 import { paraTimesActions } from 'app/state/paratimes'
 import { TransactionForm, TransactionTypes } from 'app/state/paratimes/types'
 import { selectSelectedNetwork, selectTicker } from 'app/state/network/selectors'
@@ -9,10 +8,11 @@ import { selectAccountAvailableBalance, selectAccountIsLoading } from 'app/state
 import { selectAddress } from 'app/state/wallet/selectors'
 import { selectParaTimes } from 'app/state/paratimes/selectors'
 import { StringifiedBigInt } from 'types/StringifiedBigInt'
-import { ErrorPayload, ExhaustedTypeError } from 'types/errors'
+import { ErrorPayload } from 'types/errors'
 import { paraTimesConfig, RuntimeTypes, ParaTime, type ParaTimeConfig } from '../../../config'
 import { selectEvmAccounts } from 'app/state/evmAccounts/selectors'
 import { EvmAccount } from 'app/state/evmAccounts/types'
+import { getParaTimeName } from './getParaTimeName'
 
 type AvailableParaTimesForNetwork = {
   isEvm: boolean
@@ -43,22 +43,6 @@ export type ParaTimesHook = {
   transactionError: ErrorPayload | undefined
   transactionForm: TransactionForm
   usesOasisAddress: boolean
-}
-
-const getParaTimeName = (t: TFunction, paraTime: ParaTime) => {
-  switch (paraTime) {
-    case ParaTime.Cipher:
-      return t('paraTimes.common.cipher', 'Cipher')
-    case ParaTime.Emerald:
-      return t('paraTimes.common.emerald', 'Emerald')
-    case ParaTime.Sapphire:
-      return t('paraTimes.common.sapphire', 'Sapphire')
-    default:
-      throw new ExhaustedTypeError(
-        t('paraTimes.validation.unsupportedParaTime', 'Unsupported ParaTime'),
-        paraTime,
-      )
-  }
 }
 
 export const useParaTimes = (): ParaTimesHook => {

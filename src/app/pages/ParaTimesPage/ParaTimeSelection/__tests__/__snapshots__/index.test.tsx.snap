@@ -492,7 +492,7 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
                         class="c12"
                       >
                         <span>
-                          paraTimes.common.cipher
+                          paraTimes.common.cipher paraTimes.common.discouragedType
                         </span>
                       </div>
                       <input
