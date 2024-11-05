@@ -8,7 +8,7 @@ type Props = {
 }
 
 const getPopupUrl = (path: string) =>
-  browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
+  browser.runtime.getURL(`${browser.runtime.getManifest()?.action?.default_popup}${path}`)
 
 const openPopup = ({ path, height, width, type }: Props) => {
   const existingPopupWindow = browser.extension
