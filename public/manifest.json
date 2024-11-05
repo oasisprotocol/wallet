@@ -35,6 +35,6 @@
   "externally_connectable": { "ids": [] },
   "web_accessible_resources": [{
     "matches": [],
-    "resources": ["./src/app/pages/ExtensionRequestLedgerPermissionPopup/index.html"]
+    "resources": ["../extension/src/ExtensionRequestLedgerPermissionPopup/index.html"]
   }]
 }
