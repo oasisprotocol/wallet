@@ -22,10 +22,10 @@ import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 
 // Initialize languages
-import './locales/i18n'
+import 'locales/i18n'
 
 // Fonts
-import './styles/main.css'
+import 'styles/main.css'
 import { routes } from './routes'
 
 const store = configureAppStore()

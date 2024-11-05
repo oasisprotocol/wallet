@@ -7,19 +7,17 @@ type Props = {
   type?: browser.Windows.CreateType
 }
 
-const getPopupUrl = (path: string) =>
+export const getPopupUrl = (path: string) =>
   browser.runtime.getURL(`${browser.runtime.getManifest()?.action?.default_popup}${path}`)
 
 const openPopup = ({ path, height, width, type }: Props) => {
-  const existingPopupWindow = browser.extension
-    .getViews()
-    .find(window => window.location.href === getPopupUrl(path))
+  const existingPopupWindow = browser.extension.getViews().find(window => window.location.href === path)
 
   if (existingPopupWindow) {
     existingPopupWindow.close()
   }
   browser.windows.create({
-    url: getPopupUrl(path),
+    url: path,
     type: type ?? 'popup',
     width: width,
     height: height,
