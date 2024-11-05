@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { App } from 'app'
-import { ExtensionRequestLedgerPermissionPopup } from 'app/pages/ExtensionRequestLedgerPermissionPopup'
+import { ExtensionRequestLedgerPermissionPopup } from 'app/pages/ExtensionRequestLedgerPermissionPopup/ExtensionRequestLedgerPermissionPopup'
 import { FromLedgerWebExtension } from 'app/pages/OpenWalletPage/webextension'
 import { commonRoutes } from '../../../src/commonRoutes'
 import { SelectOpenMethod } from '../../../src/app/pages/OpenWalletPage'

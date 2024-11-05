@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ExtensionRequestLedgerPermissionPopup } from '..'
+import { ExtensionRequestLedgerPermissionPopup } from '../ExtensionRequestLedgerPermissionPopup'
 
 jest.mock('app/lib/ledger')
 
