@@ -49,6 +49,7 @@
         "total": "Total"
       },
       "noTransactionFound": "No transactions found.",
+      "noTransactionFoundOasisscanV2": "No transactions since November 29, 2023.",
       "noWalletIsOpen": "To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>.",
       "notYourAccount": "This is not your account.",
       "pendingTransactions": "Pending transactions",
