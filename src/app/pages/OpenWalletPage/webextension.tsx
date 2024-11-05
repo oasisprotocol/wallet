@@ -4,7 +4,7 @@ import { openLedgerAccessPopup } from 'utils/webextension'
 import { FromLedger } from './Features/FromLedger'
 
 export function FromLedgerWebExtension() {
-  const href = useHref('/open-wallet/connect-device')
+  const href = useHref('/extension-request-ledger-permission-popup')
   const navigate = useNavigate()
 
   return (

@@ -41,7 +41,7 @@ function ConnectionStatusIcon({ success = true, label, withMargin = false }: Con
   )
 }
 
-export function ConnectDevicePage() {
+export function ExtensionRequestLedgerPermissionPopup() {
   const { t } = useTranslation()
   const [connection, setConnection] = useState<ConnectionStatus>('disconnected')
   const handleConnect = async () => {

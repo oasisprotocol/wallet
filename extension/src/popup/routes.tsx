@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { App } from 'app'
-import { ConnectDevicePage } from 'app/pages/ConnectDevicePage'
+import { ExtensionRequestLedgerPermissionPopup } from 'app/pages/ExtensionRequestLedgerPermissionPopup'
 import { FromLedgerWebExtension } from 'app/pages/OpenWalletPage/webextension'
 import { commonRoutes } from '../../../src/commonRoutes'
 import { SelectOpenMethod } from '../../../src/app/pages/OpenWalletPage'
@@ -23,7 +23,7 @@ export const routes: RouteObject[] = [
     ],
   },
   {
-    path: 'open-wallet/connect-device',
-    element: <ConnectDevicePage />,
+    path: 'extension-request-ledger-permission-popup',
+    element: <ExtensionRequestLedgerPermissionPopup />,
   },
 ]

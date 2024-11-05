@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ConnectDevicePage } from '..'
+import { ExtensionRequestLedgerPermissionPopup } from '..'
 
 jest.mock('app/lib/ledger')
 
@@ -10,9 +10,9 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }))
 
-describe('<ConnectDevicePage />', () => {
+describe('<ExtensionRequestLedgerPermissionPopup />', () => {
   it('should render component', () => {
-    const { container } = render(<ConnectDevicePage />)
+    const { container } = render(<ExtensionRequestLedgerPermissionPopup />)
 
     expect(container).toMatchSnapshot()
   })
