@@ -12,6 +12,8 @@ import {
   ChainTransactionInfoResponse,
   ChainTransactionListInfo,
   Configuration,
+  RuntimeApi,
+  RuntimeTransactionInfoResponse,
   ValidatorApi,
   ValidatorInfo,
 } from 'vendors/oasisscan-v2/index'
@@ -19,6 +21,7 @@ import {
 import { throwAPIErrors } from './helpers'
 
 const getTransactionCacheMap: Record<string, ChainTransactionInfoResponse> = {}
+const getRuntimeTransactionInfoCacheMap: Record<string, RuntimeTransactionInfoResponse> = {}
 
 export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/mainnet') {
   const explorerConfig = new Configuration({
@@ -29,6 +32,7 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
   const accountApi = new AccountApi(explorerConfig)
   const chainApi = new ChainApi(explorerConfig)
   const validatorApi = new ValidatorApi(explorerConfig)
+  const runtimeApi = new RuntimeApi(explorerConfig)
 
   async function getAccount(address: string): Promise<Account> {
     const account = await accountApi.accountInfoHandler({ address })
@@ -42,6 +46,32 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
     if (!validators) throw new Error('Wrong response code')
 
     return parseValidatorsList(validators.list)
+  }
+
+  function getRuntimeTransactionInfoUrl(filter: { id: string; hash: string }) {
+    const searchParams = new URLSearchParams(filter)
+    searchParams.sort()
+    return `${url}/runtime/transaction/info?${searchParams.toString()}`
+  }
+
+  async function getRuntimeTransactionInfo(tx: ChainTransactionListInfo) {
+    const cacheId = getRuntimeTransactionInfoUrl({ id: tx.runtimeId!, hash: tx.txHash! })
+
+    if (cacheId in getRuntimeTransactionInfoCacheMap) {
+      return getRuntimeTransactionInfoCacheMap[cacheId]
+    }
+
+    const runtimeTransaction = await runtimeApi.runtimeTransactionInfoHandler({
+      id: tx.runtimeId!,
+      hash: tx.txHash!,
+      round: tx.round!,
+    })
+
+    if (runtimeTransaction) {
+      getRuntimeTransactionInfoCacheMap[cacheId] = runtimeTransaction
+    }
+
+    return runtimeTransaction
   }
 
   function getTransactionUrl({ hash }: { hash: string }) {
@@ -71,12 +101,18 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
       address: params.accountId,
       size: params.limit,
       page: 1,
+      runtime: true,
     })
     if (!transactionsList) throw new Error('Wrong response code')
+
     const list = await Promise.all(
       transactionsList.list.map(async tx => {
-        const { nonce } = await getTransaction({ hash: tx.txHash! })
-        return { ...tx, nonce }
+        if (tx.txType === 'runtime') {
+          return await getRuntimeTransactionInfo(tx)
+        } else {
+          const { nonce } = await getTransaction({ hash: tx.txHash! })
+          return { ...tx, nonce }
+        }
       }),
     )
 
@@ -150,24 +186,46 @@ function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
   })
 }
 
-function parseTransactionsList(list: ChainTransactionListInfo[]): Transaction[] {
+function parseTransactionsList(
+  list: (ChainTransactionListInfo | RuntimeTransactionInfoResponse)[],
+): Transaction[] {
   return list.map(t => {
-    const parsed: Transaction = {
-      amount: t.amount == null ? undefined : parseRoseStringToBaseUnitString(t.amount),
-      fee: t.fee ? parseRoseStringToBaseUnitString(t.fee) : undefined,
-      from: t.from,
-      hash: t.txHash!,
-      level: t.height,
-      status: t.status ? TransactionStatus.Successful : TransactionStatus.Failed,
-      timestamp: t.timestamp ? t.timestamp * 1000 : undefined,
-      to: t.to ?? undefined,
-      type: t.method as TransactionType,
-      runtimeName: undefined,
-      runtimeId: undefined,
-      round: undefined,
-      nonce: undefined,
+    if ('ctx' in t) {
+      const parsed: Transaction = {
+        amount: t.ctx.amount == null ? undefined : parseRoseStringToBaseUnitString(t.ctx.amount),
+        fee: undefined,
+        from: t.ctx.from,
+        hash: t.txHash,
+        level: undefined,
+        status: t.result ? TransactionStatus.Successful : TransactionStatus.Failed,
+        timestamp: t.timestamp * 1000,
+        to: t.ctx.to ?? undefined,
+        type: t.ctx.method as TransactionType,
+        runtimeName: t.runtimeName,
+        runtimeId: t.runtimeId,
+        round: t.round,
+        nonce:
+          t.ctx?.nonce ?? t.etx?.nonce != null ? BigInt(t.ctx?.nonce ?? t.etx?.nonce).toString() : undefined,
+      }
+      return parsed
+    } else {
+      const parsed: Transaction = {
+        amount: t.amount == null ? undefined : parseRoseStringToBaseUnitString(t.amount),
+        fee: t.fee ? parseRoseStringToBaseUnitString(t.fee) : undefined,
+        from: t.from,
+        hash: t.txHash!,
+        level: t.height,
+        status: t.status ? TransactionStatus.Successful : TransactionStatus.Failed,
+        timestamp: t.timestamp ? t.timestamp * 1000 : undefined,
+        to: t.to ?? undefined,
+        type: t.method as TransactionType,
+        runtimeName: undefined,
+        runtimeId: undefined,
+        round: undefined,
+        nonce: undefined,
+      }
+      return parsed
     }
-    return parsed
   })
 }
 
