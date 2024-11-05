@@ -122,7 +122,7 @@ export class AccountApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDebondingResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDebondingResponseFromJSON(jsonValue.data));
     }
 
     /**
@@ -178,7 +178,7 @@ export class AccountApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDelegationsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountDelegationsResponseFromJSON(jsonValue.data));
     }
 
     /**
@@ -206,7 +206,7 @@ export class AccountApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AccountInfoResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => AccountInfoResponseFromJSON(jsonValue.data));
     }
 
     /**

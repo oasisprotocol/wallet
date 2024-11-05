@@ -261,7 +261,7 @@ export class ChainApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ChainTransactionInfoResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChainTransactionInfoResponseFromJSON(jsonValue.data));
     }
 
     /**
@@ -321,7 +321,7 @@ export class ChainApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ChainTransactionsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => ChainTransactionsResponseFromJSON(jsonValue.data));
     }
 
     /**

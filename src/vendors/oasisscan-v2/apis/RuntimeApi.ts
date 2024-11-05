@@ -251,7 +251,7 @@ export class RuntimeApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeTransactionInfoResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeTransactionInfoResponseFromJSON(jsonValue.data));
     }
 
     /**
