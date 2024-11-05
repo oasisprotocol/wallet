@@ -7,7 +7,6 @@ import { StringifiedBigInt } from 'types/StringifiedBigInt'
 export interface Validator {
   address: string
   name?: string
-  nodeAddress: string
   escrow: StringifiedBigInt
   status: 'active' | 'inactive' | 'unknown'
   rank: number

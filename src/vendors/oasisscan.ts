@@ -164,7 +164,6 @@ export function parseValidatorsList(validators: ValidatorRow[]): Validator[] {
     const parsed: Validator = {
       address: v.entityAddress,
       name: v.name ?? undefined,
-      nodeAddress: v.nodeAddress,
       escrow: parseRoseStringToBaseUnitString(v.escrow),
       current_rate: v.commission,
       status: v.status ? 'active' : 'inactive',
