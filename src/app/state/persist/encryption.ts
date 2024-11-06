@@ -47,6 +47,14 @@ export async function decryptWithPassword<T>(
 ): Promise<T> {
   const encryptedObj = fromBase64andParse<EncryptedObject>(encryptedString)
   const derivedKeyWithSalt = await deriveKeyFromPassword(password, encryptedObj.salt)
+  return await decryptWithKey(derivedKeyWithSalt, encryptedString)
+}
+
+export async function decryptWithKey<T>(
+  derivedKeyWithSalt: KeyWithSalt,
+  encryptedString: EncryptedString<T>,
+): Promise<T> {
+  const encryptedObj = fromBase64andParse<EncryptedObject>(encryptedString)
   const dataBytes = nacl.secretbox.open(encryptedObj.secretbox, encryptedObj.nonce, derivedKeyWithSalt.key)
   if (!dataBytes) throw new PasswordWrongError()
 
