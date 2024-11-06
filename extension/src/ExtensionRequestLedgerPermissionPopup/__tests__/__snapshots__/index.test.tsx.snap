@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ConnectDevicePage /> should render component 1`] = `
+exports[`<ExtensionRequestLedgerPermissionPopup /> should render component 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
