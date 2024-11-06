@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client'
 // Use consistent styling
 import 'sanitize.css/sanitize.css'
 
-import { ThemeProvider } from 'styles/theme/ThemeProvider'
+import { ThemeProviderWithoutRedux } from 'styles/theme/ThemeProvider'
 
 // Initialize languages
 import 'locales/i18n'
@@ -19,9 +19,11 @@ const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container!)
 
 root.render(
-  <ThemeProvider>
+  // Avoid redux: it's not necessary and has it has a little potential to cause
+  // conflicts in stored state because it runs in parallel with wallet popup.
+  <ThemeProviderWithoutRedux>
     <React.StrictMode>
       <ExtensionRequestLedgerPermissionPopup />
     </React.StrictMode>
-  </ThemeProvider>,
+  </ThemeProviderWithoutRedux>,
 )
