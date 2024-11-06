@@ -9,7 +9,6 @@ import { selectTheme } from './slice/selectors'
 import { dataTableTheme } from './dataTableTheme'
 import { css } from 'styled-components'
 import { getTargetTheme } from './utils'
-import { getInitialState as getInitialThemeState } from './slice'
 
 /**
  * React-data-table by default sets its own background and text colors
@@ -383,19 +382,9 @@ const grommetCustomTheme: ThemeType = {
     },
   },
 }
-export const ThemeProvider = (props: { children: React.ReactNode }) => {
+export const ThemeProvider = (props: { children: React.ReactChild }) => {
   const theme = deepMerge(grommet, grommetCustomTheme)
   const mode = useSelector(selectTheme)
-
-  return (
-    <Grommet theme={theme} themeMode={getTargetTheme(mode)} style={{ minHeight: '100dvh' }}>
-      {React.Children.only(props.children)}
-    </Grommet>
-  )
-}
-export const ThemeProviderWithoutRedux = (props: { children: React.ReactNode }) => {
-  const theme = deepMerge(grommet, grommetCustomTheme)
-  const mode = getInitialThemeState().selected
 
   return (
     <Grommet theme={theme} themeMode={getTargetTheme(mode)} style={{ minHeight: '100dvh' }}>

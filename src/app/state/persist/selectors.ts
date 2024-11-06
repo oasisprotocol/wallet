@@ -20,8 +20,3 @@ export const selectIsPersistenceUnsupported = createSelector(
   [selectSlice],
   state => state.isPersistenceUnsupported,
 )
-
-export const selectStringifiedEncryptionKey = createSelector(
-  [selectSlice],
-  state => state.stringifiedEncryptionKey,
-)
