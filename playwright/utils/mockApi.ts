@@ -9,6 +9,7 @@ import type {
 } from '../../src/vendors/oasisscan/index'
 
 export async function mockApi(context: BrowserContext | Page, balance: number) {
+  await context.addInitScript(() => ((window as any).REACT_APP_BACKEND = 'oasisscan'))
   await context.route('**/chain/account/info/*', route => {
     route.fulfill({
       body: JSON.stringify({
