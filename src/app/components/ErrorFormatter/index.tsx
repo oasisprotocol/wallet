@@ -22,6 +22,7 @@ export function ErrorFormatter(props: Props) {
   const backendToLabel = {
     [BackendAPIs.OasisMonitor]: t('backends.oasismonitor', 'Oasis Monitor API'),
     [BackendAPIs.OasisScan]: t('backends.oasisscan', 'Oasis Scan API'),
+    [BackendAPIs.Nexus]: t('backends.nexus', 'Nexus API'),
   }
 
   const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {

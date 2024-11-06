@@ -48,6 +48,8 @@ const getCsp = ({ isExtension, isDev }) =>
       https://grpc.oasis.io
       https://testnet.grpc.oasis.io
       https://api.oasisscan.com
+      https://nexus.oasis.io
+      https://testnet.nexus.oasis.io
       ${isDev ? localnet : ''}
       ${isDev ? hmr : ''}
       ;
