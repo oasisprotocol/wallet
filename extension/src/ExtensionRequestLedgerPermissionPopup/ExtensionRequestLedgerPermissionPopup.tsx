@@ -41,6 +41,7 @@ function ConnectionStatusIcon({ success = true, label, withMargin = false }: Con
   )
 }
 
+// TODO rename again to ExtLedgerAccessPopup to match openLedgerAccessPopup
 export function ExtensionRequestLedgerPermissionPopup() {
   const { t } = useTranslation()
   const [connection, setConnection] = useState<ConnectionStatus>('disconnected')
