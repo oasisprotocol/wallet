@@ -275,7 +275,10 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
       const parsed: Transaction = {
         amount:
           (t.body as { amount?: StringifiedBigInt })?.amount ||
-          (t.body as { amount_change?: StringifiedBigInt })?.amount_change ||
+          ((t.body as { amount_change?: StringifiedBigInt })?.amount_change &&
+            ((t.body as { negative?: boolean })?.negative
+              ? `-${(t.body as { amount_change?: StringifiedBigInt }).amount_change}`
+              : (t.body as { amount_change?: StringifiedBigInt }).amount_change)) ||
           undefined,
         fee: t.fee,
         from: t.sender,
