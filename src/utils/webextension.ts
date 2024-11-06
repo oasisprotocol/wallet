@@ -10,18 +10,20 @@ type Props = {
 export const getPopupUrl = (path: string) =>
   browser.runtime.getURL(`${browser.runtime.getManifest()?.action?.default_popup}${path}`)
 
-const openPopup = ({ path, height, width, type }: Props) => {
+const openPopup = async ({ path, height, width, type }: Props) => {
   const existingPopupWindow = browser.extension.getViews().find(window => window.location.href === path)
 
   if (existingPopupWindow) {
     existingPopupWindow.close()
   }
-  browser.windows.create({
+  const popup = await browser.windows.create({
     url: path,
     type: type ?? 'popup',
     width: width,
     height: height,
+    focused: true,
   })
+  await browser.windows.update(popup.id!, { focused: true }) // Focus again. Helps in rare cases like when screensharing.
 }
 
 export const openLedgerAccessPopup = (path: string) => {
