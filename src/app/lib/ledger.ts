@@ -6,7 +6,7 @@ import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
-import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
+// import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { Capacitor } from '@capacitor/core'
 
 interface LedgerAccount {
@@ -20,7 +20,8 @@ export async function canAccessNavigatorUsb(): Promise<boolean> {
 }
 
 export async function canAccessBle(): Promise<boolean> {
-  const hasBLE = await BleTransport.isEnabled().catch(() => false)
+  // const hasBLE = await BleTransport.isEnabled().catch(() => false)
+  const hasBLE = false
   // Scan depends on requestLEScan method, which is not available on the web(feature flag)
   const hasLEScan = Capacitor.isNativePlatform() || !!navigator?.bluetooth?.requestLEScan
   return hasBLE && hasLEScan

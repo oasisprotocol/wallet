@@ -93,10 +93,10 @@ export interface MigratingV0State {
 
 export async function backupAndDeleteV0ExtProfile() {
   if (runtimeIs !== 'extension') throw new Error('Can only delete V0 profile in an extension')
-  const browser = await import('webextension-polyfill')
+  // const browser = await import('webextension-polyfill')
   const backupStorage = await readStorageV0()
   window.localStorage.setItem('oasis_wallet_backup_v0', JSON.stringify(backupStorage))
-  await browser.storage.local.remove('keyringData')
+  // await browser.storage.local.remove('keyringData')
   window.localStorage.removeItem('ADDRESS_BOOK_CONFIG')
   window.localStorage.removeItem('LANGUAGE_CONFIG')
   window.localStorage.removeItem('NETWORK_CONFIG')
@@ -105,10 +105,10 @@ export async function backupAndDeleteV0ExtProfile() {
 
 export async function readStorageV0() {
   if (runtimeIs !== 'extension') return
-  const browser = await import('webextension-polyfill')
+  // const browser = await import('webextension-polyfill')
   return {
     chromeStorageLocal: {
-      keyringData: (await browser.storage.local.get('keyringData')).keyringData,
+      // keyringData: (await browser.storage.local.get('keyringData')).keyringData,
     },
     localStorage: {
       ADDRESS_BOOK_CONFIG: window.localStorage.getItem('ADDRESS_BOOK_CONFIG') ?? '[]',

@@ -149,6 +149,7 @@ export function now() {
 }
 
 export async function getMainnetDumpValidators() {
+  throw new Error('nope')
   return await import('vendors/oasisscan/dump_validators.json')
 }
 

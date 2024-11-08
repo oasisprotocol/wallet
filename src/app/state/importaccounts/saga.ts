@@ -19,7 +19,7 @@ import {
   selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
+// import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { getChainContext } from '../network/saga'
 
@@ -28,7 +28,8 @@ function* setStep(step: ImportAccountsStep) {
 }
 
 function* isBluetoothSupported() {
-  const isSupported = yield* call([BleTransport, BleTransport.isSupported])
+  // const isSupported = yield* call([BleTransport, BleTransport.isSupported])
+  const isSupported = false
   // https://github.com/WebBluetoothCG/web-bluetooth/blob/main/implementation-status.md#scanning-api
   // !navigator.bluetooth
   if (!isSupported) {
@@ -38,7 +39,7 @@ function* isBluetoothSupported() {
 
 function* getBluetoothDevices() {
   yield* call(isBluetoothSupported)
-  return yield* call(BleTransport.list)
+  // return yield* call(BleTransport.list)
 }
 
 function* getBluetoothTransport(device?: ScanResult) {
@@ -49,7 +50,7 @@ function* getBluetoothTransport(device?: ScanResult) {
   }
 
   try {
-    return yield* call(BleTransport.open, device)
+    // return yield* call(BleTransport.open, device)
   } catch (e: any) {
     if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
