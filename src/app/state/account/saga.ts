@@ -118,7 +118,7 @@ export function* fetchingOnAccountPage() {
         // Continuously refresh balance. If balance changes then fetch transactions and staking too.
         while (true) {
           yield* delay(ACCOUNT_REFETCHING_INTERVAL)
-          if (document.hidden) continue
+          // if (document.hidden) continue
 
           let refreshedAccount
           try {

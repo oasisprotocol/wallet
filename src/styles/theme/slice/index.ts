@@ -5,7 +5,8 @@ import { getThemeFromStorage, saveTheme } from '../utils'
 import { ThemeState } from './types'
 
 export const getInitialState = (): ThemeState => ({
-  selected: getThemeFromStorage() || 'system',
+  // selected: getThemeFromStorage() || 'system',
+  selected: 'system',
 })
 
 export const themeSlice = createSlice({

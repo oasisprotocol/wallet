@@ -19,7 +19,7 @@ export const sortByStatus = (a: Validator, b: Validator) =>
 export const throwAPIErrors: ConfigurationParameters = {
   fetchApi: async (info, init) => {
     try {
-      const response = await window.fetch(info, init)
+      const response = await fetch(info, init)
       // eslint-disable-next-line no-throw-literal
       if (response.status < 200 || response.status >= 300) throw `status ${response.status}` // Re-thrown below
       return response

@@ -24,12 +24,14 @@ export const isSyncingTabsSupported = typeof BroadcastChannel === 'function'
 
 export function getInitialState(): PersistState {
   return {
-    hasPersistedProfiles: !!window.localStorage.getItem(STORAGE_FIELD),
+    // hasPersistedProfiles: !!window.localStorage.getItem(STORAGE_FIELD),
+    hasPersistedProfiles: false,
     hasV0StorageToMigrate: false,
     // Disable persistence if tabs would override each other.
     isPersistenceUnsupported: needsSyncingTabs && !isSyncingTabsSupported,
     loading: false,
-    stringifiedEncryptionKey: localStorage.getItem(STORAGE_FIELD) ? undefined : 'skipped',
+    // stringifiedEncryptionKey: localStorage.getItem(STORAGE_FIELD) ? undefined : 'skipped',
+    stringifiedEncryptionKey: 'skipped',
     enteredWrongPassword: false,
   }
 }
