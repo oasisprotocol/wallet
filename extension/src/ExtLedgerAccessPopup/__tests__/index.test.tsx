@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { requestDevice } from 'app/lib/ledger'
 import { importAccountsActions } from 'app/state/importaccounts'
-import { ConnectDevicePage } from '..'
-import { WalletType } from '../../../state/wallet/types'
+import { ExtLedgerAccessPopup } from '../ExtLedgerAccessPopup'
+import { WalletType } from '../../../../src/app/state/wallet/types'
 
 jest.mock('app/lib/ledger')
 
@@ -14,9 +14,9 @@ jest.mock('react-redux', () => ({
   useDispatch: () => mockDispatch,
 }))
 
-describe('<ConnectDevicePage />', () => {
+describe('<ExtLedgerAccessPopup />', () => {
   it('should render component', () => {
-    const { container } = render(<ConnectDevicePage />)
+    const { container } = render(<ExtLedgerAccessPopup />)
 
     expect(container).toMatchSnapshot()
   })
@@ -24,7 +24,7 @@ describe('<ConnectDevicePage />', () => {
   it('should render success state', async () => {
     jest.mocked(requestDevice).mockResolvedValue({} as USBDevice)
 
-    render(<ConnectDevicePage />)
+    render(<ExtLedgerAccessPopup />)
 
     await userEvent.click(screen.getByRole('button'))
 
@@ -40,7 +40,7 @@ describe('<ConnectDevicePage />', () => {
   it('should render error state', async () => {
     jest.mocked(requestDevice).mockRejectedValue(new Error('error'))
 
-    render(<ConnectDevicePage />)
+    render(<ExtLedgerAccessPopup />)
 
     userEvent.click(screen.getByRole('button'))
 
