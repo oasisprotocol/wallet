@@ -9,10 +9,10 @@ import { useTranslation } from 'react-i18next'
 import { Capacitor } from '@capacitor/core'
 
 type SelectOpenMethodProps = {
-  webExtensionUSBLedgerAccess?: () => void
+  openLedgerAccessPopup?: () => void
 }
 
-export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProps) {
+export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
   const { t } = useTranslation()
   const [supportsUsbLedger, setSupportsUsbLedger] = React.useState<boolean | undefined>(true)
   const [supportsBleLedger, setSupportsBleLedger] = React.useState<boolean | undefined>(true)
@@ -46,11 +46,11 @@ export function FromLedger({ webExtensionUSBLedgerAccess }: SelectOpenMethodProp
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <div>
           <div>
-            {webExtensionUSBLedgerAccess ? (
+            {openLedgerAccessPopup ? (
               <Button
                 disabled={!supportsUsbLedger}
                 style={{ width: 'fit-content' }}
-                onClick={webExtensionUSBLedgerAccess}
+                onClick={openLedgerAccessPopup}
                 label={t('ledger.extension.grantAccess', 'Grant access to your USB Ledger')}
                 primary
               />

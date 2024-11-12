@@ -9,7 +9,7 @@ export function FromLedgerWebExtension() {
 
   return (
     <FromLedger
-      webExtensionUSBLedgerAccess={() => {
+      openLedgerAccessPopup={() => {
         navigate('/open-wallet/ledger/usb')
         openLedgerAccessPopup(href)
       }}
