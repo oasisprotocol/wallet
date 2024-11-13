@@ -81,9 +81,14 @@ const getState = ({
 }
 
 describe('<TransactionHistory  />', () => {
+  const originalEnv = process.env.REACT_APP_BACKEND
   beforeEach(() => {
     // Ignore dispatches to fetch account from AccountPage
     jest.mocked(useDispatch).mockImplementation(() => jest.fn())
+  })
+
+  afterEach(() => {
+    process.env.REACT_APP_BACKEND = originalEnv
   })
 
   it('should not display any pending or completed txs', async () => {
@@ -108,6 +113,13 @@ describe('<TransactionHistory  />', () => {
       'href',
       'http://localhost:9001/data/accounts/detail/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk',
     )
+  })
+
+  it('should display different no transactions message for Oasis Scan v2', async () => {
+    process.env.REACT_APP_BACKEND = 'oasisscanV2'
+    renderCmp(getState({ accountNonce: 1n }))
+
+    expect(await screen.findByText('account.summary.noTransactionFoundOasisscanV2')).toBeInTheDocument()
   })
 
   it('should display pending txs alert with single pending tx and no completed transactions', async () => {

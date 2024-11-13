@@ -115,7 +115,13 @@ export function TransactionHistory() {
           background="background-front"
           pad="large"
         >
-          <Text>{t('account.summary.noTransactionFound', 'No transactions found.')}</Text>
+          {process.env.REACT_APP_BACKEND === 'oasisscanV2' ? (
+            <Text>
+              {t('account.summary.noTransactionFoundOasisscanV2', 'No transactions since November 29, 2023.')}
+            </Text>
+          ) : (
+            <Text>{t('account.summary.noTransactionFound', 'No transactions found.')}</Text>
+          )}
         </Box>
       )}
     </Box>

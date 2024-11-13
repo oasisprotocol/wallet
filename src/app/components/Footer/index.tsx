@@ -27,6 +27,7 @@ export const Footer = memo(() => {
   const backendToLabel = {
     [BackendAPIs.OasisMonitor]: t('footer.poweredBy.oasismonitor', 'Oasis Monitor API & Oasis gRPC'),
     [BackendAPIs.OasisScan]: t('footer.poweredBy.oasisscan', 'Oasis Scan API & Oasis gRPC'),
+    [BackendAPIs.OasisScanV2]: t('footer.poweredBy.oasisscanV2', 'Oasis Scan API v2 & Oasis gRPC'),
     [BackendAPIs.Nexus]: t('footer.poweredBy.nexus', 'Nexus API & Oasis gRPC'),
   }
   const poweredByLabel = backendToLabel[backend()]

@@ -1,6 +1,6 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    REACT_APP_BACKEND: 'oasismonitor' | 'oasisscan' | 'nexus'
+    REACT_APP_BACKEND: 'oasismonitor' | 'oasisscan' | 'oasisscanV2' | 'nexus'
     REACT_APP_TRANSAK_URL: string
     REACT_APP_TRANSAK_PARTNER_ID: string
     REACT_APP_LOCALNET: '1' | undefined

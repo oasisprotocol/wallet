@@ -49,6 +49,7 @@
         "total": "Total"
       },
       "noTransactionFound": "No transactions found.",
+      "noTransactionFoundOasisscanV2": "No transactions since November 29, 2023.",
       "noWalletIsOpen": "To send, receive, stake and swap {{ticker}} tokens, <HomeLink>open your wallet</HomeLink>.",
       "notYourAccount": "This is not your account.",
       "pendingTransactions": "Pending transactions",
@@ -108,6 +109,7 @@
   "backends": {
     "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API",
+    "oasisscanV2": "Oasis Scan API v2",
     "nexus": "Nexus API"
   },
   "banner": {
@@ -200,6 +202,7 @@
     "poweredBy": {
       "oasismonitor": "Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Oasis Scan API & Oasis gRPC",
+      "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC",
       "nexus": "Nexus API & Oasis gRPC"
     },
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",

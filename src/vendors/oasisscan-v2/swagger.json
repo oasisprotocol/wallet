@@ -1,0 +1,3463 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "description": "This api document example is the Mainnet document, and the Testnet base URL is api.oasisscan.com/v2/testnet",
+    "version": ""
+  },
+  "host": "api.oasisscan.com/v2/mainnet",
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/account/debonding": {
+      "get": {
+        "operationId": "AccountDebondingHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountDebondingResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/delegations": {
+      "get": {
+        "operationId": "AccountDelegationsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountDelegationsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "all",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "format": "boolean",
+            "default": "false"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/info/{address}": {
+      "get": {
+        "operationId": "AccountInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["account"]
+      }
+    },
+    "/account/reward/export": {
+      "get": {
+        "operationId": "AccountRewardExportHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountRewardExportResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/reward/list": {
+      "get": {
+        "operationId": "AccountRewardHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountRewardResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/reward/stats": {
+      "get": {
+        "operationId": "AccountRewardStatsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountRewardStatsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/staking/events": {
+      "get": {
+        "operationId": "AccountStakingEventsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountStakingEventsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/account/staking/events/info": {
+      "get": {
+        "operationId": "AccountStakingEventsInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/AccountStakingEventsInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["account"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/chain/block/{height}": {
+      "get": {
+        "operationId": "ChainBlockInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainBlockInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "height",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["chain"]
+      }
+    },
+    "/chain/blocks": {
+      "get": {
+        "operationId": "ChainBlocksHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainBlocksResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "10"
+          }
+        ],
+        "tags": ["chain"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/chain/methods": {
+      "get": {
+        "operationId": "ChainMethodsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainMethodsResponse"
+            }
+          }
+        },
+        "tags": ["chain"]
+      }
+    },
+    "/chain/proposedblocks": {
+      "get": {
+        "operationId": "ChainProposedBlocksHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainProposedBlocksResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["chain"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/chain/search": {
+      "get": {
+        "operationId": "ChainSearchHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainSearchResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["chain"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/chain/transaction/{hash}": {
+      "get": {
+        "operationId": "ChainTransactionInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainTransactionInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "hash",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["chain"]
+      }
+    },
+    "/chain/transactions": {
+      "get": {
+        "operationId": "ChainTransactionsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ChainTransactionsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "height",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "method",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "runtime",
+            "in": "query",
+            "required": true,
+            "type": "boolean",
+            "format": "boolean",
+            "default": "false"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "10"
+          }
+        ],
+        "tags": ["chain"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/governance/proposallist": {
+      "get": {
+        "operationId": "GovernanceProposalListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GovernanceProposalListResponse"
+            }
+          }
+        },
+        "tags": ["governance"]
+      }
+    },
+    "/governance/proposalwithvotes": {
+      "get": {
+        "operationId": "GovernanceProposalWithVotesHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GovernanceProposalWithVotesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": ["governance"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/governance/votes": {
+      "get": {
+        "operationId": "GovernanceVotesHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GovernanceVotesResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "proposalId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "validator",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["governance"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "HealthHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/HealthResponse"
+            }
+          }
+        },
+        "tags": ["common"]
+      }
+    },
+    "/market/chart": {
+      "get": {
+        "operationId": "MarketChartHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/MarketChartResponse"
+            }
+          }
+        },
+        "tags": ["market"]
+      }
+    },
+    "/market/info": {
+      "get": {
+        "operationId": "MarketInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/MarketInfoResponse"
+            }
+          }
+        },
+        "tags": ["market"]
+      }
+    },
+    "/network/status": {
+      "get": {
+        "operationId": "NetworkStatusHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/NetworkStatusResponse"
+            }
+          }
+        },
+        "tags": ["common"]
+      }
+    },
+    "/runtime/list": {
+      "get": {
+        "operationId": "RuntimeListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeListResponse"
+            }
+          }
+        },
+        "tags": ["runtime"]
+      }
+    },
+    "/runtime/round/info": {
+      "get": {
+        "operationId": "RuntimeRoundInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeRoundInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "round",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": ["runtime"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/runtime/round/list": {
+      "get": {
+        "operationId": "RuntimeRoundListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeRoundListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "10"
+          }
+        ],
+        "tags": ["runtime"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/runtime/stats": {
+      "get": {
+        "operationId": "RuntimeStatsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeStatsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["runtime"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/runtime/transaction/info": {
+      "get": {
+        "operationId": "RuntimeTransactionInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeTransactionInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "round",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "hash",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["runtime"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/runtime/transaction/list": {
+      "get": {
+        "operationId": "RuntimeTransactionListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/RuntimeTransactionListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "round",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "10"
+          }
+        ],
+        "tags": ["runtime"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/trend": {
+      "get": {
+        "operationId": "NetworkTrendHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/NetworkTrendResponse"
+            }
+          }
+        },
+        "tags": ["common"]
+      }
+    },
+    "/validator/blocksstats": {
+      "get": {
+        "operationId": "ValidatorBlocksStatsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorBlocksStatsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/delegators": {
+      "get": {
+        "operationId": "DelegatorsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/DelegatorsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "5"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/escrowevent": {
+      "get": {
+        "operationId": "ValidatorEscrowEventHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorEscrowEventResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "10"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/escrowstats": {
+      "get": {
+        "operationId": "ValidatorEscrowStatsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorEscrowStatsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/info": {
+      "get": {
+        "operationId": "ValidatorInfoHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorInfoResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/list": {
+      "get": {
+        "operationId": "ValidatorListHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorListResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orderBy",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "escrow"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "desc"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    },
+    "/validator/signstats": {
+      "get": {
+        "operationId": "ValidatorSignStatsHandler",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ValidatorSignStatsResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": ["validator"],
+        "consumes": ["multipart/form-data"]
+      }
+    }
+  },
+  "definitions": {
+    "AccountAllowance": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        }
+      },
+      "title": "AccountAllowance",
+      "required": ["address", "amount"]
+    },
+    "AccountDebondingInfo": {
+      "type": "object",
+      "properties": {
+        "validatorAddress": {
+          "type": "string"
+        },
+        "validatorName": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "shares": {
+          "type": "string"
+        },
+        "debondEnd": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "epochLeft": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AccountDebondingInfo",
+      "required": ["validatorAddress", "validatorName", "icon", "shares", "debondEnd", "epochLeft"]
+    },
+    "AccountDebondingRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "AccountDebondingRequest",
+      "required": ["address", "page", "size"]
+    },
+    "AccountDebondingResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountDebondingInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AccountDebondingResponse",
+      "required": ["list"]
+    },
+    "AccountDelegationsInfo": {
+      "type": "object",
+      "properties": {
+        "validatorAddress": {
+          "type": "string"
+        },
+        "validatorName": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "entityAddress": {
+          "type": "string"
+        },
+        "shares": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "AccountDelegationsInfo",
+      "required": ["validatorAddress", "validatorName", "icon", "entityAddress", "shares", "amount", "active"]
+    },
+    "AccountDelegationsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "all": {
+          "type": "boolean",
+          "format": "boolean",
+          "default": "false"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "AccountDelegationsRequest",
+      "required": ["address", "all", "page", "size"]
+    },
+    "AccountDelegationsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountDelegationsInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AccountDelegationsResponse",
+      "required": ["list"]
+    },
+    "AccountInfoRequest": {
+      "type": "object",
+      "title": "AccountInfoRequest"
+    },
+    "AccountInfoResponse": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "available": {
+          "type": "string"
+        },
+        "escrow": {
+          "type": "string"
+        },
+        "debonding": {
+          "type": "string"
+        },
+        "total": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "allowances": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountAllowance"
+          }
+        }
+      },
+      "title": "AccountInfoResponse",
+      "required": ["address", "available", "escrow", "debonding", "total", "nonce", "allowances"]
+    },
+    "AccountRewardExportRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        }
+      },
+      "title": "AccountRewardExportRequest",
+      "required": ["account"]
+    },
+    "AccountRewardExportResponse": {
+      "type": "object",
+      "title": "AccountRewardExportResponse"
+    },
+    "AccountRewardInfo": {
+      "type": "object",
+      "properties": {
+        "validatorAddress": {
+          "type": "string"
+        },
+        "validatorName": {
+          "type": "string"
+        },
+        "validatorIcon": {
+          "type": "string"
+        },
+        "epoch": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reward": {
+          "type": "string"
+        }
+      },
+      "title": "AccountRewardInfo",
+      "required": ["validatorAddress", "validatorName", "validatorIcon", "epoch", "timestamp", "reward"]
+    },
+    "AccountRewardRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "AccountRewardRequest",
+      "required": ["account", "page", "size"]
+    },
+    "AccountRewardResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountRewardInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AccountRewardResponse",
+      "required": ["list"]
+    },
+    "AccountRewardStatsInfo": {
+      "type": "object",
+      "properties": {
+        "validatorName": {
+          "type": "string"
+        },
+        "rewardList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountRewardStatsItem"
+          }
+        },
+        "total": {
+          "type": "string"
+        }
+      },
+      "title": "AccountRewardStatsInfo",
+      "required": ["validatorName", "rewardList", "total"]
+    },
+    "AccountRewardStatsItem": {
+      "type": "object",
+      "properties": {
+        "dateTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "reward": {
+          "type": "string"
+        }
+      },
+      "title": "AccountRewardStatsItem",
+      "required": ["dateTime", "reward"]
+    },
+    "AccountRewardStatsRequest": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        }
+      },
+      "title": "AccountRewardStatsRequest",
+      "required": ["account"]
+    },
+    "AccountRewardStatsResponse": {
+      "type": "object",
+      "properties": {
+        "stats": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/AccountRewardStatsInfo"
+          }
+        },
+        "time": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "AccountRewardStatsResponse",
+      "required": ["stats", "time"]
+    },
+    "AccountStakingEventsInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      },
+      "title": "AccountStakingEventsInfo",
+      "required": ["id", "height", "txHash", "kind"]
+    },
+    "AccountStakingEventsInfoRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "AccountStakingEventsInfoRequest",
+      "required": ["id"]
+    },
+    "AccountStakingEventsInfoResponse": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "transafer": {
+          "type": "object"
+        },
+        "burn": {
+          "type": "object"
+        },
+        "escrow": {
+          "type": "object"
+        },
+        "allowanceChange": {
+          "type": "object"
+        }
+      },
+      "title": "AccountStakingEventsInfoResponse",
+      "required": ["height", "txHash", "kind", "timestamp"]
+    },
+    "AccountStakingEventsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "AccountStakingEventsRequest",
+      "required": ["address", "page", "size"]
+    },
+    "AccountStakingEventsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AccountStakingEventsInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AccountStakingEventsResponse",
+      "required": ["list"]
+    },
+    "Bound": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "min": {
+          "type": "number",
+          "format": "double"
+        },
+        "max": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Bound",
+      "required": ["start", "min", "max"]
+    },
+    "ChainBlockInfo": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "epoch": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "txs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "entityAddress": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "ChainBlockInfo",
+      "required": ["height", "epoch", "timestamp", "time", "hash", "txs", "entityAddress", "name"]
+    },
+    "ChainBlockInfoRequest": {
+      "type": "object",
+      "title": "ChainBlockInfoRequest"
+    },
+    "ChainBlockInfoResponse": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "epoch": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "txs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "entityAddress": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "ChainBlockInfoResponse"
+    },
+    "ChainBlocksRequest": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "10"
+        }
+      },
+      "title": "ChainBlocksRequest",
+      "required": ["page", "size"]
+    },
+    "ChainBlocksResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChainBlockInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ChainBlocksResponse",
+      "required": ["list"]
+    },
+    "ChainMethodsRequest": {
+      "type": "object",
+      "title": "ChainMethodsRequest"
+    },
+    "ChainMethodsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "ChainMethodsResponse",
+      "required": ["list"]
+    },
+    "ChainProposedBlocksRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "ChainProposedBlocksRequest",
+      "required": ["page", "size"]
+    },
+    "ChainProposedBlocksResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChainBlockInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ChainProposedBlocksResponse",
+      "required": ["list"]
+    },
+    "ChainSearchRequest": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "title": "ChainSearchRequest",
+      "required": ["key"]
+    },
+    "ChainSearchResponse": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "result": {
+          "type": "string"
+        }
+      },
+      "title": "ChainSearchResponse",
+      "required": ["key", "type", "result"]
+    },
+    "ChainTransactionInfoRequest": {
+      "type": "object",
+      "title": "ChainTransactionInfoRequest"
+    },
+    "ChainTransactionInfoResponse": {
+      "type": "object",
+      "properties": {
+        "txHash": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "fee": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "method": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "raw": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "title": "ChainTransactionInfoResponse",
+      "required": [
+        "txHash",
+        "timestamp",
+        "time",
+        "height",
+        "fee",
+        "nonce",
+        "method",
+        "from",
+        "to",
+        "amount",
+        "raw",
+        "status",
+        "errorMessage"
+      ]
+    },
+    "ChainTransactionListInfo": {
+      "type": "object",
+      "properties": {
+        "txType": {
+          "type": "string"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "method": {
+          "type": "string"
+        },
+        "fee": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "shares": {
+          "type": "string"
+        },
+        "add": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "status": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "runtimeId": {
+          "type": "string"
+        },
+        "runtimeName": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "result": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "ChainTransactionListInfo",
+      "required": ["txType"]
+    },
+    "ChainTransactionsRequest": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "address": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "runtime": {
+          "type": "boolean",
+          "format": "boolean",
+          "default": "false"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "10"
+        }
+      },
+      "title": "ChainTransactionsRequest",
+      "required": ["runtime", "page", "size"]
+    },
+    "ChainTransactionsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChainTransactionListInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ChainTransactionsResponse",
+      "required": ["list"]
+    },
+    "Chart": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "Chart",
+      "required": ["key", "value"]
+    },
+    "DelegatorsInfo": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "shares": {
+          "type": "string"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        },
+        "self": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "DelegatorsInfo",
+      "required": ["address", "amount", "shares", "percent", "self"]
+    },
+    "DelegatorsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "DelegatorsRequest",
+      "required": ["address", "page", "size"]
+    },
+    "DelegatorsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DelegatorsInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "DelegatorsResponse",
+      "required": ["list"]
+    },
+    "EscrowStatus": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string"
+        },
+        "other": {
+          "type": "string"
+        },
+        "total": {
+          "type": "string"
+        }
+      },
+      "title": "EscrowStatus",
+      "required": ["self", "other", "total"]
+    },
+    "GovernanceProposalInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "submitter": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "deposit": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "closed_at": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "created_time": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "closed_time": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GovernanceProposalInfo",
+      "required": [
+        "id",
+        "title",
+        "type",
+        "submitter",
+        "state",
+        "deposit",
+        "created_at",
+        "closed_at",
+        "created_time",
+        "closed_time"
+      ]
+    },
+    "GovernanceProposalListRequest": {
+      "type": "object",
+      "title": "GovernanceProposalListRequest"
+    },
+    "GovernanceProposalListResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GovernanceProposalInfo"
+          }
+        }
+      },
+      "title": "GovernanceProposalListResponse",
+      "required": ["list"]
+    },
+    "GovernanceProposalWithVotesRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GovernanceProposalWithVotesRequest",
+      "required": ["id"]
+    },
+    "GovernanceProposalWithVotesResponse": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProposalOption"
+          }
+        },
+        "votes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProposalVote"
+          }
+        }
+      },
+      "title": "GovernanceProposalWithVotesResponse",
+      "required": ["options", "votes"]
+    },
+    "GovernanceVotesRequest": {
+      "type": "object",
+      "properties": {
+        "proposalId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "validator": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "5"
+        }
+      },
+      "title": "GovernanceVotesRequest",
+      "required": ["page", "size"]
+    },
+    "GovernanceVotesResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProposalVote"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "GovernanceVotesResponse",
+      "required": ["list"]
+    },
+    "HealthRequest": {
+      "type": "object",
+      "title": "HealthRequest"
+    },
+    "HealthResponse": {
+      "type": "object",
+      "title": "HealthResponse"
+    },
+    "MarketChartRequest": {
+      "type": "object",
+      "title": "MarketChartRequest"
+    },
+    "MarketChartResponse": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Chart"
+          }
+        },
+        "marketCap": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Chart"
+          }
+        },
+        "volume": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Chart"
+          }
+        }
+      },
+      "title": "MarketChartResponse",
+      "required": ["price", "marketCap", "volume"]
+    },
+    "MarketInfoRequest": {
+      "type": "object",
+      "title": "MarketInfoRequest"
+    },
+    "MarketInfoResponse": {
+      "type": "object",
+      "properties": {
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "priceChangePct24h": {
+          "type": "number",
+          "format": "double"
+        },
+        "rank": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "marketCap": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "marketCapChangePct24h": {
+          "type": "number",
+          "format": "double"
+        },
+        "volume": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "volumeChangePct24h": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "MarketInfoResponse",
+      "required": [
+        "price",
+        "priceChangePct24h",
+        "rank",
+        "marketCap",
+        "marketCapChangePct24h",
+        "volume",
+        "volumeChangePct24h"
+      ]
+    },
+    "NetworkStatusRequest": {
+      "type": "object",
+      "title": "NetworkStatusRequest"
+    },
+    "NetworkStatusResponse": {
+      "type": "object",
+      "properties": {
+        "curHeight": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "curEpoch": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalTxs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalEscrow": {
+          "type": "string"
+        },
+        "activeValidator": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalDelegator": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "NetworkStatusResponse",
+      "required": ["curHeight", "curEpoch", "totalTxs", "totalEscrow", "activeValidator", "totalDelegator"]
+    },
+    "NetworkTrendRequest": {
+      "type": "object",
+      "title": "NetworkTrendRequest"
+    },
+    "NetworkTrendResponse": {
+      "type": "object",
+      "properties": {
+        "tx": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Chart"
+          }
+        },
+        "escrow": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Chart"
+          }
+        }
+      },
+      "title": "NetworkTrendResponse",
+      "required": ["tx", "escrow"]
+    },
+    "Page": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Page",
+      "required": ["page", "size", "maxPage", "totalSize"]
+    },
+    "ProposalOption": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "ProposalOption",
+      "required": ["name", "amount", "percent"]
+    },
+    "ProposalVote": {
+      "type": "object",
+      "properties": {
+        "proposalId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "title": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "vote": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "percent": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "ProposalVote",
+      "required": ["proposalId", "title", "name", "icon", "address", "vote", "amount", "percent"]
+    },
+    "Rate": {
+      "type": "object",
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "rate": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Rate",
+      "required": ["start", "rate"]
+    },
+    "RuntimeListInfo": {
+      "type": "object",
+      "properties": {
+        "runtimeId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeListInfo",
+      "required": ["runtimeId", "name"]
+    },
+    "RuntimeListRequest": {
+      "type": "object",
+      "title": "RuntimeListRequest"
+    },
+    "RuntimeListResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuntimeListInfo"
+          }
+        }
+      },
+      "title": "RuntimeListResponse",
+      "required": ["list"]
+    },
+    "RuntimeRoundInfo": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "runtimeId": {
+          "type": "string"
+        },
+        "runtimeName": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "header_type": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "previous_hash": {
+          "type": "string"
+        },
+        "io_root": {
+          "type": "string"
+        },
+        "state_root": {
+          "type": "string"
+        },
+        "messages_hash": {
+          "type": "string"
+        },
+        "next": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "RuntimeRoundInfo",
+      "required": [
+        "version",
+        "runtimeId",
+        "runtimeName",
+        "round",
+        "timestamp",
+        "header_type",
+        "previous_hash",
+        "io_root",
+        "state_root",
+        "messages_hash",
+        "next"
+      ]
+    },
+    "RuntimeRoundInfoRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "RuntimeRoundInfoRequest",
+      "required": ["id", "round"]
+    },
+    "RuntimeRoundInfoResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "runtimeId": {
+          "type": "string"
+        },
+        "runtimeName": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "header_type": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "previous_hash": {
+          "type": "string"
+        },
+        "io_root": {
+          "type": "string"
+        },
+        "state_root": {
+          "type": "string"
+        },
+        "messages_hash": {
+          "type": "string"
+        },
+        "next": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "RuntimeRoundInfoResponse"
+    },
+    "RuntimeRoundListRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "10"
+        }
+      },
+      "title": "RuntimeRoundListRequest",
+      "required": ["id", "page", "size"]
+    },
+    "RuntimeRoundListResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuntimeRoundInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "RuntimeRoundListResponse",
+      "required": ["list"]
+    },
+    "RuntimeStatsInfo": {
+      "type": "object",
+      "properties": {
+        "entityId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "validator": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "stats": {
+          "$ref": "#/definitions/RuntimeStatsItem"
+        }
+      },
+      "title": "RuntimeStatsInfo",
+      "required": ["entityId", "name", "address", "validator", "icon", "status", "stats"]
+    },
+    "RuntimeStatsItem": {
+      "type": "object",
+      "properties": {
+        "elected": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "primary": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "backup": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "proposer": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "RuntimeStatsItem",
+      "required": ["elected", "primary", "backup", "proposer"]
+    },
+    "RuntimeStatsRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeStatsRequest",
+      "required": ["id"]
+    },
+    "RuntimeStatsResponse": {
+      "type": "object",
+      "properties": {
+        "online": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offline": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuntimeStatsInfo"
+          }
+        }
+      },
+      "title": "RuntimeStatsResponse",
+      "required": ["online", "offline", "list"]
+    },
+    "RuntimeTransactionConsensusTx": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "RuntimeTransactionConsensusTx",
+      "required": ["method", "from", "to", "amount", "nonce"]
+    },
+    "RuntimeTransactionEventError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "module": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeTransactionEventError",
+      "required": ["code", "module"]
+    },
+    "RuntimeTransactionEvmTx": {
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "gasPrice": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "gasLimit": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "data": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeTransactionEvmTx",
+      "required": ["hash", "from", "to", "nonce", "gasPrice", "gasLimit", "data", "value"]
+    },
+    "RuntimeTransactionInfoRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hash": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeTransactionInfoRequest",
+      "required": ["id", "round", "hash"]
+    },
+    "RuntimeTransactionInfoResponse": {
+      "type": "object",
+      "properties": {
+        "runtimeId": {
+          "type": "string"
+        },
+        "runtimeName": {
+          "type": "string"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "result": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "message": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string"
+        },
+        "ctx": {
+          "$ref": "#/definitions/RuntimeTransactionConsensusTx"
+        },
+        "etx": {
+          "$ref": "#/definitions/RuntimeTransactionEvmTx"
+        },
+        "events": {
+          "type": "object"
+        }
+      },
+      "title": "RuntimeTransactionInfoResponse",
+      "required": [
+        "runtimeId",
+        "runtimeName",
+        "txHash",
+        "round",
+        "result",
+        "message",
+        "timestamp",
+        "type",
+        "ctx",
+        "etx",
+        "events"
+      ]
+    },
+    "RuntimeTransactionListInfo": {
+      "type": "object",
+      "properties": {
+        "runtimeId": {
+          "type": "string"
+        },
+        "txHash": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "result": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "RuntimeTransactionListInfo",
+      "required": ["runtimeId", "txHash", "round", "result", "timestamp", "type"]
+    },
+    "RuntimeTransactionListRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "round": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "10"
+        }
+      },
+      "title": "RuntimeTransactionListRequest",
+      "required": ["page", "size"]
+    },
+    "RuntimeTransactionListResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RuntimeTransactionListInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "RuntimeTransactionListResponse",
+      "required": ["list"]
+    },
+    "ValidatorBlocksStatsInfo": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "block": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "ValidatorBlocksStatsInfo",
+      "required": ["height", "block"]
+    },
+    "ValidatorBlocksStatsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "ValidatorBlocksStatsRequest",
+      "required": ["address"]
+    },
+    "ValidatorBlocksStatsResponse": {
+      "type": "object",
+      "properties": {
+        "signs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorBlocksStatsInfo"
+          }
+        },
+        "proposals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorBlocksStatsInfo"
+          }
+        }
+      },
+      "title": "ValidatorBlocksStatsResponse",
+      "required": ["signs", "proposals"]
+    },
+    "ValidatorEscrowEventRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64",
+          "default": "10"
+        }
+      },
+      "title": "ValidatorEscrowEventRequest",
+      "required": ["address", "page", "size"]
+    },
+    "ValidatorEscrowEventResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ChainTransactionListInfo"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "maxPage": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalSize": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ValidatorEscrowEventResponse",
+      "required": ["list"]
+    },
+    "ValidatorEscrowStatsInfo": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "escrow": {
+          "type": "string"
+        }
+      },
+      "title": "ValidatorEscrowStatsInfo",
+      "required": ["timestamp", "escrow"]
+    },
+    "ValidatorEscrowStatsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "ValidatorEscrowStatsRequest",
+      "required": ["address"]
+    },
+    "ValidatorEscrowStatsResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorEscrowStatsInfo"
+          }
+        }
+      },
+      "title": "ValidatorEscrowStatsResponse",
+      "required": ["list"]
+    },
+    "ValidatorInfo": {
+      "type": "object",
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityAddress": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "nodeAddress": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "keybase": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "escrow": {
+          "type": "string"
+        },
+        "escrowChange24": {
+          "type": "string"
+        },
+        "escrowPercent": {
+          "type": "number",
+          "format": "double"
+        },
+        "balance": {
+          "type": "string"
+        },
+        "totalShares": {
+          "type": "string"
+        },
+        "signs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "proposals": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delegators": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uptime": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "commission": {
+          "type": "number",
+          "format": "double"
+        },
+        "bound": {
+          "$ref": "#/definitions/Bound"
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rate"
+          }
+        },
+        "bounds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bound"
+          }
+        },
+        "escrowSharesStatus": {
+          "$ref": "#/definitions/EscrowStatus"
+        },
+        "escrowAmountStatus": {
+          "$ref": "#/definitions/EscrowStatus"
+        },
+        "runtimes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorRuntime"
+          }
+        },
+        "status": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "ValidatorInfo",
+      "required": [
+        "rank",
+        "entityId",
+        "entityAddress",
+        "nodeId",
+        "nodeAddress",
+        "name",
+        "icon",
+        "website",
+        "twitter",
+        "keybase",
+        "email",
+        "description",
+        "escrow",
+        "escrowChange24",
+        "escrowPercent",
+        "balance",
+        "totalShares",
+        "signs",
+        "proposals",
+        "nonce",
+        "score",
+        "delegators",
+        "uptime",
+        "active",
+        "commission",
+        "rates",
+        "bounds",
+        "status"
+      ]
+    },
+    "ValidatorInfoRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "ValidatorInfoRequest",
+      "required": ["address"]
+    },
+    "ValidatorInfoResponse": {
+      "type": "object",
+      "properties": {
+        "rank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityAddress": {
+          "type": "string"
+        },
+        "nodeId": {
+          "type": "string"
+        },
+        "nodeAddress": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "keybase": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "escrow": {
+          "type": "string"
+        },
+        "escrowChange24": {
+          "type": "string"
+        },
+        "escrowPercent": {
+          "type": "number",
+          "format": "double"
+        },
+        "balance": {
+          "type": "string"
+        },
+        "totalShares": {
+          "type": "string"
+        },
+        "signs": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "proposals": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nonce": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "score": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delegators": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uptime": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "commission": {
+          "type": "number",
+          "format": "double"
+        },
+        "bound": {
+          "$ref": "#/definitions/Bound"
+        },
+        "rates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Rate"
+          }
+        },
+        "bounds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bound"
+          }
+        },
+        "escrowSharesStatus": {
+          "$ref": "#/definitions/EscrowStatus"
+        },
+        "escrowAmountStatus": {
+          "$ref": "#/definitions/EscrowStatus"
+        },
+        "runtimes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorRuntime"
+          }
+        },
+        "status": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "ValidatorInfoResponse"
+    },
+    "ValidatorListRequest": {
+      "type": "object",
+      "properties": {
+        "orderBy": {
+          "type": "string",
+          "default": "escrow"
+        },
+        "sort": {
+          "type": "string",
+          "default": "desc"
+        }
+      },
+      "title": "ValidatorListRequest",
+      "required": ["orderBy", "sort"]
+    },
+    "ValidatorListResponse": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorInfo"
+          }
+        },
+        "active": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "inactive": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "delegators": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ValidatorListResponse",
+      "required": ["list", "active", "inactive", "delegators"]
+    },
+    "ValidatorRuntime": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "online": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "ValidatorRuntime",
+      "required": ["name", "id", "online"]
+    },
+    "ValidatorSignStatsInfo": {
+      "type": "object",
+      "properties": {
+        "dateTime": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "expected": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "actual": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "ValidatorSignStatsInfo",
+      "required": ["dateTime", "expected", "actual"]
+    },
+    "ValidatorSignStatsRequest": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        }
+      },
+      "title": "ValidatorSignStatsRequest",
+      "required": ["address"]
+    },
+    "ValidatorSignStatsResponse": {
+      "type": "object",
+      "properties": {
+        "stats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ValidatorSignStatsInfo"
+          }
+        },
+        "time": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "ValidatorSignStatsResponse",
+      "required": ["stats", "time"]
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
