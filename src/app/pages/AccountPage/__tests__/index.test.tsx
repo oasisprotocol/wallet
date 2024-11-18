@@ -90,7 +90,7 @@ describe('<AccountPage  />', () => {
       }),
     )
     const page = renderPage(store, ['/account/oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'])
-    expect(page.container).toHaveTextContent('Oasis Scan API appears to be down')
+    expect(page.container).toHaveTextContent(/API appears to be down/)
     const balance = await screen.findByTestId('account-balance-total')
     expect(balance).toHaveTextContent('-')
     const balanceSummary = await screen.findByTestId('account-balance-summary')
