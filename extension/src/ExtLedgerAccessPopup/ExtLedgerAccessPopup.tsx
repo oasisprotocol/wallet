@@ -53,7 +53,7 @@ export function ExtLedgerAccessPopup() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
-        chrome.runtime.sendMessage({ type: MessageTypes.USB_LEDGER_PERMISSION_GRANTED })
+        chrome?.runtime?.sendMessage({ type: MessageTypes.USB_LEDGER_PERMISSION_GRANTED })
       }
     } catch {
       setConnection('error')

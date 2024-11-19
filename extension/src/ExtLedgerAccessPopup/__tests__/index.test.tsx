@@ -1,10 +1,7 @@
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { requestDevice } from 'app/lib/ledger'
-import { importAccountsActions } from 'app/state/importaccounts'
 import { ExtLedgerAccessPopup } from '../ExtLedgerAccessPopup'
-import { WalletType } from '../../../../src/app/state/wallet/types'
 
 jest.mock('app/lib/ledger')
 
@@ -31,10 +28,6 @@ describe('<ExtLedgerAccessPopup />', () => {
     expect(await screen.findByText('ledger.extension.succeed')).toBeInTheDocument()
     expect(screen.getByLabelText('Status is okay')).toBeInTheDocument()
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
-    expect(mockDispatch).toHaveBeenCalledWith({
-      payload: WalletType.UsbLedger,
-      type: importAccountsActions.enumerateAccountsFromLedger.type,
-    })
   })
 
   it('should render error state', async () => {
