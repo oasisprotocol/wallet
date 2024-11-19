@@ -7,7 +7,6 @@ import { Text } from 'grommet/es6/components/Text'
 import { canAccessBle, canAccessNavigatorUsb } from '../../../../lib/ledger'
 import { useTranslation } from 'react-i18next'
 import { Capacitor } from '@capacitor/core'
-import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 
 type SelectOpenMethodProps = {
   openLedgerAccessPopup?: () => void
@@ -16,7 +15,6 @@ type SelectOpenMethodProps = {
 export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
   const { t } = useTranslation()
   const [supportsUsbLedger, setSupportsUsbLedger] = React.useState<boolean | undefined>(true)
-  const [hasUsbLedgerAccess, setHasUsbLedgerAccess] = React.useState<boolean | undefined>(undefined)
   const [supportsBleLedger, setSupportsBleLedger] = React.useState<boolean | undefined>(true)
 
   useEffect(() => {
@@ -33,31 +31,6 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
     getLedgerSupport()
   }, [])
 
-  useEffect(() => {
-    const checkUsbLedgerAccess = async () => {
-      try {
-        // In default ext popup this gets auto-accepted / auto-rejected. In a tab or persistent popup it would
-        // prompt user to select a ledger device. TransportWebUSB.create seems to match requestDevice called in
-        // openLedgerAccessPopup.
-        // If TransportWebUSB.create() is rejected then call openLedgerAccessPopup and requestDevice. When user
-        // confirms the prompt tell them to come back here. TransportWebUSB.create() will resolve.
-        await TransportWebUSB.create()
-        setHasUsbLedgerAccess(true)
-      } catch (error) {
-        setHasUsbLedgerAccess(false)
-      }
-    }
-    if (openLedgerAccessPopup) {
-      checkUsbLedgerAccess()
-    } else {
-      // Assume true in web app. enumerateAccountsFromLedger will call TransportWebUSB.create in next steps
-      // and will prompt user to select a ledger device.
-      setHasUsbLedgerAccess(true)
-    }
-  }, [openLedgerAccessPopup])
-
-  const shouldOpenUsbLedgerAccessPopup = openLedgerAccessPopup && !hasUsbLedgerAccess
-
   return (
     <Box
       round="5px"
@@ -73,7 +46,7 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
       <Box direction="row-responsive" justify="start" margin={{ top: 'medium' }} gap="medium">
         <div>
           <div>
-            {shouldOpenUsbLedgerAccessPopup ? (
+            {openLedgerAccessPopup ? (
               <Button
                 disabled={!supportsUsbLedger}
                 style={{ width: 'fit-content' }}
