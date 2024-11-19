@@ -3,6 +3,9 @@ import { useHref } from 'react-router-dom'
 import { openLedgerAccessPopup } from 'utils/webextension'
 import { FromLedger } from './Features/FromLedger'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+import { MessageTypes, MessageType } from '../../../utils/constants'
+
+const chrome = (window as any).chrome
 
 export function FromLedgerWebExtension() {
   const href = useHref('/open-wallet/connect-device')
@@ -23,6 +26,17 @@ export function FromLedgerWebExtension() {
       }
     }
     checkUsbLedgerAccess()
+
+    const handleMessage = (message: { type: MessageType }) => {
+      if (message.type === MessageTypes.USB_LEDGER_PERMISSION_GRANTED) {
+        setHasUsbLedgerAccess(true)
+      }
+    }
+    chrome.runtime.onMessage.addListener(handleMessage)
+
+    return () => {
+      chrome.runtime.onMessage.removeListener(handleMessage)
+    }
   }, [])
 
   return (
