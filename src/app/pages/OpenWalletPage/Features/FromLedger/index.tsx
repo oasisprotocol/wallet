@@ -34,15 +34,21 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
   }, [])
 
   useEffect(() => {
+    const checkUsbLedgerAccess = async () => {
+      try {
+        // In default ext popup this gets auto-accepted / auto-rejected. In a tab or persistent popup it would
+        // prompt user to select a ledger device. TransportWebUSB.create seems to match requestDevice called in
+        // openLedgerAccessPopup.
+        // If TransportWebUSB.create() is rejected then call openLedgerAccessPopup and requestDevice. When user
+        // confirms the prompt tell them to come back here. TransportWebUSB.create() will resolve.
+        await TransportWebUSB.create()
+        setHasUsbLedgerAccess(true)
+      } catch (error) {
+        setHasUsbLedgerAccess(false)
+      }
+    }
     if (openLedgerAccessPopup) {
-      // In default ext popup this gets auto-accepted / auto-rejected. In a tab or persistent popup it would
-      // prompt user to select a ledger device. TransportWebUSB.create seems to match requestDevice called in
-      // openLedgerAccessPopup.
-      // If TransportWebUSB.create() is rejected then call openLedgerAccessPopup and requestDevice. When user
-      // confirms the prompt tell them to come back here. TransportWebUSB.create() will resolve.
-      TransportWebUSB.create()
-        .then(() => setHasUsbLedgerAccess(true))
-        .catch(() => setHasUsbLedgerAccess(false))
+      checkUsbLedgerAccess()
     } else {
       // Assume true in web app. enumerateAccountsFromLedger will call TransportWebUSB.create in next steps
       // and will prompt user to select a ledger device.
