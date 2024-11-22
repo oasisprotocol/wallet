@@ -1,66 +1,77 @@
 import { BrowserContext, Page } from '@playwright/test'
 import type {
-  AccountsRow,
-  DelegationRow,
-  OperationsRow,
-  OperationsRowMethodEnum,
-  RuntimeTransactionInfoRow,
-  ValidatorRow,
-} from '../../src/vendors/oasisscan/index'
+  Account,
+  ConsensusTxMethod,
+  Delegation,
+  Transaction,
+  Validator,
+} from '../../src/vendors/nexus/index'
+import { StringifiedBigInt } from '../../src/types/StringifiedBigInt'
 
-export async function mockApi(context: BrowserContext | Page, balance: number) {
-  await context.addInitScript(() => ((window as any).REACT_APP_BACKEND = 'oasisscan'))
-  await context.route('**/chain/account/info/*', route => {
+export async function mockApi(context: BrowserContext | Page, balance: StringifiedBigInt) {
+  await context.addInitScript(() => ((window as any).REACT_APP_BACKEND = 'nexus'))
+  await context.route('**/consensus/accounts/*', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          rank: 0,
-          address: route.request().url().split('/chain/account/info/')[1],
-          available: balance.toString(),
-          escrow: '0',
-          debonding: '0',
-          total: balance.toString(),
-          nonce: 1,
-          allowances: [],
-        } satisfies AccountsRow,
+        address: route.request().url().split('/consensus/accounts/')[1],
+        available: balance.toString(),
+        escrow: '0',
+        debonding: '0',
+        debonding_delegations_balance: '0',
+        delegations_balance: '0',
+        nonce: 1,
+        allowances: [],
+        stats: {
+          num_txns: 1,
+        },
+      } satisfies Account),
+    })
+  })
+  await context.route('**/consensus/accounts/*/delegations', route => {
+    route.fulfill({
+      body: JSON.stringify({ delegations: [], is_total_count_clipped: false, total_count: 0 }),
+    })
+  })
+  await context.route('**/consensus/accounts/*/debonding_delegations', route => {
+    route.fulfill({
+      body: JSON.stringify({ debonding_delegations: [], is_total_count_clipped: false, total_count: 0 }),
+    })
+  })
+
+  await context.route('**/consensus/transactions?*', route => {
+    route.fulfill({
+      body: JSON.stringify({
+        is_total_count_clipped: false,
+        total_count: 0,
+        transactions: [],
       }),
     })
   })
-  await context.route('**/chain/account/delegations?*', route => {
-    route.fulfill({
-      body: JSON.stringify({ code: 0, data: { list: [], page: 1, size: 500, maxPage: 0, totalSize: 0 } }),
-    })
-  })
-  await context.route('**/chain/account/debonding?*', route => {
-    route.fulfill({
-      body: JSON.stringify({ code: 0, data: { list: [], page: 1, size: 500, maxPage: 0, totalSize: 0 } }),
-    })
-  })
-  await context.route('**/chain/transactions?*', route => {
+  await context.route('**/sapphire/transactions?*', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          list: [],
-          page: 1,
-          size: 20,
-          maxPage: 1,
-          totalSize: 0,
-        },
+        is_total_count_clipped: false,
+        total_count: 0,
+        transactions: [],
       }),
     })
   })
-  await context.route('**/validator/list?*', route => {
+  await context.route('**/emerald/transactions?*', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          list: [],
-          active: 120,
-          delegators: 49619,
-          inactive: 82,
-        },
+        is_total_count_clipped: false,
+        total_count: 0,
+        transactions: [],
+      }),
+    })
+  })
+  await context.route('**/consensus/validators', route => {
+    route.fulfill({
+      body: JSON.stringify({
+        is_total_count_clipped: false,
+        stats: [],
+        total_count: 0,
+        validators: [],
       }),
     })
   })
@@ -110,278 +121,245 @@ export async function mockApi(context: BrowserContext | Page, balance: number) {
 }
 
 export async function mockApiMoreData(context: BrowserContext | Page) {
-  await mockApi(context, 0)
+  await mockApi(context, '0')
 
-  await context.route('**/chain/account/info/*', route => {
+  await context.route('**/consensus/accounts/*', route => {
     route.fulfill({
       body: JSON.stringify({
         code: 0,
         data: {
-          rank: 0,
-          address: route.request().url().split('/chain/account/info/')[1],
-          available: '23.239060788',
-          escrow: '100.996756163',
+          address: route.request().url().split('/consensus/accounts/')[1],
+          available: '23239060788',
+          escrow: '100996756163',
           debonding: '0',
-          total: '124.235816951',
+          debonding_delegations_balance: '0',
+          delegations_balance: '0',
           nonce: 70,
           allowances: [],
-        } satisfies AccountsRow,
+          stats: {
+            num_txns: 1,
+          },
+        } satisfies Account,
       }),
     })
   })
-  await context.route('**/chain/account/delegations?*', route => {
+  await context.route('**/consensus/accounts/*/delegations', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          list: [
-            {
-              validatorAddress: 'oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3',
-              validatorName: 'Chorus One',
-              icon: 'https://s3.amazonaws.com/keybase_processed_uploads/3a844f583b686ec5285403694b738a05_360_360.jpg',
-              entityAddress: null,
-              shares: '71.939343766',
-              amount: '100.996756163',
-              active: true,
-            },
-          ] as DelegationRow[],
-          page: 1,
-          size: 500,
-          maxPage: 0,
-          totalSize: 0,
-        },
+        is_total_count_clipped: false,
+        total_count: 1,
+        delegations: [
+          {
+            amount: '100826130447',
+            delegator: 'oasis1qqnk4au603zs94k0d0n7c0hkx8t4p6r87s60axru',
+            shares: '79562857663',
+            validator: 'oasis1qp0xuvw2a93w4yp8jwthfz93gxy87u7hes9eu2ev',
+          },
+        ] satisfies Delegation[],
       }),
     })
   })
-  await context.route('**/chain/account/debonding?*', route => {
+  await context.route('**/consensus/accounts/*/debonding_delegations', route => {
     route.fulfill({
-      body: JSON.stringify({ code: 0, data: { list: [], page: 1, size: 500, maxPage: 0, totalSize: 0 } }),
+      body: JSON.stringify({ debonding_delegations: [], is_total_count_clipped: false, total_count: 0 }),
     })
   })
-  await context.route('**/chain/transactions?*', route => {
+  await context.route('**/consensus/transactions?*', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          list: [
-            {
-              txHash: 'a2356cfe7231c832a3e25eca308de52a2d6fb56923845d0b9a1e810fed1a1a6c',
-              height: 6919601,
-              method: 'staking.AddEscrow' as OperationsRowMethodEnum,
-              fee: '0',
-              amount: '100.00',
-              shares: '0.00',
-              add: true,
-              timestamp: 1642862677,
-              time: 81860045,
-              status: true,
-              from: new URL(route.request().url()).searchParams.get('address')!,
-              to: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+        is_total_count_clipped: false,
+        total_count: 2,
+
+        transactions: [
+          {
+            body: {
+              account: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+              amount: '1994150103038',
             },
-            {
-              txHash: '9d5a9eb4e82633e7847989d3e84bce6a51b18434dea83e7f038091dbbb5c8bd5',
-              height: 6919536,
-              method: 'staking.Transfer' as OperationsRowMethodEnum,
-              fee: '0',
-              amount: '119.90',
-              shares: null,
-              add: true,
-              timestamp: 1642862287,
-              time: 81860435,
-              status: true,
-              from: 'oasis1qprje45lh2qqrsy4rcvgx4zpnpzkhkqcm58emr3l',
+            hash: 'a2356cfe7231c832a3e25eca308de52a2d6fb56923845d0b9a1e810fed1a1a6c',
+            block: 6919601,
+            method: 'staking.AddEscrow' as ConsensusTxMethod,
+            fee: '0',
+            timestamp: '2024-11-21T08:11:30Z',
+            success: true,
+            sender: new URL(route.request().url()).searchParams.get('address')!,
+          },
+          {
+            body: {
+              amount: '119900000000',
               to: new URL(route.request().url()).searchParams.get('address')!,
             },
-          ] satisfies (OperationsRow | RuntimeTransactionInfoRow)[],
-          page: 1,
-          size: 20,
-          maxPage: 1,
-          totalSize: 0,
-        },
+            hash: '9d5a9eb4e82633e7847989d3e84bce6a51b18434dea83e7f038091dbbb5c8bd5',
+            height: 6919536,
+            method: 'staking.Transfer' as ConsensusTxMethod,
+            fee: '0',
+            timestamp: '2024-11-22T00:19:34Z',
+            success: true,
+            sender: 'oasis1qprje45lh2qqrsy4rcvgx4zpnpzkhkqcm58emr3l',
+          },
+        ] satisfies Transaction[],
       }),
     })
   })
-  await context.route('**/validator/list?*', route => {
+  await context.route('**/consensus/validators', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          list: [
-            {
-              rank: 5,
-              entityId: 'zAhtGrpk1L3bBLaP5enm3natUTCoj7MEFryq9+MG4tE=',
-              entityAddress: 'oasis1qq0xmq7r0z9sdv02t5j9zs7en3n6574gtg8v9fyt',
-              nodeId: 'PsfFUQrXqGoFtowWZcoc8ilh8xHP94LvNYHvqQHpw1E=',
-              nodeAddress: 'oasis1qqnucpyju04fjxlg5j5a0akscqhf34ulnsupnwx3',
-              name: 'Mars Staking | Long term fee 1%',
-              icon: 'https://s3.amazonaws.com/keybase_processed_uploads/f30f9b2207b7d83ef05219ca483b6f05_360_360.jpg',
-              website: 'https://linktr.ee/marssuper',
-              twitter: null,
-              keybase: 'marssuper',
-              email: 'marssuper@outlook.com',
-              description: null,
-              escrow: '134193743.56',
-              escrowChange24: '-1097851.50',
-              escrowPercent: 0.0326,
-              balance: '9107.72',
-              totalShares: '97861795.49',
-              signs: 19953582,
-              proposals: 479302,
-              nonce: 0,
-              score: 20912186,
-              delegators: 23446,
-              nodes: null,
-              uptime: '100%',
-              active: true,
-              commission: 0.01,
-              bound: null,
-              rates: null,
-              bounds: null,
-              escrowSharesStatus: null,
-              escrowAmountStatus: null,
-              status: true,
-            },
-            {
-              rank: 1,
-              entityId: 'eZuacXy5s3/nolB/E3gF4vqUYdvfOlVaaBXGfZcGwKc=',
-              entityAddress: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-              nodeId: 'SQZZd1wsWXdFsqswUoh6hZtmzu+ejuSnrGeHtgIBJDo=',
-              nodeAddress: 'oasis1qphhk4g0ncqut2ds40mr932s5p8tkqcu3yaae227',
-              name: 'stakefish',
-              icon: 'https://s3.amazonaws.com/keybase_processed_uploads/e1378cd4d5203ded716906687ad53905_360_360.jpg',
-              website: 'https://stake.fish',
-              twitter: 'stakefish',
-              keybase: 'bflabs',
-              email: 'hi@stake.fish',
-              description: null,
-              escrow: '185814524.64',
-              escrowChange24: '-206667.72',
-              escrowPercent: 0.0452,
-              balance: '5.65',
-              totalShares: '132537985.53',
-              signs: 19769052,
-              proposals: 1082088,
-              nonce: 0,
-              score: 21933228,
-              delegators: 8756,
-              nodes: null,
-              uptime: '100%',
-              active: true,
-              commission: 0.05,
-              bound: null,
-              rates: null,
-              bounds: null,
-              escrowSharesStatus: null,
-              escrowAmountStatus: null,
-              status: true,
-            },
-            {
-              rank: 6,
-              entityId: '9sAhd+Wi6tG5nAr3LwXD0y9mUKLYqfAbS2+7SZdNHB4=',
-              entityAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
-              nodeId: '6wbL5/OxvFGxi55o7AxcwKmfjXbXGC1hw4lfnEZxBXA=',
-              nodeAddress: 'oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k',
-              name: 'BinanceStaking',
-              icon: null,
-              website: 'https://www.binance.com',
-              twitter: null,
-              keybase: null,
-              email: null,
-              description: null,
-              escrow: '131080178.79',
-              escrowChange24: '-7133.04',
-              escrowPercent: 0.0319,
-              balance: '102.82',
-              totalShares: '103330721.13',
-              signs: 17910526,
-              proposals: 1511342,
-              nonce: 0,
-              score: 20933210,
-              delegators: 7988,
-              nodes: null,
-              uptime: '100%',
-              active: true,
-              commission: 0.1,
-              bound: null,
-              rates: null,
-              bounds: null,
-              escrowSharesStatus: null,
-              escrowAmountStatus: null,
-              status: true,
-            },
-            {
-              rank: 36,
-              entityId: 'J2nwlXuYEPNZ0mMH2Phg5RofbZzj65xDvQMNdy9Ji0E=',
-              entityAddress: 'oasis1qz22xm9vyg0uqxncc667m4j4p5mrsj455c743lfn',
-              nodeId: 'ITrwEekdZNqXrEzvw3GT6Q3AtHDd51f19nD2nVU/f0c=',
-              nodeAddress: 'oasis1qzs429ts5f4pvnylnhkhhfgjvtqj35asc5mv68sz',
-              name: 'S5',
-              icon: 'https://s3.amazonaws.com/keybase_processed_uploads/de32b7ca9108d3d7de68949f81114205_360_360.jpg',
-              website: 'https://www.stake5labs.com',
-              twitter: 'stake5labs',
-              keybase: 'stake5labs',
-              email: null,
-              description: null,
-              escrow: '40029484.50',
-              escrowChange24: '2718.71',
-              escrowPercent: 0.0097,
-              balance: '19610.66',
-              totalShares: '29877258.81',
-              signs: 20022313,
-              proposals: 309250,
-              nonce: 0,
-              score: 20640813,
-              delegators: 5120,
-              nodes: null,
-              uptime: '100%',
-              active: true,
-              commission: 0.2,
-              bound: null,
-              rates: null,
-              bounds: null,
-              escrowSharesStatus: null,
-              escrowAmountStatus: null,
-              status: true,
-            },
-            {
-              rank: 4,
-              entityId: '9D+kziTxFhg77+cyt+Fwd6eXREkZ1wHw7WX7VG57MeA=',
-              entityAddress: 'oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3',
-              nodeId: 'SCA1zoR15jpC2eugP1P/CZBQhMjHEtmJ7+hWemgTdWo=',
-              nodeAddress: 'oasis1qrs74qakgmxcrj4vcvl6javrps65awk6x5656msr',
-              name: 'Chorus One',
-              icon: 'https://s3.amazonaws.com/keybase_processed_uploads/3a844f583b686ec5285403694b738a05_360_360.jpg',
-              website: 'https://chorus.one',
-              twitter: 'ChorusOne',
-              keybase: null,
-              email: null,
-              description: null,
-              escrow: '135556888.36',
-              escrowChange24: '3137.73',
-              escrowPercent: 0.033,
-              balance: '235942.01',
-              totalShares: '96556305.00',
-              signs: 20053736,
-              proposals: 849819,
-              nonce: 0,
-              score: 21753374,
-              delegators: 2360,
-              nodes: null,
-              uptime: '100%',
-              active: true,
-              commission: 0.05,
-              bound: null,
-              rates: null,
-              bounds: null,
-              escrowSharesStatus: null,
-              escrowAmountStatus: null,
-              status: true,
-            },
-          ] satisfies ValidatorRow[],
-          active: 120,
-          delegators: 49619,
-          inactive: 82,
+        is_total_count_clipped: false,
+        stats: {
+          total_delegators: 54745,
+          total_staked_balance: '4001234121281725585',
+          total_voting_power: '247946980677285944',
         },
+        total_count: 281,
+        validators: [
+          {
+            active: true,
+            current_commission_bound: { epoch_end: 0, epoch_start: 0, lower: 0, upper: 20000 },
+            current_rate: 5000,
+            entity_address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+            entity_id: 'eZuacXy5s3/nolB/E3gF4vqUYdvfOlVaaBXGfZcGwKc=',
+            escrow: {
+              active_balance: '168026013465721765',
+              active_shares: '119172147012596776',
+              debonding_balance: '9467230407622552',
+              debonding_shares: '9467230407622552',
+              num_delegators: 8132,
+              self_delegation_balance: '611241601978225',
+              self_delegation_shares: '433522003817728',
+            },
+            in_validator_set: true,
+            media: {
+              email: 'hi@stake.fish',
+              keybase: 'bflabs',
+              logoUrl:
+                'https://s3.amazonaws.com/keybase_processed_uploads/e1378cd4d5203ded716906687ad53905_360_360.jpg',
+              name: 'stakefish',
+              twitter: 'stakefish',
+              url: 'https://stake.fish',
+            },
+            node_id: 'SQZZd1wsWXdFsqswUoh6hZtmzu+ejuSnrGeHtgIBJDo=',
+            rank: 1,
+            start_date: '2024-04-11T03:43:47Z',
+            voting_power: 7773301654007068,
+            voting_power_cumulative: 44859726036891190,
+          },
+          {
+            active: true,
+            current_commission_bound: { epoch_end: 0, epoch_start: 20603, lower: 0, upper: 100000 },
+            current_rate: 8000,
+            entity_address: 'oasis1qqtmpsavs44vz8868p008uwjulfq03pcjswslutz',
+            entity_id: 'c+Kr/VTZLJes6N2u6nTEj7aWje8wHApJeVEoOdvhCh8=',
+            escrow: {
+              active_balance: '153272453164515049',
+              active_shares: '144880479393976504',
+              debonding_balance: '1313859153712116',
+              debonding_shares: '1313859153712116',
+              num_delegators: 80,
+              self_delegation_balance: '169380993446265',
+              self_delegation_shares: '160107044834618',
+            },
+            in_validator_set: true,
+            media: {
+              email: 'contact@kiln.fi',
+              keybase: 'kilnfi',
+              logoUrl:
+                'https://s3.amazonaws.com/keybase_processed_uploads/e976400f2c6613037aa555dd11394305_360_360.jpg',
+              name: 'Kiln',
+              twitter: 'Kiln_finance',
+              url: 'https://kiln.fi',
+            },
+            node_id: 'jKA6PqWwftnglxywnQQPoIcb7j2HQVu7anf2i7LWU2c=',
+            rank: 2,
+            start_date: '2023-02-01T08:00:21Z',
+            voting_power: 7773301654007068,
+            voting_power_cumulative: 44859726036891190,
+          },
+          {
+            active: true,
+            current_commission_bound: { epoch_end: 0, epoch_start: 0, lower: 0, upper: 20000 },
+            current_rate: 5000,
+            entity_address: 'oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3',
+            entity_id: '9D+kziTxFhg77+cyt+Fwd6eXREkZ1wHw7WX7VG57MeA=',
+            escrow: {
+              active_balance: '138101214710958403',
+              active_shares: '97812436791488919',
+              debonding_balance: '2515461941557498',
+              debonding_shares: '2515461941557498',
+              num_delegators: 2200,
+              self_delegation_balance: '49749375336253',
+              self_delegation_shares: '35235806148975',
+            },
+            in_validator_set: true,
+            media: {
+              email: 'techops@chorus.one',
+              keybase: 'chorusoneinc',
+              logoUrl:
+                'https://s3.amazonaws.com/keybase_processed_uploads/3a844f583b686ec5285403694b738a05_360_360.jpg',
+              name: 'Chorus One',
+              twitter: 'ChorusOne',
+              url: 'https://chorus.one/',
+            },
+            node_id: 'SCA1zoR15jpC2eugP1P/CZBQhMjHEtmJ7+hWemgTdWo=',
+            rank: 3,
+            start_date: '2021-04-28T16:00:00Z',
+            voting_power: 7773301654007068,
+            voting_power_cumulative: 44859726036891190,
+          },
+          {
+            active: true,
+            current_commission_bound: { epoch_end: 0, epoch_start: 0, lower: 0, upper: 20000 },
+            current_rate: 10000,
+            entity_address: 'oasis1qq7vyz4ewrdh00yujw0mgkf459et306xmvh2h3zg',
+            entity_id: 'FDqRmM1FyhaGas+lquWmGAKgMsU2rj7UESAlnOHtxco=',
+            escrow: {
+              active_balance: '133984788058246819',
+              active_shares: '96629756290216092',
+              debonding_balance: '239575614066662',
+              debonding_shares: '239575614066662',
+              num_delegators: 204,
+              self_delegation_balance: '7629981433882',
+              self_delegation_shares: '5502738461133',
+            },
+            in_validator_set: true,
+            media: {
+              email: 'p.pavlov@p2p.org',
+              keybase: 'p2p_org_',
+              logoUrl:
+                'https://s3.amazonaws.com/keybase_processed_uploads/0e54d989cbe0b1eed716e222bf2cdd05_360_360.jpg',
+              name: 'P2P.ORG - P2P Validator',
+              twitter: 'P2Pvalidator',
+              url: 'https://p2p.org/',
+            },
+            node_id: '5UbIi8RQj4flFn9N8wHjQqp6QwZFJi2QdD2mOYLa/sY=',
+            rank: 4,
+            start_date: '2021-04-28T16:00:00Z',
+            voting_power: 7773301654007068,
+            voting_power_cumulative: 44859726036891190,
+          },
+          {
+            active: true,
+            current_commission_bound: { epoch_end: 0, epoch_start: 4725, lower: 0, upper: 25000 },
+            current_rate: 10000,
+            entity_address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+            entity_id: '9sAhd+Wi6tG5nAr3LwXD0y9mUKLYqfAbS2+7SZdNHB4=',
+            escrow: {
+              active_balance: '124373178439211987',
+              active_shares: '97518341155226051',
+              debonding_balance: '2283701605519128',
+              debonding_shares: '2283701605519128',
+              num_delegators: 7506,
+              self_delegation_balance: '3470218233061100',
+              self_delegation_shares: '2720923673267204',
+            },
+            in_validator_set: true,
+            media: { name: 'BinanceStaking', url: 'https://www.binance.com' },
+            node_id: '6wbL5/OxvFGxi55o7AxcwKmfjXbXGC1hw4lfnEZxBXA=',
+            rank: 5,
+            start_date: '2021-04-28T16:00:00Z',
+            voting_power: 7773301654007068,
+            voting_power_cumulative: 44859726036891190,
+          },
+        ] satisfies Validator[],
       }),
     })
   })
