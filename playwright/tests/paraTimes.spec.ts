@@ -6,7 +6,7 @@ import { mockApi } from '../utils/mockApi'
 
 test.beforeEach(async ({ page }) => {
   await warnSlowApi(page)
-  await mockApi(page, 500000000000)
+  await mockApi(page, '500000000000')
 })
 
 test.describe('ParaTimes', () => {

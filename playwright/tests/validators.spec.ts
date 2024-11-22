@@ -7,9 +7,9 @@ import { expectNoErrorsInConsole } from '../utils/expectNoErrorsInConsole'
 
 test.beforeEach(async ({ page }) => {
   await warnSlowApi(page)
-  await mockApi(page, 500000000000)
+  await mockApi(page, '500000000000')
   // Unmock validators list API
-  await page.unroute('**/validator/list?*')
+  await page.unroute('**/consensus/validators')
   await expectNoErrorsInConsole(page, {
     ignoreError: message => {
       // Some validator icons need authentication
@@ -38,8 +38,8 @@ test.describe('Validators', () => {
 
     await page.getByRole('link', { name: 'Stake' }).click()
     // Wait for validators to be shown, then scroll to them to trigger lazy loading.
-    await expect(page.getByText('Everstake')).toBeVisible()
-    await page.getByText('Everstake').scrollIntoViewIfNeeded()
+    await expect(page.getByText('stakefish')).toBeVisible()
+    await page.getByText('stakefish').scrollIntoViewIfNeeded()
     await (await someValidatorIconPromise).finished()
     // Expect no errors.
   })
