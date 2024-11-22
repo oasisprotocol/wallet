@@ -12,11 +12,11 @@ import {
 } from '../../src/utils/__fixtures__/test-inputs'
 import { addPersistedStorageV1, clearPersistedStorage } from '../utils/storage'
 import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
-import type { AccountsRow } from '../../src/vendors/oasisscan/index'
+import type { Account } from '../../src/vendors/nexus/index'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
   await clearPersistedStorage(page, '/app.webmanifest')
 })
 
@@ -312,7 +312,7 @@ test.describe('syncTabs', () => {
 
     // Delay getAccountBalanceWithFallback so addWallet is called after wallet is locked.
     let apiBalance: Route
-    await context.route('**/chain/account/info/*', route => (apiBalance = route))
+    await context.route('**/consensus/accounts/*', route => (apiBalance = route))
 
     await page.getByPlaceholder('Enter your private key here').fill(privateKey2)
     await page.keyboard.press('Enter')
@@ -321,15 +321,18 @@ test.describe('syncTabs', () => {
       body: JSON.stringify({
         code: 0,
         data: {
-          rank: 0,
           address: '',
           available: '0',
           escrow: '0',
           debonding: '0',
-          total: '0',
           nonce: 1,
           allowances: [],
-        } satisfies AccountsRow,
+          delegations_balance: '0',
+          debonding_delegations_balance: '0',
+          stats: {
+            num_txns: 1,
+          },
+        } satisfies Account,
       }),
     })
     await page.waitForTimeout(100)
