@@ -6,7 +6,7 @@ import { mockApi } from '../utils/mockApi'
 
 test.beforeEach(async ({ page }) => {
   await warnSlowApi(page)
-  await mockApi(page, 123)
+  await mockApi(page, '123000000000')
 
   await page.goto('/open-wallet/private-key')
   await fillPrivateKeyWithoutPassword(page, {
