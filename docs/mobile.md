@@ -1,5 +1,50 @@
 # Mobile app development
 
+## GitHub secrets
+
+- generate keystore password with a password manager
+(e.g. `pass generate rose-wallet/android-keystore-password`)
+- generate keystore file (keep in mind that validity flag must be aligned with
+[mobile app expected lifespan])
+
+ <!-- markdownlint-disable MD013 -->
+
+ ```
+keytool -genkeypair -v -keystore rose-wallet-android.jks -keyalg RSA -keysize 4096 -validity 9125 -alias rose-wallet-android -storepass $(pass rose-wallet/android-keystore-password)
+```
+<!-- markdownlint-enable MD013 -->
+
+When asked, enter something like below:
+
+```
+Enter the distinguished name. Provide a single dot (.) to leave a sub-component empty or 
+press ENTER to use the default value in braces.
+What is your first and last name?
+  [Unknown]:  Oasis
+What is the name of your organizational unit?
+  [Unknown]:  Engineering
+What is the name of your organization?
+  [Unknown]:  Oasis Protocol Foundation
+What is the name of your City or Locality?
+  [Unknown]:  
+What is the name of your State or Province?
+  [Unknown]:  
+What is the two-letter country code for this unit?
+  [Unknown]:  
+Is CN=Oasis, OU=Engineering, O=Oasis Protocol Foundation, L=Unknown, ST=Unknown, C=Unknown correct?
+  [no]:  yes
+```
+
+- encode keystore file in base64 format so it can be added as GitHub secret
+
+```
+base64 rose-wallet-android.jks > rose-wallet-android.jks.base64
+```
+
+- provide all secrets in repo settings
+<https://github.com/oasisprotocol/wallet/settings/secrets/actions> ->
+New repository secret: `KEYSTORE_FILE` , `KEYSTORE_PASSWORD` and `KEY_ALIAS`.
+
 ## Convert Android App Bundle (AAB) to Android Package (APK)
 
 Our GitHub workflows create signed AAB and APK files.
@@ -56,3 +101,4 @@ npx @capacitor/assets generate --ios
 
 [Capacitor Assets docs]: https://github.com/ionic-team/capacitor-assets#usage---custom-mode
 [bundletool]: https://github.com/google/bundletool/releases
+[mobile app expected lifespan]: https://developer.android.com/studio/publish/app-signing#considerations
