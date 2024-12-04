@@ -101,12 +101,9 @@ This code needs multiple components to run, all provided in the
 - [envoy-proxy], used as a gRPC gateway for live access to the oasis-node, to
   fetch live balance, information about the current state of the network, and to
   submit transactions.
-- [oasis-monitor], a block indexer to store historical data about transactions,
-  accounts, validators, rewards, blocks and more. It exposes an
-  [OpenAPI][monitor-swagger]. `oasis-monitor` requires two databases:
-
-  - A PostgreSQL instance to keep track of it's import batches
-  - A [Clickhouse] server to store the indexed data
+- [oasis-nexus], is the official indexer for the Oasis Network, providing
+the backend for the Oasis Explorer and ROSE Wallet.
+It exposes an [API][oasis-nexus-api-spec].
 
 - [oasis-scan], oasis blockchain explorer that enables view of historical data
   about transactions, accounts, validators, paratimes, blocks, proposals and
@@ -223,9 +220,8 @@ Adding a new language:
 [chromewebstore.google.com]: https://chromewebstore.google.com/detail/rose-wallet/ppdadbejkmjnefldpcdjhnkpbjkikoip
 [docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
-[oasis-monitor]: https://oasismonitor.com
-[monitor-swagger]: https://github.com/everstake/oasis-explorer/blob/master/swagger/swagger.yml
-[Clickhouse]: https://github.com/ClickHouse/ClickHouse
+[oasis-nexus]: https://github.com/oasisprotocol/nexus
+[oasis-nexus-api-spec]: https://nexus.oasis.io/v1/spec/v1.html
 [oasis-scan]: https://www.oasisscan.com
 [scan-api-repo]: https://github.com/bitcat365/oasisscan-backend#oasisscan-api
 [Cypress]: https://www.cypress.io/
