@@ -2,6 +2,25 @@
 
 This folder contains generated typescript bindings for Nexus.
 
+Validate @openapitools/openapi-generator-cli version:
+
+```
+npx @openapitools/openapi-generator-cli version
+```
+
+In order to use type mappings make sure to use at least `7.10.0` version.
+To bump version use a following command:
+
+```
+npx @openapitools/openapi-generator-cli version-manager set 7.10.0
+```
+
+You can also use `version-manager`:
+
+```
+npx @openapitools/openapi-generator-cli version-manager list
+```
+
 To update the bindings:
 
 1. Update openapi.json based on
@@ -14,7 +33,8 @@ To update the bindings:
     -i openapi.json \
     -g typescript-fetch \
     -o . \
-    --additional-properties=modelPropertyNaming=original,typescriptThreePlus=true
+    --additional-properties=modelPropertyNaming=original,typescriptThreePlus=true \
+    --type-mappings string+date-time=string
    ```
 
    or
@@ -27,7 +47,8 @@ To update the bindings:
     -i openapi.json \
     -g typescript-fetch \
     -o . \
-    --additional-properties=modelPropertyNaming=original,typescriptThreePlus=true
+    --additional-properties=modelPropertyNaming=original,typescriptThreePlus=true \ 
+    --type-mappings string+date-time=string
    ```
 
 3. Lint:
