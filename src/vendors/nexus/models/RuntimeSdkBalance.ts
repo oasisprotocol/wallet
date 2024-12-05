@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * Balance of an account for a specific runtime and oasis-sdk token (e.g. ROSE).
  * @export
@@ -39,12 +39,22 @@ export interface RuntimeSdkBalance {
     token_decimals: number;
 }
 
+/**
+ * Check if a given object implements the RuntimeSdkBalance interface.
+ */
+export function instanceOfRuntimeSdkBalance(value: object): value is RuntimeSdkBalance {
+    if (!('balance' in value) || value['balance'] === undefined) return false;
+    if (!('token_symbol' in value) || value['token_symbol'] === undefined) return false;
+    if (!('token_decimals' in value) || value['token_decimals'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeSdkBalanceFromJSON(json: any): RuntimeSdkBalance {
     return RuntimeSdkBalanceFromJSONTyped(json, false);
 }
 
 export function RuntimeSdkBalanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeSdkBalance {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -55,19 +65,20 @@ export function RuntimeSdkBalanceFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function RuntimeSdkBalanceToJSON(value?: RuntimeSdkBalance | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'balance': value.balance,
-        'token_symbol': value.token_symbol,
-        'token_decimals': value.token_decimals,
-    };
+export function RuntimeSdkBalanceToJSON(json: any): RuntimeSdkBalance {
+    return RuntimeSdkBalanceToJSONTyped(json, false);
 }
 
+export function RuntimeSdkBalanceToJSONTyped(value?: RuntimeSdkBalance | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'balance': value['balance'],
+        'token_symbol': value['token_symbol'],
+        'token_decimals': value['token_decimals'],
+    };
+}
 

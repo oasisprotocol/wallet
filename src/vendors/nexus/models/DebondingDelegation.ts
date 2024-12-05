@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A debonding delegation.
+ * 
  * @export
  * @interface DebondingDelegation
  */
@@ -51,12 +52,24 @@ export interface DebondingDelegation {
     debond_end: number;
 }
 
+/**
+ * Check if a given object implements the DebondingDelegation interface.
+ */
+export function instanceOfDebondingDelegation(value: object): value is DebondingDelegation {
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    if (!('shares' in value) || value['shares'] === undefined) return false;
+    if (!('validator' in value) || value['validator'] === undefined) return false;
+    if (!('delegator' in value) || value['delegator'] === undefined) return false;
+    if (!('debond_end' in value) || value['debond_end'] === undefined) return false;
+    return true;
+}
+
 export function DebondingDelegationFromJSON(json: any): DebondingDelegation {
     return DebondingDelegationFromJSONTyped(json, false);
 }
 
 export function DebondingDelegationFromJSONTyped(json: any, ignoreDiscriminator: boolean): DebondingDelegation {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -69,21 +82,22 @@ export function DebondingDelegationFromJSONTyped(json: any, ignoreDiscriminator:
     };
 }
 
-export function DebondingDelegationToJSON(value?: DebondingDelegation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'amount': value.amount,
-        'shares': value.shares,
-        'validator': value.validator,
-        'delegator': value.delegator,
-        'debond_end': value.debond_end,
-    };
+export function DebondingDelegationToJSON(json: any): DebondingDelegation {
+    return DebondingDelegationToJSONTyped(json, false);
 }
 
+export function DebondingDelegationToJSONTyped(value?: DebondingDelegation | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'amount': value['amount'],
+        'shares': value['shares'],
+        'validator': value['validator'],
+        'delegator': value['delegator'],
+        'debond_end': value['debond_end'],
+    };
+}
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -45,12 +45,23 @@ export interface ValidatorCommissionBound {
     epoch_end: number;
 }
 
+/**
+ * Check if a given object implements the ValidatorCommissionBound interface.
+ */
+export function instanceOfValidatorCommissionBound(value: object): value is ValidatorCommissionBound {
+    if (!('lower' in value) || value['lower'] === undefined) return false;
+    if (!('upper' in value) || value['upper'] === undefined) return false;
+    if (!('epoch_start' in value) || value['epoch_start'] === undefined) return false;
+    if (!('epoch_end' in value) || value['epoch_end'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorCommissionBoundFromJSON(json: any): ValidatorCommissionBound {
     return ValidatorCommissionBoundFromJSONTyped(json, false);
 }
 
 export function ValidatorCommissionBoundFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorCommissionBound {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -62,20 +73,21 @@ export function ValidatorCommissionBoundFromJSONTyped(json: any, ignoreDiscrimin
     };
 }
 
-export function ValidatorCommissionBoundToJSON(value?: ValidatorCommissionBound | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'lower': value.lower,
-        'upper': value.upper,
-        'epoch_start': value.epoch_start,
-        'epoch_end': value.epoch_end,
-    };
+export function ValidatorCommissionBoundToJSON(json: any): ValidatorCommissionBound {
+    return ValidatorCommissionBoundToJSONTyped(json, false);
 }
 
+export function ValidatorCommissionBoundToJSONTyped(value?: ValidatorCommissionBound | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'lower': value['lower'],
+        'upper': value['upper'],
+        'epoch_start': value['epoch_start'],
+        'epoch_end': value['epoch_end'],
+    };
+}
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -22,6 +22,7 @@ export interface Status {
     /**
      * The height of the most recent indexed block. Compare with latest_node_block to measure
      * how far behind Nexus is from the chain.
+     * 
      * @type {number}
      * @memberof Status
      */
@@ -46,12 +47,23 @@ export interface Status {
     latest_update_age_ms: number;
 }
 
+/**
+ * Check if a given object implements the Status interface.
+ */
+export function instanceOfStatus(value: object): value is Status {
+    if (!('latest_block' in value) || value['latest_block'] === undefined) return false;
+    if (!('latest_node_block' in value) || value['latest_node_block'] === undefined) return false;
+    if (!('latest_block_time' in value) || value['latest_block_time'] === undefined) return false;
+    if (!('latest_update_age_ms' in value) || value['latest_update_age_ms'] === undefined) return false;
+    return true;
+}
+
 export function StatusFromJSON(json: any): Status {
     return StatusFromJSONTyped(json, false);
 }
 
 export function StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): Status {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -63,20 +75,21 @@ export function StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): St
     };
 }
 
-export function StatusToJSON(value?: Status | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'latest_block': value.latest_block,
-        'latest_node_block': value.latest_node_block,
-        'latest_block_time': (value.latest_block_time.toISOString()),
-        'latest_update_age_ms': value.latest_update_age_ms,
-    };
+export function StatusToJSON(json: any): Status {
+    return StatusToJSONTyped(json, false);
 }
 
+export function StatusToJSONTyped(value?: Status | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'latest_block': value['latest_block'],
+        'latest_node_block': value['latest_node_block'],
+        'latest_block_time': ((value['latest_block_time']).toISOString()),
+        'latest_update_age_ms': value['latest_update_age_ms'],
+    };
+}
 

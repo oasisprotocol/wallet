@@ -12,18 +12,31 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum AddressDerivationContext {
-    CoreAddressStaking = 'oasis-core/address: staking',
-    RuntimeSdkAddressSecp256k1eth = 'oasis-runtime-sdk/address: secp256k1eth',
-    RuntimeSdkAddressSr25519 = 'oasis-runtime-sdk/address: sr25519',
-    RuntimeSdkAddressMultisig = 'oasis-runtime-sdk/address: multisig',
-    RuntimeSdkAddressModule = 'oasis-runtime-sdk/address: module',
-    RuntimeSdkAddressRuntime = 'oasis-runtime-sdk/address: runtime'
+export const AddressDerivationContext = {
+    CoreAddressStaking: 'oasis-core/address: staking',
+    RuntimeSdkAddressSecp256k1eth: 'oasis-runtime-sdk/address: secp256k1eth',
+    RuntimeSdkAddressSr25519: 'oasis-runtime-sdk/address: sr25519',
+    RuntimeSdkAddressMultisig: 'oasis-runtime-sdk/address: multisig',
+    RuntimeSdkAddressModule: 'oasis-runtime-sdk/address: module',
+    RuntimeSdkAddressRuntime: 'oasis-runtime-sdk/address: runtime'
+} as const;
+export type AddressDerivationContext = typeof AddressDerivationContext[keyof typeof AddressDerivationContext];
+
+
+export function instanceOfAddressDerivationContext(value: any): boolean {
+    for (const key in AddressDerivationContext) {
+        if (Object.prototype.hasOwnProperty.call(AddressDerivationContext, key)) {
+            if (AddressDerivationContext[key as keyof typeof AddressDerivationContext] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function AddressDerivationContextFromJSON(json: any): AddressDerivationContext {
@@ -36,5 +49,9 @@ export function AddressDerivationContextFromJSONTyped(json: any, ignoreDiscrimin
 
 export function AddressDerivationContextToJSON(value?: AddressDerivationContext | null): any {
     return value as any;
+}
+
+export function AddressDerivationContextToJSONTyped(value: any, ignoreDiscriminator: boolean): AddressDerivationContext {
+    return value as AddressDerivationContext;
 }
 

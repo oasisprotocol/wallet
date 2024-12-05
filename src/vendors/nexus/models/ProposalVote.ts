@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -45,37 +45,47 @@ export interface ProposalVote {
     timestamp?: Date;
 }
 
+/**
+ * Check if a given object implements the ProposalVote interface.
+ */
+export function instanceOfProposalVote(value: object): value is ProposalVote {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('vote' in value) || value['vote'] === undefined) return false;
+    return true;
+}
+
 export function ProposalVoteFromJSON(json: any): ProposalVote {
     return ProposalVoteFromJSONTyped(json, false);
 }
 
 export function ProposalVoteFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProposalVote {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'address': json['address'],
         'vote': json['vote'],
-        'height': !exists(json, 'height') ? undefined : json['height'],
-        'timestamp': !exists(json, 'timestamp') ? undefined : (new Date(json['timestamp'])),
+        'height': json['height'] == null ? undefined : json['height'],
+        'timestamp': json['timestamp'] == null ? undefined : (new Date(json['timestamp'])),
     };
 }
 
-export function ProposalVoteToJSON(value?: ProposalVote | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ProposalVoteToJSON(json: any): ProposalVote {
+    return ProposalVoteToJSONTyped(json, false);
+}
+
+export function ProposalVoteToJSONTyped(value?: ProposalVote | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'address': value.address,
-        'vote': value.vote,
-        'height': value.height,
-        'timestamp': value.timestamp === undefined ? undefined : (value.timestamp.toISOString()),
+        'address': value['address'],
+        'vote': value['vote'],
+        'height': value['height'],
+        'timestamp': value['timestamp'] == null ? undefined : ((value['timestamp']).toISOString()),
     };
 }
-
 

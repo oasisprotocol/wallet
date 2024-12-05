@@ -12,20 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { Runtime } from './Runtime';
 import {
-    ConsensusEventType,
-    ConsensusEventTypeFromJSON,
-    ConsensusEventTypeFromJSONTyped,
-    ConsensusEventTypeToJSON,
-    Runtime,
     RuntimeFromJSON,
     RuntimeFromJSONTyped,
     RuntimeToJSON,
-} from './';
+    RuntimeToJSONTyped,
+} from './Runtime';
+import type { ConsensusEventType } from './ConsensusEventType';
+import {
+    ConsensusEventTypeFromJSON,
+    ConsensusEventTypeFromJSONTyped,
+    ConsensusEventTypeToJSON,
+    ConsensusEventTypeToJSONTyped,
+} from './ConsensusEventType';
 
 /**
  * An event emitted by the consensus layer.
+ * 
  * @export
  * @interface ConsensusEvent
  */
@@ -39,6 +44,7 @@ export interface ConsensusEvent {
     /**
      * 0-based index of this event's originating transaction within its block.
      * Absent if the event did not originate from a transaction.
+     * 
      * @type {number}
      * @memberof ConsensusEvent
      */
@@ -46,6 +52,7 @@ export interface ConsensusEvent {
     /**
      * Hash of this event's originating transaction.
      * Absent if the event did not originate from a transaction.
+     * 
      * @type {string}
      * @memberof ConsensusEvent
      */
@@ -53,6 +60,7 @@ export interface ConsensusEvent {
     /**
      * The ID of the runtime to which the event relates, encoded in hex.
      * Present only for events of type `roothash.*`.
+     * 
      * @type {string}
      * @memberof ConsensusEvent
      */
@@ -60,6 +68,7 @@ export interface ConsensusEvent {
     /**
      * The runtime to which the event relates.
      * Present only for events of type `roothash.*`.
+     * 
      * @type {Runtime}
      * @memberof ConsensusEvent
      */
@@ -69,6 +78,7 @@ export interface ConsensusEvent {
      * relates.
      * Present only for events of type `roothash.*` except for
      * `roothash.execution_discrepancy` before Eden.
+     * 
      * @type {number}
      * @memberof ConsensusEvent
      */
@@ -84,10 +94,23 @@ export interface ConsensusEvent {
      * instead, see [the Go API](https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/consensus/api/transaction/results#Event) of oasis-core.
      * This object will conform to one of the `*Event` types two levels down
      * the hierarchy, e.g. `TransferEvent` from `Event > staking.Event > TransferEvent`
+     * 
      * @type {object}
      * @memberof ConsensusEvent
      */
     body: object;
+}
+
+
+
+/**
+ * Check if a given object implements the ConsensusEvent interface.
+ */
+export function instanceOfConsensusEvent(value: object): value is ConsensusEvent {
+    if (!('block' in value) || value['block'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('body' in value) || value['body'] === undefined) return false;
+    return true;
 }
 
 export function ConsensusEventFromJSON(json: any): ConsensusEvent {
@@ -95,40 +118,41 @@ export function ConsensusEventFromJSON(json: any): ConsensusEvent {
 }
 
 export function ConsensusEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): ConsensusEvent {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'block': json['block'],
-        'tx_index': !exists(json, 'tx_index') ? undefined : json['tx_index'],
-        'tx_hash': !exists(json, 'tx_hash') ? undefined : json['tx_hash'],
-        'roothash_runtime_id': !exists(json, 'roothash_runtime_id') ? undefined : json['roothash_runtime_id'],
-        'roothash_runtime': !exists(json, 'roothash_runtime') ? undefined : RuntimeFromJSON(json['roothash_runtime']),
-        'roothash_runtime_round': !exists(json, 'roothash_runtime_round') ? undefined : json['roothash_runtime_round'],
+        'tx_index': json['tx_index'] == null ? undefined : json['tx_index'],
+        'tx_hash': json['tx_hash'] == null ? undefined : json['tx_hash'],
+        'roothash_runtime_id': json['roothash_runtime_id'] == null ? undefined : json['roothash_runtime_id'],
+        'roothash_runtime': json['roothash_runtime'] == null ? undefined : RuntimeFromJSON(json['roothash_runtime']),
+        'roothash_runtime_round': json['roothash_runtime_round'] == null ? undefined : json['roothash_runtime_round'],
         'type': ConsensusEventTypeFromJSON(json['type']),
         'body': json['body'],
     };
 }
 
-export function ConsensusEventToJSON(value?: ConsensusEvent | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'block': value.block,
-        'tx_index': value.tx_index,
-        'tx_hash': value.tx_hash,
-        'roothash_runtime_id': value.roothash_runtime_id,
-        'roothash_runtime': RuntimeToJSON(value.roothash_runtime),
-        'roothash_runtime_round': value.roothash_runtime_round,
-        'type': ConsensusEventTypeToJSON(value.type),
-        'body': value.body,
-    };
+export function ConsensusEventToJSON(json: any): ConsensusEvent {
+    return ConsensusEventToJSONTyped(json, false);
 }
 
+export function ConsensusEventToJSONTyped(value?: ConsensusEvent | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'block': value['block'],
+        'tx_index': value['tx_index'],
+        'tx_hash': value['tx_hash'],
+        'roothash_runtime_id': value['roothash_runtime_id'],
+        'roothash_runtime': RuntimeToJSON(value['roothash_runtime']),
+        'roothash_runtime_round': value['roothash_runtime_round'],
+        'type': ConsensusEventTypeToJSON(value['type']),
+        'body': value['body'],
+    };
+}
 

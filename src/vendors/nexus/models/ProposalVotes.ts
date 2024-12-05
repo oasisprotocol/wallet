@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ProposalVotesAllOfVotes } from './ProposalVotesAllOfVotes';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    ProposalVote,
-    ProposalVoteFromJSON,
-    ProposalVoteFromJSONTyped,
-    ProposalVoteToJSON,
-    ProposalVotesAllOf,
-    ProposalVotesAllOfFromJSON,
-    ProposalVotesAllOfFromJSONTyped,
-    ProposalVotesAllOfToJSON,
-} from './';
+    ProposalVotesAllOfVotesFromJSON,
+    ProposalVotesAllOfVotesFromJSONTyped,
+    ProposalVotesAllOfVotesToJSON,
+    ProposalVotesAllOfVotesToJSONTyped,
+} from './ProposalVotesAllOfVotes';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface ProposalVotes {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof ProposalVotes
      */
@@ -55,10 +49,21 @@ export interface ProposalVotes {
     proposal_id: number;
     /**
      * The list of votes for the proposal.
-     * @type {Array<ProposalVote>}
+     * @type {Array<ProposalVotesAllOfVotes>}
      * @memberof ProposalVotes
      */
-    votes: Array<ProposalVote>;
+    votes: Array<ProposalVotesAllOfVotes>;
+}
+
+/**
+ * Check if a given object implements the ProposalVotes interface.
+ */
+export function instanceOfProposalVotes(value: object): value is ProposalVotes {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('proposal_id' in value) || value['proposal_id'] === undefined) return false;
+    if (!('votes' in value) || value['votes'] === undefined) return false;
+    return true;
 }
 
 export function ProposalVotesFromJSON(json: any): ProposalVotes {
@@ -66,7 +71,7 @@ export function ProposalVotesFromJSON(json: any): ProposalVotes {
 }
 
 export function ProposalVotesFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProposalVotes {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -74,24 +79,25 @@ export function ProposalVotesFromJSONTyped(json: any, ignoreDiscriminator: boole
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
         'proposal_id': json['proposal_id'],
-        'votes': ((json['votes'] as Array<any>).map(ProposalVoteFromJSON)),
+        'votes': ((json['votes'] as Array<any>).map(ProposalVotesAllOfVotesFromJSON)),
     };
 }
 
-export function ProposalVotesToJSON(value?: ProposalVotes | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ProposalVotesToJSON(json: any): ProposalVotes {
+    return ProposalVotesToJSONTyped(json, false);
+}
+
+export function ProposalVotesToJSONTyped(value?: ProposalVotes | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'proposal_id': value.proposal_id,
-        'votes': ((value.votes as Array<any>).map(ProposalVoteToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'proposal_id': value['proposal_id'],
+        'votes': ((value['votes'] as Array<any>).map(ProposalVotesAllOfVotesToJSON)),
     };
 }
-
 

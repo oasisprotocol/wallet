@@ -14,134 +14,136 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  Account,
+  AccountList,
+  ActiveAccountsList,
+  Block,
+  BlockList,
+  ConsensusEventList,
+  ConsensusEventType,
+  ConsensusTxMethod,
+  DebondingDelegationList,
+  DelegationList,
+  Entity,
+  EntityList,
+  Epoch,
+  EpochList,
+  EvmNft,
+  EvmNftList,
+  EvmToken,
+  EvmTokenList,
+  GetStatus400Response,
+  Layer,
+  Node,
+  NodeList,
+  Proposal,
+  ProposalList,
+  ProposalState,
+  ProposalVotes,
+  RoothashMessageList,
+  RoothashMessageType,
+  Runtime,
+  RuntimeAccount,
+  RuntimeBlockList,
+  RuntimeEventList,
+  RuntimeEventType,
+  RuntimeStatus,
+  RuntimeTransactionList,
+  Status,
+  TokenHolderList,
+  Transaction,
+  TransactionList,
+  TxVolumeList,
+  ValidatorHistory,
+  ValidatorList,
+} from '../models/index';
 import {
-    Account,
     AccountFromJSON,
     AccountToJSON,
-    AccountList,
     AccountListFromJSON,
     AccountListToJSON,
-    ActiveAccountsList,
     ActiveAccountsListFromJSON,
     ActiveAccountsListToJSON,
-    Block,
     BlockFromJSON,
     BlockToJSON,
-    BlockList,
     BlockListFromJSON,
     BlockListToJSON,
-    ConsensusEventList,
     ConsensusEventListFromJSON,
     ConsensusEventListToJSON,
-    ConsensusEventType,
     ConsensusEventTypeFromJSON,
     ConsensusEventTypeToJSON,
-    ConsensusTxMethod,
     ConsensusTxMethodFromJSON,
     ConsensusTxMethodToJSON,
-    DebondingDelegationList,
     DebondingDelegationListFromJSON,
     DebondingDelegationListToJSON,
-    DelegationList,
     DelegationListFromJSON,
     DelegationListToJSON,
-    Entity,
     EntityFromJSON,
     EntityToJSON,
-    EntityList,
     EntityListFromJSON,
     EntityListToJSON,
-    Epoch,
     EpochFromJSON,
     EpochToJSON,
-    EpochList,
     EpochListFromJSON,
     EpochListToJSON,
-    EvmNft,
     EvmNftFromJSON,
     EvmNftToJSON,
-    EvmNftList,
     EvmNftListFromJSON,
     EvmNftListToJSON,
-    EvmToken,
     EvmTokenFromJSON,
     EvmTokenToJSON,
-    EvmTokenList,
     EvmTokenListFromJSON,
     EvmTokenListToJSON,
-    InlineResponse400,
-    InlineResponse400FromJSON,
-    InlineResponse400ToJSON,
-    Layer,
+    GetStatus400ResponseFromJSON,
+    GetStatus400ResponseToJSON,
     LayerFromJSON,
     LayerToJSON,
-    Node,
     NodeFromJSON,
     NodeToJSON,
-    NodeList,
     NodeListFromJSON,
     NodeListToJSON,
-    Proposal,
     ProposalFromJSON,
     ProposalToJSON,
-    ProposalList,
     ProposalListFromJSON,
     ProposalListToJSON,
-    ProposalState,
     ProposalStateFromJSON,
     ProposalStateToJSON,
-    ProposalVotes,
     ProposalVotesFromJSON,
     ProposalVotesToJSON,
-    RoothashMessageList,
     RoothashMessageListFromJSON,
     RoothashMessageListToJSON,
-    RoothashMessageType,
     RoothashMessageTypeFromJSON,
     RoothashMessageTypeToJSON,
-    Runtime,
     RuntimeFromJSON,
     RuntimeToJSON,
-    RuntimeAccount,
     RuntimeAccountFromJSON,
     RuntimeAccountToJSON,
-    RuntimeBlockList,
     RuntimeBlockListFromJSON,
     RuntimeBlockListToJSON,
-    RuntimeEventList,
     RuntimeEventListFromJSON,
     RuntimeEventListToJSON,
-    RuntimeEventType,
     RuntimeEventTypeFromJSON,
     RuntimeEventTypeToJSON,
-    RuntimeStatus,
     RuntimeStatusFromJSON,
     RuntimeStatusToJSON,
-    RuntimeTransactionList,
     RuntimeTransactionListFromJSON,
     RuntimeTransactionListToJSON,
-    Status,
     StatusFromJSON,
     StatusToJSON,
-    TokenHolderList,
     TokenHolderListFromJSON,
     TokenHolderListToJSON,
-    Transaction,
     TransactionFromJSON,
     TransactionToJSON,
-    TransactionList,
     TransactionListFromJSON,
     TransactionListToJSON,
-    TxVolumeList,
     TxVolumeListFromJSON,
     TxVolumeListToJSON,
-    ValidatorHistory,
     ValidatorHistoryFromJSON,
     ValidatorHistoryToJSON,
-    ValidatorList,
     ValidatorListFromJSON,
     ValidatorListToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface ConsensusAccountsAddressDebondingDelegationsGetRequest {
     address: string;
@@ -400,29 +402,32 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns an account\'s debonding delegations.
      */
-    async consensusAccountsAddressDebondingDelegationsGetRaw(requestParameters: ConsensusAccountsAddressDebondingDelegationsGetRequest): Promise<runtime.ApiResponse<DebondingDelegationList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusAccountsAddressDebondingDelegationsGet.');
+    async consensusAccountsAddressDebondingDelegationsGetRaw(requestParameters: ConsensusAccountsAddressDebondingDelegationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DebondingDelegationList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusAccountsAddressDebondingDelegationsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/accounts/{address}/debonding_delegations`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/accounts/{address}/debonding_delegations`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DebondingDelegationListFromJSON(jsonValue));
     }
@@ -430,37 +435,40 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns an account\'s debonding delegations.
      */
-    async consensusAccountsAddressDebondingDelegationsGet(requestParameters: ConsensusAccountsAddressDebondingDelegationsGetRequest): Promise<DebondingDelegationList> {
-        const response = await this.consensusAccountsAddressDebondingDelegationsGetRaw(requestParameters);
+    async consensusAccountsAddressDebondingDelegationsGet(requestParameters: ConsensusAccountsAddressDebondingDelegationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DebondingDelegationList> {
+        const response = await this.consensusAccountsAddressDebondingDelegationsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of debonding delegations to an account.
      */
-    async consensusAccountsAddressDebondingDelegationsToGetRaw(requestParameters: ConsensusAccountsAddressDebondingDelegationsToGetRequest): Promise<runtime.ApiResponse<DebondingDelegationList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusAccountsAddressDebondingDelegationsToGet.');
+    async consensusAccountsAddressDebondingDelegationsToGetRaw(requestParameters: ConsensusAccountsAddressDebondingDelegationsToGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DebondingDelegationList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusAccountsAddressDebondingDelegationsToGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/accounts/{address}/debonding_delegations_to`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/accounts/{address}/debonding_delegations_to`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DebondingDelegationListFromJSON(jsonValue));
     }
@@ -468,37 +476,40 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of debonding delegations to an account.
      */
-    async consensusAccountsAddressDebondingDelegationsToGet(requestParameters: ConsensusAccountsAddressDebondingDelegationsToGetRequest): Promise<DebondingDelegationList> {
-        const response = await this.consensusAccountsAddressDebondingDelegationsToGetRaw(requestParameters);
+    async consensusAccountsAddressDebondingDelegationsToGet(requestParameters: ConsensusAccountsAddressDebondingDelegationsToGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DebondingDelegationList> {
+        const response = await this.consensusAccountsAddressDebondingDelegationsToGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns an account\'s delegations.
      */
-    async consensusAccountsAddressDelegationsGetRaw(requestParameters: ConsensusAccountsAddressDelegationsGetRequest): Promise<runtime.ApiResponse<DelegationList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusAccountsAddressDelegationsGet.');
+    async consensusAccountsAddressDelegationsGetRaw(requestParameters: ConsensusAccountsAddressDelegationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DelegationList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusAccountsAddressDelegationsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/accounts/{address}/delegations`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/accounts/{address}/delegations`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DelegationListFromJSON(jsonValue));
     }
@@ -506,37 +517,40 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns an account\'s delegations.
      */
-    async consensusAccountsAddressDelegationsGet(requestParameters: ConsensusAccountsAddressDelegationsGetRequest): Promise<DelegationList> {
-        const response = await this.consensusAccountsAddressDelegationsGetRaw(requestParameters);
+    async consensusAccountsAddressDelegationsGet(requestParameters: ConsensusAccountsAddressDelegationsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DelegationList> {
+        const response = await this.consensusAccountsAddressDelegationsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of delegations to an account.
      */
-    async consensusAccountsAddressDelegationsToGetRaw(requestParameters: ConsensusAccountsAddressDelegationsToGetRequest): Promise<runtime.ApiResponse<DelegationList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusAccountsAddressDelegationsToGet.');
+    async consensusAccountsAddressDelegationsToGetRaw(requestParameters: ConsensusAccountsAddressDelegationsToGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<DelegationList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusAccountsAddressDelegationsToGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/accounts/{address}/delegations_to`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/accounts/{address}/delegations_to`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DelegationListFromJSON(jsonValue));
     }
@@ -544,17 +558,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of delegations to an account.
      */
-    async consensusAccountsAddressDelegationsToGet(requestParameters: ConsensusAccountsAddressDelegationsToGetRequest): Promise<DelegationList> {
-        const response = await this.consensusAccountsAddressDelegationsToGetRaw(requestParameters);
+    async consensusAccountsAddressDelegationsToGet(requestParameters: ConsensusAccountsAddressDelegationsToGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<DelegationList> {
+        const response = await this.consensusAccountsAddressDelegationsToGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a consensus layer account.
      */
-    async consensusAccountsAddressGetRaw(requestParameters: ConsensusAccountsAddressGetRequest): Promise<runtime.ApiResponse<Account>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusAccountsAddressGet.');
+    async consensusAccountsAddressGetRaw(requestParameters: ConsensusAccountsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Account>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusAccountsAddressGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -562,11 +579,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/accounts/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/accounts/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AccountFromJSON(jsonValue));
     }
@@ -574,23 +591,23 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a consensus layer account.
      */
-    async consensusAccountsAddressGet(requestParameters: ConsensusAccountsAddressGetRequest): Promise<Account> {
-        const response = await this.consensusAccountsAddressGetRaw(requestParameters);
+    async consensusAccountsAddressGet(requestParameters: ConsensusAccountsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Account> {
+        const response = await this.consensusAccountsAddressGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of consensus layer accounts. Note that for performance reasons, the info returned by this endpoint may be slightly stale (<2 minutes). For the most up-to-date account state, query the single-account endpoint. 
      */
-    async consensusAccountsGetRaw(requestParameters: ConsensusAccountsGetRequest): Promise<runtime.ApiResponse<AccountList>> {
+    async consensusAccountsGetRaw(requestParameters: ConsensusAccountsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AccountList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -600,7 +617,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AccountListFromJSON(jsonValue));
     }
@@ -608,43 +625,43 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of consensus layer accounts. Note that for performance reasons, the info returned by this endpoint may be slightly stale (<2 minutes). For the most up-to-date account state, query the single-account endpoint. 
      */
-    async consensusAccountsGet(requestParameters: ConsensusAccountsGetRequest): Promise<AccountList> {
-        const response = await this.consensusAccountsGetRaw(requestParameters);
+    async consensusAccountsGet(requestParameters: ConsensusAccountsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AccountList> {
+        const response = await this.consensusAccountsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of consensus blocks, sorted from most to least recent.
      */
-    async consensusBlocksGetRaw(requestParameters: ConsensusBlocksGetRequest): Promise<runtime.ApiResponse<BlockList>> {
+    async consensusBlocksGetRaw(requestParameters: ConsensusBlocksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<BlockList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.from !== undefined) {
-            queryParameters['from'] = requestParameters.from;
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = requestParameters['from'];
         }
 
-        if (requestParameters.to !== undefined) {
-            queryParameters['to'] = requestParameters.to;
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = requestParameters['to'];
         }
 
-        if (requestParameters.after !== undefined) {
-            queryParameters['after'] = (requestParameters.after as any).toISOString();
+        if (requestParameters['after'] != null) {
+            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
         }
 
-        if (requestParameters.before !== undefined) {
-            queryParameters['before'] = (requestParameters.before as any).toISOString();
+        if (requestParameters['before'] != null) {
+            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
         }
 
-        if (requestParameters.hash !== undefined) {
-            queryParameters['hash'] = requestParameters.hash;
+        if (requestParameters['hash'] != null) {
+            queryParameters['hash'] = requestParameters['hash'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -654,7 +671,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BlockListFromJSON(jsonValue));
     }
@@ -662,17 +679,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of consensus blocks, sorted from most to least recent.
      */
-    async consensusBlocksGet(requestParameters: ConsensusBlocksGetRequest): Promise<BlockList> {
-        const response = await this.consensusBlocksGetRaw(requestParameters);
+    async consensusBlocksGet(requestParameters: ConsensusBlocksGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BlockList> {
+        const response = await this.consensusBlocksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a consensus block.
      */
-    async consensusBlocksHeightGetRaw(requestParameters: ConsensusBlocksHeightGetRequest): Promise<runtime.ApiResponse<Block>> {
-        if (requestParameters.height === null || requestParameters.height === undefined) {
-            throw new runtime.RequiredError('height','Required parameter requestParameters.height was null or undefined when calling consensusBlocksHeightGet.');
+    async consensusBlocksHeightGetRaw(requestParameters: ConsensusBlocksHeightGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Block>> {
+        if (requestParameters['height'] == null) {
+            throw new runtime.RequiredError(
+                'height',
+                'Required parameter "height" was null or undefined when calling consensusBlocksHeightGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -680,11 +700,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/blocks/{height}`.replace(`{${"height"}}`, encodeURIComponent(String(requestParameters.height))),
+            path: `/consensus/blocks/{height}`.replace(`{${"height"}}`, encodeURIComponent(String(requestParameters['height']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BlockFromJSON(jsonValue));
     }
@@ -692,17 +712,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a consensus block.
      */
-    async consensusBlocksHeightGet(requestParameters: ConsensusBlocksHeightGetRequest): Promise<Block> {
-        const response = await this.consensusBlocksHeightGetRaw(requestParameters);
+    async consensusBlocksHeightGet(requestParameters: ConsensusBlocksHeightGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Block> {
+        const response = await this.consensusBlocksHeightGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns an entity registered at the consensus layer.
      */
-    async consensusEntitiesAddressGetRaw(requestParameters: ConsensusEntitiesAddressGetRequest): Promise<runtime.ApiResponse<Entity>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusEntitiesAddressGet.');
+    async consensusEntitiesAddressGetRaw(requestParameters: ConsensusEntitiesAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Entity>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusEntitiesAddressGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -710,11 +733,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/entities/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/entities/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntityFromJSON(jsonValue));
     }
@@ -722,37 +745,40 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns an entity registered at the consensus layer.
      */
-    async consensusEntitiesAddressGet(requestParameters: ConsensusEntitiesAddressGetRequest): Promise<Entity> {
-        const response = await this.consensusEntitiesAddressGetRaw(requestParameters);
+    async consensusEntitiesAddressGet(requestParameters: ConsensusEntitiesAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Entity> {
+        const response = await this.consensusEntitiesAddressGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of nodes registered at the consensus layer.
      */
-    async consensusEntitiesAddressNodesGetRaw(requestParameters: ConsensusEntitiesAddressNodesGetRequest): Promise<runtime.ApiResponse<NodeList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusEntitiesAddressNodesGet.');
+    async consensusEntitiesAddressNodesGetRaw(requestParameters: ConsensusEntitiesAddressNodesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<NodeList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusEntitiesAddressNodesGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/entities/{address}/nodes`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/entities/{address}/nodes`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NodeListFromJSON(jsonValue));
     }
@@ -760,21 +786,27 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of nodes registered at the consensus layer.
      */
-    async consensusEntitiesAddressNodesGet(requestParameters: ConsensusEntitiesAddressNodesGetRequest): Promise<NodeList> {
-        const response = await this.consensusEntitiesAddressNodesGetRaw(requestParameters);
+    async consensusEntitiesAddressNodesGet(requestParameters: ConsensusEntitiesAddressNodesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<NodeList> {
+        const response = await this.consensusEntitiesAddressNodesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a node registered at the consensus layer.
      */
-    async consensusEntitiesAddressNodesNodeIdGetRaw(requestParameters: ConsensusEntitiesAddressNodesNodeIdGetRequest): Promise<runtime.ApiResponse<Node>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusEntitiesAddressNodesNodeIdGet.');
+    async consensusEntitiesAddressNodesNodeIdGetRaw(requestParameters: ConsensusEntitiesAddressNodesNodeIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Node>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusEntitiesAddressNodesNodeIdGet().'
+            );
         }
 
-        if (requestParameters.nodeId === null || requestParameters.nodeId === undefined) {
-            throw new runtime.RequiredError('nodeId','Required parameter requestParameters.nodeId was null or undefined when calling consensusEntitiesAddressNodesNodeIdGet.');
+        if (requestParameters['nodeId'] == null) {
+            throw new runtime.RequiredError(
+                'nodeId',
+                'Required parameter "nodeId" was null or undefined when calling consensusEntitiesAddressNodesNodeIdGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -782,11 +814,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/entities/{address}/nodes/{node_id}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))).replace(`{${"node_id"}}`, encodeURIComponent(String(requestParameters.nodeId))),
+            path: `/consensus/entities/{address}/nodes/{node_id}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))).replace(`{${"node_id"}}`, encodeURIComponent(String(requestParameters['nodeId']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => NodeFromJSON(jsonValue));
     }
@@ -794,23 +826,23 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a node registered at the consensus layer.
      */
-    async consensusEntitiesAddressNodesNodeIdGet(requestParameters: ConsensusEntitiesAddressNodesNodeIdGetRequest): Promise<Node> {
-        const response = await this.consensusEntitiesAddressNodesNodeIdGetRaw(requestParameters);
+    async consensusEntitiesAddressNodesNodeIdGet(requestParameters: ConsensusEntitiesAddressNodesNodeIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Node> {
+        const response = await this.consensusEntitiesAddressNodesNodeIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of entities registered at the consensus layer.
      */
-    async consensusEntitiesGetRaw(requestParameters: ConsensusEntitiesGetRequest): Promise<runtime.ApiResponse<EntityList>> {
+    async consensusEntitiesGetRaw(requestParameters: ConsensusEntitiesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EntityList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -820,7 +852,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntityListFromJSON(jsonValue));
     }
@@ -828,17 +860,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of entities registered at the consensus layer.
      */
-    async consensusEntitiesGet(requestParameters: ConsensusEntitiesGetRequest): Promise<EntityList> {
-        const response = await this.consensusEntitiesGetRaw(requestParameters);
+    async consensusEntitiesGet(requestParameters: ConsensusEntitiesGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EntityList> {
+        const response = await this.consensusEntitiesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a consensus epoch.
      */
-    async consensusEpochsEpochGetRaw(requestParameters: ConsensusEpochsEpochGetRequest): Promise<runtime.ApiResponse<Epoch>> {
-        if (requestParameters.epoch === null || requestParameters.epoch === undefined) {
-            throw new runtime.RequiredError('epoch','Required parameter requestParameters.epoch was null or undefined when calling consensusEpochsEpochGet.');
+    async consensusEpochsEpochGetRaw(requestParameters: ConsensusEpochsEpochGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Epoch>> {
+        if (requestParameters['epoch'] == null) {
+            throw new runtime.RequiredError(
+                'epoch',
+                'Required parameter "epoch" was null or undefined when calling consensusEpochsEpochGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -846,11 +881,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/epochs/{epoch}`.replace(`{${"epoch"}}`, encodeURIComponent(String(requestParameters.epoch))),
+            path: `/consensus/epochs/{epoch}`.replace(`{${"epoch"}}`, encodeURIComponent(String(requestParameters['epoch']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EpochFromJSON(jsonValue));
     }
@@ -858,23 +893,23 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a consensus epoch.
      */
-    async consensusEpochsEpochGet(requestParameters: ConsensusEpochsEpochGetRequest): Promise<Epoch> {
-        const response = await this.consensusEpochsEpochGetRaw(requestParameters);
+    async consensusEpochsEpochGet(requestParameters: ConsensusEpochsEpochGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Epoch> {
+        const response = await this.consensusEpochsEpochGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of consensus epochs.
      */
-    async consensusEpochsGetRaw(requestParameters: ConsensusEpochsGetRequest): Promise<runtime.ApiResponse<EpochList>> {
+    async consensusEpochsGetRaw(requestParameters: ConsensusEpochsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EpochList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -884,7 +919,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EpochListFromJSON(jsonValue));
     }
@@ -892,43 +927,43 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of consensus epochs.
      */
-    async consensusEpochsGet(requestParameters: ConsensusEpochsGetRequest): Promise<EpochList> {
-        const response = await this.consensusEpochsGetRaw(requestParameters);
+    async consensusEpochsGet(requestParameters: ConsensusEpochsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EpochList> {
+        const response = await this.consensusEpochsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of consensus events.
      */
-    async consensusEventsGetRaw(requestParameters: ConsensusEventsGetRequest): Promise<runtime.ApiResponse<ConsensusEventList>> {
+    async consensusEventsGetRaw(requestParameters: ConsensusEventsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ConsensusEventList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.block !== undefined) {
-            queryParameters['block'] = requestParameters.block;
+        if (requestParameters['block'] != null) {
+            queryParameters['block'] = requestParameters['block'];
         }
 
-        if (requestParameters.txIndex !== undefined) {
-            queryParameters['tx_index'] = requestParameters.txIndex;
+        if (requestParameters['txIndex'] != null) {
+            queryParameters['tx_index'] = requestParameters['txIndex'];
         }
 
-        if (requestParameters.txHash !== undefined) {
-            queryParameters['tx_hash'] = requestParameters.txHash;
+        if (requestParameters['txHash'] != null) {
+            queryParameters['tx_hash'] = requestParameters['txHash'];
         }
 
-        if (requestParameters.rel !== undefined) {
-            queryParameters['rel'] = requestParameters.rel;
+        if (requestParameters['rel'] != null) {
+            queryParameters['rel'] = requestParameters['rel'];
         }
 
-        if (requestParameters.type !== undefined) {
-            queryParameters['type'] = requestParameters.type;
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -938,7 +973,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ConsensusEventListFromJSON(jsonValue));
     }
@@ -946,31 +981,31 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of consensus events.
      */
-    async consensusEventsGet(requestParameters: ConsensusEventsGetRequest): Promise<ConsensusEventList> {
-        const response = await this.consensusEventsGetRaw(requestParameters);
+    async consensusEventsGet(requestParameters: ConsensusEventsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ConsensusEventList> {
+        const response = await this.consensusEventsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of governance proposals.
      */
-    async consensusProposalsGetRaw(requestParameters: ConsensusProposalsGetRequest): Promise<runtime.ApiResponse<ProposalList>> {
+    async consensusProposalsGetRaw(requestParameters: ConsensusProposalsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProposalList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.submitter !== undefined) {
-            queryParameters['submitter'] = requestParameters.submitter;
+        if (requestParameters['submitter'] != null) {
+            queryParameters['submitter'] = requestParameters['submitter'];
         }
 
-        if (requestParameters.state !== undefined) {
-            queryParameters['state'] = requestParameters.state;
+        if (requestParameters['state'] != null) {
+            queryParameters['state'] = requestParameters['state'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -980,7 +1015,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ProposalListFromJSON(jsonValue));
     }
@@ -988,17 +1023,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of governance proposals.
      */
-    async consensusProposalsGet(requestParameters: ConsensusProposalsGetRequest): Promise<ProposalList> {
-        const response = await this.consensusProposalsGetRaw(requestParameters);
+    async consensusProposalsGet(requestParameters: ConsensusProposalsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProposalList> {
+        const response = await this.consensusProposalsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a governance proposal.
      */
-    async consensusProposalsProposalIdGetRaw(requestParameters: ConsensusProposalsProposalIdGetRequest): Promise<runtime.ApiResponse<Proposal>> {
-        if (requestParameters.proposalId === null || requestParameters.proposalId === undefined) {
-            throw new runtime.RequiredError('proposalId','Required parameter requestParameters.proposalId was null or undefined when calling consensusProposalsProposalIdGet.');
+    async consensusProposalsProposalIdGetRaw(requestParameters: ConsensusProposalsProposalIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Proposal>> {
+        if (requestParameters['proposalId'] == null) {
+            throw new runtime.RequiredError(
+                'proposalId',
+                'Required parameter "proposalId" was null or undefined when calling consensusProposalsProposalIdGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1006,11 +1044,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/proposals/{proposal_id}`.replace(`{${"proposal_id"}}`, encodeURIComponent(String(requestParameters.proposalId))),
+            path: `/consensus/proposals/{proposal_id}`.replace(`{${"proposal_id"}}`, encodeURIComponent(String(requestParameters['proposalId']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ProposalFromJSON(jsonValue));
     }
@@ -1018,37 +1056,40 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a governance proposal.
      */
-    async consensusProposalsProposalIdGet(requestParameters: ConsensusProposalsProposalIdGetRequest): Promise<Proposal> {
-        const response = await this.consensusProposalsProposalIdGetRaw(requestParameters);
+    async consensusProposalsProposalIdGet(requestParameters: ConsensusProposalsProposalIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Proposal> {
+        const response = await this.consensusProposalsProposalIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of votes for a governance proposal.
      */
-    async consensusProposalsProposalIdVotesGetRaw(requestParameters: ConsensusProposalsProposalIdVotesGetRequest): Promise<runtime.ApiResponse<ProposalVotes>> {
-        if (requestParameters.proposalId === null || requestParameters.proposalId === undefined) {
-            throw new runtime.RequiredError('proposalId','Required parameter requestParameters.proposalId was null or undefined when calling consensusProposalsProposalIdVotesGet.');
+    async consensusProposalsProposalIdVotesGetRaw(requestParameters: ConsensusProposalsProposalIdVotesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ProposalVotes>> {
+        if (requestParameters['proposalId'] == null) {
+            throw new runtime.RequiredError(
+                'proposalId',
+                'Required parameter "proposalId" was null or undefined when calling consensusProposalsProposalIdVotesGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/proposals/{proposal_id}/votes`.replace(`{${"proposal_id"}}`, encodeURIComponent(String(requestParameters.proposalId))),
+            path: `/consensus/proposals/{proposal_id}/votes`.replace(`{${"proposal_id"}}`, encodeURIComponent(String(requestParameters['proposalId']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ProposalVotesFromJSON(jsonValue));
     }
@@ -1056,42 +1097,45 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of votes for a governance proposal.
      */
-    async consensusProposalsProposalIdVotesGet(requestParameters: ConsensusProposalsProposalIdVotesGetRequest): Promise<ProposalVotes> {
-        const response = await this.consensusProposalsProposalIdVotesGetRaw(requestParameters);
+    async consensusProposalsProposalIdVotesGet(requestParameters: ConsensusProposalsProposalIdVotesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ProposalVotes> {
+        const response = await this.consensusProposalsProposalIdVotesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      */
-    async consensusRoothashMessagesGetRaw(requestParameters: ConsensusRoothashMessagesGetRequest): Promise<runtime.ApiResponse<RoothashMessageList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling consensusRoothashMessagesGet.');
+    async consensusRoothashMessagesGetRaw(requestParameters: ConsensusRoothashMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RoothashMessageList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling consensusRoothashMessagesGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.runtime !== undefined) {
-            queryParameters['runtime'] = requestParameters.runtime;
+        if (requestParameters['runtime'] != null) {
+            queryParameters['runtime'] = requestParameters['runtime'];
         }
 
-        if (requestParameters.round !== undefined) {
-            queryParameters['round'] = requestParameters.round;
+        if (requestParameters['round'] != null) {
+            queryParameters['round'] = requestParameters['round'];
         }
 
-        if (requestParameters.type !== undefined) {
-            queryParameters['type'] = requestParameters.type;
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
         }
 
-        if (requestParameters.rel !== undefined) {
-            queryParameters['rel'] = requestParameters.rel;
+        if (requestParameters['rel'] != null) {
+            queryParameters['rel'] = requestParameters['rel'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1101,54 +1145,54 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RoothashMessageListFromJSON(jsonValue));
     }
 
     /**
      */
-    async consensusRoothashMessagesGet(requestParameters: ConsensusRoothashMessagesGetRequest): Promise<RoothashMessageList> {
-        const response = await this.consensusRoothashMessagesGetRaw(requestParameters);
+    async consensusRoothashMessagesGet(requestParameters: ConsensusRoothashMessagesGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RoothashMessageList> {
+        const response = await this.consensusRoothashMessagesGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of consensus transactions.
      */
-    async consensusTransactionsGetRaw(requestParameters: ConsensusTransactionsGetRequest): Promise<runtime.ApiResponse<TransactionList>> {
+    async consensusTransactionsGetRaw(requestParameters: ConsensusTransactionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TransactionList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.block !== undefined) {
-            queryParameters['block'] = requestParameters.block;
+        if (requestParameters['block'] != null) {
+            queryParameters['block'] = requestParameters['block'];
         }
 
-        if (requestParameters.method !== undefined) {
-            queryParameters['method'] = requestParameters.method;
+        if (requestParameters['method'] != null) {
+            queryParameters['method'] = requestParameters['method'];
         }
 
-        if (requestParameters.sender !== undefined) {
-            queryParameters['sender'] = requestParameters.sender;
+        if (requestParameters['sender'] != null) {
+            queryParameters['sender'] = requestParameters['sender'];
         }
 
-        if (requestParameters.rel !== undefined) {
-            queryParameters['rel'] = requestParameters.rel;
+        if (requestParameters['rel'] != null) {
+            queryParameters['rel'] = requestParameters['rel'];
         }
 
-        if (requestParameters.after !== undefined) {
-            queryParameters['after'] = (requestParameters.after as any).toISOString();
+        if (requestParameters['after'] != null) {
+            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
         }
 
-        if (requestParameters.before !== undefined) {
-            queryParameters['before'] = (requestParameters.before as any).toISOString();
+        if (requestParameters['before'] != null) {
+            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1158,7 +1202,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TransactionListFromJSON(jsonValue));
     }
@@ -1166,17 +1210,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of consensus transactions.
      */
-    async consensusTransactionsGet(requestParameters: ConsensusTransactionsGetRequest): Promise<TransactionList> {
-        const response = await this.consensusTransactionsGetRaw(requestParameters);
+    async consensusTransactionsGet(requestParameters: ConsensusTransactionsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TransactionList> {
+        const response = await this.consensusTransactionsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a consensus transaction.
      */
-    async consensusTransactionsTxHashGetRaw(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<runtime.ApiResponse<Transaction>> {
-        if (requestParameters.txHash === null || requestParameters.txHash === undefined) {
-            throw new runtime.RequiredError('txHash','Required parameter requestParameters.txHash was null or undefined when calling consensusTransactionsTxHashGet.');
+    async consensusTransactionsTxHashGetRaw(requestParameters: ConsensusTransactionsTxHashGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Transaction>> {
+        if (requestParameters['txHash'] == null) {
+            throw new runtime.RequiredError(
+                'txHash',
+                'Required parameter "txHash" was null or undefined when calling consensusTransactionsTxHashGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1184,11 +1231,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/transactions/{tx_hash}`.replace(`{${"tx_hash"}}`, encodeURIComponent(String(requestParameters.txHash))),
+            path: `/consensus/transactions/{tx_hash}`.replace(`{${"tx_hash"}}`, encodeURIComponent(String(requestParameters['txHash']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TransactionFromJSON(jsonValue));
     }
@@ -1196,17 +1243,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a consensus transaction.
      */
-    async consensusTransactionsTxHashGet(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<Transaction> {
-        const response = await this.consensusTransactionsTxHashGetRaw(requestParameters);
+    async consensusTransactionsTxHashGet(requestParameters: ConsensusTransactionsTxHashGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Transaction> {
+        const response = await this.consensusTransactionsTxHashGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a validator registered at the consensus layer.
      */
-    async consensusValidatorsAddressGetRaw(requestParameters: ConsensusValidatorsAddressGetRequest): Promise<runtime.ApiResponse<ValidatorList>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusValidatorsAddressGet.');
+    async consensusValidatorsAddressGetRaw(requestParameters: ConsensusValidatorsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatorList>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusValidatorsAddressGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1214,11 +1264,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/validators/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/validators/{address}`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorListFromJSON(jsonValue));
     }
@@ -1226,45 +1276,48 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a validator registered at the consensus layer.
      */
-    async consensusValidatorsAddressGet(requestParameters: ConsensusValidatorsAddressGetRequest): Promise<ValidatorList> {
-        const response = await this.consensusValidatorsAddressGetRaw(requestParameters);
+    async consensusValidatorsAddressGet(requestParameters: ConsensusValidatorsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidatorList> {
+        const response = await this.consensusValidatorsAddressGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns historical information for a single validator.
      */
-    async consensusValidatorsAddressHistoryGetRaw(requestParameters: ConsensusValidatorsAddressHistoryGetRequest): Promise<runtime.ApiResponse<ValidatorHistory>> {
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling consensusValidatorsAddressHistoryGet.');
+    async consensusValidatorsAddressHistoryGetRaw(requestParameters: ConsensusValidatorsAddressHistoryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatorHistory>> {
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling consensusValidatorsAddressHistoryGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.from !== undefined) {
-            queryParameters['from'] = requestParameters.from;
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = requestParameters['from'];
         }
 
-        if (requestParameters.to !== undefined) {
-            queryParameters['to'] = requestParameters.to;
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = requestParameters['to'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/consensus/validators/{address}/history`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/consensus/validators/{address}/history`.replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorHistoryFromJSON(jsonValue));
     }
@@ -1272,27 +1325,27 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns historical information for a single validator.
      */
-    async consensusValidatorsAddressHistoryGet(requestParameters: ConsensusValidatorsAddressHistoryGetRequest): Promise<ValidatorHistory> {
-        const response = await this.consensusValidatorsAddressHistoryGetRaw(requestParameters);
+    async consensusValidatorsAddressHistoryGet(requestParameters: ConsensusValidatorsAddressHistoryGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidatorHistory> {
+        const response = await this.consensusValidatorsAddressHistoryGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of validators registered at the consensus layer (the list includes all registered entities, even those without a currently active validator node).
      */
-    async consensusValidatorsGetRaw(requestParameters: ConsensusValidatorsGetRequest): Promise<runtime.ApiResponse<ValidatorList>> {
+    async consensusValidatorsGetRaw(requestParameters: ConsensusValidatorsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ValidatorList>> {
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.name !== undefined) {
-            queryParameters['name'] = requestParameters.name;
+        if (requestParameters['name'] != null) {
+            queryParameters['name'] = requestParameters['name'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1302,7 +1355,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ValidatorListFromJSON(jsonValue));
     }
@@ -1310,15 +1363,15 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of validators registered at the consensus layer (the list includes all registered entities, even those without a currently active validator node).
      */
-    async consensusValidatorsGet(requestParameters: ConsensusValidatorsGetRequest): Promise<ValidatorList> {
-        const response = await this.consensusValidatorsGetRaw(requestParameters);
+    async consensusValidatorsGet(requestParameters: ConsensusValidatorsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ValidatorList> {
+        const response = await this.consensusValidatorsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the status of indexing.
      */
-    async getStatusRaw(): Promise<runtime.ApiResponse<Status>> {
+    async getStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Status>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1328,7 +1381,7 @@ export class DefaultApi extends runtime.BaseAPI {
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => StatusFromJSON(jsonValue));
     }
@@ -1336,41 +1389,44 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the status of indexing.
      */
-    async getStatus(): Promise<Status> {
-        const response = await this.getStatusRaw();
+    async getStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Status> {
+        const response = await this.getStatusRaw(initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a (sliding) timeline of the recorded daily unique active accounts for either consensus or one of the paratimes. 
      */
-    async layerStatsActiveAccountsGetRaw(requestParameters: LayerStatsActiveAccountsGetRequest): Promise<runtime.ApiResponse<ActiveAccountsList>> {
-        if (requestParameters.layer === null || requestParameters.layer === undefined) {
-            throw new runtime.RequiredError('layer','Required parameter requestParameters.layer was null or undefined when calling layerStatsActiveAccountsGet.');
+    async layerStatsActiveAccountsGetRaw(requestParameters: LayerStatsActiveAccountsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ActiveAccountsList>> {
+        if (requestParameters['layer'] == null) {
+            throw new runtime.RequiredError(
+                'layer',
+                'Required parameter "layer" was null or undefined when calling layerStatsActiveAccountsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.windowStepSeconds !== undefined) {
-            queryParameters['window_step_seconds'] = requestParameters.windowStepSeconds;
+        if (requestParameters['windowStepSeconds'] != null) {
+            queryParameters['window_step_seconds'] = requestParameters['windowStepSeconds'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{layer}/stats/active_accounts`.replace(`{${"layer"}}`, encodeURIComponent(String(requestParameters.layer))),
+            path: `/{layer}/stats/active_accounts`.replace(`{${"layer"}}`, encodeURIComponent(String(requestParameters['layer']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ActiveAccountsListFromJSON(jsonValue));
     }
@@ -1378,45 +1434,48 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a (sliding) timeline of the recorded daily unique active accounts for either consensus or one of the paratimes. 
      */
-    async layerStatsActiveAccountsGet(requestParameters: LayerStatsActiveAccountsGetRequest): Promise<ActiveAccountsList> {
-        const response = await this.layerStatsActiveAccountsGetRaw(requestParameters);
+    async layerStatsActiveAccountsGet(requestParameters: LayerStatsActiveAccountsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ActiveAccountsList> {
+        const response = await this.layerStatsActiveAccountsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a timeline of the transaction volume at the chosen granularity, for either consensus or one of the paratimes. 
      */
-    async layerStatsTxVolumeGetRaw(requestParameters: LayerStatsTxVolumeGetRequest): Promise<runtime.ApiResponse<TxVolumeList>> {
-        if (requestParameters.layer === null || requestParameters.layer === undefined) {
-            throw new runtime.RequiredError('layer','Required parameter requestParameters.layer was null or undefined when calling layerStatsTxVolumeGet.');
+    async layerStatsTxVolumeGetRaw(requestParameters: LayerStatsTxVolumeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TxVolumeList>> {
+        if (requestParameters['layer'] == null) {
+            throw new runtime.RequiredError(
+                'layer',
+                'Required parameter "layer" was null or undefined when calling layerStatsTxVolumeGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.windowSizeSeconds !== undefined) {
-            queryParameters['window_size_seconds'] = requestParameters.windowSizeSeconds;
+        if (requestParameters['windowSizeSeconds'] != null) {
+            queryParameters['window_size_seconds'] = requestParameters['windowSizeSeconds'];
         }
 
-        if (requestParameters.windowStepSeconds !== undefined) {
-            queryParameters['window_step_seconds'] = requestParameters.windowStepSeconds;
+        if (requestParameters['windowStepSeconds'] != null) {
+            queryParameters['window_step_seconds'] = requestParameters['windowStepSeconds'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{layer}/stats/tx_volume`.replace(`{${"layer"}}`, encodeURIComponent(String(requestParameters.layer))),
+            path: `/{layer}/stats/tx_volume`.replace(`{${"layer"}}`, encodeURIComponent(String(requestParameters['layer']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TxVolumeListFromJSON(jsonValue));
     }
@@ -1424,21 +1483,27 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a timeline of the transaction volume at the chosen granularity, for either consensus or one of the paratimes. 
      */
-    async layerStatsTxVolumeGet(requestParameters: LayerStatsTxVolumeGetRequest): Promise<TxVolumeList> {
-        const response = await this.layerStatsTxVolumeGetRaw(requestParameters);
+    async layerStatsTxVolumeGet(requestParameters: LayerStatsTxVolumeGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TxVolumeList> {
+        const response = await this.layerStatsTxVolumeGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a runtime account.
      */
-    async runtimeAccountsAddressGetRaw(requestParameters: RuntimeAccountsAddressGetRequest): Promise<runtime.ApiResponse<RuntimeAccount>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeAccountsAddressGet.');
+    async runtimeAccountsAddressGetRaw(requestParameters: RuntimeAccountsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeAccount>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeAccountsAddressGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeAccountsAddressGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeAccountsAddressGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1446,11 +1511,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/accounts/{address}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/{runtime}/accounts/{address}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeAccountFromJSON(jsonValue));
     }
@@ -1458,45 +1523,51 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a runtime account.
      */
-    async runtimeAccountsAddressGet(requestParameters: RuntimeAccountsAddressGetRequest): Promise<RuntimeAccount> {
-        const response = await this.runtimeAccountsAddressGetRaw(requestParameters);
+    async runtimeAccountsAddressGet(requestParameters: RuntimeAccountsAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeAccount> {
+        const response = await this.runtimeAccountsAddressGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the list of non-fungible token (NFT) instances owned by an account. 
      */
-    async runtimeAccountsAddressNftsGetRaw(requestParameters: RuntimeAccountsAddressNftsGetRequest): Promise<runtime.ApiResponse<EvmNftList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeAccountsAddressNftsGet.');
+    async runtimeAccountsAddressNftsGetRaw(requestParameters: RuntimeAccountsAddressNftsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvmNftList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeAccountsAddressNftsGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeAccountsAddressNftsGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeAccountsAddressNftsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.tokenAddress !== undefined) {
-            queryParameters['token_address'] = requestParameters.tokenAddress;
+        if (requestParameters['tokenAddress'] != null) {
+            queryParameters['token_address'] = requestParameters['tokenAddress'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/accounts/{address}/nfts`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/{runtime}/accounts/{address}/nfts`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvmNftListFromJSON(jsonValue));
     }
@@ -1504,57 +1575,60 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the list of non-fungible token (NFT) instances owned by an account. 
      */
-    async runtimeAccountsAddressNftsGet(requestParameters: RuntimeAccountsAddressNftsGetRequest): Promise<EvmNftList> {
-        const response = await this.runtimeAccountsAddressNftsGetRaw(requestParameters);
+    async runtimeAccountsAddressNftsGet(requestParameters: RuntimeAccountsAddressNftsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EvmNftList> {
+        const response = await this.runtimeAccountsAddressNftsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of Runtime blocks.
      */
-    async runtimeBlocksGetRaw(requestParameters: RuntimeBlocksGetRequest): Promise<runtime.ApiResponse<RuntimeBlockList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeBlocksGet.');
+    async runtimeBlocksGetRaw(requestParameters: RuntimeBlocksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeBlockList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeBlocksGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.from !== undefined) {
-            queryParameters['from'] = requestParameters.from;
+        if (requestParameters['from'] != null) {
+            queryParameters['from'] = requestParameters['from'];
         }
 
-        if (requestParameters.to !== undefined) {
-            queryParameters['to'] = requestParameters.to;
+        if (requestParameters['to'] != null) {
+            queryParameters['to'] = requestParameters['to'];
         }
 
-        if (requestParameters.after !== undefined) {
-            queryParameters['after'] = (requestParameters.after as any).toISOString();
+        if (requestParameters['after'] != null) {
+            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
         }
 
-        if (requestParameters.before !== undefined) {
-            queryParameters['before'] = (requestParameters.before as any).toISOString();
+        if (requestParameters['before'] != null) {
+            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
         }
 
-        if (requestParameters.hash !== undefined) {
-            queryParameters['hash'] = requestParameters.hash;
+        if (requestParameters['hash'] != null) {
+            queryParameters['hash'] = requestParameters['hash'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/blocks`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))),
+            path: `/{runtime}/blocks`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeBlockListFromJSON(jsonValue));
     }
@@ -1562,69 +1636,72 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of Runtime blocks.
      */
-    async runtimeBlocksGet(requestParameters: RuntimeBlocksGetRequest): Promise<RuntimeBlockList> {
-        const response = await this.runtimeBlocksGetRaw(requestParameters);
+    async runtimeBlocksGet(requestParameters: RuntimeBlocksGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeBlockList> {
+        const response = await this.runtimeBlocksGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of runtime events.
      */
-    async runtimeEventsGetRaw(requestParameters: RuntimeEventsGetRequest): Promise<runtime.ApiResponse<RuntimeEventList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEventsGet.');
+    async runtimeEventsGetRaw(requestParameters: RuntimeEventsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeEventList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEventsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.block !== undefined) {
-            queryParameters['block'] = requestParameters.block;
+        if (requestParameters['block'] != null) {
+            queryParameters['block'] = requestParameters['block'];
         }
 
-        if (requestParameters.txIndex !== undefined) {
-            queryParameters['tx_index'] = requestParameters.txIndex;
+        if (requestParameters['txIndex'] != null) {
+            queryParameters['tx_index'] = requestParameters['txIndex'];
         }
 
-        if (requestParameters.txHash !== undefined) {
-            queryParameters['tx_hash'] = requestParameters.txHash;
+        if (requestParameters['txHash'] != null) {
+            queryParameters['tx_hash'] = requestParameters['txHash'];
         }
 
-        if (requestParameters.type !== undefined) {
-            queryParameters['type'] = requestParameters.type;
+        if (requestParameters['type'] != null) {
+            queryParameters['type'] = requestParameters['type'];
         }
 
-        if (requestParameters.rel !== undefined) {
-            queryParameters['rel'] = requestParameters.rel;
+        if (requestParameters['rel'] != null) {
+            queryParameters['rel'] = requestParameters['rel'];
         }
 
-        if (requestParameters.evmLogSignature !== undefined) {
-            queryParameters['evm_log_signature'] = requestParameters.evmLogSignature;
+        if (requestParameters['evmLogSignature'] != null) {
+            queryParameters['evm_log_signature'] = requestParameters['evmLogSignature'];
         }
 
-        if (requestParameters.contractAddress !== undefined) {
-            queryParameters['contract_address'] = requestParameters.contractAddress;
+        if (requestParameters['contractAddress'] != null) {
+            queryParameters['contract_address'] = requestParameters['contractAddress'];
         }
 
-        if (requestParameters.nftId !== undefined) {
-            queryParameters['nft_id'] = requestParameters.nftId;
+        if (requestParameters['nftId'] != null) {
+            queryParameters['nft_id'] = requestParameters['nftId'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/events`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))),
+            path: `/{runtime}/events`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeEventListFromJSON(jsonValue));
     }
@@ -1632,21 +1709,27 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of runtime events.
      */
-    async runtimeEventsGet(requestParameters: RuntimeEventsGetRequest): Promise<RuntimeEventList> {
-        const response = await this.runtimeEventsGetRaw(requestParameters);
+    async runtimeEventsGet(requestParameters: RuntimeEventsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeEventList> {
+        const response = await this.runtimeEventsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns info on an EVM (ERC-20, ...) token on the runtime.
      */
-    async runtimeEvmTokensAddressGetRaw(requestParameters: RuntimeEvmTokensAddressGetRequest): Promise<runtime.ApiResponse<EvmToken>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEvmTokensAddressGet.');
+    async runtimeEvmTokensAddressGetRaw(requestParameters: RuntimeEvmTokensAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvmToken>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEvmTokensAddressGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeEvmTokensAddressGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeEvmTokensAddressGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1654,11 +1737,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/evm_tokens/{address}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/{runtime}/evm_tokens/{address}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvmTokenFromJSON(jsonValue));
     }
@@ -1666,41 +1749,47 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns info on an EVM (ERC-20, ...) token on the runtime.
      */
-    async runtimeEvmTokensAddressGet(requestParameters: RuntimeEvmTokensAddressGetRequest): Promise<EvmToken> {
-        const response = await this.runtimeEvmTokensAddressGetRaw(requestParameters);
+    async runtimeEvmTokensAddressGet(requestParameters: RuntimeEvmTokensAddressGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EvmToken> {
+        const response = await this.runtimeEvmTokensAddressGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the list of holders of an EVM (ERC-20, ...) token. This endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list. 
      */
-    async runtimeEvmTokensAddressHoldersGetRaw(requestParameters: RuntimeEvmTokensAddressHoldersGetRequest): Promise<runtime.ApiResponse<TokenHolderList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEvmTokensAddressHoldersGet.');
+    async runtimeEvmTokensAddressHoldersGetRaw(requestParameters: RuntimeEvmTokensAddressHoldersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<TokenHolderList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEvmTokensAddressHoldersGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeEvmTokensAddressHoldersGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeEvmTokensAddressHoldersGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/evm_tokens/{address}/holders`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/{runtime}/evm_tokens/{address}/holders`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => TokenHolderListFromJSON(jsonValue));
     }
@@ -1708,41 +1797,47 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the list of holders of an EVM (ERC-20, ...) token. This endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list. 
      */
-    async runtimeEvmTokensAddressHoldersGet(requestParameters: RuntimeEvmTokensAddressHoldersGetRequest): Promise<TokenHolderList> {
-        const response = await this.runtimeEvmTokensAddressHoldersGetRaw(requestParameters);
+    async runtimeEvmTokensAddressHoldersGet(requestParameters: RuntimeEvmTokensAddressHoldersGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<TokenHolderList> {
+        const response = await this.runtimeEvmTokensAddressHoldersGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the list of non-fungible token (NFT) instances of an EVM (ERC-721, ...) token. This endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list. 
      */
-    async runtimeEvmTokensAddressNftsGetRaw(requestParameters: RuntimeEvmTokensAddressNftsGetRequest): Promise<runtime.ApiResponse<EvmNftList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEvmTokensAddressNftsGet.');
+    async runtimeEvmTokensAddressNftsGetRaw(requestParameters: RuntimeEvmTokensAddressNftsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvmNftList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEvmTokensAddressNftsGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeEvmTokensAddressNftsGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeEvmTokensAddressNftsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/evm_tokens/{address}/nfts`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))),
+            path: `/{runtime}/evm_tokens/{address}/nfts`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvmNftListFromJSON(jsonValue));
     }
@@ -1750,25 +1845,34 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the list of non-fungible token (NFT) instances of an EVM (ERC-721, ...) token. This endpoint does not verify that `address` is actually an EVM token; if it is not, it will simply return an empty list. 
      */
-    async runtimeEvmTokensAddressNftsGet(requestParameters: RuntimeEvmTokensAddressNftsGetRequest): Promise<EvmNftList> {
-        const response = await this.runtimeEvmTokensAddressNftsGetRaw(requestParameters);
+    async runtimeEvmTokensAddressNftsGet(requestParameters: RuntimeEvmTokensAddressNftsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EvmNftList> {
+        const response = await this.runtimeEvmTokensAddressNftsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the non-fungible token (NFT) instance of an EVM (ERC-721, ...) token. 
      */
-    async runtimeEvmTokensAddressNftsIdGetRaw(requestParameters: RuntimeEvmTokensAddressNftsIdGetRequest): Promise<runtime.ApiResponse<EvmNft>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEvmTokensAddressNftsIdGet.');
+    async runtimeEvmTokensAddressNftsIdGetRaw(requestParameters: RuntimeEvmTokensAddressNftsIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvmNft>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEvmTokensAddressNftsIdGet().'
+            );
         }
 
-        if (requestParameters.address === null || requestParameters.address === undefined) {
-            throw new runtime.RequiredError('address','Required parameter requestParameters.address was null or undefined when calling runtimeEvmTokensAddressNftsIdGet.');
+        if (requestParameters['address'] == null) {
+            throw new runtime.RequiredError(
+                'address',
+                'Required parameter "address" was null or undefined when calling runtimeEvmTokensAddressNftsIdGet().'
+            );
         }
 
-        if (requestParameters.id === null || requestParameters.id === undefined) {
-            throw new runtime.RequiredError('id','Required parameter requestParameters.id was null or undefined when calling runtimeEvmTokensAddressNftsIdGet.');
+        if (requestParameters['id'] == null) {
+            throw new runtime.RequiredError(
+                'id',
+                'Required parameter "id" was null or undefined when calling runtimeEvmTokensAddressNftsIdGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1776,11 +1880,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/evm_tokens/{address}/nfts/{id}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters.address))).replace(`{${"id"}}`, encodeURIComponent(String(requestParameters.id))),
+            path: `/{runtime}/evm_tokens/{address}/nfts/{id}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"address"}}`, encodeURIComponent(String(requestParameters['address']))).replace(`{${"id"}}`, encodeURIComponent(String(requestParameters['id']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvmNftFromJSON(jsonValue));
     }
@@ -1788,41 +1892,44 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the non-fungible token (NFT) instance of an EVM (ERC-721, ...) token. 
      */
-    async runtimeEvmTokensAddressNftsIdGet(requestParameters: RuntimeEvmTokensAddressNftsIdGetRequest): Promise<EvmNft> {
-        const response = await this.runtimeEvmTokensAddressNftsIdGetRaw(requestParameters);
+    async runtimeEvmTokensAddressNftsIdGet(requestParameters: RuntimeEvmTokensAddressNftsIdGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EvmNft> {
+        const response = await this.runtimeEvmTokensAddressNftsIdGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of EVM (ERC-20, ...) tokens on the runtime.
      */
-    async runtimeEvmTokensGetRaw(requestParameters: RuntimeEvmTokensGetRequest): Promise<runtime.ApiResponse<EvmTokenList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeEvmTokensGet.');
+    async runtimeEvmTokensGetRaw(requestParameters: RuntimeEvmTokensGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<EvmTokenList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeEvmTokensGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.name !== undefined) {
-            queryParameters['name'] = requestParameters.name;
+        if (requestParameters['name'] != null) {
+            queryParameters['name'] = requestParameters['name'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/evm_tokens`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))),
+            path: `/{runtime}/evm_tokens`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EvmTokenListFromJSON(jsonValue));
     }
@@ -1830,17 +1937,20 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of EVM (ERC-20, ...) tokens on the runtime.
      */
-    async runtimeEvmTokensGet(requestParameters: RuntimeEvmTokensGetRequest): Promise<EvmTokenList> {
-        const response = await this.runtimeEvmTokensGetRaw(requestParameters);
+    async runtimeEvmTokensGet(requestParameters: RuntimeEvmTokensGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<EvmTokenList> {
+        const response = await this.runtimeEvmTokensGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns the runtime status.
      */
-    async runtimeStatusGetRaw(requestParameters: RuntimeStatusGetRequest): Promise<runtime.ApiResponse<RuntimeStatus>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeStatusGet.');
+    async runtimeStatusGetRaw(requestParameters: RuntimeStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeStatus>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeStatusGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1848,11 +1958,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/status`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))),
+            path: `/{runtime}/status`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeStatusFromJSON(jsonValue));
     }
@@ -1860,53 +1970,56 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns the runtime status.
      */
-    async runtimeStatusGet(requestParameters: RuntimeStatusGetRequest): Promise<RuntimeStatus> {
-        const response = await this.runtimeStatusGetRaw(requestParameters);
+    async runtimeStatusGet(requestParameters: RuntimeStatusGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeStatus> {
+        const response = await this.runtimeStatusGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns a list of Runtime transactions.
      */
-    async runtimeTransactionsGetRaw(requestParameters: RuntimeTransactionsGetRequest): Promise<runtime.ApiResponse<RuntimeTransactionList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeTransactionsGet.');
+    async runtimeTransactionsGetRaw(requestParameters: RuntimeTransactionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeTransactionList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeTransactionsGet().'
+            );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters.limit !== undefined) {
-            queryParameters['limit'] = requestParameters.limit;
+        if (requestParameters['limit'] != null) {
+            queryParameters['limit'] = requestParameters['limit'];
         }
 
-        if (requestParameters.offset !== undefined) {
-            queryParameters['offset'] = requestParameters.offset;
+        if (requestParameters['offset'] != null) {
+            queryParameters['offset'] = requestParameters['offset'];
         }
 
-        if (requestParameters.block !== undefined) {
-            queryParameters['block'] = requestParameters.block;
+        if (requestParameters['block'] != null) {
+            queryParameters['block'] = requestParameters['block'];
         }
 
-        if (requestParameters.after !== undefined) {
-            queryParameters['after'] = (requestParameters.after as any).toISOString();
+        if (requestParameters['after'] != null) {
+            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
         }
 
-        if (requestParameters.before !== undefined) {
-            queryParameters['before'] = (requestParameters.before as any).toISOString();
+        if (requestParameters['before'] != null) {
+            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
         }
 
-        if (requestParameters.rel !== undefined) {
-            queryParameters['rel'] = requestParameters.rel;
+        if (requestParameters['rel'] != null) {
+            queryParameters['rel'] = requestParameters['rel'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/transactions`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))),
+            path: `/{runtime}/transactions`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeTransactionListFromJSON(jsonValue));
     }
@@ -1914,21 +2027,27 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns a list of Runtime transactions.
      */
-    async runtimeTransactionsGet(requestParameters: RuntimeTransactionsGetRequest): Promise<RuntimeTransactionList> {
-        const response = await this.runtimeTransactionsGetRaw(requestParameters);
+    async runtimeTransactionsGet(requestParameters: RuntimeTransactionsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeTransactionList> {
+        const response = await this.runtimeTransactionsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
      * Returns runtime transactions with the given transaction hash.
      */
-    async runtimeTransactionsTxHashGetRaw(requestParameters: RuntimeTransactionsTxHashGetRequest): Promise<runtime.ApiResponse<RuntimeTransactionList>> {
-        if (requestParameters.runtime === null || requestParameters.runtime === undefined) {
-            throw new runtime.RequiredError('runtime','Required parameter requestParameters.runtime was null or undefined when calling runtimeTransactionsTxHashGet.');
+    async runtimeTransactionsTxHashGetRaw(requestParameters: RuntimeTransactionsTxHashGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<RuntimeTransactionList>> {
+        if (requestParameters['runtime'] == null) {
+            throw new runtime.RequiredError(
+                'runtime',
+                'Required parameter "runtime" was null or undefined when calling runtimeTransactionsTxHashGet().'
+            );
         }
 
-        if (requestParameters.txHash === null || requestParameters.txHash === undefined) {
-            throw new runtime.RequiredError('txHash','Required parameter requestParameters.txHash was null or undefined when calling runtimeTransactionsTxHashGet.');
+        if (requestParameters['txHash'] == null) {
+            throw new runtime.RequiredError(
+                'txHash',
+                'Required parameter "txHash" was null or undefined when calling runtimeTransactionsTxHashGet().'
+            );
         }
 
         const queryParameters: any = {};
@@ -1936,11 +2055,11 @@ export class DefaultApi extends runtime.BaseAPI {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/{runtime}/transactions/{tx_hash}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters.runtime))).replace(`{${"tx_hash"}}`, encodeURIComponent(String(requestParameters.txHash))),
+            path: `/{runtime}/transactions/{tx_hash}`.replace(`{${"runtime"}}`, encodeURIComponent(String(requestParameters['runtime']))).replace(`{${"tx_hash"}}`, encodeURIComponent(String(requestParameters['txHash']))),
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
-        });
+        }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RuntimeTransactionListFromJSON(jsonValue));
     }
@@ -1948,8 +2067,8 @@ export class DefaultApi extends runtime.BaseAPI {
     /**
      * Returns runtime transactions with the given transaction hash.
      */
-    async runtimeTransactionsTxHashGet(requestParameters: RuntimeTransactionsTxHashGetRequest): Promise<RuntimeTransactionList> {
-        const response = await this.runtimeTransactionsTxHashGetRaw(requestParameters);
+    async runtimeTransactionsTxHashGet(requestParameters: RuntimeTransactionsTxHashGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<RuntimeTransactionList> {
+        const response = await this.runtimeTransactionsTxHashGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

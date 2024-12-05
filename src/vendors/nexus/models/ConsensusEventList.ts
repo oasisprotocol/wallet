@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ConsensusEventListAllOfEvents } from './ConsensusEventListAllOfEvents';
 import {
-    ConsensusEvent,
-    ConsensusEventFromJSON,
-    ConsensusEventFromJSONTyped,
-    ConsensusEventToJSON,
-    ConsensusEventListAllOf,
-    ConsensusEventListAllOfFromJSON,
-    ConsensusEventListAllOfFromJSONTyped,
-    ConsensusEventListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    ConsensusEventListAllOfEventsFromJSON,
+    ConsensusEventListAllOfEventsFromJSONTyped,
+    ConsensusEventListAllOfEventsToJSON,
+    ConsensusEventListAllOfEventsToJSONTyped,
+} from './ConsensusEventListAllOfEvents';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface ConsensusEventList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof ConsensusEventList
      */
@@ -49,10 +43,20 @@ export interface ConsensusEventList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<ConsensusEvent>}
+     * @type {Array<ConsensusEventListAllOfEvents>}
      * @memberof ConsensusEventList
      */
-    events: Array<ConsensusEvent>;
+    events: Array<ConsensusEventListAllOfEvents>;
+}
+
+/**
+ * Check if a given object implements the ConsensusEventList interface.
+ */
+export function instanceOfConsensusEventList(value: object): value is ConsensusEventList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('events' in value) || value['events'] === undefined) return false;
+    return true;
 }
 
 export function ConsensusEventListFromJSON(json: any): ConsensusEventList {
@@ -60,30 +64,31 @@ export function ConsensusEventListFromJSON(json: any): ConsensusEventList {
 }
 
 export function ConsensusEventListFromJSONTyped(json: any, ignoreDiscriminator: boolean): ConsensusEventList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'events': ((json['events'] as Array<any>).map(ConsensusEventFromJSON)),
+        'events': ((json['events'] as Array<any>).map(ConsensusEventListAllOfEventsFromJSON)),
     };
 }
 
-export function ConsensusEventListToJSON(value?: ConsensusEventList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ConsensusEventListToJSON(json: any): ConsensusEventList {
+    return ConsensusEventListToJSONTyped(json, false);
+}
+
+export function ConsensusEventListToJSONTyped(value?: ConsensusEventList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'events': ((value.events as Array<any>).map(ConsensusEventToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'events': ((value['events'] as Array<any>).map(ConsensusEventListAllOfEventsToJSON)),
     };
 }
-
 

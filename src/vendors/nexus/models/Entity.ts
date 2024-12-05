@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * An entity registered at the consensus layer.
+ * 
  * @export
  * @interface Entity
  */
@@ -39,12 +40,22 @@ export interface Entity {
     nodes: Array<string>;
 }
 
+/**
+ * Check if a given object implements the Entity interface.
+ */
+export function instanceOfEntity(value: object): value is Entity {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('nodes' in value) || value['nodes'] === undefined) return false;
+    return true;
+}
+
 export function EntityFromJSON(json: any): Entity {
     return EntityFromJSONTyped(json, false);
 }
 
 export function EntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): Entity {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -55,19 +66,20 @@ export function EntityFromJSONTyped(json: any, ignoreDiscriminator: boolean): En
     };
 }
 
-export function EntityToJSON(value?: Entity | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'id': value.id,
-        'address': value.address,
-        'nodes': value.nodes,
-    };
+export function EntityToJSON(json: any): Entity {
+    return EntityToJSONTyped(json, false);
 }
 
+export function EntityToJSONTyped(value?: Entity | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'id': value['id'],
+        'address': value['address'],
+        'nodes': value['nodes'],
+    };
+}
 

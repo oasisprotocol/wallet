@@ -12,16 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { TxVolume } from './TxVolume';
 import {
-    TxVolume,
     TxVolumeFromJSON,
     TxVolumeFromJSONTyped,
     TxVolumeToJSON,
-} from './';
+    TxVolumeToJSONTyped,
+} from './TxVolume';
 
 /**
  * A list of daily transaction volumes.
+ * 
  * @export
  * @interface TxVolumeList
  */
@@ -40,12 +42,21 @@ export interface TxVolumeList {
     windows: Array<TxVolume>;
 }
 
+/**
+ * Check if a given object implements the TxVolumeList interface.
+ */
+export function instanceOfTxVolumeList(value: object): value is TxVolumeList {
+    if (!('window_size_seconds' in value) || value['window_size_seconds'] === undefined) return false;
+    if (!('windows' in value) || value['windows'] === undefined) return false;
+    return true;
+}
+
 export function TxVolumeListFromJSON(json: any): TxVolumeList {
     return TxVolumeListFromJSONTyped(json, false);
 }
 
 export function TxVolumeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): TxVolumeList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -55,18 +66,19 @@ export function TxVolumeListFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function TxVolumeListToJSON(value?: TxVolumeList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'window_size_seconds': value.window_size_seconds,
-        'windows': ((value.windows as Array<any>).map(TxVolumeToJSON)),
-    };
+export function TxVolumeListToJSON(json: any): TxVolumeList {
+    return TxVolumeListToJSONTyped(json, false);
 }
 
+export function TxVolumeListToJSONTyped(value?: TxVolumeList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'window_size_seconds': value['window_size_seconds'],
+        'windows': ((value['windows'] as Array<any>).map(TxVolumeToJSON)),
+    };
+}
 

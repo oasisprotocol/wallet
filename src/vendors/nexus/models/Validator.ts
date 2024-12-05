@@ -12,24 +12,32 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { Escrow } from './Escrow';
 import {
-    Escrow,
     EscrowFromJSON,
     EscrowFromJSONTyped,
     EscrowToJSON,
-    ValidatorCommissionBound,
-    ValidatorCommissionBoundFromJSON,
-    ValidatorCommissionBoundFromJSONTyped,
-    ValidatorCommissionBoundToJSON,
-    ValidatorMedia,
+    EscrowToJSONTyped,
+} from './Escrow';
+import type { ValidatorMedia } from './ValidatorMedia';
+import {
     ValidatorMediaFromJSON,
     ValidatorMediaFromJSONTyped,
     ValidatorMediaToJSON,
-} from './';
+    ValidatorMediaToJSONTyped,
+} from './ValidatorMedia';
+import type { ValidatorCommissionBound } from './ValidatorCommissionBound';
+import {
+    ValidatorCommissionBoundFromJSON,
+    ValidatorCommissionBoundFromJSONTyped,
+    ValidatorCommissionBoundToJSON,
+    ValidatorCommissionBoundToJSONTyped,
+} from './ValidatorCommissionBound';
 
 /**
  * An validator registered at the consensus layer.
+ * 
  * @export
  * @interface Validator
  */
@@ -114,55 +122,73 @@ export interface Validator {
     current_commission_bound: ValidatorCommissionBound;
 }
 
+/**
+ * Check if a given object implements the Validator interface.
+ */
+export function instanceOfValidator(value: object): value is Validator {
+    if (!('entity_address' in value) || value['entity_address'] === undefined) return false;
+    if (!('entity_id' in value) || value['entity_id'] === undefined) return false;
+    if (!('escrow' in value) || value['escrow'] === undefined) return false;
+    if (!('voting_power' in value) || value['voting_power'] === undefined) return false;
+    if (!('active' in value) || value['active'] === undefined) return false;
+    if (!('start_date' in value) || value['start_date'] === undefined) return false;
+    if (!('rank' in value) || value['rank'] === undefined) return false;
+    if (!('in_validator_set' in value) || value['in_validator_set'] === undefined) return false;
+    if (!('current_rate' in value) || value['current_rate'] === undefined) return false;
+    if (!('current_commission_bound' in value) || value['current_commission_bound'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorFromJSON(json: any): Validator {
     return ValidatorFromJSONTyped(json, false);
 }
 
 export function ValidatorFromJSONTyped(json: any, ignoreDiscriminator: boolean): Validator {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'entity_address': json['entity_address'],
         'entity_id': json['entity_id'],
-        'node_id': !exists(json, 'node_id') ? undefined : json['node_id'],
+        'node_id': json['node_id'] == null ? undefined : json['node_id'],
         'escrow': EscrowFromJSON(json['escrow']),
         'voting_power': json['voting_power'],
-        'voting_power_cumulative': !exists(json, 'voting_power_cumulative') ? undefined : json['voting_power_cumulative'],
+        'voting_power_cumulative': json['voting_power_cumulative'] == null ? undefined : json['voting_power_cumulative'],
         'active': json['active'],
         'start_date': (new Date(json['start_date'])),
         'rank': json['rank'],
         'in_validator_set': json['in_validator_set'],
-        'media': !exists(json, 'media') ? undefined : ValidatorMediaFromJSON(json['media']),
+        'media': json['media'] == null ? undefined : ValidatorMediaFromJSON(json['media']),
         'current_rate': json['current_rate'],
         'current_commission_bound': ValidatorCommissionBoundFromJSON(json['current_commission_bound']),
     };
 }
 
-export function ValidatorToJSON(value?: Validator | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'entity_address': value.entity_address,
-        'entity_id': value.entity_id,
-        'node_id': value.node_id,
-        'escrow': EscrowToJSON(value.escrow),
-        'voting_power': value.voting_power,
-        'voting_power_cumulative': value.voting_power_cumulative,
-        'active': value.active,
-        'start_date': (value.start_date.toISOString()),
-        'rank': value.rank,
-        'in_validator_set': value.in_validator_set,
-        'media': ValidatorMediaToJSON(value.media),
-        'current_rate': value.current_rate,
-        'current_commission_bound': ValidatorCommissionBoundToJSON(value.current_commission_bound),
-    };
+export function ValidatorToJSON(json: any): Validator {
+    return ValidatorToJSONTyped(json, false);
 }
 
+export function ValidatorToJSONTyped(value?: Validator | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'entity_address': value['entity_address'],
+        'entity_id': value['entity_id'],
+        'node_id': value['node_id'],
+        'escrow': EscrowToJSON(value['escrow']),
+        'voting_power': value['voting_power'],
+        'voting_power_cumulative': value['voting_power_cumulative'],
+        'active': value['active'],
+        'start_date': ((value['start_date']).toISOString()),
+        'rank': value['rank'],
+        'in_validator_set': value['in_validator_set'],
+        'media': ValidatorMediaToJSON(value['media']),
+        'current_rate': value['current_rate'],
+        'current_commission_bound': ValidatorCommissionBoundToJSON(value['current_commission_bound']),
+    };
+}
 

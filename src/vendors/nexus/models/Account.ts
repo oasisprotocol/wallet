@@ -12,20 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { Allowance } from './Allowance';
 import {
-    AccountStats,
-    AccountStatsFromJSON,
-    AccountStatsFromJSONTyped,
-    AccountStatsToJSON,
-    Allowance,
     AllowanceFromJSON,
     AllowanceFromJSONTyped,
     AllowanceToJSON,
-} from './';
+    AllowanceToJSONTyped,
+} from './Allowance';
+import type { AccountStats } from './AccountStats';
+import {
+    AccountStatsFromJSON,
+    AccountStatsFromJSONTyped,
+    AccountStatsToJSON,
+    AccountStatsToJSONTyped,
+} from './AccountStats';
 
 /**
  * A consensus layer account.
+ * 
  * @export
  * @interface Account
  */
@@ -75,6 +80,7 @@ export interface Account {
     /**
      * The second-granular consensus time of the block in which this account was first active.
      * Dates before Cobalt (2021-04-28) are approximate.
+     * 
      * @type {Date}
      * @memberof Account
      */
@@ -82,6 +88,7 @@ export interface Account {
     /**
      * The allowances made by this account.
      * This field is omitted when listing multiple accounts.
+     * 
      * @type {Array<Allowance>}
      * @memberof Account
      */
@@ -94,12 +101,28 @@ export interface Account {
     stats: AccountStats;
 }
 
+/**
+ * Check if a given object implements the Account interface.
+ */
+export function instanceOfAccount(value: object): value is Account {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('nonce' in value) || value['nonce'] === undefined) return false;
+    if (!('available' in value) || value['available'] === undefined) return false;
+    if (!('escrow' in value) || value['escrow'] === undefined) return false;
+    if (!('debonding' in value) || value['debonding'] === undefined) return false;
+    if (!('delegations_balance' in value) || value['delegations_balance'] === undefined) return false;
+    if (!('debonding_delegations_balance' in value) || value['debonding_delegations_balance'] === undefined) return false;
+    if (!('allowances' in value) || value['allowances'] === undefined) return false;
+    if (!('stats' in value) || value['stats'] === undefined) return false;
+    return true;
+}
+
 export function AccountFromJSON(json: any): Account {
     return AccountFromJSONTyped(json, false);
 }
 
 export function AccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): Account {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -111,32 +134,33 @@ export function AccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): A
         'debonding': json['debonding'],
         'delegations_balance': json['delegations_balance'],
         'debonding_delegations_balance': json['debonding_delegations_balance'],
-        'first_activity': !exists(json, 'first_activity') ? undefined : (new Date(json['first_activity'])),
+        'first_activity': json['first_activity'] == null ? undefined : (new Date(json['first_activity'])),
         'allowances': ((json['allowances'] as Array<any>).map(AllowanceFromJSON)),
         'stats': AccountStatsFromJSON(json['stats']),
     };
 }
 
-export function AccountToJSON(value?: Account | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'address': value.address,
-        'nonce': value.nonce,
-        'available': value.available,
-        'escrow': value.escrow,
-        'debonding': value.debonding,
-        'delegations_balance': value.delegations_balance,
-        'debonding_delegations_balance': value.debonding_delegations_balance,
-        'first_activity': value.first_activity === undefined ? undefined : (value.first_activity.toISOString()),
-        'allowances': ((value.allowances as Array<any>).map(AllowanceToJSON)),
-        'stats': AccountStatsToJSON(value.stats),
-    };
+export function AccountToJSON(json: any): Account {
+    return AccountToJSONTyped(json, false);
 }
 
+export function AccountToJSONTyped(value?: Account | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'address': value['address'],
+        'nonce': value['nonce'],
+        'available': value['available'],
+        'escrow': value['escrow'],
+        'debonding': value['debonding'],
+        'delegations_balance': value['delegations_balance'],
+        'debonding_delegations_balance': value['debonding_delegations_balance'],
+        'first_activity': value['first_activity'] == null ? undefined : ((value['first_activity']).toISOString()),
+        'allowances': ((value['allowances'] as Array<any>).map(AllowanceToJSON)),
+        'stats': AccountStatsToJSON(value['stats']),
+    };
+}
 

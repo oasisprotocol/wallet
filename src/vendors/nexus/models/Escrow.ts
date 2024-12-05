@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -69,45 +69,53 @@ export interface Escrow {
     num_delegators?: number;
 }
 
+/**
+ * Check if a given object implements the Escrow interface.
+ */
+export function instanceOfEscrow(value: object): value is Escrow {
+    return true;
+}
+
 export function EscrowFromJSON(json: any): Escrow {
     return EscrowFromJSONTyped(json, false);
 }
 
 export function EscrowFromJSONTyped(json: any, ignoreDiscriminator: boolean): Escrow {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'active_balance': !exists(json, 'active_balance') ? undefined : json['active_balance'],
-        'active_shares': !exists(json, 'active_shares') ? undefined : json['active_shares'],
-        'debonding_balance': !exists(json, 'debonding_balance') ? undefined : json['debonding_balance'],
-        'debonding_shares': !exists(json, 'debonding_shares') ? undefined : json['debonding_shares'],
-        'self_delegation_balance': !exists(json, 'self_delegation_balance') ? undefined : json['self_delegation_balance'],
-        'self_delegation_shares': !exists(json, 'self_delegation_shares') ? undefined : json['self_delegation_shares'],
-        'active_balance_24': !exists(json, 'active_balance_24') ? undefined : json['active_balance_24'],
-        'num_delegators': !exists(json, 'num_delegators') ? undefined : json['num_delegators'],
+        'active_balance': json['active_balance'] == null ? undefined : json['active_balance'],
+        'active_shares': json['active_shares'] == null ? undefined : json['active_shares'],
+        'debonding_balance': json['debonding_balance'] == null ? undefined : json['debonding_balance'],
+        'debonding_shares': json['debonding_shares'] == null ? undefined : json['debonding_shares'],
+        'self_delegation_balance': json['self_delegation_balance'] == null ? undefined : json['self_delegation_balance'],
+        'self_delegation_shares': json['self_delegation_shares'] == null ? undefined : json['self_delegation_shares'],
+        'active_balance_24': json['active_balance_24'] == null ? undefined : json['active_balance_24'],
+        'num_delegators': json['num_delegators'] == null ? undefined : json['num_delegators'],
     };
 }
 
-export function EscrowToJSON(value?: Escrow | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EscrowToJSON(json: any): Escrow {
+    return EscrowToJSONTyped(json, false);
+}
+
+export function EscrowToJSONTyped(value?: Escrow | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'active_balance': value.active_balance,
-        'active_shares': value.active_shares,
-        'debonding_balance': value.debonding_balance,
-        'debonding_shares': value.debonding_shares,
-        'self_delegation_balance': value.self_delegation_balance,
-        'self_delegation_shares': value.self_delegation_shares,
-        'active_balance_24': value.active_balance_24,
-        'num_delegators': value.num_delegators,
+        'active_balance': value['active_balance'],
+        'active_shares': value['active_shares'],
+        'debonding_balance': value['debonding_balance'],
+        'debonding_shares': value['debonding_shares'],
+        'self_delegation_balance': value['self_delegation_balance'],
+        'self_delegation_shares': value['self_delegation_shares'],
+        'active_balance_24': value['active_balance_24'],
+        'num_delegators': value['num_delegators'],
     };
 }
-
 

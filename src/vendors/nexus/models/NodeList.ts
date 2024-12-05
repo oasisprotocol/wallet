@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { NodeListAllOfNodes } from './NodeListAllOfNodes';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    Node,
-    NodeFromJSON,
-    NodeFromJSONTyped,
-    NodeToJSON,
-    NodeListAllOf,
-    NodeListAllOfFromJSON,
-    NodeListAllOfFromJSONTyped,
-    NodeListAllOfToJSON,
-} from './';
+    NodeListAllOfNodesFromJSON,
+    NodeListAllOfNodesFromJSONTyped,
+    NodeListAllOfNodesToJSON,
+    NodeListAllOfNodesToJSONTyped,
+} from './NodeListAllOfNodes';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface NodeList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof NodeList
      */
@@ -55,10 +49,21 @@ export interface NodeList {
     entity_id: string;
     /**
      * 
-     * @type {Array<Node>}
+     * @type {Array<NodeListAllOfNodes>}
      * @memberof NodeList
      */
-    nodes: Array<Node>;
+    nodes: Array<NodeListAllOfNodes>;
+}
+
+/**
+ * Check if a given object implements the NodeList interface.
+ */
+export function instanceOfNodeList(value: object): value is NodeList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('entity_id' in value) || value['entity_id'] === undefined) return false;
+    if (!('nodes' in value) || value['nodes'] === undefined) return false;
+    return true;
 }
 
 export function NodeListFromJSON(json: any): NodeList {
@@ -66,7 +71,7 @@ export function NodeListFromJSON(json: any): NodeList {
 }
 
 export function NodeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): NodeList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -74,24 +79,25 @@ export function NodeListFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
         'entity_id': json['entity_id'],
-        'nodes': ((json['nodes'] as Array<any>).map(NodeFromJSON)),
+        'nodes': ((json['nodes'] as Array<any>).map(NodeListAllOfNodesFromJSON)),
     };
 }
 
-export function NodeListToJSON(value?: NodeList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function NodeListToJSON(json: any): NodeList {
+    return NodeListToJSONTyped(json, false);
+}
+
+export function NodeListToJSONTyped(value?: NodeList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'entity_id': value.entity_id,
-        'nodes': ((value.nodes as Array<any>).map(NodeToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'entity_id': value['entity_id'],
+        'nodes': ((value['nodes'] as Array<any>).map(NodeListAllOfNodesToJSON)),
     };
 }
-
 

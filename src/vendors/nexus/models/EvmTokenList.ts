@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmTokenListAllOfEvmTokens } from './EvmTokenListAllOfEvmTokens';
 import {
-    EvmToken,
-    EvmTokenFromJSON,
-    EvmTokenFromJSONTyped,
-    EvmTokenToJSON,
-    EvmTokenListAllOf,
-    EvmTokenListAllOfFromJSON,
-    EvmTokenListAllOfFromJSONTyped,
-    EvmTokenListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    EvmTokenListAllOfEvmTokensFromJSON,
+    EvmTokenListAllOfEvmTokensFromJSONTyped,
+    EvmTokenListAllOfEvmTokensToJSON,
+    EvmTokenListAllOfEvmTokensToJSONTyped,
+} from './EvmTokenListAllOfEvmTokens';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface EvmTokenList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof EvmTokenList
      */
@@ -49,10 +43,20 @@ export interface EvmTokenList {
     is_total_count_clipped: boolean;
     /**
      * A list of L2 EVM tokens (ERC-20, ERC-721, ...).
-     * @type {Array<EvmToken>}
+     * @type {Array<EvmTokenListAllOfEvmTokens>}
      * @memberof EvmTokenList
      */
-    evm_tokens: Array<EvmToken>;
+    evm_tokens: Array<EvmTokenListAllOfEvmTokens>;
+}
+
+/**
+ * Check if a given object implements the EvmTokenList interface.
+ */
+export function instanceOfEvmTokenList(value: object): value is EvmTokenList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('evm_tokens' in value) || value['evm_tokens'] === undefined) return false;
+    return true;
 }
 
 export function EvmTokenListFromJSON(json: any): EvmTokenList {
@@ -60,30 +64,31 @@ export function EvmTokenListFromJSON(json: any): EvmTokenList {
 }
 
 export function EvmTokenListFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmTokenList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'evm_tokens': ((json['evm_tokens'] as Array<any>).map(EvmTokenFromJSON)),
+        'evm_tokens': ((json['evm_tokens'] as Array<any>).map(EvmTokenListAllOfEvmTokensFromJSON)),
     };
 }
 
-export function EvmTokenListToJSON(value?: EvmTokenList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EvmTokenListToJSON(json: any): EvmTokenList {
+    return EvmTokenListToJSONTyped(json, false);
+}
+
+export function EvmTokenListToJSONTyped(value?: EvmTokenList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'evm_tokens': ((value.evm_tokens as Array<any>).map(EvmTokenToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'evm_tokens': ((value['evm_tokens'] as Array<any>).map(EvmTokenListAllOfEvmTokensToJSON)),
     };
 }
-
 

@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A node registered at the consensus layer.
+ * 
  * @export
  * @interface Node
  */
@@ -27,6 +28,7 @@ export interface Node {
     id: string;
     /**
      * The public key identifying the entity controlling this node.
+     * 
      * @type {string}
      * @memberof Node
      */
@@ -46,6 +48,7 @@ export interface Node {
     /**
      * The public key that will be used for establishing TLS connections
      * upon rotation.
+     * 
      * @type {string}
      * @memberof Node
      */
@@ -70,12 +73,27 @@ export interface Node {
     roles: string;
 }
 
+/**
+ * Check if a given object implements the Node interface.
+ */
+export function instanceOfNode(value: object): value is Node {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('entity_id' in value) || value['entity_id'] === undefined) return false;
+    if (!('expiration' in value) || value['expiration'] === undefined) return false;
+    if (!('tls_pubkey' in value) || value['tls_pubkey'] === undefined) return false;
+    if (!('tls_next_pubkey' in value) || value['tls_next_pubkey'] === undefined) return false;
+    if (!('p2p_pubkey' in value) || value['p2p_pubkey'] === undefined) return false;
+    if (!('consensus_pubkey' in value) || value['consensus_pubkey'] === undefined) return false;
+    if (!('roles' in value) || value['roles'] === undefined) return false;
+    return true;
+}
+
 export function NodeFromJSON(json: any): Node {
     return NodeFromJSONTyped(json, false);
 }
 
 export function NodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Node {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -91,24 +109,25 @@ export function NodeFromJSONTyped(json: any, ignoreDiscriminator: boolean): Node
     };
 }
 
-export function NodeToJSON(value?: Node | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'id': value.id,
-        'entity_id': value.entity_id,
-        'expiration': value.expiration,
-        'tls_pubkey': value.tls_pubkey,
-        'tls_next_pubkey': value.tls_next_pubkey,
-        'p2p_pubkey': value.p2p_pubkey,
-        'consensus_pubkey': value.consensus_pubkey,
-        'roles': value.roles,
-    };
+export function NodeToJSON(json: any): Node {
+    return NodeToJSONTyped(json, false);
 }
 
+export function NodeToJSONTyped(value?: Node | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'id': value['id'],
+        'entity_id': value['entity_id'],
+        'expiration': value['expiration'],
+        'tls_pubkey': value['tls_pubkey'],
+        'tls_next_pubkey': value['tls_next_pubkey'],
+        'p2p_pubkey': value['p2p_pubkey'],
+        'consensus_pubkey': value['consensus_pubkey'],
+        'roles': value['roles'],
+    };
+}
 

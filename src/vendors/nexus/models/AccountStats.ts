@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -23,16 +23,20 @@ export interface AccountStats {
      * The total amount of native tokens sent, in base units.
      * DEPRECATED: This field might be inaccurate. Nexus is currently not able to track
      * certain actions which subtract/add tokens.
+     * 
      * @type {string}
      * @memberof AccountStats
+     * @deprecated
      */
     total_sent?: string;
     /**
      * The total amount of native tokens received, in base units.
      * DEPRECATED: This field might be inaccurate. Nexus is currently not able to track
      * certain actions which subtract/add tokens.
+     * 
      * @type {string}
      * @memberof AccountStats
+     * @deprecated
      */
     total_received?: string;
     /**
@@ -43,35 +47,44 @@ export interface AccountStats {
     num_txns: number;
 }
 
+/**
+ * Check if a given object implements the AccountStats interface.
+ */
+export function instanceOfAccountStats(value: object): value is AccountStats {
+    if (!('num_txns' in value) || value['num_txns'] === undefined) return false;
+    return true;
+}
+
 export function AccountStatsFromJSON(json: any): AccountStats {
     return AccountStatsFromJSONTyped(json, false);
 }
 
 export function AccountStatsFromJSONTyped(json: any, ignoreDiscriminator: boolean): AccountStats {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'total_sent': !exists(json, 'total_sent') ? undefined : json['total_sent'],
-        'total_received': !exists(json, 'total_received') ? undefined : json['total_received'],
+        'total_sent': json['total_sent'] == null ? undefined : json['total_sent'],
+        'total_received': json['total_received'] == null ? undefined : json['total_received'],
         'num_txns': json['num_txns'],
     };
 }
 
-export function AccountStatsToJSON(value?: AccountStats | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'total_sent': value.total_sent,
-        'total_received': value.total_received,
-        'num_txns': value.num_txns,
-    };
+export function AccountStatsToJSON(json: any): AccountStats {
+    return AccountStatsToJSONTyped(json, false);
 }
 
+export function AccountStatsToJSONTyped(value?: AccountStats | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'total_sent': value['total_sent'],
+        'total_received': value['total_received'],
+        'num_txns': value['num_txns'],
+    };
+}
 

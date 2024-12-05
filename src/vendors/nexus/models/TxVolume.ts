@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -33,12 +33,21 @@ export interface TxVolume {
     tx_volume: number;
 }
 
+/**
+ * Check if a given object implements the TxVolume interface.
+ */
+export function instanceOfTxVolume(value: object): value is TxVolume {
+    if (!('window_end' in value) || value['window_end'] === undefined) return false;
+    if (!('tx_volume' in value) || value['tx_volume'] === undefined) return false;
+    return true;
+}
+
 export function TxVolumeFromJSON(json: any): TxVolume {
     return TxVolumeFromJSONTyped(json, false);
 }
 
 export function TxVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): TxVolume {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -48,18 +57,19 @@ export function TxVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function TxVolumeToJSON(value?: TxVolume | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'window_end': (value.window_end.toISOString()),
-        'tx_volume': value.tx_volume,
-    };
+export function TxVolumeToJSON(json: any): TxVolume {
+    return TxVolumeToJSONTyped(json, false);
 }
 
+export function TxVolumeToJSONTyped(value?: TxVolume | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'window_end': ((value['window_end']).toISOString()),
+        'tx_volume': value['tx_volume'],
+    };
+}
 

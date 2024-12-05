@@ -12,19 +12,32 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum RoothashMessageType {
-    StakingTransfer = 'staking.transfer',
-    StakingWithdraw = 'staking.withdraw',
-    StakingAddEscrow = 'staking.add_escrow',
-    StakingReclaimEscrow = 'staking.reclaim_escrow',
-    RegistryUpdateRuntime = 'registry.update_runtime',
-    GovernanceCastVote = 'governance.cast_vote',
-    GovernanceSubmitProposal = 'governance.submit_proposal'
+export const RoothashMessageType = {
+    StakingTransfer: 'staking.transfer',
+    StakingWithdraw: 'staking.withdraw',
+    StakingAddEscrow: 'staking.add_escrow',
+    StakingReclaimEscrow: 'staking.reclaim_escrow',
+    RegistryUpdateRuntime: 'registry.update_runtime',
+    GovernanceCastVote: 'governance.cast_vote',
+    GovernanceSubmitProposal: 'governance.submit_proposal'
+} as const;
+export type RoothashMessageType = typeof RoothashMessageType[keyof typeof RoothashMessageType];
+
+
+export function instanceOfRoothashMessageType(value: any): boolean {
+    for (const key in RoothashMessageType) {
+        if (Object.prototype.hasOwnProperty.call(RoothashMessageType, key)) {
+            if (RoothashMessageType[key as keyof typeof RoothashMessageType] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function RoothashMessageTypeFromJSON(json: any): RoothashMessageType {
@@ -37,5 +50,9 @@ export function RoothashMessageTypeFromJSONTyped(json: any, ignoreDiscriminator:
 
 export function RoothashMessageTypeToJSON(value?: RoothashMessageType | null): any {
     return value as any;
+}
+
+export function RoothashMessageTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): RoothashMessageType {
+    return value as RoothashMessageType;
 }
 

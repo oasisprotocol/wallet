@@ -12,16 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ActiveAccounts } from './ActiveAccounts';
 import {
-    ActiveAccounts,
     ActiveAccountsFromJSON,
     ActiveAccountsFromJSONTyped,
     ActiveAccountsToJSON,
-} from './';
+    ActiveAccountsToJSONTyped,
+} from './ActiveAccounts';
 
 /**
  * A list of daily unique active account windows.
+ * 
  * @export
  * @interface ActiveAccountsList
  */
@@ -40,12 +42,21 @@ export interface ActiveAccountsList {
     windows: Array<ActiveAccounts>;
 }
 
+/**
+ * Check if a given object implements the ActiveAccountsList interface.
+ */
+export function instanceOfActiveAccountsList(value: object): value is ActiveAccountsList {
+    if (!('window_size_seconds' in value) || value['window_size_seconds'] === undefined) return false;
+    if (!('windows' in value) || value['windows'] === undefined) return false;
+    return true;
+}
+
 export function ActiveAccountsListFromJSON(json: any): ActiveAccountsList {
     return ActiveAccountsListFromJSONTyped(json, false);
 }
 
 export function ActiveAccountsListFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActiveAccountsList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -55,18 +66,19 @@ export function ActiveAccountsListFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function ActiveAccountsListToJSON(value?: ActiveAccountsList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'window_size_seconds': value.window_size_seconds,
-        'windows': ((value.windows as Array<any>).map(ActiveAccountsToJSON)),
-    };
+export function ActiveAccountsListToJSON(json: any): ActiveAccountsList {
+    return ActiveAccountsListToJSONTyped(json, false);
 }
 
+export function ActiveAccountsListToJSONTyped(value?: ActiveAccountsList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'window_size_seconds': value['window_size_seconds'],
+        'windows': ((value['windows'] as Array<any>).map(ActiveAccountsToJSON)),
+    };
+}
 

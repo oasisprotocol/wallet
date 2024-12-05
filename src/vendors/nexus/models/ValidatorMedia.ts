@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -57,41 +57,49 @@ export interface ValidatorMedia {
     logoUrl?: string;
 }
 
+/**
+ * Check if a given object implements the ValidatorMedia interface.
+ */
+export function instanceOfValidatorMedia(value: object): value is ValidatorMedia {
+    return true;
+}
+
 export function ValidatorMediaFromJSON(json: any): ValidatorMedia {
     return ValidatorMediaFromJSONTyped(json, false);
 }
 
 export function ValidatorMediaFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorMedia {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'url': !exists(json, 'url') ? undefined : json['url'],
-        'email': !exists(json, 'email') ? undefined : json['email'],
-        'twitter': !exists(json, 'twitter') ? undefined : json['twitter'],
-        'keybase': !exists(json, 'keybase') ? undefined : json['keybase'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'logoUrl': !exists(json, 'logoUrl') ? undefined : json['logoUrl'],
+        'url': json['url'] == null ? undefined : json['url'],
+        'email': json['email'] == null ? undefined : json['email'],
+        'twitter': json['twitter'] == null ? undefined : json['twitter'],
+        'keybase': json['keybase'] == null ? undefined : json['keybase'],
+        'name': json['name'] == null ? undefined : json['name'],
+        'logoUrl': json['logoUrl'] == null ? undefined : json['logoUrl'],
     };
 }
 
-export function ValidatorMediaToJSON(value?: ValidatorMedia | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ValidatorMediaToJSON(json: any): ValidatorMedia {
+    return ValidatorMediaToJSONTyped(json, false);
+}
+
+export function ValidatorMediaToJSONTyped(value?: ValidatorMedia | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'url': value.url,
-        'email': value.email,
-        'twitter': value.twitter,
-        'keybase': value.keybase,
-        'name': value.name,
-        'logoUrl': value.logoUrl,
+        'url': value['url'],
+        'email': value['email'],
+        'twitter': value['twitter'],
+        'keybase': value['keybase'],
+        'name': value['name'],
+        'logoUrl': value['logoUrl'],
     };
 }
-
 

@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { AccountListAllOfAccounts } from './AccountListAllOfAccounts';
 import {
-    Account,
-    AccountFromJSON,
-    AccountFromJSONTyped,
-    AccountToJSON,
-    AccountListAllOf,
-    AccountListAllOfFromJSON,
-    AccountListAllOfFromJSONTyped,
-    AccountListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    AccountListAllOfAccountsFromJSON,
+    AccountListAllOfAccountsFromJSONTyped,
+    AccountListAllOfAccountsToJSON,
+    AccountListAllOfAccountsToJSONTyped,
+} from './AccountListAllOfAccounts';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface AccountList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof AccountList
      */
@@ -49,10 +43,20 @@ export interface AccountList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Account>}
+     * @type {Array<AccountListAllOfAccounts>}
      * @memberof AccountList
      */
-    accounts: Array<Account>;
+    accounts: Array<AccountListAllOfAccounts>;
+}
+
+/**
+ * Check if a given object implements the AccountList interface.
+ */
+export function instanceOfAccountList(value: object): value is AccountList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('accounts' in value) || value['accounts'] === undefined) return false;
+    return true;
 }
 
 export function AccountListFromJSON(json: any): AccountList {
@@ -60,30 +64,31 @@ export function AccountListFromJSON(json: any): AccountList {
 }
 
 export function AccountListFromJSONTyped(json: any, ignoreDiscriminator: boolean): AccountList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'accounts': ((json['accounts'] as Array<any>).map(AccountFromJSON)),
+        'accounts': ((json['accounts'] as Array<any>).map(AccountListAllOfAccountsFromJSON)),
     };
 }
 
-export function AccountListToJSON(value?: AccountList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function AccountListToJSON(json: any): AccountList {
+    return AccountListToJSONTyped(json, false);
+}
+
+export function AccountListToJSONTyped(value?: AccountList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'accounts': ((value.accounts as Array<any>).map(AccountToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'accounts': ((value['accounts'] as Array<any>).map(AccountListAllOfAccountsToJSON)),
     };
 }
-
 

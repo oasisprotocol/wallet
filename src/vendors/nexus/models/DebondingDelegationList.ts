@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { DebondingDelegationListAllOfDebondingDelegations } from './DebondingDelegationListAllOfDebondingDelegations';
 import {
-    DebondingDelegation,
-    DebondingDelegationFromJSON,
-    DebondingDelegationFromJSONTyped,
-    DebondingDelegationToJSON,
-    DebondingDelegationListAllOf,
-    DebondingDelegationListAllOfFromJSON,
-    DebondingDelegationListAllOfFromJSONTyped,
-    DebondingDelegationListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    DebondingDelegationListAllOfDebondingDelegationsFromJSON,
+    DebondingDelegationListAllOfDebondingDelegationsFromJSONTyped,
+    DebondingDelegationListAllOfDebondingDelegationsToJSON,
+    DebondingDelegationListAllOfDebondingDelegationsToJSONTyped,
+} from './DebondingDelegationListAllOfDebondingDelegations';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface DebondingDelegationList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof DebondingDelegationList
      */
@@ -49,10 +43,20 @@ export interface DebondingDelegationList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<DebondingDelegation>}
+     * @type {Array<DebondingDelegationListAllOfDebondingDelegations>}
      * @memberof DebondingDelegationList
      */
-    debonding_delegations: Array<DebondingDelegation>;
+    debonding_delegations: Array<DebondingDelegationListAllOfDebondingDelegations>;
+}
+
+/**
+ * Check if a given object implements the DebondingDelegationList interface.
+ */
+export function instanceOfDebondingDelegationList(value: object): value is DebondingDelegationList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('debonding_delegations' in value) || value['debonding_delegations'] === undefined) return false;
+    return true;
 }
 
 export function DebondingDelegationListFromJSON(json: any): DebondingDelegationList {
@@ -60,30 +64,31 @@ export function DebondingDelegationListFromJSON(json: any): DebondingDelegationL
 }
 
 export function DebondingDelegationListFromJSONTyped(json: any, ignoreDiscriminator: boolean): DebondingDelegationList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'debonding_delegations': ((json['debonding_delegations'] as Array<any>).map(DebondingDelegationFromJSON)),
+        'debonding_delegations': ((json['debonding_delegations'] as Array<any>).map(DebondingDelegationListAllOfDebondingDelegationsFromJSON)),
     };
 }
 
-export function DebondingDelegationListToJSON(value?: DebondingDelegationList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function DebondingDelegationListToJSON(json: any): DebondingDelegationList {
+    return DebondingDelegationListToJSONTyped(json, false);
+}
+
+export function DebondingDelegationListToJSONTyped(value?: DebondingDelegationList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'debonding_delegations': ((value.debonding_delegations as Array<any>).map(DebondingDelegationToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'debonding_delegations': ((value['debonding_delegations'] as Array<any>).map(DebondingDelegationListAllOfDebondingDelegationsToJSON)),
     };
 }
-
 

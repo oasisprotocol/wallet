@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ProposalListAllOfProposals } from './ProposalListAllOfProposals';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    Proposal,
-    ProposalFromJSON,
-    ProposalFromJSONTyped,
-    ProposalToJSON,
-    ProposalListAllOf,
-    ProposalListAllOfFromJSON,
-    ProposalListAllOfFromJSONTyped,
-    ProposalListAllOfToJSON,
-} from './';
+    ProposalListAllOfProposalsFromJSON,
+    ProposalListAllOfProposalsFromJSONTyped,
+    ProposalListAllOfProposalsToJSON,
+    ProposalListAllOfProposalsToJSONTyped,
+} from './ProposalListAllOfProposals';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface ProposalList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof ProposalList
      */
@@ -49,10 +43,20 @@ export interface ProposalList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Proposal>}
+     * @type {Array<ProposalListAllOfProposals>}
      * @memberof ProposalList
      */
-    proposals: Array<Proposal>;
+    proposals: Array<ProposalListAllOfProposals>;
+}
+
+/**
+ * Check if a given object implements the ProposalList interface.
+ */
+export function instanceOfProposalList(value: object): value is ProposalList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('proposals' in value) || value['proposals'] === undefined) return false;
+    return true;
 }
 
 export function ProposalListFromJSON(json: any): ProposalList {
@@ -60,30 +64,31 @@ export function ProposalListFromJSON(json: any): ProposalList {
 }
 
 export function ProposalListFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProposalList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'proposals': ((json['proposals'] as Array<any>).map(ProposalFromJSON)),
+        'proposals': ((json['proposals'] as Array<any>).map(ProposalListAllOfProposalsFromJSON)),
     };
 }
 
-export function ProposalListToJSON(value?: ProposalList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ProposalListToJSON(json: any): ProposalList {
+    return ProposalListToJSONTyped(json, false);
+}
+
+export function ProposalListToJSONTyped(value?: ProposalList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'proposals': ((value.proposals as Array<any>).map(ProposalToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'proposals': ((value['proposals'] as Array<any>).map(ProposalListAllOfProposalsToJSON)),
     };
 }
-
 

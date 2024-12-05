@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -45,12 +45,23 @@ export interface RuntimeStatus {
     latest_update_age_ms: number;
 }
 
+/**
+ * Check if a given object implements the RuntimeStatus interface.
+ */
+export function instanceOfRuntimeStatus(value: object): value is RuntimeStatus {
+    if (!('active_nodes' in value) || value['active_nodes'] === undefined) return false;
+    if (!('latest_block' in value) || value['latest_block'] === undefined) return false;
+    if (!('latest_block_time' in value) || value['latest_block_time'] === undefined) return false;
+    if (!('latest_update_age_ms' in value) || value['latest_update_age_ms'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeStatusFromJSON(json: any): RuntimeStatus {
     return RuntimeStatusFromJSONTyped(json, false);
 }
 
 export function RuntimeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeStatus {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -62,20 +73,21 @@ export function RuntimeStatusFromJSONTyped(json: any, ignoreDiscriminator: boole
     };
 }
 
-export function RuntimeStatusToJSON(value?: RuntimeStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'active_nodes': value.active_nodes,
-        'latest_block': value.latest_block,
-        'latest_block_time': (value.latest_block_time.toISOString()),
-        'latest_update_age_ms': value.latest_update_age_ms,
-    };
+export function RuntimeStatusToJSON(json: any): RuntimeStatus {
+    return RuntimeStatusToJSONTyped(json, false);
 }
 
+export function RuntimeStatusToJSONTyped(value?: RuntimeStatus | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'active_nodes': value['active_nodes'],
+        'latest_block': value['latest_block'],
+        'latest_block_time': ((value['latest_block_time']).toISOString()),
+        'latest_update_age_ms': value['latest_update_age_ms'],
+    };
+}
 

@@ -12,29 +12,42 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RuntimeEvmBalance } from './RuntimeEvmBalance';
 import {
-    AccountStats,
-    AccountStatsFromJSON,
-    AccountStatsFromJSONTyped,
-    AccountStatsToJSON,
-    AddressPreimage,
-    AddressPreimageFromJSON,
-    AddressPreimageFromJSONTyped,
-    AddressPreimageToJSON,
-    RuntimeEvmBalance,
     RuntimeEvmBalanceFromJSON,
     RuntimeEvmBalanceFromJSONTyped,
     RuntimeEvmBalanceToJSON,
-    RuntimeEvmContract,
-    RuntimeEvmContractFromJSON,
-    RuntimeEvmContractFromJSONTyped,
-    RuntimeEvmContractToJSON,
-    RuntimeSdkBalance,
+    RuntimeEvmBalanceToJSONTyped,
+} from './RuntimeEvmBalance';
+import type { RuntimeSdkBalance } from './RuntimeSdkBalance';
+import {
     RuntimeSdkBalanceFromJSON,
     RuntimeSdkBalanceFromJSONTyped,
     RuntimeSdkBalanceToJSON,
-} from './';
+    RuntimeSdkBalanceToJSONTyped,
+} from './RuntimeSdkBalance';
+import type { RuntimeEvmContract } from './RuntimeEvmContract';
+import {
+    RuntimeEvmContractFromJSON,
+    RuntimeEvmContractFromJSONTyped,
+    RuntimeEvmContractToJSON,
+    RuntimeEvmContractToJSONTyped,
+} from './RuntimeEvmContract';
+import type { AccountStats } from './AccountStats';
+import {
+    AccountStatsFromJSON,
+    AccountStatsFromJSONTyped,
+    AccountStatsToJSON,
+    AccountStatsToJSONTyped,
+} from './AccountStats';
+import type { AddressPreimage } from './AddressPreimage';
+import {
+    AddressPreimageFromJSON,
+    AddressPreimageFromJSONTyped,
+    AddressPreimageToJSON,
+    AddressPreimageToJSONTyped,
+} from './AddressPreimage';
 
 /**
  * 
@@ -59,6 +72,7 @@ export interface RuntimeAccount {
      * produce only one balance here. These balances do not include "layer (n+1) tokens", i.e. tokens
      * managed by smart contracts deployed in this runtime. For example, in EVM-compatible runtimes,
      * this does not include ERC-20 tokens
+     * 
      * @type {Array<RuntimeSdkBalance>}
      * @memberof RuntimeAccount
      */
@@ -66,6 +80,7 @@ export interface RuntimeAccount {
     /**
      * Data on the EVM smart contract associated with this account address. Only present for accounts
      * that represent a smart contract on EVM.
+     * 
      * @type {RuntimeEvmContract}
      * @memberof RuntimeAccount
      */
@@ -73,6 +88,7 @@ export interface RuntimeAccount {
     /**
      * The balances of this account in each runtime, as managed by EVM smart contracts (notably, ERC-20).
      * NOTE: This field is limited to 1000 entries. If you need more, please let us know in a GitHub issue.
+     * 
      * @type {Array<RuntimeEvmBalance>}
      * @memberof RuntimeAccount
      */
@@ -85,41 +101,53 @@ export interface RuntimeAccount {
     stats: AccountStats;
 }
 
+/**
+ * Check if a given object implements the RuntimeAccount interface.
+ */
+export function instanceOfRuntimeAccount(value: object): value is RuntimeAccount {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('balances' in value) || value['balances'] === undefined) return false;
+    if (!('evm_balances' in value) || value['evm_balances'] === undefined) return false;
+    if (!('stats' in value) || value['stats'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeAccountFromJSON(json: any): RuntimeAccount {
     return RuntimeAccountFromJSONTyped(json, false);
 }
 
 export function RuntimeAccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeAccount {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'address': json['address'],
-        'address_preimage': !exists(json, 'address_preimage') ? undefined : AddressPreimageFromJSON(json['address_preimage']),
+        'address_preimage': json['address_preimage'] == null ? undefined : AddressPreimageFromJSON(json['address_preimage']),
         'balances': ((json['balances'] as Array<any>).map(RuntimeSdkBalanceFromJSON)),
-        'evm_contract': !exists(json, 'evm_contract') ? undefined : RuntimeEvmContractFromJSON(json['evm_contract']),
+        'evm_contract': json['evm_contract'] == null ? undefined : RuntimeEvmContractFromJSON(json['evm_contract']),
         'evm_balances': ((json['evm_balances'] as Array<any>).map(RuntimeEvmBalanceFromJSON)),
         'stats': AccountStatsFromJSON(json['stats']),
     };
 }
 
-export function RuntimeAccountToJSON(value?: RuntimeAccount | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'address': value.address,
-        'address_preimage': AddressPreimageToJSON(value.address_preimage),
-        'balances': ((value.balances as Array<any>).map(RuntimeSdkBalanceToJSON)),
-        'evm_contract': RuntimeEvmContractToJSON(value.evm_contract),
-        'evm_balances': ((value.evm_balances as Array<any>).map(RuntimeEvmBalanceToJSON)),
-        'stats': AccountStatsToJSON(value.stats),
-    };
+export function RuntimeAccountToJSON(json: any): RuntimeAccount {
+    return RuntimeAccountToJSONTyped(json, false);
 }
 
+export function RuntimeAccountToJSONTyped(value?: RuntimeAccount | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'address': value['address'],
+        'address_preimage': AddressPreimageToJSON(value['address_preimage']),
+        'balances': ((value['balances'] as Array<any>).map(RuntimeSdkBalanceToJSON)),
+        'evm_contract': RuntimeEvmContractToJSON(value['evm_contract']),
+        'evm_balances': ((value['evm_balances'] as Array<any>).map(RuntimeEvmBalanceToJSON)),
+        'stats': AccountStatsToJSON(value['stats']),
+    };
+}
 

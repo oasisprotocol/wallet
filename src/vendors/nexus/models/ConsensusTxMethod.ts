@@ -12,45 +12,58 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum ConsensusTxMethod {
-    BeaconPvssCommit = 'beacon.PVSSCommit',
-    BeaconPvssReveal = 'beacon.PVSSReveal',
-    BeaconVrfProve = 'beacon.VRFProve',
-    ConsensusMeta = 'consensus.Meta',
-    GovernanceCastVote = 'governance.CastVote',
-    GovernanceSubmitProposal = 'governance.SubmitProposal',
-    KeymanagerPublishEphemeralSecret = 'keymanager.PublishEphemeralSecret',
-    KeymanagerPublishMasterSecret = 'keymanager.PublishMasterSecret',
-    KeymanagerUpdatePolicy = 'keymanager.UpdatePolicy',
-    RegistryDeregisterEntity = 'registry.DeregisterEntity',
-    RegistryProveFreshness = 'registry.ProveFreshness',
-    RegistryRegisterEntity = 'registry.RegisterEntity',
-    RegistryRegisterNode = 'registry.RegisterNode',
-    RegistryRegisterRuntime = 'registry.RegisterRuntime',
-    RegistryUnfreezeNode = 'registry.UnfreezeNode',
-    RoothashEvidence = 'roothash.Evidence',
-    RoothashExecutorCommit = 'roothash.ExecutorCommit',
-    RoothashExecutorProposerTimeout = 'roothash.ExecutorProposerTimeout',
-    RoothashSubmitMsg = 'roothash.SubmitMsg',
-    StakingAddEscrow = 'staking.AddEscrow',
-    StakingAllow = 'staking.Allow',
-    StakingAmendCommissionSchedule = 'staking.AmendCommissionSchedule',
-    StakingBurn = 'staking.Burn',
-    StakingReclaimEscrow = 'staking.ReclaimEscrow',
-    StakingTransfer = 'staking.Transfer',
-    StakingWithdraw = 'staking.Withdraw',
-    KeymanagerChurpApply = 'keymanager/churp.Apply',
-    KeymanagerChurpConfirm = 'keymanager/churp.Confirm',
-    KeymanagerChurpCreate = 'keymanager/churp.Create',
-    KeymanagerChurpUpdate = 'keymanager/churp.Update',
-    VaultAuthorizeAction = 'vault.AuthorizeAction',
-    VaultCancelAction = 'vault.CancelAction',
-    VaultCreate = 'vault.Create'
+export const ConsensusTxMethod = {
+    BeaconPvssCommit: 'beacon.PVSSCommit',
+    BeaconPvssReveal: 'beacon.PVSSReveal',
+    BeaconVrfProve: 'beacon.VRFProve',
+    ConsensusMeta: 'consensus.Meta',
+    GovernanceCastVote: 'governance.CastVote',
+    GovernanceSubmitProposal: 'governance.SubmitProposal',
+    KeymanagerPublishEphemeralSecret: 'keymanager.PublishEphemeralSecret',
+    KeymanagerPublishMasterSecret: 'keymanager.PublishMasterSecret',
+    KeymanagerUpdatePolicy: 'keymanager.UpdatePolicy',
+    RegistryDeregisterEntity: 'registry.DeregisterEntity',
+    RegistryProveFreshness: 'registry.ProveFreshness',
+    RegistryRegisterEntity: 'registry.RegisterEntity',
+    RegistryRegisterNode: 'registry.RegisterNode',
+    RegistryRegisterRuntime: 'registry.RegisterRuntime',
+    RegistryUnfreezeNode: 'registry.UnfreezeNode',
+    RoothashEvidence: 'roothash.Evidence',
+    RoothashExecutorCommit: 'roothash.ExecutorCommit',
+    RoothashExecutorProposerTimeout: 'roothash.ExecutorProposerTimeout',
+    RoothashSubmitMsg: 'roothash.SubmitMsg',
+    StakingAddEscrow: 'staking.AddEscrow',
+    StakingAllow: 'staking.Allow',
+    StakingAmendCommissionSchedule: 'staking.AmendCommissionSchedule',
+    StakingBurn: 'staking.Burn',
+    StakingReclaimEscrow: 'staking.ReclaimEscrow',
+    StakingTransfer: 'staking.Transfer',
+    StakingWithdraw: 'staking.Withdraw',
+    KeymanagerChurpApply: 'keymanager/churp.Apply',
+    KeymanagerChurpConfirm: 'keymanager/churp.Confirm',
+    KeymanagerChurpCreate: 'keymanager/churp.Create',
+    KeymanagerChurpUpdate: 'keymanager/churp.Update',
+    VaultAuthorizeAction: 'vault.AuthorizeAction',
+    VaultCancelAction: 'vault.CancelAction',
+    VaultCreate: 'vault.Create'
+} as const;
+export type ConsensusTxMethod = typeof ConsensusTxMethod[keyof typeof ConsensusTxMethod];
+
+
+export function instanceOfConsensusTxMethod(value: any): boolean {
+    for (const key in ConsensusTxMethod) {
+        if (Object.prototype.hasOwnProperty.call(ConsensusTxMethod, key)) {
+            if (ConsensusTxMethod[key as keyof typeof ConsensusTxMethod] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function ConsensusTxMethodFromJSON(json: any): ConsensusTxMethod {
@@ -63,5 +76,9 @@ export function ConsensusTxMethodFromJSONTyped(json: any, ignoreDiscriminator: b
 
 export function ConsensusTxMethodToJSON(value?: ConsensusTxMethod | null): any {
     return value as any;
+}
+
+export function ConsensusTxMethodToJSONTyped(value: any, ignoreDiscriminator: boolean): ConsensusTxMethod {
+    return value as ConsensusTxMethod;
 }
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * The target propotocol versions for this upgrade proposal.
  * @export
@@ -39,35 +39,43 @@ export interface ProposalTarget {
     runtime_committee_protocol?: string;
 }
 
+/**
+ * Check if a given object implements the ProposalTarget interface.
+ */
+export function instanceOfProposalTarget(value: object): value is ProposalTarget {
+    return true;
+}
+
 export function ProposalTargetFromJSON(json: any): ProposalTarget {
     return ProposalTargetFromJSONTyped(json, false);
 }
 
 export function ProposalTargetFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProposalTarget {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'consensus_protocol': !exists(json, 'consensus_protocol') ? undefined : json['consensus_protocol'],
-        'runtime_host_protocol': !exists(json, 'runtime_host_protocol') ? undefined : json['runtime_host_protocol'],
-        'runtime_committee_protocol': !exists(json, 'runtime_committee_protocol') ? undefined : json['runtime_committee_protocol'],
+        'consensus_protocol': json['consensus_protocol'] == null ? undefined : json['consensus_protocol'],
+        'runtime_host_protocol': json['runtime_host_protocol'] == null ? undefined : json['runtime_host_protocol'],
+        'runtime_committee_protocol': json['runtime_committee_protocol'] == null ? undefined : json['runtime_committee_protocol'],
     };
 }
 
-export function ProposalTargetToJSON(value?: ProposalTarget | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ProposalTargetToJSON(json: any): ProposalTarget {
+    return ProposalTargetToJSONTyped(json, false);
+}
+
+export function ProposalTargetToJSONTyped(value?: ProposalTarget | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'consensus_protocol': value.consensus_protocol,
-        'runtime_host_protocol': value.runtime_host_protocol,
-        'runtime_committee_protocol': value.runtime_committee_protocol,
+        'consensus_protocol': value['consensus_protocol'],
+        'runtime_host_protocol': value['runtime_host_protocol'],
+        'runtime_committee_protocol': value['runtime_committee_protocol'],
     };
 }
-
 

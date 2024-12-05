@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RuntimeEvmContractVerification } from './RuntimeEvmContractVerification';
 import {
-    RuntimeEvmContractVerification,
     RuntimeEvmContractVerificationFromJSON,
     RuntimeEvmContractVerificationFromJSONTyped,
     RuntimeEvmContractVerificationToJSON,
-} from './';
+    RuntimeEvmContractVerificationToJSONTyped,
+} from './RuntimeEvmContractVerification';
 
 /**
  * 
@@ -30,6 +31,7 @@ export interface RuntimeEvmContract {
      * The Oasis cryptographic hash of the transaction that created the smart contract.
      * Can be omitted for contracts that were created by another contract, as opposed
      * to a direct `Create` call.
+     * 
      * @type {string}
      * @memberof RuntimeEvmContract
      */
@@ -37,6 +39,7 @@ export interface RuntimeEvmContract {
     /**
      * The Ethereum transaction hash of the transaction in `creation_tx`.
      * Encoded as a lowercase hex string.
+     * 
      * @type {string}
      * @memberof RuntimeEvmContract
      */
@@ -46,6 +49,7 @@ export interface RuntimeEvmContract {
      * and the constructor parameters. When run, this code generates the runtime bytecode.
      * Can be omitted for contracts that were created by another contract, as opposed
      * to a direct `Create` call.
+     * 
      * @type {string}
      * @memberof RuntimeEvmContract
      */
@@ -55,6 +59,7 @@ export interface RuntimeEvmContract {
      * describes a smart contract. Every contract has this info, but Nexus fetches
      * it separately, so the field may be missing for very fresh contracts (or if the fetching
      * process is stalled).
+     * 
      * @type {string}
      * @memberof RuntimeEvmContract
      */
@@ -68,10 +73,19 @@ export interface RuntimeEvmContract {
     /**
      * Additional information obtained from contract verification. Only available for smart
      * contracts that have been verified successfully by Sourcify.
+     * 
      * @type {RuntimeEvmContractVerification}
      * @memberof RuntimeEvmContract
      */
     verification?: RuntimeEvmContractVerification;
+}
+
+/**
+ * Check if a given object implements the RuntimeEvmContract interface.
+ */
+export function instanceOfRuntimeEvmContract(value: object): value is RuntimeEvmContract {
+    if (!('gas_used' in value) || value['gas_used'] === undefined) return false;
+    return true;
 }
 
 export function RuntimeEvmContractFromJSON(json: any): RuntimeEvmContract {
@@ -79,36 +93,37 @@ export function RuntimeEvmContractFromJSON(json: any): RuntimeEvmContract {
 }
 
 export function RuntimeEvmContractFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeEvmContract {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'creation_tx': !exists(json, 'creation_tx') ? undefined : json['creation_tx'],
-        'eth_creation_tx': !exists(json, 'eth_creation_tx') ? undefined : json['eth_creation_tx'],
-        'creation_bytecode': !exists(json, 'creation_bytecode') ? undefined : json['creation_bytecode'],
-        'runtime_bytecode': !exists(json, 'runtime_bytecode') ? undefined : json['runtime_bytecode'],
+        'creation_tx': json['creation_tx'] == null ? undefined : json['creation_tx'],
+        'eth_creation_tx': json['eth_creation_tx'] == null ? undefined : json['eth_creation_tx'],
+        'creation_bytecode': json['creation_bytecode'] == null ? undefined : json['creation_bytecode'],
+        'runtime_bytecode': json['runtime_bytecode'] == null ? undefined : json['runtime_bytecode'],
         'gas_used': json['gas_used'],
-        'verification': !exists(json, 'verification') ? undefined : RuntimeEvmContractVerificationFromJSON(json['verification']),
+        'verification': json['verification'] == null ? undefined : RuntimeEvmContractVerificationFromJSON(json['verification']),
     };
 }
 
-export function RuntimeEvmContractToJSON(value?: RuntimeEvmContract | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeEvmContractToJSON(json: any): RuntimeEvmContract {
+    return RuntimeEvmContractToJSONTyped(json, false);
+}
+
+export function RuntimeEvmContractToJSONTyped(value?: RuntimeEvmContract | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'creation_tx': value.creation_tx,
-        'eth_creation_tx': value.eth_creation_tx,
-        'creation_bytecode': value.creation_bytecode,
-        'runtime_bytecode': value.runtime_bytecode,
-        'gas_used': value.gas_used,
-        'verification': RuntimeEvmContractVerificationToJSON(value.verification),
+        'creation_tx': value['creation_tx'],
+        'eth_creation_tx': value['eth_creation_tx'],
+        'creation_bytecode': value['creation_bytecode'],
+        'runtime_bytecode': value['runtime_bytecode'],
+        'gas_used': value['gas_used'],
+        'verification': RuntimeEvmContractVerificationToJSON(value['verification']),
     };
 }
-
 

@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RuntimeEventListAllOfEvents } from './RuntimeEventListAllOfEvents';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    RuntimeEvent,
-    RuntimeEventFromJSON,
-    RuntimeEventFromJSONTyped,
-    RuntimeEventToJSON,
-    RuntimeEventListAllOf,
-    RuntimeEventListAllOfFromJSON,
-    RuntimeEventListAllOfFromJSONTyped,
-    RuntimeEventListAllOfToJSON,
-} from './';
+    RuntimeEventListAllOfEventsFromJSON,
+    RuntimeEventListAllOfEventsFromJSONTyped,
+    RuntimeEventListAllOfEventsToJSON,
+    RuntimeEventListAllOfEventsToJSONTyped,
+} from './RuntimeEventListAllOfEvents';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface RuntimeEventList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof RuntimeEventList
      */
@@ -49,10 +43,20 @@ export interface RuntimeEventList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<RuntimeEvent>}
+     * @type {Array<RuntimeEventListAllOfEvents>}
      * @memberof RuntimeEventList
      */
-    events: Array<RuntimeEvent>;
+    events: Array<RuntimeEventListAllOfEvents>;
+}
+
+/**
+ * Check if a given object implements the RuntimeEventList interface.
+ */
+export function instanceOfRuntimeEventList(value: object): value is RuntimeEventList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('events' in value) || value['events'] === undefined) return false;
+    return true;
 }
 
 export function RuntimeEventListFromJSON(json: any): RuntimeEventList {
@@ -60,30 +64,31 @@ export function RuntimeEventListFromJSON(json: any): RuntimeEventList {
 }
 
 export function RuntimeEventListFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeEventList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'events': ((json['events'] as Array<any>).map(RuntimeEventFromJSON)),
+        'events': ((json['events'] as Array<any>).map(RuntimeEventListAllOfEventsFromJSON)),
     };
 }
 
-export function RuntimeEventListToJSON(value?: RuntimeEventList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeEventListToJSON(json: any): RuntimeEventList {
+    return RuntimeEventListToJSONTyped(json, false);
+}
+
+export function RuntimeEventListToJSONTyped(value?: RuntimeEventList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'events': ((value.events as Array<any>).map(RuntimeEventToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'events': ((value['events'] as Array<any>).map(RuntimeEventListAllOfEventsToJSON)),
     };
 }
-
 
