@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -57,41 +57,50 @@ export interface RuntimeTransactionEncryptionEnvelope {
     result?: string;
 }
 
+/**
+ * Check if a given object implements the RuntimeTransactionEncryptionEnvelope interface.
+ */
+export function instanceOfRuntimeTransactionEncryptionEnvelope(value: object): value is RuntimeTransactionEncryptionEnvelope {
+    if (!('format' in value) || value['format'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeTransactionEncryptionEnvelopeFromJSON(json: any): RuntimeTransactionEncryptionEnvelope {
     return RuntimeTransactionEncryptionEnvelopeFromJSONTyped(json, false);
 }
 
 export function RuntimeTransactionEncryptionEnvelopeFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeTransactionEncryptionEnvelope {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'format': json['format'],
-        'public_key': !exists(json, 'public_key') ? undefined : json['public_key'],
-        'data_nonce': !exists(json, 'data_nonce') ? undefined : json['data_nonce'],
-        'data': !exists(json, 'data') ? undefined : json['data'],
-        'result_nonce': !exists(json, 'result_nonce') ? undefined : json['result_nonce'],
-        'result': !exists(json, 'result') ? undefined : json['result'],
+        'public_key': json['public_key'] == null ? undefined : json['public_key'],
+        'data_nonce': json['data_nonce'] == null ? undefined : json['data_nonce'],
+        'data': json['data'] == null ? undefined : json['data'],
+        'result_nonce': json['result_nonce'] == null ? undefined : json['result_nonce'],
+        'result': json['result'] == null ? undefined : json['result'],
     };
 }
 
-export function RuntimeTransactionEncryptionEnvelopeToJSON(value?: RuntimeTransactionEncryptionEnvelope | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeTransactionEncryptionEnvelopeToJSON(json: any): RuntimeTransactionEncryptionEnvelope {
+    return RuntimeTransactionEncryptionEnvelopeToJSONTyped(json, false);
+}
+
+export function RuntimeTransactionEncryptionEnvelopeToJSONTyped(value?: RuntimeTransactionEncryptionEnvelope | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'format': value.format,
-        'public_key': value.public_key,
-        'data_nonce': value.data_nonce,
-        'data': value.data,
-        'result_nonce': value.result_nonce,
-        'result': value.result,
+        'format': value['format'],
+        'public_key': value['public_key'],
+        'data_nonce': value['data_nonce'],
+        'data': value['data'],
+        'result_nonce': value['result_nonce'],
+        'result': value['result'],
     };
 }
-
 

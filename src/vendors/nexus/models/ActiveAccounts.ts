@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface ActiveAccounts {
     /**
      * The date for the end of the daily active accounts measurement window.
-     * @type {Date}
+     * @type {string}
      * @memberof ActiveAccounts
      */
-    window_end: Date;
+    window_end: string;
     /**
      * The number of active accounts for the 24hour window ending at window_end.
      * @type {number}
@@ -33,33 +33,43 @@ export interface ActiveAccounts {
     active_accounts: number;
 }
 
+/**
+ * Check if a given object implements the ActiveAccounts interface.
+ */
+export function instanceOfActiveAccounts(value: object): value is ActiveAccounts {
+    if (!('window_end' in value) || value['window_end'] === undefined) return false;
+    if (!('active_accounts' in value) || value['active_accounts'] === undefined) return false;
+    return true;
+}
+
 export function ActiveAccountsFromJSON(json: any): ActiveAccounts {
     return ActiveAccountsFromJSONTyped(json, false);
 }
 
 export function ActiveAccountsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ActiveAccounts {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'window_end': (new Date(json['window_end'])),
+        'window_end': json['window_end'],
         'active_accounts': json['active_accounts'],
     };
 }
 
-export function ActiveAccountsToJSON(value?: ActiveAccounts | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'window_end': (value.window_end.toISOString()),
-        'active_accounts': value.active_accounts,
-    };
+export function ActiveAccountsToJSON(json: any): ActiveAccounts {
+    return ActiveAccountsToJSONTyped(json, false);
 }
 
+export function ActiveAccountsToJSONTyped(value?: ActiveAccounts | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'window_end': value['window_end'],
+        'active_accounts': value['active_accounts'],
+    };
+}
 

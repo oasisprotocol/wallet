@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A consensus epoch.
+ * 
  * @export
  * @interface Epoch
  */
@@ -39,35 +40,45 @@ export interface Epoch {
     end_height?: number;
 }
 
+/**
+ * Check if a given object implements the Epoch interface.
+ */
+export function instanceOfEpoch(value: object): value is Epoch {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('start_height' in value) || value['start_height'] === undefined) return false;
+    return true;
+}
+
 export function EpochFromJSON(json: any): Epoch {
     return EpochFromJSONTyped(json, false);
 }
 
 export function EpochFromJSONTyped(json: any, ignoreDiscriminator: boolean): Epoch {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'id': json['id'],
         'start_height': json['start_height'],
-        'end_height': !exists(json, 'end_height') ? undefined : json['end_height'],
+        'end_height': json['end_height'] == null ? undefined : json['end_height'],
     };
 }
 
-export function EpochToJSON(value?: Epoch | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EpochToJSON(json: any): Epoch {
+    return EpochToJSONTyped(json, false);
+}
+
+export function EpochToJSONTyped(value?: Epoch | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'id': value.id,
-        'start_height': value.start_height,
-        'end_height': value.end_height,
+        'id': value['id'],
+        'start_height': value['start_height'],
+        'end_height': value['end_height'],
     };
 }
-
 

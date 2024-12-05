@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EpochListAllOfEpochs } from './EpochListAllOfEpochs';
 import {
-    Epoch,
-    EpochFromJSON,
-    EpochFromJSONTyped,
-    EpochToJSON,
-    EpochListAllOf,
-    EpochListAllOfFromJSON,
-    EpochListAllOfFromJSONTyped,
-    EpochListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    EpochListAllOfEpochsFromJSON,
+    EpochListAllOfEpochsFromJSONTyped,
+    EpochListAllOfEpochsToJSON,
+    EpochListAllOfEpochsToJSONTyped,
+} from './EpochListAllOfEpochs';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface EpochList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof EpochList
      */
@@ -49,10 +43,20 @@ export interface EpochList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Epoch>}
+     * @type {Array<EpochListAllOfEpochs>}
      * @memberof EpochList
      */
-    epochs: Array<Epoch>;
+    epochs: Array<EpochListAllOfEpochs>;
+}
+
+/**
+ * Check if a given object implements the EpochList interface.
+ */
+export function instanceOfEpochList(value: object): value is EpochList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('epochs' in value) || value['epochs'] === undefined) return false;
+    return true;
 }
 
 export function EpochListFromJSON(json: any): EpochList {
@@ -60,30 +64,31 @@ export function EpochListFromJSON(json: any): EpochList {
 }
 
 export function EpochListFromJSONTyped(json: any, ignoreDiscriminator: boolean): EpochList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'epochs': ((json['epochs'] as Array<any>).map(EpochFromJSON)),
+        'epochs': ((json['epochs'] as Array<any>).map(EpochListAllOfEpochsFromJSON)),
     };
 }
 
-export function EpochListToJSON(value?: EpochList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EpochListToJSON(json: any): EpochList {
+    return EpochListToJSONTyped(json, false);
+}
+
+export function EpochListToJSONTyped(value?: EpochList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'epochs': ((value.epochs as Array<any>).map(EpochToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'epochs': ((value['epochs'] as Array<any>).map(EpochListAllOfEpochsToJSON)),
     };
 }
-
 

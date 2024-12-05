@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ValidatorHistoryAllOfHistory } from './ValidatorHistoryAllOfHistory';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    ValidatorHistoryAllOf,
-    ValidatorHistoryAllOfFromJSON,
-    ValidatorHistoryAllOfFromJSONTyped,
-    ValidatorHistoryAllOfToJSON,
-    ValidatorHistoryPoint,
-    ValidatorHistoryPointFromJSON,
-    ValidatorHistoryPointFromJSONTyped,
-    ValidatorHistoryPointToJSON,
-} from './';
+    ValidatorHistoryAllOfHistoryFromJSON,
+    ValidatorHistoryAllOfHistoryFromJSONTyped,
+    ValidatorHistoryAllOfHistoryToJSON,
+    ValidatorHistoryAllOfHistoryToJSONTyped,
+} from './ValidatorHistoryAllOfHistory';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface ValidatorHistory {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof ValidatorHistory
      */
@@ -55,10 +49,20 @@ export interface ValidatorHistory {
     address?: string;
     /**
      * 
-     * @type {Array<ValidatorHistoryPoint>}
+     * @type {Array<ValidatorHistoryAllOfHistory>}
      * @memberof ValidatorHistory
      */
-    history: Array<ValidatorHistoryPoint>;
+    history: Array<ValidatorHistoryAllOfHistory>;
+}
+
+/**
+ * Check if a given object implements the ValidatorHistory interface.
+ */
+export function instanceOfValidatorHistory(value: object): value is ValidatorHistory {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('history' in value) || value['history'] === undefined) return false;
+    return true;
 }
 
 export function ValidatorHistoryFromJSON(json: any): ValidatorHistory {
@@ -66,32 +70,33 @@ export function ValidatorHistoryFromJSON(json: any): ValidatorHistory {
 }
 
 export function ValidatorHistoryFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorHistory {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'address': !exists(json, 'address') ? undefined : json['address'],
-        'history': ((json['history'] as Array<any>).map(ValidatorHistoryPointFromJSON)),
+        'address': json['address'] == null ? undefined : json['address'],
+        'history': ((json['history'] as Array<any>).map(ValidatorHistoryAllOfHistoryFromJSON)),
     };
 }
 
-export function ValidatorHistoryToJSON(value?: ValidatorHistory | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ValidatorHistoryToJSON(json: any): ValidatorHistory {
+    return ValidatorHistoryToJSONTyped(json, false);
+}
+
+export function ValidatorHistoryToJSONTyped(value?: ValidatorHistory | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'address': value.address,
-        'history': ((value.history as Array<any>).map(ValidatorHistoryPointToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'address': value['address'],
+        'history': ((value['history'] as Array<any>).map(ValidatorHistoryAllOfHistoryToJSON)),
     };
 }
-
 

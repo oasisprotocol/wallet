@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A ParaTime block.
+ * 
  * @export
  * @interface RuntimeBlock
  */
@@ -33,10 +34,10 @@ export interface RuntimeBlock {
     hash: string;
     /**
      * The second-granular consensus time.
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeBlock
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The number of transactions in the block.
      * @type {number}
@@ -57,41 +58,55 @@ export interface RuntimeBlock {
     gas_used: number;
 }
 
+/**
+ * Check if a given object implements the RuntimeBlock interface.
+ */
+export function instanceOfRuntimeBlock(value: object): value is RuntimeBlock {
+    if (!('round' in value) || value['round'] === undefined) return false;
+    if (!('hash' in value) || value['hash'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
+    if (!('num_transactions' in value) || value['num_transactions'] === undefined) return false;
+    if (!('size' in value) || value['size'] === undefined) return false;
+    if (!('gas_used' in value) || value['gas_used'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeBlockFromJSON(json: any): RuntimeBlock {
     return RuntimeBlockFromJSONTyped(json, false);
 }
 
 export function RuntimeBlockFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeBlock {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'round': json['round'],
         'hash': json['hash'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'num_transactions': json['num_transactions'],
         'size': json['size'],
         'gas_used': json['gas_used'],
     };
 }
 
-export function RuntimeBlockToJSON(value?: RuntimeBlock | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'round': value.round,
-        'hash': value.hash,
-        'timestamp': (value.timestamp.toISOString()),
-        'num_transactions': value.num_transactions,
-        'size': value.size,
-        'gas_used': value.gas_used,
-    };
+export function RuntimeBlockToJSON(json: any): RuntimeBlock {
+    return RuntimeBlockToJSONTyped(json, false);
 }
 
+export function RuntimeBlockToJSONTyped(value?: RuntimeBlock | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'round': value['round'],
+        'hash': value['hash'],
+        'timestamp': value['timestamp'],
+        'num_transactions': value['num_transactions'],
+        'size': value['size'],
+        'gas_used': value['gas_used'],
+    };
+}
 

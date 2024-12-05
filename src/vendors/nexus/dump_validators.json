@@ -1,0 +1,3369 @@
+{
+  "dump_timestamp": 1733384294121,
+  "dump_timestamp_iso": "2024-12-05T07:38:14Z",
+  "list": [
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 20603,
+        "lower": 0,
+        "upper": 100000
+      },
+      "current_rate": 8000,
+      "entity_address": "oasis1qqtmpsavs44vz8868p008uwjulfq03pcjswslutz",
+      "entity_id": "c+Kr/VTZLJes6N2u6nTEj7aWje8wHApJeVEoOdvhCh8=",
+      "escrow": {
+        "active_balance": "154472881017453378",
+        "active_shares": "145889021294109764",
+        "debonding_balance": "6975636564140",
+        "debonding_shares": "6975636564140",
+        "num_delegators": 79,
+        "self_delegation_balance": "181092641433820",
+        "self_delegation_shares": "171029555792127"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@kiln.fi",
+        "keybase": "kilnfi",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e976400f2c6613037aa555dd11394305_360_360.jpg",
+        "name": "Kiln",
+        "twitter": "Kiln_finance",
+        "url": "https://kiln.fi"
+      },
+      "node_id": "jKA6PqWwftnglxywnQQPoIcb7j2HQVu7anf2i7LWU2c=",
+      "rank": 1,
+      "start_date": "2023-02-01T08:00:21Z",
+      "voting_power": 9654527741277328,
+      "voting_power_cumulative": 9654527741277328
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 5000,
+      "entity_address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
+      "entity_id": "eZuacXy5s3/nolB/E3gF4vqUYdvfOlVaaBXGfZcGwKc=",
+      "escrow": {
+        "active_balance": "153866511910432557",
+        "active_shares": "109032182592723438",
+        "debonding_balance": "16650100374694405",
+        "debonding_shares": "16650100374694405",
+        "num_delegators": 7763,
+        "self_delegation_balance": "619388791323275",
+        "self_delegation_shares": "438908447022946"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hi@stake.fish",
+        "keybase": "bflabs",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e1378cd4d5203ded716906687ad53905_360_360.jpg",
+        "name": "stakefish",
+        "twitter": "stakefish",
+        "url": "https://stake.fish"
+      },
+      "node_id": "SQZZd1wsWXdFsqswUoh6hZtmzu+ejuSnrGeHtgIBJDo=",
+      "rank": 2,
+      "start_date": "2024-04-11T03:43:47Z",
+      "voting_power": 9616629779339760,
+      "voting_power_cumulative": 19271157520617090
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qq7vyz4ewrdh00yujw0mgkf459et306xmvh2h3zg",
+      "entity_id": "FDqRmM1FyhaGas+lquWmGAKgMsU2rj7UESAlnOHtxco=",
+      "escrow": {
+        "active_balance": "133881115596437696",
+        "active_shares": "96473375098054145",
+        "debonding_balance": "280917523894216",
+        "debonding_shares": "280917523894216",
+        "num_delegators": 192,
+        "self_delegation_balance": "20218745252684",
+        "self_delegation_shares": "14569422924842"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "p.pavlov@p2p.org",
+        "keybase": "p2p_org_",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/0e54d989cbe0b1eed716e222bf2cdd05_360_360.jpg",
+        "name": "P2P.ORG - P2P Validator",
+        "twitter": "P2Pvalidator",
+        "url": "https://p2p.org/"
+      },
+      "node_id": "qnRAoObwndP/P9otTzQ/9Z2+vmSQ1Pch7G4tGBSTxCo=",
+      "rank": 3,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 8367546044622049,
+      "voting_power_cumulative": 27638703565239136
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 5000,
+      "entity_address": "oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3",
+      "entity_id": "9D+kziTxFhg77+cyt+Fwd6eXREkZ1wHw7WX7VG57MeA=",
+      "escrow": {
+        "active_balance": "132402215668678121",
+        "active_shares": "93692362471323093",
+        "debonding_balance": "6510088040905489",
+        "debonding_shares": "6510088040905489",
+        "num_delegators": 2099,
+        "self_delegation_balance": "56167886665606",
+        "self_delegation_shares": "39746328791740"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "techops@chorus.one",
+        "keybase": "chorusoneinc",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/3a844f583b686ec5285403694b738a05_360_360.jpg",
+        "name": "Chorus One",
+        "twitter": "ChorusOne",
+        "url": "https://chorus.one/"
+      },
+      "node_id": "SCA1zoR15jpC2eugP1P/CZBQhMjHEtmJ7+hWemgTdWo=",
+      "rank": 4,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 8275115060716760,
+      "voting_power_cumulative": 35913818625955896
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 4725,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
+      "entity_id": "9sAhd+Wi6tG5nAr3LwXD0y9mUKLYqfAbS2+7SZdNHB4=",
+      "escrow": {
+        "active_balance": "120770371034123739",
+        "active_shares": "94613417937776490",
+        "debonding_balance": "3799179743582808",
+        "debonding_shares": "3799179743582808",
+        "num_delegators": 7199,
+        "self_delegation_balance": "3484701686486584",
+        "self_delegation_shares": "2729970391155567"
+      },
+      "in_validator_set": true,
+      "media": {
+        "name": "BinanceStaking",
+        "url": "https://www.binance.com"
+      },
+      "node_id": "6wbL5/OxvFGxi55o7AxcwKmfjXbXGC1hw4lfnEZxBXA=",
+      "rank": 5,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 7548126828433809,
+      "voting_power_cumulative": 43461945454389704
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11685,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 1000,
+      "entity_address": "oasis1qq0xmq7r0z9sdv02t5j9zs7en3n6574gtg8v9fyt",
+      "entity_id": "zAhtGrpk1L3bBLaP5enm3natUTCoj7MEFryq9+MG4tE=",
+      "escrow": {
+        "active_balance": "110577014916664747",
+        "active_shares": "80106569315789865",
+        "debonding_balance": "15085867133337055",
+        "debonding_shares": "15085867133337055",
+        "num_delegators": 22837,
+        "self_delegation_balance": "844937266939176",
+        "self_delegation_shares": "612107550493810"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "marssuper@outlook.com",
+        "keybase": "marssuper",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/f30f9b2207b7d83ef05219ca483b6f05_360_360.jpg",
+        "name": "Mars Staking | Long term fee 1%",
+        "url": "https://linktr.ee/marssuper"
+      },
+      "node_id": "PsfFUQrXqGoFtowWZcoc8ilh8xHP94LvNYHvqQHpw1E=",
+      "rank": 6,
+      "start_date": "2022-02-22T16:42:05Z",
+      "voting_power": 6911043874037383,
+      "voting_power_cumulative": 50372989328427090
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qz0ea28d8p4xk8xztems60wq22f9pm2yyyd82tmt",
+      "entity_id": "WazI78lMcmjyCH5+5RKkkfOTUR+XheHIohlqMu+a9As=",
+      "escrow": {
+        "active_balance": "109701210329768593",
+        "active_shares": "79218377446355344",
+        "debonding_balance": "199216771197929",
+        "debonding_shares": "199216771197929",
+        "num_delegators": 508,
+        "self_delegation_balance": "4242332594615960",
+        "self_delegation_shares": "3063509543085385"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "staking@simply-vc.com.mt",
+        "keybase": "simplyvc",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/27d4669503119b84bbc4bd4ae7f0bf05_360_360.jpg",
+        "name": "Simply Staking",
+        "twitter": "Simply_VC",
+        "url": "https://simply-vc.com.mt/"
+      },
+      "node_id": "xHvUU4I+dQ4oKvlfe4IXoKi8OT8vdAgfszQ5ciPL6HI=",
+      "rank": 7,
+      "start_date": "2021-10-22T19:01:04Z",
+      "voting_power": 6856306242263871,
+      "voting_power_cumulative": 57229295570690960
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qrdx0n7lgheek24t24vejdks9uqmfldtmgdv7jzz",
+      "entity_id": "UkwjS1YvEfHx9b6MMT5Q1WvCY3aWn2lxRDsB/Pw+zGk=",
+      "escrow": {
+        "active_balance": "88074929147409875",
+        "active_shares": "65673981100486307",
+        "debonding_balance": "378339291450260",
+        "debonding_shares": "378339291450260",
+        "num_delegators": 320,
+        "self_delegation_balance": "4594248173311467",
+        "self_delegation_shares": "3425748628193749"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hi@bitcat365.com",
+        "keybase": "bitcat365",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e6d2c9be95cde136dcf0ade7238f1705_360_360.jpg",
+        "name": "Bit Cat🐱",
+        "twitter": "bitcat365",
+        "url": "https://www.bitcat365.com"
+      },
+      "node_id": "4bv9f6NqLf4+6+QII+p48KgpagFXk9PgIdefbuo2spA=",
+      "rank": 8,
+      "start_date": "2021-10-26T07:43:55Z",
+      "voting_power": 5504667493504110,
+      "voting_power_cumulative": 62733963064195070
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 9366,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty",
+      "entity_id": "N+3/m12DoAqzFS0yF3R/kXSkSj7pZnWhq8nRCo/MKwk=",
+      "escrow": {
+        "active_balance": "83349896904330234",
+        "active_shares": "70259123094422667",
+        "debonding_balance": "758089213324202",
+        "debonding_shares": "758089213324202",
+        "num_delegators": 28,
+        "self_delegation_balance": "1531986166788816",
+        "self_delegation_shares": "1291375378603212"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "crazysergo",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/cd8f93d411033d0d08f463906f245405_360_360.jpg",
+        "name": "SerGo",
+        "twitter": "SGolovatenko",
+        "url": "https://sergo.top/"
+      },
+      "node_id": "6drUHh4qocfbBsA12qM8pTerEcbqhdaHt+v33sEr5kk=",
+      "rank": 9,
+      "start_date": "2021-08-16T17:39:50Z",
+      "voting_power": 5209353814049345,
+      "voting_power_cumulative": 67943316878244420
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpl883gp995zs9n6a279tqsavnaxxf0rzcdlauwu",
+      "entity_id": "nw+8VTk+LbrZ4mSmeKYuQGu/swFgAOpPB5ls4STzh1g=",
+      "escrow": {
+        "active_balance": "74261120192048551",
+        "active_shares": "61548317129412137",
+        "debonding_balance": "385216988428342",
+        "debonding_shares": "385216988428342",
+        "num_delegators": 204,
+        "self_delegation_balance": "434023607188996",
+        "self_delegation_shares": "359722861004998"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "princess_stake",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/7abefc0db8113014f7079a4dd4576005_360_360.jpg",
+        "name": "Princess Stake",
+        "url": "https://princess-stake.github.io/"
+      },
+      "node_id": "XCiPWblWT3n1aN2NI0vslmlfV9GOkxE2Ih2SI66ZR38=",
+      "rank": 10,
+      "start_date": "2021-08-30T15:26:21Z",
+      "voting_power": 4641306877104572,
+      "voting_power_cumulative": 72584623755349000
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 13320,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz8vfnkcc48grazt83gstfm6yjwyptalny8cywtp",
+      "entity_id": "hNBVs2ay1IWvufQwX0TbYA6X4ocKaMpzpyaMTHggi6Q=",
+      "escrow": {
+        "active_balance": "73718910425549346",
+        "active_shares": "64184033821953203",
+        "debonding_balance": "33549239033629",
+        "debonding_shares": "33549239033629",
+        "num_delegators": 23,
+        "self_delegation_balance": "446460055370",
+        "self_delegation_shares": "388714471343"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "kumaji",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/f37d5d76fb6ad338ee06f438b4ab7605_360_360.jpg",
+        "name": "Kumaji",
+        "twitter": "RathBlayde"
+      },
+      "node_id": "ao6m4qMGefemuUiwr6GoqxaeWoX14uQ7YTxTajKADQg=",
+      "rank": 11,
+      "start_date": "2021-12-07T10:39:20Z",
+      "voting_power": 4607418862601453,
+      "voting_power_cumulative": 77192042617950430
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 21911,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 17000,
+      "entity_address": "oasis1qzf03q57jdgdwp2w7y6a8yww6mak9khuag9qt0kd",
+      "entity_id": "oOVxTw2hEYgYvSrTjjKODCt/Soy3OLcQV9YBy/PF/xY=",
+      "escrow": {
+        "active_balance": "73315563408353031",
+        "active_shares": "61273534130297873",
+        "debonding_balance": "13404623666177",
+        "debonding_shares": "13404623666177",
+        "num_delegators": 17,
+        "self_delegation_balance": "528810895779072",
+        "self_delegation_shares": "441954081298115"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@spectrumstaking.net",
+        "keybase": "spectrum_staking",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/8a620e1f2ea45576f792a06f0da08705_360_360.jpg",
+        "name": "Spectrum Staking",
+        "twitter": "SpectrumStaking",
+        "url": "https://spectrumstaking.net"
+      },
+      "node_id": "sLIgBDXHbMpBCAgKfn3TXaqo86PeX5G1+/fAiNWMcS8=",
+      "rank": 12,
+      "start_date": "2021-09-10T13:29:18Z",
+      "voting_power": 4582209745368485,
+      "voting_power_cumulative": 81774252363318930
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 22980,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qrugz89g5esmhs0ezer0plsfvmcgctge35n32vmr",
+      "entity_id": "aiTgGyYB2l4uAMG93Ajq5S4EXPIRkYDg1ICLjWD45Ck=",
+      "escrow": {
+        "active_balance": "71821861291306402",
+        "active_shares": "57928340588694257",
+        "debonding_balance": "185074207716086",
+        "debonding_shares": "185074207716086",
+        "num_delegators": 60,
+        "self_delegation_balance": "357952559198557",
+        "self_delegation_shares": "288708721704469"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "validatrium@gmail.com",
+        "keybase": "validatrium",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/ff96631d063abf8c89ebeda32d884d05_360_360.jpg",
+        "name": "Validatrium.com",
+        "twitter": "validatrium",
+        "url": "https://www.validatrium.com"
+      },
+      "node_id": "oFa261SRphbFBQ+QW6xcd9SZBMJrzsmDrYecSblNHv0=",
+      "rank": 13,
+      "start_date": "2021-06-27T10:15:51Z",
+      "voting_power": 4488853627250885,
+      "voting_power_cumulative": 86263105990569810
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 10558,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpwrq93z8s9ytu2hfjtqggc9edgwfadzevs3trvm",
+      "entity_id": "1aTTEfSIcVxsPS86uIA7rSD2Jmb+aIVj1grCEjyzlzQ=",
+      "escrow": {
+        "active_balance": "69907777865755813",
+        "active_shares": "57985533602154004",
+        "debonding_balance": "47531794206077",
+        "debonding_shares": "47531794206077",
+        "num_delegators": 59,
+        "self_delegation_balance": "45278095207118",
+        "self_delegation_shares": "37556257561434"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "munaynetwork",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e46b46540baf3a06ac7babf28a06db05_360_360.jpg",
+        "name": "Munay Network",
+        "twitter": "MunayNetwork"
+      },
+      "node_id": "7E5It9hRik5ndQ1QtL3blTAX3pXSoPZPhGfLMQvbA+Q=",
+      "rank": 14,
+      "start_date": "2021-08-02T16:57:53Z",
+      "voting_power": 4369223751706521,
+      "voting_power_cumulative": 90632329742276340
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11650,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qpaygvzwd5ffh2f5p4qdqylymgqcvl7sp5gxyrl3",
+      "entity_id": "21+iPu/omYBN7X5cUY4QnD4b9VVuAiW/u8uABqt2VjM=",
+      "escrow": {
+        "active_balance": "69723891359029483",
+        "active_shares": "55686820550280257",
+        "debonding_balance": "25379580606917",
+        "debonding_shares": "25379580606917",
+        "num_delegators": 6,
+        "self_delegation_balance": "171413417893537",
+        "self_delegation_shares": "136903836778058"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "dmytro.rozum@gmail.com",
+        "keybase": "dimaro",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/6243304c1ffac8281e1f2abf03fc7405_360_360.jpg",
+        "name": "Appload",
+        "url": "https://t.me/dimaro"
+      },
+      "node_id": "VmE8xXf9hGi7d0TTGWk9EgrLws+Vl1XKHMiSyeuNtAg=",
+      "rank": 15,
+      "start_date": "2021-10-25T20:04:17Z",
+      "voting_power": 4357730877560959,
+      "voting_power_cumulative": 94990060619837300
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1585,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 5000,
+      "entity_address": "oasis1qzu358mpd4z5frmrq6vnwq87cqfvdmfxh5ax57cj",
+      "entity_id": "32KS5Z9LWTD2UEUOqhRwZyJvb0lb12iiE9UYgoFjsKQ=",
+      "escrow": {
+        "active_balance": "68759776559188076",
+        "active_shares": "49670030142581858",
+        "debonding_balance": "1106292391344580",
+        "debonding_shares": "1106292391344580",
+        "num_delegators": 593,
+        "self_delegation_balance": "342408804558573",
+        "self_delegation_shares": "247345999283023"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@citadel.one",
+        "keybase": "krewedk0",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/774aea32c735d04662b2173dc3683005_360_360.jpg",
+        "name": "Citadel.one",
+        "twitter": "CitadelDAO",
+        "url": "https://citadel.one"
+      },
+      "node_id": "apKOntFDXWhpOfYAn1r84IWDG2KGBBAox4usIDhZcns=",
+      "rank": 16,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 4297486034949254,
+      "voting_power_cumulative": 99287546654786540
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qzugextrcdueshq63w7l9x4xglnusznsgqa95w7e",
+      "entity_id": "T5k7PtOR01oZrdnZveDpO9AFpMUhEREZk7WSSfm8Gtg=",
+      "escrow": {
+        "active_balance": "68385284571691638",
+        "active_shares": "50902292247139584",
+        "debonding_balance": "40942",
+        "debonding_shares": "40942",
+        "num_delegators": 18,
+        "self_delegation_balance": "359262281967609",
+        "self_delegation_shares": "267415333351696"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "bambarello@keybase.io",
+        "keybase": "bambarello",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/54d9aa8c94a4c2a8b9893fe94a721305_360_360.jpg",
+        "name": "Alexander (aka Bambarello) Validator",
+        "url": "https://keybase.io/bambarello"
+      },
+      "node_id": "4rUqFOE27urnaltMm2XqyuxcghXs4xRep3AV3mXSTt4=",
+      "rank": 17,
+      "start_date": "2021-10-23T15:06:21Z",
+      "voting_power": 4274068190117749,
+      "voting_power_cumulative": 103561614844904290
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz26ty8q6gwt6zah7dtt8jpepvwnttkg8ssnxjl7",
+      "entity_id": "kupW3Pt0XMeERSkdDWyZMU4oZrk0wGysVXVyqX3rylc=",
+      "escrow": {
+        "active_balance": "68131330074598170",
+        "active_shares": "50710465911690132",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 21,
+        "self_delegation_balance": "230315083834722",
+        "self_delegation_shares": "171424588290890"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@aitivity.com",
+        "keybase": "jrastit",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/04cebfb7b13493edfa7cb60e80407705_360_360.jpg",
+        "name": "Jr",
+        "twitter": "zgenerator",
+        "url": "https://aitivity.com"
+      },
+      "node_id": "oML3ffLYwPni7EcrkjQpK0/sPTe7Jq91VYnnd6HOin4=",
+      "rank": 18,
+      "start_date": "2021-10-22T16:52:22Z",
+      "voting_power": 4258196078967482,
+      "voting_power_cumulative": 107819810923871780
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 7805,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpqz8g88kvw49m402k8m2r6nv4p62vsdkv5d0u6r",
+      "entity_id": "UDV5FoaIkssdSFWC4asZtxvsyagoyrIS5rPX8p/np2U=",
+      "escrow": {
+        "active_balance": "68061448463962617",
+        "active_shares": "57401358506969625",
+        "debonding_balance": "26814988586237",
+        "debonding_shares": "26814988586237",
+        "num_delegators": 8,
+        "self_delegation_balance": "241329295006071",
+        "self_delegation_shares": "203531216180514"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "rusakhmadeev@gmail.com",
+        "keybase": "hukutu4",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/cfd29b95316ef33355e49e3ae2099205_360_360.jpg",
+        "name": "Dobrynya Hukutu4"
+      },
+      "node_id": "Y/wwhwec6KZFgmM25vKNCTw1FS71/9iv5Q2lWtFX2PA=",
+      "rank": 19,
+      "start_date": "2021-08-20T06:39:57Z",
+      "voting_power": 4253828490663035,
+      "voting_power_cumulative": 112073639414534820
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 9533,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qqw05utlqvf2ska0fyjf5yr7peg2z4tuxcjmqztp",
+      "entity_id": "cVGc1fI6xu0WeI2GUrLIwDpH/JtBE3PwD+P66YkSKg8=",
+      "escrow": {
+        "active_balance": "62243740824396756",
+        "active_shares": "52466547209135487",
+        "debonding_balance": "10316562364758",
+        "debonding_shares": "10316562364758",
+        "num_delegators": 14,
+        "self_delegation_balance": "365885346104091",
+        "self_delegation_shares": "308412388623290"
+      },
+      "in_validator_set": true,
+      "media": {
+        "name": "RedHead",
+        "twitter": "Red__Head"
+      },
+      "node_id": "y6LXNa3NMtZzeXnz9GNBj9MZuSCwBvfBLkZu2YG2fU4=",
+      "rank": 20,
+      "start_date": "2021-08-23T15:34:20Z",
+      "voting_power": 3890222792194295,
+      "voting_power_cumulative": 115963862206729100
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 9438,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qqrv4g5wu543wa7fcae76eucqfn2uc77zgqw8fxk",
+      "entity_id": "p1VsfSsedbKn/5GzkPsr15XD+/AOIfbPda1/2yT84N4=",
+      "escrow": {
+        "active_balance": "61103776626927139",
+        "active_shares": "52539535934083020",
+        "debonding_balance": "36399044638205",
+        "debonding_shares": "36399044638205",
+        "num_delegators": 29,
+        "self_delegation_balance": "592551948105519",
+        "self_delegation_shares": "509500493895518"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "cryptolusia@protonmail.com",
+        "name": "Lusia"
+      },
+      "node_id": "5GNoYx8mSk4PjcXLyi2I50Bw7n1ATsqAtttVjRzTuEY=",
+      "rank": 21,
+      "start_date": "2021-10-23T19:10:55Z",
+      "voting_power": 3818975231483041,
+      "voting_power_cumulative": 119782837438212140
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 9707,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qr9zuf3n8g3znm786st3sldfw677pk3a6v85w9ds",
+      "entity_id": "9yOiPY3NnNMpEzB+6XS/OqahzFwwX8mFhmT2fvbxlVI=",
+      "escrow": {
+        "active_balance": "59802033320744834",
+        "active_shares": "50401253959645822",
+        "debonding_balance": "4018802225895",
+        "debonding_shares": "4018802225895",
+        "num_delegators": 11,
+        "self_delegation_balance": "103913826887938",
+        "self_delegation_shares": "87578747545375"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "glebanyy@yandex.ru",
+        "name": "glebanyy",
+        "url": "https://t.me/glebanyy"
+      },
+      "node_id": "CPLy/FYKtIVK7JOspFi3G1Afkurqmh2tAtiDq4rnSfI=",
+      "rank": 22,
+      "start_date": "2021-08-23T19:41:36Z",
+      "voting_power": 3737616505091842,
+      "voting_power_cumulative": 123520453943303980
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 18000,
+      "entity_address": "oasis1qqnmppt4j5d2yl584euhn6g2cw9gewdswga9frg4",
+      "entity_id": "J3ou5m1abrwcbYwTksSj1Hj21QoDjyrSkjB40rEKV4E=",
+      "escrow": {
+        "active_balance": "57220410281350237",
+        "active_shares": "42362303538384151",
+        "debonding_balance": "2684168229408",
+        "debonding_shares": "2684168229408",
+        "num_delegators": 27,
+        "self_delegation_balance": "65044489033257",
+        "self_delegation_shares": "48154747132668"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "yuanjun@bitopia.cn",
+        "keybase": "bitopia",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/d8c764c7e286d36525b9e037fdd7aa05_360_360.jpg",
+        "name": "Nodeasy",
+        "twitter": "Nodeasy",
+        "url": "https://www.nodeasy.com"
+      },
+      "node_id": "dMaOtmpPbdB7ukYfXdo+ssTTCjX2Qspmi1YJIg5Hcr0=",
+      "rank": 23,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 3576265521752963,
+      "voting_power_cumulative": 127096719465056940
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qrtq873ddwnnjqyv66ezdc9ql2a07l37d5vae9k0",
+      "entity_id": "uxSkvFu6x4MIYV+M1VrDu3m/qbADs/1Ae3mWAcEmnaQ=",
+      "escrow": {
+        "active_balance": "56923423970574660",
+        "active_shares": "42462107081321935",
+        "debonding_balance": "354168344040294",
+        "debonding_shares": "354168344040294",
+        "num_delegators": 107,
+        "self_delegation_balance": "4713764134036",
+        "self_delegation_shares": "3516238895239"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@forbole.com",
+        "keybase": "forbole",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg",
+        "name": "Forbole",
+        "twitter": "forbole",
+        "url": "https://forbole.com"
+      },
+      "node_id": "IEkIQb2o8l0xlFIpN47FmOYcBmFch9DsZGs8OuZqQ6g=",
+      "rank": 24,
+      "start_date": "2021-12-23T08:01:06Z",
+      "voting_power": 3557703929858794,
+      "voting_power_cumulative": 130654423394915740
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 18867,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qpcz9k0q3nzq4289rzq2hw2pwgep0ygnysa5pjdj",
+      "entity_id": "JuHLTlYMfnBtwHawFRRqvMOi+1P0mx+mfhFqnrpo3L0=",
+      "escrow": {
+        "active_balance": "53713757521791930",
+        "active_shares": "50524484101261217",
+        "debonding_balance": "45362103901662",
+        "debonding_shares": "45362103901662",
+        "num_delegators": 65,
+        "self_delegation_balance": "362752253008082",
+        "self_delegation_shares": "341213709213470"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@gmaicnode.club",
+        "keybase": "magicadam1",
+        "name": "Magic Rose"
+      },
+      "node_id": "Fg9vlXWjuP7OZHhLMliDzfTOenuxtYo93VxQquFDUxw=",
+      "rank": 25,
+      "start_date": "2022-11-22T06:19:14Z",
+      "voting_power": 3357100344518020,
+      "voting_power_cumulative": 134011523739433760
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 18877,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qrtz5ywlwjx9gca7qqxdr5f5s7sh7dkhks44cpvx",
+      "entity_id": "9NtPTr6f0Sc0+y/z3as4OzytmNHgrD8SV541PBKb2XA=",
+      "escrow": {
+        "active_balance": "53348518839750032",
+        "active_shares": "50180800172088096",
+        "debonding_balance": "88914532554841",
+        "debonding_shares": "88914532554841",
+        "num_delegators": 55,
+        "self_delegation_balance": "364386843621461",
+        "self_delegation_shares": "342750347765646"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "nikko@onlinenodes.top",
+        "keybase": "nikko440",
+        "name": "RoseOnline",
+        "url": "https://oasisprotocol.org"
+      },
+      "node_id": "b+6HsJ3SRI9f3eecG0bSZG/7UQzEBcJsIi4z07ytmEA=",
+      "rank": 26,
+      "start_date": "2022-11-22T15:47:08Z",
+      "voting_power": 3334272991491811,
+      "voting_power_cumulative": 137345796730925570
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1860,
+        "lower": 0,
+        "upper": 100000
+      },
+      "current_rate": 12000,
+      "entity_address": "oasis1qzv2rktycpcykhudyvg5l6u75v08lpfcw5nt7aj5",
+      "entity_id": "/ZcvHCNyKIwyFEF075X1wqFGhKxEhYeJRdDtoyaTC/w=",
+      "escrow": {
+        "active_balance": "50241636404529901",
+        "active_shares": "37335878252442657",
+        "debonding_balance": "5656511585244",
+        "debonding_shares": "5656511585244",
+        "num_delegators": 36,
+        "self_delegation_balance": "216214064767037",
+        "self_delegation_shares": "160674344553793"
+      },
+      "in_validator_set": true,
+      "node_id": "GbyaSlSmHP7INTdznI0NzlN0VWGrPJX5ZQqTNZqNC7o=",
+      "rank": 27,
+      "start_date": "2023-03-23T14:05:43Z",
+      "voting_power": 3140093388818828,
+      "voting_power_cumulative": 140485890119744400
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 10603,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp9xlxurlcx3k5h3pkays56mp48zfv9nmcf982kn",
+      "entity_id": "RMa2ER0wvraR+4u5QOGOrRTwmMVOYNcOot7sFppPRP0=",
+      "escrow": {
+        "active_balance": "49775908791003578",
+        "active_shares": "43175335052974353",
+        "debonding_balance": "289093532949268",
+        "debonding_shares": "289093532949268",
+        "num_delegators": 24,
+        "self_delegation_balance": "1133706994969111",
+        "self_delegation_shares": "983370882593286"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "elysium1",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/f3a3448b7b51683b63a684cb7405b805_360_360.jpg",
+        "name": "ELYSIUM",
+        "twitter": "ceron_trader"
+      },
+      "node_id": "orWbpXiShG+xIy/BxDtokUdZwNCg3A4oNSbqkpjbvZQ=",
+      "rank": 28,
+      "start_date": "2021-11-23T08:25:36Z",
+      "voting_power": 3110985495348771,
+      "voting_power_cumulative": 143596875615093170
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qrs8zlh0mj37ug0jzlcykz808ylw93xwkvknm7yc",
+      "entity_id": "UFXCpcvXBOHbxtObG4psGcn+LgZOedvDDUAqVengpPk=",
+      "escrow": {
+        "active_balance": "47851918218043059",
+        "active_shares": "35682993426723747",
+        "debonding_balance": "419479551482005",
+        "debonding_shares": "419479551482005",
+        "num_delegators": 182,
+        "self_delegation_balance": "310409050470746",
+        "self_delegation_shares": "231470848400948"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "bitoven@protonmail.com",
+        "keybase": "bitoven",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/695a44c03aa16422aaa8c7c6b1191605_360_360.jpg",
+        "name": "Bitoven",
+        "url": "https://bitoven.me"
+      },
+      "node_id": "RyR58ibjevY8DqFHaqDfJhe1zm0XeY83hPk78qtcUic=",
+      "rank": 29,
+      "start_date": "2021-08-16T10:02:30Z",
+      "voting_power": 2990736424843608,
+      "voting_power_cumulative": 146587612039936770
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 10528,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qzk6qlmgnq40cq2n3jfkw3307feqngt4gvksfml6",
+      "entity_id": "g9UqzvW6JvfKrflRKbCPBpm41rH/O+4apCK+KkD2tG4=",
+      "escrow": {
+        "active_balance": "46185183001130725",
+        "active_shares": "38194083563343316",
+        "debonding_balance": "4308944184184",
+        "debonding_shares": "4308944184184",
+        "num_delegators": 62,
+        "self_delegation_balance": "121557651060674",
+        "self_delegation_shares": "100525380234207"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@gateomega.com",
+        "keybase": "gateomega",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/d6c0f46ff553d80c101c974324a1ab05_360_360.jpg",
+        "name": "GateOmega",
+        "twitter": "GateOmega",
+        "url": "https://gateomega.com"
+      },
+      "node_id": "GYJsEu4Yp+CGEQVjy4owQAG6l6xEvGzcNM1xBHaEv6U=",
+      "rank": 30,
+      "start_date": "2021-07-29T10:12:18Z",
+      "voting_power": 2886565768589545,
+      "voting_power_cumulative": 149474177808526340
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11481,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19610,
+      "entity_address": "oasis1qrw82ag2sypeytse9x9k4uxym53l5lc5jyfs2sxv",
+      "entity_id": "kN01v7L/wv6hvrd1ak83pgCedGDnpgbGJVkXezhUUJ8=",
+      "escrow": {
+        "active_balance": "45913976707744151",
+        "active_shares": "34740760786195892",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 22,
+        "self_delegation_balance": "2993378831408010",
+        "self_delegation_shares": "2264936853245131"
+      },
+      "in_validator_set": true,
+      "node_id": "c7ycVhiEqHbQfOdeeaj965nuxN8Hsb4BxMPbaPIipRw=",
+      "rank": 31,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 2869615423222361,
+      "voting_power_cumulative": 152343793231748670
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 10542,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qzzytegg6jc7hxu6y8feuzkgmr75ms7hc54mz85p",
+      "entity_id": "wCGlLKUiTNr9Ba49YA6dDuqm9rdtPcKKsKzHqMBn+rc=",
+      "escrow": {
+        "active_balance": "44489360607097431",
+        "active_shares": "37138558522622744",
+        "debonding_balance": "5858468640581",
+        "debonding_shares": "5858468640581",
+        "num_delegators": 34,
+        "self_delegation_balance": "13926190821862",
+        "self_delegation_shares": "11625221081564"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "doorgod42@gmail.com",
+        "keybase": "doorgod",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/3d3fb3889f26e4b24dcd35165f9bcc05_360_360.jpg",
+        "name": "Doorgod",
+        "twitter": "doorgod42",
+        "url": "https://doorgod42.github.io"
+      },
+      "node_id": "pjWGVgRla8SJGvBWIP5gPPHgxsr1c2EOsUP5KJvQjgk=",
+      "rank": 32,
+      "start_date": "2021-08-04T09:17:27Z",
+      "voting_power": 2780577168910201,
+      "voting_power_cumulative": 155124370400658880
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz22xm9vyg0uqxncc667m4j4p5mrsj455c743lfn",
+      "entity_id": "J2nwlXuYEPNZ0mMH2Phg5RofbZzj65xDvQMNdy9Ji0E=",
+      "escrow": {
+        "active_balance": "42787471786246644",
+        "active_shares": "31763073093487893",
+        "debonding_balance": "30649538933627",
+        "debonding_shares": "30649538933627",
+        "num_delegators": 5112,
+        "self_delegation_balance": "191118005423782",
+        "self_delegation_shares": "141875528567885"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "stake5labs",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/de32b7ca9108d3d7de68949f81114205_360_360.jpg",
+        "name": "S5",
+        "twitter": "stake5labs",
+        "url": "https://www.stake5labs.com"
+      },
+      "node_id": "ITrwEekdZNqXrEzvw3GT6Q3AtHDd51f19nD2nVU/f0c=",
+      "rank": 33,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 2674209418627760,
+      "voting_power_cumulative": 157798579819286660
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 3000,
+      "entity_address": "oasis1qp60saapdcrhe5zp3c3zk52r4dcfkr2uyuc5qjxp",
+      "entity_id": "/AI8TCLc1a5U98yBoxOji5bheVT1pc75v+tGDdM6se4=",
+      "escrow": {
+        "active_balance": "41959952024118118",
+        "active_shares": "29511902058523843",
+        "debonding_balance": "1562400193590320",
+        "debonding_shares": "1562400193590320",
+        "num_delegators": 1545,
+        "self_delegation_balance": "358858753266045",
+        "self_delegation_shares": "252397914400477"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@tessellatedgeometry.com",
+        "keybase": "tessellatedgeo",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1be50ea4c1a26ff72b068a3ab0590205_360_360.jpg",
+        "name": "Tessellated Geometry",
+        "twitter": "tessellatedgeo",
+        "url": "https://tessellatedgeometry.com"
+      },
+      "node_id": "wdxW8Bk1hZvQANQHRCO8MzbgRsdC5c7mpLjsNYLM82I=",
+      "rank": 34,
+      "start_date": "2022-06-29T00:47:33Z",
+      "voting_power": 2622489579861871,
+      "voting_power_cumulative": 160421069399148500
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 14168,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpntrlgxp5tt36pkdezdjt5d27fzkvp22y46qura",
+      "entity_id": "AX8zJsi0DnrrdwCi/8JJptXSy62kZgQcAYKlCYD4oN8=",
+      "escrow": {
+        "active_balance": "40621896531642064",
+        "active_shares": "36401367070434830",
+        "debonding_balance": "165165648383416",
+        "debonding_shares": "165165648383416",
+        "num_delegators": 43,
+        "self_delegation_balance": "435071457764249",
+        "self_delegation_shares": "389868449977695"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@chlorisnetwork.com",
+        "keybase": "chlorisnetwork",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/683b223740ca14fc0da8bb1b51380505_360_360.jpg",
+        "name": "Chloris Network",
+        "twitter": "chlorisnetwork",
+        "url": "https://www.chlorisnetwork.com/"
+      },
+      "node_id": "o5GsCptt8lelHPe2vSoEEBvSosOczh+cRom2+Gouhlo=",
+      "rank": 35,
+      "start_date": "2022-04-11T19:47:03Z",
+      "voting_power": 2538861348250013,
+      "voting_power_cumulative": 162959930747398530
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp4f47plgld98n5g2ltalalnndnzz96euv9n89lz",
+      "entity_id": "bTok0el8GbmUzTAAgcQ78uww/TsgeWwXpM3N2S49qBQ=",
+      "escrow": {
+        "active_balance": "40164703750933940",
+        "active_shares": "29997068290959398",
+        "debonding_balance": "14293999999999",
+        "debonding_shares": "14293999999999",
+        "num_delegators": 24,
+        "self_delegation_balance": "149217668329987",
+        "self_delegation_shares": "111443435880148"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "julia_ju",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/127dc934642b7ae27de0a2314cba6605_360_360.jpg",
+        "name": "Julia-Ju",
+        "url": "https://keybase.io/julia_ju"
+      },
+      "node_id": "AVQbWvlbKOHi3z8uibbOVl3xsCJsw2YtWG5XXdbhhpI=",
+      "rank": 36,
+      "start_date": "2021-10-24T12:35:13Z",
+      "voting_power": 2510286880321500,
+      "voting_power_cumulative": 165470217627720030
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qqewwznmvwfvee0dyq9g48acy0wcw890g549pukz",
+      "entity_id": "sDi9ZxHYB+rHTpVh4abNFXDMRSecfGe4QzbyGK8ZgQg=",
+      "escrow": {
+        "active_balance": "40024996675833534",
+        "active_shares": "29795589187289908",
+        "debonding_balance": "708375852781",
+        "debonding_shares": "708375852781",
+        "num_delegators": 8,
+        "self_delegation_balance": "134321958146530",
+        "self_delegation_shares": "99992560053923"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "wanderer_s",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/130665f78bca5329c21ebb7942cd1c05_360_360.jpg",
+        "name": "Wanderer Staking",
+        "url": "https://keybase.io/wanderer_s"
+      },
+      "node_id": "XanOOptLq+tmEky6Olf3dVO6HZcUJs8f6ESxIvMmO0E=",
+      "rank": 37,
+      "start_date": "2021-10-23T18:45:39Z",
+      "voting_power": 2501555212838343,
+      "voting_power_cumulative": 167971772840558370
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz72lvk2jchk0fjrz7u2swpazj3t5p0edsdv7sf8",
+      "entity_id": "ko5wr5SMqhKb+P1kimM1EF/T4SqvW/WjSOwPHigQl+k=",
+      "escrow": {
+        "active_balance": "39143737168350250",
+        "active_shares": "29138635903380827",
+        "debonding_balance": "577916908854793",
+        "debonding_shares": "577916908854793",
+        "num_delegators": 3685,
+        "self_delegation_balance": "285365483893302",
+        "self_delegation_shares": "212426342911434"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "oceanabcde",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/98c72d275087af707ff08549edd06a05_360_360.jpg",
+        "name": "Ocean Stake",
+        "url": "https://keybase.io/oceanabcde"
+      },
+      "node_id": "aJFHeID4Q7qUfMa42dRwaa9PQrZ/cVDiE3WNt4bQjo0=",
+      "rank": 38,
+      "start_date": "2021-11-19T05:08:23Z",
+      "voting_power": 2446476649492972,
+      "voting_power_cumulative": 170418249490051360
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 5000,
+      "entity_address": "oasis1qzrehfnnntdaeshy5f6kfa8v3p35yu7mluaapmgc",
+      "entity_id": "YDHYz/R+Y7pCodhmgkCqzoqqN54gzRfVE5fjZriX+RI=",
+      "escrow": {
+        "active_balance": "39050667782465028",
+        "active_shares": "27631399479296018",
+        "debonding_balance": "473673361477362",
+        "debonding_shares": "473673361477362",
+        "num_delegators": 316,
+        "self_delegation_balance": "238131206909267",
+        "self_delegation_shares": "168496440144141"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "dlt@um.edu.mt",
+        "name": "University of Malta - Centre for DLT",
+        "url": "https://www.um.edu.mt/dlt"
+      },
+      "node_id": "6XcILTcGhjvVaWI/tRvZfUTp4huxgg6OBvFQrNmx9DY=",
+      "rank": 39,
+      "start_date": "2021-11-24T12:23:10Z",
+      "voting_power": 2440659829336747,
+      "voting_power_cumulative": 172858909319388100
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qql4alk30frfa6xua42eu7tynkqf9vd5ug95yqpn",
+      "entity_id": "WXs7ElBlm30la2fG4oZDpubeFu5sKkjDVeflWo+YuIA=",
+      "escrow": {
+        "active_balance": "37904937105697724",
+        "active_shares": "28302300116174198",
+        "debonding_balance": "528358189669601",
+        "debonding_shares": "528358189669601",
+        "num_delegators": 23,
+        "self_delegation_balance": "149522878399914",
+        "self_delegation_shares": "111643540441925"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "code_breader",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/f107a3f7240f835e7449119812e4a905_360_360.jpg",
+        "name": "Breathe and Stake",
+        "url": "https://keybase.io/code_breader"
+      },
+      "node_id": "ioLADiyiFmIms+8fib3N36/TX5XEnHrs2vWcH5LxHGo=",
+      "rank": 40,
+      "start_date": "2021-10-24T13:39:16Z",
+      "voting_power": 2369051864689330,
+      "voting_power_cumulative": 175227961184077440
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 15462,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp0xuvw2a93w4yp8jwthfz93gxy87u7hes9eu2ev",
+      "entity_id": "cgXH87+sYoe2mXsdDKWCyRvWZ8JqnVnxJkCq09LlBoI=",
+      "escrow": {
+        "active_balance": "36950755578282448",
+        "active_shares": "29136283923794662",
+        "debonding_balance": "283948658304315",
+        "debonding_shares": "283948658304315",
+        "num_delegators": 52,
+        "self_delegation_balance": "272380076101126",
+        "self_delegation_shares": "214776209803180"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "oasis@starduststaking.com",
+        "keybase": "stardust_staking",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/ebedfe937bee6c76d68a12d0df524405_360_360.jpg",
+        "name": "Stardust",
+        "twitter": "DenysK59319343",
+        "url": "https://starduststaking.com"
+      },
+      "node_id": "REB7DjPPyYCknxakN3MyAOS746YWJtgE41g9ac+oZXU=",
+      "rank": 41,
+      "start_date": "2021-11-15T17:24:03Z",
+      "voting_power": 2309415687996256,
+      "voting_power_cumulative": 177537376872073700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 18000,
+      "entity_address": "oasis1qzmwdlxy7cltmwt99u9pwqt3g0rdwgsqyvcqymmt",
+      "entity_id": "F5eduX4m4O/ot3UcFs3iQk1ZPUuG43kuxGI9sZz95uU=",
+      "escrow": {
+        "active_balance": "33672766538210853",
+        "active_shares": "24963081807015372",
+        "debonding_balance": "676776256766070",
+        "debonding_shares": "676776256766070",
+        "num_delegators": 7,
+        "self_delegation_balance": "5204120842567",
+        "self_delegation_shares": "3858040419078"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "Alexandr0",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/6aafc1f8fff43733e97703cd41651505_360_360.jpg",
+        "name": "alexandr0",
+        "twitter": "padygumuk51"
+      },
+      "node_id": "I/Vnwyi7FJdROFe64fbaqE3t55OLcUBY8hVK64VNrqc=",
+      "rank": 42,
+      "start_date": "2021-11-14T16:16:06Z",
+      "voting_power": 2104541952784451,
+      "voting_power_cumulative": 179641918824858140
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 3400,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qram2p9w3yxm4px5nth8n7ugggk5rr6ay5d284at",
+      "entity_id": "RZowTXmfT+b6H6Vuz97VECIy2cq8tytTilv8AxbtvO8=",
+      "escrow": {
+        "active_balance": "32992837564304866",
+        "active_shares": "24397200008746092",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 8,
+        "self_delegation_balance": "3975507362332736",
+        "self_delegation_shares": "2939766792293420"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@realizable.com",
+        "keybase": "realizable",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/3276bba0e280285e7c4c6ba9faa0d305_360_360.jpg",
+        "name": "Realizable",
+        "url": "https://www.realizable.com/"
+      },
+      "node_id": "MnmXWIpf1hEok0rIcynmHfYR6kvWuyH6VdCJARVN5oY=",
+      "rank": 43,
+      "start_date": "2021-11-27T00:37:01Z",
+      "voting_power": 2062046512177424,
+      "voting_power_cumulative": 181703965337035550
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 12119,
+        "lower": 0,
+        "upper": 5000
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpg5vq3jt6djfw5rq9l8kcwkt4s7vmjn4vvxujwv",
+      "entity_id": "QNXjdhgd/NSfLbHeZB0n8yv5dSyl6jm4MSHjjduuj5M=",
+      "escrow": {
+        "active_balance": "32577268899835434",
+        "active_shares": "27997193354843232",
+        "debonding_balance": "4353677380826045",
+        "debonding_shares": "4353677380826045",
+        "num_delegators": 660,
+        "self_delegation_balance": "232718104897",
+        "self_delegation_shares": "200000000000"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@autostake.net",
+        "keybase": "autostake",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/2fe4767915f79a22b1a3c4a0f2ffe505_360_360.jpg",
+        "name": "AutoStake 🛡️ Slash Protected",
+        "twitter": "AutoStake_",
+        "url": "https://autostake.net"
+      },
+      "node_id": "g4GC/b200mEkFXNhsOJxQKdo39DAHayAxrO+c1AhfhI=",
+      "rank": 44,
+      "start_date": "2022-02-11T11:36:07Z",
+      "voting_power": 2036073544151584,
+      "voting_power_cumulative": 183740038881187140
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpavd66xsezz8s4wjw2fyycxw8jm2nlpnuejlg2g",
+      "entity_id": "iGs5cCGos/I5KQv82MwgGMNENaxy3bhuWdFXtINcu0U=",
+      "escrow": {
+        "active_balance": "31300422526062036",
+        "active_shares": "27064502404650589",
+        "debonding_balance": "1654219592791605",
+        "debonding_shares": "1654219592791605",
+        "num_delegators": 216,
+        "self_delegation_balance": "0",
+        "self_delegation_shares": "0"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "nodes@spherical.one",
+        "keybase": "sphericalone",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/749a019fada9ce72d7818330647b2705_360_360.jpg",
+        "name": "Spherical One"
+      },
+      "node_id": "pnzDjfjrjsN+7TZJSw/HzZq+jA6HN3jPsSEOkh9kKWE=",
+      "rank": 45,
+      "start_date": "2022-03-06T20:39:43Z",
+      "voting_power": 1956270871632310,
+      "voting_power_cumulative": 185696309752819460
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 420,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
+      "entity_id": "kfr2A6K6TlvhQm4nz88Hczzkd2Aq5PlkxSpnmUUBAFs=",
+      "escrow": {
+        "active_balance": "30323195753460774",
+        "active_shares": "22245987338767808",
+        "debonding_balance": "65268587956895",
+        "debonding_shares": "65268587956895",
+        "num_delegators": 767,
+        "self_delegation_balance": "15611889808082",
+        "self_delegation_shares": "11453341060373"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "go@staking.fund",
+        "keybase": "StakingFund",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/d48739023a250815c4ac564c9870ec05_360_360.jpg",
+        "name": "Staking Fund",
+        "twitter": "StakingFund",
+        "url": "https://staking.fund"
+      },
+      "node_id": "lbxs4hlud9XNloIOdhJPaCahd7HtiY8QATCgGnFfCM0=",
+      "rank": 46,
+      "start_date": "2021-10-26T04:34:34Z",
+      "voting_power": 1895194371191227,
+      "voting_power_cumulative": 187591504124010700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qp6fzgx9zhamsk6c77cwzjeme06xwswffvhk6js2",
+      "entity_id": "/ylWdaid2DDlI4BMVkX6gAR6eaBYlLolHbjCmHitrzc=",
+      "escrow": {
+        "active_balance": "29050705456736228",
+        "active_shares": "21622558041630602",
+        "debonding_balance": "1814045043256",
+        "debonding_shares": "1814045043256",
+        "num_delegators": 13,
+        "self_delegation_balance": "124984851272632",
+        "self_delegation_shares": "93026732345338"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@making.cash",
+        "keybase": "makingcash",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1ea3ba236f36f7ff1846fe8bc353da05_360_360.jpg",
+        "name": "Making.Cash Validator",
+        "url": "https://www.making.cash"
+      },
+      "node_id": "JThJEQbC1iFVbdy6nFz6mSwChY5xgnOwbWAV3igG6mE=",
+      "rank": 47,
+      "start_date": "2021-10-25T22:08:30Z",
+      "voting_power": 1815663952717028,
+      "voting_power_cumulative": 189407168076727700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 18000,
+      "entity_address": "oasis1qqx820g2geqzeyeyfnm5hgz72eaj9emajgqmscy0",
+      "entity_id": "tcon38rBr3dHmURuXOTUFpDPKwE4eOU82F121rX9esE=",
+      "escrow": {
+        "active_balance": "27282763947642872",
+        "active_shares": "20227411699135758",
+        "debonding_balance": "5365148425172820",
+        "debonding_shares": "5365148425172820",
+        "num_delegators": 12,
+        "self_delegation_balance": "7029942357027",
+        "self_delegation_shares": "5211991664395"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "sukhov",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/9bfdffc819f8599631ce55d0b08ec405_360_360.jpg",
+        "name": "max999",
+        "twitter": "ValyaSukhov"
+      },
+      "node_id": "ejPrx9xTpKV3GTZgthFQWf3UPMFFBseRtc0A17ak1TU=",
+      "rank": 48,
+      "start_date": "2021-11-14T16:17:58Z",
+      "voting_power": 1705167921102462,
+      "voting_power_cumulative": 191112335997830180
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 2878,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qrgxl0ylc7lvkj0akv6s32rj4k98nr0f7smf6m4k",
+      "entity_id": "BTAJNDyd6/UQ+pfhTDdPGsothzJ+C5/C/g52a3DIlMw=",
+      "escrow": {
+        "active_balance": "26333703367492252",
+        "active_shares": "19644241116730457",
+        "debonding_balance": "37094224128160",
+        "debonding_shares": "37094224128160",
+        "num_delegators": 19,
+        "self_delegation_balance": "272883038523",
+        "self_delegation_shares": "203563476455"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "haizhitiantang1@163.com",
+        "keybase": "haizhitiantang",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e9abda3d9767c89f046348c6cc595405_360_360.jpg",
+        "name": "itokenpool",
+        "twitter": "itokenpool",
+        "url": "https://www.itokenpool.com"
+      },
+      "node_id": "Kv7anzrQTWYDQRLCo1/pkMRV65HpvJCvSEjO/R8wHkc=",
+      "rank": 49,
+      "start_date": "2021-10-29T12:49:45Z",
+      "voting_power": 1645851802707664,
+      "voting_power_cumulative": 192758187800537820
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 18000,
+      "entity_address": "oasis1qr5f26k9rnfa2pg6wgsuljyq7lecej3gaqqhyra5",
+      "entity_id": "8rh2lgEm7QscCrLkVqcLMkRxfbNDIe+laI4H8nI/d74=",
+      "escrow": {
+        "active_balance": "26057627496008400",
+        "active_shares": "19286032634817548",
+        "debonding_balance": "1253973411800182",
+        "debonding_shares": "1253973411800182",
+        "num_delegators": 21,
+        "self_delegation_balance": "2716157977324000",
+        "self_delegation_shares": "2010310086749649"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "CB79CF86DBD56A19",
+        "name": "HashKey Cloud",
+        "twitter": "HashKeyCloud",
+        "url": "https://www.hashkey.cloud/"
+      },
+      "node_id": "K5roq8kvag0dzkdauemq4PLfQG/rA4ZeItZ/op2PfGo=",
+      "rank": 50,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 1628597109570704,
+      "voting_power_cumulative": 194386784910108540
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 8103,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qqr8y5cez0aczdlnfp9fre82whjsdgqgd5xxtv6p",
+      "entity_id": "XSQLBoubhOq/X86vKIj4Xzouo1Fhe39+kLF/2PDgKpM=",
+      "escrow": {
+        "active_balance": "25498951000249282",
+        "active_shares": "21434320419811367",
+        "debonding_balance": "121277276818217",
+        "debonding_shares": "121277276818217",
+        "num_delegators": 13,
+        "self_delegation_balance": "2810229168944",
+        "self_delegation_shares": "2362267861908"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "bromyb",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/297b51044729efde1222031813c06f05_360_360.jpg",
+        "name": "BroMyb"
+      },
+      "node_id": "e5ebJbZikm11u56wEOM9Ka1uVUS1Pckgc8RGmahs8Ss=",
+      "rank": 51,
+      "start_date": "2021-10-23T17:02:35Z",
+      "voting_power": 1593679927401385,
+      "voting_power_cumulative": 195980464837509920
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 5113,
+        "lower": 5000,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qpxpnxxk4qcgl7n55tx0yuqmrcw5cy2u5vzjq5u4",
+      "entity_id": "klORAmjq81QKiUA0CsXaANxYVesTWM7CKdaSlm7u9tM=",
+      "escrow": {
+        "active_balance": "25336499471472922",
+        "active_shares": "20438521086380520",
+        "debonding_balance": "772606274661",
+        "debonding_shares": "772606274661",
+        "num_delegators": 26,
+        "self_delegation_balance": "132356167054847",
+        "self_delegation_shares": "106769457805677"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "perfectstake@gmail.com",
+        "keybase": "perfectstake",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/cee688a7dde6d4edf15e1fa2a880ea05_360_360.jpg",
+        "name": "Perfect Stake",
+        "twitter": "perfectstake",
+        "url": "https://perfectstake.com"
+      },
+      "node_id": "IdElhqKVZCHY9Lo6222te1wSdhPPAz/OCsoSRkWrXXw=",
+      "rank": 52,
+      "start_date": "2021-10-27T06:29:28Z",
+      "voting_power": 1583526735586395,
+      "voting_power_cumulative": 197563991573096320
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 8103,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qppctxzn8djkqfvrxugak9v7dp25vddq7sxqhkry",
+      "entity_id": "9+lM5vQ1g+cVzjaNM78gxw1yUegVj57tHDbpN7DKIvw=",
+      "escrow": {
+        "active_balance": "24912061215916073",
+        "active_shares": "20801628607321667",
+        "debonding_balance": "111281876362823",
+        "debonding_shares": "111281876362823",
+        "num_delegators": 9,
+        "self_delegation_balance": "3118520329662",
+        "self_delegation_shares": "2603971672186"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "vanya_shakhmin@mail.ru",
+        "keybase": "tuzem",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/12e07cc1bea0820286026594a228b105_360_360.jpg",
+        "name": "Tuzem",
+        "twitter": "Staker445"
+      },
+      "node_id": "igLfuIxxqZATg0snKVTFoeRaqrlNq5r69ofncwlUA8I=",
+      "rank": 53,
+      "start_date": "2021-10-23T19:59:58Z",
+      "voting_power": 1556999419686396,
+      "voting_power_cumulative": 199120990992782720
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qzp8e4ldf9zq27jle847nawll5jwwa9x75y6spaz",
+      "entity_id": "7n6AYdYIuGar561yxifDtrR9NVekDavFlpeHVZinCSc=",
+      "escrow": {
+        "active_balance": "24644726186132881",
+        "active_shares": "17752436782177888",
+        "debonding_balance": "9329274155163",
+        "debonding_shares": "9329274155163",
+        "num_delegators": 55,
+        "self_delegation_balance": "1310158766277153",
+        "self_delegation_shares": "943752042416217"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@hashed.com",
+        "keybase": "hashed_delight",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/0518bbd1ad17cab82dd63a5908ffaa05_360_360.jpg",
+        "name": "Hashed x DELIGHT",
+        "twitter": "hashed_official",
+        "url": "https://hashed.com"
+      },
+      "node_id": "HnLtoQyiKOkr2NMcQsQ4UH0HW8qkLRGWn4mgkDLNoEo=",
+      "rank": 54,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 1540291027609696,
+      "voting_power_cumulative": 200661282020392420
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 19908,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qp7626tphkh9784tpf2lhdmskjmrk7p2ds40e9me",
+      "entity_id": "LQaKibf9tD8KXO210NhiDUHzXTsRIeK5l/3ITmfg118=",
+      "escrow": {
+        "active_balance": "24346140497514684",
+        "active_shares": "22813438348392282",
+        "debonding_balance": "381395428768047",
+        "debonding_shares": "381395428768047",
+        "num_delegators": 31,
+        "self_delegation_balance": "40071353708444",
+        "self_delegation_shares": "37548676656061"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "wehaveservers",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/8da0fcf8249815d831953f275e534b05_360_360.jpg",
+        "name": "WeHaveServers.com",
+        "url": "https://wehaveservers.com"
+      },
+      "node_id": "kyMt+dLOuEKW1GXST1tQdf4AbEdc4zJt40/apqitmWA=",
+      "rank": 55,
+      "start_date": "2022-12-12T08:19:44Z",
+      "voting_power": 1521629474883253,
+      "voting_power_cumulative": 202182911495275650
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11231,
+        "lower": 0,
+        "upper": 18000
+      },
+      "current_rate": 18000,
+      "entity_address": "oasis1qzt4fvcc6cw9af69tek9p3mfjwn3a5e5vcyrw7ac",
+      "entity_id": "L4OY/0mNEduAS9z6jh2xLp72b8gZURgcrd76AOiRIXk=",
+      "escrow": {
+        "active_balance": "24277659767383891",
+        "active_shares": "19227417923624878",
+        "debonding_balance": "7628090303600",
+        "debonding_shares": "7628090303600",
+        "num_delegators": 26,
+        "self_delegation_balance": "873460634687132",
+        "self_delegation_shares": "691763243404817"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "tech@stakeservice.com",
+        "keybase": "stakeservice",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/b4d40c29622fb018a807ee16e4e9f205_360_360.jpg",
+        "name": "StakeService",
+        "twitter": "stakeservice",
+        "url": "https://stakeservice.com/"
+      },
+      "node_id": "HZGW8QfuMUv/JEa1HqT19HrGTdJY3mWH4nogaWrWK+0=",
+      "rank": 56,
+      "start_date": "2021-11-20T09:52:30Z",
+      "voting_power": 1517349441362574,
+      "voting_power_cumulative": 203700260936638240
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qzl99wft8jtt7ppprk7ce7s079z3r3t77s6pf3dd",
+      "entity_id": "4gbOOU09bcyvM53Up1lTnP+sLb0feniJu0OcUUPCBSs=",
+      "escrow": {
+        "active_balance": "24016308453282196",
+        "active_shares": "17929193838483711",
+        "debonding_balance": "540428362332591",
+        "debonding_shares": "540428362332591",
+        "num_delegators": 2202,
+        "self_delegation_balance": "129761838238198",
+        "self_delegation_shares": "96872721098511"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "dcccapital123@gmail.com",
+        "keybase": "dcccapital",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/6f43e231fb8bdea6bf55a13b910fb405_360_360.jpg",
+        "name": "DCC Capital",
+        "twitter": "dcccapital",
+        "url": "https://dcc.capital/"
+      },
+      "node_id": "+zVbgQqOdY90Z2NQKXFByNT0OwLxj/Ho4j4qT5u2yKM=",
+      "rank": 57,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 1501015030457601,
+      "voting_power_cumulative": 205201275967095840
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1503,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qqyynj90zkvyhja33w4ltgej45pr48f45ymmnsrx",
+      "entity_id": "PrCDIA3uyoLqNOZJ1PrRWdyviFn6K0PWFz91qQ9QyTw=",
+      "escrow": {
+        "active_balance": "23247230249604763",
+        "active_shares": "17046231103735345",
+        "debonding_balance": "634750267994",
+        "debonding_shares": "634750267994",
+        "num_delegators": 21,
+        "self_delegation_balance": "2721794681055833",
+        "self_delegation_shares": "1995779310138857"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@wolfedge.capital",
+        "keybase": "wolfedge",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/a885aecc57fdb3eaf07ea896532c1705_360_360.jpg",
+        "name": "WolfEdge Capital",
+        "url": "https://wolfedge.capital/"
+      },
+      "node_id": "QFAWexckwRHNxkIty67NCpY8LHwlrcGp/v0ziDSlgFs=",
+      "rank": 58,
+      "start_date": "2022-01-13T13:24:53Z",
+      "voting_power": 1452947778758083,
+      "voting_power_cumulative": 206654223745853920
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 2878,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qqs5wnxvsk009swtt7ehm5fslxve96kczszwt47s",
+      "entity_id": "VsrHPScBde1FUb+BDWONvLxxwKOKevLB7FRbUAaiF+Y=",
+      "escrow": {
+        "active_balance": "22814264270590950",
+        "active_shares": "17339354836173268",
+        "debonding_balance": "7413762132187",
+        "debonding_shares": "7413762132187",
+        "num_delegators": 10,
+        "self_delegation_balance": "4533238350451",
+        "self_delegation_shares": "3445363277252"
+      },
+      "in_validator_set": true,
+      "node_id": "e25jqMK9FwlwuV1VPS/dkriJlYh7zKp+1H9B8xAu2LI=",
+      "rank": 59,
+      "start_date": "2021-11-13T09:42:17Z",
+      "voting_power": 1425887481650361,
+      "voting_power_cumulative": 208080111227504300
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 18830,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qq2stnud2we0gfkvrf2stgg96qxhsh3fyc9mxt82",
+      "entity_id": "7hvHIq4ykrbyJPaEiEGetCisIXHVGTdpMYv5JhSwGFY=",
+      "escrow": {
+        "active_balance": "21119028122820575",
+        "active_shares": "19864933157847099",
+        "debonding_balance": "30049072055403524",
+        "debonding_shares": "30049072055403524",
+        "num_delegators": 42,
+        "self_delegation_balance": "353214849313916",
+        "self_delegation_shares": "332240164233602"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "jay@fastvalidator.com",
+        "name": "Fast Rose",
+        "url": "https://fastvalidator.com"
+      },
+      "node_id": "napBTcD5bfZJuheWQLWrfMnvr0mgdjrd93cTJzpJD1I=",
+      "rank": 60,
+      "start_date": "2022-11-17T09:52:03Z",
+      "voting_power": 1319935522258758,
+      "voting_power_cumulative": 209400046749763040
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 17000,
+      "entity_address": "oasis1qrmexg6kh67xvnp7k42sx482nja5760stcrcdkhm",
+      "entity_id": "LaKJUKndAqH57DVExspTjdRTRNGJOSqArzM0pm8REZw=",
+      "escrow": {
+        "active_balance": "20792213963736798",
+        "active_shares": "15360735504536300",
+        "debonding_balance": "5409687493110912",
+        "debonding_shares": "5409687493110912",
+        "num_delegators": 14,
+        "self_delegation_balance": "2602033043424",
+        "self_delegation_shares": "1922312911160"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "ushakov",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/3476fe9f5565f97c1169474fd0b6f505_360_360.jpg",
+        "name": "ushakov",
+        "twitter": "1lucky_star",
+        "url": "https://stake2.me"
+      },
+      "node_id": "Nt7uVVgoz9DfwTAifgrhIgSQiOa5iet+O+fl65jVfVQ=",
+      "rank": 61,
+      "start_date": "2021-11-14T16:17:53Z",
+      "voting_power": 1299509695121112,
+      "voting_power_cumulative": 210699556444884160
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11255,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp334gzlzrap6k2ch6wc9vxxplw9sg3v9cfvvgsy",
+      "entity_id": "iNKCs9v4NJCuApCLPD4bRBoqTs/5DBxS0hourBkhxQo=",
+      "escrow": {
+        "active_balance": "20774743674621022",
+        "active_shares": "16560495207780681",
+        "debonding_balance": "252706646621994",
+        "debonding_shares": "252706646621994",
+        "num_delegators": 34,
+        "self_delegation_balance": "447295858623818",
+        "self_delegation_shares": "356559919064080"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "alive29@yandex.ru",
+        "keybase": "alive29",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/c86f2c6b74071b00802adf552ccac805_360_360.jpg",
+        "name": "Alive29",
+        "url": "https://keybase.io/alive29"
+      },
+      "node_id": "VHs9SQr/IC3ElqF1rNxFuCrkx/pWbhy46So19MQlZLE=",
+      "rank": 62,
+      "start_date": "2021-11-24T17:04:47Z",
+      "voting_power": 1298417805141425,
+      "voting_power_cumulative": 211997974250025570
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 8103,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 17000,
+      "entity_address": "oasis1qps9drw07z0gmh5z2pn7zwl3z53ate2yvqf3uzq5",
+      "entity_id": "/Foi5kZdBc70HPmlguvY6AzBILNrNiPDgKQLOITuIEI=",
+      "escrow": {
+        "active_balance": "20314508910158000",
+        "active_shares": "17069923541439672",
+        "debonding_balance": "5257968245524835",
+        "debonding_shares": "5257968245524835",
+        "num_delegators": 10,
+        "self_delegation_balance": "3085553989740",
+        "self_delegation_shares": "2592736596330"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "cherkes",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/b8b4a8365e10e870a60455ed1da57f05_360_360.jpg",
+        "name": "cherkes",
+        "twitter": "CryptoMad77"
+      },
+      "node_id": "GY1goAIuGGSeVrhjhgVAp4JB0y6l3P5+TnozeBxu/kw=",
+      "rank": 63,
+      "start_date": "2021-10-23T19:43:22Z",
+      "voting_power": 1269653213766280,
+      "voting_power_cumulative": 213267627463791840
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 15691,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz0pvg26eudajp60835wl3jxhdxqz03q5qt9us34",
+      "entity_id": "fhXoWYc8Ml153jBBvFrQ4CRY7vnbCk9j269rVLeg7cE=",
+      "escrow": {
+        "active_balance": "18259574928298059",
+        "active_shares": "16320417357236465",
+        "debonding_balance": "201942829607",
+        "debonding_shares": "201942829607",
+        "num_delegators": 23,
+        "self_delegation_balance": "58535893829565",
+        "self_delegation_shares": "52319411674630"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@ankastake.com",
+        "keybase": "ankastake",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/0abefae10692c72e637614171b6e7505_360_360.jpg",
+        "name": "AnkaStake",
+        "twitter": "ankastake",
+        "url": "https://www.ankastake.com/"
+      },
+      "node_id": "2cCzBxxmU/xnZwBf7aEoPiKXx5JWURZrkfHHXML8bmk=",
+      "rank": 64,
+      "start_date": "2022-03-24T22:03:14Z",
+      "voting_power": 1141220203365453,
+      "voting_power_cumulative": 214408847667157300
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpqz2ut6a6prfcjm64xnpnjhsnqny6jqfyav829v",
+      "entity_id": "bb1zWp0gzS1ij1OY3KzxC0BJNdqkAiJ26z3iD8slt7c=",
+      "escrow": {
+        "active_balance": "16766941076571058",
+        "active_shares": "12553280028003128",
+        "debonding_balance": "4096683498897274",
+        "debonding_shares": "4096683498897274",
+        "num_delegators": 937,
+        "self_delegation_balance": "5682175596112",
+        "self_delegation_shares": "4254201234473"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "GoStaking8@gmail.com",
+        "keybase": "gostaking",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/796f004b2fa2a5ff17299d361b78b005_360_360.jpg",
+        "name": "GoStaking",
+        "twitter": "StakingGo"
+      },
+      "node_id": "DudLYGDVKMgh/OZ0rOsoxeCNzSxalm4bvQsrsE/H9XA=",
+      "rank": 65,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 1047930851641381,
+      "voting_power_cumulative": 215456778518798700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 15050,
+        "lower": 0,
+        "upper": 5000
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qp4tj3u9qkcgjqrrjvwljrqcyx3g5ygjqgtm37t3",
+      "entity_id": "pMObKfyj3dlGVgf55VX9NUAERkHLXteFvKExpOAn/tc=",
+      "escrow": {
+        "active_balance": "16447253962917959",
+        "active_shares": "14513312315985195",
+        "debonding_balance": "321622598156736",
+        "debonding_shares": "321622598156736",
+        "num_delegators": 303,
+        "self_delegation_balance": "151705591298266",
+        "self_delegation_shares": "133867369687184"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@strataone.io",
+        "keybase": "Strata_ONE",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/04596292f98bb67304f8cfea15625b05_360_360.jpg",
+        "name": "Strata One",
+        "twitter": "Strata_ONE",
+        "url": "https://strataone.io"
+      },
+      "node_id": "MJc6tzSAEQOxgduime6zcs8bhlfb79AaICG1Xi7fCFA=",
+      "rank": 66,
+      "start_date": "2022-05-10T11:26:42Z",
+      "voting_power": 1028331530752129,
+      "voting_power_cumulative": 216485110049550820
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 6735,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf",
+      "entity_id": "DIbPacWGEiealk+226eYEafYmKJpD98PYoWp/tcPXJI=",
+      "escrow": {
+        "active_balance": "16222524943212093",
+        "active_shares": "12041782233278660",
+        "debonding_balance": "16674636876550",
+        "debonding_shares": "16674636876550",
+        "num_delegators": 31,
+        "self_delegation_balance": "130968564805756",
+        "self_delegation_shares": "97216366892125"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "0@0base.vc",
+        "keybase": "0basevc",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/c96cf0ee2dc8f102b6c3eaf1fbdf4c05_360_360.jpg",
+        "name": "0base.vc",
+        "twitter": "0basevc",
+        "url": "https://0base.vc"
+      },
+      "node_id": "AZJhDCByjr/YdTvA7uFnIeYcg7iuHPGiDrJRKaEOYHA=",
+      "rank": 67,
+      "start_date": "2021-11-22T13:43:59Z",
+      "voting_power": 1013904939599776,
+      "voting_power_cumulative": 217499014989150600
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 14246,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qz2rxs50p4kn537tcupjhg7ad3zcm9s7uuyrrd9e",
+      "entity_id": "aOefxt5MUuXEbErxpD+ZttJWh/3d9if+t+PBTeAgKpo=",
+      "escrow": {
+        "active_balance": "14869506670711124",
+        "active_shares": "11115133563025235",
+        "debonding_balance": "1172024314428965",
+        "debonding_shares": "1172024314428965",
+        "num_delegators": 481,
+        "self_delegation_balance": "21646485008293",
+        "self_delegation_shares": "16181005689390"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@staky.io",
+        "keybase": "staky",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/802332fc652f99a333844817aaddc105_360_360.jpg",
+        "name": "Staky.io",
+        "twitter": "staky_validator",
+        "url": "https://staky.io"
+      },
+      "node_id": "vBGuFf/8tdEMQPiiPggnLlWT9aCbIQgNcRM+EKh2kX0=",
+      "rank": 68,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 929341536882895,
+      "voting_power_cumulative": 218428356526033470
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qrzkqzvlw9xgyxhhqps746ssyhn5lkqrmcgz8amq",
+      "entity_id": "C7he7BJPrgVrsGRm4m+OFcHlcNYOEPSGeerxvV/BsBA=",
+      "escrow": {
+        "active_balance": "14545142742780542",
+        "active_shares": "10679366385167037",
+        "debonding_balance": "2927613927782",
+        "debonding_shares": "2927613927782",
+        "num_delegators": 7,
+        "self_delegation_balance": "749974502941",
+        "self_delegation_shares": "550647913058"
+      },
+      "in_validator_set": true,
+      "node_id": "/LlzNoccjtMUbW6fXa/3KKVa6JN+qwnGQrB4u631nR8=",
+      "rank": 69,
+      "start_date": "2021-11-17T03:59:32Z",
+      "voting_power": 909068848758941,
+      "voting_power_cumulative": 219337425374792420
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qz65awwegd9pr8msfxkg7hpwyjemm2qdlysyc8jq",
+      "entity_id": "izy38AmUeU4b4L23kVy4BlxbkHGOPy4KPSSLnJglrV0=",
+      "escrow": {
+        "active_balance": "13401367371083802",
+        "active_shares": "9829742289085018",
+        "debonding_balance": "2547453343376",
+        "debonding_shares": "2547453343376",
+        "num_delegators": 12,
+        "self_delegation_balance": "755532404612392",
+        "self_delegation_shares": "554173960219696"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "26FA2B24F46A98EF",
+        "name": "Wetez",
+        "twitter": "Wetez_wallet",
+        "url": "https://www.wetez.io"
+      },
+      "node_id": "4Tz2fSohCN3mm3I9sA6hAQMv/8nmj4ssIXKoOBnxBek=",
+      "rank": 70,
+      "start_date": "2021-11-19T13:09:11Z",
+      "voting_power": 837583090332592,
+      "voting_power_cumulative": 220175008465125020
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 25550,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpv6xr9zf4epy67wycy9llqtspjfaxpzs5u2e0lv",
+      "entity_id": "1YeMK0NAZtE1ZK8u6KWddkKGZoD5VLfG9EAZI3b8HzE=",
+      "escrow": {
+        "active_balance": "13190921323546433",
+        "active_shares": "12493125868473501",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 21,
+        "self_delegation_balance": "31181342547151",
+        "self_delegation_shares": "29531859650635"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@w3coins.io",
+        "keybase": "w3coins",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1b01fcc940b47fdbe4d48a0fa192b205_360_360.jpg",
+        "name": "w3coins",
+        "twitter": "w3coins_io",
+        "url": "https://www.w3coins.io"
+      },
+      "node_id": "SWzqmOU0EDxeQvko0tvQStepEdSjTdqhMQNEfoRonvI=",
+      "rank": 71,
+      "start_date": "2023-02-06T15:36:23Z",
+      "voting_power": 824430249584045,
+      "voting_power_cumulative": 220999438714709060
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 20620,
+        "lower": 0,
+        "upper": 5000
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qqlckx8uus05llpl5jdcsck6zceal06zgg3ll75t",
+      "entity_id": "5gBr+GeuXD6Dwbs1u0Nsrk0P/fbtdFou4W3JB0YGgSA=",
+      "escrow": {
+        "active_balance": "13161598831692571",
+        "active_shares": "11531812743278206",
+        "debonding_balance": "1566570721460259",
+        "debonding_shares": "1566570721460259",
+        "num_delegators": 271,
+        "self_delegation_balance": "3364561195402",
+        "self_delegation_shares": "2947931339105"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@orionstaking.com",
+        "keybase": "orionstaking",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/0c6385396acbe5ed0d2c60e12c58c005_360_360.jpg",
+        "name": "Orion",
+        "twitter": "orionstaking",
+        "url": "https://orionstaking.com"
+      },
+      "node_id": "lt3KIEsVunHEMDfgnekDbFFr7Y5aqXmNgbfJMzJzYDM=",
+      "rank": 72,
+      "start_date": "2022-04-13T16:57:16Z",
+      "voting_power": 822597599029580,
+      "voting_power_cumulative": 221822036313738660
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11182,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 10000,
+      "entity_address": "oasis1qrflth3g7k0ymkut2zrca3ktagw6g882yvqmgzdv",
+      "entity_id": "WKCE1sMmJLe+DsdIQBMkPiKEgBpAQO+PjCeWjmLA1EM=",
+      "escrow": {
+        "active_balance": "12611927582951208",
+        "active_shares": "10884571947430644",
+        "debonding_balance": "35072284629350",
+        "debonding_shares": "35072284629350",
+        "num_delegators": 38,
+        "self_delegation_balance": "129024999016935",
+        "self_delegation_shares": "111353468815936"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "staking@datax.io",
+        "keybase": "dataxstaking",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/59881d43f954b391d5a8bacad93e1f05_360_360.jpg",
+        "name": "Datax Staking",
+        "twitter": "DataxStaking",
+        "url": "https://datax.io/staking/"
+      },
+      "node_id": "DGntJaRFwLUKi879qSLbt1uP3w5cE5vMAlYMispiaFE=",
+      "rank": 73,
+      "start_date": "2021-12-11T06:24:39Z",
+      "voting_power": 788243243206072,
+      "voting_power_cumulative": 222610279556944700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 7006,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qqxqhx9t52rsevhhtfspdxp4gsaft6ewyyeqnqy3",
+      "entity_id": "TWLcdgEfahwyFPTC7nN3rZacPO2aXlLfZIDt7uXbzEI=",
+      "escrow": {
+        "active_balance": "12522078258834521",
+        "active_shares": "10176691216429918",
+        "debonding_balance": "4683647656867802",
+        "debonding_shares": "4683647656867802",
+        "num_delegators": 12,
+        "self_delegation_balance": "97441422888939",
+        "self_delegation_shares": "79190630495436"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "ludasik",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/ec5c87e2f710581ba3a91fbc59313905_360_360.jpg",
+        "name": "LDV",
+        "url": "https://keybase.io/ludasik"
+      },
+      "node_id": "MDvOFuiehs/VbW/s0e6DTn5b4fnsteQhCVd9E7T80Hs=",
+      "rank": 74,
+      "start_date": "2021-11-12T15:10:04Z",
+      "voting_power": 782627676340833,
+      "voting_power_cumulative": 223392907233285540
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 5000,
+      "entity_address": "oasis1qqf6wmc0ax3mykd028ltgtqr49h3qffcm50gwag3",
+      "entity_id": "D8oCKJab4LtOMQJR0YQZXx+fMw6QHyTiv3YCfN8tM18=",
+      "escrow": {
+        "active_balance": "12492597833202834",
+        "active_shares": "9154638907173758",
+        "debonding_balance": "332569842063762",
+        "debonding_shares": "332569842063762",
+        "num_delegators": 87,
+        "self_delegation_balance": "705170236873302",
+        "self_delegation_shares": "516752317880883"
+      },
+      "in_validator_set": true,
+      "media": {
+        "keybase": "thecovertcrypto",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/ab2fd838c7cd35e2ee608520e64aca05_360_360.jpg",
+        "name": "ou812",
+        "url": "https://www.kruptosnomisma.org/"
+      },
+      "node_id": "9R8sWVuwyIoE64JXu2sdDWR6vdqFr/X9aEWvPE8G824=",
+      "rank": 75,
+      "start_date": "2021-11-18T16:23:37Z",
+      "voting_power": 780785154953188,
+      "voting_power_cumulative": 224173692388238750
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1596,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qpg763ex50jp0e34lsu789smlzqvcv7025v7m7yx",
+      "entity_id": "6reBpCKHsqMX1Y26o3p5V+95in5ka16I969CWyiRudY=",
+      "escrow": {
+        "active_balance": "12459649021759473",
+        "active_shares": "9162002770301723",
+        "debonding_balance": "1319635212198845",
+        "debonding_shares": "1319635212198845",
+        "num_delegators": 10,
+        "self_delegation_balance": "100492630838",
+        "self_delegation_shares": "73895641886"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@blockog.capital",
+        "name": "BlockOG Capital",
+        "twitter": "prateek_jain321",
+        "url": "https://blockog.capital/"
+      },
+      "node_id": "vMQ22VnjLoqniEhCIaIIMvmIBykplV4rqawcGdvFAqY=",
+      "rank": 76,
+      "start_date": "2022-01-13T13:25:04Z",
+      "voting_power": 778725860065783,
+      "voting_power_cumulative": 224952418248304500
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 23253,
+        "lower": 0,
+        "upper": 15000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qrjwzudz53vfy2vfqe5tavae370tukt9fulj27l0",
+      "entity_id": "Ph5b+2q8cFT3ppda6yhlvZVZa/VnbNsaZ6+IMv29Qm8=",
+      "escrow": {
+        "active_balance": "12277694670267157",
+        "active_shares": "11810649196733265",
+        "debonding_balance": "748852222066144",
+        "debonding_shares": "748852222066144",
+        "num_delegators": 454,
+        "self_delegation_balance": "1182209802193",
+        "self_delegation_shares": "1137238351794"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "nodosag@alphagrowth.es",
+        "keybase": "TaLiNiTo",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/b35a59602ceee57d6b2fbc71af727205_360_360.jpg",
+        "name": "RoseDrop",
+        "twitter": "AlphaGrowth_xyz",
+        "url": "https://rosedrop.es"
+      },
+      "node_id": "YOg6j3mfRIscs0oW+IzeiheXd8zS+6QVXZS/fPr8go4=",
+      "rank": 77,
+      "start_date": "2023-04-15T18:18:15Z",
+      "voting_power": 767353745280598,
+      "voting_power_cumulative": 225719771993585120
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qryc94hn6hucev6ex79ceheve2pjesenc50svvvp",
+      "entity_id": "erpPSkQwGnb9j+/qqyJmeRK2e1mhJc/Do78jNdpPjk0=",
+      "escrow": {
+        "active_balance": "12048853198238074",
+        "active_shares": "8792763284593455",
+        "debonding_balance": "249373021540366",
+        "debonding_shares": "249373021540366",
+        "num_delegators": 35,
+        "self_delegation_balance": "552289097170",
+        "self_delegation_shares": "403038132856"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@infstones.com",
+        "keybase": "infstones",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/6a3d9cbed6425d5a695224d987f82105_360_360.jpg",
+        "name": "InfStones",
+        "twitter": "infstones",
+        "url": "https://infstones.com"
+      },
+      "node_id": "skPNqlh8lnR83RyK2clbAscktu5jY/fWq5OzcSZL6Iw=",
+      "rank": 78,
+      "start_date": "2023-11-30T05:56:33Z",
+      "voting_power": 753051193755001,
+      "voting_power_cumulative": 226472823187340130
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 18655,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qp9q8g56dwuak0nwsmnykyzsfahj6z49xczp6d8c",
+      "entity_id": "drOpGoCNcPxc+MpfbJU7KoBqQZa0eTQUdjTDpe3qvrY=",
+      "escrow": {
+        "active_balance": "11771458681236520",
+        "active_shares": "10902619768016887",
+        "debonding_balance": "1111133398713040",
+        "debonding_shares": "1111133398713040",
+        "num_delegators": 343,
+        "self_delegation_balance": "10443282642197",
+        "self_delegation_shares": "9672474997452"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "admin@validator.one",
+        "keybase": "validator_one",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/be512247bd3574fb9fb8318de3e3eb05_360_360.jpg",
+        "name": "Validator.ONE | 0% Fee to 2026 | High Self-Stake",
+        "twitter": "validatorone",
+        "url": "https://validator.one"
+      },
+      "node_id": "LupNjD/E7Mgn0TKmUZeQRUpNwDadUyKinseDz28px5A=",
+      "rank": 79,
+      "start_date": "2022-10-29T19:35:50Z",
+      "voting_power": 735714085506420,
+      "voting_power_cumulative": 227208537272846530
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qq2kqzr4q942x44st97n66nmmyh7dhsuvsqyc22u",
+      "entity_id": "BBba0XfI4WSTroE+/YGcFthxbEC5jQJhWhl0jIBwke0=",
+      "escrow": {
+        "active_balance": "11745295590516257",
+        "active_shares": "8803700579174200",
+        "debonding_balance": "43997979680949",
+        "debonding_shares": "43997979680949",
+        "num_delegators": 8,
+        "self_delegation_balance": "1756010052561",
+        "self_delegation_shares": "1316219468265"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "lazarev.zahar@yandex.ru",
+        "keybase": "aptemuyc",
+        "name": "Aptemuyc🌹",
+        "twitter": "g5sliqjq2g92jet",
+        "url": "https://my.entity/url"
+      },
+      "node_id": "POpjxTxuw2cJsgtgzgfhrkPD3hVh2oYkHmELHonPgpQ=",
+      "rank": 80,
+      "start_date": "2021-09-07T06:25:41Z",
+      "voting_power": 734078896963987,
+      "voting_power_cumulative": 227942616169810530
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1595,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qptk3ydjxuq3eenqwljdy45uxdye5tfg4sqar0fz",
+      "entity_id": "RFpWeibJDHnfgoq9mO1BJcxyDbIstDi22ZBhvgXvE1Y=",
+      "escrow": {
+        "active_balance": "11573161105182534",
+        "active_shares": "8483947183231981",
+        "debonding_balance": "1683376869157235",
+        "debonding_shares": "1683376869157235",
+        "num_delegators": 6,
+        "self_delegation_balance": "93342710093",
+        "self_delegation_shares": "68426820915"
+      },
+      "in_validator_set": true,
+      "node_id": "ROe9AtvfOFX6bu+5vhRCR87qYXSzp5NfELBqB3Hdgrw=",
+      "rank": 81,
+      "start_date": "2022-01-13T13:25:16Z",
+      "voting_power": 723320522076830,
+      "voting_power_cumulative": 228665936691887360
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1476,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qr9wccuk6pqcr5ld8t2uf599e4ch5348hqeq53x4",
+      "entity_id": "29VJbrrthqvw/ti3Vj7cASwkM9VMVa/RTKiwMBdWDQk=",
+      "escrow": {
+        "active_balance": "11324859263208566",
+        "active_shares": "8458780105376648",
+        "debonding_balance": "25232059062825",
+        "debonding_shares": "25232059062825",
+        "num_delegators": 25,
+        "self_delegation_balance": "862713414307540",
+        "self_delegation_shares": "644379139376488"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@blockscale.net",
+        "keybase": "lukeyoungblood",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1c6896d62117c36fd120c54d7ddcd605_360_360.jpg",
+        "name": "Blockscale - Planet-Scale Blockchain Services",
+        "twitter": "blockscale",
+        "url": "https://blockscale.net/"
+      },
+      "node_id": "+7Jku1SXiunTIHYxYNu4WGNo2g3uSQh2bXych4f1fDc=",
+      "rank": 82,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 707801700871721,
+      "voting_power_cumulative": 229373738392759070
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 340,
+        "lower": 0,
+        "upper": 30000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp4rp7adhegfktyg4aq3w6jelqumx6klfv5t7kvv",
+      "entity_id": "jzTWYikeN6NIuMQ6l4iqdDOF9jyfOJG2FcnQaNBn9+s=",
+      "escrow": {
+        "active_balance": "11292458129887881",
+        "active_shares": "8316651258904115",
+        "debonding_balance": "150293360963616",
+        "debonding_shares": "150293360963616",
+        "num_delegators": 23,
+        "self_delegation_balance": "100470922030884",
+        "self_delegation_shares": "73994661798202"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "tequila@moonli.me",
+        "keybase": "y3v63n",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/d1c943413294d35174aeb0464ddd1305_360_360.jpg",
+        "name": "moonli.me",
+        "twitter": "moonli_me",
+        "url": "https://moonli.me"
+      },
+      "node_id": "1Eh9S7bnBnYzhdMuRc8W1DtGsjgMptbRktoE7tw/HiA=",
+      "rank": 83,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 705776635770113,
+      "voting_power_cumulative": 230079515028529180
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 527,
+        "lower": 0,
+        "upper": 100000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qzp84num6xgspdst65yv7yqegln6ndcxmuuq8s9w",
+      "entity_id": "xQN6ffLSdc51EfEQ2BzltK1iWYAw6Y1CkBAbFzlhhEQ=",
+      "escrow": {
+        "active_balance": "11236592573281734",
+        "active_shares": "8840482728734986",
+        "debonding_balance": "56090",
+        "debonding_shares": "56090",
+        "num_delegators": 15,
+        "self_delegation_balance": "61157024515047",
+        "self_delegation_shares": "48115798044655"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "cherideal@gmail.com",
+        "keybase": "hybridxexchange",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/0499c54ed711603331b320b00007b205_360_360.jpg",
+        "name": "hybridx.exchange",
+        "twitter": "HybridxExchange",
+        "url": "https://hybridx.exchange"
+      },
+      "node_id": "Kb6opWKGbJHL0LK2Lto+m5ROIAXLhIr1lxQz0/kAOUM=",
+      "rank": 84,
+      "start_date": "2021-08-20T07:39:10Z",
+      "voting_power": 702285048363421,
+      "voting_power_cumulative": 230781800076892600
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19500,
+      "entity_address": "oasis1qppjm5sxqwps4dpyekdvz530sjmq3e5eusp7hdan",
+      "entity_id": "3NKMT/Qz11e2xklwSCV/zeawLE3BIO/Rn4LfaV47QJI=",
+      "escrow": {
+        "active_balance": "10270111785439337",
+        "active_shares": "7642567997582432",
+        "debonding_balance": "771161836323",
+        "debonding_shares": "771161836323",
+        "num_delegators": 28,
+        "self_delegation_balance": "3076878424016771",
+        "self_delegation_shares": "2289678346946688"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@ubik.capital",
+        "keybase": "ubikcosmos",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/b3273b5e67fbb587d207293e478aab05_360_360.jpg",
+        "name": "Ubik Capital",
+        "twitter": "ubikcapital",
+        "url": "https://ubik.capital"
+      },
+      "node_id": "GrfIMoanLXIPuS91RhqdikNLcebWN26tMM2/iIA8cAE=",
+      "rank": 85,
+      "start_date": "2023-02-16T18:49:21Z",
+      "voting_power": 641880170069077,
+      "voting_power_cumulative": 231423680246961700
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 17000,
+      "entity_address": "oasis1qq4f2h225gv6g8w8w23fm740aze9lke4qun72n59",
+      "entity_id": "Vt63FfFzNMgUngrMvnKks+icySi5LwkjniJEJMZAimM=",
+      "escrow": {
+        "active_balance": "10203717647603064",
+        "active_shares": "7532423714317379",
+        "debonding_balance": "11428374616398",
+        "debonding_shares": "11428374616398",
+        "num_delegators": 13,
+        "self_delegation_balance": "755853179340256",
+        "self_delegation_shares": "557973731656732"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "staking@gunray.xyz",
+        "keybase": "gunray",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/d9315769d8f437f14be90dc070ddc805_360_360.jpg",
+        "name": "gunray",
+        "url": "https://gunray.xyz"
+      },
+      "node_id": "LHA2Gbme/AReIFXmxwD9m/Ae8sZ1d2U/DFRfecT72YM=",
+      "rank": 86,
+      "start_date": "2021-12-07T21:40:16Z",
+      "voting_power": 637730548197740,
+      "voting_power_cumulative": 232061410795159420
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 11074,
+        "lower": 1000,
+        "upper": 19000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qpfcsun7zju6ku7d2mdh54j9nsmxvj76uqk35w57",
+      "entity_id": "Z3uLK0KpBUE/sQcianpZy/Dkock7RzOOvI4TJnfJvik=",
+      "escrow": {
+        "active_balance": "9366158155836202",
+        "active_shares": "8161166021869463",
+        "debonding_balance": "1832435065176",
+        "debonding_shares": "1832435065176",
+        "num_delegators": 9,
+        "self_delegation_balance": "106470565668263",
+        "self_delegation_shares": "92772719444163"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@01node.com",
+        "keybase": "01node",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/82c0a77a4fa7eadcc7c19db426535e05_360_360.jpg",
+        "name": "01node",
+        "twitter": "01node",
+        "url": "https://01node.com"
+      },
+      "node_id": "U7xmDzxndm9uL4qfFWau6d1dadgeH2yEP6q1L332lTE=",
+      "rank": 87,
+      "start_date": "2021-12-29T13:15:26Z",
+      "voting_power": 585383228105227,
+      "voting_power_cumulative": 232646794023264670
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 17000,
+      "entity_address": "oasis1qzv7a0gkxwpfelv985fvkl24k7jh3arfwy84zw7q",
+      "entity_id": "GDWO0+R7qSrWB0bvT+V2Kz6vlHcm6ZnaNQM2/FsFqEA=",
+      "escrow": {
+        "active_balance": "8133410412274868",
+        "active_shares": "6002393560111782",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 7,
+        "self_delegation_balance": "2138960417549246",
+        "self_delegation_shares": "1578536134885715"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "validator@huglester.com",
+        "keybase": "huglester",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/763059fd2f9986c2a759409bb8288305_360_360.jpg",
+        "name": "huglester.com",
+        "twitter": "huglester",
+        "url": "https://huglester.com/"
+      },
+      "node_id": "RClDxygiGYEFeO90jnfHAIXm2QrP5TNQ5F50N77zKY4=",
+      "rank": 88,
+      "start_date": "2022-01-31T13:20:20Z",
+      "voting_power": 508336712174283,
+      "voting_power_cumulative": 233155130735438940
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19500,
+      "entity_address": "oasis1qqlq8jplttrmw982rrhp0svl8054xqevecks5yqr",
+      "entity_id": "KmMS+RzjQ9vm9J2aX9YihJnmmSc/IBquCysbhPxVDFM=",
+      "escrow": {
+        "active_balance": "7827412173229663",
+        "active_shares": "5815683326029831",
+        "debonding_balance": "102533863699",
+        "debonding_shares": "102533863699",
+        "num_delegators": 36,
+        "self_delegation_balance": "318026504319687",
+        "self_delegation_shares": "236290283106993"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "aionsmartstake@gmail.com",
+        "name": "Smart Stake",
+        "twitter": "smartstake",
+        "url": "https://smartstake.io"
+      },
+      "node_id": "eudq22Uwt0ciC7/BYN3TsUy+MCataTkQjwS/BBlgvJE=",
+      "rank": 89,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 489211876357243,
+      "voting_power_cumulative": 233644342611796200
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpjk62axdvn2g97felfa9jpxxrptqzm4mgwh540r",
+      "entity_id": "+uMsNOARzhq1lJfh7bcoa3/iiUeLSYPMkQHgYICUF2A=",
+      "escrow": {
+        "active_balance": "6954516988166591",
+        "active_shares": "6133654066697182",
+        "debonding_balance": "235445788184302",
+        "debonding_shares": "235445788184302",
+        "num_delegators": 132,
+        "self_delegation_balance": "54821737699871",
+        "self_delegation_shares": "48350960240427"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@posnode.com",
+        "keybase": "pos_node",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/919e27a6b7601599af7b4cf67fe9f705_360_360.jpg",
+        "name": "PoS Node",
+        "url": "https://www.posnode.com"
+      },
+      "node_id": "P5PjvHDpeiFQGxh4OTaO6qXwRC0AJfhlTfwPj0ZYEzA=",
+      "rank": 90,
+      "start_date": "2022-04-27T06:34:12Z",
+      "voting_power": 434656081683700,
+      "voting_power_cumulative": 234078998693479870
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qpjuke27se2wnmvx6e8uc4l5h44yjp9h7g2clqfq",
+      "entity_id": "3DRMMM7ye2HREvk8zz06OjMG6BuWjs84PLdSYChNHAw=",
+      "escrow": {
+        "active_balance": "6726751776779421",
+        "active_shares": "4998303064484329",
+        "debonding_balance": "28220159915796",
+        "debonding_shares": "28220159915796",
+        "num_delegators": 91,
+        "self_delegation_balance": "22759966459851",
+        "self_delegation_shares": "16911759773348"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@rockx.com",
+        "keybase": "rockxrocks",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1f47c0873584c67d4692e7abcee2bf05_360_360.jpg",
+        "name": "RockX",
+        "twitter": "rockx_official",
+        "url": "https://rockx.com"
+      },
+      "node_id": "3xkzy9g5wL1sqGY8cnd6A7kFuwFM4yuUt0nEJrdHNJ0=",
+      "rank": 91,
+      "start_date": "2021-10-28T01:07:12Z",
+      "voting_power": 420420796257860,
+      "voting_power_cumulative": 234499419489737730
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 1596,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 15000,
+      "entity_address": "oasis1qrcmmvgf7qt8pmy543dmz0muwcm752kleund8rwr",
+      "entity_id": "7nCBfl1vRS4kn7G2yJZeZdwE8OFA4avUphWdCRrFhJM=",
+      "escrow": {
+        "active_balance": "6506475570158180",
+        "active_shares": "4773573975858408",
+        "debonding_balance": "2027341929988306",
+        "debonding_shares": "2027341929988306",
+        "num_delegators": 8,
+        "self_delegation_balance": "52477629686",
+        "self_delegation_shares": "38501004835"
+      },
+      "in_validator_set": true,
+      "node_id": "lTC9wxlqYTUvXSV2bJxj0w2JWGdlY6pZFIx68V/qYB4=",
+      "rank": 92,
+      "start_date": "2022-01-13T13:26:48Z",
+      "voting_power": 406653572305276,
+      "voting_power_cumulative": 234906073062043000
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qqc35xprrs0x595d9s0hrz0p60aey4cm8ya8at66",
+      "entity_id": "AaemJ+W/+IKfvWQSVjwVFLU4M7g9VyDgbFQfWNqkU2Q=",
+      "escrow": {
+        "active_balance": "6248522336400986",
+        "active_shares": "5541640847336521",
+        "debonding_balance": "66937313027322",
+        "debonding_shares": "66937313027322",
+        "num_delegators": 126,
+        "self_delegation_balance": "32454767929587",
+        "self_delegation_shares": "28783231933363"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "support@terminet.io ",
+        "keybase": "ferland",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/46e892f65b076481e8a4196ca6066005_360_360.jpg",
+        "name": "Terminet",
+        "twitter": "Terminet123",
+        "url": "https://www.terminet.io"
+      },
+      "node_id": "Vql2WfvlHnF0delOCNiV34Gizw05hCpZfsekGav7F9I=",
+      "rank": 93,
+      "start_date": "2022-04-27T09:17:55Z",
+      "voting_power": 390531540820801,
+      "voting_power_cumulative": 235296604602863800
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 18784,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 3000,
+      "entity_address": "oasis1qrw8xd7sewarn0qm3jc5km4e0j2l3qdhfqexqqry",
+      "entity_id": "Hgacs48hpElimzXAoMmox5T7sAalPLp7vdVr1wAPevo=",
+      "escrow": {
+        "active_balance": "6164352694381008",
+        "active_shares": "5958929631081473",
+        "debonding_balance": "41676388171171",
+        "debonding_shares": "41676388171171",
+        "num_delegators": 84,
+        "self_delegation_balance": "591193357691",
+        "self_delegation_shares": "571492221731"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "cryptosjnet@gmail.com",
+        "keybase": "CryptoSJNet",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/e59f98d0d1a7e16594d89602bd8d5b05_360_360.jpg",
+        "name": "CryptoSJ.net",
+        "twitter": "CryptoSJNet",
+        "url": "https://cryptosj.net"
+      },
+      "node_id": "6iVX2oi9FANusFaQPmIDSWu3qLNE2YKMPhQeO1EhUNQ=",
+      "rank": 94,
+      "start_date": "2022-11-18T18:46:56Z",
+      "voting_power": 385270953082015,
+      "voting_power_cumulative": 235681875555945820
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 340,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 19000,
+      "entity_address": "oasis1qzc687uuywnel4eqtdn6x3t9hkdvf6sf2gtv4ye9",
+      "entity_id": "tvPlmGHv5aokL9MMBqNAkSOygldJIlRTmSIvCwuh0rU=",
+      "escrow": {
+        "active_balance": "6148555027495529",
+        "active_shares": "4567732118502394",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
+        "num_delegators": 12,
+        "self_delegation_balance": "3093900247408341",
+        "self_delegation_shares": "2298443694222896"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@vitwit.com",
+        "keybase": "vitwiter",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/4c37bcb94523674a84d57cab554c5c05_360_360.jpg",
+        "name": "Witval",
+        "twitter": "vitwit_",
+        "url": "https://www.vitwit.com/"
+      },
+      "node_id": "jezrY6n61D/wD39nZKC+LpYfOZt5AN8gZ5SWu9vypD8=",
+      "rank": 95,
+      "start_date": "2022-03-30T06:28:38Z",
+      "voting_power": 384283601695877,
+      "voting_power_cumulative": 236066159157641730
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 20809,
+        "lower": 0,
+        "upper": 5000
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qpjwv9r7v7y9tw2j4xskck90mkggv9geuy748fqg",
+      "entity_id": "RlDu2itOjxNzDEZsn95IY6CQzzDE3V218gcp6LtUv0c=",
+      "escrow": {
+        "active_balance": "5413927824378681",
+        "active_shares": "5123881050484842",
+        "debonding_balance": "2805402424274645",
+        "debonding_shares": "2805402424274645",
+        "num_delegators": 210,
+        "self_delegation_balance": "211321370306",
+        "self_delegation_shares": "200000000000"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@andromedapool.com",
+        "keybase": "andromedapool",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/eb2fa72eb025478beca43f249bf8bb05_360_360.jpg",
+        "name": "AndromedaPool | Zero fee to 2025",
+        "twitter": "andromedapool",
+        "url": "https://andromedapool.com"
+      },
+      "node_id": "r4AL9Xu6vOR+ktf4p7q1zo8Fsei9meit9J3orlyhpak=",
+      "rank": 96,
+      "start_date": "2023-01-28T13:53:56Z",
+      "voting_power": 338369531437893,
+      "voting_power_cumulative": 236404528689079600
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 5369,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qp0j5v5mkxk3eg4kxfdsk8tj6p22g4685qk76fw6",
+      "entity_id": "7DwKCCQV9THNLyTELQTBCWNPIHZJdAq7qGk1D7vx2zo=",
+      "escrow": {
+        "active_balance": "5237736357899543",
+        "active_shares": "4186501385461154",
+        "debonding_balance": "4109462471782",
+        "debonding_shares": "4109462471782",
+        "num_delegators": 23,
+        "self_delegation_balance": "1717089835600",
+        "self_delegation_shares": "1372462927589"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "tristan.foureur@gmail.com",
+        "keybase": "esya",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/cc48f9fbff29c60ed8dd05f871b5ab05_360_360.jpg",
+        "name": "Esya's node",
+        "twitter": "esyacreations",
+        "url": "https://github.com/esya"
+      },
+      "node_id": "mRRMUc8eU8zbqUWAiHDiBeRo6wqVImqQs91TxkGjuuU=",
+      "rank": 97,
+      "start_date": "2022-03-28T21:06:36Z",
+      "voting_power": 327357595946724,
+      "voting_power_cumulative": 236731886285026340
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 19500,
+      "entity_address": "oasis1qq3fq8hxrlq6pedw0q3f57daea43a6v7q5rwf0ll",
+      "entity_id": "Y+ve+O0hlBco/1YzuFODIn7Jo3D5c9BOqduhc7KZM8E=",
+      "escrow": {
+        "active_balance": "4827674602995207",
+        "active_shares": "3638350034516359",
+        "debonding_balance": "1210611945828908",
+        "debonding_shares": "1210611945828908",
+        "num_delegators": 10,
+        "self_delegation_balance": "741409444301",
+        "self_delegation_shares": "558759091922"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "icomun01@yandex.ru",
+        "keybase": "ostrovmaria",
+        "name": "Maria Mirabella❤️ ROSE ",
+        "twitter": "Alenka_kitty_00"
+      },
+      "node_id": "TK0FcEOwv/hU5TI8PqWrhQiOy8VfP0vc8m7QViD4VMo=",
+      "rank": 98,
+      "start_date": "2021-08-31T16:03:18Z",
+      "voting_power": 301728808794671,
+      "voting_power_cumulative": 237033615093821000
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 20453,
+        "lower": 0,
+        "upper": 25000
+      },
+      "current_rate": 20000,
+      "entity_address": "oasis1qztpm422n7v98f4s7ja0wt5jey7fy3xpg5ye2vtl",
+      "entity_id": "RDCyARTIdpiG75L9vVXAYIhRCToSrchZkv3JUW3Pji8=",
+      "escrow": {
+        "active_balance": "3113063239295422",
+        "active_shares": "2235934091856115",
+        "debonding_balance": "121892237070724",
+        "debonding_shares": "121892237070724",
+        "num_delegators": 111,
+        "self_delegation_balance": "2608412083827562",
+        "self_delegation_shares": "1873472221900479"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "contact@secondstate.io",
+        "name": "Second State",
+        "twitter": "secondstateinc",
+        "url": "https://www.secondstate.io"
+      },
+      "node_id": "GWBXv2OxowCLsRGyT/cND2TKEs9kpo4xtvr1JTsB8R0=",
+      "rank": 99,
+      "start_date": "2021-07-27T16:44:44Z",
+      "voting_power": 194566452455963,
+      "voting_power_cumulative": 237228181546276960
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 0
+      },
+      "current_rate": 0,
+      "entity_address": "oasis1qrgmg0t3zxn4lgary6w227dv6c5dl55rfvh6p6k2",
+      "entity_id": "2bgTFAzVLsQuQnA7cNn/pRLJvemueq/73GhzFFDVdZc=",
+      "escrow": {
+        "active_balance": "2839392649221010",
+        "active_shares": "2177941931242026",
+        "debonding_balance": "72191495681822",
+        "debonding_shares": "72191495681822",
+        "num_delegators": 116,
+        "self_delegation_balance": "203656506075",
+        "self_delegation_shares": "156213704460"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "info@hyperblocks.pro",
+        "keybase": "hyperblockspro",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/9b9d1d2e5c27d408fcbe83fe4f9b7905_360_360.jpg",
+        "name": "Hyperblockspro",
+        "twitter": "hyper_blocks",
+        "url": "https://hyperblocks.pro/"
+      },
+      "node_id": "bbkPZRl8KA//0joD1R9HPnucJ4GklCoAtUoJrincsoo=",
+      "rank": 100,
+      "start_date": "2021-04-28T16:00:00Z",
+      "voting_power": 177461538360159,
+      "voting_power_cumulative": 237405643084637120
+    }
+  ]
+}

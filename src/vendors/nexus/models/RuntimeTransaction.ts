@@ -12,24 +12,32 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmAbiParam } from './EvmAbiParam';
 import {
-    EvmAbiParam,
     EvmAbiParamFromJSON,
     EvmAbiParamFromJSONTyped,
     EvmAbiParamToJSON,
-    RuntimeTransactionEncryptionEnvelope,
+    EvmAbiParamToJSONTyped,
+} from './EvmAbiParam';
+import type { RuntimeTransactionEncryptionEnvelope } from './RuntimeTransactionEncryptionEnvelope';
+import {
     RuntimeTransactionEncryptionEnvelopeFromJSON,
     RuntimeTransactionEncryptionEnvelopeFromJSONTyped,
     RuntimeTransactionEncryptionEnvelopeToJSON,
-    TxError,
+    RuntimeTransactionEncryptionEnvelopeToJSONTyped,
+} from './RuntimeTransactionEncryptionEnvelope';
+import type { TxError } from './TxError';
+import {
     TxErrorFromJSON,
     TxErrorFromJSONTyped,
     TxErrorToJSON,
-} from './';
+    TxErrorToJSONTyped,
+} from './TxError';
 
 /**
  * A runtime transaction.
+ * 
  * @export
  * @interface RuntimeTransaction
  */
@@ -48,10 +56,10 @@ export interface RuntimeTransaction {
     index: number;
     /**
      * The second-granular consensus time when this tx's block was proposed.
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeTransaction
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The Oasis cryptographic hash of this transaction's encoding.
      * @type {string}
@@ -61,6 +69,7 @@ export interface RuntimeTransaction {
     /**
      * The Ethereum cryptographic hash of this transaction's encoding.
      * Absent for non-Ethereum-format transactions.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -70,12 +79,14 @@ export interface RuntimeTransaction {
      * Unlike Ethereum, Oasis natively supports multiple-signature transactions.
      * However, the great majority of transactions only have a single signer in practice.
      * Retrieving the other signers is currently not supported by this API.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     sender_0: string;
     /**
      * The Ethereum address of this transaction's 0th signer.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -89,24 +100,28 @@ export interface RuntimeTransaction {
     /**
      * The fee that this transaction's sender committed to pay to execute
      * it (total ParaTime base units, as a string).
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     fee: string;
     /**
      * The denomination of the fee.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     fee_symbol: string;
     /**
      * The module of the fee proxy.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     fee_proxy_module?: string;
     /**
      * the base64-encoded id of the fee proxy.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -114,6 +129,7 @@ export interface RuntimeTransaction {
     /**
      * The maximum gas that this transaction's sender committed to use to
      * execute it.
+     * 
      * @type {number}
      * @memberof RuntimeTransaction
      */
@@ -129,6 +145,7 @@ export interface RuntimeTransaction {
      * ParaTime base units, as a string).
      * For EVM transactions this is calculated as `gas_price * gas_used`, where `gas_price = fee / gas_limit`, for compatibility with Ethereum.
      * For other transactions this equals to `fee`.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -150,6 +167,7 @@ export interface RuntimeTransaction {
      *   - "evm.Create"
      *   - "evm.Call"
      * May be null if the transaction was malformed or encrypted.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -167,6 +185,7 @@ export interface RuntimeTransaction {
      *  - Transactions with method "accounts.Transfer". Those are always native token transfers.
      *  - Transactions with method "evm.Call" that have no `data` field in their `body`. Those tend to be transfers, but the runtimes provides no reliable visibility into whether a transfer happened.
      * Note: Other transactions with method "evm.Call", and possibly "evm.Create", may also be (or include) native token transfers. The heuristic will be `false` for those.
+     * 
      * @type {boolean}
      * @memberof RuntimeTransaction
      */
@@ -181,12 +200,14 @@ export interface RuntimeTransaction {
      *   - For `method = "consensus.Undelegate"`, this is the consensus (!) account to which funds were previously delegated. Note that this corresponds with the `.from` field in the transaction body.
      *   - For `method = "evm.Create"`, this is the address of the newly created smart contract.
      *   - For `method = "evm.Call"`, this is the address of the called smart contract
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     to?: string;
     /**
      * A reasonable "to" Ethereum address associated with this transaction,
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -195,12 +216,14 @@ export interface RuntimeTransaction {
      * A reasonable "amount" associated with this transaction, if
      * applicable. The meaning varies based on the transaction method.
      * Usually in native denomination, ParaTime units. As a string.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
     amount?: string;
     /**
      * The denomination of the "amount" associated with this transaction, if applicable.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -210,6 +233,7 @@ export interface RuntimeTransaction {
      * transactions in confidential EVM runtimes like Sapphire.
      * Note: The term "envelope" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)
      * which differ slightly from [digital envelopes](hhttps://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).
+     * 
      * @type {RuntimeTransactionEncryptionEnvelope}
      * @memberof RuntimeTransaction
      */
@@ -217,6 +241,7 @@ export interface RuntimeTransaction {
     /**
      * Whether this transaction successfully executed.
      * Can be absent (meaning "unknown") for confidential runtimes.
+     * 
      * @type {boolean}
      * @memberof RuntimeTransaction
      */
@@ -224,6 +249,7 @@ export interface RuntimeTransaction {
     /**
      * The name of the smart contract function called by the transaction.
      * Only present for `evm.log` transaction calls to contracts that have been verified.
+     * 
      * @type {string}
      * @memberof RuntimeTransaction
      */
@@ -231,6 +257,7 @@ export interface RuntimeTransaction {
     /**
      * The decoded parameters with which the smart contract function was called.
      * Only present for `evm.log` transaction calls to contracts that have been verified.
+     * 
      * @type {Array<EvmAbiParam>}
      * @memberof RuntimeTransaction
      */
@@ -243,85 +270,105 @@ export interface RuntimeTransaction {
     error?: TxError;
 }
 
+/**
+ * Check if a given object implements the RuntimeTransaction interface.
+ */
+export function instanceOfRuntimeTransaction(value: object): value is RuntimeTransaction {
+    if (!('round' in value) || value['round'] === undefined) return false;
+    if (!('index' in value) || value['index'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
+    if (!('hash' in value) || value['hash'] === undefined) return false;
+    if (!('sender_0' in value) || value['sender_0'] === undefined) return false;
+    if (!('nonce_0' in value) || value['nonce_0'] === undefined) return false;
+    if (!('fee' in value) || value['fee'] === undefined) return false;
+    if (!('fee_symbol' in value) || value['fee_symbol'] === undefined) return false;
+    if (!('gas_limit' in value) || value['gas_limit'] === undefined) return false;
+    if (!('gas_used' in value) || value['gas_used'] === undefined) return false;
+    if (!('charged_fee' in value) || value['charged_fee'] === undefined) return false;
+    if (!('size' in value) || value['size'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeTransactionFromJSON(json: any): RuntimeTransaction {
     return RuntimeTransactionFromJSONTyped(json, false);
 }
 
 export function RuntimeTransactionFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeTransaction {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'round': json['round'],
         'index': json['index'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'hash': json['hash'],
-        'eth_hash': !exists(json, 'eth_hash') ? undefined : json['eth_hash'],
+        'eth_hash': json['eth_hash'] == null ? undefined : json['eth_hash'],
         'sender_0': json['sender_0'],
-        'sender_0_eth': !exists(json, 'sender_0_eth') ? undefined : json['sender_0_eth'],
+        'sender_0_eth': json['sender_0_eth'] == null ? undefined : json['sender_0_eth'],
         'nonce_0': json['nonce_0'],
         'fee': json['fee'],
         'fee_symbol': json['fee_symbol'],
-        'fee_proxy_module': !exists(json, 'fee_proxy_module') ? undefined : json['fee_proxy_module'],
-        'fee_proxy_id': !exists(json, 'fee_proxy_id') ? undefined : json['fee_proxy_id'],
+        'fee_proxy_module': json['fee_proxy_module'] == null ? undefined : json['fee_proxy_module'],
+        'fee_proxy_id': json['fee_proxy_id'] == null ? undefined : json['fee_proxy_id'],
         'gas_limit': json['gas_limit'],
         'gas_used': json['gas_used'],
         'charged_fee': json['charged_fee'],
         'size': json['size'],
-        'method': !exists(json, 'method') ? undefined : json['method'],
-        'body': !exists(json, 'body') ? undefined : json['body'],
-        'is_likely_native_token_transfer': !exists(json, 'is_likely_native_token_transfer') ? undefined : json['is_likely_native_token_transfer'],
-        'to': !exists(json, 'to') ? undefined : json['to'],
-        'to_eth': !exists(json, 'to_eth') ? undefined : json['to_eth'],
-        'amount': !exists(json, 'amount') ? undefined : json['amount'],
-        'amount_symbol': !exists(json, 'amount_symbol') ? undefined : json['amount_symbol'],
-        'encryption_envelope': !exists(json, 'encryption_envelope') ? undefined : RuntimeTransactionEncryptionEnvelopeFromJSON(json['encryption_envelope']),
-        'success': !exists(json, 'success') ? undefined : json['success'],
-        'evm_fn_name': !exists(json, 'evm_fn_name') ? undefined : json['evm_fn_name'],
-        'evm_fn_params': !exists(json, 'evm_fn_params') ? undefined : ((json['evm_fn_params'] as Array<any>).map(EvmAbiParamFromJSON)),
-        'error': !exists(json, 'error') ? undefined : TxErrorFromJSON(json['error']),
+        'method': json['method'] == null ? undefined : json['method'],
+        'body': json['body'] == null ? undefined : json['body'],
+        'is_likely_native_token_transfer': json['is_likely_native_token_transfer'] == null ? undefined : json['is_likely_native_token_transfer'],
+        'to': json['to'] == null ? undefined : json['to'],
+        'to_eth': json['to_eth'] == null ? undefined : json['to_eth'],
+        'amount': json['amount'] == null ? undefined : json['amount'],
+        'amount_symbol': json['amount_symbol'] == null ? undefined : json['amount_symbol'],
+        'encryption_envelope': json['encryption_envelope'] == null ? undefined : RuntimeTransactionEncryptionEnvelopeFromJSON(json['encryption_envelope']),
+        'success': json['success'] == null ? undefined : json['success'],
+        'evm_fn_name': json['evm_fn_name'] == null ? undefined : json['evm_fn_name'],
+        'evm_fn_params': json['evm_fn_params'] == null ? undefined : ((json['evm_fn_params'] as Array<any>).map(EvmAbiParamFromJSON)),
+        'error': json['error'] == null ? undefined : TxErrorFromJSON(json['error']),
     };
 }
 
-export function RuntimeTransactionToJSON(value?: RuntimeTransaction | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeTransactionToJSON(json: any): RuntimeTransaction {
+    return RuntimeTransactionToJSONTyped(json, false);
+}
+
+export function RuntimeTransactionToJSONTyped(value?: RuntimeTransaction | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'round': value.round,
-        'index': value.index,
-        'timestamp': (value.timestamp.toISOString()),
-        'hash': value.hash,
-        'eth_hash': value.eth_hash,
-        'sender_0': value.sender_0,
-        'sender_0_eth': value.sender_0_eth,
-        'nonce_0': value.nonce_0,
-        'fee': value.fee,
-        'fee_symbol': value.fee_symbol,
-        'fee_proxy_module': value.fee_proxy_module,
-        'fee_proxy_id': value.fee_proxy_id,
-        'gas_limit': value.gas_limit,
-        'gas_used': value.gas_used,
-        'charged_fee': value.charged_fee,
-        'size': value.size,
-        'method': value.method,
-        'body': value.body,
-        'is_likely_native_token_transfer': value.is_likely_native_token_transfer,
-        'to': value.to,
-        'to_eth': value.to_eth,
-        'amount': value.amount,
-        'amount_symbol': value.amount_symbol,
-        'encryption_envelope': RuntimeTransactionEncryptionEnvelopeToJSON(value.encryption_envelope),
-        'success': value.success,
-        'evm_fn_name': value.evm_fn_name,
-        'evm_fn_params': value.evm_fn_params === undefined ? undefined : ((value.evm_fn_params as Array<any>).map(EvmAbiParamToJSON)),
-        'error': TxErrorToJSON(value.error),
+        'round': value['round'],
+        'index': value['index'],
+        'timestamp': value['timestamp'],
+        'hash': value['hash'],
+        'eth_hash': value['eth_hash'],
+        'sender_0': value['sender_0'],
+        'sender_0_eth': value['sender_0_eth'],
+        'nonce_0': value['nonce_0'],
+        'fee': value['fee'],
+        'fee_symbol': value['fee_symbol'],
+        'fee_proxy_module': value['fee_proxy_module'],
+        'fee_proxy_id': value['fee_proxy_id'],
+        'gas_limit': value['gas_limit'],
+        'gas_used': value['gas_used'],
+        'charged_fee': value['charged_fee'],
+        'size': value['size'],
+        'method': value['method'],
+        'body': value['body'],
+        'is_likely_native_token_transfer': value['is_likely_native_token_transfer'],
+        'to': value['to'],
+        'to_eth': value['to_eth'],
+        'amount': value['amount'],
+        'amount_symbol': value['amount_symbol'],
+        'encryption_envelope': RuntimeTransactionEncryptionEnvelopeToJSON(value['encryption_envelope']),
+        'success': value['success'],
+        'evm_fn_name': value['evm_fn_name'],
+        'evm_fn_params': value['evm_fn_params'] == null ? undefined : ((value['evm_fn_params'] as Array<any>).map(EvmAbiParamToJSON)),
+        'error': TxErrorToJSON(value['error']),
     };
 }
-
 

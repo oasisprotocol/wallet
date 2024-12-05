@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -39,12 +39,22 @@ export interface ValidatorAggStats {
     total_staked_balance: string;
 }
 
+/**
+ * Check if a given object implements the ValidatorAggStats interface.
+ */
+export function instanceOfValidatorAggStats(value: object): value is ValidatorAggStats {
+    if (!('total_voting_power' in value) || value['total_voting_power'] === undefined) return false;
+    if (!('total_delegators' in value) || value['total_delegators'] === undefined) return false;
+    if (!('total_staked_balance' in value) || value['total_staked_balance'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorAggStatsFromJSON(json: any): ValidatorAggStats {
     return ValidatorAggStatsFromJSONTyped(json, false);
 }
 
 export function ValidatorAggStatsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorAggStats {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -55,19 +65,20 @@ export function ValidatorAggStatsFromJSONTyped(json: any, ignoreDiscriminator: b
     };
 }
 
-export function ValidatorAggStatsToJSON(value?: ValidatorAggStats | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'total_voting_power': value.total_voting_power,
-        'total_delegators': value.total_delegators,
-        'total_staked_balance': value.total_staked_balance,
-    };
+export function ValidatorAggStatsToJSON(json: any): ValidatorAggStats {
+    return ValidatorAggStatsToJSONTyped(json, false);
 }
 
+export function ValidatorAggStatsToJSONTyped(value?: ValidatorAggStats | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'total_voting_power': value['total_voting_power'],
+        'total_delegators': value['total_delegators'],
+        'total_staked_balance': value['total_staked_balance'],
+    };
+}
 

@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A decoded parameter of an event or error emitted from an EVM runtime.
  * Values of EVM type `int128`, `uint128`, `int256`, `uint256`, `fixed`, and `ufixed` are represented as strings.
  * Values of EVM type `address` and `address payable` are represented as lowercase hex strings with a "0x" prefix.
  * Values of EVM type `bytes` and `bytes<N>` are represented as base64 strings.
  * Values of other EVM types (integer types, strings, arrays, etc.) are represented as their JSON counterpart.
+ * 
  * @export
  * @interface EvmAbiParam
  */
@@ -43,12 +44,22 @@ export interface EvmAbiParam {
     value: any | null;
 }
 
+/**
+ * Check if a given object implements the EvmAbiParam interface.
+ */
+export function instanceOfEvmAbiParam(value: object): value is EvmAbiParam {
+    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!('evm_type' in value) || value['evm_type'] === undefined) return false;
+    if (!('value' in value) || value['value'] === undefined) return false;
+    return true;
+}
+
 export function EvmAbiParamFromJSON(json: any): EvmAbiParam {
     return EvmAbiParamFromJSONTyped(json, false);
 }
 
 export function EvmAbiParamFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmAbiParam {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -59,19 +70,20 @@ export function EvmAbiParamFromJSONTyped(json: any, ignoreDiscriminator: boolean
     };
 }
 
-export function EvmAbiParamToJSON(value?: EvmAbiParam | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'name': value.name,
-        'evm_type': value.evm_type,
-        'value': value.value,
-    };
+export function EvmAbiParamToJSON(json: any): EvmAbiParam {
+    return EvmAbiParamToJSONTyped(json, false);
 }
 
+export function EvmAbiParamToJSONTyped(value?: EvmAbiParam | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'name': value['name'],
+        'evm_type': value['evm_type'],
+        'value': value['value'],
+    };
+}
 

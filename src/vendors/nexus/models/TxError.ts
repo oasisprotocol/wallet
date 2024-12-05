@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmAbiParam } from './EvmAbiParam';
 import {
-    EvmAbiParam,
     EvmAbiParamFromJSON,
     EvmAbiParamFromJSONTyped,
     EvmAbiParamToJSON,
-} from './';
+    EvmAbiParamToJSONTyped,
+} from './EvmAbiParam';
 
 /**
  * 
@@ -49,6 +50,7 @@ export interface TxError {
      * will be true:
      * - `module` will be "evm" and `code` will be 8; see [here](https://github.com/oasisprotocol/oasis-sdk/blob/runtime-sdk/v0.8.3/runtime-sdk/modules/evm/src/lib.rs#L128) for other possible errors in the `evm` module.
      * - `message` will contain the best-effort human-readable revert reason.
+     * 
      * @type {string}
      * @memberof TxError
      */
@@ -60,10 +62,19 @@ export interface TxError {
      * If this field is present, `message` will include the name of the error, e.g. 'InsufficentBalance'.
      * Note that users should be cautious when evaluating error data since the
      * data origin is not tracked and error information can be faked.
+     * 
      * @type {Array<EvmAbiParam>}
      * @memberof TxError
      */
     revert_params?: Array<EvmAbiParam>;
+}
+
+/**
+ * Check if a given object implements the TxError interface.
+ */
+export function instanceOfTxError(value: object): value is TxError {
+    if (!('code' in value) || value['code'] === undefined) return false;
+    return true;
 }
 
 export function TxErrorFromJSON(json: any): TxError {
@@ -71,32 +82,33 @@ export function TxErrorFromJSON(json: any): TxError {
 }
 
 export function TxErrorFromJSONTyped(json: any, ignoreDiscriminator: boolean): TxError {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'module': !exists(json, 'module') ? undefined : json['module'],
+        'module': json['module'] == null ? undefined : json['module'],
         'code': json['code'],
-        'message': !exists(json, 'message') ? undefined : json['message'],
-        'revert_params': !exists(json, 'revert_params') ? undefined : ((json['revert_params'] as Array<any>).map(EvmAbiParamFromJSON)),
+        'message': json['message'] == null ? undefined : json['message'],
+        'revert_params': json['revert_params'] == null ? undefined : ((json['revert_params'] as Array<any>).map(EvmAbiParamFromJSON)),
     };
 }
 
-export function TxErrorToJSON(value?: TxError | null): any {
-    if (value === undefined) {
-        return undefined;
+export function TxErrorToJSON(json: any): TxError {
+    return TxErrorToJSONTyped(json, false);
+}
+
+export function TxErrorToJSONTyped(value?: TxError | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'module': value.module,
-        'code': value.code,
-        'message': value.message,
-        'revert_params': value.revert_params === undefined ? undefined : ((value.revert_params as Array<any>).map(EvmAbiParamToJSON)),
+        'module': value['module'],
+        'code': value['code'],
+        'message': value['message'],
+        'revert_params': value['revert_params'] == null ? undefined : ((value['revert_params'] as Array<any>).map(EvmAbiParamToJSON)),
     };
 }
-
 

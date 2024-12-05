@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -28,6 +28,7 @@ export interface ValidatorHistoryPoint {
     /**
      * The amount of tokens that were delegated to this validator account, 
      * at the start of this epoch, and are NOT in the process of debonding.
+     * 
      * @type {string}
      * @memberof ValidatorHistoryPoint
      */
@@ -35,6 +36,7 @@ export interface ValidatorHistoryPoint {
     /**
      * The shares of tokens that were delegated to this validator account, 
      * at the start of this epoch, and are NOT in the process of debonding.
+     * 
      * @type {string}
      * @memberof ValidatorHistoryPoint
      */
@@ -43,6 +45,7 @@ export interface ValidatorHistoryPoint {
      * The amount of tokens that were delegated to this validator account
      * at the start of this epoch, but are also in the process of debonding 
      * (i.e. they will be unstaked within ~2 weeks).
+     * 
      * @type {string}
      * @memberof ValidatorHistoryPoint
      */
@@ -51,6 +54,7 @@ export interface ValidatorHistoryPoint {
      * The shares of tokens that were delegated to this validator account
      * at the start of this epoch, but are also in the process of debonding 
      * (i.e. they will be unstaked within ~2 weeks).
+     * 
      * @type {string}
      * @memberof ValidatorHistoryPoint
      */
@@ -63,41 +67,50 @@ export interface ValidatorHistoryPoint {
     num_delegators?: number;
 }
 
+/**
+ * Check if a given object implements the ValidatorHistoryPoint interface.
+ */
+export function instanceOfValidatorHistoryPoint(value: object): value is ValidatorHistoryPoint {
+    if (!('epoch' in value) || value['epoch'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorHistoryPointFromJSON(json: any): ValidatorHistoryPoint {
     return ValidatorHistoryPointFromJSONTyped(json, false);
 }
 
 export function ValidatorHistoryPointFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorHistoryPoint {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'epoch': json['epoch'],
-        'active_balance': !exists(json, 'active_balance') ? undefined : json['active_balance'],
-        'active_shares': !exists(json, 'active_shares') ? undefined : json['active_shares'],
-        'debonding_balance': !exists(json, 'debonding_balance') ? undefined : json['debonding_balance'],
-        'debonding_shares': !exists(json, 'debonding_shares') ? undefined : json['debonding_shares'],
-        'num_delegators': !exists(json, 'num_delegators') ? undefined : json['num_delegators'],
+        'active_balance': json['active_balance'] == null ? undefined : json['active_balance'],
+        'active_shares': json['active_shares'] == null ? undefined : json['active_shares'],
+        'debonding_balance': json['debonding_balance'] == null ? undefined : json['debonding_balance'],
+        'debonding_shares': json['debonding_shares'] == null ? undefined : json['debonding_shares'],
+        'num_delegators': json['num_delegators'] == null ? undefined : json['num_delegators'],
     };
 }
 
-export function ValidatorHistoryPointToJSON(value?: ValidatorHistoryPoint | null): any {
-    if (value === undefined) {
-        return undefined;
+export function ValidatorHistoryPointToJSON(json: any): ValidatorHistoryPoint {
+    return ValidatorHistoryPointToJSONTyped(json, false);
+}
+
+export function ValidatorHistoryPointToJSONTyped(value?: ValidatorHistoryPoint | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'epoch': value.epoch,
-        'active_balance': value.active_balance,
-        'active_shares': value.active_shares,
-        'debonding_balance': value.debonding_balance,
-        'debonding_shares': value.debonding_shares,
-        'num_delegators': value.num_delegators,
+        'epoch': value['epoch'],
+        'active_balance': value['active_balance'],
+        'active_shares': value['active_shares'],
+        'debonding_balance': value['debonding_balance'],
+        'debonding_shares': value['debonding_shares'],
+        'num_delegators': value['num_delegators'],
     };
 }
-
 

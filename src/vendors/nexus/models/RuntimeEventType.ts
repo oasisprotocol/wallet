@@ -12,22 +12,35 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum RuntimeEventType {
-    AccountsTransfer = 'accounts.transfer',
-    AccountsBurn = 'accounts.burn',
-    AccountsMint = 'accounts.mint',
-    ConsensusAccountsDeposit = 'consensus_accounts.deposit',
-    ConsensusAccountsWithdraw = 'consensus_accounts.withdraw',
-    ConsensusAccountsDelegate = 'consensus_accounts.delegate',
-    ConsensusAccountsUndelegateStart = 'consensus_accounts.undelegate_start',
-    ConsensusAccountsUndelegateDone = 'consensus_accounts.undelegate_done',
-    CoreGasUsed = 'core.gas_used',
-    EvmLog = 'evm.log'
+export const RuntimeEventType = {
+    AccountsTransfer: 'accounts.transfer',
+    AccountsBurn: 'accounts.burn',
+    AccountsMint: 'accounts.mint',
+    ConsensusAccountsDeposit: 'consensus_accounts.deposit',
+    ConsensusAccountsWithdraw: 'consensus_accounts.withdraw',
+    ConsensusAccountsDelegate: 'consensus_accounts.delegate',
+    ConsensusAccountsUndelegateStart: 'consensus_accounts.undelegate_start',
+    ConsensusAccountsUndelegateDone: 'consensus_accounts.undelegate_done',
+    CoreGasUsed: 'core.gas_used',
+    EvmLog: 'evm.log'
+} as const;
+export type RuntimeEventType = typeof RuntimeEventType[keyof typeof RuntimeEventType];
+
+
+export function instanceOfRuntimeEventType(value: any): boolean {
+    for (const key in RuntimeEventType) {
+        if (Object.prototype.hasOwnProperty.call(RuntimeEventType, key)) {
+            if (RuntimeEventType[key as keyof typeof RuntimeEventType] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function RuntimeEventTypeFromJSON(json: any): RuntimeEventType {
@@ -40,5 +53,9 @@ export function RuntimeEventTypeFromJSONTyped(json: any, ignoreDiscriminator: bo
 
 export function RuntimeEventTypeToJSON(value?: RuntimeEventType | null): any {
     return value as any;
+}
+
+export function RuntimeEventTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): RuntimeEventType {
+    return value as RuntimeEventType;
 }
 

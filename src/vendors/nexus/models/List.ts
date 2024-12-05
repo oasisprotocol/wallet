@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -22,6 +22,7 @@ export interface List {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof List
      */
@@ -34,12 +35,21 @@ export interface List {
     is_total_count_clipped: boolean;
 }
 
+/**
+ * Check if a given object implements the List interface.
+ */
+export function instanceOfList(value: object): value is List {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    return true;
+}
+
 export function ListFromJSON(json: any): List {
     return ListFromJSONTyped(json, false);
 }
 
 export function ListFromJSONTyped(json: any, ignoreDiscriminator: boolean): List {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -49,18 +59,19 @@ export function ListFromJSONTyped(json: any, ignoreDiscriminator: boolean): List
     };
 }
 
-export function ListToJSON(value?: List | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-    };
+export function ListToJSON(json: any): List {
+    return ListToJSONTyped(json, false);
 }
 
+export function ListToJSONTyped(value?: List | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+    };
+}
 

@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { DelegationListAllOfDelegations } from './DelegationListAllOfDelegations';
 import {
-    Delegation,
-    DelegationFromJSON,
-    DelegationFromJSONTyped,
-    DelegationToJSON,
-    DelegationListAllOf,
-    DelegationListAllOfFromJSON,
-    DelegationListAllOfFromJSONTyped,
-    DelegationListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    DelegationListAllOfDelegationsFromJSON,
+    DelegationListAllOfDelegationsFromJSONTyped,
+    DelegationListAllOfDelegationsToJSON,
+    DelegationListAllOfDelegationsToJSONTyped,
+} from './DelegationListAllOfDelegations';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface DelegationList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof DelegationList
      */
@@ -49,10 +43,20 @@ export interface DelegationList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Delegation>}
+     * @type {Array<DelegationListAllOfDelegations>}
      * @memberof DelegationList
      */
-    delegations: Array<Delegation>;
+    delegations: Array<DelegationListAllOfDelegations>;
+}
+
+/**
+ * Check if a given object implements the DelegationList interface.
+ */
+export function instanceOfDelegationList(value: object): value is DelegationList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('delegations' in value) || value['delegations'] === undefined) return false;
+    return true;
 }
 
 export function DelegationListFromJSON(json: any): DelegationList {
@@ -60,30 +64,31 @@ export function DelegationListFromJSON(json: any): DelegationList {
 }
 
 export function DelegationListFromJSONTyped(json: any, ignoreDiscriminator: boolean): DelegationList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'delegations': ((json['delegations'] as Array<any>).map(DelegationFromJSON)),
+        'delegations': ((json['delegations'] as Array<any>).map(DelegationListAllOfDelegationsFromJSON)),
     };
 }
 
-export function DelegationListToJSON(value?: DelegationList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function DelegationListToJSON(json: any): DelegationList {
+    return DelegationListToJSONTyped(json, false);
+}
+
+export function DelegationListToJSONTyped(value?: DelegationList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'delegations': ((value.delegations as Array<any>).map(DelegationToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'delegations': ((value['delegations'] as Array<any>).map(DelegationListAllOfDelegationsToJSON)),
     };
 }
-
 

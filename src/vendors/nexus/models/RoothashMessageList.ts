@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RoothashMessageListAllOfRoothashMessages } from './RoothashMessageListAllOfRoothashMessages';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    RoothashMessage,
-    RoothashMessageFromJSON,
-    RoothashMessageFromJSONTyped,
-    RoothashMessageToJSON,
-    RoothashMessageListAllOf,
-    RoothashMessageListAllOfFromJSON,
-    RoothashMessageListAllOfFromJSONTyped,
-    RoothashMessageListAllOfToJSON,
-} from './';
+    RoothashMessageListAllOfRoothashMessagesFromJSON,
+    RoothashMessageListAllOfRoothashMessagesFromJSONTyped,
+    RoothashMessageListAllOfRoothashMessagesToJSON,
+    RoothashMessageListAllOfRoothashMessagesToJSONTyped,
+} from './RoothashMessageListAllOfRoothashMessages';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface RoothashMessageList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof RoothashMessageList
      */
@@ -49,10 +43,20 @@ export interface RoothashMessageList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<RoothashMessage>}
+     * @type {Array<RoothashMessageListAllOfRoothashMessages>}
      * @memberof RoothashMessageList
      */
-    roothash_messages: Array<RoothashMessage>;
+    roothash_messages: Array<RoothashMessageListAllOfRoothashMessages>;
+}
+
+/**
+ * Check if a given object implements the RoothashMessageList interface.
+ */
+export function instanceOfRoothashMessageList(value: object): value is RoothashMessageList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('roothash_messages' in value) || value['roothash_messages'] === undefined) return false;
+    return true;
 }
 
 export function RoothashMessageListFromJSON(json: any): RoothashMessageList {
@@ -60,30 +64,31 @@ export function RoothashMessageListFromJSON(json: any): RoothashMessageList {
 }
 
 export function RoothashMessageListFromJSONTyped(json: any, ignoreDiscriminator: boolean): RoothashMessageList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'roothash_messages': ((json['roothash_messages'] as Array<any>).map(RoothashMessageFromJSON)),
+        'roothash_messages': ((json['roothash_messages'] as Array<any>).map(RoothashMessageListAllOfRoothashMessagesFromJSON)),
     };
 }
 
-export function RoothashMessageListToJSON(value?: RoothashMessageList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RoothashMessageListToJSON(json: any): RoothashMessageList {
+    return RoothashMessageListToJSONTyped(json, false);
+}
+
+export function RoothashMessageListToJSONTyped(value?: RoothashMessageList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'roothash_messages': ((value.roothash_messages as Array<any>).map(RoothashMessageToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'roothash_messages': ((value['roothash_messages'] as Array<any>).map(RoothashMessageListAllOfRoothashMessagesToJSON)),
     };
 }
-
 

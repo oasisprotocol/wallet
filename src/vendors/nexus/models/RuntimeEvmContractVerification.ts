@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { VerificationLevel } from './VerificationLevel';
 import {
-    VerificationLevel,
     VerificationLevelFromJSON,
     VerificationLevelFromJSONTyped,
     VerificationLevelToJSON,
-} from './';
+    VerificationLevelToJSONTyped,
+} from './VerificationLevel';
 
 /**
  * 
@@ -35,16 +36,27 @@ export interface RuntimeEvmContractVerification {
     /**
      * The smart contract's [metadata.json](https://docs.soliditylang.org/en/latest/metadata.html) file in JSON format as defined by Solidity.
      * Includes the smart contract's [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html).
+     * 
      * @type {object}
      * @memberof RuntimeEvmContractVerification
      */
     compilation_metadata?: object;
     /**
      * Array of all contract source files, in JSON format as returned by [Sourcify](https://sourcify.dev/server/api-docs/#/Repository/get_files_any__chain___address_).
+     * 
      * @type {Array<object>}
      * @memberof RuntimeEvmContractVerification
      */
     source_files?: Array<object>;
+}
+
+
+
+/**
+ * Check if a given object implements the RuntimeEvmContractVerification interface.
+ */
+export function instanceOfRuntimeEvmContractVerification(value: object): value is RuntimeEvmContractVerification {
+    return true;
 }
 
 export function RuntimeEvmContractVerificationFromJSON(json: any): RuntimeEvmContractVerification {
@@ -52,30 +64,31 @@ export function RuntimeEvmContractVerificationFromJSON(json: any): RuntimeEvmCon
 }
 
 export function RuntimeEvmContractVerificationFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeEvmContractVerification {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'verification_level': !exists(json, 'verification_level') ? undefined : VerificationLevelFromJSON(json['verification_level']),
-        'compilation_metadata': !exists(json, 'compilation_metadata') ? undefined : json['compilation_metadata'],
-        'source_files': !exists(json, 'source_files') ? undefined : json['source_files'],
+        'verification_level': json['verification_level'] == null ? undefined : VerificationLevelFromJSON(json['verification_level']),
+        'compilation_metadata': json['compilation_metadata'] == null ? undefined : json['compilation_metadata'],
+        'source_files': json['source_files'] == null ? undefined : json['source_files'],
     };
 }
 
-export function RuntimeEvmContractVerificationToJSON(value?: RuntimeEvmContractVerification | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeEvmContractVerificationToJSON(json: any): RuntimeEvmContractVerification {
+    return RuntimeEvmContractVerificationToJSONTyped(json, false);
+}
+
+export function RuntimeEvmContractVerificationToJSONTyped(value?: RuntimeEvmContractVerification | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'verification_level': VerificationLevelToJSON(value.verification_level),
-        'compilation_metadata': value.compilation_metadata,
-        'source_files': value.source_files,
+        'verification_level': VerificationLevelToJSON(value['verification_level']),
+        'compilation_metadata': value['compilation_metadata'],
+        'source_files': value['source_files'],
     };
 }
-
 

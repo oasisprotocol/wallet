@@ -12,24 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { BlockListAllOfBlocks } from './BlockListAllOfBlocks';
 import {
-    Block,
-    BlockFromJSON,
-    BlockFromJSONTyped,
-    BlockToJSON,
-    BlockListAllOf,
-    BlockListAllOfFromJSON,
-    BlockListAllOfFromJSONTyped,
-    BlockListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    BlockListAllOfBlocksFromJSON,
+    BlockListAllOfBlocksFromJSONTyped,
+    BlockListAllOfBlocksToJSON,
+    BlockListAllOfBlocksToJSONTyped,
+} from './BlockListAllOfBlocks';
 
 /**
  * A list of consensus blocks.
+ * 
  * @export
  * @interface BlockList
  */
@@ -37,6 +31,7 @@ export interface BlockList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof BlockList
      */
@@ -49,10 +44,20 @@ export interface BlockList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Block>}
+     * @type {Array<BlockListAllOfBlocks>}
      * @memberof BlockList
      */
-    blocks: Array<Block>;
+    blocks: Array<BlockListAllOfBlocks>;
+}
+
+/**
+ * Check if a given object implements the BlockList interface.
+ */
+export function instanceOfBlockList(value: object): value is BlockList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('blocks' in value) || value['blocks'] === undefined) return false;
+    return true;
 }
 
 export function BlockListFromJSON(json: any): BlockList {
@@ -60,30 +65,31 @@ export function BlockListFromJSON(json: any): BlockList {
 }
 
 export function BlockListFromJSONTyped(json: any, ignoreDiscriminator: boolean): BlockList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'blocks': ((json['blocks'] as Array<any>).map(BlockFromJSON)),
+        'blocks': ((json['blocks'] as Array<any>).map(BlockListAllOfBlocksFromJSON)),
     };
 }
 
-export function BlockListToJSON(value?: BlockList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function BlockListToJSON(json: any): BlockList {
+    return BlockListToJSONTyped(json, false);
+}
+
+export function BlockListToJSONTyped(value?: BlockList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'blocks': ((value.blocks as Array<any>).map(BlockToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'blocks': ((value['blocks'] as Array<any>).map(BlockListAllOfBlocksToJSON)),
     };
 }
-
 

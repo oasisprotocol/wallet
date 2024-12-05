@@ -12,25 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ValidatorListAllOfValidators } from './ValidatorListAllOfValidators';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    Validator,
-    ValidatorFromJSON,
-    ValidatorFromJSONTyped,
-    ValidatorToJSON,
-    ValidatorAggStats,
+    ValidatorListAllOfValidatorsFromJSON,
+    ValidatorListAllOfValidatorsFromJSONTyped,
+    ValidatorListAllOfValidatorsToJSON,
+    ValidatorListAllOfValidatorsToJSONTyped,
+} from './ValidatorListAllOfValidators';
+import type { ValidatorAggStats } from './ValidatorAggStats';
+import {
     ValidatorAggStatsFromJSON,
     ValidatorAggStatsFromJSONTyped,
     ValidatorAggStatsToJSON,
-    ValidatorListAllOf,
-    ValidatorListAllOfFromJSON,
-    ValidatorListAllOfFromJSONTyped,
-    ValidatorListAllOfToJSON,
-} from './';
+    ValidatorAggStatsToJSONTyped,
+} from './ValidatorAggStats';
 
 /**
  * 
@@ -41,6 +37,7 @@ export interface ValidatorList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof ValidatorList
      */
@@ -53,10 +50,10 @@ export interface ValidatorList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Validator>}
+     * @type {Array<ValidatorListAllOfValidators>}
      * @memberof ValidatorList
      */
-    validators: Array<Validator>;
+    validators: Array<ValidatorListAllOfValidators>;
     /**
      * Summary statistics across all consensus validators.
      * @type {ValidatorAggStats}
@@ -65,37 +62,49 @@ export interface ValidatorList {
     stats: ValidatorAggStats;
 }
 
+/**
+ * Check if a given object implements the ValidatorList interface.
+ */
+export function instanceOfValidatorList(value: object): value is ValidatorList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('validators' in value) || value['validators'] === undefined) return false;
+    if (!('stats' in value) || value['stats'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorListFromJSON(json: any): ValidatorList {
     return ValidatorListFromJSONTyped(json, false);
 }
 
 export function ValidatorListFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'validators': ((json['validators'] as Array<any>).map(ValidatorFromJSON)),
+        'validators': ((json['validators'] as Array<any>).map(ValidatorListAllOfValidatorsFromJSON)),
         'stats': ValidatorAggStatsFromJSON(json['stats']),
     };
 }
 
-export function ValidatorListToJSON(value?: ValidatorList | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'validators': ((value.validators as Array<any>).map(ValidatorToJSON)),
-        'stats': ValidatorAggStatsToJSON(value.stats),
-    };
+export function ValidatorListToJSON(json: any): ValidatorList {
+    return ValidatorListToJSONTyped(json, false);
 }
 
+export function ValidatorListToJSONTyped(value?: ValidatorList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'validators': ((value['validators'] as Array<any>).map(ValidatorListAllOfValidatorsToJSON)),
+        'stats': ValidatorAggStatsToJSON(value['stats']),
+    };
+}
 

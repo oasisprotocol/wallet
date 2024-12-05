@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -28,10 +28,20 @@ export interface Allowance {
     /**
      * The amount allowed for the allowed account.
      * This field is omitted when listing multiple accounts.
+     * 
      * @type {string}
      * @memberof Allowance
      */
     amount: string;
+}
+
+/**
+ * Check if a given object implements the Allowance interface.
+ */
+export function instanceOfAllowance(value: object): value is Allowance {
+    if (!('address' in value) || value['address'] === undefined) return false;
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    return true;
 }
 
 export function AllowanceFromJSON(json: any): Allowance {
@@ -39,7 +49,7 @@ export function AllowanceFromJSON(json: any): Allowance {
 }
 
 export function AllowanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): Allowance {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -49,18 +59,19 @@ export function AllowanceFromJSONTyped(json: any, ignoreDiscriminator: boolean):
     };
 }
 
-export function AllowanceToJSON(value?: Allowance | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'address': value.address,
-        'amount': value.amount,
-    };
+export function AllowanceToJSON(json: any): Allowance {
+    return AllowanceToJSONTyped(json, false);
 }
 
+export function AllowanceToJSONTyped(value?: Allowance | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'address': value['address'],
+        'amount': value['amount'],
+    };
+}
 

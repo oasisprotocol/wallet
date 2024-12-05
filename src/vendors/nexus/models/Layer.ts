@@ -12,18 +12,31 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum Layer {
-    Emerald = 'emerald',
-    Sapphire = 'sapphire',
-    Pontusxtest = 'pontusxtest',
-    Pontusxdev = 'pontusxdev',
-    Cipher = 'cipher',
-    Consensus = 'consensus'
+export const Layer = {
+    Emerald: 'emerald',
+    Sapphire: 'sapphire',
+    Pontusxtest: 'pontusxtest',
+    Pontusxdev: 'pontusxdev',
+    Cipher: 'cipher',
+    Consensus: 'consensus'
+} as const;
+export type Layer = typeof Layer[keyof typeof Layer];
+
+
+export function instanceOfLayer(value: any): boolean {
+    for (const key in Layer) {
+        if (Object.prototype.hasOwnProperty.call(Layer, key)) {
+            if (Layer[key as keyof typeof Layer] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function LayerFromJSON(json: any): Layer {
@@ -36,5 +49,9 @@ export function LayerFromJSONTyped(json: any, ignoreDiscriminator: boolean): Lay
 
 export function LayerToJSON(value?: Layer | null): any {
     return value as any;
+}
+
+export function LayerToJSONTyped(value: any, ignoreDiscriminator: boolean): Layer {
+    return value as Layer;
 }
 

@@ -12,20 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ConsensusTxMethod } from './ConsensusTxMethod';
 import {
-    ConsensusTxMethod,
     ConsensusTxMethodFromJSON,
     ConsensusTxMethodFromJSONTyped,
     ConsensusTxMethodToJSON,
-    TxError,
+    ConsensusTxMethodToJSONTyped,
+} from './ConsensusTxMethod';
+import type { TxError } from './TxError';
+import {
     TxErrorFromJSON,
     TxErrorFromJSONTyped,
     TxErrorToJSON,
-} from './';
+    TxErrorToJSONTyped,
+} from './TxError';
 
 /**
  * A consensus transaction.
+ * 
  * @export
  * @interface Transaction
  */
@@ -45,10 +50,11 @@ export interface Transaction {
     /**
      * The second-granular consensus time of this tx's block, i.e. roughly when the
      * [block was proposed](https://github.com/tendermint/tendermint/blob/v0.34.x/spec/core/data_structures.md#header).
-     * @type {Date}
+     * 
+     * @type {string}
      * @memberof Transaction
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The cryptographic hash of this transaction's encoding.
      * @type {string}
@@ -70,12 +76,14 @@ export interface Transaction {
     /**
      * The fee that this transaction's sender committed
      * to pay to execute it.
+     * 
      * @type {string}
      * @memberof Transaction
      */
     fee: string;
     /**
      * The maximum gas that a transaction can use.
+     * 
      * @type {string}
      * @memberof Transaction
      */
@@ -106,19 +114,39 @@ export interface Transaction {
     error?: TxError;
 }
 
+
+
+/**
+ * Check if a given object implements the Transaction interface.
+ */
+export function instanceOfTransaction(value: object): value is Transaction {
+    if (!('block' in value) || value['block'] === undefined) return false;
+    if (!('index' in value) || value['index'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
+    if (!('hash' in value) || value['hash'] === undefined) return false;
+    if (!('sender' in value) || value['sender'] === undefined) return false;
+    if (!('nonce' in value) || value['nonce'] === undefined) return false;
+    if (!('fee' in value) || value['fee'] === undefined) return false;
+    if (!('gas_limit' in value) || value['gas_limit'] === undefined) return false;
+    if (!('method' in value) || value['method'] === undefined) return false;
+    if (!('body' in value) || value['body'] === undefined) return false;
+    if (!('success' in value) || value['success'] === undefined) return false;
+    return true;
+}
+
 export function TransactionFromJSON(json: any): Transaction {
     return TransactionFromJSONTyped(json, false);
 }
 
 export function TransactionFromJSONTyped(json: any, ignoreDiscriminator: boolean): Transaction {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'block': json['block'],
         'index': json['index'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'hash': json['hash'],
         'sender': json['sender'],
         'nonce': json['nonce'],
@@ -127,32 +155,33 @@ export function TransactionFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'method': ConsensusTxMethodFromJSON(json['method']),
         'body': json['body'],
         'success': json['success'],
-        'error': !exists(json, 'error') ? undefined : TxErrorFromJSON(json['error']),
+        'error': json['error'] == null ? undefined : TxErrorFromJSON(json['error']),
     };
 }
 
-export function TransactionToJSON(value?: Transaction | null): any {
-    if (value === undefined) {
-        return undefined;
+export function TransactionToJSON(json: any): Transaction {
+    return TransactionToJSONTyped(json, false);
+}
+
+export function TransactionToJSONTyped(value?: Transaction | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'block': value.block,
-        'index': value.index,
-        'timestamp': (value.timestamp.toISOString()),
-        'hash': value.hash,
-        'sender': value.sender,
-        'nonce': value.nonce,
-        'fee': value.fee,
-        'gas_limit': value.gas_limit,
-        'method': ConsensusTxMethodToJSON(value.method),
-        'body': value.body,
-        'success': value.success,
-        'error': TxErrorToJSON(value.error),
+        'block': value['block'],
+        'index': value['index'],
+        'timestamp': value['timestamp'],
+        'hash': value['hash'],
+        'sender': value['sender'],
+        'nonce': value['nonce'],
+        'fee': value['fee'],
+        'gas_limit': value['gas_limit'],
+        'method': ConsensusTxMethodToJSON(value['method']),
+        'body': value['body'],
+        'success': value['success'],
+        'error': TxErrorToJSON(value['error']),
     };
 }
-
 

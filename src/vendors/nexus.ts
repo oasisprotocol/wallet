@@ -30,7 +30,7 @@ export interface ExtendedRuntimeTransaction extends NexusRuntimeTransaction {
 export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   const explorerConfig = new Configuration({
     basePath: url,
-    ...throwAPIErrors,
+    fetchApi: throwAPIErrors.fetchApi,
   })
 
   const api = new NexusApi(explorerConfig)
@@ -186,7 +186,7 @@ function parseAccount(account: NexusAccount): Account {
   }
 }
 
-function parseValidatorsList(validators: NexusValidator[]): Validator[] {
+export function parseValidatorsList(validators: NexusValidator[]): Validator[] {
   return validators.map(v => {
     const parsed: Validator = {
       address: v.entity_address,
