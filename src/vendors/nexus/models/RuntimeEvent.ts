@@ -74,10 +74,10 @@ export interface RuntimeEvent {
     /**
      * The second-granular consensus time of this event's block.
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeEvent
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The type of the event.
      * @type {RuntimeEventType}
@@ -149,7 +149,7 @@ export function RuntimeEventFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'tx_index': json['tx_index'] == null ? undefined : json['tx_index'],
         'tx_hash': json['tx_hash'] == null ? undefined : json['tx_hash'],
         'eth_tx_hash': json['eth_tx_hash'] == null ? undefined : json['eth_tx_hash'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'type': RuntimeEventTypeFromJSON(json['type']),
         'body': json['body'],
         'evm_log_name': json['evm_log_name'] == null ? undefined : json['evm_log_name'],
@@ -173,7 +173,7 @@ export function RuntimeEventToJSONTyped(value?: RuntimeEvent | null, ignoreDiscr
         'tx_index': value['tx_index'],
         'tx_hash': value['tx_hash'],
         'eth_tx_hash': value['eth_tx_hash'],
-        'timestamp': ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
         'type': RuntimeEventTypeToJSON(value['type']),
         'body': value['body'],
         'evm_log_name': value['evm_log_name'],

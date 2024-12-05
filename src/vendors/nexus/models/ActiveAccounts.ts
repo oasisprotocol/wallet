@@ -21,10 +21,10 @@ import { mapValues } from '../runtime';
 export interface ActiveAccounts {
     /**
      * The date for the end of the daily active accounts measurement window.
-     * @type {Date}
+     * @type {string}
      * @memberof ActiveAccounts
      */
-    window_end: Date;
+    window_end: string;
     /**
      * The number of active accounts for the 24hour window ending at window_end.
      * @type {number}
@@ -52,7 +52,7 @@ export function ActiveAccountsFromJSONTyped(json: any, ignoreDiscriminator: bool
     }
     return {
         
-        'window_end': (new Date(json['window_end'])),
+        'window_end': json['window_end'],
         'active_accounts': json['active_accounts'],
     };
 }
@@ -68,7 +68,7 @@ export function ActiveAccountsToJSONTyped(value?: ActiveAccounts | null, ignoreD
 
     return {
         
-        'window_end': ((value['window_end']).toISOString()),
+        'window_end': value['window_end'],
         'active_accounts': value['active_accounts'],
     };
 }

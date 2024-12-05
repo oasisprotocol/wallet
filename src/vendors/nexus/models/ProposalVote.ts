@@ -39,10 +39,10 @@ export interface ProposalVote {
     height?: number;
     /**
      * The second-granular consensus time of the block in which this vote was cast.
-     * @type {Date}
+     * @type {string}
      * @memberof ProposalVote
      */
-    timestamp?: Date;
+    timestamp?: string;
 }
 
 /**
@@ -67,7 +67,7 @@ export function ProposalVoteFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'address': json['address'],
         'vote': json['vote'],
         'height': json['height'] == null ? undefined : json['height'],
-        'timestamp': json['timestamp'] == null ? undefined : (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'] == null ? undefined : json['timestamp'],
     };
 }
 
@@ -85,7 +85,7 @@ export function ProposalVoteToJSONTyped(value?: ProposalVote | null, ignoreDiscr
         'address': value['address'],
         'vote': value['vote'],
         'height': value['height'],
-        'timestamp': value['timestamp'] == null ? undefined : ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
     };
 }
 

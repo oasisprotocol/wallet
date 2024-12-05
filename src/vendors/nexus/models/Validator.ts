@@ -86,10 +86,10 @@ export interface Validator {
     active: boolean;
     /**
      * The second-granular consensus time.
-     * @type {Date}
+     * @type {string}
      * @memberof Validator
      */
-    start_date: Date;
+    start_date: string;
     /**
      * The rank of the validator, determined by voting power.
      * @type {number}
@@ -156,7 +156,7 @@ export function ValidatorFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'voting_power': json['voting_power'],
         'voting_power_cumulative': json['voting_power_cumulative'] == null ? undefined : json['voting_power_cumulative'],
         'active': json['active'],
-        'start_date': (new Date(json['start_date'])),
+        'start_date': json['start_date'],
         'rank': json['rank'],
         'in_validator_set': json['in_validator_set'],
         'media': json['media'] == null ? undefined : ValidatorMediaFromJSON(json['media']),
@@ -183,7 +183,7 @@ export function ValidatorToJSONTyped(value?: Validator | null, ignoreDiscriminat
         'voting_power': value['voting_power'],
         'voting_power_cumulative': value['voting_power_cumulative'],
         'active': value['active'],
-        'start_date': ((value['start_date']).toISOString()),
+        'start_date': value['start_date'],
         'rank': value['rank'],
         'in_validator_set': value['in_validator_set'],
         'media': ValidatorMediaToJSON(value['media']),

@@ -33,10 +33,10 @@ export interface RuntimeBlockListAllOfBlocks {
     hash: string;
     /**
      * The second-granular consensus time.
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeBlockListAllOfBlocks
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The number of transactions in the block.
      * @type {number}
@@ -82,7 +82,7 @@ export function RuntimeBlockListAllOfBlocksFromJSONTyped(json: any, ignoreDiscri
         
         'round': json['round'],
         'hash': json['hash'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'num_transactions': json['num_transactions'],
         'size': json['size'],
         'gas_used': json['gas_used'],
@@ -102,7 +102,7 @@ export function RuntimeBlockListAllOfBlocksToJSONTyped(value?: RuntimeBlockListA
         
         'round': value['round'],
         'hash': value['hash'],
-        'timestamp': ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
         'num_transactions': value['num_transactions'],
         'size': value['size'],
         'gas_used': value['gas_used'],

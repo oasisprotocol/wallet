@@ -33,10 +33,10 @@ export interface BlockListAllOfBlocks {
     hash: string;
     /**
      * The second-granular consensus time.
-     * @type {Date}
+     * @type {string}
      * @memberof BlockListAllOfBlocks
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * Number of transactions in the block.
      * @type {number}
@@ -99,7 +99,7 @@ export function BlockListAllOfBlocksFromJSONTyped(json: any, ignoreDiscriminator
         
         'height': json['height'],
         'hash': json['hash'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'num_transactions': json['num_transactions'],
         'gas_limit': json['gas_limit'],
         'size_limit': json['size_limit'] == null ? undefined : json['size_limit'],
@@ -121,7 +121,7 @@ export function BlockListAllOfBlocksToJSONTyped(value?: BlockListAllOfBlocks | n
         
         'height': value['height'],
         'hash': value['hash'],
-        'timestamp': ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
         'num_transactions': value['num_transactions'],
         'gas_limit': value['gas_limit'],
         'size_limit': value['size_limit'],

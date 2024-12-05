@@ -50,10 +50,10 @@ export interface TransactionListAllOfTransactions {
      * The second-granular consensus time of this tx's block, i.e. roughly when the
      * [block was proposed](https://github.com/tendermint/tendermint/blob/v0.34.x/spec/core/data_structures.md#header).
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof TransactionListAllOfTransactions
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The cryptographic hash of this transaction's encoding.
      * @type {string}
@@ -145,7 +145,7 @@ export function TransactionListAllOfTransactionsFromJSONTyped(json: any, ignoreD
         
         'block': json['block'],
         'index': json['index'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'hash': json['hash'],
         'sender': json['sender'],
         'nonce': json['nonce'],
@@ -171,7 +171,7 @@ export function TransactionListAllOfTransactionsToJSONTyped(value?: TransactionL
         
         'block': value['block'],
         'index': value['index'],
-        'timestamp': ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
         'hash': value['hash'],
         'sender': value['sender'],
         'nonce': value['nonce'],

@@ -21,10 +21,10 @@ import { mapValues } from '../runtime';
 export interface TxVolume {
     /**
      * The end timestamp for this daily transaction volume measurement.
-     * @type {Date}
+     * @type {string}
      * @memberof TxVolume
      */
-    window_end: Date;
+    window_end: string;
     /**
      * The transaction volume for this window.
      * @type {number}
@@ -52,7 +52,7 @@ export function TxVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     }
     return {
         
-        'window_end': (new Date(json['window_end'])),
+        'window_end': json['window_end'],
         'tx_volume': json['tx_volume'],
     };
 }
@@ -68,7 +68,7 @@ export function TxVolumeToJSONTyped(value?: TxVolume | null, ignoreDiscriminator
 
     return {
         
-        'window_end': ((value['window_end']).toISOString()),
+        'window_end': value['window_end'],
         'tx_volume': value['tx_volume'],
     };
 }

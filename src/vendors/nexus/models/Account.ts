@@ -81,10 +81,10 @@ export interface Account {
      * The second-granular consensus time of the block in which this account was first active.
      * Dates before Cobalt (2021-04-28) are approximate.
      * 
-     * @type {Date}
+     * @type {string}
      * @memberof Account
      */
-    first_activity?: Date;
+    first_activity?: string;
     /**
      * The allowances made by this account.
      * This field is omitted when listing multiple accounts.
@@ -134,7 +134,7 @@ export function AccountFromJSONTyped(json: any, ignoreDiscriminator: boolean): A
         'debonding': json['debonding'],
         'delegations_balance': json['delegations_balance'],
         'debonding_delegations_balance': json['debonding_delegations_balance'],
-        'first_activity': json['first_activity'] == null ? undefined : (new Date(json['first_activity'])),
+        'first_activity': json['first_activity'] == null ? undefined : json['first_activity'],
         'allowances': ((json['allowances'] as Array<any>).map(AllowanceFromJSON)),
         'stats': AccountStatsFromJSON(json['stats']),
     };
@@ -158,7 +158,7 @@ export function AccountToJSONTyped(value?: Account | null, ignoreDiscriminator: 
         'debonding': value['debonding'],
         'delegations_balance': value['delegations_balance'],
         'debonding_delegations_balance': value['debonding_delegations_balance'],
-        'first_activity': value['first_activity'] == null ? undefined : ((value['first_activity']).toISOString()),
+        'first_activity': value['first_activity'],
         'allowances': ((value['allowances'] as Array<any>).map(AllowanceToJSON)),
         'stats': AccountStatsToJSON(value['stats']),
     };

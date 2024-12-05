@@ -35,10 +35,10 @@ export interface Status {
     latest_node_block: number;
     /**
      * The RFC 3339 formatted consensus time of when the most recently indexed block was produced.
-     * @type {Date}
+     * @type {string}
      * @memberof Status
      */
-    latest_block_time: Date;
+    latest_block_time: string;
     /**
      * The number of milliseconds since Nexus processed the latest block.
      * @type {number}
@@ -70,7 +70,7 @@ export function StatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): St
         
         'latest_block': json['latest_block'],
         'latest_node_block': json['latest_node_block'],
-        'latest_block_time': (new Date(json['latest_block_time'])),
+        'latest_block_time': json['latest_block_time'],
         'latest_update_age_ms': json['latest_update_age_ms'],
     };
 }
@@ -88,7 +88,7 @@ export function StatusToJSONTyped(value?: Status | null, ignoreDiscriminator: bo
         
         'latest_block': value['latest_block'],
         'latest_node_block': value['latest_node_block'],
-        'latest_block_time': ((value['latest_block_time']).toISOString()),
+        'latest_block_time': value['latest_block_time'],
         'latest_update_age_ms': value['latest_update_age_ms'],
     };
 }

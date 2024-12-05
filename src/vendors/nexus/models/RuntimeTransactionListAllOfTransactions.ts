@@ -55,10 +55,10 @@ export interface RuntimeTransactionListAllOfTransactions {
     index: number;
     /**
      * The second-granular consensus time when this tx's block was proposed.
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeTransactionListAllOfTransactions
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The Oasis cryptographic hash of this transaction's encoding.
      * @type {string}
@@ -300,7 +300,7 @@ export function RuntimeTransactionListAllOfTransactionsFromJSONTyped(json: any, 
         
         'round': json['round'],
         'index': json['index'],
-        'timestamp': (new Date(json['timestamp'])),
+        'timestamp': json['timestamp'],
         'hash': json['hash'],
         'eth_hash': json['eth_hash'] == null ? undefined : json['eth_hash'],
         'sender_0': json['sender_0'],
@@ -342,7 +342,7 @@ export function RuntimeTransactionListAllOfTransactionsToJSONTyped(value?: Runti
         
         'round': value['round'],
         'index': value['index'],
-        'timestamp': ((value['timestamp']).toISOString()),
+        'timestamp': value['timestamp'],
         'hash': value['hash'],
         'eth_hash': value['eth_hash'],
         'sender_0': value['sender_0'],

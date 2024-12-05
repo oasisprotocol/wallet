@@ -183,8 +183,8 @@ export interface ConsensusBlocksGetRequest {
     offset?: number;
     from?: number;
     to?: number;
-    after?: Date;
-    before?: Date;
+    after?: string;
+    before?: string;
     hash?: string;
 }
 
@@ -264,8 +264,8 @@ export interface ConsensusTransactionsGetRequest {
     method?: ConsensusTxMethod;
     sender?: string;
     rel?: string;
-    after?: Date;
-    before?: Date;
+    after?: string;
+    before?: string;
 }
 
 export interface ConsensusTransactionsTxHashGetRequest {
@@ -324,8 +324,8 @@ export interface RuntimeBlocksGetRequest {
     offset?: number;
     from?: number;
     to?: number;
-    after?: Date;
-    before?: Date;
+    after?: string;
+    before?: string;
     hash?: string;
 }
 
@@ -384,8 +384,8 @@ export interface RuntimeTransactionsGetRequest {
     limit?: number;
     offset?: number;
     block?: number;
-    after?: Date;
-    before?: Date;
+    after?: string;
+    before?: string;
     rel?: string;
 }
 
@@ -653,11 +653,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['after'] != null) {
-            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
+            queryParameters['after'] = requestParameters['after'];
         }
 
         if (requestParameters['before'] != null) {
-            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
+            queryParameters['before'] = requestParameters['before'];
         }
 
         if (requestParameters['hash'] != null) {
@@ -1188,11 +1188,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['after'] != null) {
-            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
+            queryParameters['after'] = requestParameters['after'];
         }
 
         if (requestParameters['before'] != null) {
-            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
+            queryParameters['before'] = requestParameters['before'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1610,11 +1610,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['after'] != null) {
-            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
+            queryParameters['after'] = requestParameters['after'];
         }
 
         if (requestParameters['before'] != null) {
-            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
+            queryParameters['before'] = requestParameters['before'];
         }
 
         if (requestParameters['hash'] != null) {
@@ -2001,11 +2001,11 @@ export class DefaultApi extends runtime.BaseAPI {
         }
 
         if (requestParameters['after'] != null) {
-            queryParameters['after'] = (requestParameters['after'] as any).toISOString();
+            queryParameters['after'] = requestParameters['after'];
         }
 
         if (requestParameters['before'] != null) {
-            queryParameters['before'] = (requestParameters['before'] as any).toISOString();
+            queryParameters['before'] = requestParameters['before'];
         }
 
         if (requestParameters['rel'] != null) {
