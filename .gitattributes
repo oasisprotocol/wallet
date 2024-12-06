@@ -203,7 +203,6 @@ Procfile          text
 
 # Auto-generated files
 src/vendors/explorer/*/** linguist-generated=true
-src/vendors/oasisscan/*/** linguist-generated=true
 src/vendors/oasisscan-v2/*/** linguist-generated=true
 src/vendors/nexus/*/** linguist-generated=true
 src/vendors/nexus/dump_validators.json linguist-generated=true
