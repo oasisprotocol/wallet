@@ -1,7 +1,7 @@
 import { Validator } from 'app/state/staking/types'
 import { WalletError, WalletErrors } from 'types/errors'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { BaseAPI, ConfigurationParameters } from 'vendors/oasisscan/runtime'
+import type { BaseAPI, ConfigurationParameters } from 'vendors/nexus/runtime'
 
 const ValidatorStatusPriority = {
   active: 1,
