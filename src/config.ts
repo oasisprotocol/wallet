@@ -76,7 +76,7 @@ export const config: BackendConfig = {
       blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
     },
     [BackendAPIs.OasisScanV2]: {
-      explorer: 'https://api.oasisscan.com/testnet',
+      explorer: 'https://api.oasisscan.com/v2/testnet',
       blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
       blockExplorerParatimes:
         'https://testnet.oasisscan.com/paratimes/transactions/{{txHash}}?runtime={{runtimeId}}',
