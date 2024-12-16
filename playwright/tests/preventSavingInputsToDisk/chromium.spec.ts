@@ -13,7 +13,7 @@ const test = testWithUserDataDir(chromium)
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
 })
 
 test('Chromium expect mnemonic, privateKey, and password to NOT leak with preventSavingInputsToUserData', async ({

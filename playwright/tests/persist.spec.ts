@@ -17,7 +17,7 @@ import { fillPrivateKeyWithoutPassword, fillPrivateKeyAndPassword } from '../uti
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
   await clearPersistedStorage(page, '/app.webmanifest')
 })
 
@@ -141,14 +141,14 @@ test.describe('Persist', () => {
   }) => {
     await addPersistedStorageV1(page, '/app.webmanifest')
     await page.goto('/')
-    await mockApi(context, 123)
+    await mockApi(context, '123000000000')
     await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${privateKeyAddress}`))
     await expect(page.getByTestId('account-balance-summary')).toContainText('123.0')
     await expect(page.getByTestId('account-balance-summary')).toContainText('ROSE')
     await page.getByRole('button', { name: /Lock profile/ }).click()
-    await mockApi(context, 456)
+    await mockApi(context, '456000000000')
     await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
     await expect(page.getByTestId('account-balance-summary')).toContainText('456.0')

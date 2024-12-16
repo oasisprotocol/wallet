@@ -8,7 +8,7 @@ import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
 })
 
 test.describe('The extension popup should load', () => {
