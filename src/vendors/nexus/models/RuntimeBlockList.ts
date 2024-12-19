@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RuntimeBlockListAllOfBlocks } from './RuntimeBlockListAllOfBlocks';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    RuntimeBlock,
-    RuntimeBlockFromJSON,
-    RuntimeBlockFromJSONTyped,
-    RuntimeBlockToJSON,
-    RuntimeBlockListAllOf,
-    RuntimeBlockListAllOfFromJSON,
-    RuntimeBlockListAllOfFromJSONTyped,
-    RuntimeBlockListAllOfToJSON,
-} from './';
+    RuntimeBlockListAllOfBlocksFromJSON,
+    RuntimeBlockListAllOfBlocksFromJSONTyped,
+    RuntimeBlockListAllOfBlocksToJSON,
+    RuntimeBlockListAllOfBlocksToJSONTyped,
+} from './RuntimeBlockListAllOfBlocks';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface RuntimeBlockList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof RuntimeBlockList
      */
@@ -49,10 +43,20 @@ export interface RuntimeBlockList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<RuntimeBlock>}
+     * @type {Array<RuntimeBlockListAllOfBlocks>}
      * @memberof RuntimeBlockList
      */
-    blocks: Array<RuntimeBlock>;
+    blocks: Array<RuntimeBlockListAllOfBlocks>;
+}
+
+/**
+ * Check if a given object implements the RuntimeBlockList interface.
+ */
+export function instanceOfRuntimeBlockList(value: object): value is RuntimeBlockList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('blocks' in value) || value['blocks'] === undefined) return false;
+    return true;
 }
 
 export function RuntimeBlockListFromJSON(json: any): RuntimeBlockList {
@@ -60,30 +64,31 @@ export function RuntimeBlockListFromJSON(json: any): RuntimeBlockList {
 }
 
 export function RuntimeBlockListFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeBlockList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'blocks': ((json['blocks'] as Array<any>).map(RuntimeBlockFromJSON)),
+        'blocks': ((json['blocks'] as Array<any>).map(RuntimeBlockListAllOfBlocksFromJSON)),
     };
 }
 
-export function RuntimeBlockListToJSON(value?: RuntimeBlockList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeBlockListToJSON(json: any): RuntimeBlockList {
+    return RuntimeBlockListToJSONTyped(json, false);
+}
+
+export function RuntimeBlockListToJSONTyped(value?: RuntimeBlockList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'blocks': ((value.blocks as Array<any>).map(RuntimeBlockToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'blocks': ((value['blocks'] as Array<any>).map(RuntimeBlockListAllOfBlocksToJSON)),
     };
 }
-
 

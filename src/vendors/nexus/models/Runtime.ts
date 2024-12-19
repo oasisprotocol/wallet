@@ -12,17 +12,30 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * 
  * @export
- * @enum {string}
  */
-export enum Runtime {
-    Emerald = 'emerald',
-    Sapphire = 'sapphire',
-    Pontusxtest = 'pontusxtest',
-    Pontusxdev = 'pontusxdev',
-    Cipher = 'cipher'
+export const Runtime = {
+    Emerald: 'emerald',
+    Sapphire: 'sapphire',
+    Pontusxtest: 'pontusxtest',
+    Pontusxdev: 'pontusxdev',
+    Cipher: 'cipher'
+} as const;
+export type Runtime = typeof Runtime[keyof typeof Runtime];
+
+
+export function instanceOfRuntime(value: any): boolean {
+    for (const key in Runtime) {
+        if (Object.prototype.hasOwnProperty.call(Runtime, key)) {
+            if (Runtime[key as keyof typeof Runtime] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function RuntimeFromJSON(json: any): Runtime {
@@ -35,5 +48,9 @@ export function RuntimeFromJSONTyped(json: any, ignoreDiscriminator: boolean): R
 
 export function RuntimeToJSON(value?: Runtime | null): any {
     return value as any;
+}
+
+export function RuntimeToJSONTyped(value: any, ignoreDiscriminator: boolean): Runtime {
+    return value as Runtime;
 }
 

@@ -12,16 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmTokenType } from './EvmTokenType';
 import {
-    EvmTokenType,
     EvmTokenTypeFromJSON,
     EvmTokenTypeFromJSONTyped,
     EvmTokenTypeToJSON,
-} from './';
+    EvmTokenTypeToJSONTyped,
+} from './EvmTokenType';
 
 /**
  * Details about the EVM token involved in the event, if any.
+ * 
  * @export
  * @interface EvmEventToken
  */
@@ -42,10 +44,20 @@ export interface EvmEventToken {
      * The number of least significant digits in base units that should be displayed as
      * decimals when displaying tokens. `tokens = base_units / (10**decimals)`.
      * Affects display only. Often equals 18, to match ETH.
+     * 
      * @type {number}
      * @memberof EvmEventToken
      */
     decimals?: number;
+}
+
+
+
+/**
+ * Check if a given object implements the EvmEventToken interface.
+ */
+export function instanceOfEvmEventToken(value: object): value is EvmEventToken {
+    return true;
 }
 
 export function EvmEventTokenFromJSON(json: any): EvmEventToken {
@@ -53,30 +65,31 @@ export function EvmEventTokenFromJSON(json: any): EvmEventToken {
 }
 
 export function EvmEventTokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmEventToken {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'type': !exists(json, 'type') ? undefined : EvmTokenTypeFromJSON(json['type']),
-        'symbol': !exists(json, 'symbol') ? undefined : json['symbol'],
-        'decimals': !exists(json, 'decimals') ? undefined : json['decimals'],
+        'type': json['type'] == null ? undefined : EvmTokenTypeFromJSON(json['type']),
+        'symbol': json['symbol'] == null ? undefined : json['symbol'],
+        'decimals': json['decimals'] == null ? undefined : json['decimals'],
     };
 }
 
-export function EvmEventTokenToJSON(value?: EvmEventToken | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EvmEventTokenToJSON(json: any): EvmEventToken {
+    return EvmEventTokenToJSONTyped(json, false);
+}
+
+export function EvmEventTokenToJSONTyped(value?: EvmEventToken | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'type': EvmTokenTypeToJSON(value.type),
-        'symbol': value.symbol,
-        'decimals': value.decimals,
+        'type': EvmTokenTypeToJSON(value['type']),
+        'symbol': value['symbol'],
+        'decimals': value['decimals'],
     };
 }
-
 

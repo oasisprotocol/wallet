@@ -12,16 +12,29 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The state of the proposal.
  * @export
- * @enum {string}
  */
-export enum ProposalState {
-    Active = 'active',
-    Passed = 'passed',
-    Failed = 'failed',
-    Rejected = 'rejected'
+export const ProposalState = {
+    Active: 'active',
+    Passed: 'passed',
+    Failed: 'failed',
+    Rejected: 'rejected'
+} as const;
+export type ProposalState = typeof ProposalState[keyof typeof ProposalState];
+
+
+export function instanceOfProposalState(value: any): boolean {
+    for (const key in ProposalState) {
+        if (Object.prototype.hasOwnProperty.call(ProposalState, key)) {
+            if (ProposalState[key as keyof typeof ProposalState] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function ProposalStateFromJSON(json: any): ProposalState {
@@ -34,5 +47,9 @@ export function ProposalStateFromJSONTyped(json: any, ignoreDiscriminator: boole
 
 export function ProposalStateToJSON(value?: ProposalState | null): any {
     return value as any;
+}
+
+export function ProposalStateToJSONTyped(value: any, ignoreDiscriminator: boolean): ProposalState {
+    return value as ProposalState;
 }
 

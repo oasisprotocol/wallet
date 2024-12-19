@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmTokenType } from './EvmTokenType';
 import {
-    EvmTokenType,
     EvmTokenTypeFromJSON,
     EvmTokenTypeFromJSONTyped,
     EvmTokenTypeToJSON,
-} from './';
+    EvmTokenTypeToJSONTyped,
+} from './EvmTokenType';
 
 /**
  * Balance of an account for a specific runtime and EVM token.
@@ -70,12 +71,26 @@ export interface RuntimeEvmBalance {
     token_decimals: number;
 }
 
+
+
+/**
+ * Check if a given object implements the RuntimeEvmBalance interface.
+ */
+export function instanceOfRuntimeEvmBalance(value: object): value is RuntimeEvmBalance {
+    if (!('balance' in value) || value['balance'] === undefined) return false;
+    if (!('token_contract_addr' in value) || value['token_contract_addr'] === undefined) return false;
+    if (!('token_contract_addr_eth' in value) || value['token_contract_addr_eth'] === undefined) return false;
+    if (!('token_type' in value) || value['token_type'] === undefined) return false;
+    if (!('token_decimals' in value) || value['token_decimals'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeEvmBalanceFromJSON(json: any): RuntimeEvmBalance {
     return RuntimeEvmBalanceFromJSONTyped(json, false);
 }
 
 export function RuntimeEvmBalanceFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeEvmBalance {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -83,30 +98,31 @@ export function RuntimeEvmBalanceFromJSONTyped(json: any, ignoreDiscriminator: b
         'balance': json['balance'],
         'token_contract_addr': json['token_contract_addr'],
         'token_contract_addr_eth': json['token_contract_addr_eth'],
-        'token_symbol': !exists(json, 'token_symbol') ? undefined : json['token_symbol'],
-        'token_name': !exists(json, 'token_name') ? undefined : json['token_name'],
+        'token_symbol': json['token_symbol'] == null ? undefined : json['token_symbol'],
+        'token_name': json['token_name'] == null ? undefined : json['token_name'],
         'token_type': EvmTokenTypeFromJSON(json['token_type']),
         'token_decimals': json['token_decimals'],
     };
 }
 
-export function RuntimeEvmBalanceToJSON(value?: RuntimeEvmBalance | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'balance': value.balance,
-        'token_contract_addr': value.token_contract_addr,
-        'token_contract_addr_eth': value.token_contract_addr_eth,
-        'token_symbol': value.token_symbol,
-        'token_name': value.token_name,
-        'token_type': EvmTokenTypeToJSON(value.token_type),
-        'token_decimals': value.token_decimals,
-    };
+export function RuntimeEvmBalanceToJSON(json: any): RuntimeEvmBalance {
+    return RuntimeEvmBalanceToJSONTyped(json, false);
 }
 
+export function RuntimeEvmBalanceToJSONTyped(value?: RuntimeEvmBalance | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'balance': value['balance'],
+        'token_contract_addr': value['token_contract_addr'],
+        'token_contract_addr_eth': value['token_contract_addr_eth'],
+        'token_symbol': value['token_symbol'],
+        'token_name': value['token_name'],
+        'token_type': EvmTokenTypeToJSON(value['token_type']),
+        'token_decimals': value['token_decimals'],
+    };
+}
 

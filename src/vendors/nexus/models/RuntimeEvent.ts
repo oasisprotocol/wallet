@@ -12,21 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmAbiParam } from './EvmAbiParam';
 import {
-    EvmAbiParam,
     EvmAbiParamFromJSON,
     EvmAbiParamFromJSONTyped,
     EvmAbiParamToJSON,
-    EvmEventToken,
+    EvmAbiParamToJSONTyped,
+} from './EvmAbiParam';
+import type { EvmEventToken } from './EvmEventToken';
+import {
     EvmEventTokenFromJSON,
     EvmEventTokenFromJSONTyped,
     EvmEventTokenToJSON,
-    RuntimeEventType,
+    EvmEventTokenToJSONTyped,
+} from './EvmEventToken';
+import type { RuntimeEventType } from './RuntimeEventType';
+import {
     RuntimeEventTypeFromJSON,
     RuntimeEventTypeFromJSONTyped,
     RuntimeEventTypeToJSON,
-} from './';
+    RuntimeEventTypeToJSONTyped,
+} from './RuntimeEventType';
 
 /**
  * An event emitted by the runtime layer
@@ -43,6 +50,7 @@ export interface RuntimeEvent {
     /**
      * 0-based index of this event's originating transaction within its block.
      * Absent if the event did not originate from a transaction.
+     * 
      * @type {number}
      * @memberof RuntimeEvent
      */
@@ -50,6 +58,7 @@ export interface RuntimeEvent {
     /**
      * Hash of this event's originating transaction.
      * Absent if the event did not originate from a transaction.
+     * 
      * @type {string}
      * @memberof RuntimeEvent
      */
@@ -57,16 +66,18 @@ export interface RuntimeEvent {
     /**
      * Ethereum trasnsaction hash of this event's originating transaction.
      * Absent if the event did not originate from an EVM transaction.
+     * 
      * @type {string}
      * @memberof RuntimeEvent
      */
     eth_tx_hash?: string;
     /**
      * The second-granular consensus time of this event's block.
-     * @type {Date}
+     * 
+     * @type {string}
      * @memberof RuntimeEvent
      */
-    timestamp: Date;
+    timestamp: string;
     /**
      * The type of the event.
      * @type {RuntimeEventType}
@@ -81,6 +92,7 @@ export interface RuntimeEvent {
      * OR `evm > Event`. For object fields that specify an oasis-style address, Nexus
      * will add a field specifying the corresponding Ethereum address, if known. Currently,
      * the only such possible fields are `from_eth`, `to_eth`, and `owner_eth`.
+     * 
      * @type {object}
      * @memberof RuntimeEvent
      */
@@ -89,6 +101,7 @@ export interface RuntimeEvent {
      * If the event type is `evm.log`, this field describes the human-readable type of
      * evm event, e.g. `Transfer`.
      * Absent if the event type is not `evm.log`.
+     * 
      * @type {string}
      * @memberof RuntimeEvent
      */
@@ -96,6 +109,7 @@ export interface RuntimeEvent {
     /**
      * The decoded `evm.log` event data.
      * Absent if the event type is not `evm.log`.
+     * 
      * @type {Array<EvmAbiParam>}
      * @memberof RuntimeEvent
      */
@@ -108,49 +122,63 @@ export interface RuntimeEvent {
     evm_token?: EvmEventToken;
 }
 
+
+
+/**
+ * Check if a given object implements the RuntimeEvent interface.
+ */
+export function instanceOfRuntimeEvent(value: object): value is RuntimeEvent {
+    if (!('round' in value) || value['round'] === undefined) return false;
+    if (!('timestamp' in value) || value['timestamp'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('body' in value) || value['body'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeEventFromJSON(json: any): RuntimeEvent {
     return RuntimeEventFromJSONTyped(json, false);
 }
 
 export function RuntimeEventFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeEvent {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'round': json['round'],
-        'tx_index': !exists(json, 'tx_index') ? undefined : json['tx_index'],
-        'tx_hash': !exists(json, 'tx_hash') ? undefined : json['tx_hash'],
-        'eth_tx_hash': !exists(json, 'eth_tx_hash') ? undefined : json['eth_tx_hash'],
-        'timestamp': (new Date(json['timestamp'])),
+        'tx_index': json['tx_index'] == null ? undefined : json['tx_index'],
+        'tx_hash': json['tx_hash'] == null ? undefined : json['tx_hash'],
+        'eth_tx_hash': json['eth_tx_hash'] == null ? undefined : json['eth_tx_hash'],
+        'timestamp': json['timestamp'],
         'type': RuntimeEventTypeFromJSON(json['type']),
         'body': json['body'],
-        'evm_log_name': !exists(json, 'evm_log_name') ? undefined : json['evm_log_name'],
-        'evm_log_params': !exists(json, 'evm_log_params') ? undefined : ((json['evm_log_params'] as Array<any>).map(EvmAbiParamFromJSON)),
-        'evm_token': !exists(json, 'evm_token') ? undefined : EvmEventTokenFromJSON(json['evm_token']),
+        'evm_log_name': json['evm_log_name'] == null ? undefined : json['evm_log_name'],
+        'evm_log_params': json['evm_log_params'] == null ? undefined : ((json['evm_log_params'] as Array<any>).map(EvmAbiParamFromJSON)),
+        'evm_token': json['evm_token'] == null ? undefined : EvmEventTokenFromJSON(json['evm_token']),
     };
 }
 
-export function RuntimeEventToJSON(value?: RuntimeEvent | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeEventToJSON(json: any): RuntimeEvent {
+    return RuntimeEventToJSONTyped(json, false);
+}
+
+export function RuntimeEventToJSONTyped(value?: RuntimeEvent | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'round': value.round,
-        'tx_index': value.tx_index,
-        'tx_hash': value.tx_hash,
-        'eth_tx_hash': value.eth_tx_hash,
-        'timestamp': (value.timestamp.toISOString()),
-        'type': RuntimeEventTypeToJSON(value.type),
-        'body': value.body,
-        'evm_log_name': value.evm_log_name,
-        'evm_log_params': value.evm_log_params === undefined ? undefined : ((value.evm_log_params as Array<any>).map(EvmAbiParamToJSON)),
-        'evm_token': EvmEventTokenToJSON(value.evm_token),
+        'round': value['round'],
+        'tx_index': value['tx_index'],
+        'tx_hash': value['tx_hash'],
+        'eth_tx_hash': value['eth_tx_hash'],
+        'timestamp': value['timestamp'],
+        'type': RuntimeEventTypeToJSON(value['type']),
+        'body': value['body'],
+        'evm_log_name': value['evm_log_name'],
+        'evm_log_params': value['evm_log_params'] == null ? undefined : ((value['evm_log_params'] as Array<any>).map(EvmAbiParamToJSON)),
+        'evm_token': EvmEventTokenToJSON(value['evm_token']),
     };
 }
-
 

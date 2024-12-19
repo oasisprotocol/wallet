@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RoothashMessageType } from './RoothashMessageType';
 import {
-    RoothashMessageType,
     RoothashMessageTypeFromJSON,
     RoothashMessageTypeFromJSONTyped,
     RoothashMessageTypeToJSON,
-} from './';
+    RoothashMessageTypeToJSONTyped,
+} from './RoothashMessageType';
 
 /**
  * 
@@ -28,24 +29,28 @@ import {
 export interface RoothashMessage {
     /**
      * The runtime that sent this message.
+     * 
      * @type {string}
      * @memberof RoothashMessage
      */
     runtime: string;
     /**
      * The block round when the runtime sent this message.
+     * 
      * @type {number}
      * @memberof RoothashMessage
      */
     round: number;
     /**
      * The 0-based index of this message in the block.
+     * 
      * @type {number}
      * @memberof RoothashMessage
      */
     index: number;
     /**
      * The type of thies message.
+     * 
      * @type {RoothashMessageType}
      * @memberof RoothashMessage
      */
@@ -61,6 +66,7 @@ export interface RoothashMessage {
      * structure
      * (https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/staking/api#Withdraw),
      * with `from` and `amount` fields in JSON.
+     * 
      * @type {object}
      * @memberof RoothashMessage
      */
@@ -68,6 +74,7 @@ export interface RoothashMessage {
     /**
      * If executing this message resulted in an error, this is the
      * error's module.
+     * 
      * @type {string}
      * @memberof RoothashMessage
      */
@@ -75,6 +82,7 @@ export interface RoothashMessage {
     /**
      * If executing this message resulted in an error, this is the
      * error's code.
+     * 
      * @type {number}
      * @memberof RoothashMessage
      */
@@ -91,10 +99,23 @@ export interface RoothashMessage {
      * (`https://pkg.go.dev/github.com/oasisprotocol/oasis-core/go/staking/api#WithdrawResult`)
      * with `owner`, `beneficiary`, `allowance`, and `amount_change`
      * fields.
+     * 
      * @type {any}
      * @memberof RoothashMessage
      */
     result?: any | null;
+}
+
+
+
+/**
+ * Check if a given object implements the RoothashMessage interface.
+ */
+export function instanceOfRoothashMessage(value: object): value is RoothashMessage {
+    if (!('runtime' in value) || value['runtime'] === undefined) return false;
+    if (!('round' in value) || value['round'] === undefined) return false;
+    if (!('index' in value) || value['index'] === undefined) return false;
+    return true;
 }
 
 export function RoothashMessageFromJSON(json: any): RoothashMessage {
@@ -102,7 +123,7 @@ export function RoothashMessageFromJSON(json: any): RoothashMessage {
 }
 
 export function RoothashMessageFromJSONTyped(json: any, ignoreDiscriminator: boolean): RoothashMessage {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -110,32 +131,33 @@ export function RoothashMessageFromJSONTyped(json: any, ignoreDiscriminator: boo
         'runtime': json['runtime'],
         'round': json['round'],
         'index': json['index'],
-        'type': !exists(json, 'type') ? undefined : RoothashMessageTypeFromJSON(json['type']),
-        'body': !exists(json, 'body') ? undefined : json['body'],
-        'error_module': !exists(json, 'error_module') ? undefined : json['error_module'],
-        'error_code': !exists(json, 'error_code') ? undefined : json['error_code'],
-        'result': !exists(json, 'result') ? undefined : json['result'],
+        'type': json['type'] == null ? undefined : RoothashMessageTypeFromJSON(json['type']),
+        'body': json['body'] == null ? undefined : json['body'],
+        'error_module': json['error_module'] == null ? undefined : json['error_module'],
+        'error_code': json['error_code'] == null ? undefined : json['error_code'],
+        'result': json['result'] == null ? undefined : json['result'],
     };
 }
 
-export function RoothashMessageToJSON(value?: RoothashMessage | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RoothashMessageToJSON(json: any): RoothashMessage {
+    return RoothashMessageToJSONTyped(json, false);
+}
+
+export function RoothashMessageToJSONTyped(value?: RoothashMessage | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'runtime': value.runtime,
-        'round': value.round,
-        'index': value.index,
-        'type': RoothashMessageTypeToJSON(value.type),
-        'body': value.body,
-        'error_module': value.error_module,
-        'error_code': value.error_code,
-        'result': value.result,
+        'runtime': value['runtime'],
+        'round': value['round'],
+        'index': value['index'],
+        'type': RoothashMessageTypeToJSON(value['type']),
+        'body': value['body'],
+        'error_module': value['error_module'],
+        'error_code': value['error_code'],
+        'result': value['result'],
     };
 }
-
 

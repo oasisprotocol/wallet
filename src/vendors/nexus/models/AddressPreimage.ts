@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { AddressDerivationContext } from './AddressDerivationContext';
 import {
-    AddressDerivationContext,
     AddressDerivationContextFromJSON,
     AddressDerivationContextFromJSONTyped,
     AddressDerivationContextToJSON,
-} from './';
+    AddressDerivationContextToJSONTyped,
+} from './AddressDerivationContext';
 
 /**
  * The data from which a consensus-style address (`oasis1...`)
@@ -36,12 +37,14 @@ import {
  * valid in every runtime. For example, in EVM runtimes, you can use staking
  * addresses, but only with Oasis tools (e.g. a wallet); EVM contracts such as
  * ERC20 tokens or tools such as Metamask cannot interact with staking addresses.
+ * 
  * @export
  * @interface AddressPreimage
  */
 export interface AddressPreimage {
     /**
      * The method by which the Oasis address was derived from `address_data`.
+     * 
      * @type {AddressDerivationContext}
      * @memberof AddressPreimage
      */
@@ -56,10 +59,22 @@ export interface AddressPreimage {
      * The base64-encoded data from which the Oasis address was derived.
      * When `context = "oasis-runtime-sdk/address: secp256k1eth"`, this
      * is the Ethereum address (in base64, not hex!).
+     * 
      * @type {string}
      * @memberof AddressPreimage
      */
     address_data: string;
+}
+
+
+
+/**
+ * Check if a given object implements the AddressPreimage interface.
+ */
+export function instanceOfAddressPreimage(value: object): value is AddressPreimage {
+    if (!('context' in value) || value['context'] === undefined) return false;
+    if (!('address_data' in value) || value['address_data'] === undefined) return false;
+    return true;
 }
 
 export function AddressPreimageFromJSON(json: any): AddressPreimage {
@@ -67,30 +82,31 @@ export function AddressPreimageFromJSON(json: any): AddressPreimage {
 }
 
 export function AddressPreimageFromJSONTyped(json: any, ignoreDiscriminator: boolean): AddressPreimage {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'context': AddressDerivationContextFromJSON(json['context']),
-        'context_version': !exists(json, 'context_version') ? undefined : json['context_version'],
+        'context_version': json['context_version'] == null ? undefined : json['context_version'],
         'address_data': json['address_data'],
     };
 }
 
-export function AddressPreimageToJSON(value?: AddressPreimage | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'context': AddressDerivationContextToJSON(value.context),
-        'context_version': value.context_version,
-        'address_data': value.address_data,
-    };
+export function AddressPreimageToJSON(json: any): AddressPreimage {
+    return AddressPreimageToJSONTyped(json, false);
 }
 
+export function AddressPreimageToJSONTyped(value?: AddressPreimage | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'context': AddressDerivationContextToJSON(value['context']),
+        'context_version': value['context_version'],
+        'address_data': value['address_data'],
+    };
+}
 

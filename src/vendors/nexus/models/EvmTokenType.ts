@@ -12,14 +12,28 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The type of a EVM token.
+ * 
  * @export
- * @enum {string}
  */
-export enum EvmTokenType {
-    Erc20 = 'ERC20',
-    Erc721 = 'ERC721'
+export const EvmTokenType = {
+    Erc20: 'ERC20',
+    Erc721: 'ERC721'
+} as const;
+export type EvmTokenType = typeof EvmTokenType[keyof typeof EvmTokenType];
+
+
+export function instanceOfEvmTokenType(value: any): boolean {
+    for (const key in EvmTokenType) {
+        if (Object.prototype.hasOwnProperty.call(EvmTokenType, key)) {
+            if (EvmTokenType[key as keyof typeof EvmTokenType] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function EvmTokenTypeFromJSON(json: any): EvmTokenType {
@@ -32,5 +46,9 @@ export function EvmTokenTypeFromJSONTyped(json: any, ignoreDiscriminator: boolea
 
 export function EvmTokenTypeToJSON(value?: EvmTokenType | null): any {
     return value as any;
+}
+
+export function EvmTokenTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): EvmTokenType {
+    return value as EvmTokenType;
 }
 

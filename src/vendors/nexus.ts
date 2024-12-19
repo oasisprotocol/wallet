@@ -30,7 +30,7 @@ export interface ExtendedRuntimeTransaction extends NexusRuntimeTransaction {
 export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   const explorerConfig = new Configuration({
     basePath: url,
-    ...throwAPIErrors,
+    fetchApi: throwAPIErrors.fetchApi,
   })
 
   const api = new NexusApi(explorerConfig)

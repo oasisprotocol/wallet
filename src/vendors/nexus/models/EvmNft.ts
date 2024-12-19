@@ -12,13 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmToken } from './EvmToken';
 import {
-    EvmToken,
     EvmTokenFromJSON,
     EvmTokenFromJSONTyped,
     EvmTokenToJSON,
-} from './';
+    EvmTokenToJSONTyped,
+} from './EvmToken';
 
 /**
  * 
@@ -52,6 +53,7 @@ export interface EvmNft {
     owner_eth?: string;
     /**
      * The total number of transfers of this NFT instance.
+     * 
      * @type {number}
      * @memberof EvmNft
      */
@@ -71,6 +73,7 @@ export interface EvmNft {
     /**
      * A metadata document for this NFT instance.
      * Currently only ERC-721 is supported, where the document is an Asset Metadata from the ERC721 Metadata JSON Schema.
+     * 
      * @type {any}
      * @memberof EvmNft
      */
@@ -91,10 +94,20 @@ export interface EvmNft {
      * A URI pointing to a resource with mime type image/* representing
      * the asset which this NFT represents. (Additional
      * non-descriptive text from ERC-721 omitted.)
+     * 
      * @type {string}
      * @memberof EvmNft
      */
     image?: string;
+}
+
+/**
+ * Check if a given object implements the EvmNft interface.
+ */
+export function instanceOfEvmNft(value: object): value is EvmNft {
+    if (!('token' in value) || value['token'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
+    return true;
 }
 
 export function EvmNftFromJSON(json: any): EvmNft {
@@ -102,46 +115,47 @@ export function EvmNftFromJSON(json: any): EvmNft {
 }
 
 export function EvmNftFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmNft {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'token': EvmTokenFromJSON(json['token']),
         'id': json['id'],
-        'owner': !exists(json, 'owner') ? undefined : json['owner'],
-        'owner_eth': !exists(json, 'owner_eth') ? undefined : json['owner_eth'],
-        'num_transfers': !exists(json, 'num_transfers') ? undefined : json['num_transfers'],
-        'metadata_uri': !exists(json, 'metadata_uri') ? undefined : json['metadata_uri'],
-        'metadata_accessed': !exists(json, 'metadata_accessed') ? undefined : json['metadata_accessed'],
-        'metadata': !exists(json, 'metadata') ? undefined : json['metadata'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'description': !exists(json, 'description') ? undefined : json['description'],
-        'image': !exists(json, 'image') ? undefined : json['image'],
+        'owner': json['owner'] == null ? undefined : json['owner'],
+        'owner_eth': json['owner_eth'] == null ? undefined : json['owner_eth'],
+        'num_transfers': json['num_transfers'] == null ? undefined : json['num_transfers'],
+        'metadata_uri': json['metadata_uri'] == null ? undefined : json['metadata_uri'],
+        'metadata_accessed': json['metadata_accessed'] == null ? undefined : json['metadata_accessed'],
+        'metadata': json['metadata'] == null ? undefined : json['metadata'],
+        'name': json['name'] == null ? undefined : json['name'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'image': json['image'] == null ? undefined : json['image'],
     };
 }
 
-export function EvmNftToJSON(value?: EvmNft | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EvmNftToJSON(json: any): EvmNft {
+    return EvmNftToJSONTyped(json, false);
+}
+
+export function EvmNftToJSONTyped(value?: EvmNft | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'token': EvmTokenToJSON(value.token),
-        'id': value.id,
-        'owner': value.owner,
-        'owner_eth': value.owner_eth,
-        'num_transfers': value.num_transfers,
-        'metadata_uri': value.metadata_uri,
-        'metadata_accessed': value.metadata_accessed,
-        'metadata': value.metadata,
-        'name': value.name,
-        'description': value.description,
-        'image': value.image,
+        'token': EvmTokenToJSON(value['token']),
+        'id': value['id'],
+        'owner': value['owner'],
+        'owner_eth': value['owner_eth'],
+        'num_transfers': value['num_transfers'],
+        'metadata_uri': value['metadata_uri'],
+        'metadata_accessed': value['metadata_accessed'],
+        'metadata': value['metadata'],
+        'name': value['name'],
+        'description': value['description'],
+        'image': value['image'],
     };
 }
-
 

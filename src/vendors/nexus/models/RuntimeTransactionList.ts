@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { RuntimeTransactionListAllOfTransactions } from './RuntimeTransactionListAllOfTransactions';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    RuntimeTransaction,
-    RuntimeTransactionFromJSON,
-    RuntimeTransactionFromJSONTyped,
-    RuntimeTransactionToJSON,
-    RuntimeTransactionListAllOf,
-    RuntimeTransactionListAllOfFromJSON,
-    RuntimeTransactionListAllOfFromJSONTyped,
-    RuntimeTransactionListAllOfToJSON,
-} from './';
+    RuntimeTransactionListAllOfTransactionsFromJSON,
+    RuntimeTransactionListAllOfTransactionsFromJSONTyped,
+    RuntimeTransactionListAllOfTransactionsToJSON,
+    RuntimeTransactionListAllOfTransactionsToJSONTyped,
+} from './RuntimeTransactionListAllOfTransactions';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface RuntimeTransactionList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof RuntimeTransactionList
      */
@@ -49,10 +43,20 @@ export interface RuntimeTransactionList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<RuntimeTransaction>}
+     * @type {Array<RuntimeTransactionListAllOfTransactions>}
      * @memberof RuntimeTransactionList
      */
-    transactions: Array<RuntimeTransaction>;
+    transactions: Array<RuntimeTransactionListAllOfTransactions>;
+}
+
+/**
+ * Check if a given object implements the RuntimeTransactionList interface.
+ */
+export function instanceOfRuntimeTransactionList(value: object): value is RuntimeTransactionList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('transactions' in value) || value['transactions'] === undefined) return false;
+    return true;
 }
 
 export function RuntimeTransactionListFromJSON(json: any): RuntimeTransactionList {
@@ -60,30 +64,31 @@ export function RuntimeTransactionListFromJSON(json: any): RuntimeTransactionLis
 }
 
 export function RuntimeTransactionListFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeTransactionList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'transactions': ((json['transactions'] as Array<any>).map(RuntimeTransactionFromJSON)),
+        'transactions': ((json['transactions'] as Array<any>).map(RuntimeTransactionListAllOfTransactionsFromJSON)),
     };
 }
 
-export function RuntimeTransactionListToJSON(value?: RuntimeTransactionList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function RuntimeTransactionListToJSON(json: any): RuntimeTransactionList {
+    return RuntimeTransactionListToJSONTyped(json, false);
+}
+
+export function RuntimeTransactionListToJSONTyped(value?: RuntimeTransactionList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'transactions': ((value.transactions as Array<any>).map(RuntimeTransactionToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'transactions': ((value['transactions'] as Array<any>).map(RuntimeTransactionListAllOfTransactionsToJSON)),
     };
 }
-
 

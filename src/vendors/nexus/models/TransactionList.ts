@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { TransactionListAllOfTransactions } from './TransactionListAllOfTransactions';
 import {
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    Transaction,
-    TransactionFromJSON,
-    TransactionFromJSONTyped,
-    TransactionToJSON,
-    TransactionListAllOf,
-    TransactionListAllOfFromJSON,
-    TransactionListAllOfFromJSONTyped,
-    TransactionListAllOfToJSON,
-} from './';
+    TransactionListAllOfTransactionsFromJSON,
+    TransactionListAllOfTransactionsFromJSONTyped,
+    TransactionListAllOfTransactionsToJSON,
+    TransactionListAllOfTransactionsToJSONTyped,
+} from './TransactionListAllOfTransactions';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface TransactionList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof TransactionList
      */
@@ -49,10 +43,20 @@ export interface TransactionList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Transaction>}
+     * @type {Array<TransactionListAllOfTransactions>}
      * @memberof TransactionList
      */
-    transactions: Array<Transaction>;
+    transactions: Array<TransactionListAllOfTransactions>;
+}
+
+/**
+ * Check if a given object implements the TransactionList interface.
+ */
+export function instanceOfTransactionList(value: object): value is TransactionList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('transactions' in value) || value['transactions'] === undefined) return false;
+    return true;
 }
 
 export function TransactionListFromJSON(json: any): TransactionList {
@@ -60,30 +64,31 @@ export function TransactionListFromJSON(json: any): TransactionList {
 }
 
 export function TransactionListFromJSONTyped(json: any, ignoreDiscriminator: boolean): TransactionList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'transactions': ((json['transactions'] as Array<any>).map(TransactionFromJSON)),
+        'transactions': ((json['transactions'] as Array<any>).map(TransactionListAllOfTransactionsFromJSON)),
     };
 }
 
-export function TransactionListToJSON(value?: TransactionList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function TransactionListToJSON(json: any): TransactionList {
+    return TransactionListToJSONTyped(json, false);
+}
+
+export function TransactionListToJSONTyped(value?: TransactionList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'transactions': ((value.transactions as Array<any>).map(TransactionToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'transactions': ((value['transactions'] as Array<any>).map(TransactionListAllOfTransactionsToJSON)),
     };
 }
-
 

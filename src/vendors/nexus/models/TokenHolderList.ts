@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { TokenHolderListAllOfHolders } from './TokenHolderListAllOfHolders';
 import {
-    BareTokenHolder,
-    BareTokenHolderFromJSON,
-    BareTokenHolderFromJSONTyped,
-    BareTokenHolderToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-    TokenHolderListAllOf,
-    TokenHolderListAllOfFromJSON,
-    TokenHolderListAllOfFromJSONTyped,
-    TokenHolderListAllOfToJSON,
-} from './';
+    TokenHolderListAllOfHoldersFromJSON,
+    TokenHolderListAllOfHoldersFromJSONTyped,
+    TokenHolderListAllOfHoldersToJSON,
+    TokenHolderListAllOfHoldersToJSONTyped,
+} from './TokenHolderListAllOfHolders';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface TokenHolderList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof TokenHolderList
      */
@@ -49,10 +43,20 @@ export interface TokenHolderList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<BareTokenHolder>}
+     * @type {Array<TokenHolderListAllOfHolders>}
      * @memberof TokenHolderList
      */
-    holders: Array<BareTokenHolder>;
+    holders: Array<TokenHolderListAllOfHolders>;
+}
+
+/**
+ * Check if a given object implements the TokenHolderList interface.
+ */
+export function instanceOfTokenHolderList(value: object): value is TokenHolderList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('holders' in value) || value['holders'] === undefined) return false;
+    return true;
 }
 
 export function TokenHolderListFromJSON(json: any): TokenHolderList {
@@ -60,30 +64,31 @@ export function TokenHolderListFromJSON(json: any): TokenHolderList {
 }
 
 export function TokenHolderListFromJSONTyped(json: any, ignoreDiscriminator: boolean): TokenHolderList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'holders': ((json['holders'] as Array<any>).map(BareTokenHolderFromJSON)),
+        'holders': ((json['holders'] as Array<any>).map(TokenHolderListAllOfHoldersFromJSON)),
     };
 }
 
-export function TokenHolderListToJSON(value?: TokenHolderList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function TokenHolderListToJSON(json: any): TokenHolderList {
+    return TokenHolderListToJSONTyped(json, false);
+}
+
+export function TokenHolderListToJSONTyped(value?: TokenHolderList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'holders': ((value.holders as Array<any>).map(BareTokenHolderToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'holders': ((value['holders'] as Array<any>).map(TokenHolderListAllOfHoldersToJSON)),
     };
 }
-
 

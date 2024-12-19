@@ -12,16 +12,30 @@
  * Do not edit the class manually.
  */
 
+
 /**
  * The level of verification of a smart contract, as defined by Sourcify.
  * An absence of this field means that the contract has not been verified.
  * See also https://docs.sourcify.dev/docs/full-vs-partial-match/
+ * 
  * @export
- * @enum {string}
  */
-export enum VerificationLevel {
-    Partial = 'partial',
-    Full = 'full'
+export const VerificationLevel = {
+    Partial: 'partial',
+    Full: 'full'
+} as const;
+export type VerificationLevel = typeof VerificationLevel[keyof typeof VerificationLevel];
+
+
+export function instanceOfVerificationLevel(value: any): boolean {
+    for (const key in VerificationLevel) {
+        if (Object.prototype.hasOwnProperty.call(VerificationLevel, key)) {
+            if (VerificationLevel[key as keyof typeof VerificationLevel] === value) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 export function VerificationLevelFromJSON(json: any): VerificationLevel {
@@ -34,5 +48,9 @@ export function VerificationLevelFromJSONTyped(json: any, ignoreDiscriminator: b
 
 export function VerificationLevelToJSON(value?: VerificationLevel | null): any {
     return value as any;
+}
+
+export function VerificationLevelToJSONTyped(value: any, ignoreDiscriminator: boolean): VerificationLevel {
+    return value as VerificationLevel;
 }
 

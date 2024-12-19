@@ -12,17 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ValidatorList } from './ValidatorList';
 import {
-    ValidatorAggStats,
-    ValidatorAggStatsFromJSON,
-    ValidatorAggStatsFromJSONTyped,
-    ValidatorAggStatsToJSON,
-    ValidatorList,
     ValidatorListFromJSON,
     ValidatorListFromJSONTyped,
     ValidatorListToJSON,
-} from './';
+    ValidatorListToJSONTyped,
+} from './ValidatorList';
+import type { ValidatorAggStats } from './ValidatorAggStats';
+import {
+    ValidatorAggStatsFromJSON,
+    ValidatorAggStatsFromJSONTyped,
+    ValidatorAggStatsToJSON,
+    ValidatorAggStatsToJSONTyped,
+} from './ValidatorAggStats';
 
 /**
  * 
@@ -44,12 +48,21 @@ export interface ValidatorsResponse {
     stats: ValidatorAggStats;
 }
 
+/**
+ * Check if a given object implements the ValidatorsResponse interface.
+ */
+export function instanceOfValidatorsResponse(value: object): value is ValidatorsResponse {
+    if (!('validator_list' in value) || value['validator_list'] === undefined) return false;
+    if (!('stats' in value) || value['stats'] === undefined) return false;
+    return true;
+}
+
 export function ValidatorsResponseFromJSON(json: any): ValidatorsResponse {
     return ValidatorsResponseFromJSONTyped(json, false);
 }
 
 export function ValidatorsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ValidatorsResponse {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -59,18 +72,19 @@ export function ValidatorsResponseFromJSONTyped(json: any, ignoreDiscriminator: 
     };
 }
 
-export function ValidatorsResponseToJSON(value?: ValidatorsResponse | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'validator_list': ValidatorListToJSON(value.validator_list),
-        'stats': ValidatorAggStatsToJSON(value.stats),
-    };
+export function ValidatorsResponseToJSON(json: any): ValidatorsResponse {
+    return ValidatorsResponseToJSONTyped(json, false);
 }
 
+export function ValidatorsResponseToJSONTyped(value?: ValidatorsResponse | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'validator_list': ValidatorListToJSON(value['validator_list']),
+        'stats': ValidatorAggStatsToJSON(value['stats']),
+    };
+}
 

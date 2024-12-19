@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EntityListAllOfEntities } from './EntityListAllOfEntities';
 import {
-    Entity,
-    EntityFromJSON,
-    EntityFromJSONTyped,
-    EntityToJSON,
-    EntityListAllOf,
-    EntityListAllOfFromJSON,
-    EntityListAllOfFromJSONTyped,
-    EntityListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    EntityListAllOfEntitiesFromJSON,
+    EntityListAllOfEntitiesFromJSONTyped,
+    EntityListAllOfEntitiesToJSON,
+    EntityListAllOfEntitiesToJSONTyped,
+} from './EntityListAllOfEntities';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface EntityList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof EntityList
      */
@@ -49,10 +43,20 @@ export interface EntityList {
     is_total_count_clipped: boolean;
     /**
      * 
-     * @type {Array<Entity>}
+     * @type {Array<EntityListAllOfEntities>}
      * @memberof EntityList
      */
-    entities: Array<Entity>;
+    entities: Array<EntityListAllOfEntities>;
+}
+
+/**
+ * Check if a given object implements the EntityList interface.
+ */
+export function instanceOfEntityList(value: object): value is EntityList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('entities' in value) || value['entities'] === undefined) return false;
+    return true;
 }
 
 export function EntityListFromJSON(json: any): EntityList {
@@ -60,30 +64,31 @@ export function EntityListFromJSON(json: any): EntityList {
 }
 
 export function EntityListFromJSONTyped(json: any, ignoreDiscriminator: boolean): EntityList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'entities': ((json['entities'] as Array<any>).map(EntityFromJSON)),
+        'entities': ((json['entities'] as Array<any>).map(EntityListAllOfEntitiesFromJSON)),
     };
 }
 
-export function EntityListToJSON(value?: EntityList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EntityListToJSON(json: any): EntityList {
+    return EntityListToJSONTyped(json, false);
+}
+
+export function EntityListToJSONTyped(value?: EntityList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'entities': ((value.entities as Array<any>).map(EntityToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'entities': ((value['entities'] as Array<any>).map(EntityListAllOfEntitiesToJSON)),
     };
 }
-
 

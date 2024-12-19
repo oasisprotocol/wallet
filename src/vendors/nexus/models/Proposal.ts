@@ -12,20 +12,25 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { ProposalState } from './ProposalState';
 import {
-    ProposalState,
     ProposalStateFromJSON,
     ProposalStateFromJSONTyped,
     ProposalStateToJSON,
-    ProposalTarget,
+    ProposalStateToJSONTyped,
+} from './ProposalState';
+import type { ProposalTarget } from './ProposalTarget';
+import {
     ProposalTargetFromJSON,
     ProposalTargetFromJSONTyped,
     ProposalTargetToJSON,
-} from './';
+    ProposalTargetToJSONTyped,
+} from './ProposalTarget';
 
 /**
  * A governance proposal.
+ * 
  * @export
  * @interface Proposal
  */
@@ -87,6 +92,7 @@ export interface Proposal {
     /**
      * The proposal to cancel, if this proposal proposes
      * cancelling an existing proposal.
+     * 
      * @type {number}
      * @memberof Proposal
      */
@@ -94,6 +100,7 @@ export interface Proposal {
     /**
      * The name of the module whose parameters are to be changed
      * by this 'parameters_change' proposal.
+     * 
      * @type {string}
      * @memberof Proposal
      */
@@ -118,10 +125,27 @@ export interface Proposal {
     closes_at: number;
     /**
      * The number of invalid votes for this proposal, after tallying.
+     * 
      * @type {string}
      * @memberof Proposal
      */
     invalid_votes: string;
+}
+
+
+
+/**
+ * Check if a given object implements the Proposal interface.
+ */
+export function instanceOfProposal(value: object): value is Proposal {
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('submitter' in value) || value['submitter'] === undefined) return false;
+    if (!('state' in value) || value['state'] === undefined) return false;
+    if (!('deposit' in value) || value['deposit'] === undefined) return false;
+    if (!('created_at' in value) || value['created_at'] === undefined) return false;
+    if (!('closes_at' in value) || value['closes_at'] === undefined) return false;
+    if (!('invalid_votes' in value) || value['invalid_votes'] === undefined) return false;
+    return true;
 }
 
 export function ProposalFromJSON(json: any): Proposal {
@@ -129,7 +153,7 @@ export function ProposalFromJSON(json: any): Proposal {
 }
 
 export function ProposalFromJSONTyped(json: any, ignoreDiscriminator: boolean): Proposal {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -138,45 +162,46 @@ export function ProposalFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'submitter': json['submitter'],
         'state': ProposalStateFromJSON(json['state']),
         'deposit': json['deposit'],
-        'title': !exists(json, 'title') ? undefined : json['title'],
-        'description': !exists(json, 'description') ? undefined : json['description'],
-        'handler': !exists(json, 'handler') ? undefined : json['handler'],
-        'target': !exists(json, 'target') ? undefined : ProposalTargetFromJSON(json['target']),
-        'epoch': !exists(json, 'epoch') ? undefined : json['epoch'],
-        'cancels': !exists(json, 'cancels') ? undefined : json['cancels'],
-        'parameters_change_module': !exists(json, 'parameters_change_module') ? undefined : json['parameters_change_module'],
-        'parameters_change': !exists(json, 'parameters_change') ? undefined : json['parameters_change'],
+        'title': json['title'] == null ? undefined : json['title'],
+        'description': json['description'] == null ? undefined : json['description'],
+        'handler': json['handler'] == null ? undefined : json['handler'],
+        'target': json['target'] == null ? undefined : ProposalTargetFromJSON(json['target']),
+        'epoch': json['epoch'] == null ? undefined : json['epoch'],
+        'cancels': json['cancels'] == null ? undefined : json['cancels'],
+        'parameters_change_module': json['parameters_change_module'] == null ? undefined : json['parameters_change_module'],
+        'parameters_change': json['parameters_change'] == null ? undefined : json['parameters_change'],
         'created_at': json['created_at'],
         'closes_at': json['closes_at'],
         'invalid_votes': json['invalid_votes'],
     };
 }
 
-export function ProposalToJSON(value?: Proposal | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'id': value.id,
-        'submitter': value.submitter,
-        'state': ProposalStateToJSON(value.state),
-        'deposit': value.deposit,
-        'title': value.title,
-        'description': value.description,
-        'handler': value.handler,
-        'target': ProposalTargetToJSON(value.target),
-        'epoch': value.epoch,
-        'cancels': value.cancels,
-        'parameters_change_module': value.parameters_change_module,
-        'parameters_change': value.parameters_change,
-        'created_at': value.created_at,
-        'closes_at': value.closes_at,
-        'invalid_votes': value.invalid_votes,
-    };
+export function ProposalToJSON(json: any): Proposal {
+    return ProposalToJSONTyped(json, false);
 }
 
+export function ProposalToJSONTyped(value?: Proposal | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'id': value['id'],
+        'submitter': value['submitter'],
+        'state': ProposalStateToJSON(value['state']),
+        'deposit': value['deposit'],
+        'title': value['title'],
+        'description': value['description'],
+        'handler': value['handler'],
+        'target': ProposalTargetToJSON(value['target']),
+        'epoch': value['epoch'],
+        'cancels': value['cancels'],
+        'parameters_change_module': value['parameters_change_module'],
+        'parameters_change': value['parameters_change'],
+        'created_at': value['created_at'],
+        'closes_at': value['closes_at'],
+        'invalid_votes': value['invalid_votes'],
+    };
+}
 

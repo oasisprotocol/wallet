@@ -12,17 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmTokenType } from './EvmTokenType';
 import {
-    EvmTokenType,
     EvmTokenTypeFromJSON,
     EvmTokenTypeFromJSONTyped,
     EvmTokenTypeToJSON,
-    VerificationLevel,
+    EvmTokenTypeToJSONTyped,
+} from './EvmTokenType';
+import type { VerificationLevel } from './VerificationLevel';
+import {
     VerificationLevelFromJSON,
     VerificationLevelFromJSONTyped,
     VerificationLevelToJSON,
-} from './';
+    VerificationLevelToJSONTyped,
+} from './VerificationLevel';
 
 /**
  * 
@@ -58,6 +62,7 @@ export interface EvmToken {
      * The number of least significant digits in base units that should be displayed as
      * decimals when displaying tokens. `tokens = base_units / (10**decimals)`.
      * Affects display only. Often equals 18, to match ETH.
+     * 
      * @type {number}
      * @memberof EvmToken
      */
@@ -67,6 +72,7 @@ export interface EvmToken {
      * A less specialized variant of the token might be detected; for example, an
      * ERC-1363 token might be labeled as ERC-20 here. If the type cannot be
      * detected or is not supported, this field will be null/absent.
+     * 
      * @type {EvmTokenType}
      * @memberof EvmToken
      */
@@ -79,12 +85,14 @@ export interface EvmToken {
     total_supply?: string;
     /**
      * The total number of transfers of this token.
+     * 
      * @type {number}
      * @memberof EvmToken
      */
     num_transfers?: number;
     /**
      * The number of addresses that have a nonzero balance of this token.
+     * 
      * @type {number}
      * @memberof EvmToken
      */
@@ -94,8 +102,10 @@ export interface EvmToken {
      * Additional information on verified contracts is available via
      * the `/{runtime}/accounts/{address}` endpoint.
      * DEPRECATED: This field will be removed in the future in favor of verification_level
+     * 
      * @type {boolean}
      * @memberof EvmToken
+     * @deprecated
      */
     is_verified: boolean;
     /**
@@ -106,51 +116,66 @@ export interface EvmToken {
     verification_level?: VerificationLevel;
 }
 
+
+
+/**
+ * Check if a given object implements the EvmToken interface.
+ */
+export function instanceOfEvmToken(value: object): value is EvmToken {
+    if (!('contract_addr' in value) || value['contract_addr'] === undefined) return false;
+    if (!('eth_contract_addr' in value) || value['eth_contract_addr'] === undefined) return false;
+    if (!('type' in value) || value['type'] === undefined) return false;
+    if (!('num_holders' in value) || value['num_holders'] === undefined) return false;
+    if (!('is_verified' in value) || value['is_verified'] === undefined) return false;
+    return true;
+}
+
 export function EvmTokenFromJSON(json: any): EvmToken {
     return EvmTokenFromJSONTyped(json, false);
 }
 
 export function EvmTokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmToken {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'contract_addr': json['contract_addr'],
         'eth_contract_addr': json['eth_contract_addr'],
-        'name': !exists(json, 'name') ? undefined : json['name'],
-        'symbol': !exists(json, 'symbol') ? undefined : json['symbol'],
-        'decimals': !exists(json, 'decimals') ? undefined : json['decimals'],
+        'name': json['name'] == null ? undefined : json['name'],
+        'symbol': json['symbol'] == null ? undefined : json['symbol'],
+        'decimals': json['decimals'] == null ? undefined : json['decimals'],
         'type': EvmTokenTypeFromJSON(json['type']),
-        'total_supply': !exists(json, 'total_supply') ? undefined : json['total_supply'],
-        'num_transfers': !exists(json, 'num_transfers') ? undefined : json['num_transfers'],
+        'total_supply': json['total_supply'] == null ? undefined : json['total_supply'],
+        'num_transfers': json['num_transfers'] == null ? undefined : json['num_transfers'],
         'num_holders': json['num_holders'],
         'is_verified': json['is_verified'],
-        'verification_level': !exists(json, 'verification_level') ? undefined : VerificationLevelFromJSON(json['verification_level']),
+        'verification_level': json['verification_level'] == null ? undefined : VerificationLevelFromJSON(json['verification_level']),
     };
 }
 
-export function EvmTokenToJSON(value?: EvmToken | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EvmTokenToJSON(json: any): EvmToken {
+    return EvmTokenToJSONTyped(json, false);
+}
+
+export function EvmTokenToJSONTyped(value?: EvmToken | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'contract_addr': value.contract_addr,
-        'eth_contract_addr': value.eth_contract_addr,
-        'name': value.name,
-        'symbol': value.symbol,
-        'decimals': value.decimals,
-        'type': EvmTokenTypeToJSON(value.type),
-        'total_supply': value.total_supply,
-        'num_transfers': value.num_transfers,
-        'num_holders': value.num_holders,
-        'is_verified': value.is_verified,
-        'verification_level': VerificationLevelToJSON(value.verification_level),
+        'contract_addr': value['contract_addr'],
+        'eth_contract_addr': value['eth_contract_addr'],
+        'name': value['name'],
+        'symbol': value['symbol'],
+        'decimals': value['decimals'],
+        'type': EvmTokenTypeToJSON(value['type']),
+        'total_supply': value['total_supply'],
+        'num_transfers': value['num_transfers'],
+        'num_holders': value['num_holders'],
+        'is_verified': value['is_verified'],
+        'verification_level': VerificationLevelToJSON(value['verification_level']),
     };
 }
-
 

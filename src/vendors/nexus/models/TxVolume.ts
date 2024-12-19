@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -21,10 +21,10 @@ import { exists, mapValues } from '../runtime';
 export interface TxVolume {
     /**
      * The end timestamp for this daily transaction volume measurement.
-     * @type {Date}
+     * @type {string}
      * @memberof TxVolume
      */
-    window_end: Date;
+    window_end: string;
     /**
      * The transaction volume for this window.
      * @type {number}
@@ -33,33 +33,43 @@ export interface TxVolume {
     tx_volume: number;
 }
 
+/**
+ * Check if a given object implements the TxVolume interface.
+ */
+export function instanceOfTxVolume(value: object): value is TxVolume {
+    if (!('window_end' in value) || value['window_end'] === undefined) return false;
+    if (!('tx_volume' in value) || value['tx_volume'] === undefined) return false;
+    return true;
+}
+
 export function TxVolumeFromJSON(json: any): TxVolume {
     return TxVolumeFromJSONTyped(json, false);
 }
 
 export function TxVolumeFromJSONTyped(json: any, ignoreDiscriminator: boolean): TxVolume {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
-        'window_end': (new Date(json['window_end'])),
+        'window_end': json['window_end'],
         'tx_volume': json['tx_volume'],
     };
 }
 
-export function TxVolumeToJSON(value?: TxVolume | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'window_end': (value.window_end.toISOString()),
-        'tx_volume': value.tx_volume,
-    };
+export function TxVolumeToJSON(json: any): TxVolume {
+    return TxVolumeToJSONTyped(json, false);
 }
 
+export function TxVolumeToJSONTyped(value?: TxVolume | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'window_end': value['window_end'],
+        'tx_volume': value['tx_volume'],
+    };
+}
 

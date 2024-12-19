@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * Balance of an account for a specific (implied) runtime and token.
+ * 
  * @export
  * @interface BareTokenHolder
  */
@@ -39,35 +40,45 @@ export interface BareTokenHolder {
     balance: string;
 }
 
+/**
+ * Check if a given object implements the BareTokenHolder interface.
+ */
+export function instanceOfBareTokenHolder(value: object): value is BareTokenHolder {
+    if (!('holder_address' in value) || value['holder_address'] === undefined) return false;
+    if (!('balance' in value) || value['balance'] === undefined) return false;
+    return true;
+}
+
 export function BareTokenHolderFromJSON(json: any): BareTokenHolder {
     return BareTokenHolderFromJSONTyped(json, false);
 }
 
 export function BareTokenHolderFromJSONTyped(json: any, ignoreDiscriminator: boolean): BareTokenHolder {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'holder_address': json['holder_address'],
-        'eth_holder_address': !exists(json, 'eth_holder_address') ? undefined : json['eth_holder_address'],
+        'eth_holder_address': json['eth_holder_address'] == null ? undefined : json['eth_holder_address'],
         'balance': json['balance'],
     };
 }
 
-export function BareTokenHolderToJSON(value?: BareTokenHolder | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'holder_address': value.holder_address,
-        'eth_holder_address': value.eth_holder_address,
-        'balance': value.balance,
-    };
+export function BareTokenHolderToJSON(json: any): BareTokenHolder {
+    return BareTokenHolderToJSONTyped(json, false);
 }
 
+export function BareTokenHolderToJSONTyped(value?: BareTokenHolder | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'holder_address': value['holder_address'],
+        'eth_holder_address': value['eth_holder_address'],
+        'balance': value['balance'],
+    };
+}
 

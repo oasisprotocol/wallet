@@ -12,21 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
+import type { EvmNftListAllOfEvmNfts } from './EvmNftListAllOfEvmNfts';
 import {
-    EvmNft,
-    EvmNftFromJSON,
-    EvmNftFromJSONTyped,
-    EvmNftToJSON,
-    EvmNftListAllOf,
-    EvmNftListAllOfFromJSON,
-    EvmNftListAllOfFromJSONTyped,
-    EvmNftListAllOfToJSON,
-    List,
-    ListFromJSON,
-    ListFromJSONTyped,
-    ListToJSON,
-} from './';
+    EvmNftListAllOfEvmNftsFromJSON,
+    EvmNftListAllOfEvmNftsFromJSONTyped,
+    EvmNftListAllOfEvmNftsToJSON,
+    EvmNftListAllOfEvmNftsToJSONTyped,
+} from './EvmNftListAllOfEvmNfts';
 
 /**
  * 
@@ -37,6 +30,7 @@ export interface EvmNftList {
     /**
      * The total number of records that match the query, i.e. the number of records
      * the query would return with limit=infinity.
+     * 
      * @type {number}
      * @memberof EvmNftList
      */
@@ -49,10 +43,20 @@ export interface EvmNftList {
     is_total_count_clipped: boolean;
     /**
      * A list of L2 EVM NFT (ERC-721, ...) instances.
-     * @type {Array<EvmNft>}
+     * @type {Array<EvmNftListAllOfEvmNfts>}
      * @memberof EvmNftList
      */
-    evm_nfts: Array<EvmNft>;
+    evm_nfts: Array<EvmNftListAllOfEvmNfts>;
+}
+
+/**
+ * Check if a given object implements the EvmNftList interface.
+ */
+export function instanceOfEvmNftList(value: object): value is EvmNftList {
+    if (!('total_count' in value) || value['total_count'] === undefined) return false;
+    if (!('is_total_count_clipped' in value) || value['is_total_count_clipped'] === undefined) return false;
+    if (!('evm_nfts' in value) || value['evm_nfts'] === undefined) return false;
+    return true;
 }
 
 export function EvmNftListFromJSON(json: any): EvmNftList {
@@ -60,30 +64,31 @@ export function EvmNftListFromJSON(json: any): EvmNftList {
 }
 
 export function EvmNftListFromJSONTyped(json: any, ignoreDiscriminator: boolean): EvmNftList {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'total_count': json['total_count'],
         'is_total_count_clipped': json['is_total_count_clipped'],
-        'evm_nfts': ((json['evm_nfts'] as Array<any>).map(EvmNftFromJSON)),
+        'evm_nfts': ((json['evm_nfts'] as Array<any>).map(EvmNftListAllOfEvmNftsFromJSON)),
     };
 }
 
-export function EvmNftListToJSON(value?: EvmNftList | null): any {
-    if (value === undefined) {
-        return undefined;
+export function EvmNftListToJSON(json: any): EvmNftList {
+    return EvmNftListToJSONTyped(json, false);
+}
+
+export function EvmNftListToJSONTyped(value?: EvmNftList | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
     }
-    if (value === null) {
-        return null;
-    }
+
     return {
         
-        'total_count': value.total_count,
-        'is_total_count_clipped': value.is_total_count_clipped,
-        'evm_nfts': ((value.evm_nfts as Array<any>).map(EvmNftToJSON)),
+        'total_count': value['total_count'],
+        'is_total_count_clipped': value['is_total_count_clipped'],
+        'evm_nfts': ((value['evm_nfts'] as Array<any>).map(EvmNftListAllOfEvmNftsToJSON)),
     };
 }
-
 

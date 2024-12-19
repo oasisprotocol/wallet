@@ -12,9 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * A delegation.
+ * 
  * @export
  * @interface Delegation
  */
@@ -45,12 +46,23 @@ export interface Delegation {
     delegator: string;
 }
 
+/**
+ * Check if a given object implements the Delegation interface.
+ */
+export function instanceOfDelegation(value: object): value is Delegation {
+    if (!('amount' in value) || value['amount'] === undefined) return false;
+    if (!('shares' in value) || value['shares'] === undefined) return false;
+    if (!('validator' in value) || value['validator'] === undefined) return false;
+    if (!('delegator' in value) || value['delegator'] === undefined) return false;
+    return true;
+}
+
 export function DelegationFromJSON(json: any): Delegation {
     return DelegationFromJSONTyped(json, false);
 }
 
 export function DelegationFromJSONTyped(json: any, ignoreDiscriminator: boolean): Delegation {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
@@ -62,20 +74,21 @@ export function DelegationFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function DelegationToJSON(value?: Delegation | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'amount': value.amount,
-        'shares': value.shares,
-        'validator': value.validator,
-        'delegator': value.delegator,
-    };
+export function DelegationToJSON(json: any): Delegation {
+    return DelegationToJSONTyped(json, false);
 }
 
+export function DelegationToJSONTyped(value?: Delegation | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'amount': value['amount'],
+        'shares': value['shares'],
+        'validator': value['validator'],
+        'delegator': value['delegator'],
+    };
+}
 

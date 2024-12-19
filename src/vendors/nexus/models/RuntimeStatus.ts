@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime';
+import { mapValues } from '../runtime';
 /**
  * 
  * @export
@@ -33,10 +33,10 @@ export interface RuntimeStatus {
     latest_block: number;
     /**
      * The RFC 3339 formatted consensus time of when the latest indexed block for this runtime was produced.
-     * @type {Date}
+     * @type {string}
      * @memberof RuntimeStatus
      */
-    latest_block_time: Date;
+    latest_block_time: string;
     /**
      * The number of milliseconds since Nexus processed the latest block.
      * @type {number}
@@ -45,37 +45,49 @@ export interface RuntimeStatus {
     latest_update_age_ms: number;
 }
 
+/**
+ * Check if a given object implements the RuntimeStatus interface.
+ */
+export function instanceOfRuntimeStatus(value: object): value is RuntimeStatus {
+    if (!('active_nodes' in value) || value['active_nodes'] === undefined) return false;
+    if (!('latest_block' in value) || value['latest_block'] === undefined) return false;
+    if (!('latest_block_time' in value) || value['latest_block_time'] === undefined) return false;
+    if (!('latest_update_age_ms' in value) || value['latest_update_age_ms'] === undefined) return false;
+    return true;
+}
+
 export function RuntimeStatusFromJSON(json: any): RuntimeStatus {
     return RuntimeStatusFromJSONTyped(json, false);
 }
 
 export function RuntimeStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): RuntimeStatus {
-    if ((json === undefined) || (json === null)) {
+    if (json == null) {
         return json;
     }
     return {
         
         'active_nodes': json['active_nodes'],
         'latest_block': json['latest_block'],
-        'latest_block_time': (new Date(json['latest_block_time'])),
+        'latest_block_time': json['latest_block_time'],
         'latest_update_age_ms': json['latest_update_age_ms'],
     };
 }
 
-export function RuntimeStatusToJSON(value?: RuntimeStatus | null): any {
-    if (value === undefined) {
-        return undefined;
-    }
-    if (value === null) {
-        return null;
-    }
-    return {
-        
-        'active_nodes': value.active_nodes,
-        'latest_block': value.latest_block,
-        'latest_block_time': (value.latest_block_time.toISOString()),
-        'latest_update_age_ms': value.latest_update_age_ms,
-    };
+export function RuntimeStatusToJSON(json: any): RuntimeStatus {
+    return RuntimeStatusToJSONTyped(json, false);
 }
 
+export function RuntimeStatusToJSONTyped(value?: RuntimeStatus | null, ignoreDiscriminator: boolean = false): any {
+    if (value == null) {
+        return value;
+    }
+
+    return {
+        
+        'active_nodes': value['active_nodes'],
+        'latest_block': value['latest_block'],
+        'latest_block_time': value['latest_block_time'],
+        'latest_update_age_ms': value['latest_update_age_ms'],
+    };
+}
 
