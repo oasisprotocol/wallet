@@ -171,7 +171,7 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
         </span>
         <br />
         <span>
-          Oasis Scan API & Oasis gRPC
+          Nexus API & Oasis gRPC
         </span>
       </span>
     </span>
