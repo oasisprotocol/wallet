@@ -15,6 +15,7 @@ import { importAccountsActions } from 'app/state/importaccounts'
 import { requestDevice } from 'app/lib/ledger'
 import logotype from '../../../../public/Icon Blue 192.png'
 import { WalletType } from '../../state/wallet/types'
+import browser from 'webextension-polyfill'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {
@@ -79,7 +80,18 @@ export function ConnectDevicePage() {
         <Box margin={{ bottom: 'medium' }} align="center">
           <img src={logotype} alt="Oasis" width="75" height="75" />
         </Box>
-        <button onClick={() => window.close()}>close</button>
+        <button
+          onClick={async () => {
+            const tabsAndPersistentPopups = await browser.runtime.getContexts({ contextTypes: ['TAB'] })
+            for (const c of tabsAndPersistentPopups) {
+              await browser.windows.update(c.windowId, { focused: true })
+              await browser.tabs.update(c.tabId, { active: true })
+            }
+            window.close()
+          }}
+        >
+          close
+        </button>
         <Header fill textAlign="center">
           {t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
         </Header>
