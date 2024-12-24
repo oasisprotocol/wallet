@@ -79,6 +79,7 @@ export function ConnectDevicePage() {
         <Box margin={{ bottom: 'medium' }} align="center">
           <img src={logotype} alt="Oasis" width="75" height="75" />
         </Box>
+        <button onClick={() => window.close()}>close</button>
         <Header fill textAlign="center">
           {t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
         </Header>

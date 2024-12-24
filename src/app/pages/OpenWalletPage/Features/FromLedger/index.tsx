@@ -73,7 +73,6 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
                 style={{ width: 'fit-content' }}
                 onClick={() => {
                   openLedgerAccessPopup()
-                  window.close()
                 }}
                 label={t('ledger.extension.grantAccess', 'Grant access to your USB Ledger')}
                 primary
