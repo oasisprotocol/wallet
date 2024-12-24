@@ -72,8 +72,8 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
                 disabled={!supportsUsbLedger}
                 style={{ width: 'fit-content' }}
                 onClick={() => {
-                  // just open this in persistent popup.
-                  // but that needs syncing
+                  openLedgerAccessPopup()
+                  window.close()
                 }}
                 label={t('ledger.extension.grantAccess', 'Grant access to your USB Ledger')}
                 primary
