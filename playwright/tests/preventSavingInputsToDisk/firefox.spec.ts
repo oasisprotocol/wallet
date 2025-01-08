@@ -13,7 +13,7 @@ const test = testWithUserDataDir(firefox)
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
 })
 
 test('Firefox expect mnemonic, privateKey, and password to NOT leak with preventSavingInputsToUserData', async ({

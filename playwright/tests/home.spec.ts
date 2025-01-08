@@ -4,7 +4,7 @@ import { mockApi } from '../utils/mockApi'
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
-  await mockApi(context, 0)
+  await mockApi(context, '0')
 })
 
 test.describe('The homepage should load', () => {
