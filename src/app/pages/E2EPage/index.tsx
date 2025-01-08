@@ -8,6 +8,8 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
 import * as oasisscan from 'vendors/oasisscan'
+import * as oasisscanV2 from 'vendors/oasisscan-v2'
+import * as nexus from 'vendors/nexus'
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
 import { useDispatch, useStore } from 'react-redux'
@@ -33,6 +35,8 @@ export function E2EPage() {
 interface e2eWindow extends Window {
   monitor: any
   oasisscan: any
+  oasisscanV2: any
+  nexus: any
   oasis: any
   oasisRT: any
   store: any
@@ -44,6 +48,8 @@ function ExposeInternals() {
   useEffect(() => {
     window.monitor = monitor
     window.oasisscan = oasisscan
+    window.oasisscanV2 = oasisscanV2
+    window.nexus = nexus
     window.oasis = oasis
     window.oasisRT = oasisRT
     window.store = store
