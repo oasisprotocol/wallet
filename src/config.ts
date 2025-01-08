@@ -56,9 +56,9 @@ export const config: BackendConfig = {
     },
     [BackendAPIs.Nexus]: {
       explorer: 'https://nexus.oasis.io/v1',
-      blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
+      blockExplorer: 'https://explorer.oasis.io/mainnet/consensus/tx/{{txHash}}',
       blockExplorerParatimes: 'https://explorer.oasis.io/mainnet/{{runtimeId}}/tx/{{txHash}}',
-      blockExplorerAccount: 'https://www.oasisscan.com/accounts/detail/{{address}}',
+      blockExplorerAccount: 'https://explorer.oasis.io/mainnet/consensus/address/{{address}}',
     },
   },
   testnet: {
@@ -84,9 +84,9 @@ export const config: BackendConfig = {
     },
     [BackendAPIs.Nexus]: {
       explorer: 'https://testnet.nexus.oasis.io/v1',
-      blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
+      blockExplorer: 'https://explorer.oasis.io/testnet/consensus/tx/{{txHash}}',
       blockExplorerParatimes: 'https://explorer.oasis.io/testnet/{{runtimeId}}/transactions/{{txHash}}',
-      blockExplorerAccount: 'https://testnet.oasisscan.com/accounts/detail/{{address}}',
+      blockExplorerAccount: 'https://explorer.oasis.io/testnet/consensus/address/{{address}}',
     },
   },
   local: {
