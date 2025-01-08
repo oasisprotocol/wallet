@@ -72,10 +72,10 @@ jobs:
       # Targeting version 30 and above we need to align the APK so that all uncompressed data starts on a 4-byte boundary
       - name: Zipalign APK
         run: |
-          "$ANDROID_SDK_ROOT/build-tools/31.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/34.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Sign APK using apksigner
         run: |
-          "$ANDROID_SDK_ROOT/build-tools/31.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Upload Android AAB build artifacts
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
