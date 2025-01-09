@@ -24,6 +24,9 @@ The format is inspired by [Keep a Changelog].
 
 ### Features
 
+- Use official Oasis Network indexer as ROSE Wallet backend
+  ([#2098](https://github.com/oasisprotocol/wallet/issues/2098))
+
 - Add support for Oasis Scan API v2 as a backend option for Wallet
   ([#2075](https://github.com/oasisprotocol/wallet/issues/2075))
 
@@ -98,9 +101,6 @@ The format is inspired by [Keep a Changelog].
 
 - Switch to Nexus mocks in Playwright
   ([#2096](https://github.com/oasisprotocol/wallet/issues/2096))
-
-- Use Nexus API as ROSE Wallet backend
-  ([#2098](https://github.com/oasisprotocol/wallet/issues/2098))
 
 - Switch dump validators to Nexus
   ([#2102](https://github.com/oasisprotocol/wallet/issues/2102))
