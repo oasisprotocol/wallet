@@ -12,6 +12,99 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.1.0 (2025-01-09)
+
+### Process Changes
+
+- Add monthly cron job to update screenshots
+  ([#2049](https://github.com/oasisprotocol/wallet/issues/2049))
+
+- Cloudflare stable preview URLs
+  ([#2057](https://github.com/oasisprotocol/wallet/issues/2057))
+
+### Features
+
+- Add support for Oasis Scan API v2 as a backend option for Wallet
+  ([#2075](https://github.com/oasisprotocol/wallet/issues/2075))
+
+- Add support for Nexus API as a backend option for Wallet
+  ([#2076](https://github.com/oasisprotocol/wallet/issues/2076))
+
+### Bug Fixes and Improvements
+
+- Prevent AddressBox in expanded row from resizing whole validators table
+  ([#2035](https://github.com/oasisprotocol/wallet/issues/2035))
+
+- Fix expanding table rows on non-plaintext cell
+  ([#2040](https://github.com/oasisprotocol/wallet/issues/2040))
+
+- Don't destroy Transak iframe every time pending transactions refresh
+  ([#2041](https://github.com/oasisprotocol/wallet/issues/2041))
+
+- Prevent importing from mnemonic when offline
+  ([#2061](https://github.com/oasisprotocol/wallet/issues/2061))
+
+- Guide users who paste Eth private key into Consensus private key input
+  ([#2069](https://github.com/oasisprotocol/wallet/issues/2069))
+
+- Discourage mistaken ParaTime deposits into Cipher
+  ([#2082](https://github.com/oasisprotocol/wallet/issues/2082))
+
+- Fix Oasis Scan V2 testnet API url
+  ([#2106](https://github.com/oasisprotocol/wallet/issues/2106))
+
+- Switch to Oasis Explorer when Nexus backend is used
+  ([#2109](https://github.com/oasisprotocol/wallet/issues/2109))
+
+- android: Bump min SDK version
+  ([#2110](https://github.com/oasisprotocol/wallet/issues/2110))
+
+### Documentation Improvements
+
+- Make Chrome Web Store screenshots using Playwright
+  ([#2044](https://github.com/oasisprotocol/wallet/issues/2044))
+
+- Update Features section in README
+  ([#2047](https://github.com/oasisprotocol/wallet/issues/2047))
+
+- Explain Android app signing key configuration and secret management
+  ([#2097](https://github.com/oasisprotocol/wallet/issues/2097))
+
+- Include Nexus in readme
+  ([#2100](https://github.com/oasisprotocol/wallet/issues/2100))
+
+### Internal Changes
+
+- Harden github workflow against injection
+  ([#2033](https://github.com/oasisprotocol/wallet/issues/2033))
+
+- Rename repository from oasis-wallet-web to wallet
+  ([#2042](https://github.com/oasisprotocol/wallet/issues/2042))
+
+- Delay GetChainContext request until needed
+  ([#2062](https://github.com/oasisprotocol/wallet/issues/2062))
+
+- Delay GetEpoch request until needed
+  ([#2064](https://github.com/oasisprotocol/wallet/issues/2064))
+
+- Use entity address to handle validators fallback
+  ([#2078](https://github.com/oasisprotocol/wallet/issues/2078))
+
+- Test hardcoded Paratime withdraw gas limit
+  ([#2081](https://github.com/oasisprotocol/wallet/issues/2081))
+
+- Override API in e2e tests to allow quick backend switch
+  ([#2089](https://github.com/oasisprotocol/wallet/issues/2089))
+
+- Switch to Nexus mocks in Playwright
+  ([#2096](https://github.com/oasisprotocol/wallet/issues/2096))
+
+- Use Nexus API as ROSE Wallet backend
+  ([#2098](https://github.com/oasisprotocol/wallet/issues/2098))
+
+- Switch dump validators to Nexus
+  ([#2102](https://github.com/oasisprotocol/wallet/issues/2102))
+
 ## 2.0.0 (2024-08-13)
 
 ### Spotlight changes
