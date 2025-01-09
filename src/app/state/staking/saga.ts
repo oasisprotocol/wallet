@@ -5,7 +5,7 @@ import { addressToPublicKey, publicKeyToAddress } from 'app/lib/helpers'
 import { NetworkType } from 'app/state/network/types'
 import { call, put, select, takeLatest } from 'typed-redux-saga'
 import { WalletError, WalletErrors } from 'types/errors'
-import { parseValidatorsList } from 'vendors/oasisscan'
+import { parseValidatorsList } from 'vendors/nexus'
 
 import { stakingActions } from '.'
 import { getEpoch, getExplorerAPIs, getOasisNic } from '../network/saga'
@@ -149,7 +149,7 @@ export function now() {
 }
 
 export async function getMainnetDumpValidators() {
-  return await import('vendors/oasisscan/dump_validators.json')
+  return await import('vendors/nexus/dump_validators.json')
 }
 
 export function* getValidatorDetails({ payload: address }: PayloadAction<string>) {

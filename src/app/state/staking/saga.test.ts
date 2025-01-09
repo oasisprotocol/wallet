@@ -17,8 +17,8 @@ import {
   stakingSaga,
 } from './saga'
 import { DebondingDelegation, Delegation, StakingState, Validator } from './types'
-import { parseValidatorsList } from 'vendors/oasisscan'
-import { ValidatorRow } from 'vendors/oasisscan/models'
+import { parseValidatorsList } from 'vendors/nexus'
+import { Validator as NexusValidator } from 'vendors/nexus/models'
 
 const qty = (number: number) => oasis.quantity.fromBigInt(BigInt(number))
 
@@ -158,21 +158,65 @@ describe('Staking Sagas', () => {
         dump_timestamp_iso: '2022-03-23T00:52:41.337Z',
         list: [
           {
-            rank: 1,
-            entityAddress: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
-            name: 'stakefish',
-            nodeAddress: 'oasis1qrg52ccz4ts6cct2qu4retxn7kkdlusjh5pe74ar',
-            escrow: '0.2',
-            status: true,
+            active: true,
+            current_commission_bound: {
+              epoch_end: 0,
+              epoch_start: 0,
+              lower: 0,
+              upper: 20000,
+            },
+            current_rate: 5000,
+            entity_address: 'oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe',
+            entity_id: 'eZuacXy5s3/nolB/E3gF4vqUYdvfOlVaaBXGfZcGwKc=',
+            escrow: {
+              active_balance: '153866511910432557',
+              active_shares: '109032182592723438',
+              debonding_balance: '16650100374694405',
+              debonding_shares: '16650100374694405',
+              num_delegators: 7763,
+              self_delegation_balance: '619388791323275',
+              self_delegation_shares: '438908447022946',
+            },
+            in_validator_set: true,
+            media: {
+              name: 'stakefish',
+            },
+            node_id: 'SQZZd1wsWXdFsqswUoh6hZtmzu+ejuSnrGeHtgIBJDo=',
+            rank: 2,
+            start_date: '2024-04-11T03:43:47Z',
+            voting_power: 9616629779339760,
+            voting_power_cumulative: 19271157520617090,
             _expectedStatus: true,
           },
           {
-            rank: 2,
-            entityAddress: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
-            name: 'BinanceStaking',
-            nodeAddress: 'oasis1qqp0h2h92eev7nsxgqctvuegt8ge3vyg0qyluc4k',
-            escrow: '0.1',
-            status: true,
+            active: true,
+            current_commission_bound: {
+              epoch_end: 0,
+              epoch_start: 4725,
+              lower: 0,
+              upper: 25000,
+            },
+            current_rate: 10000,
+            entity_address: 'oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm',
+            entity_id: '9sAhd+Wi6tG5nAr3LwXD0y9mUKLYqfAbS2+7SZdNHB4=',
+            escrow: {
+              active_balance: '120770371034123739',
+              active_shares: '94613417937776490',
+              debonding_balance: '3799179743582808',
+              debonding_shares: '3799179743582808',
+              num_delegators: 7199,
+              self_delegation_balance: '3484701686486584',
+              self_delegation_shares: '2729970391155567',
+            },
+            in_validator_set: true,
+            media: {
+              name: 'BinanceStaking',
+            },
+            node_id: '6wbL5/OxvFGxi55o7AxcwKmfjXbXGC1hw4lfnEZxBXA=',
+            rank: 5,
+            start_date: '2021-04-28T16:00:00Z',
+            voting_power: 7548126828433809,
+            voting_power_cumulative: 43461945454389704,
             _expectedStatus: false,
           },
         ],
@@ -207,8 +251,8 @@ describe('Staking Sagas', () => {
               list: parseValidatorsList(
                 getMainnetDumpValidatorsMock.list.map(({ _expectedStatus, ...v }) => ({
                   ...v,
-                  status: _expectedStatus,
-                })) as ValidatorRow[],
+                  active: _expectedStatus,
+                })) as NexusValidator[],
               ),
             },
           }),

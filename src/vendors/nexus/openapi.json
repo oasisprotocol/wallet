@@ -3737,7 +3737,6 @@
           },
           "start_date": {
             "type": "string",
-            "format": "date-time",
             "description": "The second-granular consensus time.",
             "example": "2022-10-15T00:05:34Z"
           },
