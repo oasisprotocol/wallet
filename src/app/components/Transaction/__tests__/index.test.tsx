@@ -63,7 +63,7 @@ describe('<Transaction  />', () => {
   const network = 'mainnet'
 
   beforeEach(() => {
-    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisScan)
+    jest.mocked(backend).mockImplementation(() => BackendAPIs.Nexus)
     store = configureAppStore()
 
     when(useSelector as any)
@@ -145,7 +145,7 @@ describe('<Transaction  />', () => {
     renderComponent(store, ref, transaction, 'testnet')
     expect(screen.getByTestId('explorer-link')).toHaveAttribute(
       'href',
-      'https://testnet.oasisscan.com/transactions/ff1234',
+      'https://explorer.oasis.io/testnet/consensus/tx/ff1234',
     )
   })
 
@@ -187,7 +187,7 @@ describe('<Transaction  />', () => {
     expect(screen.queryByText('common.block')).not.toBeInTheDocument()
     expect(screen.getByTestId('explorer-link')).toHaveAttribute(
       'href',
-      `https://oasisscan.com/paratimes/transactions/ff1234?runtime=${runtimeId}`,
+      `https://explorer.oasis.io/mainnet/${runtimeId}/tx/ff1234`,
     )
     expect(screen.getByLabelText('Inherit')).toHaveStyleRule('stroke', '#FFCA58')
   })

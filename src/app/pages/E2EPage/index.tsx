@@ -7,7 +7,6 @@ import { TextInput } from 'grommet/es6/components/TextInput'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as monitor from 'vendors/monitor'
-import * as oasisscan from 'vendors/oasisscan'
 import * as oasisscanV2 from 'vendors/oasisscan-v2'
 import * as nexus from 'vendors/nexus'
 import * as oasis from '@oasisprotocol/client'
@@ -47,7 +46,6 @@ function ExposeInternals() {
   const store = useStore()
   useEffect(() => {
     window.monitor = monitor
-    window.oasisscan = oasisscan
     window.oasisscanV2 = oasisscanV2
     window.nexus = nexus
     window.oasis = oasis

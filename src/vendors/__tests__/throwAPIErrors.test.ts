@@ -1,5 +1,5 @@
 import { WalletError, WalletErrors } from 'types/errors'
-import { getOasisscanAPIs } from '../oasisscan'
+import { getNexusAPIs } from '../nexus'
 
 describe('throwAPIErrors', () => {
   afterEach(() => {
@@ -10,7 +10,7 @@ describe('throwAPIErrors', () => {
     jest.spyOn(window, 'fetch').mockImplementationOnce(async () => {
       throw new TypeError('Failed to fetch')
     })
-    const fetchFail = getOasisscanAPIs('https://api.oasisscan.com/mainnet').getAccount('oasis1')
+    const fetchFail = getNexusAPIs('https://nexus.oasis.io/v1/').getAccount('oasis1')
     await expect(fetchFail).rejects.toThrowError(WalletError)
     await expect(fetchFail).rejects.toHaveProperty('type', WalletErrors.IndexerAPIError)
   })
@@ -26,7 +26,7 @@ describe('throwAPIErrors', () => {
         },
       )
     })
-    const http502 = getOasisscanAPIs('https://api.oasisscan.com/mainnet').getAccount('oasis1')
+    const http502 = getNexusAPIs('https://nexus.oasis.io/v1/').getAccount('oasis1')
     await expect(http502).rejects.toThrowError(WalletError)
     await expect(http502).rejects.toHaveProperty('type', WalletErrors.IndexerAPIError)
   })
