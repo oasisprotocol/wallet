@@ -151,7 +151,7 @@ export function getOasisscanV2APIs(url: string | 'https://api.oasisscan.com/v2/m
   }
 }
 
-function parseAccount(account: AccountInfoResponse): Account {
+export function parseAccount(account: AccountInfoResponse): Account {
   return {
     address: account.address,
     allowances: account.allowances.map(allowance => ({
@@ -166,7 +166,7 @@ function parseAccount(account: AccountInfoResponse): Account {
   }
 }
 
-function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
+export function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
   return validators.map(v => {
     const parsed: Validator = {
       address: v.entityAddress,
@@ -186,7 +186,7 @@ function parseValidatorsList(validators: ValidatorInfo[]): Validator[] {
   })
 }
 
-function parseTransactionsList(
+export function parseTransactionsList(
   list: (ChainTransactionListInfo | RuntimeTransactionInfoResponse)[],
 ): Transaction[] {
   return list.map(t => {
