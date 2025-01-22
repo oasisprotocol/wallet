@@ -12,6 +12,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
 import { requestDevice } from 'app/lib/ledger'
 import logotype from '../../../public/Icon Blue 192.png'
+import { CountdownButton } from 'app/components/CountdownButton'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {
@@ -50,6 +51,7 @@ export function ExtLedgerAccessPopup() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
+        setTimeout(() => window.close(), 5_000)
       }
     } catch {
       setConnection('error')
@@ -60,8 +62,8 @@ export function ExtLedgerAccessPopup() {
     <Box
       style={{ minHeight: '100dvh' }}
       justify="center"
-      align="center"
-      pad="medium"
+      align="stretch"
+      pad="xlarge"
       background="background-back"
     >
       <Box
@@ -78,20 +80,9 @@ export function ExtLedgerAccessPopup() {
           {t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
         </Header>
         <Box gap="medium">
-          <ol>
-            <li>
-              {t(
-                'ledger.instructionSteps.connectUsbLedger',
-                'Connect your USB Ledger device to the computer',
-              )}
-            </li>
-            <li>
-              {t(
-                'ledger.extension.instructionStep',
-                'Once device is connected continue the operation in the wallet app',
-              )}
-            </li>
-          </ol>
+          <p>
+            {t('ledger.instructionSteps.connectUsbLedger', 'Connect your USB Ledger device to the computer')}
+          </p>
 
           {connection === 'connecting' && (
             <Box
@@ -107,7 +98,14 @@ export function ExtLedgerAccessPopup() {
             </Box>
           )}
           {connection === 'connected' && (
-            <ConnectionStatusIcon label={t('ledger.extension.succeed', 'Device connected')} />
+            <Box>
+              <ConnectionStatusIcon label={t('ledger.extension.succeed', 'Device connected')} withMargin />
+
+              <CountdownButton
+                onClick={() => window.close()}
+                label={t('ledger.extension.closingPopup', 'Closing... Please re-open the wallet app')}
+              />
+            </Box>
           )}
           {connection === 'error' && (
             <Box margin={{ bottom: 'medium' }}>

@@ -233,10 +233,10 @@
   "language": "Language",
   "ledger": {
     "extension": {
+      "closingPopup": "Closing... Please re-open the wallet app",
       "connect": "Connect Ledger device",
       "failed": "Connection failed",
       "grantAccess": "Grant access to your Ledger",
-      "instructionStep": "Once device is connected continue the operation in the wallet app",
       "succeed": "Device connected"
     },
     "instructionSteps": {
