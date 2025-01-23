@@ -51,6 +51,8 @@ export function ExtLedgerAccessPopup() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
+        // Used to redirect after reopening wallet
+        window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
         setTimeout(() => window.close(), 5_000)
       }
     } catch {
