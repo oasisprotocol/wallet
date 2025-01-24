@@ -10,7 +10,7 @@ module.exports = {
   ],
   output: './',
   options: {
-    debug: false,
+    debug: true, // Warn about duplicate translation keys with differing texts.
     removeUnusedKeys: true,
     sort: true,
     func: {

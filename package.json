@@ -26,7 +26,7 @@
     "lint-changelog": "markdownlint --config .changelog/.markdownlint.yml .changelog/",
     "changelog": "node ./internals/scripts/changelog.js",
     "release-tag": "node ./internals/scripts/release-tag.js",
-    "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js && node ./internals/scripts/normalize-translations.js ./src/locales/*/translation.json",
+    "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js | grep -v 'Added a new translation key' && node ./internals/scripts/normalize-translations.js ./src/locales/*/translation.json",
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-extension-dev-csp": "node ./internals/scripts/print-extension-dev-csp.js",
     "android": "yarn build && yarn cap sync android && yarn cap run android -l --external",
