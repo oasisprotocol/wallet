@@ -5,10 +5,10 @@ import { ParaTime } from '../../../config'
 export const getParaTimeName = (t: TFunction, paraTime: ParaTime) => {
   switch (paraTime) {
     case ParaTime.Cipher:
+      // Discourage mistaken ParaTime deposits into Cipher accounts controlled
+      // by Binance. That requires contacting support to recover it.
       return `${t('paraTimes.common.cipher', 'Cipher')} ${t(
         'paraTimes.common.discouragedType',
-        // Discourage mistaken ParaTime deposits into Cipher accounts controlled
-        // by Binance. That requires contacting support to recover it.
         '(experimental)',
       )}`
     case ParaTime.Emerald:
