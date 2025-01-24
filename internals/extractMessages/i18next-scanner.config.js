@@ -1,7 +1,13 @@
 const typescriptTransform = require('i18next-scanner-typescript')
 
 module.exports = {
-  input: ['src/**/**.{js,jsx,ts,tsx}', '!**/node_modules/**', '!src/**/*.test.{ts,tsx}'],
+  input: [
+    'src/**/**.{js,jsx,ts,tsx}',
+    '!src/**/*.test.{ts,tsx}',
+    'extension/src/**/**.{js,jsx,ts,tsx}',
+    '!extension/src/**/*.test.{ts,tsx}',
+    '!**/node_modules/**',
+  ],
   output: './',
   options: {
     debug: false,
