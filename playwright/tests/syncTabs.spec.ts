@@ -155,7 +155,7 @@ test.describe('syncTabs', () => {
       await page.getByTestId('toolbar-contacts-tab').click()
       await page.getByText('You have no contacts yet.')
 
-      await page.getByRole('button', { name: 'Add Contact' }).click()
+      await page.getByRole('button', { name: 'Add contact' }).click()
       await page.getByPlaceholder('Name').fill('stakefish')
       await page
         .getByPlaceholder('Address', { exact: true })
@@ -167,7 +167,7 @@ test.describe('syncTabs', () => {
       await tab2.getByTestId('account-selector').click()
       await tab2.getByTestId('toolbar-contacts-tab').click()
       await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
-      await tab2.getByRole('button', { name: 'Add Contact' }).click()
+      await tab2.getByRole('button', { name: 'Add contact' }).click()
       await tab2.getByPlaceholder('Name').fill('Foo')
       await tab2
         .getByPlaceholder('Address', { exact: true })
