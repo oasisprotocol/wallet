@@ -1,7 +1,6 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import { App } from 'app'
-import { ExtLedgerAccessPopup } from '../ExtLedgerAccessPopup/ExtLedgerAccessPopup'
 import { FromLedgerWebExtension } from 'app/pages/OpenWalletPage/FromLedgerWebExtension'
 import { commonRoutes } from '../../../src/commonRoutes'
 import { SelectOpenMethod } from '../../../src/app/pages/OpenWalletPage'
@@ -21,9 +20,5 @@ export const routes: RouteObject[] = [
         element: <FromLedgerWebExtension />,
       },
     ],
-  },
-  {
-    path: 'open-wallet/connect-device',
-    element: <ExtLedgerAccessPopup />,
   },
 ]

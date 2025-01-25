@@ -32,5 +32,9 @@
   "content_security_policy": {
     "extension_pages": "{{{ EXTENSION_CSP }}}"
   },
-  "externally_connectable": { "ids": [] }
+  "externally_connectable": { "ids": [] },
+  "web_accessible_resources": [{
+    "matches": [],
+    "resources": ["../extension/src/ExtLedgerAccessPopup/index.html"]
+  }]
 }
