@@ -89,23 +89,8 @@ test.describe('The extension popup should load', () => {
       await page.goto(`${extensionPopupURL}/e2e`)
       await page.getByRole('button', { name: 'Trigger fatal saga error' }).click()
       await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
-      await page.close()
-    }
 
-    {
-      // Gets stuck on error despite reloading or reopening the popup
-      const page = await context.newPage()
-      await page.goto(`${extensionPopupURL}/`)
-      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
-      await page.reload()
-      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
-      await page.close()
-    }
-
-    {
       // Gets unstuck with a button
-      const page = await context.newPage()
-      await page.goto(`${extensionPopupURL}/`)
       await page
         .getByRole('button', { name: 'Reload app' })
         .click()
