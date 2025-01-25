@@ -16,8 +16,8 @@ export async function clearPersistedStorage(
     // v0 ext
     const chrome = (window as any).chrome
     chrome?.storage?.local?.clear(() => {})
-    chrome?.extension?.getBackgroundPage?.().location.reload()
   })
+  await page.reload()
 }
 
 export async function addPersistedStorageV1(
@@ -32,10 +32,7 @@ export async function addPersistedStorageV1(
     },
     [privateKeyPersistedState],
   )
-  await page.evaluate(() => {
-    const chrome = (window as any).chrome
-    chrome?.extension?.getBackgroundPage?.().location.reload()
-  })
+  await page.reload()
 }
 
 export async function addPersistedStorageV0(page: Page, url: `chrome-extension://${string}/manifest.json`) {
@@ -57,9 +54,8 @@ export async function addPersistedStorageV0(page: Page, url: `chrome-extension:/
       window.localStorage.removeItem('DISMISSED_NEW_EXTENSION_WARNING')
       DISMISSED_NEW_EXTENSION_WARNING &&
         window.localStorage.setItem('DISMISSED_NEW_EXTENSION_WARNING', DISMISSED_NEW_EXTENSION_WARNING)
-
-      chrome.extension.getBackgroundPage().location.reload()
     },
     [walletExtensionV0PersistedState],
   )
+  await page.reload()
 }
