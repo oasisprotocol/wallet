@@ -32,6 +32,9 @@
   "content_security_policy": {
     "extension_pages": "{{{ EXTENSION_CSP }}}"
   },
+  "background": {
+    "service_worker": "service-worker.js"
+  },
   "externally_connectable": { "ids": [] },
   "web_accessible_resources": [{
     "matches": [],
