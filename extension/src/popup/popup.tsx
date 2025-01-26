@@ -13,10 +13,8 @@ import 'sanitize.css/sanitize.css'
 import 'styles/main.css'
 import { routes } from './routes'
 
-// Only allow one popup with redux, so no need to sync state.
-if (browser.extension.getViews({ type: 'tab' }).length > 0) {
-  // Either this is a tab, or something else is.
-  // If this is a tab, just close.
+// Only allow one popup/tab with redux, so no need to sync state.
+if (browser.extension.getViews().length > 1) {
   // If something else is a tab, it must be ExtLedgerAccessPopup. Focus that and close self.
   ;(async () => {
     // Unexpected: persistent popup is classified as 'TAB' in contexts API
