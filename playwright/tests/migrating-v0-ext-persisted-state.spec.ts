@@ -25,7 +25,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
 }) => {
   await test.step('start migration', async () => {
     await addPersistedStorageV0(page, extensionManifestURL)
-    await page.goto(`${extensionPopupURL}/`)
+    await page.goto(`${extensionPopupURL}/e2e`)
     await page.getByPlaceholder('Enter your password', { exact: true }).fill(password)
     await page.keyboard.press('Enter')
   })
@@ -53,11 +53,9 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
   })
 
   await test.step('should result in valid RootState', async () => {
-    const tab2 = await context.newPage()
-    await tab2.goto(`${extensionPopupURL}/e2e`)
-    await tab2.getByTestId('account-selector').click({ timeout: 15_000 })
-    await expect(tab2.getByTestId('account-choice')).toHaveCount(7)
-    const decryptedStateV1 = await tab2.evaluate(() => {
+    await page.getByTestId('account-selector').click({ timeout: 15_000 })
+    await expect(page.getByTestId('account-choice')).toHaveCount(7)
+    const decryptedStateV1 = await page.evaluate(() => {
       const store: any = window['store']
       return store.getState() as RootState
     })
