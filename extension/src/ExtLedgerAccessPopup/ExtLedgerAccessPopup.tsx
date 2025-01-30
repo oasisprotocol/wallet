@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Spinner } from 'grommet/es6/components/Spinner'
@@ -11,10 +10,9 @@ import { Header } from 'app/components/Header'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
-import { importAccountsActions } from 'app/state/importaccounts'
 import { requestDevice } from 'app/lib/ledger'
-import { WalletType } from '../../../src/app/state/wallet/types'
 import logotype from '../../../public/Icon Blue 192.png'
+import { CountdownButton } from 'app/components/CountdownButton'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {
@@ -46,7 +44,6 @@ function ConnectionStatusIcon({ success = true, label, withMargin = false }: Con
 
 export function ExtLedgerAccessPopup() {
   const { t } = useTranslation()
-  const dispatch = useDispatch()
   const [connection, setConnection] = useState<ConnectionStatus>('disconnected')
   const handleConnect = async () => {
     setConnection('connecting')
@@ -54,7 +51,9 @@ export function ExtLedgerAccessPopup() {
       const device = await requestDevice()
       if (device) {
         setConnection('connected')
-        dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.UsbLedger))
+        // Used to redirect after reopening wallet
+        window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
+        setTimeout(() => window.close(), 5_000)
       }
     } catch {
       setConnection('error')
@@ -65,8 +64,8 @@ export function ExtLedgerAccessPopup() {
     <Box
       style={{ minHeight: '100dvh' }}
       justify="center"
-      align="center"
-      pad="medium"
+      align="stretch"
+      pad="xlarge"
       background="background-back"
     >
       <Box
@@ -83,22 +82,9 @@ export function ExtLedgerAccessPopup() {
           {t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
         </Header>
         <Box gap="medium">
-          <ol>
-            <li>
-              {t(
-                'ledger.instructionSteps.connectUsbLedger',
-                'Connect your USB Ledger device to the computer',
-              )}
-            </li>
-            <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the computer')}</li>
-            <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis App on your Ledger device')}</li>
-            <li>
-              {t(
-                'ledger.extension.instructionStep',
-                'Once device is connected continue the operation in the wallet app',
-              )}
-            </li>
-          </ol>
+          <p>
+            {t('ledger.instructionSteps.connectUsbLedger', 'Connect your USB Ledger device to the computer')}
+          </p>
 
           {connection === 'connecting' && (
             <Box
@@ -114,7 +100,14 @@ export function ExtLedgerAccessPopup() {
             </Box>
           )}
           {connection === 'connected' && (
-            <ConnectionStatusIcon label={t('ledger.extension.succeed', 'Device connected')} />
+            <Box>
+              <ConnectionStatusIcon label={t('ledger.extension.succeed', 'Device connected')} withMargin />
+
+              <CountdownButton
+                onClick={() => window.close()}
+                label={t('ledger.extension.closingPopup', 'Closing... Please re-open the wallet app')}
+              />
+            </Box>
           )}
           {connection === 'error' && (
             <Box margin={{ bottom: 'medium' }}>

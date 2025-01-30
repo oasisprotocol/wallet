@@ -8,10 +8,10 @@ exports[`<ExtLedgerAccessPopup /> should render component 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
   background-color: #EDEDED;
   color: #444444;
   min-width: 0;
@@ -23,7 +23,7 @@ exports[`<ExtLedgerAccessPopup /> should render component 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 24px;
+  padding: 96px;
 }
 
 .c1 {
@@ -190,7 +190,7 @@ exports[`<ExtLedgerAccessPopup /> should render component 1`] = `
 
 @media only screen and (max-width:768px) {
   .c0 {
-    padding: 12px;
+    padding: 48px;
   }
 }
 
@@ -253,20 +253,9 @@ exports[`<ExtLedgerAccessPopup /> should render component 1`] = `
       <div
         class="c4"
       >
-        <ol>
-          <li>
-            ledger.instructionSteps.connectUsbLedger
-          </li>
-          <li>
-            ledger.instructionSteps.closeLedgerLive
-          </li>
-          <li>
-            ledger.instructionSteps.openOasisApp
-          </li>
-          <li>
-            ledger.extension.instructionStep
-          </li>
-        </ol>
+        <p>
+          ledger.instructionSteps.connectUsbLedger
+        </p>
         <div
           class="c5"
         />
