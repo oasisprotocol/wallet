@@ -35,7 +35,6 @@
   "background": {
     "service_worker": "service-worker.js"
   },
-  "externally_connectable": { "ids": [] },
   "web_accessible_resources": [{
     "matches": [],
     "resources": ["../extension/src/ExtLedgerAccessPopup/index.html"]
