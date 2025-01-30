@@ -255,7 +255,12 @@ function* retainEncryptionKeyBetweenPopupReopenings() {
 async function writeSharedExtMemory(stringifiedEncryptionKey: PersistState['stringifiedEncryptionKey']) {
   if (runtimeIs !== 'extension') return
   const browser = await import('webextension-polyfill')
-  await browser.storage.session.set({ stringifiedEncryptionKey })
+  // Chrome ignores undefined values https://github.com/w3c/webextensions/issues/263
+  if (stringifiedEncryptionKey) {
+    await browser.storage.session.set({ stringifiedEncryptionKey })
+  } else {
+    await browser.storage.session.remove('stringifiedEncryptionKey')
+  }
 }
 
 async function readSharedExtMemory() {
