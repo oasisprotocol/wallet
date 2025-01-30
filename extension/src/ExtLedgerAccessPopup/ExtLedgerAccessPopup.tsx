@@ -79,12 +79,10 @@ export function ExtLedgerAccessPopup() {
           <img src={logotype} alt="Oasis" width="75" height="75" />
         </Box>
         <Header fill textAlign="center">
-          {t('ledger.extension.grantAccess', 'Grant access to your Ledger')}
+          {t('ledger.extension.grantAccess', 'Grant access to your USB Ledger')}
         </Header>
         <Box gap="medium">
-          <p>
-            {t('ledger.instructionSteps.connectUsbLedger', 'Connect your USB Ledger device to the computer')}
-          </p>
+          <p>{t('ledger.instructionSteps.connectUsbLedger', 'Connect your Ledger to this device via USB')}</p>
 
           {connection === 'connecting' && (
             <Box

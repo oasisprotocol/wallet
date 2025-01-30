@@ -42,7 +42,7 @@ export function FromBleLedger() {
         <li>
           {t('ledger.instructionSteps.deviceIsPaired', 'Make sure your Ledger is paired with this device')}
         </li>
-        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close Ledger Live app on the device')}</li>
+        <li>{t('ledger.instructionSteps.closeLedgerLive', 'Close the Ledger Live app on your computer')}</li>
         <li>{t('ledger.instructionSteps.openOasisApp', 'Open the Oasis app on your Ledger')}</li>
       </ol>
       <Box direction="row" margin={{ top: 'medium' }}>

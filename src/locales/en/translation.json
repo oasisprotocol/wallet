@@ -107,9 +107,9 @@
   },
   "appTitle": "ROSE Wallet",
   "backends": {
+    "nexus": "Nexus API",
     "oasismonitor": "Oasis Monitor API",
-    "oasisscanV2": "Oasis Scan API v2",
-    "nexus": "Nexus API"
+    "oasisscanV2": "Oasis Scan API v2"
   },
   "banner": {
     "buildPreview": "Please note this is an experimental build of ROSE Wallet and your secrets are not safe. ONLY USE IT FOR TESTING.",
@@ -199,9 +199,9 @@
     "feedback": "We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>",
     "github": "ROSE Wallet is <GithubLink>open source</GithubLink> and powered by",
     "poweredBy": {
+      "nexus": "Nexus API & Oasis gRPC",
       "oasismonitor": "Oasis Monitor API & Oasis gRPC",
-      "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC",
-      "nexus": "Nexus API & Oasis gRPC"
+      "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC"
     },
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",
     "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) built at {{buildTime}}"
@@ -236,16 +236,16 @@
       "closingPopup": "Closing... Please re-open the wallet app",
       "connect": "Connect Ledger device",
       "failed": "Connection failed",
-      "grantAccess": "Grant access to your Ledger",
+      "grantAccess": "Grant access to your USB Ledger",
       "succeed": "Device connected"
     },
     "instructionSteps": {
-      "closeLedgerLive": "Close Ledger Live app on the computer",
+      "closeLedgerLive": "Close the Ledger Live app on your computer",
       "connectBluetoothLedger": "Connect your Ledger to this device via Bluetooth",
-      "connectUsbLedger": "Connect your USB Ledger device to the computer",
+      "connectUsbLedger": "Connect your Ledger to this device via USB",
       "deviceIsPaired": "Make sure your Ledger is paired with this device",
       "header": "Steps:",
-      "openOasisApp": "Open the Oasis App on your Ledger device"
+      "openOasisApp": "Open the Oasis app on your Ledger"
     },
     "steps": {
       "accessingLedger": "Connecting with Ledger device",
@@ -468,7 +468,7 @@
   },
   "toolbar": {
     "contacts": {
-      "add": "Add Contact",
+      "add": "Add contact",
       "address": "Address",
       "cancel": "Cancel",
       "delete": {

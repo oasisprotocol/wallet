@@ -460,7 +460,7 @@ exports[`<Contacts  /> should match snapshot 1`] = `
         class="c13"
         type="button"
       >
-        Add Contact
+        Add contact
       </button>
     </div>
   </div>

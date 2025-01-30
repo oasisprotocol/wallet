@@ -47,7 +47,7 @@ describe('<Contacts  />', () => {
   it('should render unavailable state', () => {
     renderComponent(configureAppStore({}))
     expect(screen.getByText(/To start adding contacts create a profile while/)).toBeInTheDocument()
-    expect(screen.queryByText('Add Contact')).not.toBeInTheDocument()
+    expect(screen.queryByText('Add contact')).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'opening a wallet' })).toBeInTheDocument()
   })
 
@@ -68,13 +68,13 @@ describe('<Contacts  />', () => {
   it('should render empty state', () => {
     renderComponent(store)
     expect(screen.getByText('You have no contacts yet.')).toBeInTheDocument()
-    expect(screen.getByText('Add Contact')).toBeInTheDocument()
+    expect(screen.getByText('Add contact')).toBeInTheDocument()
     expect(screen.queryByTestId('account-choice')).not.toBeInTheDocument()
   })
 
   it('should show Add Contact form overlay', async () => {
     renderComponent(store)
-    await userEvent.click(screen.getByRole('button', { name: 'Add Contact' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Add contact' }))
     expect(screen.getByPlaceholderText('Name')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Address')).toBeInTheDocument()
   })
