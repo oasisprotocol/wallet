@@ -220,8 +220,30 @@ function* encryptAndPersistState(action: AnyAction) {
 }
 
 function* retainEncryptionKeyBetweenPopupReopenings() {
-  if (runtimeIs !== 'extension') return
   yield* fork(function* () {
+    if (runtimeIs !== 'extension') return
+
+    // Read before rewriting.
+    const encryptedState = window.localStorage.getItem(
+      STORAGE_FIELD,
+    ) as EncryptedString<PersistedRootState> | null
+    if (encryptedState) {
+      try {
+        const stringifiedEncryptionKey = yield* call(readSharedExtMemory)
+        if (!stringifiedEncryptionKey) throw new Error('skip')
+        if (stringifiedEncryptionKey === 'skipped') throw new Error('skip')
+        const keyWithSalt: KeyWithSalt = fromBase64andParse(stringifiedEncryptionKey)
+        const persistedRootState = yield* call(
+          decryptWithKey<PersistedRootState>,
+          keyWithSalt,
+          encryptedState,
+        )
+        yield* put(persistActions.setUnlockedRootState({ persistedRootState, stringifiedEncryptionKey }))
+      } catch (error) {
+        // Ignore
+      }
+    }
+
     const channelQueue = yield* actionChannel<AnyAction>('*')
     let previousStringifiedEncryptionKey: PersistState['stringifiedEncryptionKey'] = undefined
     while (true) {
@@ -231,23 +253,6 @@ function* retainEncryptionKeyBetweenPopupReopenings() {
         previousStringifiedEncryptionKey = stringifiedEncryptionKey
         yield* call(writeSharedExtMemory, stringifiedEncryptionKey)
       }
-    }
-  })
-
-  yield* fork(function* () {
-    const encryptedState = window.localStorage.getItem(
-      STORAGE_FIELD,
-    ) as EncryptedString<PersistedRootState> | null
-    if (!encryptedState) return // Ignore
-    try {
-      const stringifiedEncryptionKey = yield* call(readSharedExtMemory)
-      if (!stringifiedEncryptionKey) return // Ignore
-      if (stringifiedEncryptionKey === 'skipped') return // Ignore
-      const keyWithSalt: KeyWithSalt = fromBase64andParse(stringifiedEncryptionKey)
-      const persistedRootState = yield* call(decryptWithKey<PersistedRootState>, keyWithSalt, encryptedState)
-      yield* put(persistActions.setUnlockedRootState({ persistedRootState, stringifiedEncryptionKey }))
-    } catch (error) {
-      // Ignore
     }
   })
 }
