@@ -22,6 +22,10 @@ import {
     RuntimeTransactionEncryptionEnvelopeFromJSON,
     RuntimeTransactionEncryptionEnvelopeFromJSONTyped,
     RuntimeTransactionEncryptionEnvelopeToJSON,
+    RuntimeTransactionSigner,
+    RuntimeTransactionSignerFromJSON,
+    RuntimeTransactionSignerFromJSONTyped,
+    RuntimeTransactionSignerToJSON,
     TxError,
     TxErrorFromJSON,
     TxErrorFromJSONTyped,
@@ -66,22 +70,30 @@ export interface RuntimeTransaction {
      */
     eth_hash?: string;
     /**
+     * The signers of this transaction.
+     * @type {Array<RuntimeTransactionSigner>}
+     * @memberof RuntimeTransaction
+     */
+    signers: Array<RuntimeTransactionSigner>;
+    /**
      * The Oasis address of this transaction's 0th signer.
      * Unlike Ethereum, Oasis natively supports multiple-signature transactions.
      * However, the great majority of transactions only have a single signer in practice.
-     * Retrieving the other signers is currently not supported by this API.
+     * DEPRECATED: This field will be removed in the future in favor of the signers field.
      * @type {string}
      * @memberof RuntimeTransaction
      */
     sender_0: string;
     /**
      * The Ethereum address of this transaction's 0th signer.
+     * DEPRECATED: This field will be removed in the future in favor of the signers field.
      * @type {string}
      * @memberof RuntimeTransaction
      */
     sender_0_eth?: string;
     /**
      * The nonce used with this transaction's 0th signer, to prevent replay.
+     * DEPRECATED: This field will be removed in the future in favor of the signers field.
      * @type {number}
      * @memberof RuntimeTransaction
      */
@@ -140,6 +152,14 @@ export interface RuntimeTransaction {
      */
     size: number;
     /**
+     * The data relevant to the Oasis-style encrypted transaction.
+     * Note: The term "envelope" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)
+     * which differ slightly from [digital envelopes](https://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).
+     * @type {RuntimeTransactionEncryptionEnvelope}
+     * @memberof RuntimeTransaction
+     */
+    oasis_encryption_envelope?: RuntimeTransactionEncryptionEnvelope;
+    /**
      * The method that was called. Defined by the runtime. In theory, this could be any string as the runtimes evolve.
      * In practice, Nexus currently expects only the following methods:
      *   - "accounts.Transfer"
@@ -149,6 +169,10 @@ export interface RuntimeTransaction {
      *   - "consensus.Undelegate"
      *   - "evm.Create"
      *   - "evm.Call"
+     *   - "rofl.Create"
+     *   - "rofl.Update"
+     *   - "rofl.Remove"
+     *   - "rofl.Register"
      * May be null if the transaction was malformed or encrypted.
      * @type {string}
      * @memberof RuntimeTransaction
@@ -206,10 +230,10 @@ export interface RuntimeTransaction {
      */
     amount_symbol?: string;
     /**
-     * The data relevant to the encrypted transaction. Only present for encrypted
+     * The data relevant to the EVM encrypted transaction. Only present for encrypted
      * transactions in confidential EVM runtimes like Sapphire.
      * Note: The term "envelope" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)
-     * which differ slightly from [digital envelopes](hhttps://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).
+     * which differ slightly from [digital envelopes](https://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).
      * @type {RuntimeTransactionEncryptionEnvelope}
      * @memberof RuntimeTransaction
      */
@@ -258,6 +282,7 @@ export function RuntimeTransactionFromJSONTyped(json: any, ignoreDiscriminator: 
         'timestamp': (new Date(json['timestamp'])),
         'hash': json['hash'],
         'eth_hash': !exists(json, 'eth_hash') ? undefined : json['eth_hash'],
+        'signers': ((json['signers'] as Array<any>).map(RuntimeTransactionSignerFromJSON)),
         'sender_0': json['sender_0'],
         'sender_0_eth': !exists(json, 'sender_0_eth') ? undefined : json['sender_0_eth'],
         'nonce_0': json['nonce_0'],
@@ -269,6 +294,7 @@ export function RuntimeTransactionFromJSONTyped(json: any, ignoreDiscriminator: 
         'gas_used': json['gas_used'],
         'charged_fee': json['charged_fee'],
         'size': json['size'],
+        'oasis_encryption_envelope': !exists(json, 'oasis_encryption_envelope') ? undefined : RuntimeTransactionEncryptionEnvelopeFromJSON(json['oasis_encryption_envelope']),
         'method': !exists(json, 'method') ? undefined : json['method'],
         'body': !exists(json, 'body') ? undefined : json['body'],
         'is_likely_native_token_transfer': !exists(json, 'is_likely_native_token_transfer') ? undefined : json['is_likely_native_token_transfer'],
@@ -298,6 +324,7 @@ export function RuntimeTransactionToJSON(value?: RuntimeTransaction | null): any
         'timestamp': (value.timestamp.toISOString()),
         'hash': value.hash,
         'eth_hash': value.eth_hash,
+        'signers': ((value.signers as Array<any>).map(RuntimeTransactionSignerToJSON)),
         'sender_0': value.sender_0,
         'sender_0_eth': value.sender_0_eth,
         'nonce_0': value.nonce_0,
@@ -309,6 +336,7 @@ export function RuntimeTransactionToJSON(value?: RuntimeTransaction | null): any
         'gas_used': value.gas_used,
         'charged_fee': value.charged_fee,
         'size': value.size,
+        'oasis_encryption_envelope': RuntimeTransactionEncryptionEnvelopeToJSON(value.oasis_encryption_envelope),
         'method': value.method,
         'body': value.body,
         'is_likely_native_token_transfer': value.is_likely_native_token_transfer,

@@ -57,7 +57,7 @@ export interface TxError {
      * The error parameters, as decoded using the contract abi. Present only when
      * - the error originated from within a smart contract (e.g. via `revert` in Solidity), and
      * - the contract is verified or the revert reason is a plain String.
-     * If this field is present, `message` will include the name of the error, e.g. 'InsufficentBalance'.
+     * If this field is present, `message` will include the name of the error, e.g. 'InsufficientBalance'.
      * Note that users should be cautious when evaluating error data since the
      * data origin is not tracked and error information can be faked.
      * @type {Array<EvmAbiParam>}

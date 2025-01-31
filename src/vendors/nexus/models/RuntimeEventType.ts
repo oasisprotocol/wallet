@@ -27,7 +27,10 @@ export enum RuntimeEventType {
     ConsensusAccountsUndelegateStart = 'consensus_accounts.undelegate_start',
     ConsensusAccountsUndelegateDone = 'consensus_accounts.undelegate_done',
     CoreGasUsed = 'core.gas_used',
-    EvmLog = 'evm.log'
+    EvmLog = 'evm.log',
+    RoflAppCreated = 'rofl.app_created',
+    RoflAppUpdated = 'rofl.app_updated',
+    RoflAppRemoved = 'rofl.app_removed'
 }
 
 export function RuntimeEventTypeFromJSON(json: any): RuntimeEventType {

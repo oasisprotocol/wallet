@@ -45,7 +45,7 @@ export interface RoothashMessage {
      */
     index: number;
     /**
-     * The type of thies message.
+     * The type of this message.
      * @type {RoothashMessageType}
      * @memberof RoothashMessage
      */

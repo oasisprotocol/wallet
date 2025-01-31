@@ -26,14 +26,14 @@ export interface ValidatorHistoryPoint {
      */
     epoch: number;
     /**
-     * The amount of tokens that were delegated to this validator account, 
+     * The amount of tokens that were delegated to this validator account,
      * at the start of this epoch, and are NOT in the process of debonding.
      * @type {string}
      * @memberof ValidatorHistoryPoint
      */
     active_balance?: string;
     /**
-     * The shares of tokens that were delegated to this validator account, 
+     * The shares of tokens that were delegated to this validator account,
      * at the start of this epoch, and are NOT in the process of debonding.
      * @type {string}
      * @memberof ValidatorHistoryPoint
@@ -41,7 +41,7 @@ export interface ValidatorHistoryPoint {
     active_shares?: string;
     /**
      * The amount of tokens that were delegated to this validator account
-     * at the start of this epoch, but are also in the process of debonding 
+     * at the start of this epoch, but are also in the process of debonding
      * (i.e. they will be unstaked within ~2 weeks).
      * @type {string}
      * @memberof ValidatorHistoryPoint
@@ -49,7 +49,7 @@ export interface ValidatorHistoryPoint {
     debonding_balance?: string;
     /**
      * The shares of tokens that were delegated to this validator account
-     * at the start of this epoch, but are also in the process of debonding 
+     * at the start of this epoch, but are also in the process of debonding
      * (i.e. they will be unstaked within ~2 weeks).
      * @type {string}
      * @memberof ValidatorHistoryPoint

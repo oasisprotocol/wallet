@@ -14,7 +14,7 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * The target propotocol versions for this upgrade proposal.
+ * The target protocol versions for this upgrade proposal.
  * @export
  * @interface ProposalTarget
  */

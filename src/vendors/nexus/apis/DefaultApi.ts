@@ -126,9 +126,6 @@ import {
     TokenHolderList,
     TokenHolderListFromJSON,
     TokenHolderListToJSON,
-    Transaction,
-    TransactionFromJSON,
-    TransactionToJSON,
     TransactionList,
     TransactionListFromJSON,
     TransactionListToJSON,
@@ -184,6 +181,7 @@ export interface ConsensusBlocksGetRequest {
     after?: Date;
     before?: Date;
     hash?: string;
+    proposedBy?: string;
 }
 
 export interface ConsensusBlocksHeightGetRequest {
@@ -371,6 +369,7 @@ export interface RuntimeEvmTokensGetRequest {
     limit?: number;
     offset?: number;
     name?: string;
+    sortBy?: RuntimeEvmTokensGetSortByEnum;
 }
 
 export interface RuntimeStatusGetRequest {
@@ -385,6 +384,7 @@ export interface RuntimeTransactionsGetRequest {
     after?: Date;
     before?: Date;
     rel?: string;
+    method?: string;
 }
 
 export interface RuntimeTransactionsTxHashGetRequest {
@@ -645,6 +645,10 @@ export class DefaultApi extends runtime.BaseAPI {
 
         if (requestParameters.hash !== undefined) {
             queryParameters['hash'] = requestParameters.hash;
+        }
+
+        if (requestParameters.proposedBy !== undefined) {
+            queryParameters['proposed_by'] = requestParameters.proposedBy;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1172,9 +1176,9 @@ export class DefaultApi extends runtime.BaseAPI {
     }
 
     /**
-     * Returns a consensus transaction.
+     * Returns consensus transactions with the given transaction hash.
      */
-    async consensusTransactionsTxHashGetRaw(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<runtime.ApiResponse<Transaction>> {
+    async consensusTransactionsTxHashGetRaw(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<runtime.ApiResponse<TransactionList>> {
         if (requestParameters.txHash === null || requestParameters.txHash === undefined) {
             throw new runtime.RequiredError('txHash','Required parameter requestParameters.txHash was null or undefined when calling consensusTransactionsTxHashGet.');
         }
@@ -1190,13 +1194,13 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         });
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => TransactionFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => TransactionListFromJSON(jsonValue));
     }
 
     /**
-     * Returns a consensus transaction.
+     * Returns consensus transactions with the given transaction hash.
      */
-    async consensusTransactionsTxHashGet(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<Transaction> {
+    async consensusTransactionsTxHashGet(requestParameters: ConsensusTransactionsTxHashGetRequest): Promise<TransactionList> {
         const response = await this.consensusTransactionsTxHashGetRaw(requestParameters);
         return await response.value();
     }
@@ -1815,6 +1819,10 @@ export class DefaultApi extends runtime.BaseAPI {
             queryParameters['name'] = requestParameters.name;
         }
 
+        if (requestParameters.sortBy !== undefined) {
+            queryParameters['sort_by'] = requestParameters.sortBy;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -1899,6 +1907,10 @@ export class DefaultApi extends runtime.BaseAPI {
             queryParameters['rel'] = requestParameters.rel;
         }
 
+        if (requestParameters.method !== undefined) {
+            queryParameters['method'] = requestParameters.method;
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
@@ -1953,4 +1965,13 @@ export class DefaultApi extends runtime.BaseAPI {
         return await response.value();
     }
 
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum RuntimeEvmTokensGetSortByEnum {
+    TotalHolders = 'total_holders',
+    MarketCap = 'market_cap'
 }

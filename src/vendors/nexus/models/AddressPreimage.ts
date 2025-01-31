@@ -28,7 +28,7 @@ import {
  * Oasis addresses are derived from a piece of data, such as an ed25519
  * public key or an Ethereum address. For example, [this](https://github.com/oasisprotocol/oasis-sdk/blob/b37e6da699df331f5a2ac62793f8be099c68469c/client-sdk/go/helpers/address.go#L90-L91)
  * is how an Ethereum is converted to an Oasis address. The type of underlying data usually also
- * determines how the signatuers for this address are verified.
+ * determines how the signatures for this address are verified.
  * 
  * Consensus supports only "staking addresses" (`context="oasis-core/address: staking"`
  * below; always ed25519-backed).
