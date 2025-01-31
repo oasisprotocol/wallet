@@ -55,7 +55,7 @@ export interface RuntimeEvent {
      */
     tx_hash?: string;
     /**
-     * Ethereum trasnsaction hash of this event's originating transaction.
+     * Ethereum transaction hash of this event's originating transaction.
      * Absent if the event did not originate from an EVM transaction.
      * @type {string}
      * @memberof RuntimeEvent

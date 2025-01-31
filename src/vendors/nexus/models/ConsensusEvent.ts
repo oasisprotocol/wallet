@@ -74,6 +74,12 @@ export interface ConsensusEvent {
      */
     roothash_runtime_round?: number;
     /**
+     * The second-granular consensus time of this event's block.
+     * @type {Date}
+     * @memberof ConsensusEvent
+     */
+    timestamp?: Date;
+    /**
      * The type of the event.
      * @type {ConsensusEventType}
      * @memberof ConsensusEvent
@@ -106,6 +112,7 @@ export function ConsensusEventFromJSONTyped(json: any, ignoreDiscriminator: bool
         'roothash_runtime_id': !exists(json, 'roothash_runtime_id') ? undefined : json['roothash_runtime_id'],
         'roothash_runtime': !exists(json, 'roothash_runtime') ? undefined : RuntimeFromJSON(json['roothash_runtime']),
         'roothash_runtime_round': !exists(json, 'roothash_runtime_round') ? undefined : json['roothash_runtime_round'],
+        'timestamp': !exists(json, 'timestamp') ? undefined : (new Date(json['timestamp'])),
         'type': ConsensusEventTypeFromJSON(json['type']),
         'body': json['body'],
     };
@@ -126,6 +133,7 @@ export function ConsensusEventToJSON(value?: ConsensusEvent | null): any {
         'roothash_runtime_id': value.roothash_runtime_id,
         'roothash_runtime': RuntimeToJSON(value.roothash_runtime),
         'roothash_runtime_round': value.roothash_runtime_round,
+        'timestamp': value.timestamp === undefined ? undefined : (value.timestamp.toISOString()),
         'type': ConsensusEventTypeToJSON(value.type),
         'body': value.body,
     };

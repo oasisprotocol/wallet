@@ -14,6 +14,14 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    EvmRefToken,
+    EvmRefTokenFromJSON,
+    EvmRefTokenFromJSONTyped,
+    EvmRefTokenToJSON,
+    EvmTokenSwap,
+    EvmTokenSwapFromJSON,
+    EvmTokenSwapFromJSONTyped,
+    EvmTokenSwapToJSON,
     EvmTokenType,
     EvmTokenTypeFromJSON,
     EvmTokenTypeFromJSONTyped,
@@ -90,6 +98,43 @@ export interface EvmToken {
      */
     num_holders: number;
     /**
+     * Information about a swap contract between this token and a
+     * reference token. The relative price and relative total value of
+     * this token are estimated based on this swap contract.
+     * @type {EvmTokenSwap}
+     * @memberof EvmToken
+     */
+    ref_swap?: EvmTokenSwap;
+    /**
+     * Information about the reference token. The relative price and
+     * relative total value are expressed in this reference token's base
+     * unit.
+     * @type {EvmRefToken}
+     * @memberof EvmToken
+     */
+    ref_token?: EvmRefToken;
+    /**
+     * The relative price and relative total value are expressed in this
+     * reference token's base unit.
+     * @type {string}
+     * @memberof EvmToken
+     */
+    relative_token_address?: string;
+    /**
+     * The relative price of one base unit of this token is this many of
+     * the relative token's base unit.
+     * @type {number}
+     * @memberof EvmToken
+     */
+    relative_price?: number;
+    /**
+     * The relative price of this token multiplied by this token's total
+     * supply, in the relative token's base unit.
+     * @type {number}
+     * @memberof EvmToken
+     */
+    relative_total_value?: number;
+    /**
      * Whether the contract has been successfully verified by Sourcify.
      * Additional information on verified contracts is available via
      * the `/{runtime}/accounts/{address}` endpoint.
@@ -125,6 +170,11 @@ export function EvmTokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'total_supply': !exists(json, 'total_supply') ? undefined : json['total_supply'],
         'num_transfers': !exists(json, 'num_transfers') ? undefined : json['num_transfers'],
         'num_holders': json['num_holders'],
+        'ref_swap': !exists(json, 'ref_swap') ? undefined : EvmTokenSwapFromJSON(json['ref_swap']),
+        'ref_token': !exists(json, 'ref_token') ? undefined : EvmRefTokenFromJSON(json['ref_token']),
+        'relative_token_address': !exists(json, 'relative_token_address') ? undefined : json['relative_token_address'],
+        'relative_price': !exists(json, 'relative_price') ? undefined : json['relative_price'],
+        'relative_total_value': !exists(json, 'relative_total_value') ? undefined : json['relative_total_value'],
         'is_verified': json['is_verified'],
         'verification_level': !exists(json, 'verification_level') ? undefined : VerificationLevelFromJSON(json['verification_level']),
     };
@@ -148,6 +198,11 @@ export function EvmTokenToJSON(value?: EvmToken | null): any {
         'total_supply': value.total_supply,
         'num_transfers': value.num_transfers,
         'num_holders': value.num_holders,
+        'ref_swap': EvmTokenSwapToJSON(value.ref_swap),
+        'ref_token': EvmRefTokenToJSON(value.ref_token),
+        'relative_token_address': value.relative_token_address,
+        'relative_price': value.relative_price,
+        'relative_total_value': value.relative_total_value,
         'is_verified': value.is_verified,
         'verification_level': VerificationLevelToJSON(value.verification_level),
     };

@@ -26,6 +26,10 @@ import {
     ValidatorMediaFromJSON,
     ValidatorMediaFromJSONTyped,
     ValidatorMediaToJSON,
+    ValidatorSignedBlock,
+    ValidatorSignedBlockFromJSON,
+    ValidatorSignedBlockFromJSONTyped,
+    ValidatorSignedBlockToJSON,
 } from './';
 
 /**
@@ -112,6 +116,12 @@ export interface Validator {
      * @memberof Validator
      */
     current_commission_bound: ValidatorCommissionBound;
+    /**
+     * An array containing details of the last 100 consensus blocks, indicating whether each block was signed by the validator. Only available when querying a single validator.
+     * @type {Array<ValidatorSignedBlock>}
+     * @memberof Validator
+     */
+    signed_blocks?: Array<ValidatorSignedBlock>;
 }
 
 export function ValidatorFromJSON(json: any): Validator {
@@ -137,6 +147,7 @@ export function ValidatorFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         'media': !exists(json, 'media') ? undefined : ValidatorMediaFromJSON(json['media']),
         'current_rate': json['current_rate'],
         'current_commission_bound': ValidatorCommissionBoundFromJSON(json['current_commission_bound']),
+        'signed_blocks': !exists(json, 'signed_blocks') ? undefined : ((json['signed_blocks'] as Array<any>).map(ValidatorSignedBlockFromJSON)),
     };
 }
 
@@ -162,6 +173,7 @@ export function ValidatorToJSON(value?: Validator | null): any {
         'media': ValidatorMediaToJSON(value.media),
         'current_rate': value.current_rate,
         'current_commission_bound': ValidatorCommissionBoundToJSON(value.current_commission_bound),
+        'signed_blocks': value.signed_blocks === undefined ? undefined : ((value.signed_blocks as Array<any>).map(ValidatorSignedBlockToJSON)),
     };
 }
 

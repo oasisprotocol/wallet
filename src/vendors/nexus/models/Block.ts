@@ -13,6 +13,13 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    EntityInfo,
+    EntityInfoFromJSON,
+    EntityInfoFromJSONTyped,
+    EntityInfoToJSON,
+} from './';
+
 /**
  * A consensus block.
  * @export
@@ -69,6 +76,18 @@ export interface Block {
      * @memberof Block
      */
     state_root: string;
+    /**
+     * The entity that proposed this block.
+     * @type {EntityInfo}
+     * @memberof Block
+     */
+    proposer: EntityInfo;
+    /**
+     * A list of the entities that signed the block.
+     * @type {Array<EntityInfo>}
+     * @memberof Block
+     */
+    signers?: Array<EntityInfo>;
 }
 
 export function BlockFromJSON(json: any): Block {
@@ -89,6 +108,8 @@ export function BlockFromJSONTyped(json: any, ignoreDiscriminator: boolean): Blo
         'size_limit': !exists(json, 'size_limit') ? undefined : json['size_limit'],
         'epoch': json['epoch'],
         'state_root': json['state_root'],
+        'proposer': EntityInfoFromJSON(json['proposer']),
+        'signers': !exists(json, 'signers') ? undefined : ((json['signers'] as Array<any>).map(EntityInfoFromJSON)),
     };
 }
 
@@ -109,6 +130,8 @@ export function BlockToJSON(value?: Block | null): any {
         'size_limit': value.size_limit,
         'epoch': value.epoch,
         'state_root': value.state_root,
+        'proposer': EntityInfoToJSON(value.proposer),
+        'signers': value.signers === undefined ? undefined : ((value.signers as Array<any>).map(EntityInfoToJSON)),
     };
 }
 

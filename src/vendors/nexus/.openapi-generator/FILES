@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 apis/DefaultApi.ts
 apis/index.ts
 index.ts
@@ -27,6 +26,7 @@ models/Delegation.ts
 models/DelegationList.ts
 models/DelegationListAllOf.ts
 models/Entity.ts
+models/EntityInfo.ts
 models/EntityList.ts
 models/EntityListAllOf.ts
 models/Epoch.ts
@@ -38,9 +38,11 @@ models/EvmEventToken.ts
 models/EvmNft.ts
 models/EvmNftList.ts
 models/EvmNftListAllOf.ts
+models/EvmRefToken.ts
 models/EvmToken.ts
 models/EvmTokenList.ts
 models/EvmTokenListAllOf.ts
+models/EvmTokenSwap.ts
 models/EvmTokenType.ts
 models/InlineResponse400.ts
 models/Layer.ts
@@ -78,6 +80,7 @@ models/RuntimeTransaction.ts
 models/RuntimeTransactionEncryptionEnvelope.ts
 models/RuntimeTransactionList.ts
 models/RuntimeTransactionListAllOf.ts
+models/RuntimeTransactionSigner.ts
 models/Status.ts
 models/TokenHolderList.ts
 models/TokenHolderListAllOf.ts
@@ -96,6 +99,7 @@ models/ValidatorHistoryPoint.ts
 models/ValidatorList.ts
 models/ValidatorListAllOf.ts
 models/ValidatorMedia.ts
+models/ValidatorSignedBlock.ts
 models/ValidatorsResponse.ts
 models/VerificationLevel.ts
 models/index.ts

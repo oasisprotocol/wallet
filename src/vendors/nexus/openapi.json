@@ -226,6 +226,18 @@
             },
             "description": "A filter on the block hash.",
             "example": "0a29ac21fa69bb9e43e5cb25d10826ff3946f1ce977e82f99a2614206a50765c"
+          },
+          {
+            "in": "query",
+            "name": "proposed_by",
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/StakingAddress"
+                }
+              ]
+            },
+            "description": "A filter on the proposer of the block."
           }
         ],
         "responses": {
@@ -405,7 +417,7 @@
     },
     "/consensus/transactions/{tx_hash}": {
       "get": {
-        "summary": "Returns a consensus transaction.",
+        "summary": "Returns consensus transactions with the given transaction hash.",
         "parameters": [
           {
             "in": "path",
@@ -414,17 +426,17 @@
             "schema": {
               "type": "string"
             },
-            "description": "The transaction hash of the transaction to return.",
+            "description": "The transaction hash of the transaction(s) to return.\nThis endpoint can return multiple transactions in cases,\nwhere an already processed transaction is re-sent. In such cases\nonly a single transaction will be successfully processed, others\nwill have a failed status (e.g. 'Invalid nonce').\n",
             "example": "0d0531d6b8a468c07440182b1cdda517f5a076d69fb2199126a83082ecfc0f41"
           }
         ],
         "responses": {
           "200": {
-            "description": "A JSON object containing a consensus transaction.",
+            "description": "The requested consensus transaction(s).",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Transaction"
+                  "$ref": "#/components/schemas/TransactionList"
                 }
               }
             }
@@ -1006,7 +1018,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A JSON object containing historical information for a \nvalidator, grouped by epoch in reverse chronological order.\n",
+            "description": "A JSON object containing historical information for a\nvalidator, grouped by epoch in reverse chronological order.\n",
             "content": {
               "application/json": {
                 "schema": {
@@ -1834,6 +1846,15 @@
               }
             },
             "description": "A filter on related accounts. Every returned transaction will refer to\nthis account in a way. For example, for an `accounts.Transfer` tx, this will be\nthe sender or the recipient of tokens.\nNexus detects related accounts inside EVM transactions and events on a\nbest-effort basis. For example, it inspects ERC20 methods inside `evm.Call` txs.\n"
+          },
+          {
+            "in": "query",
+            "name": "method",
+            "schema": {
+              "type": "string"
+            },
+            "description": "A filter on the runtime transaction method.\n\nIn addition to the existing method names, the following special values are supported:\n  - 'native_transfers': Returns transactions \"likely to be native transfers\".\n    - These include accounts.Transfer transactions and evm.Calls with an empty 'body' field.\n\n  - 'evm.Call_no_native': Returns EVM calls that are \"not likely to be native transfers\".\n",
+            "example": "accounts.Transfer"
           }
         ],
         "responses": {
@@ -2118,6 +2139,15 @@
               "type": "string"
             },
             "description": "A filter on the name, the name or symbol must contain this value as a substring."
+          },
+          {
+            "in": "query",
+            "name": "sort_by",
+            "schema": {
+              "type": "string",
+              "enum": ["total_holders", "market_cap"]
+            },
+            "description": "The field to sort the tokens by.\nIf unset, the tokens will be sorted by number of holders.\n"
           }
         ],
         "responses": {
@@ -2939,7 +2969,16 @@
       },
       "Block": {
         "type": "object",
-        "required": ["height", "hash", "timestamp", "num_transactions", "gas_limit", "epoch", "state_root"],
+        "required": [
+          "height",
+          "hash",
+          "timestamp",
+          "num_transactions",
+          "gas_limit",
+          "epoch",
+          "state_root",
+          "proposer"
+        ],
         "properties": {
           "height": {
             "type": "integer",
@@ -2990,9 +3029,48 @@
             "type": "string",
             "description": "The Merkle root of the state tree after applying the block.",
             "example": "8e39bf193f8a954ab8f8d7cb6388c591fd0785ea060bbd8e3752e266b54499d3"
+          },
+          "proposer": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EntityInfo"
+              }
+            ],
+            "description": "The entity that proposed this block."
+          },
+          "signers": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/EntityInfo"
+                }
+              ]
+            },
+            "description": "A list of the entities that signed the block."
           }
         },
         "description": "A consensus block.\n"
+      },
+      "EntityInfo": {
+        "type": "object",
+        "description": "Light-weight entity information, containing only its ID, address and registry metadata.",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "description": "The ID of the entity owning the node; this corresponds to the entity's public key in base64.",
+            "example": "`TqUyj5Q+9vZtqu10yw6Zw7HEX3Ywe0JQA9vHyzY47TU=`"
+          },
+          "entity_address": {
+            "type": "string",
+            "description": "Address of the entity owning the node, in Bech32 format (`oasis1...`).",
+            "example": "`oasis1qzzd6khm3acqskpxlk9vd5044cmmcce78y5l6000`"
+          },
+          "entity_metadata": {
+            "description": "Metadata about an entity, if available. See [the metadata registry](https://github.com/oasisprotocol/metadata-registry) for details.\n\nWhen available, it is an object with some subset of the following fields:\n\n- `v`: The version of the metadata structure (always present).\n- `serial`: The serial number of the metadata statement (always present).\n- `name`: The name of the entity.\n- `url`: The URL associated with the entity.\n- `email`: The email address associated with the entity.\n- `keybase`: Tne entity's keybase.io handle.\n- `twitter`: The twitter handle associated with the entity.\n",
+            "example": "An entity with all fields:\n\n    {\n      \"v\": 1,\n      \"serial\": 1,\n      \"name\": \"Entity display name\",\n      \"url\": \"https://example.org/entity\",\n      \"email\": \"entity@example.org\",\n      \"keybase\": \"keybase_handle\",\n      \"twitter\": \"twitter_handle\"\n    }\n"
+          }
+        }
       },
       "Delegation": {
         "type": "object",
@@ -3297,7 +3375,7 @@
                 }
               ]
             },
-            "description": "The error parameters, as decoded using the contract abi. Present only when\n- the error originated from within a smart contract (e.g. via `revert` in Solidity), and\n- the contract is verified or the revert reason is a plain String.\nIf this field is present, `message` will include the name of the error, e.g. 'InsufficentBalance'.\nNote that users should be cautious when evaluating error data since the\ndata origin is not tracked and error information can be faked.\n"
+            "description": "The error parameters, as decoded using the contract abi. Present only when\n- the error originated from within a smart contract (e.g. via `revert` in Solidity), and\n- the contract is verified or the revert reason is a plain String.\nIf this field is present, `message` will include the name of the error, e.g. 'InsufficientBalance'.\nNote that users should be cautious when evaluating error data since the\ndata origin is not tracked and error information can be faked.\n"
           }
         }
       },
@@ -3392,6 +3470,12 @@
             "format": "int64",
             "description": "When applicable, the round in the runtime to which this event\nrelates.\nPresent only for events of type `roothash.*` except for\n`roothash.execution_discrepancy` before Eden.\n"
           },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The second-granular consensus time of this event's block.\n",
+            "example": "2022-03-01T00:00:00Z"
+          },
           "type": {
             "allOf": [
               {
@@ -3470,7 +3554,7 @@
                 "$ref": "#/components/schemas/RoothashMessageType"
               }
             ],
-            "description": "The type of thies message.\n",
+            "description": "The type of this message.\n",
             "example": "staking.withdraw"
           },
           "body": {
@@ -3768,9 +3852,37 @@
                 "$ref": "#/components/schemas/ValidatorCommissionBound"
               }
             ]
+          },
+          "signed_blocks": {
+            "type": "array",
+            "description": "An array containing details of the last 100 consensus blocks, indicating whether each block was signed by the validator. Only available when querying a single validator.",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ValidatorSignedBlock"
+                }
+              ]
+            }
           }
         },
         "description": "An validator registered at the consensus layer.\n"
+      },
+      "ValidatorSignedBlock": {
+        "type": "object",
+        "required": ["height", "signed"],
+        "properties": {
+          "height": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The block height.",
+            "example": 8048956
+          },
+          "signed": {
+            "type": "boolean",
+            "description": "Whether the validator signed the block."
+          }
+        },
+        "description": "Information whether a block was signed by the validator.\n"
       },
       "Escrow": {
         "type": "object",
@@ -3883,7 +3995,7 @@
                 "$ref": "#/components/schemas/TextBigInt"
               }
             ],
-            "description": "The amount of tokens that were delegated to this validator account, \nat the start of this epoch, and are NOT in the process of debonding.\n"
+            "description": "The amount of tokens that were delegated to this validator account,\nat the start of this epoch, and are NOT in the process of debonding.\n"
           },
           "active_shares": {
             "allOf": [
@@ -3891,7 +4003,7 @@
                 "$ref": "#/components/schemas/TextBigInt"
               }
             ],
-            "description": "The shares of tokens that were delegated to this validator account, \nat the start of this epoch, and are NOT in the process of debonding.\n"
+            "description": "The shares of tokens that were delegated to this validator account,\nat the start of this epoch, and are NOT in the process of debonding.\n"
           },
           "debonding_balance": {
             "allOf": [
@@ -3899,7 +4011,7 @@
                 "$ref": "#/components/schemas/TextBigInt"
               }
             ],
-            "description": "The amount of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding \n(i.e. they will be unstaked within ~2 weeks).\n"
+            "description": "The amount of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding\n(i.e. they will be unstaked within ~2 weeks).\n"
           },
           "debonding_shares": {
             "allOf": [
@@ -3907,7 +4019,7 @@
                 "$ref": "#/components/schemas/TextBigInt"
               }
             ],
-            "description": "The shares of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding \n(i.e. they will be unstaked within ~2 weeks).\n"
+            "description": "The shares of tokens that were delegated to this validator account\nat the start of this epoch, but are also in the process of debonding\n(i.e. they will be unstaked within ~2 weeks).\n"
           },
           "num_delegators": {
             "type": "integer",
@@ -4036,7 +4148,7 @@
         ]
       },
       "AddressPreimage": {
-        "description": "The data from which a consensus-style address (`oasis1...`)\nwas derived. Notably, for EVM runtimes like Sapphire,\nthis links the Oasis address and the Ethereum address.\n\nOasis addresses are derived from a piece of data, such as an ed25519\npublic key or an Ethereum address. For example, [this](https://github.com/oasisprotocol/oasis-sdk/blob/b37e6da699df331f5a2ac62793f8be099c68469c/client-sdk/go/helpers/address.go#L90-L91)\nis how an Ethereum is converted to an Oasis address. The type of underlying data usually also\ndetermines how the signatuers for this address are verified.\n\nConsensus supports only \"staking addresses\" (`context=\"oasis-core/address: staking\"`\nbelow; always ed25519-backed).\nRuntimes support all types. This means that every consensus address is also\nvalid in every runtime. For example, in EVM runtimes, you can use staking\naddresses, but only with Oasis tools (e.g. a wallet); EVM contracts such as\nERC20 tokens or tools such as Metamask cannot interact with staking addresses.\n",
+        "description": "The data from which a consensus-style address (`oasis1...`)\nwas derived. Notably, for EVM runtimes like Sapphire,\nthis links the Oasis address and the Ethereum address.\n\nOasis addresses are derived from a piece of data, such as an ed25519\npublic key or an Ethereum address. For example, [this](https://github.com/oasisprotocol/oasis-sdk/blob/b37e6da699df331f5a2ac62793f8be099c68469c/client-sdk/go/helpers/address.go#L90-L91)\nis how an Ethereum is converted to an Oasis address. The type of underlying data usually also\ndetermines how the signatures for this address are verified.\n\nConsensus supports only \"staking addresses\" (`context=\"oasis-core/address: staking\"`\nbelow; always ed25519-backed).\nRuntimes support all types. This means that every consensus address is also\nvalid in every runtime. For example, in EVM runtimes, you can use staking\naddresses, but only with Oasis tools (e.g. a wallet); EVM contracts such as\nERC20 tokens or tools such as Metamask cannot interact with staking addresses.\n",
         "type": "object",
         "required": ["context", "address_data"],
         "properties": {
@@ -4387,7 +4499,7 @@
             "type": "string"
           }
         },
-        "description": "The target propotocol versions for this upgrade proposal."
+        "description": "The target protocol versions for this upgrade proposal."
       },
       "ProposalState": {
         "type": "string",
@@ -4658,7 +4770,7 @@
           },
           "eth_tx_hash": {
             "type": "string",
-            "description": "Ethereum trasnsaction hash of this event's originating transaction.\nAbsent if the event did not originate from an EVM transaction.\n"
+            "description": "Ethereum transaction hash of this event's originating transaction.\nAbsent if the event did not originate from an EVM transaction.\n"
           },
           "timestamp": {
             "type": "string",
@@ -4716,7 +4828,10 @@
           "consensus_accounts.undelegate_start",
           "consensus_accounts.undelegate_done",
           "core.gas_used",
-          "evm.log"
+          "evm.log",
+          "rofl.app_created",
+          "rofl.app_updated",
+          "rofl.app_removed"
         ],
         "example": "consensus_accounts.deposit"
       },
@@ -4859,6 +4974,7 @@
           "index",
           "timestamp",
           "hash",
+          "signers",
           "sender_0",
           "nonce_0",
           "fee",
@@ -4897,24 +5013,38 @@
             "description": "The Ethereum cryptographic hash of this transaction's encoding.\nAbsent for non-Ethereum-format transactions.\n",
             "example": "9e6a5837c6366d4a7e477c71ffe32d40915cdef7ef209792259e5ee70caf2705"
           },
+          "signers": {
+            "type": "array",
+            "items": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/RuntimeTransactionSigner"
+                }
+              ]
+            },
+            "description": "The signers of this transaction."
+          },
           "sender_0": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/Address"
               }
             ],
-            "description": "The Oasis address of this transaction's 0th signer.\nUnlike Ethereum, Oasis natively supports multiple-signature transactions.\nHowever, the great majority of transactions only have a single signer in practice.\nRetrieving the other signers is currently not supported by this API.\n",
+            "deprecated": true,
+            "description": "The Oasis address of this transaction's 0th signer.\nUnlike Ethereum, Oasis natively supports multiple-signature transactions.\nHowever, the great majority of transactions only have a single signer in practice.\nDEPRECATED: This field will be removed in the future in favor of the signers field.\n",
             "example": "oasis1qz670t637yyxshnlxhjj5074wgwl94d0x5x69zqd"
           },
           "sender_0_eth": {
             "type": "string",
-            "description": "The Ethereum address of this transaction's 0th signer.\n",
+            "deprecated": true,
+            "description": "The Ethereum address of this transaction's 0th signer.\nDEPRECATED: This field will be removed in the future in favor of the signers field.\n",
             "example": 1.2367698861069356e48
           },
           "nonce_0": {
             "type": "integer",
             "format": "uint64",
-            "description": "The nonce used with this transaction's 0th signer, to prevent replay.",
+            "deprecated": true,
+            "description": "The nonce used with this transaction's 0th signer, to prevent replay.\nDEPRECATED: This field will be removed in the future in favor of the signers field.\n",
             "example": 114194
           },
           "fee": {
@@ -4955,9 +5085,17 @@
             "format": "int32",
             "description": "The total byte size of the transaction."
           },
+          "oasis_encryption_envelope": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RuntimeTransactionEncryptionEnvelope"
+              }
+            ],
+            "description": "The data relevant to the Oasis-style encrypted transaction.\nNote: The term \"envelope\" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)\nwhich differ slightly from [digital envelopes](https://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).\n"
+          },
           "method": {
             "type": "string",
-            "description": "The method that was called. Defined by the runtime. In theory, this could be any string as the runtimes evolve.\nIn practice, Nexus currently expects only the following methods:\n  - \"accounts.Transfer\"\n  - \"consensus.Deposit\"\n  - \"consensus.Withdraw\"\n  - \"consensus.Delegate\"\n  - \"consensus.Undelegate\"\n  - \"evm.Create\"\n  - \"evm.Call\"\nMay be null if the transaction was malformed or encrypted.\n",
+            "description": "The method that was called. Defined by the runtime. In theory, this could be any string as the runtimes evolve.\nIn practice, Nexus currently expects only the following methods:\n  - \"accounts.Transfer\"\n  - \"consensus.Deposit\"\n  - \"consensus.Withdraw\"\n  - \"consensus.Delegate\"\n  - \"consensus.Undelegate\"\n  - \"evm.Create\"\n  - \"evm.Call\"\n  - \"rofl.Create\"\n  - \"rofl.Update\"\n  - \"rofl.Remove\"\n  - \"rofl.Register\"\nMay be null if the transaction was malformed or encrypted.\n",
             "example": "evm.Call"
           },
           "body": {
@@ -5004,7 +5142,7 @@
                 "$ref": "#/components/schemas/RuntimeTransactionEncryptionEnvelope"
               }
             ],
-            "description": "The data relevant to the encrypted transaction. Only present for encrypted\ntransactions in confidential EVM runtimes like Sapphire.\nNote: The term \"envelope\" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)\nwhich differ slightly from [digital envelopes](hhttps://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).\n"
+            "description": "The data relevant to the EVM encrypted transaction. Only present for encrypted\ntransactions in confidential EVM runtimes like Sapphire.\nNote: The term \"envelope\" in this context refers to the [Oasis-style encryption envelopes](https://github.com/oasisprotocol/oasis-sdk/blob/c36a7ee194abf4ca28fdac0edbefe3843b39bf69/runtime-sdk/src/types/callformat.rs)\nwhich differ slightly from [digital envelopes](https://en.wikipedia.org/wiki/Hybrid_cryptosystem#Envelope_encryption).\n"
           },
           "success": {
             "type": "boolean",
@@ -5073,6 +5211,32 @@
             "type": "string",
             "format": "byte",
             "description": "The base64-encoded encrypted result data."
+          }
+        }
+      },
+      "RuntimeTransactionSigner": {
+        "type": "object",
+        "required": ["address", "nonce"],
+        "properties": {
+          "address": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Address"
+              }
+            ],
+            "description": "The Oasis address of the transaction signer.\n",
+            "example": "oasis1qz670t637yyxshnlxhjj5074wgwl94d0x5x69zqd"
+          },
+          "address_eth": {
+            "type": "string",
+            "description": "The Ethereum address of this transaction signer.\n",
+            "example": 1.2367698861069356e48
+          },
+          "nonce": {
+            "type": "integer",
+            "format": "uint64",
+            "description": "The transaction signer nonce.",
+            "example": 114194
           }
         }
       },
@@ -5246,6 +5410,36 @@
             "description": "The number of addresses that have a nonzero balance of this token.\n",
             "example": 123
           },
+          "ref_swap": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmTokenSwap"
+              }
+            ],
+            "description": "Information about a swap contract between this token and a\nreference token. The relative price and relative total value of\nthis token are estimated based on this swap contract.\n"
+          },
+          "ref_token": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmRefToken"
+              }
+            ],
+            "description": "Information about the reference token. The relative price and\nrelative total value are expressed in this reference token's base\nunit.\n"
+          },
+          "relative_token_address": {
+            "type": "string",
+            "description": "The relative price and relative total value are expressed in this\nreference token's base unit.\n"
+          },
+          "relative_price": {
+            "type": "number",
+            "format": "double",
+            "description": "The relative price of one base unit of this token is this many of\nthe relative token's base unit.\n"
+          },
+          "relative_total_value": {
+            "type": "number",
+            "format": "double",
+            "description": "The relative price of this token multiplied by this token's total\nsupply, in the relative token's base unit.\n"
+          },
           "is_verified": {
             "deprecated": true,
             "type": "boolean",
@@ -5258,6 +5452,99 @@
                 "$ref": "#/components/schemas/VerificationLevel"
               }
             ]
+          }
+        }
+      },
+      "EvmTokenSwap": {
+        "type": "object",
+        "required": ["pair_address"],
+        "properties": {
+          "pair_address": {
+            "type": "string",
+            "description": "The Oasis address of the swap pair contract.\n"
+          },
+          "pair_address_eth": {
+            "type": "string",
+            "description": "The Ethereum-compatible address of the swap pair contract.\n"
+          },
+          "factory_address": {
+            "type": "string",
+            "description": "The Oasis address of the swap factory contract.\n"
+          },
+          "factory_address_eth": {
+            "type": "string",
+            "description": "The Ethereum-compatible address of the swap factory contract.\n"
+          },
+          "token0_address": {
+            "type": "string",
+            "description": "The Oasis address of the first token in this swap.\n"
+          },
+          "token0_address_eth": {
+            "type": "string",
+            "description": "The Ethereum-compatible address of the first token in this swap\n"
+          },
+          "token1_address": {
+            "type": "string",
+            "description": "The Oasis address of the second token in this swap.\n"
+          },
+          "token1_address_eth": {
+            "type": "string",
+            "description": "The Ethereum-compatible address of the second token in this swap.\n"
+          },
+          "create_round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The round when this swap pair was created.\n"
+          },
+          "reserve0": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The swap's liquidity pool of the first token, in that token's base units.\n"
+          },
+          "reserve1": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TextBigInt"
+              }
+            ],
+            "description": "The swap's liquidity pool of the second token, in that token's base units.\n"
+          },
+          "last_sync_round": {
+            "type": "integer",
+            "format": "int64",
+            "description": "The round when this swap pair last updated its reserves.\n"
+          }
+        }
+      },
+      "EvmRefToken": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EvmTokenType"
+              }
+            ],
+            "description": "The heuristically determined interface that the token contract implements.\nA less specialized variant of the token might be detected; for example, an\nERC-1363 token might be labeled as ERC-20 here. If the type cannot be\ndetected or is not supported, this field will be null/absent.\n"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the token, as provided by token contract's `name()` method.",
+            "example": "Wrapped ROSE"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Symbol of the token, as provided by token contract's `symbol()` method.",
+            "example": "wROSE"
+          },
+          "decimals": {
+            "type": "integer",
+            "description": "The number of least significant digits in base units that should be displayed as\ndecimals when displaying tokens. `tokens = base_units / (10**decimals)`.\nAffects display only. Often equals 18, to match ETH.\n",
+            "example": 18
           }
         }
       },
