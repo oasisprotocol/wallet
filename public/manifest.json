@@ -3,7 +3,7 @@
   "name": "__MSG_appName__",
   "short_name": "__MSG_appName__",
   "description": "__MSG_appDescription__",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "version": "2.1.0",
   "default_locale": "en",
   "icons": {
@@ -15,7 +15,7 @@
     "128": "./Icon Blue 512.png",
     "512": "./Icon Blue 512.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
       "16": "./Icon Blue 512.png",
       "19": "./Icon Blue 512.png",
@@ -28,12 +28,15 @@
     "default_title": "ROSE Wallet",
     "default_popup": "../extension/src/popup.html"
   },
-  "permissions": ["storage", "notifications", "activeTab"],
-  "content_security_policy": "{{{ EXTENSION_CSP }}}",
-  "background": {
-    "page": "../extension/src/background.html",
-    "persistent": true
+  "permissions": ["storage", "notifications"],
+  "content_security_policy": {
+    "extension_pages": "{{{ EXTENSION_CSP }}}"
   },
-  "web_accessible_resources": ["./oasis-xu-frame.html"],
-  "externally_connectable": { "ids": [] }
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "web_accessible_resources": [{
+    "matches": [],
+    "resources": ["../extension/src/ExtLedgerAccessPopup/index.html"]
+  }]
 }

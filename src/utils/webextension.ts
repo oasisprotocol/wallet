@@ -1,4 +1,6 @@
 import browser from 'webextension-polyfill'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { ExtLedgerAccessPopup } from '../../extension/src/ExtLedgerAccessPopup/ExtLedgerAccessPopup'
 
 type Props = {
   path: string
@@ -7,28 +9,27 @@ type Props = {
   type?: browser.Windows.CreateType
 }
 
-const getPopupUrl = (path: string) =>
-  browser.runtime.getURL(`${browser.runtime.getManifest()?.browser_action?.default_popup}${path}`)
-
-const openPopup = ({ path, height, width, type }: Props) => {
-  const existingPopupWindow = browser.extension
-    .getViews()
-    .find(window => window.location.href === getPopupUrl(path))
+const openPopup = async ({ path, height, width, type }: Props) => {
+  const existingPopupWindow = browser.extension.getViews().find(window => window.location.href === path)
 
   if (existingPopupWindow) {
     existingPopupWindow.close()
   }
-  browser.windows.create({
-    url: getPopupUrl(path),
+  const popup = await browser.windows.create({
+    url: path,
     type: type ?? 'popup',
     width: width,
     height: height,
+    focused: true,
   })
+  await browser.windows.update(popup.id!, { focused: true }) // Focus again. Helps in rare cases like when screensharing.
 }
 
-export const openLedgerAccessPopup = (path: string) => {
+export const openLedgerAccessPopup = () => {
+  /** See {@link ExtLedgerAccessPopup} */
+  const href = new URL('../../extension/src/ExtLedgerAccessPopup/index.html', import.meta.url).href
   openPopup({
-    path: path,
+    path: href,
     width: 600,
     height: 850,
 

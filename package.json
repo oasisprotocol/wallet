@@ -96,8 +96,7 @@
     "tweetnacl": "1.0.3",
     "typed-redux-saga": "1.5.0",
     "valid-url": "1.0.9",
-    "webext-redux": "2.1.9",
-    "webextension-polyfill": "0.10.0"
+    "webextension-polyfill": "0.12.0"
   },
   "devDependencies": {
     "@capacitor/cli": "6.0.0",
@@ -123,7 +122,7 @@
     "@types/testing-library__jest-dom": "5.14.9",
     "@types/valid-url": "1.0.7",
     "@types/w3c-web-usb": "1.0.10",
-    "@types/webextension-polyfill": "0.10.7",
+    "@types/webextension-polyfill": "0.12.1",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
     "babel-plugin-istanbul": "6.1.1",

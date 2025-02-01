@@ -8,7 +8,7 @@ import type {
 } from '../../src/vendors/nexus/index'
 import { StringifiedBigInt } from '../../src/types/StringifiedBigInt'
 
-export async function mockApi(context: BrowserContext | Page, balance: StringifiedBigInt) {
+export async function mockApi(context: BrowserContext | Page, balance: number | StringifiedBigInt) {
   await context.addInitScript(() => ((window as any).REACT_APP_BACKEND = 'nexus'))
   await context.route('**/consensus/accounts/*', route => {
     route.fulfill({

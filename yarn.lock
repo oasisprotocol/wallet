@@ -3202,10 +3202,10 @@
   resolved "https://registry.yarnpkg.com/@types/web-bluetooth/-/web-bluetooth-0.0.20.tgz#f066abfcd1cbe66267cdbbf0de010d8a41b41597"
   integrity sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==
 
-"@types/webextension-polyfill@0.10.7":
-  version "0.10.7"
-  resolved "https://registry.yarnpkg.com/@types/webextension-polyfill/-/webextension-polyfill-0.10.7.tgz#de059250599733a60ed26c8a0c81e21e11183b90"
-  integrity sha512-10ql7A0qzBmFB+F+qAke/nP1PIonS0TXZAOMVOxEUsm+lGSW6uwVcISFNa0I4Oyj0884TZVWGGMIWeXOVSNFHw==
+"@types/webextension-polyfill@0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@types/webextension-polyfill/-/webextension-polyfill-0.12.1.tgz#8dae244fe094cbb541005362e8e22f16671f6054"
+  integrity sha512-xPTFWwQ8BxPevPF2IKsf4hpZNss4LxaOLZXypQH4E63BDLmcwX/RMGdI4tB4VO4Nb6xDBH3F/p4gz4wvof1o9w==
 
 "@types/yargs-parser@*":
   version "20.2.0"
@@ -7369,16 +7369,6 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash.assignin@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.assignin/-/lodash.assignin-4.2.0.tgz#ba8df5fb841eb0a3e8044232b0e263a8dc6a28a2"
-  integrity sha1-uo31+4QesKPoBEIysOJjqNxqKKI=
-
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
-  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
-
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
@@ -9930,18 +9920,10 @@ weak-lru-cache@^1.2.2:
   resolved "https://registry.yarnpkg.com/weak-lru-cache/-/weak-lru-cache-1.2.2.tgz#fdbb6741f36bae9540d12f480ce8254060dccd19"
   integrity sha512-DEAoo25RfSYMuTGc9vPJzZcZullwIqRDSI9LOy+fkCJPi6hykCnfKaXTuPBDuXAUcqHXyOgFtHNp/kB2FjYHbw==
 
-webext-redux@2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/webext-redux/-/webext-redux-2.1.9.tgz#f7fd01ea4b93191d07bcdd0db5966955766ef634"
-  integrity sha512-z7frkQ/avFgnMxUH6Q955hU8SDsHT9Zlq9az3OpY891RXw9nKODOTnUhNo9ZAlDFUPHhX2A+z6j74BCaYwEsfQ==
-  dependencies:
-    lodash.assignin "^4.2.0"
-    lodash.clonedeep "^4.5.0"
-
-webextension-polyfill@0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.10.0.tgz#ccb28101c910ba8cf955f7e6a263e662d744dbb8"
-  integrity sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==
+webextension-polyfill@0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.12.0.tgz#f62c57d2cd42524e9fbdcee494c034cae34a3d69"
+  integrity sha512-97TBmpoWJEE+3nFBQ4VocyCdLKfw54rFaJ6EVQYLBCXqCIpLSZkwGgASpv4oPt9gdKCJ80RJlcmNzNn008Ag6Q==
 
 webidl-conversions@^7.0.0:
   version "7.0.0"
