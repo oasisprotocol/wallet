@@ -115,7 +115,9 @@ jobs:
               if (location.href !== 'chrome-extension://jeooipjboldjebnajiegnfpklodgimmf/manifest.json') throw 'Is this old extension instead of new one?';
               const chromeStorageLocal = ${JSON.stringify(localStorage['oasis_wallet_persist_v1'])};
               localStorage['oasis_wallet_persist_v1'] = chromeStorageLocal;
+              window.close();
               `)
+              console.log('Go to chrome-extension://jeooipjboldjebnajiegnfpklodgimmf/manifest.json and open the console and paste');
               ```
             - **chrome-extension://jeooipjboldjebnajiegnfpklodgimmf/manifest.json** open console and paste.
             - click the new extension
