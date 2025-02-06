@@ -86,7 +86,7 @@ jobs:
           VERSION: ${{ steps.vars.outputs.VERSION }}
         run: |
           cd build-ext/
-          zip -r "../rose-wallet-ext-$VERSION.zip" .
+          zip -r "../rose-wallet-ext-mv3.zip" .
       - name: Parse CHANGELOG.md file and extract changes for the given version
         uses: buberdds/extract-changelog-action@v1
         id: changelog
@@ -95,13 +95,29 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
+          prerelease: true
           files: |
-            rose-wallet-android-${{ steps.vars.outputs.VERSION }}.aab
-            rose-wallet-web-${{ steps.vars.outputs.VERSION }}.zip
-            rose-wallet-ext-${{ steps.vars.outputs.VERSION }}.zip
-            build/Content-Security-Policy.txt
-            build/Permissions-Policy.txt
-          name: ROSE Wallet ${{ steps.vars.outputs.VERSION }}
-          body: ${{ steps.changelog.outputs.content }}
+            rose-wallet-ext-mv3.zip
+          name: ROSE Wallet MV3 Extension beta
+          body: |
+            To install beta version as a separate extension:
+            - open **chrome://extensions/**
+            - click top right to enable Developer mode
+            - download **rose-wallet-ext-mv3.zip** (assets below)
+            - drag it into chrome://extensions/
+
+            To copy saved wallets from old extension:
+            - _extensions and instructions like these could be malicious and steal your tokens - don't blindly trust them_
+            - open **chrome-extension://ppdadbejkmjnefldpcdjhnkpbjkikoip/manifest.json** and open console and run:
+              ```js
+              if (location.href !== 'chrome-extension://ppdadbejkmjnefldpcdjhnkpbjkikoip/manifest.json') throw 'Is this the new extension instead of old one?';
+              copy(`
+              if (location.href !== 'chrome-extension://jeooipjboldjebnajiegnfpklodgimmf/manifest.json') throw 'Is this old extension instead of new one?';
+              const chromeStorageLocal = ${JSON.stringify(localStorage['oasis_wallet_persist_v1'])};
+              localStorage['oasis_wallet_persist_v1'] = chromeStorageLocal;
+              `)
+              ```
+            - **chrome-extension://jeooipjboldjebnajiegnfpklodgimmf/manifest.json** open console and paste.
+            - click the new extension
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
