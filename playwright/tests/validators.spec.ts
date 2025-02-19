@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
   await warnSlowApi(page)
   await mockApi(page, '500000000000')
   // Unmock validators list API
-  await page.unroute('**/consensus/validators')
+  await page.unroute('**/consensus/validators?*')
   await expectNoErrorsInConsole(page, {
     ignoreError: message => {
       // Some validator icons need authentication

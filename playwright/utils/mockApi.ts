@@ -65,7 +65,7 @@ export async function mockApi(context: BrowserContext | Page, balance: number | 
       }),
     })
   })
-  await context.route('**/consensus/validators', route => {
+  await context.route('**/consensus/validators?*', route => {
     route.fulfill({
       body: JSON.stringify({
         is_total_count_clipped: false,
@@ -201,7 +201,7 @@ export async function mockApiMoreData(context: BrowserContext | Page) {
       }),
     })
   })
-  await context.route('**/consensus/validators', route => {
+  await context.route('**/consensus/validators?*', route => {
     route.fulfill({
       body: JSON.stringify({
         is_total_count_clipped: false,
