@@ -43,7 +43,7 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
   }
 
   async function getAllValidators(): Promise<Validator[]> {
-    const validatorsResponse = await api.consensusValidatorsGet({})
+    const validatorsResponse = await api.consensusValidatorsGet({ limit: 1000 })
     if (!validatorsResponse) throw new Error('Wrong response code')
 
     return parseValidatorsList(validatorsResponse.validators)
