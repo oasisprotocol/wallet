@@ -47,7 +47,6 @@ export function FromUsbLedger() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type={WalletType.UsbLedger}
         />
       )}
     </Box>

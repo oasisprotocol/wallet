@@ -70,7 +70,6 @@ export function FromBleLedger() {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type={WalletType.BleLedger}
         />
       )}
     </Box>
