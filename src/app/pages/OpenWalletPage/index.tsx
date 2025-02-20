@@ -5,27 +5,13 @@
  */
 import { Anchor } from 'grommet/es6/components/Anchor'
 import { Box } from 'grommet/es6/components/Box'
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { ButtonLink } from 'app/components/ButtonLink'
 import { Header } from 'app/components/Header'
-import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
-import { runtimeIs } from 'config'
 
 export function SelectOpenMethod() {
   const { t } = useTranslation()
-  const navigate = useNavigate()
-  const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
-
-  useEffect(() => {
-    const isExtension = runtimeIs === 'extension'
-
-    if (isExtension && showAccountsSelectionModal) {
-      navigate('/open-wallet/ledger/usb')
-    }
-  }, [navigate, showAccountsSelectionModal])
 
   return (
     <Box

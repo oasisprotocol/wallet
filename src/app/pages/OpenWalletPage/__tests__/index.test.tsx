@@ -1,9 +1,5 @@
-import React from 'react'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { when } from 'jest-when'
-import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { SelectOpenMethod } from '..'
 
 jest.mock('app/lib/ledger', () => ({
@@ -38,19 +34,5 @@ describe('<SelectOpenMethod />', () => {
     const { container } = renderComponent()
 
     expect(container).toMatchSnapshot()
-  })
-
-  it('should redirect user to ledger page', async () => {
-    when(useSelector as any)
-      .calledWith(selectShowAccountsSelectionModal)
-      .mockReturnValue(true)
-
-    renderComponent()
-
-    await waitFor(() => {
-      expect(screen.queryByText('openWallet.method.ledger')).toBeInTheDocument()
-
-      expect(mockNavigate).toHaveBeenCalledWith('/open-wallet/ledger/usb')
-    })
   })
 })
