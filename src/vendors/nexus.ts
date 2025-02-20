@@ -260,7 +260,12 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
         from: t.sender_0_eth || t.sender_0,
         hash: t.hash,
         level: undefined,
-        status: t.success ? TransactionStatus.Successful : TransactionStatus.Failed,
+        status:
+          t.success === undefined
+            ? TransactionStatus.Pending
+            : t.success
+            ? TransactionStatus.Successful
+            : TransactionStatus.Failed,
         timestamp: transactionDate.getTime(),
         to: (t.body as { to?: string }).to ?? undefined,
         type: getTransactionType(t.method),
