@@ -267,7 +267,7 @@ function parseTransactionsList(list: (NexusTransaction | ExtendedRuntimeTransact
             ? TransactionStatus.Successful
             : TransactionStatus.Failed,
         timestamp: transactionDate.getTime(),
-        to: (t.body as { to?: string }).to ?? undefined,
+        to: t.to_eth ?? t.to ?? (t.body as { to?: string }).to ?? undefined,
         type: getTransactionType(t.method),
         runtimeName: t.runtimeName,
         runtimeId: t.runtimeId,
