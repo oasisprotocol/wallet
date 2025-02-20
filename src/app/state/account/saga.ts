@@ -90,6 +90,13 @@ export function* refreshAccountOnParaTimeTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.paraTimeTransactionSent)
 
+    // Increase the chance to get updated transactions from API.
+    // Note: We can't rely on nonce to detect pending paratime transactions
+    yield* delay(3000)
+    yield* call(refreshAccount, payload)
+    yield* delay(6000)
+    yield* call(refreshAccount, payload)
+    yield* delay(6000)
     yield* call(refreshAccount, payload)
   }
 }

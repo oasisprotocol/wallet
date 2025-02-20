@@ -9,6 +9,7 @@ import { addWallet, rootWalletSaga } from './saga'
 import { AddWalletPayload, WalletType } from './types'
 import { importAccountsActions } from '../importaccounts'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
+import delayP from '@redux-saga/delay-p'
 
 describe('Wallet Sagas', () => {
   const validPrivateKeyHex =
@@ -18,6 +19,7 @@ describe('Wallet Sagas', () => {
 
   const providers: (EffectProviders | StaticProvider)[] = [
     [matchers.call.fn(getAccountBalanceWithFallback), {}],
+    [matchers.call.fn(delayP), null], // https://github.com/jfairbank/redux-saga-test-plan/issues/257
   ]
   const state: DeepPartialRootState = {
     importAccounts: {
