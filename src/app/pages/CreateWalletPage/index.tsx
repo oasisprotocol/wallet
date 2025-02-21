@@ -26,7 +26,6 @@ import { ImportAccountsSelectionModal } from 'app/pages/OpenWalletPage/Features/
 import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
 import { createWalletActions } from './slice'
 import { selectCheckbox, selectMnemonic } from './slice/selectors'
-import { WalletType } from 'app/state/wallet/types'
 
 export interface CreateWalletProps {}
 
@@ -95,7 +94,6 @@ export function CreateWalletPage(props: CreateWalletProps) {
           abort={() => {
             dispatch(importAccountsActions.clear())
           }}
-          type={WalletType.Mnemonic}
         />
       )}
       <Grid gap="small" pad="small" columns={size === 'small' ? ['auto'] : ['2fr', '2fr']}>

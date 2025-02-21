@@ -19,7 +19,7 @@ const renderComponent = (store: any, abortFunction = () => {}) =>
   render(
     <Provider store={store}>
       <ThemeProvider>
-        <ImportAccountsSelectionModal abort={abortFunction} type={WalletType.UsbLedger} />
+        <ImportAccountsSelectionModal abort={abortFunction} />
       </ThemeProvider>
     </Provider>,
   )
@@ -57,7 +57,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
             pathDisplay: `m/44'/474'/0'`,
             publicKey: '00',
             selected: false,
-            type: WalletType.Mnemonic,
+            type: WalletType.UsbLedger,
           },
         ]),
       )
@@ -82,7 +82,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
             pathDisplay: `m/44'/474'/0'`,
             publicKey: '00',
             selected: false,
-            type: WalletType.Mnemonic,
+            type: WalletType.UsbLedger,
           },
           {
             address: 'oasis1qqv25adrld8jjquzxzg769689lgf9jxvwgjs8tha',
@@ -91,7 +91,7 @@ describe('<ImportAccountsSelectionModal  />', () => {
             pathDisplay: `m/44'/474'/1'`,
             publicKey: '00',
             selected: false,
-            type: WalletType.Mnemonic,
+            type: WalletType.UsbLedger,
           },
         ]),
       )

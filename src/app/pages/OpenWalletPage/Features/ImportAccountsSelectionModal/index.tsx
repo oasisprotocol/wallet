@@ -23,7 +23,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Spinner } from 'grommet/es6/components/Spinner'
 import { Text } from 'grommet/es6/components/Text'
 import { numberOfAccountPages } from 'app/state/importaccounts/saga'
-import { WalletType, LedgerWalletType } from 'app/state/wallet/types'
+import { WalletType } from 'app/state/wallet/types'
 import { ChoosePasswordFields } from 'app/components/Persist/ChoosePasswordFields'
 import { FormValue as ChoosePasswordFieldsFormValue } from 'app/components/Persist/ChoosePasswordInputFields'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
@@ -47,7 +47,6 @@ function ImportAccountsSelector({ accounts }: ImportAccountsSelectorSelectorProp
 
 interface ImportAccountsSelectionModalProps {
   abort: () => void
-  type: WalletType.Mnemonic | LedgerWalletType
 }
 
 interface FormValue extends ChoosePasswordFieldsFormValue {}
@@ -61,10 +60,11 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   const error = importAccounts.error
   const selectedAccounts = useSelector(selectSelectedAccounts)
   const dispatch = useDispatch()
+  const type = accounts.length > 0 ? accounts[0].type : undefined
 
   const openAccounts = ({ value }: { value: FormValue }) => {
     dispatch(
-      props.type === WalletType.UsbLedger
+      type === WalletType.UsbLedger
         ? walletActions.openWalletsFromLedger({ choosePassword: value.password2 })
         : walletActions.openWalletFromMnemonic({ choosePassword: value.password2 }),
     )
@@ -83,8 +83,8 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
 
   const onNext = () => {
     dispatch(importAccountsActions.setPage(pageNum + 1))
-    if (props.type === WalletType.UsbLedger || props.type === WalletType.BleLedger) {
-      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(props.type))
+    if (type === WalletType.UsbLedger || type === WalletType.BleLedger) {
+      dispatch(importAccountsActions.enumerateMoreAccountsFromLedger(type))
     }
   }
 
