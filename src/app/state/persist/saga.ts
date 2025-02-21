@@ -136,12 +136,8 @@ function* resetRootState(action: ReturnType<typeof persistActions.resetRootState
   const unlockedStatus = yield* select(selectUnlockedStatus)
   // Redirect home to prevent infinite loading if user closes unpersisted wallet in another tab.
   if (isActionSynced(action) && unlockedStatus === 'emptyUnpersisted') {
-    // Note: can only redirect in webapp, because saga runs in background page in extension.
-    // TODO: find another way if extension starts supporting multiple popups or tabs
-    // e.g. show "You closed wallet in another tab, click to go home"
-    if (runtimeIs === 'webapp') {
-      yield* call([window.location, window.location.assign], '/')
-    }
+    // Note: requires saga to be running in popup in extension, not in a service worker.
+    yield* call([window.location, window.location.assign], '/')
   }
 }
 

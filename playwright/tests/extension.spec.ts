@@ -17,7 +17,7 @@ test.describe('The extension popup should load', () => {
     await expect(page.getByRole('link', { name: /Create wallet/i })).toBeVisible()
   })
 
-  test('get state from background page through webext-redux', async ({ page, extensionPopupURL }) => {
+  test('saga is initialized', async ({ page, extensionPopupURL }) => {
     await page.goto(`${extensionPopupURL}/`)
     await page.getByRole('button', { name: /Menu/i }).click()
     await page.getByRole('button', { name: /Dark mode/i }).click()
@@ -96,7 +96,7 @@ test.describe('The extension popup should load', () => {
         .getByRole('button', { name: 'Reload app' })
         .click()
         .catch(e => {
-          // Ignore error. Reloading extension's background page auto-closes its popups.
+          // Ignore error. Reloading extension's runtime auto-closes its popups.
           expect(e.toString()).toContain('Target page, context or browser has been closed')
         })
       await page.close()
