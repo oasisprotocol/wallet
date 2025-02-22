@@ -5,7 +5,7 @@ import { hex2uint, isValidAddress, parseRoseStringToBaseUnitString, uint2bigintS
 import { LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction, signerFromEthPrivateKey, signerFromPrivateKey, TW } from 'app/lib/transaction'
 import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
-import { call, delay, put, race, select, take, takeEvery } from 'typed-redux-saga'
+import { call, put, race, select, take, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 import { transactionActions } from '.'
 import { sign } from '../importaccounts/saga'
@@ -275,8 +275,6 @@ export function* setAllowance(
   }
 }
 
-const transactionSentDelay = 1000 // to increase a chance to get updated account data from BE
-
 export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTimeTransaction) {
   const fromAddress = transaction.ethPrivateKey
     ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.ethPrivateKey))
@@ -302,7 +300,6 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
 
   yield* call(OasisTransaction.signParaTime, chainContext, paraTimeTransactionSigner as Signer, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
-  yield* delay(transactionSentDelay)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
 }
 

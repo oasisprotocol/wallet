@@ -4,6 +4,7 @@ import { RootState } from 'types'
 import { initialState } from '.'
 import { selectSelectedNetwork } from '../network/selectors'
 import { TRANSACTIONS_LIMIT } from '../../../config'
+import { TransactionStatus } from '../transaction/types'
 
 const selectSlice = (state: RootState) => state.account || initialState
 
@@ -30,6 +31,11 @@ export const hasAccountUnknownPendingTransactions = createSelector(
       // Don't bother when tx list is empty in this case. Oasis Scan v2 API is missing historical data.
       // Account have nonce and 0 transactions due to last correctly indexed block 16817956 (2023-11-29)
       return false
+    }
+    if (transactions.some(tx => tx.status === TransactionStatus.Pending)) {
+      // After paratime deposit transaction is submitted, Nexus API returns empty status until one block later.
+      // https://github.com/oasisprotocol/explorer/issues/528
+      return true
     }
     const noncesFromTxs = transactions
       .filter(tx => !tx.runtimeId)
