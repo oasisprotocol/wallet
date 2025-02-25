@@ -67,7 +67,7 @@ export const accountSlice = createSlice({
         payload: { networkType, transaction },
       } = action
 
-      if (transaction.from !== state.address) {
+      if (transaction.from !== state.address && transaction.to !== state.address) {
         return
       }
 
