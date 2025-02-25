@@ -152,6 +152,8 @@ function* refreshAccountOnParaTimeTransaction() {
   while (true) {
     const { payload } = yield* take(transactionActions.paraTimeTransactionSent)
 
+    // Increase the chance to get updated balance from API.
+    yield* delay(3000)
     yield* call(refreshAccount, payload)
   }
 }
