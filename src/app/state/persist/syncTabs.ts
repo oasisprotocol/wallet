@@ -1,11 +1,4 @@
-import {
-  AnyAction,
-  configureStore,
-  ConfigureStoreOptions,
-  Dispatch,
-  EnhancedStore,
-  Middleware,
-} from '@reduxjs/toolkit'
+import { AnyAction, configureStore, ConfigureStoreOptions, EnhancedStore, Middleware } from '@reduxjs/toolkit'
 import { isSyncingTabsSupported, needsSyncingTabs } from 'app/state/persist'
 import {
   createStateSyncMiddleware,
@@ -179,7 +172,7 @@ const stateSyncConfig: StateSyncConfig = {
 /** Wrap configureStore with redux-state-sync if native BroadcastChannel is supported. */
 export function configureStoreWithSyncTabs(
   options: ConfigureStoreOptions<RootState>,
-): EnhancedStore<RootState, AnyAction, Middleware<unknown, RootState, Dispatch<AnyAction>>[]> {
+): EnhancedStore<RootState, AnyAction> {
   if (typeof options.middleware !== 'function') throw new Error('Unsupported type of options.middleware')
   if (typeof options.reducer !== 'function') throw new Error('Unsupported type of options.reducer')
   if (!needsSyncingTabs) {
@@ -196,7 +189,9 @@ export function configureStoreWithSyncTabs(
     ...options,
     reducer: withReduxStateSync(options.reducer, receiveInitialTabSyncState),
     middleware: getDefaultMiddleware =>
-      optionsMiddleware(getDefaultMiddleware).concat(createStateSyncMiddleware(stateSyncConfig)),
+      optionsMiddleware(getDefaultMiddleware).concat(
+        createStateSyncMiddleware(stateSyncConfig) as Middleware<object, RootState>,
+      ),
   })
 
   initStateWithPrevTab(store)
