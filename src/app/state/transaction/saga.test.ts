@@ -19,6 +19,9 @@ const makeState = (wallet: Partial<Wallet>, rootState: DeepPartialRootState = {}
       wallets: { [wallet.address!]: wallet },
       selectedWallet: wallet.address,
     },
+    account: {
+      address: wallet.address,
+    },
     network: {
       selectedNetwork: 'testnet',
       chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76',
@@ -55,7 +58,10 @@ describe('Transaction Sagas', () => {
       matchers.call.fn(OasisTransaction.buildTransfer),
       { transaction: { fee: { amount: new Uint8Array(0), gas: BigInt(0) } } },
     ],
-    [matchers.call.fn(OasisTransaction.buildParaTimeTransfer), {}],
+    [
+      matchers.call.fn(OasisTransaction.buildParaTimeTransfer),
+      { transaction: { call: { method: 'method' } } },
+    ],
     [matchers.call.fn(OasisTransaction.sign), {}],
     [matchers.call.fn(OasisTransaction.signParaTime), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
