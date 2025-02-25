@@ -238,7 +238,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
     }
 
     // TODO: Handle ParaTime transactions in similar way
-    yield* put(accountActions.addPendingTransaction({ transaction, from: activeWallet.address, networkType }))
+    yield* put(accountActions.addPendingTransaction({ transaction, networkType }))
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
