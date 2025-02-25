@@ -1,4 +1,4 @@
-import { AnyAction, configureStore, ConfigureStoreOptions, EnhancedStore } from '@reduxjs/toolkit'
+import { AnyAction, configureStore, ConfigureStoreOptions, EnhancedStore, Middleware } from '@reduxjs/toolkit'
 import { isSyncingTabsSupported, needsSyncingTabs } from 'app/state/persist'
 import {
   createStateSyncMiddleware,
@@ -189,7 +189,9 @@ export function configureStoreWithSyncTabs(
     ...options,
     reducer: withReduxStateSync(options.reducer, receiveInitialTabSyncState),
     middleware: getDefaultMiddleware =>
-      optionsMiddleware(getDefaultMiddleware).concat(createStateSyncMiddleware(stateSyncConfig)),
+      optionsMiddleware(getDefaultMiddleware).concat(
+        createStateSyncMiddleware(stateSyncConfig) as Middleware<object, RootState>,
+      ),
   })
 
   initStateWithPrevTab(store)
