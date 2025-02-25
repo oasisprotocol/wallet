@@ -28,7 +28,7 @@ export function configureAppStore(state?: Partial<RootState>) {
     devTools:
       /* istanbul ignore next line */
       process.env.NODE_ENV !== 'production',
-    preloadedState: state,
+    preloadedState: state as RootState | undefined,
   })
 
   sagaMiddleware.run(rootSagas)
