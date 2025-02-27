@@ -54,12 +54,17 @@ export const AddEscrowForm = memo((props: Props) => {
   }
   const submit = () => {
     if (props.validatorStatus !== 'active') {
+      const mapStatus: { [status in Validator['status']]: string } = {
+        active: t('validator.statusActive', 'Active'),
+        inactive: t('validator.statusInactive', 'Inactive'),
+        unknown: t('validator.statusUnknown', 'Unknown'),
+      }
       launchModal({
         title: t('account.addEscrow.confirmDelegatingToInactive.title', 'Are you sure you want to continue?'),
         description: t(
           'account.addEscrow.confirmDelegatingToInactive.description',
           'Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.',
-          { validatorStatus: props.validatorStatus },
+          { validatorStatus: mapStatus[props.validatorStatus] },
         ),
         handleConfirm: delegate,
         isDangerous: true,
