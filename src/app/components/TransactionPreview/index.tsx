@@ -46,8 +46,13 @@ export const TransactionPreview = memo((props: Props) => {
       />
       {preview.transaction.type === 'reclaimEscrow' && (
         <PreviewRow
-          label={t('transaction.preview.shares', 'Gigashares')}
-          value={<AmountFormatter amount={preview.transaction.shares} hideTicker />}
+          label={t('transaction.preview.shares', 'Shares')}
+          value={
+            <span>
+              <AmountFormatter amount={preview.transaction.shares} hideTicker />
+              {t('common.postfixAmountInBillions', 'B')}
+            </span>
+          }
         />
       )}
       <PreviewRow

@@ -18,7 +18,7 @@
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "reclaimEscrow": {
-      "convertedToShares": "Corresponding number of gigashares: {{shares}}",
+      "convertedToShares": "Corresponding number of shares: {{shares}}",
       "reclaim": "Reclaim",
       "reclaimAll": "Reclaim all",
       "reclaimableAmount": "Available:"
@@ -123,6 +123,7 @@
     "delegator": "Delegator",
     "from": "From",
     "hash": "Tx Hash",
+    "postfixAmountInBillions": "B",
     "round": "Round",
     "time": "Time",
     "to": "To",
@@ -545,7 +546,7 @@
       "from": "From",
       "gas": "Gas",
       "genesisHash": "Genesis hash",
-      "shares": "Gigashares",
+      "shares": "Shares",
       "to": "To",
       "type": "Type",
       "validator": "Validator",
