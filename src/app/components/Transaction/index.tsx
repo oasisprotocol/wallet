@@ -163,7 +163,7 @@ export function Transaction(props: TransactionProps) {
             i18nKey="account.transaction.addEscrow.received"
             t={t}
             components={{ Amount }}
-            defaults="Received <Amount> delegation in escrow"
+            defaults="Received <Amount/> delegation in escrow"
           />
         ),
       },

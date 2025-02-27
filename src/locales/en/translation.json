@@ -58,7 +58,7 @@
     },
     "transaction": {
       "addEscrow": {
-        "received": "Received <Amount> delegation in escrow",
+        "received": "Received <Amount/> delegation in escrow",
         "sent": "Delegated <Amount/> to validator"
       },
       "consensusDeposit": {
