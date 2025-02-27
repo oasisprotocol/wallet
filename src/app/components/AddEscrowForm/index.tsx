@@ -43,6 +43,11 @@ export const AddEscrowForm = memo((props: Props) => {
   const ticker = useSelector(selectTicker)
   const isMobile = useContext(ResponsiveContext) === 'small'
   const { onWheel } = usePreventChangeOnNumberInputScroll()
+  const translateValidatorStatus: { [status in Validator['status']]: string } = {
+    active: t('validator.statusActive', 'Active'),
+    inactive: t('validator.statusInactive', 'Inactive'),
+    unknown: t('validator.statusUnknown', 'Unknown'),
+  }
   const delegate = () => {
     dispatch(
       transactionActions.addEscrow({
@@ -59,7 +64,7 @@ export const AddEscrowForm = memo((props: Props) => {
         description: t(
           'account.addEscrow.confirmDelegatingToInactive.description',
           'Status of this validator is {{validatorStatus}}. Your delegation might not generate any rewards.',
-          { validatorStatus: props.validatorStatus },
+          { validatorStatus: translateValidatorStatus[props.validatorStatus] },
         ),
         handleConfirm: delegate,
         isDangerous: true,
