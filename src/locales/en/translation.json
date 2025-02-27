@@ -171,7 +171,7 @@
     "unknownLedgerError": "Unknown ledger error: {{message}}",
     "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
-    "usbTransportNotSupported": "Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome)."
+    "usbTransportNotSupported": "Current platform does not support WebUSB capability. Try on different platform or browser (preferably Chrome)."
   },
   "fatalError": {
     "checkStatus": "Check network status",
