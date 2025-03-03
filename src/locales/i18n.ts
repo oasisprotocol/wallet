@@ -8,6 +8,7 @@ import es from './es/translation.json'
 import fr from './fr/translation.json'
 import sl from './sl/translation.json'
 import tr from './tr/translation.json'
+import vi from './vi/translation.json'
 import zh_CN from './zh_CN/translation.json'
 
 export const translationsJson = {
@@ -29,6 +30,9 @@ export const translationsJson = {
   tr: {
     translation: tr,
   },
+  vi: {
+    translation: vi,
+  },
   zh_CN: {
     translation: zh_CN,
   },
@@ -43,6 +47,7 @@ export const languageLabels: [LanguageKey, string][] = [
   ['fr', 'Français'],
   ['sl', 'Slovenščina'],
   ['tr', 'Türkçe'],
+  ['vi', 'Việt'],
   ['zh_CN', '中文'],
 ]
 
