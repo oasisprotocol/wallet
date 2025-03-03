@@ -18,7 +18,7 @@
     "loading": "Loading account",
     "loadingError": "Couldn't load account.",
     "reclaimEscrow": {
-      "convertedToShares": "Corresponding number of gigashares: {{shares}}",
+      "convertedToShares": "Corresponding number of shares: {{shares}}",
       "reclaim": "Reclaim",
       "reclaimAll": "Reclaim all",
       "reclaimableAmount": "Available:"
@@ -58,7 +58,7 @@
     },
     "transaction": {
       "addEscrow": {
-        "received": "Received <Amount> delegation in escrow",
+        "received": "Received <Amount/> delegation in escrow",
         "sent": "Delegated <Amount/> to validator"
       },
       "consensusDeposit": {
@@ -123,6 +123,7 @@
     "delegator": "Delegator",
     "from": "From",
     "hash": "Tx Hash",
+    "postfixAmountInBillions": "B",
     "round": "Round",
     "time": "Time",
     "to": "To",
@@ -171,7 +172,7 @@
     "unknownLedgerError": "Unknown ledger error: {{message}}",
     "unknownParaTimeError": "Unknown ParaTime error: {{message}}",
     "usbTransportError": "USB Transport error: {{message}}.",
-    "usbTransportNotSupported": "Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome)."
+    "usbTransportNotSupported": "Current platform does not support WebUSB capability. Try on different platform or browser (preferably Chrome)."
   },
   "fatalError": {
     "checkStatus": "Check network status",
@@ -545,7 +546,7 @@
       "from": "From",
       "gas": "Gas",
       "genesisHash": "Genesis hash",
-      "shares": "Gigashares",
+      "shares": "Shares",
       "to": "To",
       "type": "Type",
       "validator": "Validator",

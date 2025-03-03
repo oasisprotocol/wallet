@@ -130,9 +130,10 @@ export const ReclaimEscrowForm = memo((props: Props) => {
       </Box>
       {shares !== '0' && (
         <Text size="small" data-testid="numberOfShares">
-          {t('account.reclaimEscrow.convertedToShares', 'Corresponding number of gigashares: {{shares}}', {
+          {t('account.reclaimEscrow.convertedToShares', 'Corresponding number of shares: {{shares}}', {
             shares: formatBaseUnitsAsRose(shares),
           })}
+          {t('common.postfixAmountInBillions', 'B')}
         </Text>
       )}
       <TransactionStatus error={error} success={success} />

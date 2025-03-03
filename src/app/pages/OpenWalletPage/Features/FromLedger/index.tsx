@@ -93,7 +93,7 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
             <Text size="small" textAlign="center">
               {t(
                 'errors.usbTransportNotSupported',
-                'Current platform does not support WebUSB capability. Try on different platform or browser(preferably Chrome).',
+                'Current platform does not support WebUSB capability. Try on different platform or browser (preferably Chrome).',
               )}
             </Text>
           )}
