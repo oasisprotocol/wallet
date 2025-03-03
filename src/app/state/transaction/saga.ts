@@ -1,7 +1,13 @@
 import { client, misc } from '@oasisprotocol/client'
 import { Signer } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
-import { hex2uint, isValidAddress, parseRoseStringToBaseUnitString, uint2bigintString } from 'app/lib/helpers'
+import {
+  hex2uint,
+  isValidAddress,
+  parseRoseStringToBaseUnitString,
+  publicKeyToAddress,
+  uint2bigintString,
+} from 'app/lib/helpers'
 import { LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction, signerFromEthPrivateKey, signerFromPrivateKey, TW } from 'app/lib/transaction'
 import { getEvmBech32Address, privateToEthAddress } from 'app/lib/eth-helpers'
@@ -17,6 +23,7 @@ import { Wallet, WalletType } from '../wallet/types'
 import { Transaction, TransactionPayload, TransactionStatus, TransactionStep, TransactionType } from './types'
 import { ParaTimeTransaction, Runtime, TransactionTypes } from '../paratimes/types'
 import { accountActions } from '../account'
+import { hashSignedTransaction } from '@oasisprotocol/client/dist/consensus'
 
 export function* transactionSaga() {
   yield* takeEvery(transactionActions.sendTransaction, doTransaction)
@@ -237,8 +244,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
       nonce: undefined,
     }
 
-    // TODO: Handle ParaTime transactions in similar way
-    yield* put(accountActions.addPendingTransaction({ transaction, from: activeWallet.address, networkType }))
+    yield* put(accountActions.addPendingTransaction({ transaction, networkType }))
   } catch (e: any) {
     let payload: ErrorPayload
     if (e instanceof WalletError) {
@@ -272,13 +278,38 @@ export function* setAllowance(
     const tw = yield* call(prepareStakingAllowTransfer, signer as Signer, allowanceDifference, runtimeAddress)
     yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
     yield* call(OasisTransaction.submit, nic, tw)
+
+    yield* put(
+      accountActions.addPendingTransaction({
+        transaction: {
+          hash: yield* call([tw, tw.hash]),
+          type: tw.transaction.method as TransactionType,
+          from: yield* call(publicKeyToAddress, signer.public()),
+          amount: allowanceDifference.toString(),
+          to: undefined,
+          status: TransactionStatus.Pending,
+          fee: undefined,
+          level: undefined,
+          round: undefined,
+          runtimeId: undefined,
+          runtimeName: undefined,
+          timestamp: undefined,
+          nonce: undefined,
+        },
+        networkType: yield* select(selectSelectedNetwork),
+      }),
+    )
   }
 }
 
 export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTimeTransaction) {
-  const fromAddress = transaction.ethPrivateKey
+  const fromOasisAddress = transaction.ethPrivateKey
     ? yield* call(getEvmBech32Address, privateToEthAddress(transaction.ethPrivateKey))
     : yield* select(selectAccountAddress)
+  const fromAddress = transaction.ethPrivateKey
+    ? privateToEthAddress(transaction.ethPrivateKey)
+    : yield* select(selectAccountAddress)
+
   const nic = yield* call(getOasisNic)
   const chainContext = yield* call(getChainContext)
   const paraTimeTransactionSigner = transaction.ethPrivateKey
@@ -294,13 +325,35 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
     nic,
     paraTimeTransactionSigner as Signer,
     transaction,
-    fromAddress,
+    fromOasisAddress,
     runtime,
   )
 
   yield* call(OasisTransaction.signParaTime, chainContext, paraTimeTransactionSigner as Signer, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
+
+  const hash = yield* call(hashSignedTransaction, rtw.unverifiedTransaction as any) // TODO use rtw.hash when added
+  yield* put(
+    accountActions.addPendingTransaction({
+      transaction: {
+        hash: hash,
+        type: rtw.transaction.call.method as TransactionType,
+        from: fromAddress,
+        amount: parseRoseStringToBaseUnitString(transaction.amount),
+        to: transaction.recipient,
+        status: TransactionStatus.Pending,
+        fee: undefined,
+        level: undefined,
+        round: undefined,
+        runtimeId: undefined,
+        runtimeName: undefined,
+        timestamp: undefined,
+        nonce: undefined,
+      },
+      networkType: yield* select(selectSelectedNetwork),
+    }),
+  )
 }
 
 function* assertWalletIsOpen() {
