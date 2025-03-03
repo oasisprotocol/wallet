@@ -126,21 +126,18 @@ export async function mockApiMoreData(context: BrowserContext | Page) {
   await context.route('**/consensus/accounts/*', route => {
     route.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          address: route.request().url().split('/consensus/accounts/')[1],
-          available: '23239060788',
-          escrow: '100996756163',
-          debonding: '0',
-          debonding_delegations_balance: '0',
-          delegations_balance: '0',
-          nonce: 70,
-          allowances: [],
-          stats: {
-            num_txns: 1,
-          },
-        } satisfies Account,
-      }),
+        address: route.request().url().split('/consensus/accounts/')[1],
+        available: '23239060788',
+        escrow: '0',
+        debonding: '0',
+        debonding_delegations_balance: '0',
+        delegations_balance: '100996756163',
+        nonce: 70,
+        allowances: [],
+        stats: {
+          num_txns: 1,
+        },
+      } satisfies Account),
     })
   })
   await context.route('**/consensus/accounts/*/delegations', route => {
@@ -150,10 +147,10 @@ export async function mockApiMoreData(context: BrowserContext | Page) {
         total_count: 1,
         delegations: [
           {
-            amount: '100826130447',
+            amount: '100996756163',
             delegator: 'oasis1qqnk4au603zs94k0d0n7c0hkx8t4p6r87s60axru',
-            shares: '79562857663',
-            validator: 'oasis1qp0xuvw2a93w4yp8jwthfz93gxy87u7hes9eu2ev',
+            shares: '71939343766',
+            validator: 'oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3',
           },
         ] satisfies Delegation[],
       }),
