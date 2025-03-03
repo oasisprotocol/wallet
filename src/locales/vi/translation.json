@@ -1,0 +1,586 @@
+{
+  "account": {
+    "addEscrow": {
+      "availableAmount": "Khả dụng:",
+      "confirmDelegatingToInactive": {
+        "description": "Trạng thái của trình xác thực này là {{validatorStatus}} . Việc ủy quyền của bạn có thể không tạo ra phần thưởng.",
+        "title": "Bạn có muốn tiếp tục không?"
+      },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Ủy quyền ngay",
+        "description": "Trình xác thực này được xếp hạng trong top 20 theo stake. Vui lòng cân nhắc ủy quyền cho một trình xác thực nhỏ hơn để tăng cường bảo mật và phân quyền cho mạng lưới."
+      },
+      "delegate": "Ủy quyền"
+    },
+    "addressCopied": "Đã sao chép địa chỉ",
+    "emptyActiveDelegationsList": "Tài khoản chưa có staking nào đang hoạt động",
+    "emptyDebondingDelegationsList": "Tài khoản không có staking nào đang rút",
+    "loading": "Đang tải tài khoản",
+    "loadingError": "Không thể tải tài khoản",
+    "reclaimEscrow": {
+      "convertedToShares": "Số lượng cổ phần staking tương ứng {{shares}}",
+      "reclaim": "Nhận lại",
+      "reclaimAll": "Nhận lại tất cả",
+      "reclaimableAmount": "Khả dụng:"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "Đây là địa chỉ của trình xác thực. Việc chuyển tiền đến địa chỉ này không đồng nghĩa với việc đặt cọc tài sản của bạn với trình xác thực.",
+        "title": "Bạn có chắc muốn tiếp tục không?"
+      },
+      "enterAddress": "Nhập địa chỉ ",
+      "enterAmount": "Nhập số lượng",
+      "recipient": "Người nhận",
+      "send": "Gửi",
+      "success": "Giao dịch đã được gửi thành công. Giao dịch có thể mất đến một phút để hiển thị trong tài khoản của bạn."
+    },
+    "subnavigation": {
+      "activeDelegations": "Đã stake",
+      "debondingDelegations": "Đang hủy ủy quyền",
+      "mobileActiveDelegations": "Đã stake",
+      "mobileDebondingDelegations": "Đang rút"
+    },
+    "summary": {
+      "activity": "Hoạt động",
+      "balance": {
+        "available": "Khả dụng",
+        "debonding": "Đang rút",
+        "delegations": "Đã stake",
+        "total": "Tổng"
+      },
+      "noTransactionFound": "Không có giao dịch được tìm thấy",
+      "noTransactionFoundOasisscanV2": "Không có giao dịch từ 29 tháng 10, 2023",
+      "noWalletIsOpen": "Để gửi, nhận, stake và đổi {{ticker}} đồng, <HomeLink> mở ví của bạn </HomeLink>.",
+      "notYourAccount": "Đây không phải tài khoản của bạn",
+      "pendingTransactions": "Đang xử lí giao dịch",
+      "someTxsInPendingState": "Một số giao dịch hiện đang ở trạng thái chờ xử lý.",
+      "viewAccountTxs": "Xem giao dịch của tài khoản"
+    },
+    "transaction": {
+      "addEscrow": {
+        "received": "Đã nhận <Amount/> ủy quyền trong tài khoản ký quỹ",
+        "sent": "Đã ủy <Amount/> quyền cho trình xác thực"
+      },
+      "consensusDeposit": {
+        "received": "Đã nhận <Amount/> rút về {{runtimeName}} ParaTime",
+        "sent": "Nạp <Amount/> vào {{runtimeName}} ParaTime"
+      },
+      "consensusWithdraw": {
+        "received": "Đã rút <Amount/> trong số {{runtimeName}} ParaTime",
+        "sent": "Đã nhận <Amount/> từ việc rút ra khỏi {{runtimeName}} ParaTime"
+      },
+      "explorerLink": "Xem lịch sử giao dịch qua trình khám phá blockchain",
+      "failed": "Thất bại",
+      "genericTransaction": {
+        "destination": "Địa chỉ khác ",
+        "header": "Phương pháp '{{method}}'"
+      },
+      "loadingError": "Không thể tải giao dịch",
+      "pending": "Đang chờ xác nhận",
+      "reclaimEscrow": {
+        "received": "<Amount/> đã được người ủy quyền thu hồi",
+        "sent": "Đã nhận <Amount/> từ trình xác thực"
+      },
+      "stakingAllow": {
+        "received": "Đã nhận được <Amount/> hạn mức",
+        "sent": "Đặt <Amount/> hạn mức"
+      },
+      "stakingBurn": {
+        "sent": "Số đồng đã bị đốt <Amount/>"
+      },
+      "successful": "Thành công",
+      "transfer": {
+        "received": "Đã nhận <Amount/>",
+        "sent": {
+          "header": "Đã gửi <Amount/>"
+        }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Địa chỉ khác",
+        "header": "Giao dịch không xác định, phương pháp  '{{method}}'"
+      }
+    },
+    "validator": {
+      "loadingError": "Không thể tải danh sách các trình xác thực.",
+      "showingStale": "Hiển thị danh sách trình xác thực tính đến {{staleTimestamp}}"
+    }
+  },
+  "appTitle": "Ví Rose",
+  "backends": {
+    "nexus": "API Nexus",
+    "oasismonitor": "API Oasis Monitor",
+    "oasisscanV2": "API Oasis Scan v2"
+  },
+  "banner": {
+    "buildPreview": "Lưu ý: Đây là phiên bản thử nghiệm của ROSE Wallet và thông tin bảo mật của bạn không được đảm bảo an toàn. CHỈ SỬ DỤNG CHO MỤC ĐÍCH THỬ NGHIỆM.",
+    "buildStaging": "Lưu ý: Đây là bản triển khai thử nghiệm của ROSE Wallet. CHỈ SỬ DỤNG CHO MỤC ĐÍCH THỬ NGHIỆM."
+  },
+  "common": {
+    "amount": "Số lượng",
+    "block": "Khối",
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "delegator": "Nhà đầu tư",
+    "from": "Từ",
+    "hash": "Mã giao dịch",
+    "postfixAmountInBillions": " tỉ",
+    "round": "Chu kỳ khối",
+    "time": "Thời gian",
+    "to": "Đến",
+    "unavailable": "Không khả dụng",
+    "validator": "Trình xác thực",
+    "validators": "Danh sách trình xác thực"
+  },
+  "createWallet": {
+    "confirmSaved": "Tôi đã lưu cụm từ khôi phục",
+    "doNotShare": "Không bao giờ chia sẻ cụm từ khôi phục của bạn, bất kỳ ai có được nó đều có thể truy cập vào ví và token của bạn",
+    "instruction": "Lưu cụm từ khôi phục <strong> của bạn theo đúng thứ tự </strong> ở một nơi an toàn, bạn sẽ cần nó để mở ví của mình.",
+    "mnemonicMismatch": "Cụm từ khôi phục đã nhập không khớp.",
+    "newMnemonic": "Tạo một cụm từ khôi phục mới",
+    "thisIsYourPhrase": "Đây là cụm từ khôi phục của bạn"
+  },
+  "delegations": {
+    "debondingTimeEnd": "Quá trình debonding kết thúc",
+    "delegatedAmount": "Số lượng đã ủy quyền",
+    "loadingError": "Không thể tải danh sách đã stake.",
+    "reclaimedAmount": "Số lượng có thể nhận lại"
+  },
+  "deleteForm": {
+    "confirm": "Đồng ý, xóa",
+    "confirmationKeyword": "xóa",
+    "hint": "Gõ <strong>{{confirmationKeyword}}</strong>"
+  },
+  "errors": {
+    "LedgerDerivedDifferentAccount": "Tài khoản này không thuộc Ledger hiện đang kết nối.",
+    "LedgerOasisAppIsNotOpen": "Ứng dụng Oasis trên Ledger đã đóng.",
+    "bluetoothTransportNotSupported": "Bluetooth có thể đã tắt hoặc nền tảng bạn đang sử dụng không hỗ trợ Bluetooth.",
+    "cannotSendToSelf": "Không thể gửi cho chính bạn.",
+    "disconnectedError": "Mất kết nối.",
+    "duplicateTransaction": "Giao dịch trùng lặp",
+    "indexerAPIError": "{{indexerName}} có vẻ như hệ thống đang gặp sự cố, một số thông tin có thể bị thiếu hoặc đã thay đổi. Vui lòng thử lại sau.",
+    "insufficientBalance": "Số dư không khả dụng",
+    "invalidAddress": "Địa chỉ không khả dụng",
+    "invalidNonce": "Không hợp lệ (số giao dịch)",
+    "invalidPrivateKey": "Khóa riêng tư không hợp lệ",
+    "ledgerAppVersionNotSupported": "Ứng dụng Oasis trên Ledger đã đóng hoặc chưa cập nhật. Hãy đảm bảo Ledger đã được mở khóa, ứng dụng Oasis đang chạy và là phiên bản mới nhất.",
+    "ledgerCannotOpenOasisApp": "Không thể mở ứng dụng Oasis trên Ledger. Hãy đảm bảo Ledger đã được mở khóa và ứng dụng Oasis đang chạy.",
+    "ledgerNoDeviceSelected": "Chưa chọn thiết bị Ledger. Hãy đảm bảo thiết bị đã được kết nối,<LedgerHelp> kiểm tra các sự cố kết nối USB thường gặp với Ledger</LedgerHelp>, và <ChromeHelp>đảm bảo quyền truy cập trang web không chặn thiết bị USB</ChromeHelp>.",
+    "ledgerTransactionRejected": "Giao dịch bị từ chối trên Ledger.",
+    "noOpenWallet": "Không có ví được mở",
+    "unknown": "Lỗi không xác định: {{message}}",
+    "unknownGrpc": "Lỗi gRPC không xác định: {{message}}",
+    "unknownLedgerError": "Lỗi ledger không xác định: {{message}}",
+    "unknownParaTimeError": "Lỗi ParaTime không xác định : {{message}}",
+    "usbTransportError": "Lỗi truyền dữ liệu USB: {{message}}",
+    "usbTransportNotSupported": "Nền tảng hiện tại không hỗ trợ WebUSB. Hãy thử trên nền tảng hoặc trình duyệt khác (ưu tiên Chrome)."
+  },
+  "fatalError": {
+    "checkStatus": "Kiểm tra tình trạng mạng",
+    "copied": "Đã sao chép lỗi vào bộ nhớ tạm",
+    "copy": "Sao chép lỗi vào bộ nhớ tạm",
+    "description": "Lỗi xảy ra khiến ví dừng hoạt động.<strong> Tài sản của bạn vẫn an toàn.</strong><br/><br/> Vui lòng thử làm mới trang và mở lại ví để kiểm tra xem sự cố có tiếp diễn hay không. Bạn có thể kiểm tra trạng thái hiện tại của mạng bên dưới.",
+    "heading": "Một lỗi đã xảy ra.",
+    "instruction": "Nếu sự cố chưa được khắc phục sau khi làm mới, vui lòng gửi email cho đội ngũ hỗ trợ của chúng tôi tại <Email/> và đính kèm báo cáo lỗi.",
+    "reloadApp": "Tải lại app"
+  },
+  "fiatOnramp": {
+    "astarFootnote": "Xin lưu ý rằng AStar Technologies, một công ty miễn trừ tại Quần đảo Cayman, đang hoạt động thay mặt và vì mục đích của Oasis, đồng thời là đơn vị cung cấp ROSE Wallet.",
+    "buyNowInNewTab": "Mua ROSE ngay bây giờ",
+    "description": "Chuyển fiat của bạn thành tiền điện tử",
+    "header": "Mua ROSE",
+    "headerInWidget": "Mua ROSE vào ví của bạn ",
+    "notMainnet": "Bạn chỉ có thể sử dụng tính năng này khi đang trên mạng lưới chính",
+    "notYourAccount": "Bạn chỉ có thể sử dụng tính năng này khi ví đang mở ",
+    "openYourWallet": "Mở ví của bạn",
+    "switchToMainnet": "Đổi qua mạng lưới chính",
+    "thirdPartyAcknowledge": "Tôi hiểu rằng tôi đang sử dụng giải pháp từ bên thứ ba và Oasis không chịu bất kỳ trách nhiệm nào đối với việc sử dụng giải pháp này.",
+    "thirdPartyDisclaimer": "Dịch vụ này được cung cấp bởi Transak – một bên thứ ba. Oasis không chịu bất kỳ trách nhiệm nào. Mọi khoản phí do Transak thu."
+  },
+  "footer": {
+    "feedback": "Chúng tôi sẽ rất vui khi nhận được phản hồi của bạn tại <EmailLink>wallet@oasisprotocol.org</EmailLink>",
+    "github": "Ví ROSE là <GithubLink>mã nguồn mở</GithubLink> và được vận hành bởi ",
+    "poweredBy": {
+      "nexus": "Nexus API & Oasis gRPC",
+      "oasismonitor": "API Oasis Monitor & Oasis gRPC",
+      "oasisscanV2": "API Oasis Scan v2 & Oasis gRPC"
+    },
+    "terms": "<TermsLink>Điều khoản và Điều kiện</TermsLink>",
+    "version": "Phiên bản: <ReleaseLink/> (cam kết: <CommitLink/>) được xây dựng vào {{buildTime}}"
+  },
+  "home": {
+    "create": {
+      "button": "Tạo ví",
+      "description": "Tạo ví mới để gửi, nhận, stake và hoán đổi đồng ROSE.",
+      "header": "Tạo ví mới"
+    },
+    "existing": {
+      "button": "Mở ví",
+      "description": "Mở ví hiện có trên Ledger, nhập khóa riêng tư hoặc cụm từ khôi phục.",
+      "header": "Truy cập ví hiện có"
+    }
+  },
+  "icons": {
+    "bluetooth": "Bluetooth",
+    "mnemonic": "Cụm từ khôi phục",
+    "privateKey": "Khóa riêng tư",
+    "usb": "Usb",
+    "wallet": {
+      "label": "Ví"
+    }
+  },
+  "infoBox": {
+    "valueCopied": "{{label}} đã sao chép"
+  },
+  "language": "Ngôn ngữ",
+  "ledger": {
+    "extension": {
+      "closingPopup": "Đang đóng... Vui lòng mở lại ứng dụng ví",
+      "connect": "Kết nối thiết bị Ledger",
+      "failed": "Kết nối thất bại",
+      "grantAccess": "Cấp quyền truy cập vào thiết bị Ledger qua USB",
+      "succeed": "Thiết bị đã được kết nối"
+    },
+    "instructionSteps": {
+      "closeLedgerLive": "Đóng ứng dụng Ledger Live trên máy tính của bạn",
+      "connectBluetoothLedger": "Kết nối Ledger với thiết bị này qua Bluetooth",
+      "connectUsbLedger": "Kết nối Ledger với thiết bị này qua USB",
+      "deviceIsPaired": "Đảm bảo Ledger của bạn đã được ghép nối với thiết bị này",
+      "header": "Các bước :",
+      "openOasisApp": "Mở app Oasis trên Ledger của bạn"
+    },
+    "steps": {
+      "accessingLedger": "Đang kết nối với thiết bị Ledger",
+      "idle": "Chưa hoạt động",
+      "loadingAccounts": "Đang tải thông tin tài khoản",
+      "loadingBalances": "Đang tải thông tin số dư",
+      "loadingBluetoothDevices": "Đang tải thiết bị bluetooth"
+    }
+  },
+  "menu": {
+    "addAccounts": "Thêm tài khoản",
+    "closeWallet": "Đóng ví",
+    "fiatOnramp": "Mua ROSE",
+    "fiatOnramp-mobile": "Mua",
+    "home": "Màn hình chính",
+    "lockProfile": "Khóa hồ sơ",
+    "openMenu": "Menu",
+    "paraTimes": "ParaTimes",
+    "stake": "Stake ROSE",
+    "stake-mobile": "Stake",
+    "unlockProfile": "Mở khóa hồ sơ",
+    "wallet": "Tài khoản"
+  },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "Tôi đã lưu trữ khóa riêng của mình một cách an toàn.",
+      "description": "{{count}} khóa riêng tư của bạn có lỗi chính tả và sẽ không được lưu trữ bởi tiện ích mở rộng ví mới. Vui lòng sao chép chúng và lưu trữ ở nơi khác trước khi tiếp tục, để bạn có thể sửa lại sau.",
+      "description_one": "1 trong các khóa riêng tư của bạn có lỗi chính tả và sẽ không được lưu trữ bởi tiện ích mở rộng ví mới. Vui lòng sao chép khóa này và lưu trữ ở nơi khác trước khi tiếp tục, để bạn có thể sửa lại sau",
+      "description_plural": "{{count}} khóa riêng tư của bạn có lỗi chính tả và sẽ không được lưu trữ bởi tiện ích mở rộng ví mới. Vui lòng sao chép chúng và lưu trữ ở nơi khác trước khi tiếp tục, để bạn có thể sửa lại sau.",
+      "reveal": "Chạm để hiển thị khóa riêng tư không hợp lệ"
+    },
+    "backupMnemonic": {
+      "confirm": "Tôi đã lưu trữ cụm từ khôi phục của mình một cách an toàn",
+      "description": "Phiên bản mới của tiện ích ví mở rộng sẽ không còn lưu trữ cụm từ khôi phục của bạn. Cụm từ này là cách duy nhất để khôi phục tài khoản nếu bạn mất quyền truy cập. Hiện giờ bạn có cơ hội cuối cùng để sao lưu cụm từ khôi phục của mình.",
+      "reveal": "Chạm để hiển thị cụm từ khôi phục của bạn"
+    },
+    "finishMigration": "Mở phiên bản mới của ví",
+    "nextStep": "Tiếp theo",
+    "requiredField": "Thông tin này là bắt buộc",
+    "title": "Cập nhật ví quan trọng"
+  },
+  "mobileUpdate": {
+    "errorTitle": "Lỗi không mong muốn",
+    "later": "Sau",
+    "retry": "Thử lại",
+    "unknownOrErrorDescription": "Xin lỗi vì sự bất tiện này, một lỗi không mong muốn đã xảy ra. Vui lòng kiểm tra kết nối internet của bạn và thử lại bằng cách nhấp vào nút \"{{retryButtonLabel}}\"",
+    "unknownTitle": "Lỗi không xác định",
+    "updateAvailableDescription": "Có bản cập nhật mới cho ROSE Wallet của bạn. Chúng tôi khuyến nghị bạn cập nhật lên phiên bản mới nhất để sửa lỗi, cải thiện bảo mật và trải nghiệm tính năng mới.",
+    "updateAvailableTitle": "Đang chờ cập nhật...",
+    "updateInProgressDescription": "ROSE Wallet của bạn hiện đang được cập nhật. Vui lòng quay lại sau. Ngoài ra, bạn cũng có thể thử lại bằng cách nhấp vào nút \"{{retryButtonLabel}}\"",
+    "updateInProgressTitle": "Đang cập nhật...",
+    "updateNow": "Cập nhật ngay bây giờ"
+  },
+  "openWallet": {
+    "bitpie": {
+      "warning": "❗ Người dùng ví BitPie: Bạn không thể nhập trực tiếp cụm từ khôi phục từ ví BitPie.<DocsLink>kiểm tra tài liệu hướng dẫn để biết thêm chi tiết.</DocsLink>"
+    },
+    "header": "Bạn muốn mở ví của mình như thế nào?",
+    "importAccounts": {
+      "NoBLEDevicesFound": "Không có thiết bị Bluetooth được tìm thấy",
+      "accountCounter": "{{count}} tài khoản đã được chọn ",
+      "accountCounter_one": "Một tài khoản được chọn",
+      "accountCounter_plural": "{{count}} tài khoản đã được chọn",
+      "accountCounter_zero": "Không có tài khoản được chọn",
+      "bluetoothLedger": "Bluetooth Ledger",
+      "connectDeviceHeader": "Bạn muốn kết nối thiết bị Ledger như thế nào?",
+      "next": "Tiếp theo",
+      "openWallets": "Mở",
+      "pageNumber": "Trang {{pageNum}} trên {{totalPages}}",
+      "prev": "Quay lại",
+      "selectDevice": "Chọn thiết bị",
+      "selectLedgerDevice": "Chọn thiết bị Ledger",
+      "selectWallets": "Chọn tài khoản để mở",
+      "usbLedger": "USB Ledger"
+    },
+    "ledger": {
+      "header": "Mở từ thiết bị Ledger"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "Cụm từ khôi phục",
+      "privateKey": "Khóa riêng tư"
+    },
+    "mnemonic": {
+      "enterPhraseHere": "Nhập cụm từ khôi phục của bạn ở đây",
+      "error": "Cụm từ khôi phục không hợp lệ. Vui lòng nhập đúng thứ tự, tất cả bằng chữ thường.",
+      "header": "Nhập cụm từ khôi phục của bạn",
+      "import": "Nhập ví của tôi",
+      "instruction": "Hãy nhập tất cả các từ khôi phục của bạn, cách nhau bằng dấu cách. Thông thường, cụm từ khôi phục sẽ gồm 12 hoặc 24 từ."
+    },
+    "privateKey": {
+      "enterPrivateKeyHere": "Nhập khóa riêng tư của bạn tại đây.",
+      "error": "Khóa riêng tư không khả dụng",
+      "errorKeyIsInEthFormat": "Trường nhập liệu này dành cho khóa riêng tư của Oasis Consensus. Khóa riêng bạn đã nhập có vẻ là khóa riêng tư tương thích với Ethereum (ví dụ: từ MetaMask cho Sapphire). Nếu bạn muốn sử dụng khóa riêng tư tương thích với Ethereum để chuyển ROSE từ Sapphire sang Consensus, hãy nhấp vào \"{{paratimesMenu}}\", sau đó \"{{withdrawButton}}\", rồi dán khóa riêng tư vào đó.",
+      "header": "Nhập khóa riêng tư của bạn",
+      "hidePrivateKey": "Ẩn khóa riêng tư của bạn",
+      "instruction": "Nhập khóa riêng tư của bạn dưới định dạng Base64.",
+      "showPrivateKey": "Hiển thị khóa riêng tư"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Nâng cao",
+      "available": "Khả dụng: ",
+      "depositDescription": "Vui lòng nhập số lượng của {{ticker}}, để nạp sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "emptyAccount": "Tài khoản trống. Không có gì để rút.",
+      "feeAmountPlaceholder": "Số tiền phí (nano {{ticker}})",
+      "feeGasPlaceholder": "Phí giao dịch",
+      "max": "MAX",
+      "tooltip": "Giá trị tối đa có thể bị giảm do phí giao dịch",
+      "withdrawDescription": "Vui lòng nhập số lượng của \"{{ticker}}\" , để rút sau đó nhấp vào \"{{nextButtonLabel}}\""
+    },
+    "common": {
+      "cipher": "Cipher",
+      "depositHeader": "Nạp tiền vào ParaTime",
+      "discouragedType": "(mang tính thử nghiệm)",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "header": "Giao dịch ParaTime",
+      "sapphire": "Sapphire",
+      "withdrawHeader": "Rút từ ParaTime"
+    },
+    "confirmation": {
+      "confirmDepositDescription": "Vui lòng xác nhận số tiền nạp và địa chỉ người nhận chính xác, sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "confirmDepositToForeignAccountDescription": "Địa chỉ đích không khớp với bất kỳ tài khoản nào trong ví của bạn! Một số dịch vụ, chẳng hạn như sàn giao dịch, có thể không hỗ trợ nạp tiền trực tiếp vào tài khoản. Để đảm bảo tương thích tốt hơn, chúng tôi khuyến nghị bạn nên nạp tiền vào tài khoản ParaTime trước, sau đó chuyển {{ticker}} đến địa chỉ đích.",
+      "confirmTransferLabel": "Tôi xác nhận số tiền và địa chỉ đều chính xác",
+      "confirmTransferToForeignAccount": "Tôi xác nhận muốn rút tiền trực tiếp đến tài khoản bên ngoài",
+      "confirmTransferToValidatorDescription": "Đây là địa chỉ ví của trình xác thực. Việc chuyển tiền đến địa chỉ này sẽ không stake số dư của bạn vào trình xác thực.",
+      "confirmTransferToValidatorLabel": "Tôi xác nhận muốn chuyển {{ticker}} đến địa chỉ trình xác thực",
+      "confirmWithdrawDescription": "Vui lòng xác nhận số tiền rút và địa chỉ người nhận chính xác, sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "confirmWithdrawToForeignAccountDescription": "Địa chỉ đích không khớp với bất kỳ tài khoản nào trong ví của bạn! Một số dịch vụ, chẳng hạn như sàn giao dịch, có thể không hỗ trợ rút tiền trực tiếp để nạp vào tài khoản. Để đảm bảo tương thích tốt hơn, chúng tôi khuyến nghị bạn nên rút tiền vào tài khoản lớp đồng thuận trước, sau đó chuyển đến {{ticker}} địa chỉ đích danh.",
+      "depositDescription": "Bạn sắp thực hiện giao dịch nạp <strong>{{value}} {{ticker}}</strong> tới <strong>{{address}}</strong> ở <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "depositLabel": "Nạp",
+      "withdrawDescription": "Bạn sắp thực hiện rút <strong>{{value}} {{ticker}}</strong> từ <strong>{{paraTime}}</strong> {{paratimeType}} tới <strong>{{address}}</strong>",
+      "withdrawLabel": "Rút"
+    },
+    "error": {
+      "depositDescription": "Giao dịch thất bại. Chúng tôi không thể hoàn tất việc nạp tiền từ <strong>{{value}} {{ticker}}</strong> tới <strong>{{address}}</strong> ở <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "withdrawDescription": "Giao dịch thất bại. Chúng tôi không thể hoàn tất việc rút từ <strong>{{value}} {{ticker}}</strong> từ <strong>{{paraTime}}</strong> {{paratimeType}} đến <strong>{{address}}</strong>"
+    },
+    "footer": {
+      "back": "Trở lại",
+      "next": "Tiếp theo",
+      "notice": "*EVMc - tương thích với Ethereum Virtual Machine"
+    },
+    "pageInaccessible": {
+      "foreignAccount": "Tính năng chuyển hiện không hoạt động.",
+      "ledgerAccount": "Tài khoản Ledger không được hỗ trợ."
+    },
+    "recipient": {
+      "depositDescription": "Vui lòng nhập địa chỉ người nhận trên <strong>{{paraTime}}</strong> {{paratimeType}} sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "ethPrivateKeyPlaceholder": "Nhập khóa riêng tư tương thích với Ethereum.",
+      "evmcWithdrawDescription": "Vui lòng nhập khóa riêng tư của tài khoản trên ParaTime, địa chỉ người nhận trên Consensus, sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "placeholder": "0x...",
+      "withdrawDescription": "Vui lòng nhập địa chỉ người nhận trên lớp đồng thuận và nhấp vào \"{{nextButtonLabel}}\""
+    },
+    "selection": {
+      "cancel": "Hủy giao dịch chuyển tiền",
+      "depositDescription": "Vui lòng chọn ParaTime mà bạn muốn nạp {{ticker}} và sau đó nhấp vào \"{{nextButtonLabel}}\"",
+      "evmc": "EVMc",
+      "select": "Chọn ParaTime",
+      "withdrawDescription": "Vui lòng chọn ParaTime mà bạn muốn rút {{ticker}} từ đó, sau đó nhấp vào \"{{nextButtonLabel}}\""
+    },
+    "summary": {
+      "depositDescription": "Bạn đã nạp tiền thành công <strong>{{value}} {{ticker}}</strong> tới <strong>{{address}}</strong> vào <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "navigate": "Chuyển đến mục Chuyển khoản ParaTime",
+      "withdrawDescription": "Bạn đã rút tiền thành công <strong>{{value}} {{ticker}}</strong> từ <strong>{{paraTime}}</strong> {{paratimeType}} tới <strong>{{address}}</strong>"
+    },
+    "transfers": {
+      "deposit": "Nạp tiền vào ParaTime",
+      "depositDisabled": "Bạn không còn bất kì {{ticker}} đồng nào để giao dịch",
+      "description": "Nhấp vào nút \"{{depositButtonLabel}}\" để nạp {{ticker}} từ mạng đồng thuận vào ParaTime bạn chọn hoặc \"{{withdrawButtonLabel}}\" để rút {{ticker}} từ ParaTime về Mạng đồng thuận.",
+      "withdraw": "Rút tiền từ ParaTime "
+    },
+    "unsupportedFormStep": "Biểu mẫu không hỗ trợ bước này ",
+    "validation": {
+      "insufficientBalanceToPayFee": "Số dư không đủ để thanh toán phí",
+      "invalidDecimalValue": "Cho phép tối đa {{decimals}} số chữ số thập phân",
+      "invalidEthPrivateKey": "Khóa riêng tư tương thích với Ethereum không hợp lệ",
+      "invalidEthPrivateKeyLength": "Khóa riêng tư phải có độ dài 64 ký tự",
+      "invalidFee": "Giá trị phải là số nguyên lớn hơn hoặc bằng 0",
+      "required": "Phần này là bắt buộc",
+      "unsupportedParaTime": "ParaTime không được hỗ trợ"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "passwordMismatch": "Mật khẩu đã nhập không khớp",
+      "repeatPassword": "Xác nhận mật khẩu của bạn",
+      "requiredField": "Trường này là bắt buộc",
+      "startPersisting": "Lưu trữ khóa riêng tư của bạn về cục bộ và bảo vệ chúng bằng mật khẩu bằng cách tạo hồ sơ.",
+      "startPersistingToggle": "Tạo hồ sơ",
+      "undependableAcknowledge": "Tôi hiểu rằng mật khẩu và hồ sơ này không thể thay cụm từ khôi phục của tôi.",
+      "unsupported": "Trình duyệt này không hỗ trợ tính năng lưu trữ dữ liệu."
+    },
+    "loading": "Đang tải",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "Xóa hồ sơ",
+        "description": "Thao tác này <strong> sẽ xóa vĩnh viễn khóa riêng tư khỏi thiết bị này. </strong> <br/> <br/> Để xác nhận và tiếp tục, vui lòng nhập <strong>{{confirmationKeyword}}</strong> bên dưới.",
+        "forgotPasswordButton": "Quên mật khẩu?",
+        "forgotPasswordDescription": "Ví ROSE không lưu trữ mật khẩu của bạn và không thể giúp bạn khôi phục nó. Nếu quên mật khẩu, bạn có thể xóa hồ sơ bị khóa tại đây. Sau đó, bạn có thể tạo hồ sơ mới bằng cụm từ khôi phục hoặc khóa riêng tư để tiếp tục sử dụng đồng ROSE của mình.",
+        "title": "Xóa hồ sơ"
+      },
+      "description": "Nhập mật khẩu để truy cập các ví hiện có trên thiết bị này.",
+      "enterPasswordHere": "Nhập mật khẩu của bạn",
+      "hidePassword": "Ẩn mật khẩu",
+      "showPassword": "Hiển thị mật khẩu",
+      "skipUnlocking": "Tiếp tục mà không cần tài khoản",
+      "title": "Chào mừng quay trở lại!",
+      "unlock": "Mở khóa",
+      "wrongPassword": "Sai mật khẩu"
+    }
+  },
+  "theme": {
+    "darkMode": "Chế độ tối",
+    "lightMode": "Chế độ sáng",
+    "system": "Hệ thống",
+    "title": "Chủ đề"
+  },
+  "toolbar": {
+    "contacts": {
+      "add": "Thêm liên hệ",
+      "address": "Địa chỉ",
+      "cancel": "Hủy",
+      "delete": {
+        "button": "Xóa liên hệ",
+        "confirm": "Có, hãy xóa",
+        "description": "Bạn có chắc muốn xóa liên hệ này không?",
+        "title": "Xóa liên hệ"
+      },
+      "emptyList": "Bạn chưa có liên hệ nào.",
+      "manage": "Quản lí liên hệ",
+      "name": "Tên",
+      "notAvailable": "Để bắt đầu thêm liên hệ cho tài khoản của bạn <OpenWalletButton> mở ví </OpenWalletButton>. ",
+      "save": "Lưu",
+      "validation": {
+        "addressError": "Vui lòng nhập địa chỉ ví hợp lệ",
+        "addressNotUniqueError": "Địa chỉ đã tồn tại",
+        "nameLengthError": "Không quá 16 kí tự",
+        "required": "Thông tin này là bắt buộc"
+      }
+    },
+    "networks": {
+      "local": "Cục bộ",
+      "mainnet": "Mạng lưới chính",
+      "selector": "Chọn mạng lưới",
+      "testnet": "Mạng lưới thử nghiệm"
+    },
+    "profile": {
+      "notAvailable": "Bạn có thể thiết lập hồ sơ của mình khi <OpenWalletButton>tạo ví</OpenWalletButton>.",
+      "password": {
+        "current": "Mật khẩu hiện tại",
+        "enterCurrent": "Nhập mật khẩu hiện tại của bạn",
+        "enterNewPassword": "Mật khẩu mới",
+        "reenterNewPassword": "Nhập lại mật khẩu mới",
+        "submit": "Cập nhật mật khẩu",
+        "success": "Mật khẩu đã được cập nhật.",
+        "title": "Đặt mật khẩu mới"
+      }
+    },
+    "settings": {
+      "accountNamingNotAvailable": "Để đặt tên cho tài khoản của bạn, hãy tạo hồ sơ trong khi <OpenWalletButton>mở ví</OpenWalletButton>",
+      "cancel": "Hủy",
+      "contacts": "Địa chỉ ví đã lưu",
+      "delete": {
+        "description": "Bạn có chắc muốn xóa tài khoản này không ?",
+        "inputHelp": "Hành động này không thể hoàn tác. Để tiếp tục, vui lòng nhập<strong>{{confirmationKeyword}}</strong> bên dưới.",
+        "title": "Xóa tài khoản",
+        "tooltip": "Bạn phải luôn có ít nhất một tài khoản."
+      },
+      "exportPrivateKey": {
+        "confirm": "Tôi hiểu, hiển thị khóa riêng tư của tôi.",
+        "copied": "Đã sao chép khóa riêng tư.",
+        "hint1": "Khóa riêng tư là một chuỗi ký tự. Bất kỳ ai có được khóa này đều có thể truy cập trực tiếp vào tài sản trong tài khoản của bạn.",
+        "hint2": "Nếu bạn mất khóa riêng tư, sẽ không thể khôi phục lại. Hãy sao lưu và lưu trữ khóa ở nơi an toàn để bảo vệ tài sản của bạn.",
+        "title": "Xuất khóa riêng tư"
+      },
+      "manageAccount": "Quản lý",
+      "myAccountsTab": "Tài khoản của tôi",
+      "nameLengthError": "Không quá 16 kí tự",
+      "optionalName": "Tên hiển thị ( tùy chọn )",
+      "profile": "Hồ sơ",
+      "save": "Lưu",
+      "settings": "Cài đặt"
+    },
+    "wallets": {
+      "select": "Chọn"
+    }
+  },
+  "transaction": {
+    "cancel": "Hủy",
+    "confirm": "Xác nhận",
+    "preview": {
+      "amount": "Số lượng",
+      "fee": "Phí ",
+      "from": "Từ",
+      "gas": "Phí giao dịch",
+      "genesisHash": "Mã băm khởi tạo",
+      "shares": "Cổ phần staking",
+      "to": "Tới",
+      "type": "Loại",
+      "validator": "Trình xác thực",
+      "warning": "Sau khi bạn xác nhận giao dịch này, bạn sẽ không thể hủy bỏ. Vui lòng kiểm tra kỹ và chỉ xác nhận khi bạn chắc chắn muốn gửi."
+    },
+    "step": {
+      "building": "Đang tạo giao dịch",
+      "preview": "Xem trước giao dịch",
+      "signing": "Ký xác nhận giao dịch",
+      "submitting": "Đang gửi giao dịch"
+    },
+    "types": {
+      "addEscrow": "Ủy quyền token của bạn cho trình xác thực và tạo phần thưởng",
+      "reclaimEscrow": "Nhận lại token bạn đã ủy quyền cho trình xác thực",
+      "transfer": "gửi token từ tài khoản của bạn tới tài khoản khác"
+    }
+  },
+  "validator": {
+    "boundsNotSet": "Không có giới hạn được đặt (0% - 100%)",
+    "commission": "Hoa hồng",
+    "commissionBounds": {
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> ở Epoch hiện tại {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}% bắt đầu từ Epoch {{epoch}}",
+      "label": "Giới hạn hoa hồng"
+    },
+    "escrow": "Ký quỹ",
+    "fee": "Phí",
+    "name": "Tên",
+    "rank": "Xếp hạng",
+    "status": "Trạng thái",
+    "statusActive": "Hoạt động",
+    "statusInactive": "Không hoạt động",
+    "statusUnknown": "Không xác định",
+    "totalEscrow": "Tổng số tiền ký quỹ",
+    "unknownValidator": "Trình xác thực không xác định"
+  }
+}
