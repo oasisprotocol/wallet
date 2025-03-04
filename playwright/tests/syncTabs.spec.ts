@@ -319,21 +319,18 @@ test.describe('syncTabs', () => {
     await tab2.getByRole('button', { name: /Lock profile/ }).click()
     await apiBalance!.fulfill({
       body: JSON.stringify({
-        code: 0,
-        data: {
-          address: '',
-          available: '0',
-          escrow: '0',
-          debonding: '0',
-          nonce: 1,
-          allowances: [],
-          delegations_balance: '0',
-          debonding_delegations_balance: '0',
-          stats: {
-            num_txns: 1,
-          },
-        } satisfies Account,
-      }),
+        address: '',
+        available: '0',
+        escrow: '0',
+        debonding: '0',
+        nonce: 1,
+        allowances: [],
+        delegations_balance: '0',
+        debonding_delegations_balance: '0',
+        stats: {
+          num_txns: 1,
+        },
+      } satisfies Account),
     })
     await page.waitForTimeout(100)
 
