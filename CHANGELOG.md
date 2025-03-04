@@ -433,7 +433,7 @@ The format is inspired by [Keep a Changelog].
    [#1804](https://github.com/oasisprotocol/wallet/issues/1804),
    [#1839](https://github.com/oasisprotocol/wallet/issues/1839))
 
-- Update dumped validators
+- Update cached validators
   ([#1693](https://github.com/oasisprotocol/wallet/issues/1693))
 
 - Rename privateKeyPlaceholder to ethPrivateKeyPlaceholder
@@ -1197,7 +1197,7 @@ The format is inspired by [Keep a Changelog].
   ([#1120](https://github.com/oasisprotocol/wallet/issues/1120))
 - ParaTimes: increase test coverage around components
   ([#1114](https://github.com/oasisprotocol/wallet/issues/1114))
-- Update dumped validators
+- Update cached validators
   ([#1123](https://github.com/oasisprotocol/wallet/issues/1123))
 - Add string_decoder to dependencies after Parcel update
   ([#1139](https://github.com/oasisprotocol/wallet/issues/1139))
