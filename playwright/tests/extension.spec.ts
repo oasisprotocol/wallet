@@ -46,7 +46,8 @@ test.describe('The extension popup should load', () => {
    * Extension should be able to show embedded Transak, but we currently link to
    * it instead. Ext popup is too small and loses all progress when it closes.
    */
-  test('should allow embedded Transak widget in large popups', async ({ page, extensionPopupURL }) => {
+  test('Transak can not be embedded in extension', async ({ page, extensionPopupURL }) => {
+    test.fail()
     await page.setViewportSize({ width: 1280, height: 720 })
 
     /* TODO: reenable when transak throws only a few errors
@@ -88,6 +89,7 @@ test.describe('The extension popup should load', () => {
     {
       const page = await context.newPage()
       await page.goto(`${extensionPopupURL}/e2e`)
+      expect(page.getByRole('button', { name: 'Trigger fatal saga error' })).toBeVisible() // Was built with REACT_APP_E2E_TEST=1?
       await page.getByRole('button', { name: 'Trigger fatal saga error' }).click()
       await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
 
