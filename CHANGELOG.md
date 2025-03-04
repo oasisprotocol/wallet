@@ -12,6 +12,56 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.2.0 (2025-03-04)
+
+### Removals and Breaking Changes
+
+- Migrate extension wallet to Manifest V3 architecture
+  ([#2120](https://github.com/oasisprotocol/wallet/issues/2120))
+
+  New limitations: extension users must create a profile while importing a
+  wallet. And only one extension popup/tab can be opened at the same time.
+
+### Bug Fixes and Improvements
+
+- Display all validators, not just first 100
+  ([#2122](https://github.com/oasisprotocol/wallet/issues/2122))
+
+- Fix paratime transaction status in the first few seconds
+  ([#2123](https://github.com/oasisprotocol/wallet/issues/2123))
+
+### Internal Changes
+
+- Update cached validators
+  ([#2051](https://github.com/oasisprotocol/wallet/issues/2051))
+
+- Remove Oasis Scan API v1
+  ([#2105](https://github.com/oasisprotocol/wallet/issues/2105))
+
+- Update Nexus API bindings
+  ([#2107](https://github.com/oasisprotocol/wallet/issues/2107))
+
+  - update spec
+  - use type mappings for generating API
+
+- Migrate oasis scan v1 vendor tests to v2
+  ([#2116](https://github.com/oasisprotocol/wallet/issues/2116))
+
+- Refactor how extension requests ledger access (don't rely on state sync)
+  ([#2118](https://github.com/oasisprotocol/wallet/issues/2118))
+
+- Fix extracting translations
+  ([#2119](https://github.com/oasisprotocol/wallet/issues/2119))
+
+- Harden code against wrong imported account type
+  ([#2124](https://github.com/oasisprotocol/wallet/issues/2124))
+
+- Temporarily ignore transak console errors in E2E tests
+  ([#2126](https://github.com/oasisprotocol/wallet/issues/2126))
+
+- Bump Redux dependencies
+  ([#2127](https://github.com/oasisprotocol/wallet/issues/2127))
+
 ## 2.1.0 (2025-01-09)
 
 ### Process Changes
