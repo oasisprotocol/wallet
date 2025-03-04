@@ -1,3 +1,4 @@
+import { Capacitor } from '@capacitor/core'
 import { NetworkType } from 'app/state/network/types'
 
 export const TRANSACTIONS_LIMIT = 20
@@ -198,7 +199,11 @@ export const paraTimesConfig: ParaTimesConfig = {
 }
 
 // https://github.com/mozilla/webextension-polyfill/blob/6e3e26c/src/browser-polyfill.js#L9
-export const runtimeIs = (globalThis as any).chrome?.runtime?.id ? 'extension' : 'webapp'
+export const runtimeIs = Capacitor.isNativePlatform()
+  ? 'mobile-app'
+  : (globalThis as any).chrome?.runtime?.id
+  ? 'extension'
+  : 'webapp'
 
 const splitUrls = (input: string | undefined): string[] =>
   input

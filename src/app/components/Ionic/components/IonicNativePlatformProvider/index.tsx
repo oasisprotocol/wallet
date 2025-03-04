@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from 'react'
-import { Capacitor } from '@capacitor/core'
+import { runtimeIs } from '../../../../../config'
 import { IonicContextProvider } from '../../providers/IonicProvider'
 import { UpdateGate } from '../UpdateGate'
 
 export const IonicNativePlatformProvider: FC<PropsWithChildren> = ({ children }) => {
-  if (Capacitor.isNativePlatform()) {
+  if (runtimeIs === 'mobile-app') {
     return (
       <IonicContextProvider>
         <UpdateGate>{children}</UpdateGate>
