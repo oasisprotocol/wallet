@@ -34,7 +34,6 @@ export interface AccountState extends Account {
 }
 
 export interface PendingTransactionPayload {
-  from: string
   networkType: NetworkType
   transaction: Transaction
 }
