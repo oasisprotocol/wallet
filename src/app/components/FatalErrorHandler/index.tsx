@@ -77,7 +77,7 @@ export function FatalErrorHandler({ children }: Props) {
         <Box direction={isMobile ? 'column' : 'row'} margin={{ bottom: isMobile ? 'xlarge' : 'large' }}>
           <BrandButton
             brandVariant={isExtension ? 'brand-gray-medium' : undefined}
-            href="https://status.oasisprotocol.org"
+            href="https://status.oasis.io"
             target="_blank"
             rel="noopener noreferrer"
             icon={<Dashboard />}
