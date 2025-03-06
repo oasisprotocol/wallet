@@ -58,7 +58,7 @@ export function ErrorFormatter(props: Props) {
         components={{
           LedgerHelp: (
             <Anchor
-              href="https://support.ledger.com/hc/en-us/articles/115005165269-Fix-USB-connection-issues-with-Ledger-Live?support=true"
+              href="https://support.ledger.com/article/115005165269-zd"
               target="_blank"
               rel="noopener"
               style={{ display: 'inline' }}
