@@ -64,10 +64,10 @@ export const accountSlice = createSlice({
     },
     addPendingTransaction(state, action: PayloadAction<PendingTransactionPayload>) {
       const {
-        payload: { from, networkType, transaction },
+        payload: { networkType, transaction },
       } = action
 
-      if (from !== state.address) {
+      if (transaction.from !== state.address && transaction.to !== state.address) {
         return
       }
 
