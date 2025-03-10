@@ -137,7 +137,7 @@ const emeraldConfig: ParaTimeConfig = {
   gasPrice: 100n,
   feeGas: 70_000n,
   decimals: 18,
-  displayOrder: 1,
+  displayOrder: 2,
   type: RuntimeTypes.Evm,
 }
 
@@ -177,7 +177,7 @@ const sapphireConfig: ParaTimeConfig = {
   gasPrice: 100n,
   feeGas: 70_000n,
   decimals: 18,
-  displayOrder: 2,
+  displayOrder: 1,
   type: RuntimeTypes.Evm,
 }
 
