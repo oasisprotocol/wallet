@@ -71,7 +71,7 @@ export const config: BackendConfig = {
     [BackendAPIs.Nexus]: {
       explorer: 'https://testnet.nexus.oasis.io/v1',
       blockExplorer: 'https://explorer.oasis.io/testnet/consensus/tx/{{txHash}}',
-      blockExplorerParatimes: 'https://explorer.oasis.io/testnet/{{runtimeId}}/transactions/{{txHash}}',
+      blockExplorerParatimes: 'https://explorer.oasis.io/testnet/{{runtimeId}}/tx/{{txHash}}',
       blockExplorerAccount: 'https://explorer.oasis.io/testnet/consensus/address/{{address}}',
     },
   },
