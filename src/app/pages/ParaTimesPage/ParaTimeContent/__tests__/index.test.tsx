@@ -18,21 +18,21 @@ describe('<ParaTimeContent />', () => {
     render(<ParaTimeContent description="Description" header="Header" />)
 
     expect(screen.getByText('Header')).toBeInTheDocument()
-    expect(screen.queryByText('paraTimes.common.depositHeader')).not.toBeInTheDocument()
-    expect(screen.queryByText('paraTimes.common.withdrawHeader')).not.toBeInTheDocument()
+    expect(screen.queryByText('paraTimes.transfers.deposit')).not.toBeInTheDocument()
+    expect(screen.queryByText('paraTimes.transfers.withdraw')).not.toBeInTheDocument()
   })
 
   it('should render default deposit header', () => {
     render(<ParaTimeContent description="Description" />)
 
-    expect(screen.queryByText('paraTimes.common.depositHeader')).toBeInTheDocument()
+    expect(screen.queryByText('paraTimes.transfers.deposit')).toBeInTheDocument()
   })
 
   it('should render default withdraw header', () => {
     jest.mocked(useParaTimes).mockReturnValue({ ...mockUseParaTimesResult, isDepositing: false })
     render(<ParaTimeContent description="Description" />)
 
-    expect(screen.queryByText('paraTimes.common.withdrawHeader')).toBeInTheDocument()
+    expect(screen.queryByText('paraTimes.transfers.withdraw')).toBeInTheDocument()
   })
 
   it('should render loading state', () => {

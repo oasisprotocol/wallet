@@ -134,7 +134,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
           </AlertBox>
           <Box pad={{ vertical: 'medium' }}>
             <CheckBox
-              label={t('createWallet.confirmSaved', 'I saved my mnemonic')}
+              label={t('createWallet.confirmSaved', 'I’ve safely stored my mnemonic')}
               disabled={mnemonic.length <= 0}
               checked={checked}
               onChange={event => setChecked(event.target.checked)}
