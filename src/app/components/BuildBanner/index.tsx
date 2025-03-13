@@ -19,11 +19,11 @@ export const BuildBanner = () => {
     return null
   }
 
-  if (window.location.origin === deploys.production) {
+  if (deploys.production.includes(window.location.origin)) {
     return null
   }
 
-  if (window.location.origin === deploys.staging) {
+  if (deploys.staging.includes(window.location.origin)) {
     return (
       <StickyBanner data-testid="build-banner">
         <AlertBox status="warning" justify="center" icon={<Alert size="20px" />}>
