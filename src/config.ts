@@ -212,4 +212,5 @@ export const deploys = {
   production: splitUrls(process.env.REACT_APP_PRODUCTION_URLS),
   staging: splitUrls(process.env.REACT_APP_STAGING_URLS),
   extension: 'chrome-extension://ppdadbejkmjnefldpcdjhnkpbjkikoip',
+  localhost: 'http://localhost:3000',
 }
