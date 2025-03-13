@@ -152,7 +152,7 @@ export function MigrateV0StateForm() {
           >
             <CheckBox
               name="backupMnemonicConfirm"
-              label={t('migrateV0Extension.backupMnemonic.confirm', 'I’ve safely stored my mnemonic')}
+              label={t('createWallet.confirmSaved', 'I’ve safely stored my mnemonic')}
             />
           </FormField>
           {migratingV0State.invalidPrivateKeys.length > 0 ? (

@@ -24,8 +24,8 @@ export const ParaTimeContent = ({ children, description, header, isLoading }: Pa
       <Heading level={2} margin={{ bottom: 'large' }}>
         {header ||
           (isDepositing
-            ? t('paraTimes.common.depositHeader', 'Deposit to ParaTime')
-            : t('paraTimes.common.withdrawHeader', 'Withdraw from ParaTime'))}
+            ? t('paraTimes.transfers.deposit', 'Deposit to ParaTime')
+            : t('paraTimes.transfers.withdraw', 'Withdraw from ParaTime'))}
       </Heading>
       <Box margin={{ bottom: 'large' }}>
         <Text
