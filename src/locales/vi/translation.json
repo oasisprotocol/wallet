@@ -132,7 +132,7 @@
     "validators": "Danh sách trình xác thực"
   },
   "createWallet": {
-    "confirmSaved": "Tôi đã lưu cụm từ khôi phục",
+    "confirmSaved": "Tôi đã lưu trữ cụm từ khôi phục của mình một cách an toàn",
     "doNotShare": "Không bao giờ chia sẻ cụm từ khôi phục của bạn, bất kỳ ai có được nó đều có thể truy cập vào ví và token của bạn",
     "instruction": "Lưu cụm từ khôi phục <strong> của bạn theo đúng thứ tự </strong> ở một nơi an toàn, bạn sẽ cần nó để mở ví của mình.",
     "mnemonicMismatch": "Cụm từ khôi phục đã nhập không khớp.",
@@ -279,7 +279,6 @@
       "reveal": "Chạm để hiển thị khóa riêng tư không hợp lệ"
     },
     "backupMnemonic": {
-      "confirm": "Tôi đã lưu trữ cụm từ khôi phục của mình một cách an toàn",
       "description": "Phiên bản mới của tiện ích ví mở rộng sẽ không còn lưu trữ cụm từ khôi phục của bạn. Cụm từ này là cách duy nhất để khôi phục tài khoản nếu bạn mất quyền truy cập. Hiện giờ bạn có cơ hội cuối cùng để sao lưu cụm từ khôi phục của mình.",
       "reveal": "Chạm để hiển thị cụm từ khôi phục của bạn"
     },
@@ -361,20 +360,17 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "Nạp tiền vào ParaTime",
       "discouragedType": "(mang tính thử nghiệm)",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "Giao dịch ParaTime",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "Rút từ ParaTime"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "Vui lòng xác nhận số tiền nạp và địa chỉ người nhận chính xác, sau đó nhấp vào \"{{nextButtonLabel}}\"",
       "confirmDepositToForeignAccountDescription": "Địa chỉ đích không khớp với bất kỳ tài khoản nào trong ví của bạn! Một số dịch vụ, chẳng hạn như sàn giao dịch, có thể không hỗ trợ nạp tiền trực tiếp vào tài khoản. Để đảm bảo tương thích tốt hơn, chúng tôi khuyến nghị bạn nên nạp tiền vào tài khoản ParaTime trước, sau đó chuyển {{ticker}} đến địa chỉ đích.",
       "confirmTransferLabel": "Tôi xác nhận số tiền và địa chỉ đều chính xác",
       "confirmTransferToForeignAccount": "Tôi xác nhận muốn rút tiền trực tiếp đến tài khoản bên ngoài",
-      "confirmTransferToValidatorDescription": "Đây là địa chỉ ví của trình xác thực. Việc chuyển tiền đến địa chỉ này sẽ không stake số dư của bạn vào trình xác thực.",
       "confirmTransferToValidatorLabel": "Tôi xác nhận muốn chuyển {{ticker}} đến địa chỉ trình xác thực",
       "confirmWithdrawDescription": "Vui lòng xác nhận số tiền rút và địa chỉ người nhận chính xác, sau đó nhấp vào \"{{nextButtonLabel}}\"",
       "confirmWithdrawToForeignAccountDescription": "Địa chỉ đích không khớp với bất kỳ tài khoản nào trong ví của bạn! Một số dịch vụ, chẳng hạn như sàn giao dịch, có thể không hỗ trợ rút tiền trực tiếp để nạp vào tài khoản. Để đảm bảo tương thích tốt hơn, chúng tôi khuyến nghị bạn nên rút tiền vào tài khoản lớp đồng thuận trước, sau đó chuyển đến {{ticker}} địa chỉ đích danh.",

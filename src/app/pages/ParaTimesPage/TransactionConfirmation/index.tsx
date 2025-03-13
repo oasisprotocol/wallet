@@ -112,8 +112,8 @@ export const TransactionConfirmation = () => {
           <ConfirmationCheckbox
             checked={transactionForm.confirmTransferToValidator}
             description={t(
-              'paraTimes.confirmation.confirmTransferToValidatorDescription',
-              'This is a validator wallet address. Transfers to this address do not stake your funds to the validator.',
+              'account.sendTransaction.confirmSendingToValidator.description',
+              'This is a validator address. Transfers to this address do not stake your funds with the validator.',
             )}
             label={t(
               'paraTimes.confirmation.confirmTransferToValidatorLabel',

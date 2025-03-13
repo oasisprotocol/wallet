@@ -21,7 +21,7 @@
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
-        "description": "To je naslov overitelja. Prenos kovancev na ta naslov ni enako delegiranju kovancev.",
+        "description": "Prejemnikov naslov pripada overitelju. Prenos na ta naslov mu sredstev ne bo delegiral, temveč nakazal.",
         "title": "Ste prepričani, da želite nadaljevati?"
       },
       "enterAddress": "Vnesite naslov",
@@ -249,7 +249,6 @@
       "reveal": "Kliknite, da odkrijete neveljaven zasebni ključ"
     },
     "backupMnemonic": {
-      "confirm": "Varno sem shranil mnemonik",
       "description": "Nova različica dodatka za brskalnik ne bo več shranila mnemonika, temveč le izvedene zasebne ključe. Uporaba mnemonika je edini način za dostop do vašega računa, v primeru, da se vam računalnik oz. naprava s ključi pokvari. Zdaj imate zadnjo možnost, da arhivirate vaš mnemonik.",
       "reveal": "Klikni za prikaz mnemonika"
     },
@@ -312,19 +311,16 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "Polog na ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "Prenosi ParaTime",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "Dvig iz ParaTima"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "Preverite, da sta znesek in naslova prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
       "confirmDepositToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih pologov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite polog na vaš ParaTime račun, nato pa prenos {{ticker}} na prejemnikov naslov.",
       "confirmTransferLabel": "Potrjujem pravilnost zneska in naslova",
       "confirmTransferToForeignAccount": "Potrjujem neposredni polog na zunanji račun",
-      "confirmTransferToValidatorDescription": "Prejemnikov naslov pripada overitelju. Prenos na ta naslov mu sredstev ne bo delegiral, temveč nakazal.",
       "confirmTransferToValidatorLabel": "Potrjujemo nakazilo {{ticker}} na račun overitelja",
       "confirmWithdrawDescription": "Preverite, da sta znesek in naslov prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
       "confirmWithdrawToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih dvigov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite dvig na vaš osebni račun, nato pa prenos {{ticker}} na prejemnikov naslov.",

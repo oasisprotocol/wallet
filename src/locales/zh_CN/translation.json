@@ -117,7 +117,7 @@
     "validators": "节点"
   },
   "createWallet": {
-    "confirmSaved": "我已保存助记词",
+    "confirmSaved": "我已经安全地存储了我的助记词",
     "doNotShare": "永远不要分享您的助记词，任何人拥有您的助记词都可以访问您的钱包和代币",
     "instruction": "将您的助记词<strong>按正确顺序</strong>保存在安全的位置，您将需要它来打开钱包",
     "mnemonicMismatch": "助记词不匹配",
@@ -249,7 +249,6 @@
       "reveal": "点击以显示无效的私钥"
     },
     "backupMnemonic": {
-      "confirm": "我已经安全地存储了我的助记词",
       "description": "新版本的钱包扩展应用将不再存储您的助记词。如果您丢失访问权限，该助记词是恢复您的账户的唯一方式。现在您有最后一次机会备份您的助记词。",
       "reveal": "点击显示您的助记词"
     },
@@ -312,19 +311,16 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "存入ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "ParaTime转账",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "从ParaTime提款"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "请确认存款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
       "confirmDepositToForeignAccountDescription": "目标地址与您钱包中的任何帐户不匹配！一些服务（如交易所）可能不支持直接存款来到您的帐户。为了更好的兼容性，我们强烈建议您首先存入您的ParaTime帐户，然后将{{ticker}}转移到目标地址。",
       "confirmTransferLabel": "我确认金额和地址是正确的",
       "confirmTransferToForeignAccount": "我确认我想直接提取到外部账户",
-      "confirmTransferToValidatorDescription": "这是一个节点钱包地址。向此地址转账不会将您的资金质押到该节点。",
       "confirmTransferToValidatorLabel": "我确认我想转账{{ticker}}到节点地址",
       "confirmWithdrawDescription": "请确认提款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
       "confirmWithdrawToForeignAccountDescription": "目标地址与您钱包中的帐户不匹配！一些服务（如交易所）可能不支持直接提取资金到该帐户。为了更好的兼容性，我们强烈建议您先提取到您的共识层账户，然后将{{ticker}}转账到目标地址",

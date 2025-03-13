@@ -246,7 +246,6 @@
       "reveal": "Geçersiz özel anahtarı göstermek için dokunun"
     },
     "backupMnemonic": {
-      "confirm": "Özel kelimelerimi güvenle sakladım",
       "description": "Cüzdan uzantısının yeni sürümü artık anımsatıcınızı saklamayacaktır. Bu ifade, erişiminizi kaybettiyseniz hesabınızı geri yüklemenin tek yoludur. Anımsatıcınızı yedeklemek için son bir şansınız var.",
       "reveal": "Özel Kelimelerinizi göstermek için tıklayın."
     },
@@ -309,19 +308,16 @@
     },
     "common": {
       "cipher": "şifre",
-      "depositHeader": "ParaTime'a yatır",
       "emerald": "Zümrüt",
       "evmcType": "(EVMc)",
       "header": "ParaTime Transferleri",
-      "sapphire": "Safir",
-      "withdrawHeader": "ParaTime'dan Çek"
+      "sapphire": "Safir"
     },
     "confirmation": {
       "confirmDepositDescription": "Lütfen yatırılan tutarın ve alıcı adresinin doğru olduğunu onaylayın ve ardından \"{{nextButtonLabel}}\" seçeneğine tıklayın.",
       "confirmDepositToForeignAccountDescription": "Hedef adres cüzdanınızdaki hesapların hiçbiriyle eşleşmiyor! Borsalar gibi bazı hizmetler, hesabınıza para yatırmak için doğrudan para yatırma işlemini desteklemeyebilir. Daha iyi uyumluluk için öncelikle ParaTime hesabınıza para yatırmanızı ve ardından {{ticker}}'ı hedef adrese aktarmanızı önemle tavsiye ederiz.",
       "confirmTransferLabel": "Tutarın ve adresin doğru olduğunu onaylıyorum",
       "confirmTransferToForeignAccount": "Doğrudan harici bir hesaba para çekmek istediğimi onaylıyorum",
-      "confirmTransferToValidatorDescription": "Bu bir doğrulayıcı cüzdan adresidir. Bu adrese yapılan transferler paranızı doğrulayıcıya yatırmaz.",
       "confirmTransferToValidatorLabel": "{{ticker}}'u bir doğrulayıcı adresine aktarmak istediğimi onaylıyorum",
       "confirmWithdrawDescription": "Lütfen çekilen tutarın ve alıcı adresinin doğru olduğunu onaylayın ve ardından \"{{nextButtonLabel}}\" seçeneğine tıklayın.",
       "confirmWithdrawToForeignAccountDescription": "Hedef adres cüzdanınızdaki hesapların hiçbiriyle eşleşmiyor! Borsalar gibi bazı hizmetler, hesaba para yatırmak için doğrudan para çekme işlemlerini desteklemeyebilir. Daha iyi uyumluluk için öncelikle konsensüs hesabınıza para çekmenizi ve ardından {{ticker}}'ı hedef adrese aktarmanızı önemle tavsiye ederiz.",
