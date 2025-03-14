@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Mevcut:",
       "confirmDelegatingToInactive": {
         "description": "Doğrulayıcının durumu: {{validatorStatus}}. Yaptığınız delegasyonla herhangi bir ödül elde edemeyebilirsiniz.",
         "title": "Devam etmek istediğinize emin misiniz?"
@@ -15,9 +16,10 @@
     "loading": "Hesap yükleniyor",
     "loadingError": "Hesap yüklenemedi.",
     "reclaimEscrow": {
-      "convertedToShares": "Karşılık gelen gigashares sayısı: {{shares}}",
+      "convertedToShares": "Karşılık gelen shares sayısı: {{shares}}",
       "reclaim": "Al",
-      "reclaimAll": "Hepsini al."
+      "reclaimAll": "Hepsini al.",
+      "reclaimableAmount": "Mevcut:"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -31,15 +33,14 @@
       "success": "İşleminiz başarıyla gönderildi. İşlemin hesabınıza geçmesi bir dakikaya yakın sürebilmektedir."
     },
     "subnavigation": {
-      "activeDelegations": "Aktif delegasyonlar",
-      "debondingDelegations": "Debonding delegasyonları",
+      "activeDelegations": "Delegasyonlar",
+      "debondingDelegations": "Debonding",
       "mobileActiveDelegations": "Delegasyonlar",
-      "mobileDebondingDelegations": "Debonding",
-      "transactions": "İşlemler"
+      "mobileDebondingDelegations": "Debonding"
     },
     "summary": {
       "balance": {
-        "available": "Uygun",
+        "available": "Mevcut",
         "debonding": "Ayrılmış",
         "delegations": "Stake Edilmiş",
         "total": "Toplam"
@@ -50,7 +51,7 @@
     },
     "transaction": {
       "addEscrow": {
-        "received": "<Amount>heyet emanette kabul edildi",
+        "received": "<Amount/> heyet emanette kabul edildi",
         "sent": "<Amount/> validatörüne delege edildi."
       },
       "consensusDeposit": {
@@ -135,7 +136,7 @@
   "deleteForm": {
     "confirm": "Evet, Sil",
     "confirmationKeyword": "Sil",
-    "hint": "<strong>{{confirmationKeyword}}</strong> yazın"
+    "hint": "'<strong>{{confirmationKeyword}}</strong>' yazın"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Bu hesap şu anda bağlı olan Ledger'a ait değil.",
@@ -164,11 +165,11 @@
   "fatalError": {
     "copied": "Hata panoya kopyalandı",
     "copy": "Hatayı panoya kopyala",
-    "heading": "Önemli bir hata oluştu",
-    "instruction": "Önemli bir hata oluştu ve Oasis Cüzdanının durdurulması gerekiyor. Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi ve cüzdanınızı yeniden açmayı deneyin. Sorun devam ederse lütfen <Email/> e-posta yoluyla destek ekibimizle iletişime geçin ve raporu aşağıya ekleyin."
+    "heading": "Bir hata oluştu",
+    "instruction": "Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi ve cüzdanınızı yeniden açmayı deneyin. Sorun devam ederse lütfen <Email/> e-posta yoluyla destek ekibimizle iletişime geçin ve raporu aşağıya ekleyin."
   },
   "fiatOnramp": {
-    "astarFootnote": "Cayman Adaları'ndan muaf bir şirket olan AStar Technologies'in, Oasis adına ve amaçları doğrultusunda hareket ettiği ve aynı zamanda Oasis Cüzdanının sağlayıcısı olduğu işbu belgeyle belirtilmektedir.",
+    "astarFootnote": "Cayman Adaları'ndan muaf bir şirket olan AStar Technologies'in, Oasis adına ve amaçları doğrultusunda hareket ettiği ve aynı zamanda ROSE Cüzdanının sağlayıcısı olduğu işbu belgeyle belirtilmektedir.",
     "description": "Bu özellik, fiat para biriminizi kripto para birimine dönüştürmenize olanak tanır.",
     "header": "ROSE Satın Al",
     "headerInWidget": "Cüzdanınıza ROSE satın alın.",
@@ -208,13 +209,12 @@
     "extension": {
       "connect": "Ledger cihazınızı bağlayın.",
       "failed": "Bağlantı başarısız.",
-      "grantAccess": "Ledgerınıza erişim izni verin",
-      "instructionStep": "Cihaz bağlandıktan sonra cüzdan uygulamasında işleme devam edin",
+      "grantAccess": "USB Ledgerınıza erişim izni verin",
       "succeed": "Cihaz bağlandı"
     },
     "instructionSteps": {
       "closeLedgerLive": "Bilgisayarınızdan Ledger Live Uygulamasını kapatın.",
-      "connectLedger": "Lütfen Ledger cihazınızı bilgisayarınıza bağlayın",
+      "connectUsbLedger": "Lütfen USB Ledger cihazınızı bilgisayarınıza bağlayın",
       "header": "Adımlar:",
       "openOasisApp": "Oasis Uygulamasını, Ledger cihazınızda açınız."
     },
@@ -235,10 +235,7 @@
     "lockProfile": "Profili kilitle.",
     "openMenu": "Menü",
     "paraTimes": "ParaTimelar",
-    "stake": "Stake",
-    "stake-mobile": "Stake",
-    "unlockProfile": "Profilin kilidini aç.",
-    "wallet": "Cüzdan"
+    "unlockProfile": "Profilin kilidini aç."
   },
   "migrateV0Extension": {
     "backupInvalidPrivateKeys": {
@@ -474,7 +471,7 @@
       "from": "Kimden",
       "gas": "Gas",
       "genesisHash": "Genesis Hash",
-      "shares": "Gigapaylaşımlar",
+      "shares": "Paylaşımlar",
       "to": "Kime",
       "type": "Tip",
       "validator": "Doğrulayıcı",
