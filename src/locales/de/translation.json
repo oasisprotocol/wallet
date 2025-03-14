@@ -1,16 +1,30 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Verfügbar:",
       "confirmDelegatingToInactive": {
+        "description": "Der Status dieses Validators ist {{validatorStatus}}. Deine Delegation generiert möglicherweise keine Rewards",
         "title": "Bist du sicher, dass du fortfahren möchtest?"
+      },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Trotzdem delegieren",
+        "description": "Dieser Validator ist in den Top 20 nach Stake. Bitte ziehe in Erwägung, zu einen kleineren Validator zu delegieren, um die Netzwerksicherheit und Dezentralisierung zu erhöhen."
       },
       "delegate": "Delegieren"
     },
     "addressCopied": "Adresse kopiert.",
+    "emptyActiveDelegationsList": "Derzeit gibt es keine aktiven Delegationen für dieses Konto.",
+    "emptyDebondingDelegationsList": "Derzeit gibt es kein Debonding von Delegationen für dieses Konto.",
     "loading": "Konto wird geladen",
     "loadingError": "Konto konnte nicht geladen werden.",
+    "reclaimEscrow": {
+      "reclaim": "Zurückfordern",
+      "reclaimAll": "Alles zurückfordern",
+      "reclaimableAmount": "Verfügbar:"
+    },
     "sendTransaction": {
       "confirmSendingToValidator": {
+        "description": "Dies ist die Adresse eines Validators. Überweisungen an diese Adresse staken dein Guthaben nicht beim Validator.",
         "title": "Bist du sicher, dass du fortfahren möchtest?"
       },
       "enterAddress": "Adresse eingeben",
@@ -20,11 +34,13 @@
       "success": "Transaktion erfolgreich gesendet. Es kann bis zu einer Minute dauern, bis die Transaktion auf deinem Konto erscheint."
     },
     "subnavigation": {
-      "activeDelegations": "Aktive Delegationen",
-      "mobileActiveDelegations": "Delegationen",
-      "transactions": "Transaktionen"
+      "activeDelegations": "Staked",
+      "debondingDelegations": "Debonding",
+      "mobileActiveDelegations": "Staked",
+      "mobileDebondingDelegations": "Debonding"
     },
     "summary": {
+      "activity": "Aktivität",
       "balance": {
         "available": "Verfügbar",
         "debonding": "Debonding",
@@ -33,17 +49,22 @@
       },
       "noTransactionFound": "Keine Transaktionen gefunden.",
       "noWalletIsOpen": "Um {{ticker}}-Tokens zu senden, empfangen, staken oder tauschen, <HomeLink>öffne deine Wallet</HomeLink>.",
-      "notYourAccount": "Dies ist nicht dein Konto."
+      "notYourAccount": "Dies ist nicht dein Konto.",
+      "pendingTransactions": "Ausstehende Transaktionen",
+      "someTxsInPendingState": "Einige Transaktionen sind im Moment noch ausstehend.",
+      "viewAccountTxs": "Kontotransaktionen ansehen"
     },
     "transaction": {
       "addEscrow": {
         "sent": "Delegierte <Amount/> an Validator"
       },
+      "explorerLink": "Transaktionen im Explorer ansehen",
       "failed": "Fehlgeschlagen",
       "genericTransaction": {
         "destination": "Andere Adresse"
       },
       "loadingError": "Transaktionen konnten nicht geladen werden.",
+      "pending": "Ausstehend",
       "successful": "Erfolgreich",
       "transfer": {
         "received": "Erhalten <Amount/>",
@@ -95,7 +116,7 @@
   "deleteForm": {
     "confirm": "Ja, löschen",
     "confirmationKeyword": "löschen",
-    "hint": "Eingeben <strong>{{confirmationKeyword}}</strong>"
+    "hint": "Eingeben '<strong>{{confirmationKeyword}}</strong>'"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Dieses Konto gehört nicht zu dem aktuell verbundenen Ledger.",
@@ -120,7 +141,7 @@
   "fatalError": {
     "copied": "Fehler in die Zwischenablage kopiert",
     "copy": "Fehler in die Zwischenablage kopieren",
-    "heading": "Schwerwiegender Fehler aufgetreten"
+    "reloadApp": "App neu laden"
   },
   "fiatOnramp": {
     "header": "ROSE kaufen",
@@ -142,6 +163,15 @@
       "header": "Auf vorhandene Wallet zugreifen"
     }
   },
+  "icons": {
+    "bluetooth": "Bluetooth",
+    "mnemonic": "Mnemonic",
+    "privateKey": "Privater Schlüssel",
+    "usb": "Usb",
+    "wallet": {
+      "label": "Wallet"
+    }
+  },
   "infoBox": {
     "valueCopied": "{{label}} kopiert."
   },
@@ -150,7 +180,7 @@
     "extension": {
       "connect": "Ledger-Gerät verbinden",
       "failed": "Verbindung fehlgeschlagen",
-      "grantAccess": "Gewähre Zugriff auf dein Ledger.",
+      "grantAccess": "Gewähre Zugriff auf dein USB Ledger.",
       "succeed": "Gerät verbunden"
     },
     "instructionSteps": {
@@ -165,16 +195,16 @@
   "menu": {
     "addAccounts": "Konten hinzufügen",
     "closeWallet": "Wallet schließen",
-    "fiatOnramp": "Kaufen",
+    "fiatOnramp": "ROSE kaufen",
     "fiatOnramp-mobile": "Kaufen",
     "home": "Home",
     "lockProfile": "Profil sperren",
     "openMenu": "Menü",
     "paraTimes": "ParaTimes",
-    "stake": "Stake",
+    "stake": "ROSE staken",
     "stake-mobile": "Stake",
     "unlockProfile": "Profil entsperren",
-    "wallet": "Wallet"
+    "wallet": "Konto"
   },
   "migrateV0Extension": {
     "finishMigration": "Öffne die neue Version der Wallet",
@@ -182,10 +212,20 @@
     "requiredField": "Dieses Feld ist erforderlich",
     "title": "Wichtiges Wallet-Update"
   },
+  "mobileUpdate": {
+    "later": "Später",
+    "retry": "Wiederholen",
+    "unknownTitle": "Unbekannter Fehler",
+    "updateAvailableTitle": "Aktualisierung ausstehend...",
+    "updateInProgressTitle": "Aktualisierung am laufen..",
+    "updateNow": "Jetzt aktualisieren"
+  },
   "openWallet": {
+    "header": "Wie möchtest du dein Wallet öffnen?",
     "importAccounts": {
       "accountCounter_one": "Ein Konto ausgewählt",
       "accountCounter_zero": "Kein Konto ausgewählt",
+      "bluetoothLedger": "Bluetooth Ledger",
       "next": "Weiter",
       "openWallets": "Öffnen",
       "prev": "Zurück"
@@ -308,7 +348,7 @@
       "contacts": "Kontakte",
       "delete": {
         "description": "Bist du sicher, dass du das folgende Konto löschen möchtest?",
-        "inputHelp": "Diese Aktion kann nicht rückgängig gemacht werden. Um fortzufahren, gib bitte <strong>{{confirmationKeyword}}</strong> unten ein.",
+        "inputHelp": "Diese Aktion kann nicht rückgängig gemacht werden. Um fortzufahren, gib bitte '<strong>{{confirmationKeyword}}</strong>' unten ein.",
         "title": "Konto löschen",
         "tooltip": "Du musst immer mindestens ein Konto haben."
       },
