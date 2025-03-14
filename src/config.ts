@@ -200,8 +200,17 @@ export const paraTimesConfig: ParaTimesConfig = {
 // https://github.com/mozilla/webextension-polyfill/blob/6e3e26c/src/browser-polyfill.js#L9
 export const runtimeIs = (globalThis as any).chrome?.runtime?.id ? 'extension' : 'webapp'
 
+const splitUrls = (input: string | undefined): string[] =>
+  input
+    ? input
+        .split(',')
+        .filter(s => !!s)
+        .map(s => s.trim())
+    : []
+
 export const deploys = {
-  production: 'https://wallet.oasis.io',
-  staging: 'https://wallet.stg.oasis.io',
+  production: splitUrls(process.env.REACT_APP_PRODUCTION_URLS),
+  staging: splitUrls(process.env.REACT_APP_STAGING_URLS),
   extension: 'chrome-extension://ppdadbejkmjnefldpcdjhnkpbjkikoip',
+  localhost: 'http://localhost:3000',
 }
