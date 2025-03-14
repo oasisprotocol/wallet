@@ -132,7 +132,7 @@
     "validators": "Validators"
   },
   "createWallet": {
-    "confirmSaved": "I saved my mnemonic",
+    "confirmSaved": "I’ve safely stored my mnemonic",
     "doNotShare": "Never share your mnemonic, anyone with your mnemonic can access your wallet and your tokens.",
     "instruction": "Save your mnemonic <strong>in the right order</strong> in a secure location, you will need it to open your wallet.",
     "mnemonicMismatch": "Entered mnemonic does not match.",
@@ -279,7 +279,6 @@
       "reveal": "Tap to show invalid private key"
     },
     "backupMnemonic": {
-      "confirm": "I’ve safely stored my mnemonic",
       "description": "The new version of the wallet extension will no longer store your mnemonic. This phrase is the only way to restore your account if you have lost access. You now have a final chance to backup your mnemonic.",
       "reveal": "Tap to show your mnemonic"
     },
@@ -361,20 +360,17 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "Deposit to ParaTime",
       "discouragedType": "(experimental)",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "ParaTime Transfers",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "Withdraw from ParaTime"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "Please confirm the deposit amount and the recipient address are correct and then click \"{{nextButtonLabel}}\".",
       "confirmDepositToForeignAccountDescription": "Destination address does not match any of the accounts in your wallet! Some services such as exchanges, may not support direct deposits to fund your account. For better compatibility, we strongly recommend that you first deposit to your ParaTime account and then transfer {{ticker}} to the destination address.",
       "confirmTransferLabel": "I confirm the amount and the address are correct",
       "confirmTransferToForeignAccount": "I confirm I want to directly withdraw to an external account",
-      "confirmTransferToValidatorDescription": "This is a validator wallet address. Transfers to this address do not stake your funds to the validator.",
       "confirmTransferToValidatorLabel": "I confirm I want to transfer {{ticker}} to a validator address",
       "confirmWithdrawDescription": "Please confirm the withdrawal amount and the recipient address are correct and then click \"{{nextButtonLabel}}\".",
       "confirmWithdrawToForeignAccountDescription": "Destination address does not match any of the accounts in your wallet! Some services such as exchanges, may not support direct withdrawals to fund the account. For better compatibility, we strongly recommend that you first withdraw to your consensus account and then transfer {{ticker}} to the destination address.",
