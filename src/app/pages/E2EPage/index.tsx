@@ -16,6 +16,7 @@ import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
 import { Info } from 'grommet-icons/es6/icons/Info'
 import { Text } from 'grommet/es6/components/Text'
+import { Anchor } from 'grommet/es6/components/Anchor'
 
 export function E2EPage() {
   return (
@@ -152,9 +153,11 @@ function DemoAlertBoxes() {
     <Box direction="row">
       <Box width={'400px'} background={{ dark: false }}>
         <Box background="background-front" pad={'large'}>
+          <DemoAlertBox status="info" />
           <DemoAlertBox status="ok-weak" />
           <DemoAlertBox status="ok" />
           <DemoAlertBox status="warning" />
+          <DemoAlertBox status="warning-weak" />
           <DemoAlertBox status="error" />
           <Text color="status-ok">status-ok</Text>
           <Text color="status-warning">status-warning</Text>
@@ -163,9 +166,11 @@ function DemoAlertBoxes() {
       </Box>
       <Box width={'400px'} background={{ dark: true }}>
         <Box background="background-front" pad={'large'}>
+          <DemoAlertBox status="info" />
           <DemoAlertBox status="ok-weak" />
           <DemoAlertBox status="ok" />
           <DemoAlertBox status="warning" />
+          <DemoAlertBox status="warning-weak" />
           <DemoAlertBox status="error" />
           <Text color="status-ok">status-ok</Text>
           <Text color="status-warning">status-warning</Text>
@@ -180,7 +185,10 @@ function DemoAlertBox({ status }: { status: AlertBoxStatus }) {
   return (
     <>
       <AlertBox status={status} icon={<Info />}>
-        LOREM {status}
+        LOREM {status}{' '}
+        <Anchor href="#" style={{ display: 'inline' }}>
+          link
+        </Anchor>
       </AlertBox>
       <br />
     </>

@@ -25,6 +25,32 @@ export function ErrorFormatter(props: Props) {
     [BackendAPIs.Nexus]: t('backends.nexus', 'Nexus API'),
   }
 
+  const ledgerNoDeviceSelectedHelp = (
+    <Trans
+      i18nKey="errors.ledgerNoDeviceSelected"
+      t={t}
+      defaults="No Ledger device selected. Make sure it is connected, <LedgerHelp>check common USB connection issues with Ledger</LedgerHelp>, and <ChromeHelp>check site permissions don't block USB devices</ChromeHelp>."
+      components={{
+        LedgerHelp: (
+          <Anchor
+            href="https://support.ledger.com/article/115005165269-zd"
+            target="_blank"
+            rel="noopener"
+            style={{ display: 'inline' }}
+          />
+        ),
+        ChromeHelp: (
+          <Anchor
+            href="https://support.google.com/chrome/answer/114662"
+            target="_blank"
+            rel="noopener"
+            style={{ display: 'inline' }}
+          />
+        ),
+      }}
+    />
+  )
+
   const errorMap: { [code in WalletErrors]: string | React.ReactElement } = {
     [WalletErrors.UnknownError]: t('errors.unknown', 'Unknown error: {{message}}', { message }),
     [WalletErrors.UnknownGrpcError]: t('errors.unknownGrpc', 'Unknown gRPC error: {{message}}', { message }),
@@ -39,9 +65,14 @@ export function ErrorFormatter(props: Props) {
       'errors.usbTransportNotSupported',
       'Current platform does not support WebUSB capability. Try on different platform or browser (preferably Chrome).',
     ),
-    [WalletErrors.USBTransportError]: t('errors.usbTransportError', 'USB Transport error: {{message}}.', {
-      message,
-    }),
+    [WalletErrors.USBTransportError]: (
+      <span>
+        {t('errors.usbTransportError', 'USB Transport error: {{message}}.', {
+          message,
+        })}{' '}
+        {ledgerNoDeviceSelectedHelp}
+      </span>
+    ),
     [WalletErrors.LedgerAppVersionNotSupported]: t(
       'errors.ledgerAppVersionNotSupported',
       'Oasis App on Ledger is closed or outdated. Make sure Ledger is unlocked, the Oasis App is opened and up to date.',
@@ -50,31 +81,7 @@ export function ErrorFormatter(props: Props) {
       'errors.ledgerTransactionRejected',
       'Transaction rejected on Ledger.',
     ),
-    [WalletErrors.LedgerNoDeviceSelected]: (
-      <Trans
-        i18nKey="errors.ledgerNoDeviceSelected"
-        t={t}
-        defaults="No Ledger device selected. Make sure it is connected, <LedgerHelp>check common USB connection issues with Ledger</LedgerHelp>, and <ChromeHelp>check site permissions don't block USB devices</ChromeHelp>."
-        components={{
-          LedgerHelp: (
-            <Anchor
-              href="https://support.ledger.com/article/115005165269-zd"
-              target="_blank"
-              rel="noopener"
-              style={{ display: 'inline' }}
-            />
-          ),
-          ChromeHelp: (
-            <Anchor
-              href="https://support.google.com/chrome/answer/114662"
-              target="_blank"
-              rel="noopener"
-              style={{ display: 'inline' }}
-            />
-          ),
-        }}
-      />
-    ),
+    [WalletErrors.LedgerNoDeviceSelected]: ledgerNoDeviceSelectedHelp,
     [WalletErrors.LedgerCannotOpenOasisApp]: t(
       'errors.ledgerCannotOpenOasisApp',
       'Could not open Oasis App on Ledger. Make sure Ledger is unlocked and the Oasis App is opened.',
