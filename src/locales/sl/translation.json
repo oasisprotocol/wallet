@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Na voljo:",
       "confirmDelegatingToInactive": {
         "description": "Stanje overitelja je {{validatorStatus}}. Vaše delegiranje morda ne bo prineslo nagrad.",
         "title": "Ste prepričani, da želite nadaljevati?"
@@ -15,9 +16,10 @@
     "loading": "Nalaganje računa",
     "loadingError": "Računa ni mogoče naložiti.",
     "reclaimEscrow": {
-      "convertedToShares": "Število gigadeležev: {{shares}}",
+      "convertedToShares": "Število deležev: {{shares}}",
       "reclaim": "Oddelegiraj",
-      "reclaimAll": "Oddelegiraj vse"
+      "reclaimAll": "Oddelegiraj vse",
+      "reclaimableAmount": "Na voljo:"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -31,11 +33,10 @@
       "success": "Transakcija uspešno izvršena. Novo stanje na vašem računu bo prikazano v kratkem."
     },
     "subnavigation": {
-      "activeDelegations": "Aktivne delegacije",
+      "activeDelegations": "Delegacije",
       "debondingDelegations": "Delegacije v razvezi",
       "mobileActiveDelegations": "Delegacije",
-      "mobileDebondingDelegations": "V razvezi",
-      "transactions": "Transakcije"
+      "mobileDebondingDelegations": "V razvezi"
     },
     "summary": {
       "balance": {
@@ -50,7 +51,7 @@
     },
     "transaction": {
       "addEscrow": {
-        "received": "Prejeto <Amount> v delegiranje",
+        "received": "Prejeto <Amount/> v delegiranje",
         "sent": "Delegirano <Amount/> overitelju"
       },
       "consensusDeposit": {
@@ -135,12 +136,12 @@
   "deleteForm": {
     "confirm": "Da, izbriši",
     "confirmationKeyword": "izbriši",
-    "hint": "Vtipkajte <strong>{{confirmationKeyword}}</strong>"
+    "hint": "Vtipkajte '<strong>{{confirmationKeyword}}</strong>'"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "Račun ne pripada trenutno povezanemu Ledgerju",
     "LedgerOasisAppIsNotOpen": "Oasis App na Ledgerju je zaprt.",
-    "bluetoothTransportNotSupported": "Vaša naprava ne podpira Bluetootha.",
+    "bluetoothTransportNotSupported": "Bluetooth je izkopljen ali pa ni podprt na napravi.",
     "cannotSendToSelf": "Ni mogoče pošiljati samemu sebi",
     "disconnectedError": "Izgubljena povezava.",
     "duplicateTransaction": "Podvojena transakcija",
@@ -164,12 +165,13 @@
   "fatalError": {
     "copied": "Napaka skopirana v odložišče",
     "copy": "Skopiraj napako v odložišče",
-    "heading": "Pojavila se je usodna napaka",
-    "instruction": "Pojavila se je usodna napaka in ROSE Wallet se mora zapreti. Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
+    "heading": "Pojavila se je napaka",
+    "instruction": "Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
   "fiatOnramp": {
     "astarFootnote": "AStar Technologies, registrirana na Kajmanskih otokih, deluje v imenu in za namene Oasisa in je tudi ponudnik ROSE Walleta.",
-    "description": "Ta funkcionalnost omogoča pretvorbo fiat valute v kripto valuto.",
+    "buyNowInNewTab": "Kupi ROSE",
+    "description": "Pretvori fiat valute v kripto valuto.",
     "header": "Kupi ROSE",
     "headerInWidget": "Kupi ROSE in ga prenesi v denarnico",
     "notMainnet": "To funkcionalnost lahko uporabljate le, če ste povezani na Mainnet.",
@@ -177,7 +179,7 @@
     "openYourWallet": "Odpri denarnico",
     "switchToMainnet": "Preklopi na Mainnet",
     "thirdPartyAcknowledge": "Strinjam se, da bom uporabil zunanjo storitev in Oasis* ne nosi odgovornosti za uporabo te storitve.",
-    "thirdPartyDisclaimer": "Storitev opravlja zunanje izvajalec. Oasis* ne nosi odgovornosti za njeno delovanje. Vse provizije zaračuna ponudnik Transak."
+    "thirdPartyDisclaimer": "Storitev opravlja Transak. Oasis* ne nosi odgovornosti za njeno delovanje. Vse provizije zaračuna ponudnik Transak."
   },
   "footer": {
     "github": "ROSE Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
@@ -186,7 +188,7 @@
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Pogoji uporabe</TermsLink>",
-    "version": "Različica <ReleaseLink/> (<CommitLink/>) zgrajena {{buildTime}}"
+    "version": "Različica <ReleaseLink/> (commit <CommitLink/>) zgrajena {{buildTime}}"
   },
   "home": {
     "create": {
@@ -208,13 +210,12 @@
     "extension": {
       "connect": "Priklopi Ledger",
       "failed": "Priklop spodeletel",
-      "grantAccess": "Dovoli dostop Ledgerju",
-      "instructionStep": "Ko bo naprava priklopljena, nadaljujte z uporabo denarnice",
+      "grantAccess": "Dovoli dostop USB Ledgerju",
       "succeed": "Naprava priklopljena"
     },
     "instructionSteps": {
       "closeLedgerLive": "Zaprite Ledger Live app na računalniku.",
-      "connectLedger": "Povežite vaš Ledger z računalnikom.",
+      "connectUsbLedger": "Povežite vaš USB Ledger z računalnikom.",
       "header": "Koraki:",
       "openOasisApp": "Odprite Oasis App na vašem Ledgerju."
     },
@@ -229,13 +230,13 @@
   "menu": {
     "addAccounts": "Dodaj račune",
     "closeWallet": "Zapri denarnico",
-    "fiatOnramp": "Kupi",
+    "fiatOnramp": "Kupi ROSE",
     "fiatOnramp-mobile": "Kupi",
     "home": "Domov",
     "lockProfile": "Zakleni profil",
     "openMenu": "Meni",
     "paraTimes": "ParaTimi",
-    "stake": "Vlaganje",
+    "stake": "Vlaganje ROSE",
     "stake-mobile": "Vlaganje",
     "unlockProfile": "Odkleni profil",
     "wallet": "Denarnica"
@@ -249,7 +250,6 @@
       "reveal": "Kliknite, da odkrijete neveljaven zasebni ključ"
     },
     "backupMnemonic": {
-      "confirm": "Varno sem shranil mnemonik",
       "description": "Nova različica dodatka za brskalnik ne bo več shranila mnemonika, temveč le izvedene zasebne ključe. Uporaba mnemonika je edini način za dostop do vašega računa, v primeru, da se vam računalnik oz. naprava s ključi pokvari. Zdaj imate zadnjo možnost, da arhivirate vaš mnemonik.",
       "reveal": "Klikni za prikaz mnemonika"
     },
@@ -312,19 +312,16 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "Polog na ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "Prenosi ParaTime",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "Dvig iz ParaTima"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "Preverite, da sta znesek in naslova prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
       "confirmDepositToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih pologov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite polog na vaš ParaTime račun, nato pa prenos {{ticker}} na prejemnikov naslov.",
       "confirmTransferLabel": "Potrjujem pravilnost zneska in naslova",
       "confirmTransferToForeignAccount": "Potrjujem neposredni polog na zunanji račun",
-      "confirmTransferToValidatorDescription": "Prejemnikov naslov pripada overitelju. Prenos na ta naslov mu sredstev ne bo delegiral, temveč nakazal.",
       "confirmTransferToValidatorLabel": "Potrjujemo nakazilo {{ticker}} na račun overitelja",
       "confirmWithdrawDescription": "Preverite, da sta znesek in naslov prejemnika pravilna in kliknite \"{{nextButtonLabel}}\".",
       "confirmWithdrawToForeignAccountDescription": "Naslov prejemnika se ne ujema z nobenim od računov v vaši denarnici! Nekatere storitve (npr. menjalnice) ne podpirajo neposrednih dvigov na vaš račun. Za boljšo združljivost priporočamo, da najprej izvršite dvig na vaš osebni račun, nato pa prenos {{ticker}} na prejemnikov naslov.",
@@ -394,10 +391,10 @@
     "loginToProfile": {
       "deleteProfile": {
         "button": "Izbriši profil",
-        "description": "Ali ste prepričani, da želite izbrisati ta profil? To bo <strong>izbrisalo vaše zasebne ključe</strong> in ne bo jih mogoče obnoviti. <br/><br/> Če želite nadaljevati vnesite '{{confirmationKeyword}}'.",
+        "description": "To bo <strong>izbrisalo vaše zasebne ključe</strong> in ne bo jih mogoče obnoviti. <br/><br/> Če želite nadaljevati vnesite '<strong>{{confirmationKeyword}}</strong>'.",
         "title": "Izbriši Profil"
       },
-      "description": "Za dostop do obstoječe denarnice na tem brskalniku se prijavite v vaš profil",
+      "description": "Vnesite geslo za dostop do obstoječe denarnice.",
       "enterPasswordHere": "Vnesite geslo",
       "hidePassword": "Skrij geslo",
       "showPassword": "Prikaži gesl",
@@ -414,7 +411,7 @@
   },
   "toolbar": {
     "contacts": {
-      "add": "Dodaj Stik",
+      "add": "Dodaj stik",
       "address": "Naslov",
       "cancel": "Prekliči",
       "delete": {
@@ -460,7 +457,7 @@
       "contacts": "Stiki",
       "delete": {
         "description": "Ali ste prepričani, da želite izbrisati ta račun?",
-        "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite <strong>{{confirmationKeyword}}</strong>.",
+        "inputHelp": "Tega ne bo mogoče razveljaviti. Če želite nadaljevati vnesite '<strong>{{confirmationKeyword}}</strong>'.",
         "title": "Izbriši Račun",
         "tooltip": "V denarnici morate imeti vsaj en račun."
       },

@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Disponible:",
       "confirmDelegatingToInactive": {
         "description": "Le statut de ce validateur est {{validatorStatus}}. Votre délégation pourrait ne générer aucune récompense.",
         "title": "Etes-vous sûr de vouloir continuer ?"
@@ -10,7 +11,8 @@
     "loading": "Chargement du compte",
     "loadingError": "Impossible de charger le compte. Des informations peuvent être manquantes ou obsolètes.",
     "reclaimEscrow": {
-      "reclaim": "Réclamer"
+      "reclaim": "Réclamer",
+      "reclaimableAmount": "Disponible:"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -24,8 +26,7 @@
     },
     "subnavigation": {
       "activeDelegations": "Délégation active",
-      "debondingDelegations": "Délégations réclamées",
-      "transactions": "Transactions"
+      "debondingDelegations": "Délégations réclamées"
     },
     "summary": {
       "balance": {
@@ -35,7 +36,7 @@
         "total": "Solde total"
       },
       "noTransactionFound": "Aucune transaction trouvée",
-      "noWalletIsOpen": "Pour envoyer, recevoir, jalonner et échanger vos jetons Rose, <HomeLink>Ouvrez votre portefeuille</HomeLink> !",
+      "noWalletIsOpen": "Pour envoyer, recevoir, jalonner et échanger vos jetons {{ticker}}, <HomeLink>Ouvrez votre portefeuille</HomeLink> !",
       "notYourAccount": "Ce compte n'est pas le vôtre."
     },
     "transaction": {
@@ -116,8 +117,8 @@
   "fatalError": {
     "copied": "Erreur copiée",
     "copy": "Copier l'erreur",
-    "heading": "Une erreur fatale s'est produite",
-    "instruction": "Une erreur fatale s'est produite et ROSE Wallet doit s'arrêter. Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <Email/> . Envoyez l'email et joignez le rapport ci-dessous."
+    "heading": "Une erreur s'est produite",
+    "instruction": "Essayez d'actualiser la page et d'ouvrir à nouveau votre portefeuille pour voir si le problème persiste. Si le problème persiste, veuillez contacter notre équipe d'assistance via l'e-mail <Email/>. Envoyez l'email et joignez le rapport ci-dessous."
   },
   "footer": {
     "github": "ROSE Wallet est entièrement <GithubLink>open source</GithubLink> - N'hésitez pas à remonter tout problème !",
@@ -126,7 +127,7 @@
       "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Termes et Conditions</TermsLink>",
-    "version": "Version: <ReleaseLink/> (<CommitLink/>) construit à {{buildTime}}"
+    "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) construit à {{buildTime}}"
   },
   "home": {
     "create": {
@@ -140,10 +141,14 @@
       "header": "Ouvrir un portefeuille existant"
     }
   },
+  "icons": {
+    "mnemonic": "Phrase secrète",
+    "privateKey": "Clé privée"
+  },
   "ledger": {
     "instructionSteps": {
       "closeLedgerLive": "Fermer l'application Ledger Live sur l'ordinateur",
-      "connectLedger": "Connectez votre matériel Ledger à l'ordinateur",
+      "connectUsbLedger": "Connectez votre matériel USB Ledger à l'ordinateur",
       "header": "Etapes",
       "openOasisApp": "Ouvrez l'application Oasis sur votre matériel Ledger"
     },
@@ -186,6 +191,11 @@
       "hidePrivateKey": "Masquer la clé privée",
       "instruction": "Entrez votre clé privée au format base64 ci-dessous.",
       "showPrivateKey": "Montrer la clé privée"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "available": "Disponible:"
     }
   },
   "theme": {
