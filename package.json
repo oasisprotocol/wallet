@@ -71,7 +71,7 @@
     "@oasisprotocol/client-rt": "1.1.0",
     "@oasisprotocol/ionic-ledger-hw-transport-ble": "6.0.0",
     "@oasisprotocol/ledger": "1.0.0",
-    "@reduxjs/toolkit": "2.6.0",
+    "@reduxjs/toolkit": "2.6.1",
     "bignumber.js": "9.1.2",
     "bip39": "3.1.0",
     "body-scroll-lock": "4.0.0-beta.0",
