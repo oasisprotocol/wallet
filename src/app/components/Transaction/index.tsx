@@ -284,7 +284,7 @@ export function Transaction(props: TransactionProps) {
             t={t}
             components={{ Amount }}
             // TODO: try to resolve destination to a runtime name
-            defaults="Set <Amount/> allowance"
+            defaults="Changed allowance <Amount />"
           />
         ),
       },

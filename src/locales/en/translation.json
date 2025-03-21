@@ -83,7 +83,7 @@
       },
       "stakingAllow": {
         "received": "Received <Amount/> allowance",
-        "sent": "Set <Amount/> allowance"
+        "sent": "Changed allowance <Amount />"
       },
       "stakingBurn": {
         "sent": "Burned <Amount/>"
