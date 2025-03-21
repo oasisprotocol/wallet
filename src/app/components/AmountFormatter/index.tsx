@@ -22,6 +22,7 @@ export interface AmountFormatterProps {
   size?: string
   smallTicker?: boolean
   plainTicker?: boolean
+  isRelative?: boolean
 }
 
 /**
@@ -37,16 +38,18 @@ export const AmountFormatter = memo(
     size,
     smallTicker,
     plainTicker,
+    isRelative,
   }: AmountFormatterProps) => {
     const ticker = useSelector(selectTicker)
     const isUsingBaseUnits = amountUnit === 'baseUnits'
     if (amount == null) return <span>-</span>
 
     const formatter = isUsingBaseUnits ? formatBaseUnitsAsRose : formatWeiAsWrose
-    const amountString = formatter(amount, {
+    let amountString = formatter(amount, {
       minimumFractionDigits: minimumFractionDigits ?? 1,
       maximumFractionDigits: maximumFractionDigits ?? (isUsingBaseUnits ? 15 : 18),
     })
+    if (isRelative && !amount.startsWith('-')) amountString = `+${amountString}`
 
     const tickerProps = smallTicker
       ? {

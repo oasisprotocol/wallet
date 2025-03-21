@@ -87,6 +87,9 @@ export function Transaction(props: TransactionProps) {
   const transaction = props.transaction
   const referenceAddress = props.referenceAddress
   const Amount = <AmountFormatter amount={transaction.amount!} size="inherit" plainTicker />
+  const AmountRelative = (
+    <AmountFormatter amount={transaction.amount!} size="inherit" plainTicker isRelative />
+  )
   let side: TransactionSide
   let otherAddress = ''
 
@@ -282,7 +285,7 @@ export function Transaction(props: TransactionProps) {
           <Trans
             i18nKey="account.transaction.stakingAllow.sent"
             t={t}
-            components={{ Amount }}
+            components={{ Amount: AmountRelative }}
             // TODO: try to resolve destination to a runtime name
             defaults="Changed allowance <Amount />"
           />
