@@ -102,14 +102,14 @@ export const config: BackendConfig = {
 }
 
 type ParaTimeNetwork = {
-  address: string | undefined
-  runtimeId: string | undefined
+  address: string
+  runtimeId: string
 }
 
 export type ParaTimeConfig = {
   mainnet: ParaTimeNetwork
   testnet: ParaTimeNetwork
-  local: ParaTimeNetwork
+  local: Partial<ParaTimeNetwork>
   gasPrice: bigint
   feeGas: bigint
   decimals: number
