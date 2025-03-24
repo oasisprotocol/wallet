@@ -40,7 +40,7 @@ import { InfoBox } from './InfoBox'
 import * as transactionTypes from 'app/state/transaction/types'
 import { TransactionStatus } from 'app/state/transaction/types'
 import { NetworkType } from 'app/state/network/types'
-import { config } from 'config'
+import { config, paraTimesConfig } from 'config'
 import { backend } from 'vendors/backend'
 import { AddressFormatter } from '../AddressFormatter'
 
@@ -281,15 +281,34 @@ export function Transaction(props: TransactionProps) {
       [TransactionSide.Sent]: {
         destination: t('common.to', 'To'),
         icon: Atm,
-        header: () => (
-          <Trans
-            i18nKey="account.transaction.stakingAllow.sent"
-            t={t}
-            components={{ Amount: AmountRelative }}
-            // TODO: try to resolve destination to a runtime name
-            defaults="Changed allowance <Amount />"
-          />
-        ),
+        header: () => {
+          const addressToParaTime = {
+            [paraTimesConfig.sapphire.mainnet.address]: t('paraTimes.common.sapphire', 'Sapphire'),
+            [paraTimesConfig.sapphire.testnet.address]: t('paraTimes.common.sapphire', 'Sapphire'),
+            [paraTimesConfig.emerald.mainnet.address]: t('paraTimes.common.emerald', 'Emerald'),
+            [paraTimesConfig.emerald.testnet.address]: t('paraTimes.common.emerald', 'Emerald'),
+            [paraTimesConfig.cipher.mainnet.address]: t('paraTimes.common.cipher', 'Cipher'),
+            [paraTimesConfig.cipher.testnet.address]: t('paraTimes.common.cipher', 'Cipher'),
+          }
+          const toRuntimeName = addressToParaTime[transaction.to!]
+
+          return toRuntimeName ? (
+            <Trans
+              i18nKey="account.transaction.stakingAllow.sentToParaTime"
+              t={t}
+              components={{ Amount: AmountRelative }}
+              values={{ runtimeName: toRuntimeName }}
+              defaults="Changed allowance <Amount /> for {{runtimeName}} ParaTime"
+            />
+          ) : (
+            <Trans
+              i18nKey="account.transaction.stakingAllow.sent"
+              t={t}
+              components={{ Amount: AmountRelative }}
+              defaults="Changed allowance <Amount />"
+            />
+          )
+        },
       },
     },
     [transactionTypes.TransactionType.StakingBurn]: {

@@ -83,7 +83,8 @@
       },
       "stakingAllow": {
         "received": "Received <Amount/> allowance",
-        "sent": "Changed allowance <Amount />"
+        "sent": "Changed allowance <Amount />",
+        "sentToParaTime": "Changed allowance <Amount /> for {{runtimeName}} ParaTime"
       },
       "stakingBurn": {
         "sent": "Burned <Amount/>"
