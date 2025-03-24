@@ -55,7 +55,9 @@ export function FiatOnramp() {
   const thirdPartyAcknowledged = useSelector(selectThirdPartyAcknowledged)
   // Intentionally not responsive. If it initializes with embedded iframe, user
   // inputs some data, then resizes: do not lose user's inputs!
-  const [shouldOpenTransakInNewTab] = useState(window.innerWidth <= 768 || window.innerHeight <= 700)
+  const [shouldOpenTransakInNewTab, setShouldOpenTransakInNewTab] = useState(
+    window.innerWidth <= 768 || window.innerHeight <= 700,
+  )
 
   // Ignore refreshing account balance. Don't destroy and re-create iframe if balance changes and account balance is loading again.
   const [isInitialLoading, setInitialLoading] = useState(true)
@@ -164,6 +166,23 @@ export function FiatOnramp() {
                   // 'allow-top-navigation-by-user-activation',
                 ].join(' ')}
                 src={transakUrl}
+                onLoad={event => {
+                  // Fallback to button if embedding fails.
+                  // Note: onError isn't called on X-Frame-Options errors, and onLoad is called even on error. So rely on Transak's postMessage.
+                  const onMessage = (event: MessageEvent) => {
+                    if (event?.data?.event_id === 'TRANSAK_WIDGET_INITIALISED') {
+                      // Success
+                      clearTimeout(failureTimeoutId)
+                      window.removeEventListener('message', onMessage)
+                    }
+                  }
+                  window.addEventListener('message', onMessage)
+                  const failureTimeoutId = window.setTimeout(() => {
+                    // Error (assumed - after 5 seconds of not initializing)
+                    setShouldOpenTransakInNewTab(true)
+                    window.removeEventListener('message', onMessage)
+                  }, 5_000)
+                }}
                 style={{
                   display: 'block',
                   width: '100%',
