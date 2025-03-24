@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "Disponible:",
       "confirmDelegatingToInactive": {
         "description": "El estado de este validador es {{validatorStatus}}. Es posible que tu delegación no genere ninguna recompensa.",
         "title": "¿Estás seguro de que quieres continuar?"
@@ -13,7 +14,8 @@
     "loading": "Cargando cuenta",
     "loadingError": "No se pudo cargar la cuenta.",
     "reclaimEscrow": {
-      "reclaim": "Reclamar"
+      "reclaim": "Reclamar",
+      "reclaimableAmount": "Disponible:"
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -25,17 +27,34 @@
       "success": "Transacción enviada con éxito. La transacción puede tardar hasta un minuto en aparecer en tu cuenta."
     },
     "subnavigation": {
-      "transactions": "Transacciones"
+      "activeDelegations": "Delegaciones activas"
     },
     "summary": {
       "balance": {
-        "available": "Disponible"
+        "available": "Disponible",
+        "total": "Saldo total"
       },
       "noTransactionFound": "No se han encontrado transacciones.",
       "notYourAccount": "Esta no es tu cuenta."
     },
     "transaction": {
-      "loadingError": "No se ha podido cargar las transacciones."
+      "genericTransaction": {
+        "destination": "Otra dirección"
+      },
+      "loadingError": "No se ha podido cargar las transacciones.",
+      "reclaimEscrow": {
+        "received": "<Amount/> reclamado por el delegador"
+      },
+      "transfer": {
+        "received": "Recibido <Amount/>",
+        "sent": {
+          "header": "Enviado <Amount/>"
+        }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Otra dirección",
+        "header": "Transacción no reconocida '{{method}}'"
+      }
     },
     "validator": {
       "loadingError": "No se han podido cargar los validadores."
@@ -60,6 +79,7 @@
   "createWallet": {
     "confirmSaved": "He guardado mi frase semilla",
     "doNotShare": "Nunca compartas tu frase semilla, cualquiera con tu frase semilla puede acceder a tu billetera y tus tokens.",
+    "instruction": "Guarda tu frase semilla <strong>en el orden correcto</strong> en un lugar seguro, la necesitarás para abrir tu billetera.",
     "mnemonicMismatch": "La frase semilla introducida no coincide.",
     "newMnemonic": "Generar una frase semilla nueva",
     "thisIsYourPhrase": "Esta es tu frase semilla."
@@ -85,6 +105,9 @@
     "copied": "Error copiado al portapapeles",
     "copy": "Copiar error al portapapeles"
   },
+  "footer": {
+    "terms": "<TermsLink>Condiciones generales</TermsLink>"
+  },
   "home": {
     "create": {
       "button": "Crear billetera",
@@ -95,9 +118,16 @@
       "header": "Acceder a una billetera existente"
     }
   },
+  "icons": {
+    "mnemonic": "Frase semilla",
+    "privateKey": "Clave privada",
+    "wallet": {
+      "label": "Billetera"
+    }
+  },
   "ledger": {
     "instructionSteps": {
-      "connectLedger": "Conecta tu dispositivo Ledger al equipo",
+      "connectUsbLedger": "Conecta tu dispositivo USB Ledger al equipo",
       "header": "Pasos:",
       "openOasisApp": "Abre la aplicación de Oasis en tu dispositivo Ledger"
     },
@@ -138,8 +168,14 @@
       "showPrivateKey": "Mostrar la clave privada"
     }
   },
+  "paraTimes": {
+    "amount": {
+      "available": "Disponible:"
+    }
+  },
   "theme": {
-    "darkMode": "Modo oscuro"
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro"
   },
   "toolbar": {
     "networks": {
@@ -168,6 +204,9 @@
     "step": {
       "signing": "Firmando la transacción",
       "submitting": "Enviando la transacción"
+    },
+    "types": {
+      "addEscrow": "delegando tus tokens a un validador para generar recompensas"
     }
   },
   "validator": {

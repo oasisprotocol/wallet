@@ -23,7 +23,7 @@ describe('Create wallet', () => {
   })
 
   it('Should open mnemonic confirmation', () => {
-    cy.findByLabelText(/saved/).click({ force: true })
+    cy.findByLabelText(/I’ve safely stored my mnemonic/).click({ force: true })
     cy.findByRole('button', { name: /Import my wallet/ })
       .should('be.enabled')
       .click()

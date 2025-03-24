@@ -1,6 +1,7 @@
 {
   "account": {
     "addEscrow": {
+      "availableAmount": "可用：",
       "confirmDelegatingToInactive": {
         "description": "该节点的状态为{{validatorStatus}}，你的质押或无法产生收益。",
         "title": "确认继续吗？"
@@ -15,9 +16,10 @@
     "loading": "账户加载中",
     "loadingError": "无法加载账户",
     "reclaimEscrow": {
-      "convertedToShares": "对应的Gigashare数量：{{shares}}",
+      "convertedToShares": "对应的share数量：{{shares}}",
       "reclaim": "取回",
-      "reclaimAll": "取回全部"
+      "reclaimAll": "取回全部",
+      "reclaimableAmount": "可用："
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
@@ -50,7 +52,7 @@
     },
     "transaction": {
       "addEscrow": {
-        "received": "接收到<Amount>质押委托",
+        "received": "接收到<Amount/>质押委托",
         "sent": "质押<Amount/>给节点"
       },
       "consensusDeposit": {
@@ -98,8 +100,8 @@
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
-    "buildPreview": "注意：这是 Oasis 钱包的实验版本，您的机密信息不安全。仅供测试使用",
-    "buildStaging": "注意：这是 Oasis 钱包的测试环境。仅用于测试"
+    "buildPreview": "注意：这是 ROSE 钱包的实验版本，您的机密信息不安全。仅供测试使用",
+    "buildStaging": "注意：这是 ROSE 钱包的测试环境。仅用于测试"
   },
   "common": {
     "amount": "金额",
@@ -117,7 +119,7 @@
     "validators": "节点"
   },
   "createWallet": {
-    "confirmSaved": "我已保存助记词",
+    "confirmSaved": "我已经安全地存储了我的助记词",
     "doNotShare": "永远不要分享您的助记词，任何人拥有您的助记词都可以访问您的钱包和代币",
     "instruction": "将您的助记词<strong>按正确顺序</strong>保存在安全的位置，您将需要它来打开钱包",
     "mnemonicMismatch": "助记词不匹配",
@@ -135,7 +137,7 @@
   "deleteForm": {
     "confirm": "确认删除",
     "confirmationKeyword": "删除",
-    "hint": "输入 “{{confirmationKeyword}}”"
+    "hint": "输入 “<strong>{{confirmationKeyword}}</strong>”"
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "该账户不属于当前连接的Ledger",
@@ -164,11 +166,12 @@
   "fatalError": {
     "copied": "错误已复制到剪贴板",
     "copy": "复制错误到剪贴板",
-    "heading": "发生致命错误",
-    "instruction": "发生致命错误，导致Oasis钱包必须停止。尝试刷新页面并重新打开钱包，若问题仍然存在，请通过<Email/>电子邮件联系我们团队，并附上下面的报告"
+    "heading": "发生错误",
+    "instruction": "尝试刷新页面并重新打开钱包，若问题仍然存在，请通过<Email/>电子邮件联系我们团队，并附上下面的报告"
   },
   "fiatOnramp": {
-    "astarFootnote": "特此注意，AStar Technologies作为一家开曼群岛豁免公司，代表Oasis提供服务，并且也是Oasis钱包的提供者",
+    "astarFootnote": "特此注意，AStar Technologies作为一家开曼群岛豁免公司，代表Oasis提供服务，并且也是ROSE钱包的提供者",
+    "buyNowInNewTab": "购买ROSE",
     "description": "此功能允许您将法定货币转换为加密货币",
     "header": "购买ROSE",
     "headerInWidget": "购买ROSE到您的钱包",
@@ -200,6 +203,13 @@
       "header": "访问现有钱包"
     }
   },
+  "icons": {
+    "mnemonic": "助记词",
+    "privateKey": "私钥",
+    "wallet": {
+      "label": "钱包"
+    }
+  },
   "infoBox": {
     "valueCopied": "{{label}}已复制"
   },
@@ -214,7 +224,7 @@
     },
     "instructionSteps": {
       "closeLedgerLive": "关闭电脑上的Ledger Live应用",
-      "connectLedger": "连接您的Ledger设备到电脑",
+      "connectUsbLedger": "连接您的USB Ledger设备到电脑",
       "header": "步骤：",
       "openOasisApp": "打开Ledger设备上的Oasis应用"
     },
@@ -249,7 +259,6 @@
       "reveal": "点击以显示无效的私钥"
     },
     "backupMnemonic": {
-      "confirm": "我已经安全地存储了我的助记词",
       "description": "新版本的钱包扩展应用将不再存储您的助记词。如果您丢失访问权限，该助记词是恢复您的账户的唯一方式。现在您有最后一次机会备份您的助记词。",
       "reveal": "点击显示您的助记词"
     },
@@ -312,19 +321,16 @@
     },
     "common": {
       "cipher": "Cipher",
-      "depositHeader": "存入ParaTime",
       "emerald": "Emerald",
       "evmcType": "(EVMc)",
       "header": "ParaTime转账",
-      "sapphire": "Sapphire",
-      "withdrawHeader": "从ParaTime提款"
+      "sapphire": "Sapphire"
     },
     "confirmation": {
       "confirmDepositDescription": "请确认存款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
       "confirmDepositToForeignAccountDescription": "目标地址与您钱包中的任何帐户不匹配！一些服务（如交易所）可能不支持直接存款来到您的帐户。为了更好的兼容性，我们强烈建议您首先存入您的ParaTime帐户，然后将{{ticker}}转移到目标地址。",
       "confirmTransferLabel": "我确认金额和地址是正确的",
       "confirmTransferToForeignAccount": "我确认我想直接提取到外部账户",
-      "confirmTransferToValidatorDescription": "这是一个节点钱包地址。向此地址转账不会将您的资金质押到该节点。",
       "confirmTransferToValidatorLabel": "我确认我想转账{{ticker}}到节点地址",
       "confirmWithdrawDescription": "请确认提款金额和收款地址正确，然后点击“{{nextButtonLabel}}”",
       "confirmWithdrawToForeignAccountDescription": "目标地址与您钱包中的帐户不匹配！一些服务（如交易所）可能不支持直接提取资金到该帐户。为了更好的兼容性，我们强烈建议您先提取到您的共识层账户，然后将{{ticker}}转账到目标地址",
@@ -394,7 +400,7 @@
     "loginToProfile": {
       "deleteProfile": {
         "button": "删除个人资料",
-        "description": "你确定要删除个人资料吗？此操作无法撤销，并将<strong>擦除您的私钥</strong>。<br/><br/>要继续，请在下方输入“{{confirmationKeyword}}”。",
+        "description": "此操作无法撤销，并将<strong>擦除您的私钥</strong>。<br/><br/>要继续，请在下方输入“<strong>{{confirmationKeyword}}</strong>”。",
         "title": "删除个人资料"
       },
       "description": "登录您在此计算机上的现有用户档案，以访问您已添加的钱包。",
@@ -460,7 +466,7 @@
       "contacts": "联系人",
       "delete": {
         "description": "您确定要删除以下账户吗？",
-        "inputHelp": "此操作无法撤销。若要继续，请在下方输入“{{confirmationKeyword}}”",
+        "inputHelp": "此操作无法撤销。若要继续，请在下方输入“<strong>{{confirmationKeyword}}</strong>”",
         "title": "删除账户",
         "tooltip": "你必须始终拥有至少一个账户"
       },
@@ -492,7 +498,6 @@
       "from": "从",
       "gas": "Gas",
       "genesisHash": "创世哈希",
-      "shares": "Gigashares",
       "to": "至",
       "type": "类型",
       "validator": "节点",

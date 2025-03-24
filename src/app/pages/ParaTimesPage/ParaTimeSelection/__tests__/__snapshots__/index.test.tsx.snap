@@ -446,7 +446,7 @@ exports[`<ParaTimeSelection /> should render component 1`] = `
     <h2
       class="c1"
     >
-      paraTimes.common.depositHeader
+      paraTimes.transfers.deposit
     </h2>
     <div
       class="c2"
