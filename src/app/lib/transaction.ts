@@ -177,12 +177,12 @@ export class OasisTransaction {
     await tw.sign(signer, chainContext)
   }
 
-  public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T>): Promise<void> {
-    return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
-  }
-
-  public static async signParaTime<T>(chainContext: string, signer: Signer, tw: RTW<T>): Promise<void> {
-    return tw.sign([new oasis.signature.BlindContextSigner(signer)], chainContext)
+  public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T> | RTW<T>): Promise<void> {
+    if ('runtimeID' in tw) {
+      return tw.sign([new oasis.signature.BlindContextSigner(signer)], chainContext)
+    } else {
+      return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
+    }
   }
 
   public static async submit<T>(nic: OasisClient, tw: TW<T> | RTW<T>): Promise<void> {

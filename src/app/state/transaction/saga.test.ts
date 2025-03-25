@@ -63,7 +63,6 @@ describe('Transaction Sagas', () => {
       { transaction: { call: { method: 'method' } } },
     ],
     [matchers.call.fn(OasisTransaction.sign), {}],
-    [matchers.call.fn(OasisTransaction.signParaTime), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
     [matchers.call.fn(OasisTransaction.signUsingLedger), {}],
   ]

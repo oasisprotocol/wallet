@@ -329,7 +329,7 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
     runtime,
   )
 
-  yield* call(OasisTransaction.signParaTime, chainContext, paraTimeTransactionSigner as Signer, rtw)
+  yield* call(OasisTransaction.sign, chainContext, paraTimeTransactionSigner as Signer, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
 
