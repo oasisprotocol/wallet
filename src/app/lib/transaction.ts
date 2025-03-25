@@ -175,9 +175,6 @@ export class OasisTransaction {
     tw: TW<T>,
   ): Promise<void> {
     await tw.sign(signer, chainContext)
-
-    // @todo Upstream bug in oasis-app, the signature is larger than 64 bytes
-    tw.signedTransaction.signature.signature = tw.signedTransaction.signature.signature.slice(0, 64)
   }
 
   public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T>): Promise<void> {
