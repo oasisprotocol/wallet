@@ -9,7 +9,7 @@ import 'react-app-polyfill/stable'
 
 import * as React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
+import { Provider as ReduxProvider } from 'react-redux'
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css'
@@ -34,7 +34,7 @@ const root = createRoot(container!)
 const router = createBrowserRouter(routes)
 
 root.render(
-  <Provider store={store}>
+  <ReduxProvider store={store}>
     <ThemeProvider>
       <HelmetProvider>
         <React.StrictMode>
@@ -42,5 +42,5 @@ root.render(
         </React.StrictMode>
       </HelmetProvider>
     </ThemeProvider>
-  </Provider>,
+  </ReduxProvider>,
 )
