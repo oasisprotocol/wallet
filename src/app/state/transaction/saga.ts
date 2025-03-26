@@ -267,7 +267,7 @@ export function* setAllowance(
   if (allowanceDifference > 0n) {
     const signer = yield* getSigner()
     const tw = yield* call(prepareStakingAllowTransfer, signer, allowanceDifference, runtimeAddress)
-    yield* call(OasisTransaction.sign, chainContext, signer, tw)
+    yield* call(sign, signer, tw)
     yield* call(OasisTransaction.submit, nic, tw)
 
     yield* put(
@@ -320,7 +320,7 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
     runtime,
   )
 
-  yield* call(OasisTransaction.sign, chainContext, paraTimeTransactionSigner, rtw)
+  yield* call(sign, paraTimeTransactionSigner, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
 

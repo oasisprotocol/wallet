@@ -3,7 +3,7 @@ import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
-import { OasisTransaction } from 'app/lib/transaction'
+import { OasisTransaction, RTW, TW } from 'app/lib/transaction'
 import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
 import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 import { LedgerWalletType, WalletType } from 'app/state/wallet/types'
@@ -226,7 +226,7 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
   }
 }
 
-export function* sign<T>(signer: LedgerSigner | ContextSigner, tw: oasis.consensus.TransactionWrapper<T>) {
+export function* sign<T>(signer: LedgerSigner | ContextSigner, tw: TW<T> | RTW<T>) {
   let transport
   if ('transportType' in signer) {
     if (signer.transportType === WalletType.BleLedger) {

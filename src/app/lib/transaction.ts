@@ -30,7 +30,7 @@ export const signerFromEthPrivateKey = (ethPrivateKey: Uint8Array) => {
 export type TW<T> = oasis.consensus.TransactionWrapper<T>
 
 /** Runtime Transaction Wrapper */
-type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
+export type RTW<T> = oasisRT.wrapper.TransactionWrapper<T, void>
 
 export class OasisTransaction {
   protected static genesis?: oasis.types.GenesisDocument
