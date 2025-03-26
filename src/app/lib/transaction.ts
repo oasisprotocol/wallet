@@ -173,14 +173,6 @@ export class OasisTransaction {
     return rtw
   }
 
-  public static async signUsingLedger<T>(
-    chainContext: string,
-    signer: ContextSigner,
-    tw: TW<T>,
-  ): Promise<void> {
-    await tw.sign(signer, chainContext)
-  }
-
   public static async sign<T>(
     chainContext: string,
     signer: ContextSigner,

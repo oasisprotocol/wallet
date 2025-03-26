@@ -64,7 +64,6 @@ describe('Transaction Sagas', () => {
     ],
     [matchers.call.fn(OasisTransaction.sign), {}],
     [matchers.call.fn(OasisTransaction.submit), {}],
-    [matchers.call.fn(OasisTransaction.signUsingLedger), {}],
   ]
 
   const providers: (EffectProviders | StaticProvider)[] = [

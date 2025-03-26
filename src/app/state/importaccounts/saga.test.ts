@@ -197,7 +197,7 @@ describe('importAccounts Sagas', () => {
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
-          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.resolve()],
+          [matchers.call.fn(OasisTransaction.sign), Promise.resolve()],
         ])
         .call([mockTransport, mockTransport.close])
         .run(50)
@@ -220,7 +220,7 @@ describe('importAccounts Sagas', () => {
         .provide([
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
-          [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject(new Error('Dummy error'))],
+          [matchers.call.fn(OasisTransaction.sign), Promise.reject(new Error('Dummy error'))],
         ])
         .call([mockTransport, mockTransport.close])
         .run(50)
