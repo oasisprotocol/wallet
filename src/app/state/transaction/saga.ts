@@ -194,11 +194,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
 
     yield* setStep(TransactionStep.Signing)
 
-    if (activeWallet.type === WalletType.UsbLedger || activeWallet.type === WalletType.BleLedger) {
-      yield* call(sign, signer as LedgerSigner, tw)
-    } else {
-      yield* call(OasisTransaction.sign, chainContext, signer, tw)
-    }
+    yield* call(sign, signer, tw)
 
     yield* setStep(TransactionStep.Submitting)
     yield* call(OasisTransaction.submit, nic, tw)

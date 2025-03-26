@@ -5,7 +5,7 @@ import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
 import { OasisTransaction } from 'app/lib/transaction'
 import { all, call, delay, fork, put, select, takeEvery } from 'typed-redux-saga'
-import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
+import { ErrorPayload, ExhaustedTypeError, WalletError, WalletErrors } from 'types/errors'
 import { LedgerWalletType, WalletType } from 'app/state/wallet/types'
 import { importAccountsActions } from '.'
 import { ImportAccountsListAccount, ImportAccountsStep } from './types'
@@ -22,6 +22,7 @@ import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFa
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { getChainContext } from '../network/saga'
+import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
@@ -225,21 +226,25 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
   }
 }
 
-export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
+export function* sign<T>(signer: LedgerSigner | ContextSigner, tw: oasis.consensus.TransactionWrapper<T>) {
   let transport
-  if (signer.transportType === WalletType.BleLedger) {
-    const bleDevice = yield* select(selectSelectedBleDevice)
-    transport = yield* getBluetoothTransport(bleDevice)
-  } else {
-    transport = yield* getUSBTransport()
+  if ('transportType' in signer) {
+    if (signer.transportType === WalletType.BleLedger) {
+      const bleDevice = yield* select(selectSelectedBleDevice)
+      transport = yield* getBluetoothTransport(bleDevice)
+    } else if (signer.transportType === WalletType.UsbLedger) {
+      transport = yield* getUSBTransport()
+    } else {
+      throw new ExhaustedTypeError('Unsupported Ledger transport type', signer.transportType)
+    }
+    signer.setTransport(transport)
   }
-  const chainContext = yield* call(getChainContext)
 
-  signer.setTransport(transport)
+  const chainContext = yield* call(getChainContext)
   try {
     yield* call([OasisTransaction, OasisTransaction.sign], chainContext, signer, tw)
   } finally {
-    yield* call([transport, transport.close])
+    if (transport) yield* call([transport, transport.close])
   }
 }
 
