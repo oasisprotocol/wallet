@@ -2,8 +2,6 @@ import { test } from '../utils/extensionTestExtend'
 import { expect } from '@playwright/test'
 import { warnSlowApi } from '../utils/warnSlowApi'
 import { mockApi } from '../utils/mockApi'
-import { fillPrivateKeyAndPassword } from '../utils/fillPrivateKey'
-import { privateKey, privateKeyAddress } from '../../src/utils/__fixtures__/test-inputs'
 
 test.beforeEach(async ({ context }) => {
   await warnSlowApi(context)
@@ -48,7 +46,6 @@ test.describe('The extension popup should load', () => {
    */
   test('Transak can not be embedded in extension', async ({ page, extensionPopupURL }) => {
     test.fail()
-    await page.setViewportSize({ width: 1280, height: 720 })
 
     /* TODO: reenable when transak throws only a few errors
     await expectNoErrorsInConsole(page, {
@@ -61,28 +58,14 @@ test.describe('The extension popup should load', () => {
       },
     })
     */
-    await page.goto(`${extensionPopupURL}/open-wallet/private-key`)
-    await fillPrivateKeyAndPassword(page, {
-      privateKey: privateKey,
-      privateKeyAddress: privateKeyAddress,
-      persistenceCheckboxDisabled: 'disabled-checked',
+    await page.goto(`${extensionPopupURL}/`)
+    await page.evaluate(() => {
+      const iframe = document.createElement('iframe')
+      iframe.src = 'https://global.transak.com'
+      document.body.appendChild(iframe)
     })
-    await expect(page.getByTestId('account-selector')).toBeVisible()
-    await page.getByRole('link', { name: 'Buy' }).click()
-    await expect(page.getByRole('heading', { name: 'Buy ROSE' })).toBeVisible()
-
-    await page
-      .getByText(
-        'I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.',
-      )
-      .click()
+    await page.locator('iframe').scrollIntoViewIfNeeded()
     await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
-    // Wait for conversion to be loaded otherwise clicking "Buy now" early reloads the iframe
-    await expect(page.frameLocator('iframe')!.locator('#transak-calculator-source:disabled')).toHaveValue(
-      /\d/,
-    )
-    await page.frameLocator('iframe')!.getByText('Buy now').click()
-    await expect(page.frameLocator('iframe')!.getByText(/email/i).first()).toBeVisible()
   })
 
   test('recover from fatal errors', async ({ extensionPopupURL, context }) => {

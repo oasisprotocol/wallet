@@ -54,7 +54,7 @@ test.describe('Fiat on-ramp', () => {
     await expectNoErrorsInConsole(page)
     await setup(page)
     await page.route('https://*.transak.com/?*', route =>
-      route.fulfill({ status: 301, headers: { Location: 'https://global-stg.transak.com/' } }),
+      route.fulfill({ status: 302, headers: { Location: 'https://global-stg.transak.com/' } }),
     )
 
     await page
@@ -70,7 +70,7 @@ test.describe('Fiat on-ramp', () => {
     await expectNoErrorsInConsole(page)
     await setup(page)
     await page.route('https://*.transak.com/*', route =>
-      route.fulfill({ status: 301, headers: { Location: 'https://phishing-transak.com/' } }),
+      route.fulfill({ status: 302, headers: { Location: 'https://phishing-transak.com/' } }),
     )
     await page.route('https://phishing-transak.com/', route => route.fulfill({ body: `phishing` }))
 
