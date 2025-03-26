@@ -1,6 +1,6 @@
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
-import { ContextSigner, Signer } from '@oasisprotocol/client/dist/signature'
+import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 import { WalletError, WalletErrors } from 'types/errors'
 import { getEvmBech32Address } from 'app/lib/eth-helpers'
 import { isValidEthAddress } from 'app/lib/eth-helpers'
@@ -15,11 +15,15 @@ import {
 type OasisClient = oasis.client.NodeInternal
 
 export const signerFromPrivateKey = (privateKey: Uint8Array) => {
-  return oasis.signature.NaclSigner.fromSecret(privateKey, 'this key is not important')
+  return new oasis.signature.BlindContextSigner(
+    oasis.signature.NaclSigner.fromSecret(privateKey, 'this key is not important'),
+  )
 }
 
 export const signerFromEthPrivateKey = (ethPrivateKey: Uint8Array) => {
-  return oasisRT.signatureSecp256k1.EllipticSigner.fromPrivate(ethPrivateKey, 'this key is not important')
+  return new oasis.signature.BlindContextSigner(
+    oasisRT.signatureSecp256k1.EllipticSigner.fromPrivate(ethPrivateKey, 'this key is not important'),
+  )
 }
 
 /** Transaction Wrapper */
@@ -33,7 +37,7 @@ export class OasisTransaction {
 
   public static async buildReclaimEscrow(
     nic: OasisClient,
-    signer: Signer,
+    signer: ContextSigner,
     account: string,
     shares: bigint,
   ): Promise<TW<oasis.types.StakingReclaimEscrow>> {
@@ -54,7 +58,7 @@ export class OasisTransaction {
 
   public static async buildAddEscrow(
     nic: OasisClient,
-    signer: Signer,
+    signer: ContextSigner,
     account: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingEscrow>> {
@@ -75,7 +79,7 @@ export class OasisTransaction {
 
   public static async buildTransfer(
     nic: OasisClient,
-    signer: Signer,
+    signer: ContextSigner,
     to: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingTransfer>> {
@@ -96,7 +100,7 @@ export class OasisTransaction {
 
   public static async buildStakingAllowTransfer(
     nic: OasisClient,
-    signer: Signer,
+    signer: ContextSigner,
     to: string,
     amount: bigint,
   ): Promise<TW<oasis.types.StakingAllow>> {
@@ -125,7 +129,7 @@ export class OasisTransaction {
    */
   public static async buildParaTimeTransfer(
     nic: OasisClient,
-    signer: Signer,
+    signer: ContextSigner,
     transaction: ParaTimeTransaction,
     fromAddress: string,
     runtime: Runtime,
@@ -177,11 +181,15 @@ export class OasisTransaction {
     await tw.sign(signer, chainContext)
   }
 
-  public static async sign<T>(chainContext: string, signer: Signer, tw: TW<T> | RTW<T>): Promise<void> {
+  public static async sign<T>(
+    chainContext: string,
+    signer: ContextSigner,
+    tw: TW<T> | RTW<T>,
+  ): Promise<void> {
     if ('runtimeID' in tw) {
-      return tw.sign([new oasis.signature.BlindContextSigner(signer)], chainContext)
+      return tw.sign([signer], chainContext)
     } else {
-      return tw.sign(new oasis.signature.BlindContextSigner(signer), chainContext)
+      return tw.sign(signer, chainContext)
     }
   }
 
@@ -206,7 +214,7 @@ export class OasisTransaction {
     }
   }
 
-  protected static async getNonce(nic: OasisClient, signer: Signer): Promise<bigint> {
+  protected static async getNonce(nic: OasisClient, signer: ContextSigner): Promise<bigint> {
     const nonce = await nic.consensusGetSignerNonce({
       account_address: await shortPublicKey(signer.public()),
       height: 0,

@@ -1,5 +1,5 @@
 import { client, misc } from '@oasisprotocol/client'
-import { Signer } from '@oasisprotocol/client/dist/signature'
+import { ContextSigner } from '@oasisprotocol/client/dist/signature'
 import { PayloadAction } from '@reduxjs/toolkit'
 import {
   hex2uint,
@@ -63,7 +63,7 @@ function* getSigner() {
 
   const privateKey = wallet.privateKey!
 
-  let signer: Signer | LedgerSigner
+  let signer: ContextSigner
   if (wallet.type === WalletType.PrivateKey || wallet.type === WalletType.Mnemonic) {
     const bytes = hex2uint(privateKey!)
     signer = yield* call(signerFromPrivateKey, bytes)
@@ -76,7 +76,7 @@ function* getSigner() {
   return signer
 }
 
-function* prepareTransfer(signer: Signer, amount: bigint, to: string) {
+function* prepareTransfer(signer: ContextSigner, amount: bigint, to: string) {
   const nic = yield* call(getOasisNic)
 
   yield* call(assertWalletIsOpen)
@@ -84,13 +84,13 @@ function* prepareTransfer(signer: Signer, amount: bigint, to: string) {
   yield* call(assertSufficientBalance, amount)
   yield* call(assertRecipientNotSelf, to)
 
-  return yield* call(OasisTransaction.buildTransfer, nic, signer as Signer, to, amount)
+  return yield* call(OasisTransaction.buildTransfer, nic, signer as ContextSigner, to, amount)
 }
 
 /**
  * Set allowance for ParaTime transaction
  */
-function* prepareStakingAllowTransfer(signer: Signer, amount: bigint, to: string) {
+function* prepareStakingAllowTransfer(signer: ContextSigner, amount: bigint, to: string) {
   const nic = yield* call(getOasisNic)
 
   yield* call(assertWalletIsOpen)
@@ -98,12 +98,12 @@ function* prepareStakingAllowTransfer(signer: Signer, amount: bigint, to: string
   yield* call(assertSufficientBalance, amount)
   yield* call(assertRecipientNotSelf, to)
 
-  return yield* call(OasisTransaction.buildStakingAllowTransfer, nic, signer as Signer, to, amount)
+  return yield* call(OasisTransaction.buildStakingAllowTransfer, nic, signer as ContextSigner, to, amount)
 }
 
 function* prepareParatimeTransfer(
   nic: client.NodeInternal,
-  signer: Signer,
+  signer: ContextSigner,
   transaction: ParaTimeTransaction,
   from: string,
   runtime: Runtime,
@@ -116,23 +116,23 @@ function* prepareParatimeTransfer(
   return yield* call(OasisTransaction.buildParaTimeTransfer, nic, signer, transaction, from, runtime)
 }
 
-function* prepareAddEscrow(signer: Signer, amount: bigint, validator: string) {
+function* prepareAddEscrow(signer: ContextSigner, amount: bigint, validator: string) {
   const nic = yield* call(getOasisNic)
 
   yield* call(assertWalletIsOpen)
   yield* call(assertValidAddress, validator)
   yield* call(assertSufficientBalance, amount)
 
-  return yield* call(OasisTransaction.buildAddEscrow, nic, signer as Signer, validator, amount)
+  return yield* call(OasisTransaction.buildAddEscrow, nic, signer as ContextSigner, validator, amount)
 }
 
-function* prepareReclaimEscrow(signer: Signer, shares: bigint, validator: string) {
+function* prepareReclaimEscrow(signer: ContextSigner, shares: bigint, validator: string) {
   const nic = yield* call(getOasisNic)
 
   yield* call(assertWalletIsOpen)
   yield* call(assertValidAddress, validator)
 
-  return yield* call(OasisTransaction.buildReclaimEscrow, nic, signer as Signer, validator, shares)
+  return yield* call(OasisTransaction.buildReclaimEscrow, nic, signer as ContextSigner, validator, shares)
 }
 
 /**
@@ -157,22 +157,17 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
     let tw: TW<any>
     switch (action.payload.type) {
       case 'transfer':
-        tw = yield* call(prepareTransfer, signer as Signer, BigInt(action.payload.amount), action.payload.to)
+        tw = yield* call(prepareTransfer, signer, BigInt(action.payload.amount), action.payload.to)
         break
 
       case 'addEscrow':
-        tw = yield* call(
-          prepareAddEscrow,
-          signer as Signer,
-          BigInt(action.payload.amount),
-          action.payload.validator,
-        )
+        tw = yield* call(prepareAddEscrow, signer, BigInt(action.payload.amount), action.payload.validator)
         break
 
       case 'reclaimEscrow':
         tw = yield* call(
           prepareReclaimEscrow,
-          signer as Signer,
+          signer,
           BigInt(action.payload.shares),
           action.payload.validator,
         )
@@ -202,7 +197,7 @@ export function* doTransaction(action: PayloadAction<TransactionPayload>) {
     if (activeWallet.type === WalletType.UsbLedger || activeWallet.type === WalletType.BleLedger) {
       yield* call(sign, signer as LedgerSigner, tw)
     } else {
-      yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
+      yield* call(OasisTransaction.sign, chainContext, signer, tw)
     }
 
     yield* setStep(TransactionStep.Submitting)
@@ -275,8 +270,8 @@ export function* setAllowance(
   const allowanceDifference = yield* call(getAllowanceDifference, amount, runtimeAddress)
   if (allowanceDifference > 0n) {
     const signer = yield* getSigner()
-    const tw = yield* call(prepareStakingAllowTransfer, signer as Signer, allowanceDifference, runtimeAddress)
-    yield* call(OasisTransaction.sign, chainContext, signer as Signer, tw)
+    const tw = yield* call(prepareStakingAllowTransfer, signer, allowanceDifference, runtimeAddress)
+    yield* call(OasisTransaction.sign, chainContext, signer, tw)
     yield* call(OasisTransaction.submit, nic, tw)
 
     yield* put(
@@ -323,13 +318,13 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
   const rtw = yield* call(
     prepareParatimeTransfer,
     nic,
-    paraTimeTransactionSigner as Signer,
+    paraTimeTransactionSigner,
     transaction,
     fromOasisAddress,
     runtime,
   )
 
-  yield* call(OasisTransaction.sign, chainContext, paraTimeTransactionSigner as Signer, rtw)
+  yield* call(OasisTransaction.sign, chainContext, paraTimeTransactionSigner, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
 
