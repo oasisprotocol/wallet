@@ -112,13 +112,13 @@ export function getNexusAPIs(url: string | 'https://nexus.oasis.io/v1/') {
       // Temporary workaround for missing amount in staking.ReclaimEscrow
       const transactionsWithFixedAmount = await Promise.all(
         mergedTransactions.map(async transaction => {
-          if (transaction.method === ConsensusTxMethod.StakingReclaimEscrow) {
+          if (transaction.method === ConsensusTxMethod.StakingReclaimEscrow && transaction.success) {
             const eventsResponse = await api.consensusEventsGet({
               limit: 1,
               txHash: transaction.hash,
               type: ConsensusEventType.StakingEscrowDebondingStart,
             })
-            const amount = (eventsResponse.events[0].body as { amount?: number })?.amount
+            const amount = (eventsResponse.events[0]?.body as { amount?: number })?.amount
             return {
               ...transaction,
               body: {
