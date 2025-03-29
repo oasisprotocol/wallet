@@ -1,6 +1,5 @@
 # Don't check auto-generated stuff into git
 .parcel-cache/
-cypress-coverage/
 coverage/
 build/
 build-ext/
@@ -26,9 +25,3 @@ yarn-error.log*
 
 # Local debug
 debug*.c
-
-# Cypress
-/cypress/screenshots/
-/cypress/videos/
-/.nyc_output/
-/instrumented/

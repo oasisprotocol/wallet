@@ -8,7 +8,7 @@
     },
     {
       "groupName": "test dependencies",
-      "matchPackagePatterns": ["jest", "cypress", "testing-library", "istanbul"]
+      "matchPackagePatterns": ["jest", "testing-library"]
     },
     {
       "groupName": "react dependencies",
