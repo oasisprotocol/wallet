@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import { paraTimesConfig } from '../../src/config'
+import { E2EWindow } from '../../src/app/pages/E2EPage/E2EWindow'
 
 for (const net of ['mainnet', 'testnet']) {
   for (const paratime of ['sapphire', 'emerald', 'cipher']) {
@@ -10,8 +11,7 @@ for (const net of ['mainnet', 'testnet']) {
 
       const estimatedGas = await page.evaluate(
         async ([net, paratime, paraTimesConfig]) => {
-          const oasis: typeof import('@oasisprotocol/client') = (window as any).oasis
-          const oasisRT: typeof import('@oasisprotocol/client-rt') = (window as any).oasisRT
+          const { oasis, oasisRT } = window as E2EWindow
 
           const nic =
             net === 'mainnet'

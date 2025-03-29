@@ -17,6 +17,7 @@ import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
 import { Info } from 'grommet-icons/es6/icons/Info'
 import { Text } from 'grommet/es6/components/Text'
 import { Anchor } from 'grommet/es6/components/Anchor'
+import { E2EWindow } from './E2EWindow'
 
 export function E2EPage() {
   return (
@@ -32,16 +33,7 @@ export function E2EPage() {
   )
 }
 
-interface e2eWindow extends Window {
-  monitor: any
-  oasisscan: any
-  oasisscanV2: any
-  nexus: any
-  oasis: any
-  oasisRT: any
-  store: any
-}
-declare const window: e2eWindow
+declare const window: E2EWindow
 
 function ExposeInternals() {
   const store = useStore()
