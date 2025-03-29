@@ -27,10 +27,6 @@
       "matchPackagePatterns": ["@types/"]
     },
     {
-      "groupName": "docker dependencies",
-      "matchManagers": ["docker-compose", "dockerfile"]
-    },
-    {
       "groupName": "CI github-actions",
       "matchManagers": ["github-actions"]
     },
