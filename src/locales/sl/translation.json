@@ -23,7 +23,7 @@
     },
     "sendTransaction": {
       "confirmSendingToValidator": {
-        "description": "To je naslov overitelja. Prenos kovancev na ta naslov ni enako delegiranju kovancev.",
+        "description": "Prejemnikov naslov pripada overitelju. Prenos na ta naslov mu sredstev ne bo delegiral, temveč nakazal.",
         "title": "Ste prepričani, da želite nadaljevati?"
       },
       "enterAddress": "Vnesite naslov",
