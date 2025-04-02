@@ -11,12 +11,14 @@ import * as oasisscanV2 from 'vendors/oasisscan-v2'
 import * as nexus from 'vendors/nexus'
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
+import * as encryption from 'app/state/persist/encryption'
 import { useDispatch, useStore } from 'react-redux'
 import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
 import { Info } from 'grommet-icons/es6/icons/Info'
 import { Text } from 'grommet/es6/components/Text'
 import { Anchor } from 'grommet/es6/components/Anchor'
+import { E2EWindow } from './E2EWindow'
 
 export function E2EPage() {
   return (
@@ -32,16 +34,7 @@ export function E2EPage() {
   )
 }
 
-interface e2eWindow extends Window {
-  monitor: any
-  oasisscan: any
-  oasisscanV2: any
-  nexus: any
-  oasis: any
-  oasisRT: any
-  store: any
-}
-declare const window: e2eWindow
+declare const window: E2EWindow
 
 function ExposeInternals() {
   const store = useStore()
@@ -51,6 +44,7 @@ function ExposeInternals() {
     window.nexus = nexus
     window.oasis = oasis
     window.oasisRT = oasisRT
+    window.encryption = encryption
     window.store = store
     return () => {
       // Keep globals even after redirecting away

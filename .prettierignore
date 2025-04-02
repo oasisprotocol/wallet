@@ -1,6 +1,5 @@
 build/
 node_modules/
-cypress/
 coverage/
 **/node/**
 package-lock.json

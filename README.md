@@ -65,14 +65,6 @@ yarn install
 yarn start
 ```
 
-Alternatively, to get started with a local network:
-
-```shell
-docker-compose up --build -d
-yarn install
-REACT_APP_LOCALNET=1 yarn start
-```
-
 Then go to <http://localhost:3000> to access the wallet.
 
 ### Test accounts
@@ -92,9 +84,6 @@ oasis1qq5t7f2gecsjsdxmp5zxtwgck6pzpjmkvc657z6l
 ```
 
 ## Architecture
-
-This code needs multiple components to run, all provided in the
-[docker-compose.yml] for local development.
 
 ![Architecture diagram](docs/images/architecture.svg)
 
@@ -117,9 +106,9 @@ API that web wallet is using is determined during a build time.
 
 The repository has two different test strategies:
 
-- E2E (End-to-end) tests, run with [Cypress], located in [cypress/](/cypress).
-  These tests require the react app to be accessible on port `3000` and the
-  docker-compose stack to be up.
+- E2E (End-to-end) tests, run with [Playwright], located in
+  [playwright/](/playwright).
+  These tests require the react app to be accessible on port `3000`.
 - Unit & functional tests, run with [Jest], located throughout the codebase
 
 To run all tests:
@@ -137,12 +126,6 @@ yarn start
 (cd playwright; yarn test)
 # Or `yarn start:prod` and `yarn test:prod` to test production builds.
 # Or `xvfb-run yarn test` to prevent browser windows opening.
-
-# Run cypress tests
-docker-compose up -d
-# Run this in another terminal to keep it open
-REACT_APP_LOCALNET=1 REACT_APP_BACKEND=oasismonitor yarn start
-yarn cypress:run
 
 # Manually check that content-security-policy in getSecurityHeaders.js doesn't
 # break any functionality
@@ -218,13 +201,11 @@ Adding a new language:
 
 [demo-video]: https://github.com/oasisprotocol/wallet/assets/3758846/ef11fbea-dd55-42b1-87a4-1b74509a2809
 [chromewebstore.google.com]: https://chromewebstore.google.com/detail/rose-wallet/ppdadbejkmjnefldpcdjhnkpbjkikoip
-[docker-compose.yml]: docker-compose.yml
 [envoy-proxy]: https://www.envoyproxy.io
 [oasis-nexus]: https://github.com/oasisprotocol/nexus
 [oasis-nexus-api-spec]: https://nexus.oasis.io/v1/spec/v1.html
 [oasis-scan]: https://www.oasisscan.com
 [scan-api-repo]: https://github.com/bitcat365/oasisscan-backend#oasisscan-api
-[Cypress]: https://www.cypress.io/
 [Jest]: https://github.com/facebook/jest
 [prettier]: https://prettier.io/
 [eslint]: https://github.com/eslint/eslint

@@ -8,7 +8,7 @@
     },
     {
       "groupName": "test dependencies",
-      "matchPackagePatterns": ["jest", "cypress", "testing-library", "istanbul"]
+      "matchPackagePatterns": ["jest", "testing-library"]
     },
     {
       "groupName": "react dependencies",
@@ -25,10 +25,6 @@
     {
       "groupName": "TypeScript type definitions",
       "matchPackagePatterns": ["@types/"]
-    },
-    {
-      "groupName": "docker dependencies",
-      "matchManagers": ["docker-compose", "dockerfile"]
     },
     {
       "groupName": "CI github-actions",

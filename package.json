@@ -13,8 +13,6 @@
     "clean": "rm -rf build/ .parcel-cache",
     "clean:ext": "rm -rf build-ext/ .parcel-cache",
     "start": "REACT_APP_META_CSP= HMR_PORT=2222 EXTENSION_CSP=`yarn -s print-extension-dev-csp` parcel --host localhost --port 3000 --dist-dir build-dev",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
     "test": "jest --color",
     "test:watch": "yarn run test --watch",
     "start:prod": "yarn run build && node ./internals/scripts/serve-prod.js",
@@ -47,14 +45,6 @@
       "last 1 safari version",
       "not ios_saf < 13"
     ]
-  },
-  "nyc": {
-    "exclude": [
-      "src/vendors",
-      "**/vendors/**"
-    ],
-    "excludeAfterRemap": true,
-    "report-dir": "cypress-coverage"
   },
   "dependencies": {
     "@capacitor-community/bluetooth-le": "6.0.0",
@@ -100,11 +90,9 @@
   },
   "devDependencies": {
     "@capacitor/cli": "6.0.0",
-    "@cypress/code-coverage": "3.12.15",
     "@parcel/config-webextension": "2.10.3",
     "@parcel/packager-raw-url": "2.10.3",
     "@parcel/transformer-webmanifest": "2.10.3",
-    "@testing-library/cypress": "10.0.1",
     "@testing-library/jest-dom": "6.1.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.5.1",
@@ -125,8 +113,6 @@
     "@types/webextension-polyfill": "0.12.3",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
-    "babel-plugin-istanbul": "6.1.1",
-    "cypress": "13.6.1",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-react-app": "7.0.1",

@@ -5,6 +5,7 @@ import { expectNoFatal } from '../utils/expectNoFatal'
 import { addPersistedStorageV1, clearPersistedStorage } from '../utils/storage'
 import { password, privateKeyUnlockedState } from '../../src/utils/__fixtures__/test-inputs'
 import { RootState } from '../../src/types/RootState'
+import { E2EWindow } from '../../src/app/pages/E2EPage/E2EWindow'
 
 test.beforeEach(async ({ context, page }) => {
   await warnSlowApi(context)
@@ -28,8 +29,7 @@ test.describe('Migrating persisted state', () => {
     await tab2.getByTestId('account-selector').click({ timeout: 15_000 })
     await expect(tab2.getByTestId('account-choice')).toHaveCount(1)
     const decryptedStateV1 = await tab2.evaluate(() => {
-      const store: any = window['store']
-      return store.getState() as RootState
+      return (window as E2EWindow).store.getState()
     })
     expect(decryptedStateV1).toEqual({
       ...privateKeyUnlockedState,

@@ -6,6 +6,7 @@ import { expectNoFatal } from '../utils/expectNoFatal'
 import { addPersistedStorageV0, clearPersistedStorage } from '../utils/storage'
 import { password, walletExtensionV0UnlockedState } from '../../src/utils/__fixtures__/test-inputs'
 import { RootState } from '../../src/types/RootState'
+import { E2EWindow } from '../../src/app/pages/E2EPage/E2EWindow'
 
 test.beforeEach(async ({ context, page, extensionManifestURL }) => {
   await warnSlowApi(context)
@@ -56,8 +57,7 @@ test('Migrate from V0 extension persisted state to valid RootState', async ({
     await page.getByTestId('account-selector').click({ timeout: 15_000 })
     await expect(page.getByTestId('account-choice')).toHaveCount(7)
     const decryptedStateV1 = await page.evaluate(() => {
-      const store: any = window['store']
-      return store.getState() as RootState
+      return (window as E2EWindow).store.getState()
     })
     expect(decryptedStateV1).toEqual({
       ...walletExtensionV0UnlockedState,
