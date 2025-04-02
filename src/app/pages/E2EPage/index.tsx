@@ -12,6 +12,7 @@ import * as nexus from 'vendors/nexus'
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
 import * as encryption from 'app/state/persist/encryption'
+import * as grpcWeb from 'grpc-web'
 import { useDispatch, useStore } from 'react-redux'
 import { walletActions } from '../../state/wallet'
 import { AlertBox, AlertBoxStatus } from '../../components/AlertBox'
@@ -45,6 +46,7 @@ function ExposeInternals() {
     window.oasis = oasis
     window.oasisRT = oasisRT
     window.encryption = encryption
+    window.grpcWeb = grpcWeb
     window.store = store
     return () => {
       // Keep globals even after redirecting away
