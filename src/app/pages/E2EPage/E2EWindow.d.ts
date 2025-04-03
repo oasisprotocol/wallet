@@ -4,6 +4,7 @@ import * as nexus from 'vendors/nexus'
 import * as oasis from '@oasisprotocol/client'
 import * as oasisRT from '@oasisprotocol/client-rt'
 import * as encryption from '../../state/persist/encryption'
+import * as grpcWeb from 'grpc-web'
 import { Store } from '@reduxjs/toolkit'
 import { RootState } from '../../../types'
 
@@ -15,6 +16,7 @@ interface _E2EWindow extends Window {
   oasisRT: typeof oasisRT
   encryption: typeof encryption
   store: Store<RootState>
+  grpcWeb: typeof grpcWeb
 }
 
 export type E2EWindow = _E2EWindow & typeof globalThis
