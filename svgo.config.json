@@ -1,0 +1,4 @@
+{
+  // Disable SVG optimizations; it broke darkmode svg
+  "plugins": []
+}

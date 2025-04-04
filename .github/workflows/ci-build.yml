@@ -56,7 +56,6 @@ jobs:
         run: |
           "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
       - name: Build Android App Bundle (AAB)
-        if: github.event_name == 'push'
         run: ./gradlew bundleRelease
         working-directory: android
       - name: Build Android Package (APK)
@@ -66,7 +65,6 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > "android/release.jks"
       - name: Sign AAB using jarsigner
-        if: github.event_name == 'push'
         run: |
           jarsigner -verbose -keystore "android/release.jks" -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEYSTORE_PASSWORD }}" -signedjar "android/app/build/outputs/bundle/release/app-release-signed.aab" "android/app/build/outputs/bundle/release/app-release.aab" "${{ secrets.KEY_ALIAS }}"
       # Targeting version 30 and above we need to align the APK so that all uncompressed data starts on a 4-byte boundary
@@ -77,25 +75,21 @@ jobs:
         run: |
           "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Upload Android AAB build artifacts
-        if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
           name: rose-wallet-android-${{ steps.vars.outputs.SHORT_SHA }}.aab
           path: android/app/build/outputs/bundle/release/app-release-signed.aab
       - name: Upload Android APK build artifacts
-        if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
           name: rose-wallet-android-${{ steps.vars.outputs.SHORT_SHA }}.apk
           path: android/app/build/outputs/apk/release/app-release-aligned.apk
       - name: Upload web ROSE Wallet build artifacts
-        if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
           name: rose-wallet-web-${{ steps.vars.outputs.SHORT_SHA }}
           path: build
       - name: Upload extension ROSE Wallet build artifacts
-        if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
         with:
           name: rose-wallet-ext-${{ steps.vars.outputs.SHORT_SHA }}
