@@ -1,6 +1,5 @@
 import { waitFor } from '@testing-library/react'
 import 'dotenv/config'
-import 'react-app-polyfill/stable'
 
 // react-testing-library renders your components to document.body,
 // this adds jest-dom's custom assertions
