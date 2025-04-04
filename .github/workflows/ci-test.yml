@@ -87,6 +87,9 @@ jobs:
     name: playwright
     needs: [playwright-prepare]
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.1-noble
+      options: --user 1001
     strategy:
       fail-fast: false
       matrix:
@@ -109,9 +112,6 @@ jobs:
       # outside sharding: yarn + build:ext + build + upload
       # and then 8x shard: download builds + serve + test
       - run: REACT_APP_E2E_TEST=1 node ./playwright/serve-prod.js &
-      - name: Install playwright's system dependencies
-        working-directory: ./playwright/
-        run: npx playwright install --with-deps
       - run: npx wait-on http://localhost:5000/ --timeout 60000
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
