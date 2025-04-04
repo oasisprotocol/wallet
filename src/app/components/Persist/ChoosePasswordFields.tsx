@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { ChoosePasswordInputFields } from './ChoosePasswordInputFields'
-import { runtimeIs } from 'config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 export function ChoosePasswordFields() {
   const { t } = useTranslation()

@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
-import { runtimeIs } from '../../../../../config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 import { IonicContextProvider } from '../../providers/IonicProvider'
 import { UpdateGate } from '../UpdateGate'
 
