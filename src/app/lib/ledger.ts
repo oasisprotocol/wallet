@@ -7,7 +7,7 @@ import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
 import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
-import { runtimeIs } from '../../config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 interface LedgerAccount {
   publicKey: Uint8Array

@@ -23,7 +23,7 @@ import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
 import { ResponsiveLayer } from '../ResponsiveLayer'
 import logotype from '../../../../public/Icon Blue 192.png'
-import { runtimeIs } from 'config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 import { BrandButton } from '../Button'
 
 const StyledTextArea = styled(TextArea)`

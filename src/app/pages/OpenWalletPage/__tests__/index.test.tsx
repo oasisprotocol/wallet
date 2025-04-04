@@ -7,8 +7,7 @@ jest.mock('app/lib/ledger', () => ({
   canAccessBle: jest.fn().mockResolvedValue(false),
   canAccessNavigatorUsb: jest.fn().mockResolvedValue(false),
 }))
-jest.mock('config', () => ({
-  ...jest.requireActual('config'),
+jest.mock('app/lib/runtimeIs', () => ({
   runtimeIs: 'extension',
 }))
 jest.mock('react-redux', () => ({

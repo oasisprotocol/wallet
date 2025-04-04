@@ -1,4 +1,4 @@
-import { runtimeIs } from '../config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 import { decrypt as metamaskDecrypt } from '@metamask/browser-passworder'
 import { EncryptedString, PersistedRootState } from '../app/state/persist/types'
 import { initialState as initialNetworkState } from '../app/state/network'

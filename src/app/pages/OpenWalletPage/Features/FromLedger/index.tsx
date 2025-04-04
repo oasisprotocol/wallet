@@ -7,7 +7,7 @@ import { Text } from 'grommet/es6/components/Text'
 import { canAccessBle, canAccessNavigatorUsb } from '../../../../lib/ledger'
 import { useTranslation } from 'react-i18next'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
-import { runtimeIs } from '../../../../../config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 type SelectOpenMethodProps = {
   openLedgerAccessPopup?: () => void
