@@ -21,7 +21,7 @@ import {
 import { PasswordWrongError } from 'types/errors'
 import { walletActions } from 'app/state/wallet'
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
-import { runtimeIs } from 'config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 import { backupAndDeleteV0ExtProfile, readStorageV0 } from '../../../utils/walletExtensionV0'
 import { selectStringifiedEncryptionKey } from './selectors'
 

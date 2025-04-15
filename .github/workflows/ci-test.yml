@@ -56,9 +56,9 @@ jobs:
           path: coverage
           retention-days: 5
 
-  playwright:
+  playwright-prepare:
     # NOTE: This name appears in GitHub's Checks API.
-    name: playwright
+    name: playwright-prepare
     needs: [yarn_cache]
     runs-on: ubuntu-latest
     steps:
@@ -72,24 +72,58 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - run: REACT_APP_E2E_TEST=1 yarn build:ext
-      - run: REACT_APP_E2E_TEST=1 yarn start:prod &
+      - run: REACT_APP_E2E_TEST=1 yarn build
+      - name: Upload builds for playwright
+        uses: actions/upload-artifact@v4
+        with:
+          name: builds-for-playwright
+          path: |
+            ./build
+            ./build-ext
+          retention-days: 5
+
+  playwright:
+    # NOTE: This name appears in GitHub's Checks API.
+    name: playwright
+    needs: [playwright-prepare]
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.1-noble
+      options: --user 1001
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4, 5, 6, 7, 8]
+        shardTotal: [8]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: yarn
+      - uses: actions/download-artifact@v4
+      - run: mv ./builds-for-playwright/build ./build
+      - run: mv ./builds-for-playwright/build-ext ./build-ext
       - name: Install playwright's npm dependencies
         working-directory: ./playwright/
         run: yarn install --frozen-lockfile
-      - name: Install playwright's system dependencies
-        working-directory: ./playwright/
-        run: npx playwright install --with-deps
+      # outside sharding: yarn + build:ext + build + upload
+      # and then 8x shard: download builds + serve + test
+      - run: REACT_APP_E2E_TEST=1 node ./playwright/serve-prod.js &
       - run: npx wait-on http://localhost:5000/ --timeout 60000
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
-        run: xvfb-run yarn test:prod
+        run: xvfb-run yarn test:prod --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - name: 'Upload playwright test-results'
         if: ${{ failure() }}
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-test-results
+          name: playwright-test-results-${{ matrix.shardIndex }}
           path: playwright/test-results
           retention-days: 5
+          # TODO: maybe https://playwright.dev/docs/test-sharding#merging-reports-from-multiple-shards
 
   upload-coverage:
     # NOTE: This name appears in GitHub's Checks API.

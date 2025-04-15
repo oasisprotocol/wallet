@@ -9,7 +9,7 @@ import {
   UpdatePasswordPayload,
 } from './types'
 import { RootState } from 'types'
-import { runtimeIs } from 'config'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { createPersistedRootReducer } from 'store/reducers'
