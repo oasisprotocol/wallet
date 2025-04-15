@@ -4,7 +4,7 @@
   "name": "The official non-custodial web wallet for the Oasis Network.",
   "icons": [
     {
-      "src": "./favicon.svg",
+      "src": "https://assets.oasis.io/logotypes/favicon.svg",
       "sizes": "any",
       "type": "image/x-icon"
     },
