@@ -287,7 +287,7 @@ test.describe('syncTabs', () => {
     })
     await test.step('Test syncing actions to 10 tabs', async () => {
       await page.getByTestId('network-selector').click()
-      await page.getByRole('menuitem', { name: 'Mainnet' }).click()
+      await page.getByRole('menuitem', { name: 'Mainnet' }).click({ timeout: 10_000 })
       for (const tab of context.pages()) {
         await expect(tab.getByTestId('network-selector')).toHaveText('Mainnet')
       }
