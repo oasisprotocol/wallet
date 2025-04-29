@@ -89,9 +89,9 @@
   },
   "devDependencies": {
     "@capacitor/cli": "6.0.0",
-    "@parcel/config-webextension": "2.10.3",
-    "@parcel/packager-raw-url": "2.10.3",
-    "@parcel/transformer-webmanifest": "2.10.3",
+    "@parcel/config-webextension": "2.14.4",
+    "@parcel/packager-raw-url": "2.14.4",
+    "@parcel/transformer-webmanifest": "2.14.4",
     "@testing-library/jest-dom": "6.1.5",
     "@testing-library/react": "13.4.0",
     "@testing-library/user-event": "14.5.1",
@@ -126,7 +126,7 @@
     "jest-styled-components": "7.2.0",
     "jest-when": "3.6.0",
     "markdownlint-cli": "0.38.0",
-    "parcel": "2.10.3",
+    "parcel": "2.14.4",
     "parcel-transformer-env-variables-injection": "0.1.2",
     "prettier": "3.0.3",
     "process": "0.11.10",
@@ -164,15 +164,15 @@
     "store": "./src/store",
     "vendors": "./src/vendors"
   },
+  "// see also .parcelrc and .terserrc": {},
+  "// https://parceljs.org/recipes/web-extension/#hmr": {},
   "targets": {
-    "// see also .parcelrc and .terserrc": {},
     "web": {
       "source": "public/index.html",
       "distDir": "./build",
       "context": "browser",
       "scopeHoist": false
     },
-    "// https://parceljs.org/recipes/web-extension/#hmr": {},
     "ext": {
       "source": "public/manifest.json",
       "distDir": "./build-ext",
