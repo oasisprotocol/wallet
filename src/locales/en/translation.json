@@ -396,6 +396,7 @@
     "recipient": {
       "depositDescription": "Please enter the recipient address on <strong>{{paraTime}}</strong> {{paratimeType}} and then click \"{{nextButtonLabel}}\"",
       "ethPrivateKeyPlaceholder": "Enter Ethereum-compatible private key",
+      "ethPrivateKeySelectInstructions": "Type a private key or select a previously entered ParaTime account",
       "evmcWithdrawDescription": "Please enter the private key of the account on ParaTime, the recipient address on consensus and click \"{{nextButtonLabel}}\"",
       "placeholder": "0x...",
       "withdrawDescription": "Please enter the recipient address on consensus and click \"{{nextButtonLabel}}\""
