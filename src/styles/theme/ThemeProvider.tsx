@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 import { selectTheme } from './slice/selectors'
 import { dataTableTheme } from './dataTableTheme'
-import { css } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 import { getTargetTheme } from './utils'
 import { getInitialState as getInitialThemeState } from './slice'
 
@@ -383,12 +383,20 @@ const grommetCustomTheme: ThemeType = {
     },
   },
 }
+
+const GlobalStyle = createGlobalStyle`
+  :root {
+    color-scheme: ${({ theme }) => ((theme as any).dark ? 'dark' : 'light')};
+  }
+`
+
 export const ThemeProvider = (props: { children: React.ReactNode }) => {
   const theme = deepMerge(grommet, grommetCustomTheme)
   const mode = useSelector(selectTheme)
 
   return (
     <Grommet theme={theme} themeMode={getTargetTheme(mode)} style={{ minHeight: '100dvh' }}>
+      <GlobalStyle />
       {React.Children.only(props.children)}
     </Grommet>
   )
