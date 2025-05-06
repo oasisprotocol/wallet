@@ -17,7 +17,7 @@ interface Props<TFormValue> {
   autoFocus?: boolean
   value?: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  suggestions?: Array<{ label: string; value: any }>
+  suggestions?: Array<{ label: React.ReactNode; value: any }>
   validate?: (password: string, form: TFormValue) => string | undefined
   error?: string | false
   /** @deprecated Use `validate` */

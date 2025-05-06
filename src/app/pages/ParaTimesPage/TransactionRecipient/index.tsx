@@ -108,7 +108,24 @@ export const TransactionRecipient = () => {
               value={transactionForm.ethPrivateKeyRaw}
               showTip={t('openWallet.privateKey.showPrivateKey', 'Show private key')}
               hideTip={t('openWallet.privateKey.hidePrivateKey', 'Hide private key')}
-              suggestions={evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey }))}
+              suggestions={[
+                ...(evmAccounts.length > 0
+                  ? [
+                      {
+                        label: (
+                          <Box pad="small" style={{ fontWeight: 'bold' }} onClick={e => e.stopPropagation()}>
+                            {t(
+                              'paraTimes.recipient.ethPrivateKeySelectInstructions',
+                              'Type a private key or select a previously entered ParaTime account',
+                            )}
+                          </Box>
+                        ),
+                        value: '',
+                      },
+                    ]
+                  : []),
+                ...evmAccounts.map(acc => ({ label: acc.ethAddress, value: acc.ethPrivateKey })),
+              ]}
             />
           )}
 
