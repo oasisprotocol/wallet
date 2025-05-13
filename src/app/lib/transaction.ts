@@ -19,7 +19,7 @@ export const signerFromPrivateKey = (privateKey: Uint8Array) => {
 }
 
 export const signerFromEthPrivateKey = (ethPrivateKey: Uint8Array) => {
-  return oasisRT.signatureSecp256k1.EllipticSigner.fromPrivate(ethPrivateKey, 'this key is not important')
+  return oasisRT.signatureSecp256k1.NobleSigner.fromPrivate(ethPrivateKey, 'this key is not important')
 }
 
 /** Transaction Wrapper */
