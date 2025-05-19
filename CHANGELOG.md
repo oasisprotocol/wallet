@@ -12,6 +12,67 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.3.0 (2025-05-19)
+
+### Features
+
+- Add Vietnamese translation, thanks emhieu2005
+  ([#2131](https://github.com/oasisprotocol/wallet/issues/2131))
+
+### Bug Fixes and Improvements
+
+- Update translations from transifex
+  ([#2148](https://github.com/oasisprotocol/wallet/issues/2148))
+
+- Show ParaTime transactions in pending transactions section
+  ([#2128](https://github.com/oasisprotocol/wallet/issues/2128))
+
+- Fix broken link to Ledger help
+  ([#2137](https://github.com/oasisprotocol/wallet/issues/2137))
+
+- Show Ledger help links on USBTransportError and in extension
+  ([#2149](https://github.com/oasisprotocol/wallet/issues/2149))
+
+- Fix Explorer link for testnet network
+  ([#2144](https://github.com/oasisprotocol/wallet/issues/2144))
+
+- Add env vars with updated deploy URLs and refine banner display conditions
+  ([#2145](https://github.com/oasisprotocol/wallet/issues/2145))
+
+- Fallback to transak button if embedded doesn't initialize after 5sec
+  ([#2154](https://github.com/oasisprotocol/wallet/issues/2154))
+
+- Improve description of allowance change transactions
+  ([#2156](https://github.com/oasisprotocol/wallet/issues/2156))
+
+### Internal Changes
+
+- Update dependencies
+  ([#1694](https://github.com/oasisprotocol/wallet/issues/1694),
+   [#1799](https://github.com/oasisprotocol/wallet/issues/1799),
+   [#1854](https://github.com/oasisprotocol/wallet/issues/1854),
+   [#1958](https://github.com/oasisprotocol/wallet/issues/1958),
+   [#2133](https://github.com/oasisprotocol/wallet/issues/2133),
+   [#2146](https://github.com/oasisprotocol/wallet/issues/2146))
+
+- Test hardcoded Consensus transaction fee
+  ([#2165](https://github.com/oasisprotocol/wallet/issues/2165))
+
+- Migrate Cypress e2e tests to Playwright and remove Oasis Monitor docker config
+  ([#2161](https://github.com/oasisprotocol/wallet/issues/2161))
+
+- Speedup playwright CI
+  ([#2166](https://github.com/oasisprotocol/wallet/issues/2166))
+
+- Move favicon to assets.oasis.io
+  ([#2167](https://github.com/oasisprotocol/wallet/issues/2167))
+
+- Set CSS color-scheme to match grommet dark theme
+  ([#2170](https://github.com/oasisprotocol/wallet/issues/2170))
+
+- Remove react-app-polyfill from runtime
+  ([#2172](https://github.com/oasisprotocol/wallet/issues/2172))
+
 ## 2.2.0 (2025-03-04)
 
 ### Removals and Breaking Changes
