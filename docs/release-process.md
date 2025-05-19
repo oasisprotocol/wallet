@@ -46,23 +46,10 @@ Verify security headers were updated:
 - Compare to Content-Security-Policy.txt and Permissions-Policy.txt in
   <https://github.com/oasisprotocol/wallet/releases>
 
-## TODO: Extension wallet
+## Extension wallet
 
-- Update version in `manifest.json`
-- Changelog
-- Commit
-- Make PR and merge
-- Git tag
-- Build
-
-```sh
-VERSION=`cat extension/src/manifest.json | jq .version -r`
-COMMIT=`git rev-parse --short HEAD`
-yarn install --frozen-lockfile
-yarn build:ext
-zip -r rose-wallet-$VERSION-$COMMIT.zip build-ext/
-```
-
-- GitHub pre-release with zip file
-- Chrome store
-- Update pre-release
+- download rose-wallet-ext-*.zip from
+  <https://github.com/oasisprotocol/wallet/releases>
+- download
+  <https://github.com/oasisprotocol/wallet/tree/master/playwright/screenshots>
+- upload to Chrome Web Store
