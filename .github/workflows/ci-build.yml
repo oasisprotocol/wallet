@@ -48,11 +48,14 @@ jobs:
       - name: Build extension ROSE Wallet
         run: yarn build:ext
       - name: Sync Capacitor for Android
+        if: github.event_name == 'push'
         run: yarn cap sync android
       - name: Accept SDK licenses
+        if: github.event_name == 'push'
         run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
       # Capacitor v6 sets a deployment target of Android 14 (SDK 34)
       - name: Install SDK components
+        if: github.event_name == 'push'
         run: |
           "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
       - name: Build Android App Bundle (AAB)
@@ -60,9 +63,11 @@ jobs:
         run: ./gradlew bundleRelease
         working-directory: android
       - name: Build Android Package (APK)
+        if: github.event_name == 'push'
         run: ./gradlew assembleRelease
         working-directory: android
       - name: Decode and Save Keystore File
+        if: github.event_name == 'push'
         run: |
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > "android/release.jks"
       - name: Sign AAB using jarsigner
@@ -71,9 +76,11 @@ jobs:
           jarsigner -verbose -keystore "android/release.jks" -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEYSTORE_PASSWORD }}" -signedjar "android/app/build/outputs/bundle/release/app-release-signed.aab" "android/app/build/outputs/bundle/release/app-release.aab" "${{ secrets.KEY_ALIAS }}"
       # Targeting version 30 and above we need to align the APK so that all uncompressed data starts on a 4-byte boundary
       - name: Zipalign APK
+        if: github.event_name == 'push'
         run: |
           "$ANDROID_SDK_ROOT/build-tools/34.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Sign APK using apksigner
+        if: github.event_name == 'push'
         run: |
           "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Upload Android AAB build artifacts
