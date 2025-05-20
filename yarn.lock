@@ -1204,10 +1204,22 @@
   dependencies:
     "@emotion/memoize" "^0.8.0"
 
+"@emotion/is-prop-valid@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-1.3.1.tgz#8d5cf1132f836d7adbe42cf0b49df7816fc88240"
+  integrity sha512-/ACwoqx7XQi9knQs/G0qKvv5teDMhD7bXYns9N/wM8ah8iNb8jZ2uNO0YOgiq2o2poIvVtJS2YALasQuMSQ7Kw==
+  dependencies:
+    "@emotion/memoize" "^0.9.0"
+
 "@emotion/memoize@^0.8.0":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.0.tgz#f580f9beb67176fa57aae70b08ed510e1b18980f"
   integrity sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==
+
+"@emotion/memoize@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.9.0.tgz#745969d649977776b43fc7648c556aaa462b4102"
+  integrity sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==
 
 "@emotion/stylis@^0.8.4":
   version "0.8.5"
@@ -5827,19 +5839,19 @@ graphemer@^1.4.0:
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
   integrity sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==
 
-grommet-icons@4.12.0, grommet-icons@^4.10.0:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.0.tgz#122c1f09c100f2ea6321c401107038caeda8a6b8"
-  integrity sha512-aPFVjdCBLbaUOpxzrNakxYz6DNYxS5lJeLP4tI6nZFfOzLhWH5LBf+tfkL/ZkLMNZC1Uqsw9awPvyvT03xLOsA==
+grommet-icons@4.12.4, grommet-icons@^4.12.4:
+  version "4.12.4"
+  resolved "https://registry.yarnpkg.com/grommet-icons/-/grommet-icons-4.12.4.tgz#23d2d994ca666197f3132e4b02edc11b39a1cc84"
+  integrity sha512-LB2u1X7B22wq6ib0DUPhdXmiYXvkg+Xx3eP1tVrKGqhfk+tTkX0nDyK7wFhH+7fvj2ebWjJMYia6G0zH1voGOw==
 
-grommet@2.36.1:
-  version "2.36.1"
-  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.36.1.tgz#c0123793517c3d94383fbbc31fd3f41fab7891b1"
-  integrity sha512-zfL8ylQ7QqBSBRzAgsKRCuns2h3hn/ZaZuxaPJrUCuGZ0KU1dv6/kU3X4OwrKxRP+81l3RRDBp4gJyLKFjZ39g==
+grommet@2.47.0:
+  version "2.47.0"
+  resolved "https://registry.yarnpkg.com/grommet/-/grommet-2.47.0.tgz#10284291dcbde8d4179b605ab05742676aba909b"
+  integrity sha512-JQYh2JdSgpv2XoOK5N/5BHynEswUrukXFBiSPqfVFAiTfXRccrQD3zMdtYaLNbTuHh7LYeE+jrwjujJVjQb+hw==
   dependencies:
-    grommet-icons "^4.10.0"
-    hoist-non-react-statics "^3.2.0"
-    markdown-to-jsx "^7.2.0"
+    "@emotion/is-prop-valid" "^1.3.1"
+    grommet-icons "^4.12.4"
+    markdown-to-jsx "7.4.4"
     prop-types "^15.8.1"
 
 grpc-web@^1.5.0:
@@ -5940,9 +5952,9 @@ hasown@^2.0.2:
   dependencies:
     function-bind "^1.1.2"
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.2.0, hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
   version "3.3.2"
-  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
   dependencies:
     react-is "^16.7.0"
@@ -7431,10 +7443,10 @@ markdown-it@13.0.2:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
-markdown-to-jsx@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.2.0.tgz#e7b46b65955f6a04d48a753acd55874a14bdda4b"
-  integrity sha512-3l4/Bigjm4bEqjCR6Xr+d4DtM1X6vvtGsMGSjJYyep8RjjIvcWtrXBS8Wbfe1/P+atKNMccpsraESIaWVplzVg==
+markdown-to-jsx@7.4.4:
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.4.4.tgz#90eccba7b74e8bd8a2831efeb281cb3ac88fadec"
+  integrity sha512-R9SGyfV2zsQx25YIYImACpiQ8dQe617CNyoE1wLst4wFHtiBGG3SEtJDlI1bt9SeotIcbITbVy9+ieQFWfEoQw==
 
 markdownlint-cli@0.38.0:
   version "0.38.0"
