@@ -13,15 +13,14 @@ import { Button } from 'grommet/es6/components/Button'
 import { DerivationFormatter, DerivationFormatterProps } from './DerivationFormatter'
 import styled, { ThemeContext } from 'styled-components'
 
-const StyledManageButton = styled(Button)`
-  border-radius: ${({ theme }) => theme.button?.border?.radius};
-`
-StyledManageButton.defaultProps = {
+const StyledManageButton = styled(Button).attrs({
   color: { light: 'brand', dark: 'white' },
   size: 'small',
   primary: true,
   hoverIndicator: true,
-}
+})`
+  border-radius: ${({ theme }) => theme.button?.border?.radius};
+`
 
 export interface AccountProps {
   address: string
