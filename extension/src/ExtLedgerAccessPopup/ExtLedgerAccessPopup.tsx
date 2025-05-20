@@ -11,9 +11,10 @@ import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
 import { requestDevice } from 'app/lib/ledger'
-import logotype from '../../../public/Icon Blue 192.png'
 import { CountdownButton } from 'app/components/CountdownButton'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+
+const logotype = new URL('../../../public/Icon Blue 192.png', import.meta.url).href
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {

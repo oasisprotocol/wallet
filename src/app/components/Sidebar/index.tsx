@@ -26,8 +26,6 @@ import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { Language } from '../../../styles/theme/icons/language/Language'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
 import { ThemeSwitcher } from '../ThemeSwitcher'
-import walletBlueLogotype from '../../../../public/Rose Wallet Blue.svg'
-import walletWhiteLogotype from '../../../../public/Rose Wallet White.svg'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
@@ -41,6 +39,9 @@ import {
 import styled, { ThemeContext } from 'styled-components'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { MobileFooterNavigation } from '../MobileFooterNavigation'
+
+const walletBlueLogotype = new URL('../../../../public/Rose Wallet Blue.svg', import.meta.url).href
+const walletWhiteLogotype = new URL('../../../../public/Rose Wallet White.svg', import.meta.url).href
 
 interface SidebarButtonBaseProps {
   needsWalletOpen?: boolean

@@ -3,9 +3,10 @@ import { ResponsiveLayer } from '../ResponsiveLayer'
 import React, { useContext } from 'react'
 import { Header } from 'app/components/Header'
 import { Navigation } from '../Sidebar'
-import walletBlueLogotype from '../../../../public/Rose Wallet Blue.svg'
-import walletWhiteLogotype from '../../../../public/Rose Wallet White.svg'
 import { ThemeContext } from 'styled-components'
+
+const walletBlueLogotype = new URL('../../../../public/Rose Wallet Blue.svg', import.meta.url).href
+const walletWhiteLogotype = new URL('../../../../public/Rose Wallet White.svg', import.meta.url).href
 
 export function LoginModalLayout(props: {
   title: string

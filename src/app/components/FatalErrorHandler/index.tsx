@@ -22,9 +22,10 @@ import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
 import { ResponsiveLayer } from '../ResponsiveLayer'
-import logotype from '../../../../public/Icon Blue 192.png'
 import { runtimeIs } from 'app/lib/runtimeIs'
 import { BrandButton } from '../Button'
+
+const logotype = new URL('../../../../public/Icon Blue 192.png', import.meta.url).href
 
 const StyledTextArea = styled(TextArea)`
   // Opacity is a workaround for browsers anti-aliasing issue triggered by border-radius.

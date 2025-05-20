@@ -4,7 +4,6 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { navigateToAppStore } from '../../utils/capacitor-app-update'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
-import walletWhiteLogotype from '../../../../../../public/Rose Wallet White.svg'
 import { Text } from 'grommet/es6/components/Text'
 import { ShareRounded } from 'grommet-icons/es6/icons/ShareRounded'
 import { Refresh } from 'grommet-icons/es6/icons/Refresh'
@@ -15,6 +14,8 @@ import { Spinner } from 'grommet/es6/components/Spinner'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
+
+const walletWhiteLogotype = new URL('../../../../../../public/Rose Wallet White.svg', import.meta.url).href
 
 const SpinKeyFrames = keyframes`
   0% {
