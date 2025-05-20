@@ -82,7 +82,6 @@
     }
   },
   "backends": {
-    "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
   "banner": {

@@ -109,7 +109,6 @@
   "appTitle": "ROSE Wallet",
   "backends": {
     "nexus": "Nexus API",
-    "oasismonitor": "Oasis Monitor API",
     "oasisscanV2": "Oasis Scan API v2"
   },
   "banner": {
@@ -202,7 +201,6 @@
     "github": "ROSE Wallet is <GithubLink>open source</GithubLink> and powered by",
     "poweredBy": {
       "nexus": "Nexus API & Oasis gRPC",
-      "oasismonitor": "Oasis Monitor API & Oasis gRPC",
       "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC"
     },
     "terms": "<TermsLink>Terms and Conditions</TermsLink>",

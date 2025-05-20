@@ -95,7 +95,6 @@
     }
   },
   "backends": {
-    "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
@@ -184,7 +183,6 @@
   "footer": {
     "github": "ROSE Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
     "poweredBy": {
-      "oasismonitor": "Deluje s pomočjo Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Deluje s pomočjo Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Pogoji uporabe</TermsLink>",

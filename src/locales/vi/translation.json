@@ -108,7 +108,6 @@
   "appTitle": "Ví Rose",
   "backends": {
     "nexus": "API Nexus",
-    "oasismonitor": "API Oasis Monitor",
     "oasisscanV2": "API Oasis Scan v2"
   },
   "banner": {
@@ -201,7 +200,6 @@
     "github": "Ví ROSE là <GithubLink>mã nguồn mở</GithubLink> và được vận hành bởi ",
     "poweredBy": {
       "nexus": "Nexus API & Oasis gRPC",
-      "oasismonitor": "API Oasis Monitor & Oasis gRPC",
       "oasisscanV2": "API Oasis Scan v2 & Oasis gRPC"
     },
     "terms": "<TermsLink>Điều khoản và Điều kiện</TermsLink>",

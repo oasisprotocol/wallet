@@ -5,11 +5,11 @@ import { NetworkType } from '../network/types'
 
 export interface BalanceDetails {
   available: StringifiedBigInt | null
-  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
+  /** This is delayed in getAccount by 20 seconds on oasisscan and unknown on nexus. */
   debonding: StringifiedBigInt | null
-  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
+  /** This is delayed in getAccount by 20 seconds on oasisscan and unknown on nexus. */
   delegations: StringifiedBigInt | null
-  /** This is delayed in getAccount by 20 seconds on oasisscan and 5 seconds on oasismonitor. */
+  /** This is delayed in getAccount by 20 seconds on oasisscan and unknown on nexus. */
   total: StringifiedBigInt | null
   nonce: StringifiedBigInt
 }

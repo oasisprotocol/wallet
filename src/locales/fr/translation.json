@@ -123,7 +123,6 @@
   "footer": {
     "github": "ROSE Wallet est entièrement <GithubLink>open source</GithubLink> - N'hésitez pas à remonter tout problème !",
     "poweredBy": {
-      "oasismonitor": "Alimenté par Oasis Monitor API & Oasis gRPC",
       "oasisscan": "Alimenté par Oasis Scan API & Oasis gRPC"
     },
     "terms": "<TermsLink>Termes et Conditions</TermsLink>",
