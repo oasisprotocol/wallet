@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AddContact  /> should match snapshot 1`] = `
-.c9 {
+.c8 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -12,25 +12,25 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   stroke: currentColor;
 }
 
-.c9 g {
+.c8 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c9 *:not([stroke])[fill='none'] {
+.c8 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c9 *[stroke*='#'],
-.c9 *[STROKE*='#'] {
+.c8 *[stroke*='#'],
+.c8 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c9 *[fill-rule],
-.c9 *[FILL-RULE],
-.c9 *[fill*='#'],
-.c9 *[FILL*='#'] {
+.c8 *[fill-rule],
+.c8 *[FILL-RULE],
+.c8 *[fill*='#'],
+.c8 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
@@ -48,7 +48,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
 }
 
-.c5 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -65,7 +65,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c6 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -86,7 +86,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 1 0 auto;
 }
 
-.c7 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,7 +104,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c10 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,7 +118,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c12 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -138,7 +138,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex: 0 0 auto;
 }
 
-.c13 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -160,7 +160,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   overflow: visible;
 }
 
-.c15 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -180,7 +180,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding-bottom: 6px;
 }
 
-.c19 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -201,7 +201,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   justify-content: center;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -216,7 +216,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c21 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -231,7 +231,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c25 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -254,13 +254,13 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding-top: 24px;
 }
 
-.c17 {
+.c16 {
   font-size: 16px;
   line-height: 20px;
   color: #0500e2;
 }
 
-.c8 {
+.c7 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -280,47 +280,47 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding: 12px;
 }
 
-.c8:focus {
+.c7:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus > circle,
-.c8:focus > ellipse,
-.c8:focus > line,
-.c8:focus > path,
-.c8:focus > polygon,
-.c8:focus > polyline,
-.c8:focus > rect {
+.c7:focus > circle,
+.c7:focus > ellipse,
+.c7:focus > line,
+.c7:focus > path,
+.c7:focus > polygon,
+.c7:focus > polyline,
+.c7:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c8:focus::-moz-focus-inner {
+.c7:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c8:focus:not(:focus-visible) {
+.c7:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible) > circle,
-.c8:focus:not(:focus-visible) > ellipse,
-.c8:focus:not(:focus-visible) > line,
-.c8:focus:not(:focus-visible) > path,
-.c8:focus:not(:focus-visible) > polygon,
-.c8:focus:not(:focus-visible) > polyline,
-.c8:focus:not(:focus-visible) > rect {
+.c7:focus:not(:focus-visible) > circle,
+.c7:focus:not(:focus-visible) > ellipse,
+.c7:focus:not(:focus-visible) > line,
+.c7:focus:not(:focus-visible) > path,
+.c7:focus:not(:focus-visible) > polygon,
+.c7:focus:not(:focus-visible) > polyline,
+.c7:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c8:focus:not(:focus-visible)::-moz-focus-inner {
+.c7:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c14 {
+.c13 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -338,43 +338,113 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   text-align: inherit;
 }
 
-.c14:focus {
+.c13:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c14:focus > circle,
-.c14:focus > ellipse,
-.c14:focus > line,
-.c14:focus > path,
-.c14:focus > polygon,
-.c14:focus > polyline,
-.c14:focus > rect {
+.c13:focus > circle,
+.c13:focus > ellipse,
+.c13:focus > line,
+.c13:focus > path,
+.c13:focus > polygon,
+.c13:focus > polyline,
+.c13:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c14:focus::-moz-focus-inner {
+.c13:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c14:focus:not(:focus-visible) {
+.c13:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible) > circle,
-.c14:focus:not(:focus-visible) > ellipse,
-.c14:focus:not(:focus-visible) > line,
-.c14:focus:not(:focus-visible) > path,
-.c14:focus:not(:focus-visible) > polygon,
-.c14:focus:not(:focus-visible) > polyline,
-.c14:focus:not(:focus-visible) > rect {
+.c13:focus:not(:focus-visible) > circle,
+.c13:focus:not(:focus-visible) > ellipse,
+.c13:focus:not(:focus-visible) > line,
+.c13:focus:not(:focus-visible) > path,
+.c13:focus:not(:focus-visible) > polygon,
+.c13:focus:not(:focus-visible) > polyline,
+.c13:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c14:focus:not(:focus-visible)::-moz-focus-inner {
+.c13:focus:not(:focus-visible)::-moz-focus-inner {
+  border: 0;
+}
+
+.c25 {
+  display: inline-block;
+  box-sizing: border-box;
+  cursor: pointer;
+  font: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin: 0;
+  background: transparent;
+  overflow: visible;
+  text-transform: none;
+  border: 2px solid #0500e2;
+  border-radius: 4px;
+  color: #16213E;
+  padding: 4px 22px;
+  font-size: 16px;
+  line-height: 20px;
+  -webkit-transition-property: color,background-color,border-color,box-shadow;
+  transition-property: color,background-color,border-color,box-shadow;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  font-weight: bold;
+}
+
+.c25:hover {
+  box-shadow: 0px 0px 0px 2px #0500e2;
+}
+
+.c25:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c25:focus > circle,
+.c25:focus > ellipse,
+.c25:focus > line,
+.c25:focus > path,
+.c25:focus > polygon,
+.c25:focus > polyline,
+.c25:focus > rect {
+  outline: none;
+  box-shadow: 0 0 2px 2px #00A9FF;
+}
+
+.c25:focus::-moz-focus-inner {
+  border: 0;
+}
+
+.c25:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.c25:focus:not(:focus-visible) > circle,
+.c25:focus:not(:focus-visible) > ellipse,
+.c25:focus:not(:focus-visible) > line,
+.c25:focus:not(:focus-visible) > path,
+.c25:focus:not(:focus-visible) > polygon,
+.c25:focus:not(:focus-visible) > polyline,
+.c25:focus:not(:focus-visible) > rect {
+  outline: none;
+  box-shadow: none;
+}
+
+.c25:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -395,6 +465,9 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   padding: 4px 22px;
   font-size: 16px;
   line-height: 20px;
+  background-color: #0500e2;
+  color: #F8F8F8;
+  border-radius: 4px;
   -webkit-transition-property: color,background-color,border-color,box-shadow;
   transition-property: color,background-color,border-color,box-shadow;
   -webkit-transition-duration: 0.1s;
@@ -448,80 +521,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border: 0;
 }
 
-.c27 {
-  display: inline-block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-  overflow: visible;
-  text-transform: none;
-  border: 2px solid #0500e2;
-  border-radius: 4px;
-  color: #16213E;
-  padding: 4px 22px;
-  font-size: 16px;
-  line-height: 20px;
-  background-color: #0500e2;
-  color: #F8F8F8;
-  border-radius: 4px;
-  -webkit-transition-property: color,background-color,border-color,box-shadow;
-  transition-property: color,background-color,border-color,box-shadow;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-timing-function: ease-in-out;
-  transition-timing-function: ease-in-out;
-  font-weight: bold;
-}
-
-.c27:hover {
-  box-shadow: 0px 0px 0px 2px #0500e2;
-}
-
-.c27:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c27:focus > circle,
-.c27:focus > ellipse,
-.c27:focus > line,
-.c27:focus > path,
-.c27:focus > polygon,
-.c27:focus > polyline,
-.c27:focus > rect {
-  outline: none;
-  box-shadow: 0 0 2px 2px #00A9FF;
-}
-
-.c27:focus::-moz-focus-inner {
-  border: 0;
-}
-
-.c27:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-.c27:focus:not(:focus-visible) > circle,
-.c27:focus:not(:focus-visible) > ellipse,
-.c27:focus:not(:focus-visible) > line,
-.c27:focus:not(:focus-visible) > path,
-.c27:focus:not(:focus-visible) > polygon,
-.c27:focus:not(:focus-visible) > polyline,
-.c27:focus:not(:focus-visible) > rect {
-  outline: none;
-  box-shadow: none;
-}
-
-.c27:focus:not(:focus-visible)::-moz-focus-inner {
-  border: 0;
-}
-
-.c18 {
+.c17 {
   min-height: 0;
   padding-top: 24px;
   display: -webkit-box;
@@ -537,7 +537,7 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-grow: 1;
 }
 
-.c11 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -551,17 +551,17 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   flex-grow: 1;
 }
 
-.c11 > [role='tablist'] > button {
+.c10 > [role='tablist'] > button {
   padding-left: 0;
   padding-right: 0;
 }
 
-.c11 > [role='tablist'] > button svg {
+.c10 > [role='tablist'] > button svg {
   width: 14px;
   margin-top: -5px;
 }
 
-.c16 {
+.c15 {
   white-space: nowrap;
   margin-left: 6px;
   margin-right: 6px;
@@ -569,12 +569,80 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   margin-bottom: 3px;
 }
 
-.c16:hover {
+.c15:hover {
   color: #000000;
 }
 
-.c16:focus {
+.c15:focus {
   z-index: 1;
+}
+
+.c22 {
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  -webkit-appearance: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-weight: 600;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,0.33);
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+.c22::-webkit-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c22::-moz-placeholder {
+  color: #AAAAAA;
+}
+
+.c22:-ms-input-placeholder {
+  color: #AAAAAA;
+}
+
+.c22::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.c22::-moz-focus-inner {
+  border: none;
+  outline: none;
+}
+
+.c22:-moz-placeholder,
+.c22::-moz-placeholder {
+  opacity: 1;
+}
+
+.c22::-webkit-input-placeholder {
+  font-size: 14px;
+}
+
+.c22::-moz-placeholder {
+  font-size: 14px;
+}
+
+.c22:-ms-input-placeholder {
+  font-size: 14px;
+}
+
+.c22::placeholder {
+  font-size: 14px;
+}
+
+.c21 {
+  position: relative;
+  width: 100%;
 }
 
 .c23 {
@@ -596,6 +664,9 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   border-radius: 4px;
   outline: none;
   border: none;
+  width: 100%;
+  -webkit-appearance: none;
+  max-width: 100%;
 }
 
 .c23::-webkit-input-placeholder {
@@ -637,77 +708,6 @@ exports[`<AddContact  /> should match snapshot 1`] = `
 }
 
 .c23::placeholder {
-  font-size: 14px;
-}
-
-.c22 {
-  position: relative;
-  width: 100%;
-}
-
-.c24 {
-  box-sizing: border-box;
-  font-size: inherit;
-  font-family: inherit;
-  border: none;
-  -webkit-appearance: none;
-  background: transparent;
-  color: inherit;
-  width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  font-weight: 600;
-  margin: 0;
-  border: 1px solid rgba(0,0,0,0.33);
-  border-radius: 4px;
-  outline: none;
-  border: none;
-  width: 100%;
-  -webkit-appearance: none;
-  max-width: 100%;
-}
-
-.c24::-webkit-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c24::-moz-placeholder {
-  color: #AAAAAA;
-}
-
-.c24:-ms-input-placeholder {
-  color: #AAAAAA;
-}
-
-.c24::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-.c24::-moz-focus-inner {
-  border: none;
-  outline: none;
-}
-
-.c24:-moz-placeholder,
-.c24::-moz-placeholder {
-  opacity: 1;
-}
-
-.c24::-webkit-input-placeholder {
-  font-size: 14px;
-}
-
-.c24::-moz-placeholder {
-  font-size: 14px;
-}
-
-.c24:-ms-input-placeholder {
-  font-size: 14px;
-}
-
-.c24::placeholder {
   font-size: 14px;
 }
 
@@ -771,76 +771,65 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   transform: translate(-50%,-50%);
 }
 
-.c4 {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: absolute;
-}
-
-.c4:focus {
-  outline: none;
-}
-
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c5 {
     margin-left: 12px;
     margin-right: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c5 {
     margin-top: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c5 {
     margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     margin-left: 3px;
     margin-right: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     margin-top: 2px;
     margin-bottom: 2px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     border-bottom: solid 2px #0500e2;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c15 {
+  .c14 {
     padding-bottom: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c20 {
+  .c19 {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c21 {
+  .c20 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c25 {
+  .c24 {
     padding-top: 12px;
   }
 }
@@ -894,6 +883,10 @@ exports[`<AddContact  /> should match snapshot 1`] = `
   </div>
   <div>
     <div
+      style="position: absolute; height: 1px; left: 0px; right: 0px; top: 0px;"
+      tabindex="0"
+    />
+    <div
       aria-hidden="false"
     >
       <div
@@ -908,29 +901,24 @@ exports[`<AddContact  /> should match snapshot 1`] = `
           data-g-portal-id="0"
           style="overflow-y: auto; width: 100%; max-width: none; min-height: min(600px, 90dvh);"
         >
-          <a
-            aria-hidden="true"
-            class="c4"
-            tabindex="-1"
-          />
           <div
-            class="c5"
+            class="c4"
             style="min-height: 100dvh;"
           >
             <div
-              class="c6"
+              class="c5"
             >
               <div
-                class="c7"
+                class="c6"
               >
                 <button
-                  class="c8"
+                  class="c7"
                   data-testid="close-settings-modal"
                   type="button"
                 >
                   <svg
                     aria-label="Close"
-                    class="c9"
+                    class="c8"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -943,28 +931,28 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                 </button>
               </div>
               <div
-                class="c10 c11"
+                class="c9 c10"
               >
                 <div
-                  class="c12"
-                  role="tablist"
+                  class="c11"
                 >
                   <div
-                    class="c13 "
+                    class="c12 "
+                    role="tablist"
                   >
                     <button
                       aria-expanded="true"
                       aria-selected="true"
-                      class="c14"
+                      class="c13"
                       role="tab"
                       style="text-transform: capitalize;"
                       type="button"
                     >
                       <div
-                        class="c15 c16"
+                        class="c14 c15"
                       >
                         <span
-                          class="c17"
+                          class="c16"
                         >
                           toolbar.contacts.add
                         </span>
@@ -974,30 +962,30 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                 </div>
                 <div
                   aria-label="toolbar.contacts.add Tab Contents"
-                  class="c18"
+                  class="c17"
                   role="tabpanel"
                 >
                   <div
-                    class="c19"
+                    class="c18"
                   >
                     <form
                       style="display: flex; flex: 1; flex-direction: column;"
                     >
                       <div
-                        class="c5"
+                        class="c4"
                       >
                         <div
-                          class="c20 "
+                          class="c19 "
                         >
                           <div
-                            class="c21 "
+                            class="c20 "
                           >
                             <div
-                              class="c22"
+                              class="c21"
                             >
                               <input
                                 autocomplete="off"
-                                class="c23"
+                                class="c22"
                                 name="name"
                                 placeholder="toolbar.contacts.name"
                                 value=""
@@ -1006,13 +994,13 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                           </div>
                         </div>
                         <div
-                          class="c20 "
+                          class="c19 "
                         >
                           <div
-                            class="c21 "
+                            class="c20 "
                           >
                             <textarea
-                              class="c24"
+                              class="c23"
                               name="address"
                               placeholder="toolbar.contacts.address"
                               rows="3"
@@ -1021,16 +1009,16 @@ exports[`<AddContact  /> should match snapshot 1`] = `
                         </div>
                       </div>
                       <div
-                        class="c25"
+                        class="c24"
                       >
                         <button
-                          class="c26"
+                          class="c25"
                           type="button"
                         >
                           toolbar.contacts.cancel
                         </button>
                         <button
-                          class="c27"
+                          class="c26"
                           type="submit"
                         >
                           toolbar.contacts.save
@@ -1045,6 +1033,10 @@ exports[`<AddContact  /> should match snapshot 1`] = `
         </div>
       </div>
     </div>
+    <div
+      style="position: absolute; height: 1px; left: 0px; right: 0px; bottom: 0px;"
+      tabindex="0"
+    />
   </div>
 </body>
 `;

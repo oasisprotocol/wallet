@@ -400,6 +400,7 @@ exports[`<ThemeSelect  /> should match snapshot 1`] = `
                   autocomplete="off"
                   class="c12 c13"
                   id="theme__input"
+                  inert=""
                   name="theme"
                   readonly=""
                   style="padding-left: 50px;"
