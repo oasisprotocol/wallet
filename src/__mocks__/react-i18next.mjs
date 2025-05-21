@@ -35,7 +35,7 @@ const useMock = [k => k, {}]
 useMock.t = k => k
 useMock.i18n = { language: 'en-US' }
 
-module.exports = {
+const mock = {
   // this mock makes sure any components using the translate HoC receive the t function as a prop
   withTranslation: () => Component => props => <Component t={k => k} {...props} />,
   Trans: ({ children }) => (Array.isArray(children) ? renderNodes(children) : renderNodes([children])),
@@ -50,3 +50,4 @@ module.exports = {
   setI18n: reactI18next.setI18n,
   getI18n: reactI18next.getI18n,
 }
+export default mock

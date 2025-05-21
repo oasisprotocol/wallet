@@ -8,7 +8,6 @@ const config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
     '.*\\.(css|scss|sass)$': '<rootDir>internals/jest/mocks/cssModule.js',
-    '.*\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>internals/jest/mocks/image.js',
   },
   modulePaths: ['<rootDir>/src'],
   resetMocks: true,
@@ -21,6 +20,7 @@ const config = {
       {
         // Disable typechecking to speedup tests. We have `yarn checkTs`.
         isolatedModules: true,
+        useESM: true,
       },
     ],
   },
@@ -44,4 +44,4 @@ const config = {
   ],
 }
 
-module.exports = config
+export default config
