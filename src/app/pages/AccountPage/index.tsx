@@ -46,8 +46,8 @@ export function AccountPage() {
   )
   const balance: BalanceDetails = {
     available: account.available,
-    delegations: balanceDelegations?.toString() ?? null, //@TODO oasis-explorer : account.debonding_delegations_balance ?? 0,
-    debonding: balanceDebondingDelegations?.toString() ?? null, //@TODO oasis-explorer : account.delegations_balance ?? 0,
+    delegations: balanceDelegations?.toString() ?? null, //@TODO nexus : account.debonding_delegations_balance ?? 0,
+    debonding: balanceDebondingDelegations?.toString() ?? null, //@TODO nexus : account.delegations_balance ?? 0,
     total:
       account.available == null || balanceDelegations == null || balanceDebondingDelegations == null
         ? null

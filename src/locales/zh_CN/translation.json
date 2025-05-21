@@ -96,7 +96,6 @@
     }
   },
   "backends": {
-    "oasismonitor": "Oasis Monitor API",
     "oasisscan": "Oasis Scan API"
   },
   "banner": {
@@ -185,7 +184,6 @@
   "footer": {
     "github": "Oasis钱包是完全<GithubLink>开源</GithubLink>的，欢迎反馈问题！",
     "poweredBy": {
-      "oasismonitor": "由 Oasis Monitor API 和 Oasis gRPC 支持",
       "oasisscan": "由 Oasis Scan API 和 Oasis gRPC 支持"
     },
     "terms": "<TermsLink>条款</TermsLink>",

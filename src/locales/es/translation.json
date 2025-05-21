@@ -61,7 +61,6 @@
     }
   },
   "backends": {
-    "oasismonitor": "API de Oasis Monitor",
     "oasisscan": "API de Oasis Scan"
   },
   "common": {

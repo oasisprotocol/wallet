@@ -6,7 +6,6 @@ export const consensusDecimals = 9
 
 // Moved outside backend.ts to avoid circular dependency
 export enum BackendAPIs {
-  OasisMonitor = 'oasismonitor',
   OasisScanV2 = 'oasisscanV2',
   Nexus = 'nexus',
 }
@@ -22,7 +21,6 @@ type BackendProviders = {
   grpc: string
   ticker: string // from nic.stakingTokenSymbol()
   min_delegation: number // from nic.stakingConsensusParameters().min_delegation
-  [BackendAPIs.OasisMonitor]: BackendApiUrls
   [BackendAPIs.OasisScanV2]: BackendApiUrls
   [BackendAPIs.Nexus]: BackendApiUrls
 }
@@ -36,10 +34,6 @@ export const config: BackendConfig = {
     grpc: 'https://grpc.oasis.io',
     ticker: 'ROSE',
     min_delegation: 100,
-    [BackendAPIs.OasisMonitor]: {
-      explorer: 'https://monitor.oasis.dev',
-      blockExplorer: 'https://oasismonitor.com/operation/{{txHash}}',
-    },
     [BackendAPIs.OasisScanV2]: {
       explorer: 'https://api.oasisscan.com/v2/mainnet',
       blockExplorer: 'https://oasisscan.com/transactions/{{txHash}}',
@@ -57,10 +51,6 @@ export const config: BackendConfig = {
     grpc: 'https://testnet.grpc.oasis.io',
     ticker: 'TEST',
     min_delegation: 100,
-    [BackendAPIs.OasisMonitor]: {
-      explorer: 'https://monitor.oasis.dev/api/testnet',
-      blockExplorer: 'https://testnet.oasismonitor.com/operation/{{txHash}}',
-    },
     [BackendAPIs.OasisScanV2]: {
       explorer: 'https://api.oasisscan.com/v2/testnet',
       blockExplorer: 'https://testnet.oasisscan.com/transactions/{{txHash}}',
@@ -79,10 +69,6 @@ export const config: BackendConfig = {
     grpc: 'http://localhost:42280',
     ticker: 'TEST',
     min_delegation: 100,
-    [BackendAPIs.OasisMonitor]: {
-      explorer: 'http://localhost:9001',
-      blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',
-    },
     [BackendAPIs.OasisScanV2]: {
       explorer: 'http://localhost:9001',
       blockExplorer: 'http://localhost:9001/data/transactions?operation_id={{txHash}}',

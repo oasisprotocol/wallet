@@ -149,24 +149,6 @@ describe('<Transaction  />', () => {
     )
   })
 
-  it('should render monitor link', () => {
-    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
-    renderComponent(store, ref, transaction, network)
-    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
-      'href',
-      'https://oasismonitor.com/operation/ff1234',
-    )
-  })
-
-  it('should render testnet monitor link', () => {
-    jest.mocked(backend).mockImplementation(() => BackendAPIs.OasisMonitor)
-    renderComponent(store, ref, transaction, 'testnet')
-    expect(screen.getByTestId('explorer-link')).toHaveAttribute(
-      'href',
-      'https://testnet.oasismonitor.com/operation/ff1234',
-    )
-  })
-
   it('should render paratime transaction row', () => {
     const runtimeId = '123'
 

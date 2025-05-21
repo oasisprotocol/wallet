@@ -1,4 +1,4 @@
-type Backend = 'oasismonitor' | 'oasisscanV2' | 'nexus'
+type Backend = 'oasisscanV2' | 'nexus'
 
 declare global {
   namespace NodeJS {

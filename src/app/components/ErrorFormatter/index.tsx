@@ -20,7 +20,6 @@ export function ErrorFormatter(props: Props) {
   const message = props.message
 
   const backendToLabel = {
-    [BackendAPIs.OasisMonitor]: t('backends.oasismonitor', 'Oasis Monitor API'),
     [BackendAPIs.OasisScanV2]: t('backends.oasisscanV2', 'Oasis Scan API v2'),
     [BackendAPIs.Nexus]: t('backends.nexus', 'Nexus API'),
   }

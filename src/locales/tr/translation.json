@@ -95,7 +95,6 @@
     }
   },
   "backends": {
-    "oasismonitor": "Oasis Monitör API",
     "oasisscan": "Oasis Arama API"
   },
   "banner": {
@@ -183,7 +182,6 @@
   "footer": {
     "github": "Oasis Cüzdan tamamen <GithubLink>açık kaynaktır</GithubLink> - Geri bildirimler ve sorunlar takdir edilmektedir!",
     "poweredBy": {
-      "oasismonitor": "Oasis Monitor API & Oasis gRPC tarafından destekleniyor",
       "oasisscan": "Oasis Scan API & Oasis gRPC tarafından destekleniyor"
     },
     "terms": "<TermsLink>Şartlar ve Koşullar</TermsLink>",
