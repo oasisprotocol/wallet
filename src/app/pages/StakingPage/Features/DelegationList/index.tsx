@@ -68,7 +68,7 @@ export const DelegationList = memo((props: Props) => {
 
   const columnTypes: Record<
     'icon' | 'status' | 'name' | 'amount' | 'fee' | 'debondingTimeEnd',
-    ITypeSafeDataTableColumn<Delegation>
+    ITypeSafeDataTableColumn<(typeof delegations)[number]>
   > = {
     icon: {
       name: '',
@@ -92,7 +92,6 @@ export const DelegationList = memo((props: Props) => {
     name: {
       name: t('validator.name', 'Name'),
       id: 'name',
-      selector: 'name',
       maxWidth: '40ex',
       minWidth: '15ex',
       cell: datum =>
@@ -113,7 +112,6 @@ export const DelegationList = memo((props: Props) => {
           ? t('delegations.delegatedAmount', 'Delegated amount')
           : t('delegations.reclaimedAmount', 'Amount to reclaim'),
       id: 'amount',
-      selector: 'amount',
       width: '28ex',
       right: true,
       cell: datum =>
@@ -126,7 +124,6 @@ export const DelegationList = memo((props: Props) => {
     fee: {
       name: t('validator.fee', 'Fee'),
       id: 'fee',
-      selector: 'fee',
       width: '100px',
       right: true,
       hide: 'sm',
@@ -140,7 +137,6 @@ export const DelegationList = memo((props: Props) => {
     debondingTimeEnd: {
       name: t('delegations.debondingTimeEnd', 'End of debonding'),
       id: 'debondingTimeEnd',
-      selector: 'epoch',
       sortable: true,
       cell: datum => {
         if ('currentEpoch' in props) {
@@ -172,20 +168,15 @@ export const DelegationList = memo((props: Props) => {
       }
       columns={columns}
       data={delegations}
-      defaultSortField={defaultSortField}
+      defaultSortFieldId={defaultSortField}
       keyField="uniqueKey"
       style={{}}
       customStyles={dataTableCustomStyles}
       expandableRowsHideExpander
       expandableRows={true}
-      expandableRowsComponent={
-        <DelegationItem
-          data={{} as any}
-          validatorDetails={validatorDetails}
-          canReclaim={canReclaim}
-          type={type}
-        />
-      }
+      expandableRowsComponent={({ data }) => (
+        <DelegationItem data={data} validatorDetails={validatorDetails} canReclaim={canReclaim} type={type} />
+      )}
       expandableRowExpanded={row => row.validatorAddress === selectedAddress}
       sortIcon={<Down />}
       theme="blank"
