@@ -18,8 +18,6 @@ const hmr = `
   http://localhost:2222
   ws://localhost:2222
 `
-// If this changes csp-react-error-overlay.spec.ts will print a new sha in an error in csp-react-error-overlay.spec.ts.
-const reactErrorOverlay = `'sha256-yt+SNVxRkIi6H6yb7ndFuZM1esMX9esg3UpRHaTsyVk='`
 const hmrScripts = `
   'unsafe-eval'
 `
@@ -44,8 +42,7 @@ const getCsp = ({ isExtension, isDev }) =>
     default-src 'none';
     script-src
       'self'
-      ${!isExtension && isDev ? reactErrorOverlay : '' /* Manifest v3 doesn't allow anything */}
-      ${!isExtension && isDev ? hmrScripts : ''}
+      ${!isExtension && isDev ? hmrScripts : '' /* Manifest v3 doesn't allow anything */}
       ${!isExtension ? 'report-sample' : ''}
       ;
     style-src
@@ -119,4 +116,4 @@ const getPermissionsPolicy = () =>
     .join(' ')
     .replace(/ ,/g, ',')
 
-module.exports = { getCsp, getPermissionsPolicy, reactErrorOverlay, warnImportMapViolation }
+module.exports = { getCsp, getPermissionsPolicy, warnImportMapViolation }
