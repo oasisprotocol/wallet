@@ -41,13 +41,12 @@ const StyledForm = styled(Form)`
   justify-content: space-between;
 ` as typeof Form
 
-const StyledDeleteButton = styled(Button)`
-  text-align: center;
-`
-StyledDeleteButton.defaultProps = {
+const StyledDeleteButton = styled(Button).attrs({
   plain: true,
   color: 'status-error',
-}
+})`
+  text-align: center;
+`
 
 export const ManageableAccountDetails = ({
   animation,

@@ -346,6 +346,7 @@ exports[`<TransactionConfirmation /> should render component 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-user-select: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

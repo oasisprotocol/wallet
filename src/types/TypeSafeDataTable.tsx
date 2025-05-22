@@ -1,12 +1,13 @@
 import { ReactNode } from 'react'
 // eslint-disable-next-line no-restricted-imports
-import DataTable, { IDataTableColumn, IDataTableProps } from 'react-data-table-component'
+import DataTable, { TableColumn, IDataTableProps, Media } from 'react-data-table-component'
 
-export interface ITypeSafeDataTableColumn<T> extends IDataTableColumn<T> {
+export interface ITypeSafeDataTableColumn<T> extends Omit<TableColumn<T>, 'hide'> {
   /** Must be unique, but doesn't need to be a field in data objects. */
   id: string
+  hide?: TableColumn<T>['hide'] | `${Media}`
 }
-export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'keyField'> {
+export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'keyField' | 'columns'> {
   keyField: Extract<keyof T, string>
   columns: ITypeSafeDataTableColumn<T>[]
 }
@@ -18,6 +19,8 @@ export interface ITypeSafeDataTableProps<T> extends Omit<IDataTableProps<T>, 'ke
  * or it requires to apply data-tag="allowRowEvents" to the innermost element which is hard to control
  *
  * To prevent expanding add `onClick={e => e.stopPropagation()}`.
+ *
+ * TODO: check if this is still needed in v7.7.0
  */
 function ExpandableCell(props: { children: ReactNode }) {
   return (
@@ -51,7 +54,7 @@ export function TypeSafeDataTable<T>(props: ITypeSafeDataTableProps<T>): React.R
           cell: (row, rowIndex, column, id) => {
             return <ExpandableCell>{col.cell!(row, rowIndex, column, id)}</ExpandableCell>
           },
-        })) as ITypeSafeDataTableColumn<T>[]
+        })) as TableColumn<T>[]
       }
     />
   )

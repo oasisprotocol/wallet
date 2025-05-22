@@ -4,6 +4,7 @@
  * This is the entry file for the application, only setup and boilerplate
  * code.
  */
+import './utils/warnImportMapViolation'
 import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Provider as ReduxProvider } from 'react-redux'

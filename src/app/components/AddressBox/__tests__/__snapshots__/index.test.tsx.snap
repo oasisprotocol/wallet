@@ -1,40 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AddressBox /> should render address properly 1`] = `
-.c3 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  fill: #666666;
-  stroke: #666666;
-}
-
-.c3 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c3 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c3 *[stroke*='#'],
-.c3 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c3 *[fill-rule],
-.c3 *[FILL-RULE],
-.c3 *[fill*='#'],
-.c3 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -93,6 +59,40 @@ exports[`<AddressBox /> should render address properly 1`] = `
   -webkit-flex: 1 1;
   -ms-flex: 1 1;
   flex: 1 1;
+}
+
+.c3 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c3 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c3 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c3 *[stroke*='#'],
+.c3 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c3 *[fill-rule],
+.c3 *[FILL-RULE],
+.c3 *[fill*='#'],
+.c3 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
 }
 
 .c5 {
@@ -230,74 +230,6 @@ exports[`<AddressBox /> should render address properly 1`] = `
 `;
 
 exports[`<EditableNameBox /> should render name properly 1`] = `
-.c6 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 16px;
-  height: 16px;
-  fill: link;
-  stroke: link;
-}
-
-.c6 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c6 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c6 *[stroke*='#'],
-.c6 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c6 *[fill-rule],
-.c6 *[FILL-RULE],
-.c6 *[fill*='#'],
-.c6 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
-.c10 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 18px;
-  height: 18px;
-  fill: #666666;
-  stroke: #666666;
-}
-
-.c10 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c10 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c10 *[stroke*='#'],
-.c10 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c10 *[fill-rule],
-.c10 *[FILL-RULE],
-.c10 *[fill*='#'],
-.c10 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -387,6 +319,74 @@ exports[`<EditableNameBox /> should render name properly 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.c6 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  fill: link;
+  stroke: link;
+}
+
+.c6 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c6 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c6 *[stroke*='#'],
+.c6 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c6 *[fill-rule],
+.c6 *[FILL-RULE],
+.c6 *[fill*='#'],
+.c6 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c10 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  fill: #666666;
+  stroke: #666666;
+}
+
+.c10 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c10 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c10 *[stroke*='#'],
+.c10 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c10 *[fill-rule],
+.c10 *[FILL-RULE],
+.c10 *[fill*='#'],
+.c10 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
 }
 
 .c4 {

@@ -74,7 +74,6 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: t('validator.name', 'Name'),
       id: 'name',
-      selector: 'name',
       maxWidth: '40ex',
       minWidth: '15ex',
       cell: datum =>
@@ -89,7 +88,6 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: t('validator.escrow', 'Escrow'),
       id: 'escrow',
-      selector: 'escrow',
       width: '28ex',
       right: true,
       hide: 'sm',
@@ -102,7 +100,6 @@ export const ValidatorList = memo((props: Props) => {
     {
       name: t('validator.fee', 'Fee'),
       id: 'fee',
-      selector: 'fee',
       sortable: true,
       width: '110px',
       right: true,
@@ -144,15 +141,15 @@ export const ValidatorList = memo((props: Props) => {
             customStyles={dataTableCustomStyles}
             expandableRowsHideExpander
             expandableRows={true}
-            expandableRowsComponent={
+            expandableRowsComponent={({ data }) => (
               <ValidatorItem
-                data={{} as any}
+                data={data}
                 details={validatorDetails}
                 accountAvailableBalance={accountAvailableBalance}
                 isAddressInWallet={isAddressInWallet}
                 key={selectedAddress}
               />
-            }
+            )}
             expandableRowExpanded={row => row.address === selectedAddress}
             sortIcon={<Down />}
             theme="blank"

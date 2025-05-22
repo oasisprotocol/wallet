@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ValidatorMediaInfo /> should match snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
 .c2 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
@@ -33,20 +47,6 @@ exports[`<ValidatorMediaInfo /> should match snapshot 1`] = `
 .c2 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
 }
 
 .c1 {

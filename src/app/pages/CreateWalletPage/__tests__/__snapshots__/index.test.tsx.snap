@@ -1,40 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CreateWalletPage  /> should match snapshot 1`] = `
-.c12 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  fill: #F8F8F8;
-  stroke: #F8F8F8;
-}
-
-.c12 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c12 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c12 *[stroke*='#'],
-.c12 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c12 *[fill-rule],
-.c12 *[FILL-RULE],
-.c12 *[fill*='#'],
-.c12 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c2 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -348,6 +314,40 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   width: 12px;
 }
 
+.c12 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  fill: #F8F8F8;
+  stroke: #F8F8F8;
+}
+
+.c12 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c12 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c12 *[fill-rule],
+.c12 *[FILL-RULE],
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
 .c6 {
   font-size: 16px;
   line-height: 20px;
@@ -548,6 +548,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-user-select: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

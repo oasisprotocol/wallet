@@ -1,74 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Transaction  /> should handle unknown transaction types gracefully 1`] = `
-.c2 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
-  fill: #7D4CDB;
-  stroke: #7D4CDB;
-}
-
-.c2 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c2 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c2 *[stroke*='#'],
-.c2 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c2 *[fill-rule],
-.c2 *[FILL-RULE],
-.c2 *[fill*='#'],
-.c2 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
-.c12 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  fill: #7D4CDB;
-  stroke: #7D4CDB;
-}
-
-.c12 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c12 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c12 *[stroke*='#'],
-.c12 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c12 *[fill-rule],
-.c12 *[FILL-RULE],
-.c12 *[fill*='#'],
-.c12 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -294,6 +226,74 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
   -ms-flex-item-align: stretch;
   align-self: stretch;
   width: 12px;
+}
+
+.c2 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #7D4CDB;
+  stroke: #7D4CDB;
+}
+
+.c2 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c2 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c2 *[stroke*='#'],
+.c2 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c2 *[fill-rule],
+.c2 *[FILL-RULE],
+.c2 *[fill*='#'],
+.c2 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c12 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  fill: #7D4CDB;
+  stroke: #7D4CDB;
+}
+
+.c12 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c12 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c12 *[fill-rule],
+.c12 *[FILL-RULE],
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
 }
 
 .c24 {
@@ -723,74 +723,6 @@ exports[`<Transaction  /> should handle unknown transaction types gracefully 1`]
 `;
 
 exports[`<Transaction  /> should match snapshot 1`] = `
-.c2 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 24px;
-  height: 24px;
-  fill: #7D4CDB;
-  stroke: #7D4CDB;
-}
-
-.c2 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c2 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c2 *[stroke*='#'],
-.c2 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c2 *[fill-rule],
-.c2 *[FILL-RULE],
-.c2 *[fill*='#'],
-.c2 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
-.c12 {
-  display: inline-block;
-  -webkit-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  fill: #7D4CDB;
-  stroke: #7D4CDB;
-}
-
-.c12 g {
-  fill: inherit;
-  stroke: inherit;
-}
-
-.c12 *:not([stroke])[fill='none'] {
-  stroke-width: 0;
-}
-
-.c12 *[stroke*='#'],
-.c12 *[STROKE*='#'] {
-  stroke: inherit;
-  fill: none;
-}
-
-.c12 *[fill-rule],
-.c12 *[FILL-RULE],
-.c12 *[fill*='#'],
-.c12 *[FILL*='#'] {
-  fill: inherit;
-  stroke: none;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1016,6 +948,74 @@ exports[`<Transaction  /> should match snapshot 1`] = `
   -ms-flex-item-align: stretch;
   align-self: stretch;
   width: 12px;
+}
+
+.c2 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  fill: #7D4CDB;
+  stroke: #7D4CDB;
+}
+
+.c2 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c2 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c2 *[stroke*='#'],
+.c2 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c2 *[fill-rule],
+.c2 *[FILL-RULE],
+.c2 *[fill*='#'],
+.c2 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
+}
+
+.c12 {
+  display: inline-block;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  fill: #7D4CDB;
+  stroke: #7D4CDB;
+}
+
+.c12 g {
+  fill: inherit;
+  stroke: inherit;
+}
+
+.c12 *:not([stroke])[fill='none'] {
+  stroke-width: 0;
+}
+
+.c12 *[stroke*='#'],
+.c12 *[STROKE*='#'] {
+  stroke: inherit;
+  fill: none;
+}
+
+.c12 *[fill-rule],
+.c12 *[FILL-RULE],
+.c12 *[fill*='#'],
+.c12 *[FILL*='#'] {
+  fill: inherit;
+  stroke: none;
 }
 
 .c24 {

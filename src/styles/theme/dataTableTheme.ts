@@ -1,4 +1,4 @@
-import { IDataTableStyles, ITheme } from 'react-data-table-component'
+import { TableStyles, Theme } from 'react-data-table-component'
 
 export const dataTableTheme = {
   background: { default: 'unset' },
@@ -15,9 +15,9 @@ export const dataTableTheme = {
     default: 'unset',
   },
   divider: { default: '#AAAAAAaa' },
-} as Partial<ITheme>
+} as Partial<Theme>
 
-export const dataTableCustomStyles: IDataTableStyles = {
+export const dataTableCustomStyles: TableStyles = {
   headCells: {
     style: {
       fontSize: '16px',
