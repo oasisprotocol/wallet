@@ -36,6 +36,7 @@ function successOrThrowWalletError<T>(response: Response<T>, message: string) {
   try {
     return successOrThrow(response)
   } catch (err) {
+    console.error(err)
     const errResponse = err as Response<T>
     switch (errResponse.return_code) {
       case 0x6400:
@@ -134,6 +135,7 @@ export class LedgerSigner implements ContextSigner {
 
     const app = new OasisApp(this.transport)
     await Ledger.validateAccountDerivation(app, this.path, this.publicKey)
+    debugger
     const response = successOrThrowWalletError(
       await app.sign(this.path, context, Buffer.from(message)),
       'ledger sign',

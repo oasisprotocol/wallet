@@ -70,7 +70,10 @@ export const ParaTimes = () => {
     )
   }
 
-  if (isLedgerWallet) {
+  // not sure if this is my note from CLI or these wallet changes:
+  // ledger paratime deposit: amount shows 100000000000000
+
+  if (isLedgerWallet /* check is old */) {
     return (
       <Box pad="medium" background="background-front" align="center">
         <ParaTimesPageInaccessibleLedger />

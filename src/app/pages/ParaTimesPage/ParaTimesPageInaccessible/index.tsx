@@ -18,7 +18,7 @@ export const ParaTimesPageInaccessibleLedger = () => {
   return (
     <ParaTimeContent
       header={t('paraTimes.common.header', 'ParaTime Transfers')}
-      description={t('paraTimes.pageInaccessible.ledgerAccount', 'Ledger account is not supported.')}
+      description={t('paraTimes.pageInaccessible.ledgerOld', 'Ledger app is not updated.')}
     />
   )
 }

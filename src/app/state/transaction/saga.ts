@@ -320,6 +320,7 @@ export function* submitParaTimeTransaction(runtime: Runtime, transaction: ParaTi
     runtime,
   )
 
+  debugger
   yield* call(sign, paraTimeTransactionSigner, rtw)
   yield* call(OasisTransaction.submit, nic, rtw)
   yield* put(transactionActions.paraTimeTransactionSent(transaction.recipient))
