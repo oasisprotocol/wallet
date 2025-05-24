@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { LanguageMenu } from 'app/components/LanguageSelect'
 import { ProfileModalButton } from './Features/ProfileModalButton'
-import { NetworkSelector } from './Features/NetworkSelector'
+import { NetworkMenu } from './Features/NetworkSelector'
 import { mobileToolbarButtonsZIndex } from '../../../styles/theme/elementSizes'
 
 const StyledToolbar = styled(Box)`
@@ -55,7 +55,7 @@ export function Toolbar() {
         round="5px"
         border={{ color: 'background-front-border', size: isMobile ? 'none' : 'xsmall' }}
       >
-        <NetworkSelector />
+        <NetworkMenu />
       </Box>
 
       {hasAccounts && (

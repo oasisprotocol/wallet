@@ -15,9 +15,7 @@ import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 
-interface Props {}
-
-export const NetworkSelector = memo((props: Props) => {
+export const NetworkMenu = memo(() => {
   const { t } = useTranslation()
   const size = useContext(ResponsiveContext)
   const selectedNetworkType = useSelector(selectSelectedNetwork)

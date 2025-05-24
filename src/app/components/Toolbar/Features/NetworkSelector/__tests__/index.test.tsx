@@ -5,12 +5,12 @@ import * as React from 'react'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 
-import { NetworkSelector } from '..'
+import { NetworkMenu } from '..'
 
 const renderComponent = (store: any) =>
   render(
     <Provider store={store}>
-      <NetworkSelector />
+      <NetworkMenu />
     </Provider>,
   )
 
