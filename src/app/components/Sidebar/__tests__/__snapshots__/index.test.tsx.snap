@@ -22,7 +22,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-right: 0px;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -48,7 +48,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-bottom: 12px;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -65,7 +65,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 1 1;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -83,7 +83,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding: 0px;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,7 +104,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -121,7 +121,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   flex: 0 0 auto;
 }
 
-.c2 {
+.c3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -131,7 +131,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   height: 12px;
 }
 
-.c8 {
+.c9 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -141,7 +141,7 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 24px;
 }
 
-.c7 {
+.c8 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -152,35 +152,35 @@ exports[`<Navigation /> should match snapshot 1`] = `
   stroke: #666666;
 }
 
-.c7 g {
+.c8 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c7 *:not([stroke])[fill='none'] {
+.c8 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c7 *[stroke*='#'],
-.c7 *[STROKE*='#'] {
+.c8 *[stroke*='#'],
+.c8 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c7 *[fill-rule],
-.c7 *[FILL-RULE],
-.c7 *[fill*='#'],
-.c7 *[FILL*='#'] {
+.c8 *[fill-rule],
+.c8 *[FILL-RULE],
+.c8 *[fill*='#'],
+.c8 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
 
-.c9 {
+.c10 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c11 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -199,54 +199,72 @@ exports[`<Navigation /> should match snapshot 1`] = `
   width: 100%;
 }
 
-.c11:focus {
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus > circle,
-.c11:focus > ellipse,
-.c11:focus > line,
-.c11:focus > path,
-.c11:focus > polygon,
-.c11:focus > polyline,
-.c11:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c11:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible) > circle,
-.c11:focus:not(:focus-visible) > ellipse,
-.c11:focus:not(:focus-visible) > line,
-.c11:focus:not(:focus-visible) > path,
-.c11:focus:not(:focus-visible) > polygon,
-.c11:focus:not(:focus-visible) > polyline,
-.c11:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,
+.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,
+.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,
+.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c5:hover {
+.c6:hover {
   color: #444444;
   background-color: rgba(221,221,221,0.5);
 }
 
-.c5.active {
+.c6.active {
   color: #f8f8f8;
   background-color: #7D4CDB;
+}
+
+.c1 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 100dvh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.c1 div:has(> .SidebarMenuItems) {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 @media only screen and (max-width:768px) {
@@ -269,42 +287,42 @@ exports[`<Navigation /> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-left: 12px;
     padding-right: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-top: 6px;
     padding-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c5 {
     padding: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c2 {
+  .c3 {
     height: 6px;
   }
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <div
-    class="c1"
+    class="c2"
   >
     <a
       href="/"
@@ -316,27 +334,27 @@ exports[`<Navigation /> should match snapshot 1`] = `
     </a>
   </div>
   <div
-    class="c2"
+    class="c3"
   />
   <div
-    class="c3"
+    class="c4"
   >
     <nav
-      class="c4"
+      class="c5 SidebarMenuItems"
     >
       <a
         aria-current="page"
         aria-label="menu.home"
-        class="c5 active"
+        class="c6 active"
         data-testid="nav-home"
         href="/"
       >
         <div
-          class="c6"
+          class="c7"
         >
           <svg
             aria-label="Home"
-            class="c7"
+            class="c8"
             viewBox="0 0 24 24"
           >
             <path
@@ -347,43 +365,43 @@ exports[`<Navigation /> should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c8"
+            class="c9"
           />
           <span
-            class="c9"
+            class="c10"
           >
             menu.home
           </span>
         </div>
       </a>
       <div
-        class="c2"
+        class="c3"
       />
       <div
-        class="c2"
+        class="c3"
       />
       <div
-        class="c2"
+        class="c3"
       />
     </nav>
   </div>
   <div
-    class="c2"
+    class="c3"
   />
   <nav
-    class="c10"
+    class="c11"
   >
     <button
       aria-label="theme.darkMode"
-      class="c11 c5"
+      class="c12 c6"
       type="button"
     >
       <div
-        class="c6"
+        class="c7"
       >
         <svg
           aria-label="theme.darkMode"
-          class="c7"
+          class="c8"
           viewBox="0 0 24 24"
         >
           <path
@@ -395,31 +413,31 @@ exports[`<Navigation /> should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c8"
+          class="c9"
         />
         <span
-          class="c9"
+          class="c10"
         >
           theme.darkMode
         </span>
       </div>
     </button>
     <div
-      class="c2"
+      class="c3"
     />
     <a
       aria-label="GitHub"
-      class="c5"
+      class="c6"
       href="https://github.com/oasisprotocol/wallet"
       rel="noopener"
       target="_blank"
     >
       <div
-        class="c6"
+        class="c7"
       >
         <svg
           aria-label="Github"
-          class="c7"
+          class="c8"
           viewBox="0 0 24 24"
         >
           <path
@@ -429,10 +447,10 @@ exports[`<Navigation /> should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c8"
+          class="c9"
         />
         <span
-          class="c9"
+          class="c10"
         >
           GitHub
         </span>
@@ -464,7 +482,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   padding-right: 0px;
 }
 
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -490,7 +508,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   padding-bottom: 12px;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -507,7 +525,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   flex: 1 1;
 }
 
-.c4 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -525,7 +543,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   padding: 0px;
 }
 
-.c6 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -546,7 +564,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   padding-left: 24px;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -563,7 +581,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   flex: 0 0 auto;
 }
 
-.c2 {
+.c3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -573,7 +591,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   height: 12px;
 }
 
-.c8 {
+.c9 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -583,7 +601,7 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   width: 24px;
 }
 
-.c7 {
+.c8 {
   display: inline-block;
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
@@ -594,35 +612,35 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   stroke: #666666;
 }
 
-.c7 g {
+.c8 g {
   fill: inherit;
   stroke: inherit;
 }
 
-.c7 *:not([stroke])[fill='none'] {
+.c8 *:not([stroke])[fill='none'] {
   stroke-width: 0;
 }
 
-.c7 *[stroke*='#'],
-.c7 *[STROKE*='#'] {
+.c8 *[stroke*='#'],
+.c8 *[STROKE*='#'] {
   stroke: inherit;
   fill: none;
 }
 
-.c7 *[fill-rule],
-.c7 *[FILL-RULE],
-.c7 *[fill*='#'],
-.c7 *[FILL*='#'] {
+.c8 *[fill-rule],
+.c8 *[FILL-RULE],
+.c8 *[fill*='#'],
+.c8 *[FILL*='#'] {
   fill: inherit;
   stroke: none;
 }
 
-.c9 {
+.c10 {
   font-size: 18px;
   line-height: 24px;
 }
 
-.c11 {
+.c12 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -641,54 +659,72 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
   width: 100%;
 }
 
-.c11:focus {
+.c12:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus > circle,
-.c11:focus > ellipse,
-.c11:focus > line,
-.c11:focus > path,
-.c11:focus > polygon,
-.c11:focus > polyline,
-.c11:focus > rect {
+.c12:focus > circle,
+.c12:focus > ellipse,
+.c12:focus > line,
+.c12:focus > path,
+.c12:focus > polygon,
+.c12:focus > polyline,
+.c12:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #6FFFB0;
 }
 
-.c11:focus::-moz-focus-inner {
+.c12:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c11:focus:not(:focus-visible) {
+.c12:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible) > circle,
-.c11:focus:not(:focus-visible) > ellipse,
-.c11:focus:not(:focus-visible) > line,
-.c11:focus:not(:focus-visible) > path,
-.c11:focus:not(:focus-visible) > polygon,
-.c11:focus:not(:focus-visible) > polyline,
-.c11:focus:not(:focus-visible) > rect {
+.c12:focus:not(:focus-visible) > circle,
+.c12:focus:not(:focus-visible) > ellipse,
+.c12:focus:not(:focus-visible) > line,
+.c12:focus:not(:focus-visible) > path,
+.c12:focus:not(:focus-visible) > polygon,
+.c12:focus:not(:focus-visible) > polyline,
+.c12:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c11:focus:not(:focus-visible)::-moz-focus-inner {
+.c12:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
-.c5:hover {
+.c6:hover {
   color: #444444;
   background-color: rgba(221,221,221,0.5);
 }
 
-.c5.active {
+.c6.active {
   color: #f8f8f8;
   background-color: #7D4CDB;
+}
+
+.c1 {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 100dvh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.c1 div:has(> .SidebarMenuItems) {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 @media only screen and (max-width:768px) {
@@ -711,42 +747,42 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     margin-bottom: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-left: 12px;
     padding-right: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c1 {
+  .c2 {
     padding-top: 6px;
     padding-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c4 {
+  .c5 {
     padding: 0px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c2 {
+  .c3 {
     height: 6px;
   }
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <div
-    class="c1"
+    class="c2"
   >
     <a
       href="/"
@@ -758,27 +794,27 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
     </a>
   </div>
   <div
-    class="c2"
+    class="c3"
   />
   <div
-    class="c3"
+    class="c4"
   >
     <nav
-      class="c4"
+      class="c5 SidebarMenuItems"
     >
       <a
         aria-current="page"
         aria-label="menu.home"
-        class="c5 active"
+        class="c6 active"
         data-testid="nav-home"
         href="/"
       >
         <div
-          class="c6"
+          class="c7"
         >
           <svg
             aria-label="Home"
-            class="c7"
+            class="c8"
             viewBox="0 0 24 24"
           >
             <path
@@ -789,31 +825,31 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c8"
+            class="c9"
           />
           <span
-            class="c9"
+            class="c10"
           >
             menu.home
           </span>
         </div>
       </a>
       <div
-        class="c2"
+        class="c3"
       />
       <a
         aria-label="menu.wallet"
-        class="c5"
+        class="c6"
         data-testid="nav-myaccount"
         href="/account/dummy"
       >
         <div
-          class="c6"
+          class="c7"
         >
           <svg
             aria-hidden="true"
             aria-label="icons.wallet.label"
-            class="c7"
+            class="c8"
             viewBox="0 -960 960 960"
           >
             <path
@@ -821,30 +857,30 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c8"
+            class="c9"
           />
           <span
-            class="c9"
+            class="c10"
           >
             menu.wallet
           </span>
         </div>
       </a>
       <div
-        class="c2"
+        class="c3"
       />
       <a
         aria-label="menu.stake"
-        class="c5"
+        class="c6"
         data-testid="nav-stake"
         href="/account/dummy/stake"
       >
         <div
-          class="c6"
+          class="c7"
         >
           <svg
             aria-label="LineChart"
-            class="c7"
+            class="c8"
             viewBox="0 0 24 24"
           >
             <path
@@ -855,30 +891,30 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c8"
+            class="c9"
           />
           <span
-            class="c9"
+            class="c10"
           >
             menu.stake
           </span>
         </div>
       </a>
       <div
-        class="c2"
+        class="c3"
       />
       <a
         aria-label="MockParaTimesLabel"
-        class="c5"
+        class="c6"
         data-testid="nav-paratime"
         href="/dummy"
       >
         <div
-          class="c6"
+          class="c7"
         >
           <svg
             aria-label="Inherit"
-            class="c7"
+            class="c8"
             viewBox="0 0 24 24"
           >
             <path
@@ -889,10 +925,10 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="c8"
+            class="c9"
           />
           <span
-            class="c9"
+            class="c10"
           >
             MockParaTimesLabel
           </span>
@@ -901,22 +937,22 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
     </nav>
   </div>
   <div
-    class="c2"
+    class="c3"
   />
   <nav
-    class="c10"
+    class="c11"
   >
     <button
       aria-label="menu.closeWallet"
-      class="c11 c5"
+      class="c12 c6"
       type="button"
     >
       <div
-        class="c6"
+        class="c7"
       >
         <svg
           aria-label="Logout"
-          class="c7"
+          class="c8"
           viewBox="0 0 24 24"
         >
           <path
@@ -927,31 +963,31 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c8"
+          class="c9"
         />
         <span
-          class="c9"
+          class="c10"
         >
           menu.closeWallet
         </span>
       </div>
     </button>
     <div
-      class="c2"
+      class="c3"
     />
     <a
       aria-label="GitHub"
-      class="c5"
+      class="c6"
       href="https://github.com/oasisprotocol/wallet"
       rel="noopener"
       target="_blank"
     >
       <div
-        class="c6"
+        class="c7"
       >
         <svg
           aria-label="Github"
-          class="c7"
+          class="c8"
           viewBox="0 0 24 24"
         >
           <path
@@ -961,10 +997,10 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
           />
         </svg>
         <div
-          class="c8"
+          class="c9"
         />
         <span
-          class="c9"
+          class="c10"
         >
           GitHub
         </span>

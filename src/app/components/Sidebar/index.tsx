@@ -287,7 +287,7 @@ function SidebarMenuItems() {
   }
 
   return (
-    <Nav gap="small" pad="none">
+    <Nav gap="small" pad="none" className="SidebarMenuItems">
       {menu.home}
       {menu.wallet}
       {menu.stake}
@@ -296,11 +296,25 @@ function SidebarMenuItems() {
   )
 }
 
+const StyledGSidebar = styled(GSidebar)`
+  height: fit-content;
+  min-height: 100dvh;
+  position: sticky;
+  top: 0px;
+
+  // Make it scrollable if screen is too short
+  overflow-y: auto;
+  max-height: 100vh;
+
+  div:has(> .SidebarMenuItems) {
+    flex-shrink: 0;
+  }
+`
 export function Sidebar() {
   const size = useContext(ResponsiveContext) as Size
 
   return (
-    <GSidebar
+    <StyledGSidebar
       background="component-sidebar"
       header={size !== 'small' ? <SidebarHeader size={size} /> : undefined}
       footer={<SidebarFooter size={size} />}
@@ -309,7 +323,7 @@ export function Sidebar() {
       width="220px"
     >
       <SidebarMenuItems />
-    </GSidebar>
+    </StyledGSidebar>
   )
 }
 
