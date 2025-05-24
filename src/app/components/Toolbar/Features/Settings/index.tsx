@@ -4,6 +4,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { ThemeSelect } from 'app/components/ThemeSwitcher'
 import { LanguageSelect } from 'app/components/LanguageSelect'
 import { Footer } from 'app/components/Footer'
+import { NetworkSelect } from '../NetworkSelector'
 
 export const Settings = () => {
   const responsiveContext = useContext(ResponsiveContext)
@@ -12,6 +13,7 @@ export const Settings = () => {
   return (
     <Box gap="small" style={{ flex: 1, justifyContent: 'space-between' }}>
       <Box>
+        <NetworkSelect />
         <LanguageSelect />
         <ThemeSelect />
       </Box>

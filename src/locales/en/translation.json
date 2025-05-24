@@ -490,6 +490,7 @@
       "local": "Local",
       "mainnet": "Mainnet",
       "selector": "Select network",
+      "selector2": "Network",
       "testnet": "Testnet"
     },
     "profile": {

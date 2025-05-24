@@ -14,11 +14,11 @@ import { Network } from 'grommet-icons/es6/icons/Network'
 import React, { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { SelectWithIcon } from '../../../SelectWithIcon'
 
-export const NetworkMenu = memo(() => {
+function useNetworks() {
   const { t } = useTranslation()
-  const size = useContext(ResponsiveContext)
-  const selectedNetworkType = useSelector(selectSelectedNetwork)
+  const selectedNetworkValue = useSelector(selectSelectedNetwork)
   const dispatch = useDispatch()
 
   const switchNetwork = (network: NetworkType) => {
@@ -31,12 +31,47 @@ export const NetworkMenu = memo(() => {
     testnet: t('toolbar.networks.testnet', 'Testnet'),
   }
 
-  const network = networkLabels[selectedNetworkType]
+  const selectedNetwork = {
+    value: selectedNetworkValue,
+    label: networkLabels[selectedNetworkValue],
+  }
+
   const networks = [
     'mainnet' as const,
     'testnet' as const,
     ...(process.env.REACT_APP_LOCALNET ? ['local' as const] : []),
-  ]
+  ].map(value => ({
+    value: value,
+    label: networkLabels[value],
+  }))
+
+  return {
+    networks,
+    selectedNetwork,
+    switchNetwork,
+  }
+}
+
+export const NetworkSelect = () => {
+  const { t } = useTranslation()
+  const { networks, selectedNetwork, switchNetwork } = useNetworks()
+  return (
+    <SelectWithIcon
+      icon={<Network size="24px" />}
+      id="network"
+      label={t('toolbar.networks.selector2', 'Network')}
+      name="network"
+      onChange={option => switchNetwork(option)}
+      options={networks}
+      value={selectedNetwork.value}
+    />
+  )
+}
+
+export const NetworkMenu = memo(() => {
+  const { t } = useTranslation()
+  const size = useContext(ResponsiveContext)
+  const { networks, selectedNetwork, switchNetwork } = useNetworks()
 
   return (
     <Menu
@@ -46,17 +81,17 @@ export const NetworkMenu = memo(() => {
         align: { top: 'bottom', left: 'left' },
         elevation: 'xlarge',
       }}
-      items={networks.map(value => ({
-        label: networkLabels[value],
-        onClick: () => switchNetwork(value),
-        primary: value === selectedNetworkType,
+      items={networks.map(net => ({
+        ...net,
+        onClick: () => switchNetwork(net.value),
+        primary: net.value === selectedNetwork.value,
       }))}
       fill
       a11yTitle={t('toolbar.networks.selector', 'Select network')}
     >
       <Box direction="row" gap="small" pad="small" responsive={false} data-testid="network-selector">
         <Network />
-        {size !== 'small' && <Text data-testid="active-network">{network}</Text>}
+        {size !== 'small' && <Text data-testid="active-network">{selectedNetwork.label}</Text>}
       </Box>
     </Menu>
   )
