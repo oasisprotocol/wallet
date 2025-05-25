@@ -8,8 +8,7 @@
 import { Box } from 'grommet/es6/components/Box'
 import { Main } from 'grommet/es6/components/Main'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import * as React from 'react'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 import { Outlet } from 'react-router-dom'
@@ -27,8 +26,16 @@ import { IonicNativePlatformProvider } from './components/Ionic/components/Ionic
 export function App() {
   useRouteRedirects()
   const { i18n } = useTranslation()
+  const [isResponsiveContextInitialized, setIsResponsiveContextInitialized] = useState(false)
   const isMobile = useContext(ResponsiveContext) === 'small'
 
+  useEffect(() => {
+    // TODO: remove this if grommet fixes and runs this on useLayoutEffect
+    // https://github.com/grommet/grommet/blob/9d3a8e4/src/js/components/Grommet/Grommet.js#L109-L111
+    setIsResponsiveContextInitialized(true)
+  }, [])
+
+  if (!isResponsiveContextInitialized) return null
   return (
     <FatalErrorHandler>
       <IonicNativePlatformProvider>
