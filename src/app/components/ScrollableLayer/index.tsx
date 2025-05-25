@@ -27,7 +27,7 @@ function useRefWithCallback<T>(onMount: (el: T) => void, onUnmount: (el: T) => v
  * Wraps grommet's layer with body-scroll-lock
  * @param props Grommet Layer props
  */
-export function ResponsiveLayer(props: LayerExtendedProps) {
+export function ScrollableLayer(props: LayerExtendedProps) {
   const isMobile = useContext(ResponsiveContext) === 'small'
   const layerRef = useRefWithCallback<HTMLDivElement>(
     useCallback(node => disableBodyScroll(node), []),

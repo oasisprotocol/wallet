@@ -1,5 +1,5 @@
 import { Box } from 'grommet/es6/components/Box'
-import { ResponsiveLayer } from '../ResponsiveLayer'
+import { ScrollableLayer } from '../ScrollableLayer'
 import React, { useContext } from 'react'
 import { Header } from 'app/components/Header'
 import { Navigation } from '../Sidebar'
@@ -18,7 +18,7 @@ export function LoginModalLayout(props: {
   return (
     <Box direction="row-responsive" background="background-back" fill style={{ minHeight: '100dvh' }}>
       <Navigation />
-      <ResponsiveLayer
+      <ScrollableLayer
         modal
         responsive={false}
         style={{
@@ -44,7 +44,7 @@ export function LoginModalLayout(props: {
 
           {props.children}
         </Box>
-      </ResponsiveLayer>
+      </ScrollableLayer>
     </Box>
   )
 }

@@ -4,7 +4,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ModalHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
-import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
+import { ScrollableLayer } from 'app/components/ScrollableLayer'
 import {
   selectBleDevices,
   selectError,
@@ -77,7 +77,7 @@ export function ListBleLedgerDevicesModal(props: ListBleLedgerDevicesModalProps)
   const confirmDisabled = isBusyImporting || !selectedBleDevice
 
   return (
-    <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
+    <ScrollableLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Box width="800px" pad="medium">
         <ModalHeader>{t('openWallet.importAccounts.selectLedgerDevice', 'Select Ledger device')}</ModalHeader>
 
@@ -125,6 +125,6 @@ export function ListBleLedgerDevicesModal(props: ListBleLedgerDevicesModalProps)
           />
         </Box>
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

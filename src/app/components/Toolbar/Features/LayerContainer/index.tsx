@@ -3,7 +3,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Close } from 'grommet-icons/es6/icons/Close'
-import { ResponsiveLayer } from '../../../ResponsiveLayer'
+import { ScrollableLayer } from '../../../ScrollableLayer'
 import { layerOverlayMinHeight } from '../layer'
 
 interface LayerContainerProps {
@@ -16,7 +16,7 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <ResponsiveLayer
+    <ScrollableLayer
       onClickOutside={hideLayer}
       onEsc={hideLayer}
       animation={animation ? 'slide' : 'none'}
@@ -40,6 +40,6 @@ export const LayerContainer = ({ animation, children, hideLayer }: LayerContaine
         </Box>
         {children}
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

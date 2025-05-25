@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { useContext } from 'react'
 import styled from 'styled-components'
-import { ResponsiveLayer } from '../ResponsiveLayer'
+import { ScrollableLayer } from '../ScrollableLayer'
 import { TransactionPreview } from '../TransactionPreview'
 
 const StyledBox = styled(Box)`
@@ -58,7 +58,7 @@ export function TransactionModal() {
   }
 
   return (
-    <ResponsiveLayer modal position="center" background="background-front">
+    <ScrollableLayer modal position="center" background="background-front">
       <Box pad="medium" gap="medium" width="800px">
         <Box>
           <ModalHeader level={3} margin={{ top: 'xsmall', bottom: 'medium' }}>
@@ -118,6 +118,6 @@ export function TransactionModal() {
           </Box>
         )}
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

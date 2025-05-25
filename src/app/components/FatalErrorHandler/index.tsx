@@ -21,7 +21,7 @@ import { useContext, useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { normalizeColor } from 'grommet/es6/utils'
-import { ResponsiveLayer } from '../ResponsiveLayer'
+import { ScrollableLayer } from '../ScrollableLayer'
 import logotype from '../../../../public/Icon Blue 192.png'
 import { runtimeIs } from 'app/lib/runtimeIs'
 import { BrandButton } from '../Button'
@@ -59,7 +59,7 @@ export function FatalErrorHandler({ children }: Props) {
   }
 
   return (
-    <ResponsiveLayer modal background="background-front">
+    <ScrollableLayer modal background="background-front">
       <Box align="end" margin={{ horizontal: 'large', top: 'medium' }}>
         <img src={logotype} alt={t('appTitle', 'ROSE Wallet')} width="45" height="45" />
       </Box>
@@ -129,6 +129,6 @@ export function FatalErrorHandler({ children }: Props) {
           />
         </Text>
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

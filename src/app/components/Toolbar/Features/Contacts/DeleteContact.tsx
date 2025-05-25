@@ -4,7 +4,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Text } from 'grommet/es6/components/Text'
-import { ResponsiveLayer } from '../../../ResponsiveLayer'
+import { ScrollableLayer } from '../../../ScrollableLayer'
 
 interface DeleteContactProps {
   onDelete: () => void
@@ -16,7 +16,7 @@ export const DeleteContact = ({ onCancel, onDelete }: DeleteContactProps) => {
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <ResponsiveLayer
+    <ScrollableLayer
       onClickOutside={onCancel}
       onEsc={onCancel}
       animation="none"
@@ -43,6 +43,6 @@ export const DeleteContact = ({ onCancel, onDelete }: DeleteContactProps) => {
           />
         </Box>
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

@@ -4,7 +4,7 @@ import { Box } from 'grommet/es6/components/Box'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Text } from 'grommet/es6/components/Text'
-import { ResponsiveLayer } from '../../../ResponsiveLayer'
+import { ScrollableLayer } from '../../../ScrollableLayer'
 import { DeleteInputForm } from '../../../../components/DeleteInputForm'
 import { Account } from '../Account/Account'
 import { Wallet } from '../../../../state/wallet/types'
@@ -20,7 +20,7 @@ export const DeleteAccount = ({ onCancel, onDelete, wallet }: DeleteAccountProps
   const isMobile = useContext(ResponsiveContext) === 'small'
 
   return (
-    <ResponsiveLayer
+    <ScrollableLayer
       onClickOutside={onCancel}
       onEsc={onCancel}
       animation="none"
@@ -63,6 +63,6 @@ export const DeleteAccount = ({ onCancel, onDelete, wallet }: DeleteAccountProps
           </DeleteInputForm>
         </Box>
       </Box>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

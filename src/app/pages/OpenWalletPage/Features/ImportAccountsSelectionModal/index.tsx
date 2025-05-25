@@ -5,7 +5,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { ModalSplitHeader } from 'app/components/Header'
 import { ImportAccountsStepFormatter } from 'app/components/ImportAccountsStepFormatter'
-import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
+import { ScrollableLayer } from 'app/components/ScrollableLayer'
 import { ImportableAccount } from 'app/components/Toolbar/Features/Account/ImportableAccount'
 import { importAccountsActions } from 'app/state/importaccounts'
 import {
@@ -95,7 +95,7 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
   t('openWallet.importAccounts.accountCounter_one', 'One account selected')
 
   return (
-    <ResponsiveLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
+    <ScrollableLayer onEsc={props.abort} onClickOutside={props.abort} modal background="background-front">
       <Form<FormValue> onSubmit={openAccounts} {...preventSavingInputsToUserData}>
         <Box width="800px" pad="medium">
           <ModalSplitHeader
@@ -166,6 +166,6 @@ export function ImportAccountsSelectionModal(props: ImportAccountsSelectionModal
           </Box>
         </Box>
       </Form>
-    </ResponsiveLayer>
+    </ScrollableLayer>
   )
 }

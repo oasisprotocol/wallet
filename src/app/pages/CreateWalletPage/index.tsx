@@ -7,7 +7,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { MnemonicGrid } from 'app/components/MnemonicGrid'
 import { MnemonicValidation } from 'app/components/MnemonicValidation'
 import { NoTranslate } from 'app/components/NoTranslate'
-import { ResponsiveLayer } from 'app/components/ResponsiveLayer'
+import { ScrollableLayer } from 'app/components/ScrollableLayer'
 import { importAccountsActions } from 'app/state/importaccounts'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
@@ -73,7 +73,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
       )}
       {showConfirmation && (
         <ThemeContext.Extend value={{ layer: { overlay: { backdropFilter: 'blur(5px)' } } }}>
-          <ResponsiveLayer
+          <ScrollableLayer
             style={{
               width: { small: '100vw', medium: '90vw', large: '1500px' }[size],
             }}
@@ -86,7 +86,7 @@ export function CreateWalletPage(props: CreateWalletProps) {
               successHandler={openWallet}
               abortHandler={() => setConfirmation(false)}
             ></MnemonicValidation>
-          </ResponsiveLayer>
+          </ScrollableLayer>
         </ThemeContext.Extend>
       )}
       {showAccountsSelectionModal && (
