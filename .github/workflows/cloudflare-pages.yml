@@ -56,17 +56,15 @@ jobs:
         run: yarn build
       - name: Publish to Cloudflare Pages
         # Id is needed to access output in a next step.
-        id: cloudflare
-        uses: cloudflare/pages-action@v1
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
         with:
+          # Token with Cloudflare Pages edit permission only generated in Cloudflare dashboard -> Manage Account -> Account API Tokens
           apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
+          # Acquired from Cloudflare dashboard -> Compute > Workers & Pages or dashboard url: https://dash.cloudflare.com/<account-id>/
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Project name created via Cloudflare dashboard.
-          projectName: oasis-wallet
-          # Use output directory of build command.
-          directory: build
-          branch: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
-          wranglerVersion: '3'
+          # Project created via Cloudflare dashboard or CLI command "npx wrangler pages project create <project-name>"
+          command: pages deploy ./build --project-name=oasis-wallet --branch ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || '' }}
       # On a subsequent run the original comment will be updated.
       - name: Update PR comment
         uses: mshick/add-pr-comment@v2
@@ -85,11 +83,11 @@ jobs:
               </tr>
               <tr>
                 <td><strong>Preview URL:</strong></td>
-                <td><a href="${{ steps.cloudflare.outputs.url }}">${{ steps.cloudflare.outputs.url }}</a></td>
+                <td><a href="${{ steps.deploy.outputs.deployment-url }}">${{ steps.deploy.outputs.deployment-url }}</a></td>
               </tr>
               <tr>
                 <td><strong>Alias:</strong></td>
-                <td><a href="${{ steps.cloudflare.outputs.alias }}">${{ steps.cloudflare.outputs.alias }}</a></td>
+                <td><a href="${{ steps.deploy.outputs.pages-deployment-alias-url }}">${{ steps.deploy.outputs.pages-deployment-alias-url }}</a></td>
               </tr>
             </table>
           message-failure: |
