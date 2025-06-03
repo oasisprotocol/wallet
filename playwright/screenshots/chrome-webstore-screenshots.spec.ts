@@ -110,7 +110,7 @@ test('make screenshots for Chrome Web Store', async ({ page }) => {
   })
 
   await frame.getByRole('button', { name: 'Deposit to ParaTime' }).click()
-  await frame.getByRole('textbox', { name: 'Select a ParaTime' }).click()
+  await frame.getByRole('button', { name: 'Select a ParaTime' }).click()
   await page.screenshot({
     path: './screenshots/extension-store-6.png',
     style: screenshotCss,
