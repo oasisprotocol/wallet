@@ -167,18 +167,6 @@
     "heading": "Bir hata oluştu",
     "instruction": "Sorunun devam edip etmediğini görmek için sayfayı yenilemeyi ve cüzdanınızı yeniden açmayı deneyin. Sorun devam ederse lütfen <Email/> e-posta yoluyla destek ekibimizle iletişime geçin ve raporu aşağıya ekleyin."
   },
-  "fiatOnramp": {
-    "astarFootnote": "Cayman Adaları'ndan muaf bir şirket olan AStar Technologies'in, Oasis adına ve amaçları doğrultusunda hareket ettiği ve aynı zamanda ROSE Cüzdanının sağlayıcısı olduğu işbu belgeyle belirtilmektedir.",
-    "description": "Bu özellik, fiat para biriminizi kripto para birimine dönüştürmenize olanak tanır.",
-    "header": "ROSE Satın Al",
-    "headerInWidget": "Cüzdanınıza ROSE satın alın.",
-    "notMainnet": "Bu özelliği yalnızda Ana Ağda kullanabilirsiniz.",
-    "notYourAccount": "Bu özelliği yalnızda cüzdanınız açıkken kullanabilirsiniz.",
-    "openYourWallet": "Cüzdanınızı açın.",
-    "switchToMainnet": "Mainnet ağına geç.",
-    "thirdPartyAcknowledge": "Üçüncü taraf bir çözüm kullandığımı ve Oasis'in bu çözümün kullanımına ilişkin herhangi bir sorumluluk taşımadığını anlıyorum.",
-    "thirdPartyDisclaimer": "Bu hizmet harici bir tarafça sağlanmaktadır. Oasis herhangi bir sorumluluk taşımamaktadır. Tüm ücretler Transak tarafından tahsil edilir."
-  },
   "footer": {
     "github": "Oasis Cüzdan tamamen <GithubLink>açık kaynaktır</GithubLink> - Geri bildirimler ve sorunlar takdir edilmektedir!",
     "poweredBy": {
@@ -227,8 +215,6 @@
   "menu": {
     "addAccounts": "Hesap ekle",
     "closeWallet": "Cüzdanı kapat",
-    "fiatOnramp": "Satın Al",
-    "fiatOnramp-mobile": "Satın Al",
     "home": "Ana Sayfa",
     "lockProfile": "Profili kilitle.",
     "openMenu": "Menü",

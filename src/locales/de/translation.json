@@ -142,12 +142,6 @@
     "copy": "Fehler in die Zwischenablage kopieren",
     "reloadApp": "App neu laden"
   },
-  "fiatOnramp": {
-    "header": "ROSE kaufen",
-    "notYourAccount": "Du kannst diese Funktion nur nutzen, wenn deine Wallet geöffnet ist.",
-    "openYourWallet": "Öffne dein Wallet",
-    "switchToMainnet": "Wechsel zu Mainnet."
-  },
   "footer": {
     "terms": "<TermsLink>Allgemeine Geschäftsbedingungen</TermsLink>",
     "version": "Version: <ReleaseLink/> (commit: <CommitLink/>) gebaut um {{buildTime}}."
@@ -194,8 +188,6 @@
   "menu": {
     "addAccounts": "Konten hinzufügen",
     "closeWallet": "Wallet schließen",
-    "fiatOnramp": "ROSE kaufen",
-    "fiatOnramp-mobile": "Kaufen",
     "home": "Home",
     "lockProfile": "Profil sperren",
     "openMenu": "Menü",

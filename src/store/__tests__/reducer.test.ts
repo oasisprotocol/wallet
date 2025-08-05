@@ -7,7 +7,6 @@ describe('reducer', () => {
     const newState = reducer({ theme: { selected: 'dark' } }, '')
     expect(newState).toHaveProperty('account')
     expect(newState).toHaveProperty('createWallet')
-    expect(newState).toHaveProperty('fiatOnramp')
     expect(newState).toHaveProperty('fatalError')
     expect(newState).toHaveProperty('importAccounts')
     expect(newState).toHaveProperty('network')

@@ -183,19 +183,6 @@
     "instruction": "If the issue is not resolved after refreshing, please email our support team at  <Email/> and attach the error report.",
     "reloadApp": "Reload app"
   },
-  "fiatOnramp": {
-    "astarFootnote": "It is hereby noted that AStar Technologies, a Cayman Islands exempted company is acting on behalf and for the purposes of Oasis, and is also the provider of the ROSE Wallet.",
-    "buyNowInNewTab": "Buy ROSE now",
-    "description": "Convert your fiat currency into crypto.",
-    "header": "Buy ROSE",
-    "headerInWidget": "Purchase ROSE to your wallet",
-    "notMainnet": "You can only use this feature when you are on the mainnet.",
-    "notYourAccount": "You can only use this feature when your wallet is open.",
-    "openYourWallet": "Open your wallet",
-    "switchToMainnet": "Switch to Mainnet",
-    "thirdPartyAcknowledge": "I understand that I’m using a third-party solution and Oasis* does not carry any responsibility over the usage of this solution.",
-    "thirdPartyDisclaimer": "This service is provided by Transak - an external party. Oasis* does not carry any responsibility. All fees charged by Transak."
-  },
   "footer": {
     "feedback": "We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>",
     "github": "ROSE Wallet is <GithubLink>open source</GithubLink> and powered by",
@@ -258,8 +245,6 @@
   "menu": {
     "addAccounts": "Add accounts",
     "closeWallet": "Close wallet",
-    "fiatOnramp": "Buy ROSE",
-    "fiatOnramp-mobile": "Buy",
     "home": "Home",
     "lockProfile": "Lock profile",
     "openMenu": "Menu",

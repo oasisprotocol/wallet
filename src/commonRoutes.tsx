@@ -11,7 +11,6 @@ import { ValidatorList } from 'app/pages/StakingPage/Features/ValidatorList'
 import { ActiveDelegationList } from 'app/pages/StakingPage/Features/DelegationList/ActiveDelegationList'
 import { DebondingDelegationList } from 'app/pages/StakingPage/Features/DelegationList/DebondingDelegationList'
 import { ParaTimes } from 'app/pages/ParaTimesPage'
-import { FiatOnramp } from 'app/pages/FiatOnrampPage'
 import { ErrorBoundary } from 'app/components/ErrorBoundary'
 import { FromBleLedger } from './app/pages/OpenWalletPage/Features/FromBleLedger'
 import { FromUsbLedger } from './app/pages/OpenWalletPage/Features/FromUsbLedger'
@@ -52,10 +51,6 @@ export const commonRoutes: RouteObject[] = [
       {
         path: 'paratimes',
         element: <ParaTimes />,
-      },
-      {
-        path: 'fiat',
-        element: <FiatOnramp />,
       },
     ],
   },

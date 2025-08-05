@@ -118,7 +118,6 @@ export function receivePersistedRootState(
     account: prevState.account,
     createWallet: prevState.createWallet,
     fatalError: prevState.fatalError,
-    fiatOnramp: prevState.fiatOnramp,
     importAccounts: prevState.importAccounts,
     paraTimes: prevState.paraTimes,
     staking: prevState.staking,

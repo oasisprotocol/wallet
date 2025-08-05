@@ -64,9 +64,7 @@ const getCsp = ({ isExtension, isDev }) =>
     frame-ancestors
       ${isExtension ? dappFrameAncestors : `'self'`};
     frame-src
-      'self'
-      https://global.transak.com
-      https://global-stg.transak.com;
+      'self';
     img-src 'self' data: https:;
     base-uri 'self';
     manifest-src 'self';
@@ -81,32 +79,32 @@ const getCsp = ({ isExtension, isDev }) =>
 // Generated with https://www.permissionspolicy.com/
 const getPermissionsPolicy = () =>
   `
-    accelerometer=*,
-    ambient-light-sensor=*,
+    accelerometer=(),
+    ambient-light-sensor=(),
     autoplay=(),
     bluetooth=(self),
-    camera=*,
+    camera=(),
     cross-origin-isolated=(),
     display-capture=(),
     document-domain=(self),
-    encrypted-media=*,
+    encrypted-media=(),
     execution-while-not-rendered=(),
     execution-while-out-of-viewport=(),
-    fullscreen=(self "https://global.transak.com" "https://global-stg.transak.com"),
+    fullscreen=(self),
     geolocation=(),
-    gyroscope=*,
+    gyroscope=(),
     keyboard-map=(),
-    magnetometer=*,
-    microphone=*,
+    magnetometer=(),
+    microphone=(),
     midi=(),
     navigation-override=(),
-    payment=("https://global.transak.com" "https://global-stg.transak.com"),
+    payment=(),
     picture-in-picture=(),
-    publickey-credentials-get=*,
+    publickey-credentials-get=(),
     screen-wake-lock=(),
     sync-xhr=(),
     usb=(self),
-    web-share=*,
+    web-share=(),
     xr-spatial-tracking=()
   `
     .trim()

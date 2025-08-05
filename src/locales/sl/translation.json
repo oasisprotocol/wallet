@@ -167,19 +167,6 @@
     "heading": "Pojavila se je napaka",
     "instruction": "Poskusite ponovno naložiti stran in odpreti vašo denarnico, da preverite, če se napaka ponovi. V tem primeru vas prosimo, da obvestite podporno ekipo na e-naslov <Email/> in pripnete spodnje poročilo."
   },
-  "fiatOnramp": {
-    "astarFootnote": "AStar Technologies, registrirana na Kajmanskih otokih, deluje v imenu in za namene Oasisa in je tudi ponudnik ROSE Walleta.",
-    "buyNowInNewTab": "Kupi ROSE",
-    "description": "Pretvori fiat valute v kripto valuto.",
-    "header": "Kupi ROSE",
-    "headerInWidget": "Kupi ROSE in ga prenesi v denarnico",
-    "notMainnet": "To funkcionalnost lahko uporabljate le, če ste povezani na Mainnet.",
-    "notYourAccount": "To funkcionalnost lahko uporabljate le, če imate denarnico odprto.",
-    "openYourWallet": "Odpri denarnico",
-    "switchToMainnet": "Preklopi na Mainnet",
-    "thirdPartyAcknowledge": "Strinjam se, da bom uporabil zunanjo storitev in Oasis* ne nosi odgovornosti za uporabo te storitve.",
-    "thirdPartyDisclaimer": "Storitev opravlja Transak. Oasis* ne nosi odgovornosti za njeno delovanje. Vse provizije zaračuna ponudnik Transak."
-  },
   "footer": {
     "github": "ROSE Wallet je <GithubLink>odprtokodna aplikacija</GithubLink>. Dobrodošli odzivi in morebitna poročila o težavah!",
     "poweredBy": {
@@ -228,8 +215,6 @@
   "menu": {
     "addAccounts": "Dodaj račune",
     "closeWallet": "Zapri denarnico",
-    "fiatOnramp": "Kupi ROSE",
-    "fiatOnramp-mobile": "Kupi",
     "home": "Domov",
     "lockProfile": "Zakleni profil",
     "openMenu": "Meni",

@@ -47,7 +47,6 @@
 - Send ROSE tokens between Consensus accounts
 - Stake/Debond ROSE tokens
 - Deposit and withdraw from ParaTimes (Sapphire, Emerald, Cipher)
-- Purchase ROSE using [Transak On-Ramp]
 
 ### Accessibility
 
@@ -231,4 +230,3 @@ Adding a new language:
 [codecov-link]: https://codecov.io/gh/oasisprotocol/oasis-wallet-web
 [BIP-0039]: https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
 [Ledger]: https://ledger.com/
-[Transak On-Ramp]: https://transak.com/

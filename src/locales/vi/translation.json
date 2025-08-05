@@ -182,19 +182,6 @@
     "instruction": "Nếu sự cố chưa được khắc phục sau khi làm mới, vui lòng gửi email cho đội ngũ hỗ trợ của chúng tôi tại <Email/> và đính kèm báo cáo lỗi.",
     "reloadApp": "Tải lại app"
   },
-  "fiatOnramp": {
-    "astarFootnote": "Xin lưu ý rằng AStar Technologies, một công ty miễn trừ tại Quần đảo Cayman, đang hoạt động thay mặt và vì mục đích của Oasis, đồng thời là đơn vị cung cấp ROSE Wallet.",
-    "buyNowInNewTab": "Mua ROSE ngay bây giờ",
-    "description": "Chuyển fiat của bạn thành tiền điện tử",
-    "header": "Mua ROSE",
-    "headerInWidget": "Mua ROSE vào ví của bạn ",
-    "notMainnet": "Bạn chỉ có thể sử dụng tính năng này khi đang trên mạng lưới chính",
-    "notYourAccount": "Bạn chỉ có thể sử dụng tính năng này khi ví đang mở ",
-    "openYourWallet": "Mở ví của bạn",
-    "switchToMainnet": "Đổi qua mạng lưới chính",
-    "thirdPartyAcknowledge": "Tôi hiểu rằng tôi đang sử dụng giải pháp từ bên thứ ba và Oasis không chịu bất kỳ trách nhiệm nào đối với việc sử dụng giải pháp này.",
-    "thirdPartyDisclaimer": "Dịch vụ này được cung cấp bởi Transak – một bên thứ ba. Oasis không chịu bất kỳ trách nhiệm nào. Mọi khoản phí do Transak thu."
-  },
   "footer": {
     "feedback": "Chúng tôi sẽ rất vui khi nhận được phản hồi của bạn tại <EmailLink>wallet@oasisprotocol.org</EmailLink>",
     "github": "Ví ROSE là <GithubLink>mã nguồn mở</GithubLink> và được vận hành bởi ",
@@ -257,8 +244,6 @@
   "menu": {
     "addAccounts": "Thêm tài khoản",
     "closeWallet": "Đóng ví",
-    "fiatOnramp": "Mua ROSE",
-    "fiatOnramp-mobile": "Mua",
     "home": "Màn hình chính",
     "lockProfile": "Khóa hồ sơ",
     "openMenu": "Menu",
