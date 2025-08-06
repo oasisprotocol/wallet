@@ -168,19 +168,6 @@
     "heading": "发生错误",
     "instruction": "尝试刷新页面并重新打开钱包，若问题仍然存在，请通过<Email/>电子邮件联系我们团队，并附上下面的报告"
   },
-  "fiatOnramp": {
-    "astarFootnote": "特此注意，AStar Technologies作为一家开曼群岛豁免公司，代表Oasis提供服务，并且也是ROSE钱包的提供者",
-    "buyNowInNewTab": "购买ROSE",
-    "description": "此功能允许您将法定货币转换为加密货币",
-    "header": "购买ROSE",
-    "headerInWidget": "购买ROSE到您的钱包",
-    "notMainnet": "只有在主网上才能使用此功能",
-    "notYourAccount": "只有在您的钱包打开时才能使用此功能",
-    "openYourWallet": "打开钱包",
-    "switchToMainnet": "切换到主网",
-    "thirdPartyAcknowledge": "我了解我正在使用第三方的解决方案，Oasis*对于该解决方案的使用不承担任何责任",
-    "thirdPartyDisclaimer": "此服务由外部机构提供。Oasis*不承担任何责任。所有费用由Transak收取"
-  },
   "footer": {
     "github": "Oasis钱包是完全<GithubLink>开源</GithubLink>的，欢迎反馈问题！",
     "poweredBy": {
@@ -237,8 +224,6 @@
   "menu": {
     "addAccounts": "添加账户",
     "closeWallet": "关闭钱包",
-    "fiatOnramp": "购买",
-    "fiatOnramp-mobile": "购买",
     "home": "主页",
     "lockProfile": "锁定个人资料",
     "openMenu": "菜单",

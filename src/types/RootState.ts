@@ -1,8 +1,6 @@
-// import { GithubRepoFormState } from 'app/pages/HomePage/Features/GithubRepoForm/slice/types';
 import { ThemeState } from 'styles/theme/slice/types'
 import { WalletState } from 'app/state/wallet/types'
 import { CreateWalletState } from 'app/pages/CreateWalletPage/slice/types'
-import { FiatOnrampState } from 'app/pages/FiatOnrampPage/slice/types'
 import { AccountState } from 'app/state/account/types'
 import { ContactsState } from 'app/state/contacts/types'
 import { EvmAccounts } from 'app/state/evmAccounts/types'
@@ -13,7 +11,6 @@ import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
 import { PersistState } from 'app/state/persist/types'
-// [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { receivePersistedRootState } from 'app/state/persist'
@@ -32,7 +29,6 @@ export interface RootState {
   /** Not synced or stored */
   account: AccountState
   createWallet: CreateWalletState
-  fiatOnramp: FiatOnrampState
   transaction: TransactionState
   importAccounts: ImportAccountsState
   paraTimes: ParaTimesState

@@ -17,7 +17,6 @@ import { MuiLockIcon } from '../../../styles/theme/icons/mui-icons/MuiLockIcon'
 import { Logout } from 'grommet-icons/es6/icons/Logout'
 import { Menu as MenuIcon } from 'grommet-icons/es6/icons/Menu'
 import { MuiWalletIcon } from '../../../styles/theme/icons/mui-icons/MuiWalletIcon'
-import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import * as React from 'react'
 import { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -31,7 +30,6 @@ import walletWhiteLogotype from '../../../../public/Rose Wallet White.svg'
 import { languageLabels } from '../../../locales/i18n'
 import { selectIsLockableOrCloseable } from 'app/state/selectIsLockableOrCloseable'
 import { persistActions } from 'app/state/persist'
-import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import {
   sidebarSmallSizeLogo,
   sidebarMediumSizeLogo,
@@ -286,14 +284,6 @@ function SidebarMenuItems() {
         data-testid="nav-paratime"
       />
     ),
-    fiatOnramp: (
-      <SidebarButton
-        icon={<CreditCard />}
-        label={t('menu.fiatOnramp', 'Buy ROSE')}
-        needsWalletOpen={true}
-        route={`/account/${address}/fiat`}
-      />
-    ),
   }
 
   return (
@@ -302,8 +292,6 @@ function SidebarMenuItems() {
       {menu.wallet}
       {menu.stake}
       {menu.paraTimes}
-      {/* eslint-disable-next-line no-restricted-syntax -- menu.fiatOnramp is not a plain text node */}
-      {IS_FIAT_ONRAMP_ENABLED && menu.fiatOnramp}
     </Nav>
   )
 }

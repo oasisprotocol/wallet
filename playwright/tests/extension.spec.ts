@@ -40,34 +40,6 @@ test.describe('The extension popup should load', () => {
     await expect(popup.getByText('error').or(popup.getByText('fail'))).toBeHidden()
   })
 
-  /**
-   * Extension should be able to show embedded Transak, but we currently link to
-   * it instead. Ext popup is too small and loses all progress when it closes.
-   */
-  test('Transak can not be embedded in extension', async ({ page, extensionPopupURL }) => {
-    test.fail()
-
-    /* TODO: reenable when transak throws only a few errors
-    await expectNoErrorsInConsole(page, {
-      ignoreError: msg => {
-        // Odd errors inside Transak
-        if (msg.text().includes('responded with a status of 403')) return true
-        if (msg.text().includes('`sessionKey` is a required property')) return true
-        if (msg.text().includes('[Report Only]')) return true
-        if (msg.text().includes('script-src https://*.transak.com https://*.google.com')) return true
-      },
-    })
-    */
-    await page.goto(`${extensionPopupURL}/`)
-    await page.evaluate(() => {
-      const iframe = document.createElement('iframe')
-      iframe.src = 'https://global.transak.com'
-      document.body.appendChild(iframe)
-    })
-    await page.locator('iframe').scrollIntoViewIfNeeded()
-    await expect(page.frameLocator('iframe')!.getByAltText('Powered by Transak')).toBeVisible()
-  })
-
   test('recover from fatal errors', async ({ extensionPopupURL, context }) => {
     {
       const page = await context.newPage()

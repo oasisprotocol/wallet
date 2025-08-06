@@ -1,5 +1,4 @@
 import { createWalletSlice } from 'app/pages/CreateWalletPage/slice'
-import { fiatOnrampSlice } from 'app/pages/FiatOnrampPage/slice'
 import { accountSlice } from 'app/state/account'
 import { fatalErrorSlice } from 'app/state/fatalerror'
 import { importAccountsSlice } from 'app/state/importaccounts'
@@ -18,7 +17,6 @@ export const rootSlices = {
   contacts: contactsSlice,
   evmAccounts: evmAccountsSlice,
   createWallet: createWalletSlice,
-  fiatOnramp: fiatOnrampSlice,
   fatalError: fatalErrorSlice,
   importAccounts: importAccountsSlice,
   network: networkSlice,

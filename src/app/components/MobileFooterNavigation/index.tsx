@@ -6,13 +6,11 @@ import { Text } from 'grommet/es6/components/Text'
 import { LineChart } from 'grommet-icons/es6/icons/LineChart'
 import { Inherit } from 'grommet-icons/es6/icons/Inherit'
 import { MuiWalletIcon } from '../../../styles/theme/icons/mui-icons/MuiWalletIcon'
-import { CreditCard } from 'grommet-icons/es6/icons/CreditCard'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 import { NavLink } from 'react-router-dom'
 import { selectAddress } from 'app/state/wallet/selectors'
 import { useParaTimesNavigation } from 'app/pages/ParaTimesPage/useParaTimesNavigation'
-import { IS_FIAT_ONRAMP_ENABLED } from '../../pages/FiatOnrampPage/isEnabled'
 import { mobileFooterNavigationHeight } from '../../../styles/theme/elementSizes'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
@@ -72,15 +70,6 @@ export const MobileFooterNavigation = () => {
         Icon: Inherit,
         to: getParaTimesRoutePath(address!),
       },
-      ...(IS_FIAT_ONRAMP_ENABLED
-        ? [
-            {
-              label: t('menu.fiatOnramp-mobile', 'Buy'),
-              Icon: CreditCard,
-              to: `/account/${address}/fiat`,
-            },
-          ]
-        : []),
     ]
     return menuItems
   }, [address, getParaTimesRoutePath, paraTimesRouteLabel, t])

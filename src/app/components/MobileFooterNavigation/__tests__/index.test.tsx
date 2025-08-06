@@ -41,8 +41,5 @@ describe('<MobileFooterNavigation />', () => {
 
     const paraTimesLink = screen.getByRole('link', { name: /menu.paraTimes/ })
     expect(paraTimesLink).toHaveAttribute('href', '/account/dummy/paratimes')
-
-    const buyLink = screen.getByRole('link', { name: /menu.fiatOnramp-mobile/ })
-    expect(buyLink).toHaveAttribute('href', '/account/dummy/fiat')
   })
 })

@@ -365,9 +365,6 @@ exports[`<Navigation /> should match snapshot 1`] = `
       <div
         class="c2"
       />
-      <div
-        class="c2"
-      />
     </nav>
   </div>
   <div
@@ -898,39 +895,6 @@ exports[`<Navigation /> with account opened should match snapshot 1`] = `
             class="c9"
           >
             MockParaTimesLabel
-          </span>
-        </div>
-      </a>
-      <div
-        class="c2"
-      />
-      <a
-        aria-label="menu.fiatOnramp"
-        class="c5"
-        href="/account/dummy/fiat"
-      >
-        <div
-          class="c6"
-        >
-          <svg
-            aria-label="CreditCard"
-            class="c7"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M1 5c0-.552.44-1 1.002-1h19.996A1 1 0 0 1 23 5v14c0 .552-.44 1-1.002 1H2.002A1 1 0 0 1 1 19V5zm0 3h22v2H1V8zm4 7h2v.5H5V15zm5 0h6v.5h-6V15z"
-              fill="none"
-              stroke="#000"
-              stroke-width="2"
-            />
-          </svg>
-          <div
-            class="c8"
-          />
-          <span
-            class="c9"
-          >
-            menu.fiatOnramp
           </span>
         </div>
       </a>

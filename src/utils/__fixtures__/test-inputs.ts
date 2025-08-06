@@ -59,7 +59,6 @@ export const privateKeyUnlockedState = {
   contacts: {},
   evmAccounts: {},
   createWallet: { checkbox: false, mnemonic: [] },
-  fiatOnramp: { thirdPartyAcknowledged: false },
   fatalError: {},
   importAccounts: {
     accounts: [],
@@ -260,7 +259,6 @@ export const walletExtensionV0UnlockedState = {
     },
   },
   createWallet: { checkbox: false, mnemonic: [] },
-  fiatOnramp: { thirdPartyAcknowledged: false },
   fatalError: {},
   importAccounts: {
     accounts: [],
