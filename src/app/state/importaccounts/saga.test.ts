@@ -1,3 +1,4 @@
+import TransportWebHID from '@ledgerhq/hw-transport-webhid'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import { expectSaga } from 'redux-saga-test-plan'
 import * as oasis from '@oasisprotocol/client'
@@ -27,6 +28,7 @@ describe('importAccounts Sagas', () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [
             matchers.call.fn(TransportWebUSB.create),
@@ -88,6 +90,7 @@ describe('importAccounts Sagas', () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), false],
           [
             matchers.call.fn(TransportWebUSB.create),
@@ -105,6 +108,7 @@ describe('importAccounts Sagas', () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('No device selected'))],
         ])
@@ -117,6 +121,7 @@ describe('importAccounts Sagas', () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), Promise.reject(new Error('Dummy error'))],
         ])
@@ -129,6 +134,7 @@ describe('importAccounts Sagas', () => {
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [
             matchers.call.fn(TransportWebUSB.create),
@@ -195,6 +201,7 @@ describe('importAccounts Sagas', () => {
           network: { chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76' },
         })
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.resolve()],
@@ -218,6 +225,7 @@ describe('importAccounts Sagas', () => {
           network: { chainContext: '0b91b8e4e44b2003a7c5e23ddadb5e14ef5345c0ebcb3ddcae07fa2f244cab76' },
         })
         .provide([
+          [matchers.call.fn(TransportWebHID.isSupported), false],
           [matchers.call.fn(TransportWebUSB.isSupported), true],
           [matchers.call.fn(TransportWebUSB.create), mockTransport],
           [matchers.call.fn(OasisTransaction.signUsingLedger), Promise.reject(new Error('Dummy error'))],
