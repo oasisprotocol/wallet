@@ -39,6 +39,7 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
       // If TransportWebUSB.create() is rejected then call openLedgerAccessPopup. When user
       // confirms the prompt tell them to come back here. TransportWebUSB.create() will resolve.
       TransportWebUSB.create()
+        .then(t => t.close())
         .then(() => setHasUsbLedgerAccess(true))
         .catch(() => setHasUsbLedgerAccess(false))
     } else {
