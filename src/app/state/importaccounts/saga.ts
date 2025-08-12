@@ -1,4 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
+import TransportWebHID from '@ledgerhq/hw-transport-webhid'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
@@ -59,20 +60,29 @@ function* getBluetoothTransport(device?: ScanResult) {
   }
 }
 
-function* getUSBTransport() {
-  const isSupported = yield* call([TransportWebUSB, TransportWebUSB.isSupported])
-  if (!isSupported) {
-    throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
-  }
-  try {
-    return yield* call([TransportWebUSB, TransportWebUSB.create])
-  } catch (e: any) {
-    if (e.message.match(/No device selected/)) {
-      throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
-    } else {
-      throw new WalletError(WalletErrors.USBTransportError, e.message)
+export function* getUSBTransport() {
+  if (yield* call(TransportWebHID.isSupported)) {
+    try {
+      return yield* call([TransportWebHID, TransportWebHID.create])
+    } catch (e: any) {
+      // Ignore error and fallback to WebUSB
     }
   }
+  if (yield* call(TransportWebUSB.isSupported)) {
+    try {
+      return yield* call([TransportWebUSB, TransportWebUSB.create])
+    } catch (e: any) {
+      if (e.message.match(/No device selected/)) {
+        throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
+      } else {
+        throw new WalletError(WalletErrors.USBTransportError, e.message)
+      }
+    }
+  }
+  throw new WalletError(
+    WalletErrors.USBTransportNotSupported,
+    'TransportWebHID and TransportWebUSB unsupported',
+  )
 }
 
 /**

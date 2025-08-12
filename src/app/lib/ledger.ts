@@ -5,7 +5,6 @@ import { LedgerWalletType, Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
-import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { runtimeIs } from 'app/lib/runtimeIs'
 
@@ -13,10 +12,6 @@ interface LedgerAccount {
   publicKey: Uint8Array
   path: number[]
   pathDisplay: string
-}
-
-export async function canAccessNavigatorUsb(): Promise<boolean> {
-  return await TransportWebUSB.isSupported()
 }
 
 export async function canAccessBle(): Promise<boolean> {
