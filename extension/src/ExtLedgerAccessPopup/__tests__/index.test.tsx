@@ -1,11 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { requestDevice } from 'app/lib/ledger'
 import { ExtLedgerAccessPopup } from '../ExtLedgerAccessPopup'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 
-jest.mock('app/lib/ledger')
 jest.mock('@ledgerhq/hw-transport')
 
 describe('<ExtLedgerAccessPopup />', () => {
@@ -16,7 +14,6 @@ describe('<ExtLedgerAccessPopup />', () => {
   })
 
   it('should render success state', async () => {
-    jest.mocked(requestDevice).mockResolvedValue({} as USBDevice)
     jest.mocked(TransportWebUSB.create).mockResolvedValue({} as TransportWebUSB)
 
     render(<ExtLedgerAccessPopup />)
@@ -28,7 +25,6 @@ describe('<ExtLedgerAccessPopup />', () => {
   })
 
   it('should render error state', async () => {
-    jest.mocked(requestDevice).mockRejectedValue(new Error('error'))
     jest.mocked(TransportWebUSB.create).mockRejectedValue(new Error('error'))
 
     render(<ExtLedgerAccessPopup />)

@@ -5,7 +5,7 @@ import { LedgerWalletType, Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
-import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
+import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { runtimeIs } from 'app/lib/runtimeIs'
 
@@ -16,7 +16,7 @@ interface LedgerAccount {
 }
 
 export async function canAccessNavigatorUsb(): Promise<boolean> {
-  return await isSupported()
+  return await TransportWebUSB.isSupported()
 }
 
 export async function canAccessBle(): Promise<boolean> {
@@ -24,12 +24,6 @@ export async function canAccessBle(): Promise<boolean> {
   // Scan depends on requestLEScan method, which is not available on the web(feature flag)
   const hasLEScan = runtimeIs === 'mobile-app' || !!navigator?.bluetooth?.requestLEScan
   return hasBLE && hasLEScan
-}
-
-export async function requestDevice(): Promise<USBDevice | undefined> {
-  if (await isSupported()) {
-    return await requestLedgerDevice()
-  }
 }
 
 function successOrThrowWalletError<T>(response: Response<T>, message: string) {
