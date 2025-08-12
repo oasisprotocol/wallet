@@ -8,6 +8,8 @@ import { canAccessBle, canAccessNavigatorUsb } from '../../../../lib/ledger'
 import { useTranslation } from 'react-i18next'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 import { runtimeIs } from 'app/lib/runtimeIs'
+import { runSaga } from 'redux-saga'
+import { getUSBTransport } from '../../../../state/importaccounts/saga'
 
 type SelectOpenMethodProps = {
   openLedgerAccessPopup?: () => void
@@ -38,7 +40,8 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
       // prompt user to select a ledger device.
       // If TransportWebUSB.create() is rejected then call openLedgerAccessPopup. When user
       // confirms the prompt tell them to come back here. TransportWebUSB.create() will resolve.
-      TransportWebUSB.create()
+      runSaga({}, getUSBTransport)
+        .toPromise()
         .then(t => t.close())
         .then(() => setHasUsbLedgerAccess(true))
         .catch(() => setHasUsbLedgerAccess(false))
