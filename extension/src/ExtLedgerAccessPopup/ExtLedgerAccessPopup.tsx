@@ -12,7 +12,8 @@ import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
 import logotype from '../../../public/Icon Blue 192.png'
 import { CountdownButton } from 'app/components/CountdownButton'
-import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+import { getUSBTransport } from '../../../src/app/state/importaccounts/saga'
+import { runSaga } from 'redux-saga'
 
 type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
 type ConnectionStatusIconPros = {
@@ -48,7 +49,7 @@ export function ExtLedgerAccessPopup() {
   const handleConnect = async () => {
     setConnection('connecting')
     try {
-      await (await TransportWebUSB.create()).close() // Get access permissions
+      await (await runSaga({}, getUSBTransport).toPromise()).close() // Get access permissions
       setConnection('connected')
       // Used to redirect after reopening wallet
       window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())

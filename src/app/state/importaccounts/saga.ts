@@ -59,7 +59,7 @@ function* getBluetoothTransport(device?: ScanResult) {
   }
 }
 
-function* getUSBTransport() {
+export function* getUSBTransport() {
   const isSupported = yield* call([TransportWebUSB, TransportWebUSB.isSupported])
   if (!isSupported) {
     throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
