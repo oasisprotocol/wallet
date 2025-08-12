@@ -48,13 +48,11 @@ export function ExtLedgerAccessPopup() {
   const handleConnect = async () => {
     setConnection('connecting')
     try {
-      const transport = await TransportWebUSB.create()
-      if (transport) {
-        setConnection('connected')
-        // Used to redirect after reopening wallet
-        window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
-        setTimeout(() => window.close(), 5_000)
-      }
+      await (await TransportWebUSB.create()).close() // Get access permissions
+      setConnection('connected')
+      // Used to redirect after reopening wallet
+      window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
+      setTimeout(() => window.close(), 5_000)
     } catch {
       setConnection('error')
     }
