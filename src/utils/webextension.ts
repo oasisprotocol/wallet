@@ -20,6 +20,8 @@ const openPopup = async ({ path, height, width, type }: Props) => {
     type: type ?? 'popup',
     width: width,
     height: height,
+    left: Math.max(window.screenLeft + window.outerWidth - width, 0),
+    top: Math.min(window.screenTop, window.screen.height - height),
     focused: true,
   })
   await browser.windows.update(popup.id!, { focused: true }) // Focus again. Helps in rare cases like when screensharing.
