@@ -9,13 +9,13 @@ import { StatusGood } from 'grommet-icons/es6/icons/StatusGood'
 import { Header } from 'app/components/Header'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { AlertBox } from 'app/components/AlertBox'
-import { WalletErrors } from 'types/errors'
+import { WalletError } from 'types/errors'
 import logotype from '../../../public/Icon Blue 192.png'
 import { CountdownButton } from 'app/components/CountdownButton'
 import { getUSBTransport } from '../../../src/app/state/importaccounts/saga'
 import { runSaga } from 'redux-saga'
 
-type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error'
+type ConnectionStatus = 'connected' | 'disconnected' | 'connecting' | WalletError
 type ConnectionStatusIconPros = {
   success?: boolean
   label: string
@@ -54,8 +54,8 @@ export function ExtLedgerAccessPopup() {
       // Used to redirect after reopening wallet
       window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
       setTimeout(() => window.close(), 5_000)
-    } catch {
-      setConnection('error')
+    } catch (e) {
+      setConnection(e as WalletError)
     }
   }
 
@@ -106,7 +106,7 @@ export function ExtLedgerAccessPopup() {
               />
             </Box>
           )}
-          {connection === 'error' && (
+          {connection instanceof WalletError && (
             <Box margin={{ bottom: 'medium' }}>
               <ConnectionStatusIcon
                 success={false}
@@ -114,7 +114,7 @@ export function ExtLedgerAccessPopup() {
                 withMargin
               />
               <AlertBox status="error">
-                <ErrorFormatter code={WalletErrors.LedgerNoDeviceSelected} />
+                <ErrorFormatter code={connection.type} message={connection.message} />
               </AlertBox>
             </Box>
           )}
