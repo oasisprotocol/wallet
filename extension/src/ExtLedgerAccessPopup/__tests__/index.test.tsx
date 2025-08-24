@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { ExtLedgerAccessPopup } from '../ExtLedgerAccessPopup'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
 
-jest.mock('@ledgerhq/hw-transport')
+jest.mock('@ledgerhq/hw-transport-webusb')
 
 describe('<ExtLedgerAccessPopup />', () => {
   it('should render component', () => {
@@ -14,7 +14,8 @@ describe('<ExtLedgerAccessPopup />', () => {
   })
 
   it('should render success state', async () => {
-    jest.mocked(TransportWebUSB.create).mockResolvedValue({} as TransportWebUSB)
+    jest.mocked(TransportWebUSB.isSupported).mockResolvedValue(true)
+    jest.mocked(TransportWebUSB.create).mockResolvedValue({ close: () => {} } as TransportWebUSB)
 
     render(<ExtLedgerAccessPopup />)
 
@@ -25,11 +26,12 @@ describe('<ExtLedgerAccessPopup />', () => {
   })
 
   it('should render error state', async () => {
-    jest.mocked(TransportWebUSB.create).mockRejectedValue(new Error('error'))
+    jest.mocked(TransportWebUSB.isSupported).mockResolvedValue(true)
+    jest.mocked(TransportWebUSB.create).mockRejectedValue(new Error('Dummy error'))
 
     render(<ExtLedgerAccessPopup />)
 
-    userEvent.click(screen.getByRole('button'))
+    await userEvent.click(screen.getByRole('button'))
 
     expect(await screen.findByText('ledger.extension.failed')).toBeInTheDocument()
     expect(screen.getByLabelText('Status is critical')).toBeInTheDocument()
