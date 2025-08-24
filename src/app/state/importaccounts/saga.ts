@@ -23,6 +23,18 @@ import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { getChainContext } from '../network/saga'
 
+class TransportWebUSBDetectLedgerLikelyFaultyFirmware extends TransportWebUSB {
+  static async open(a: any) {
+    const response = await Promise.race([
+      super.open(a),
+      new Promise<never>((resolve, reject) =>
+        setTimeout(() => reject(new WalletError(WalletErrors.LedgerLikelyFaultyFirmware, 'timeout')), 8_000),
+      ),
+    ])
+    return response
+  }
+}
+
 function* setStep(step: ImportAccountsStep) {
   yield* put(importAccountsActions.setStep(step))
 }
@@ -65,9 +77,14 @@ export function* getUSBTransport() {
     throw new WalletError(WalletErrors.USBTransportNotSupported, 'TransportWebUSB unsupported')
   }
   try {
-    return yield* call([TransportWebUSB, TransportWebUSB.create])
+    return yield* call([
+      TransportWebUSBDetectLedgerLikelyFaultyFirmware,
+      TransportWebUSBDetectLedgerLikelyFaultyFirmware.create,
+    ])
   } catch (e: any) {
-    if (e.message.match(/No device selected/)) {
+    if (e instanceof WalletError) {
+      throw e
+    } else if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
     } else {
       throw new WalletError(WalletErrors.USBTransportError, e.message)
