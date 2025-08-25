@@ -14,25 +14,21 @@ The format is inspired by [Keep a Changelog].
 
 ## 2.4.0 (2025-08-25)
 
+### Removals and Breaking Changes
+
+- Remove Transak Fiat on-ramp as it no longer offers ROSE
+  ([#2196](https://github.com/oasisprotocol/wallet/issues/2196))
+
 ### Bug Fixes and Improvements
 
-- Fix warnings and error overlays since parcel@2.14
-  ([#2181](https://github.com/oasisprotocol/wallet/issues/2181))
-
-- Fix importing images in parcel@2.14
-  ([#2182](https://github.com/oasisprotocol/wallet/issues/2182))
-
-- Don't throw on failed debonding transaction
-  ([#2187](https://github.com/oasisprotocol/wallet/issues/2187))
-
-- Remove Transak Fiat on-ramp
-  ([#2196](https://github.com/oasisprotocol/wallet/issues/2196))
+- Detect faulty ledger firmware
+  ([#2205](https://github.com/oasisprotocol/wallet/issues/2205))
 
 - Make sidebar sticky and fit the screen
   ([#2197](https://github.com/oasisprotocol/wallet/issues/2197))
 
-- Detect faulty ledger firmware
-  ([#2205](https://github.com/oasisprotocol/wallet/issues/2205))
+- Don't throw on failed debonding transaction
+  ([#2187](https://github.com/oasisprotocol/wallet/issues/2187))
 
 ### Internal Changes
 
@@ -52,6 +48,12 @@ The format is inspired by [Keep a Changelog].
 
 - Fork @parcel/error-overlay to ignore console.error (for parcel@2.14)
   ([#2184](https://github.com/oasisprotocol/wallet/issues/2184))
+
+- Fix warnings and error overlays since parcel@2.14
+  ([#2181](https://github.com/oasisprotocol/wallet/issues/2181))
+
+- Fix importing images in parcel@2.14
+  ([#2182](https://github.com/oasisprotocol/wallet/issues/2182))
 
 - Migrate Cloudflare preview deploys to wrangler action
   ([#2185](https://github.com/oasisprotocol/wallet/issues/2185))
