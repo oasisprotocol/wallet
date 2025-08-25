@@ -4,7 +4,7 @@
   "short_name": "__MSG_appName__",
   "description": "__MSG_appDescription__",
   "manifest_version": 3,
-  "version": "2.3.0",
+  "version": "2.4.0",
   "default_locale": "en",
   "icons": {
     "16": "./Icon Blue 512.png",
