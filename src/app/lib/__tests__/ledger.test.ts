@@ -1,11 +1,9 @@
-import { canAccessBle, Ledger, LedgerSigner, requestDevice } from '../ledger'
+import { canAccessBle, Ledger, LedgerSigner } from '../ledger'
 import OasisApp from '@oasisprotocol/ledger'
 import { WalletError, WalletErrors } from 'types/errors'
 import { Wallet, WalletType } from 'app/state/wallet/types'
-import { isSupported, requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib-es/webusb'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
-jest.mock('@ledgerhq/hw-transport-webusb/lib-es/webusb')
 jest.mock('@oasisprotocol/ionic-ledger-hw-transport-ble/lib', () => {
   return {
     isEnabled: jest.fn(),
@@ -21,16 +19,6 @@ function mockAppIsOpen(appName: string) {
   const appInfo = jest.mocked(OasisApp.prototype.appInfo)
   appInfo.mockResolvedValueOnce({ appName: appName, return_code: 0x9000, error_message: '' })
 }
-
-describe('Extension access', () => {
-  it('should return a ledger device when web usb is supported', async () => {
-    const device = {} as USBDevice
-    jest.mocked(isSupported).mockResolvedValue(true)
-    jest.mocked(requestLedgerDevice).mockResolvedValue(device)
-    const result = await requestDevice()
-    expect(result).toBe(device)
-  })
-})
 
 describe('Ledger Library', () => {
   afterEach(() => {

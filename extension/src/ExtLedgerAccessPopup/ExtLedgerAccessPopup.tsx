@@ -10,7 +10,6 @@ import { Header } from 'app/components/Header'
 import { ErrorFormatter } from 'app/components/ErrorFormatter'
 import { AlertBox } from 'app/components/AlertBox'
 import { WalletErrors } from 'types/errors'
-import { requestDevice } from 'app/lib/ledger'
 import logotype from '../../../public/Icon Blue 192.png'
 import { CountdownButton } from 'app/components/CountdownButton'
 import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
@@ -49,14 +48,11 @@ export function ExtLedgerAccessPopup() {
   const handleConnect = async () => {
     setConnection('connecting')
     try {
-      const device = await requestDevice()
-      const transport = await TransportWebUSB.create()
-      if (device && transport) {
-        setConnection('connected')
-        // Used to redirect after reopening wallet
-        window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
-        setTimeout(() => window.close(), 5_000)
-      }
+      await (await TransportWebUSB.create()).close() // Get access permissions
+      setConnection('connected')
+      // Used to redirect after reopening wallet
+      window.localStorage.setItem('oasis_wallet_granted_usb_ledger_timestamp', Date.now().toString())
+      setTimeout(() => window.close(), 5_000)
     } catch {
       setConnection('error')
     }
