@@ -12,6 +12,53 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.4.0 (2025-08-25)
+
+### Bug Fixes and Improvements
+
+- Fix warnings and error overlays since parcel@2.14
+  ([#2181](https://github.com/oasisprotocol/wallet/issues/2181))
+
+- Fix importing images in parcel@2.14
+  ([#2182](https://github.com/oasisprotocol/wallet/issues/2182))
+
+- Don't throw on failed debonding transaction
+  ([#2187](https://github.com/oasisprotocol/wallet/issues/2187))
+
+- Remove Transak Fiat on-ramp
+  ([#2196](https://github.com/oasisprotocol/wallet/issues/2196))
+
+- Make sidebar sticky and fit the screen
+  ([#2197](https://github.com/oasisprotocol/wallet/issues/2197))
+
+- Detect faulty ledger firmware
+  ([#2205](https://github.com/oasisprotocol/wallet/issues/2205))
+
+### Internal Changes
+
+- Update dependencies
+  ([#2173](https://github.com/oasisprotocol/wallet/issues/2173),
+   [#2174](https://github.com/oasisprotocol/wallet/issues/2174),
+   [#2183](https://github.com/oasisprotocol/wallet/issues/2183))
+
+- Update extension release notes
+  ([#2177](https://github.com/oasisprotocol/wallet/issues/2177))
+
+- Remove Oasis Monitor leftovers
+  ([#2178](https://github.com/oasisprotocol/wallet/issues/2178))
+
+- Build APK only on master to speed up PR check
+  ([#2179](https://github.com/oasisprotocol/wallet/issues/2179))
+
+- Fork @parcel/error-overlay to ignore console.error (for parcel@2.14)
+  ([#2184](https://github.com/oasisprotocol/wallet/issues/2184))
+
+- Migrate Cloudflare preview deploys to wrangler action
+  ([#2185](https://github.com/oasisprotocol/wallet/issues/2185))
+
+- Fix screenshots CI
+  ([#2186](https://github.com/oasisprotocol/wallet/issues/2186))
+
 ## 2.3.0 (2025-05-19)
 
 ### Features
