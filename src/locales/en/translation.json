@@ -152,7 +152,7 @@
   },
   "errors": {
     "LedgerDerivedDifferentAccount": "This account does not belong to the currently connected Ledger.",
-    "LedgerLikelyFaultyFirmware": "Connecting to Ledger timed out. This is likely due to faulty Ledger firmware: Nano X 2.5.0, Nano S Plus 1.4.0, Stax 1.8.0, Flex 1.4.0. We suggest <WorkaroundsHelp>some workarounds here</WorkaroundsHelp>.",
+    "LedgerLikelyFaultyFirmware": "Connecting to Ledger timed out. This is likely due to faulty Ledger firmware: Nano X 2.5.0, Nano S Plus 1.4.0, Stax 1.8.0, Flex 1.4.0. Update to the next firmware version and try again.",
     "LedgerOasisAppIsNotOpen": "Oasis App on Ledger is closed.",
     "bluetoothTransportNotSupported": "Bluetooth may be turned off or your current platform does not support Bluetooth capability.",
     "cannotSendToSelf": "Cannot send to yourself",

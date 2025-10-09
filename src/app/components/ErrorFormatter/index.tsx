@@ -93,22 +93,9 @@ export function ErrorFormatter(props: Props) {
       'errors.LedgerDerivedDifferentAccount',
       'This account does not belong to the currently connected Ledger.',
     ),
-    [WalletErrors.LedgerLikelyFaultyFirmware]: (
-      <Trans
-        i18nKey="errors.LedgerLikelyFaultyFirmware"
-        t={t}
-        defaults="Connecting to Ledger timed out. This is likely due to faulty Ledger firmware: Nano X 2.5.0, Nano S Plus 1.4.0, Stax 1.8.0, Flex 1.4.0. We suggest <WorkaroundsHelp>some workarounds here</WorkaroundsHelp>."
-        components={{
-          WorkaroundsHelp: (
-            <Anchor
-              href="https://github.com/oasisprotocol/wallet/issues/2198#issuecomment-3177012146"
-              target="_blank"
-              rel="noopener"
-              style={{ display: 'inline' }}
-            />
-          ),
-        }}
-      />
+    [WalletErrors.LedgerLikelyFaultyFirmware]: t(
+      'errors.LedgerLikelyFaultyFirmware',
+      'Connecting to Ledger timed out. This is likely due to faulty Ledger firmware: Nano X 2.5.0, Nano S Plus 1.4.0, Stax 1.8.0, Flex 1.4.0. Update to the next firmware version and try again.',
     ),
     [WalletErrors.LedgerUnknownError]: t('errors.unknownLedgerError', 'Unknown ledger error: {{message}}', {
       message,
