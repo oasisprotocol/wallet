@@ -8,7 +8,7 @@
     "test:screenshots": "playwright test --project screenshots"
   },
   "devDependencies": {
-    "@playwright/test": "1.46.1",
+    "@playwright/test": "1.56.1",
     "serve-handler": "6.1.6"
   }
 }
