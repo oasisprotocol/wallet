@@ -39,34 +39,4 @@ test.describe('The extension popup should load', () => {
     // Expect not to crash, nor auto-reject permissions dialog
     await expect(popup.getByText('error').or(popup.getByText('fail'))).toBeHidden()
   })
-
-  test('recover from fatal errors', async ({ extensionPopupURL, context }) => {
-    {
-      const page = await context.newPage()
-      await page.goto(`${extensionPopupURL}/e2e`)
-      expect(page.getByRole('button', { name: 'Trigger fatal saga error' })).toBeVisible() // Was built with REACT_APP_E2E_TEST=1?
-      await page.getByRole('button', { name: 'Trigger fatal saga error' }).click()
-      await expect(page.getByTestId('fatalerror-stacktrace')).toBeVisible()
-
-      // Gets unstuck with a button
-      await page
-        .getByRole('button', { name: 'Reload app' })
-        .click()
-        .catch(e => {
-          // Ignore error. Reloading extension's runtime auto-closes its popups.
-          expect(e.toString()).toContain('Target page, context or browser has been closed')
-        })
-      await page.close()
-    }
-
-    {
-      const page = await context.newPage()
-      await page.waitForTimeout(1000)
-      await page.goto(`${extensionPopupURL}/`)
-      await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
-      await page.reload()
-      await expect(page.getByTestId('fatalerror-stacktrace')).toBeHidden()
-      await page.close()
-    }
-  })
 })

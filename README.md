@@ -123,7 +123,7 @@ yarn test
 yarn start
 (cd playwright; yarn; npx playwright install --with-deps)
 (cd playwright; yarn test)
-# Or `yarn start:prod` and `yarn test:prod` to test production builds.
+# Or `yarn start:prod-test` and `yarn test:prod` to test production builds.
 # Or `xvfb-run yarn test` to prevent browser windows opening.
 
 # Manually check that content-security-policy in getSecurityHeaders.js doesn't
