@@ -16,6 +16,7 @@
     "test": "jest --color",
     "test:watch": "yarn run test --watch",
     "start:prod": "yarn run build && node ./playwright/serve-prod.js",
+    "start:prod-test": "REACT_APP_E2E_TEST=1 yarn build:ext && REACT_APP_E2E_TEST=1 yarn start:prod",
     "checkTs": "tsc --noEmit",
     "lint": "eslint --ext js,ts,tsx ./",
     "lint:fix": "yarn run lint --fix",
