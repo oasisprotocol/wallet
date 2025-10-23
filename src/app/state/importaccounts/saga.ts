@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit'
-import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+import TransportWebUSB from '@ledgerhq/hw-transport-webhid'
 import * as oasis from '@oasisprotocol/client'
 import { publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import { Ledger, LedgerSigner } from 'app/lib/ledger'
