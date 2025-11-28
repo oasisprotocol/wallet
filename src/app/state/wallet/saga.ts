@@ -190,6 +190,7 @@ export function* verifyAddressOnLedger(action: PayloadAction<Wallet>) {
   try {
     if (wallet.type === WalletType.BleLedger) {
       const bleDevice = yield* select(selectSelectedBleDevice)
+      // TODO: this doesn't work after restarting mobile app and unlocking profile
       transport = yield* getBluetoothTransport(bleDevice)
     } else {
       transport = yield* getUSBTransport()
