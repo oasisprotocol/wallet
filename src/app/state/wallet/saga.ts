@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
+import { call, delay, fork, put, select, take, takeEvery, takeLeading } from 'typed-redux-saga'
 import { selectSelectedAccounts, selectSelectedBleDevice } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
@@ -36,7 +36,7 @@ export function* rootWalletSaga() {
   // Reload wallet balances if network changes
   yield* takeEvery(networkActions.networkSelected, refreshOnNetworkChange)
 
-  yield* takeEvery(walletActions.verifyAddressOnLedger, verifyAddressOnLedger)
+  yield* takeLeading(walletActions.verifyAddressOnLedger, verifyAddressOnLedger)
 }
 
 function* getWalletByAddress(address: string) {
