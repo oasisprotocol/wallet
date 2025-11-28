@@ -241,7 +241,8 @@
       "loadingAccounts": "Loading account details",
       "loadingBalances": "Loading balance details",
       "loadingBluetoothDevices": "Loading bluetooth devices"
-    }
+    },
+    "verifyAddressOnLedger": "Verify address on Ledger"
   },
   "menu": {
     "addAccounts": "Add accounts",

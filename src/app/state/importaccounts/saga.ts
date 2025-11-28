@@ -53,7 +53,7 @@ function* getBluetoothDevices() {
   return yield* call(BleTransport.list)
 }
 
-function* getBluetoothTransport(device?: ScanResult) {
+export function* getBluetoothTransport(device?: ScanResult) {
   yield* call(isBluetoothSupported)
 
   if (!device) {
@@ -246,6 +246,7 @@ export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWr
   let transport
   if (signer.transportType === WalletType.BleLedger) {
     const bleDevice = yield* select(selectSelectedBleDevice)
+    // TODO: this doesn't work after restarting mobile app and unlocking profile
     transport = yield* getBluetoothTransport(bleDevice)
   } else {
     transport = yield* getUSBTransport()

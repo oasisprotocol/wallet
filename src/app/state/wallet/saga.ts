@@ -1,8 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
-import { call, delay, fork, put, select, take, takeEvery } from 'typed-redux-saga'
-import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
+import { call, delay, fork, put, select, take, takeEvery, takeLeading } from 'typed-redux-saga'
+import { selectSelectedAccounts, selectSelectedBleDevice } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
 import { importAccountsActions } from '../importaccounts'
@@ -19,6 +19,8 @@ import {
 import { persistActions } from 'app/state/persist'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
 import { networkActions } from '../network'
+import { Ledger } from 'app/lib/ledger'
+import { getUSBTransport, getBluetoothTransport } from '../importaccounts/saga'
 
 export function* rootWalletSaga() {
   // Wait for an openWallet action (Mnemonic, Private Key, Ledger) and add them if requested
@@ -33,6 +35,8 @@ export function* rootWalletSaga() {
 
   // Reload wallet balances if network changes
   yield* takeEvery(networkActions.networkSelected, refreshOnNetworkChange)
+
+  yield* takeLeading(walletActions.verifyAddressOnLedger, verifyAddressOnLedger)
 }
 
 function* getWalletByAddress(address: string) {
@@ -173,5 +177,33 @@ function* refreshOnNetworkChange() {
   const wallets = yield* select(selectWallets)
   for (const wallet of Object.values(wallets)) {
     yield* put(walletActions.fetchWallet(wallet))
+  }
+}
+
+export function* verifyAddressOnLedger(action: PayloadAction<Wallet>) {
+  const wallet = action.payload
+
+  if (wallet.type !== WalletType.UsbLedger && wallet.type !== WalletType.BleLedger) return
+  if (!wallet.path) return
+
+  let transport
+  try {
+    if (wallet.type === WalletType.BleLedger) {
+      const bleDevice = yield* select(selectSelectedBleDevice)
+      // TODO: this doesn't work after restarting mobile app and unlocking profile
+      transport = yield* getBluetoothTransport(bleDevice)
+    } else {
+      transport = yield* getUSBTransport()
+    }
+
+    const app = yield* call(Ledger.getOasisApp, transport)
+    yield* call([app, app.showAddressAndPubKey_ed25519], wallet.path)
+    // Ignore response
+  } catch (e) {
+    // Ignore error
+  } finally {
+    if (transport) {
+      yield* call([transport, transport.close])
+    }
   }
 }

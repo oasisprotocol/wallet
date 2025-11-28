@@ -136,6 +136,7 @@ export const whitelistTabSyncActions: Record<AllActions, boolean> = {
   [rootSlices.wallet.actions.selectFirstWallet.type]: false,
   [rootSlices.wallet.actions.selectWallet.type]: false,
   [rootSlices.wallet.actions.setWalletName.type]: false,
+  [rootSlices.wallet.actions.verifyAddressOnLedger.type]: false,
   [rootSlices.persist.actions.deleteProfileAsync.type]: false,
   [rootSlices.persist.actions.finishV0Migration.type]: false,
   [rootSlices.persist.actions.lockAsync.type]: false,
