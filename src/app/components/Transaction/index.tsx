@@ -25,7 +25,6 @@ import { New } from 'grommet-icons/es6/icons/New'
 import { LinkPrevious } from 'grommet-icons/es6/icons/LinkPrevious'
 import { LinkNext } from 'grommet-icons/es6/icons/LinkNext'
 import { Atm } from 'grommet-icons/es6/icons/Atm'
-import { Alert } from 'grommet-icons/es6/icons/Alert'
 import { MuiLocalFireDepartmentIcon } from '../../../styles/theme/icons/mui-icons/MuiLocalFireDepartmentIcon'
 // eslint-disable-next-line no-restricted-imports
 import type { Icon } from 'grommet-icons/es6/icons'
@@ -114,18 +113,18 @@ export function Transaction(props: TransactionProps) {
     ),
   }
 
-  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] = {
-    destination: t('account.transaction.unrecognizedTransaction.destination', 'Other address'),
-    icon: Alert,
-    header: () => (
-      <Trans
-        i18nKey="account.transaction.unrecognizedTransaction.header"
-        t={t}
-        values={{ method: transaction.type }}
-        defaults="Unrecognized transaction, method '{{method}}'"
-      />
-    ),
-  }
+  const unrecognizedTransaction: TransactionDictionary[transactionTypes.TransactionType][TransactionSide] =
+    genericTransaction
+  // destination: t('account.transaction.unrecognizedTransaction.destination', 'Other address'),
+  // icon: Alert,
+  // header: () => (
+  //   <Trans
+  //     i18nKey="account.transaction.unrecognizedTransaction.header"
+  //     t={t}
+  //     values={{ method: transaction.type }}
+  //     defaults="Unrecognized transaction, method '{{method}}'"
+  //   />
+  // ),
 
   // @TODO: This could probably cleverly be moved outside of the component
   //for better readability and marginal performance gain, but for now
