@@ -53,7 +53,7 @@ function* getBluetoothDevices() {
   return yield* call(BleTransport.list)
 }
 
-function* getBluetoothTransport(device?: ScanResult) {
+export function* getBluetoothTransport(device?: ScanResult) {
   yield* call(isBluetoothSupported)
 
   if (!device) {

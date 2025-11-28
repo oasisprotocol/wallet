@@ -11,7 +11,7 @@ import { TextInput } from 'grommet/es6/components/TextInput'
 import { Tip } from 'grommet/es6/components/Tip'
 import { CircleInformation } from 'grommet-icons/es6/icons/CircleInformation'
 import { Trans, useTranslation } from 'react-i18next'
-import { Wallet } from '../../../../state/wallet/types'
+import { Wallet, WalletType } from '../../../../state/wallet/types'
 import { DerivationFormatter } from './DerivationFormatter'
 import { AddressBox } from '../../../AddressBox'
 import { LayerContainer } from './../LayerContainer'
@@ -19,6 +19,8 @@ import { DeleteAccount } from './DeleteAccount'
 import { PrivateKeyFormatter } from '../../../PrivateKeyFormatter'
 import { RevealOverlayButton } from '../../../RevealOverlayButton'
 import styled from 'styled-components'
+import { walletActions } from '../../../../state/wallet'
+import { useDispatch } from 'react-redux'
 
 interface FormValue {
   name: string
@@ -57,6 +59,7 @@ export const ManageableAccountDetails = ({
   wallet,
 }: ManageableAccountDetailsProps) => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [value, setValue] = useState({ name: wallet.name || '' })
   const [layerVisibility, setLayerVisibility] = useState(false)
@@ -157,6 +160,14 @@ export const ManageableAccountDetails = ({
                         />
                       </Box>
                     </Tip>
+                  )}
+                </Box>
+                <Box justify="between" direction="row-responsive" gap="large">
+                  {(wallet.type === WalletType.UsbLedger || wallet.type === WalletType.BleLedger) && (
+                    <Button
+                      onClick={() => dispatch(walletActions.verifyAddressOnLedger(wallet))}
+                      label={t('ledger.verifyAddressOnLedger', 'Verify address on Ledger')}
+                    />
                   )}
                 </Box>
               </Box>

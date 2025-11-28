@@ -62,6 +62,9 @@ export const walletSlice = createSlice({
     setWalletName(state, action: PayloadAction<{ address: string; name: string }>) {
       state.wallets[action.payload.address].name = action.payload.name
     },
+    verifyAddressOnLedger(state, _action: PayloadAction<Wallet>) {
+      // Handled in saga
+    },
   },
 })
 
