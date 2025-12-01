@@ -1,6 +1,6 @@
 {
-  "dump_timestamp": 1764549760852,
-  "dump_timestamp_iso": "2025-12-01T00:42:40Z",
+  "dump_timestamp": 1764631913871,
+  "dump_timestamp_iso": "2025-12-01T23:31:53Z",
   "list": [
     {
       "active": true,
@@ -14,14 +14,14 @@
       "entity_address": "oasis1qqtmpsavs44vz8868p008uwjulfq03pcjswslutz",
       "entity_id": "c+Kr/VTZLJes6N2u6nTEj7aWje8wHApJeVEoOdvhCh8=",
       "escrow": {
-        "active_balance": "255974299706994633",
-        "active_balance_24": "255956914547565232",
-        "active_shares": "236244686677140753",
-        "debonding_balance": "1837812199385",
-        "debonding_shares": "1837812199385",
+        "active_balance": "255935179224919143",
+        "active_balance_24": "255973575301776529",
+        "active_shares": "236194437077095749",
+        "debonding_balance": "57617812213518",
+        "debonding_shares": "57617812213518",
         "num_delegators": 119,
-        "self_delegation_balance": "628795511599258",
-        "self_delegation_shares": "580330129984920"
+        "self_delegation_balance": "630165966320596",
+        "self_delegation_shares": "581560128353567"
       },
       "in_validator_set": true,
       "media": {
@@ -54,8 +54,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 15998348456361033,
-      "voting_power_cumulative": 15998348456361033
+      "voting_power": 15995903433150730,
+      "voting_power_cumulative": 15995903433150730
     },
     {
       "active": true,
@@ -69,14 +69,14 @@
       "entity_address": "oasis1qqekv2ymgzmd8j2s2u7g0hhc7e77e654kvwqtjwm",
       "entity_id": "9sAhd+Wi6tG5nAr3LwXD0y9mUKLYqfAbS2+7SZdNHB4=",
       "escrow": {
-        "active_balance": "199518743823919243",
-        "active_balance_24": "199505192990204676",
-        "active_shares": "152821876878925658",
-        "debonding_balance": "320805944348183",
-        "debonding_shares": "320805944348183",
-        "num_delegators": 6317,
-        "self_delegation_balance": "4001002071193416",
-        "self_delegation_shares": "3064577463738745"
+        "active_balance": "199213955047320023",
+        "active_balance_24": "199518179187472143",
+        "active_shares": "152579484650027952",
+        "debonding_balance": "638576466192235",
+        "debonding_shares": "638576466192235",
+        "num_delegators": 6314,
+        "self_delegation_balance": "4002534671369791",
+        "self_delegation_shares": "3065571773354978"
       },
       "in_validator_set": true,
       "media": {
@@ -89,24 +89,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1192,
-          1200,
+          1199,
+          1198,
+          1191,
           1199,
           1200,
-          1163,
+          1189,
+          1189,
           1199,
-          1184,
-          1182,
+          1198,
           1200,
-          1164,
-          1200,
-          1199
+          1199,
+          1185
         ],
         "window_length": 14400,
-        "window_uptime": 14282
+        "window_uptime": 14346
       },
-      "voting_power": 12469886199217008,
-      "voting_power_cumulative": 28468234655578041
+      "voting_power": 12450836954588920,
+      "voting_power_cumulative": 28446740387739650
     },
     {
       "active": true,
@@ -120,14 +120,14 @@
       "entity_address": "oasis1qq3xrq0urs8qcffhvmhfhz4p0mu7ewc8rscnlwxe",
       "entity_id": "eZuacXy5s3/nolB/E3gF4vqUYdvfOlVaaBXGfZcGwKc=",
       "escrow": {
-        "active_balance": "139424451226276662",
-        "active_balance_24": "139414981852532114",
-        "active_shares": "96475074131872579",
-        "debonding_balance": "758711581684847",
-        "debonding_shares": "758711581684847",
-        "num_delegators": 6687,
-        "self_delegation_balance": "81974001227532",
-        "self_delegation_shares": "56722101293965"
+        "active_balance": "139415478568566062",
+        "active_balance_24": "139424056656196325",
+        "active_shares": "96462900472361110",
+        "debonding_balance": "810946985403638",
+        "debonding_shares": "810946985403638",
+        "num_delegators": 6686,
+        "self_delegation_balance": "82432720996572",
+        "self_delegation_shares": "57035986554732"
       },
       "in_validator_set": true,
       "media": {
@@ -160,8 +160,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 8714003541012270,
-      "voting_power_cumulative": 37182238196590311
+      "voting_power": 8713442751492392,
+      "voting_power_cumulative": 37160183139232042
     },
     {
       "active": true,
@@ -175,14 +175,14 @@
       "entity_address": "oasis1qq0xmq7r0z9sdv02t5j9zs7en3n6574gtg8v9fyt",
       "entity_id": "zAhtGrpk1L3bBLaP5enm3natUTCoj7MEFryq9+MG4tE=",
       "escrow": {
-        "active_balance": "120377687418019193",
-        "active_balance_24": "120340262964241125",
-        "active_shares": "85076601482718533",
-        "debonding_balance": "1344272412315643",
-        "debonding_shares": "1344272412315643",
+        "active_balance": "120213859467084496",
+        "active_balance_24": "120377346750127891",
+        "active_shares": "84955341911792252",
+        "debonding_balance": "1517919195157485",
+        "debonding_shares": "1517919195157485",
         "num_delegators": 22244,
-        "self_delegation_balance": "19811957309399",
-        "self_delegation_shares": "14002046664605"
+        "self_delegation_balance": "19891484744172",
+        "self_delegation_shares": "14057346591031"
       },
       "in_validator_set": true,
       "media": {
@@ -214,8 +214,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 7523584171882993,
-      "voting_power_cumulative": 44705822368473304
+      "voting_power": 7513219954280310,
+      "voting_power_cumulative": 44673403093512352
     },
     {
       "active": true,
@@ -229,14 +229,14 @@
       "entity_address": "oasis1qz0ea28d8p4xk8xztems60wq22f9pm2yyyd82tmt",
       "entity_id": "WazI78lMcmjyCH5+5RKkkfOTUR+XheHIohlqMu+a9As=",
       "escrow": {
-        "active_balance": "71535671719113257",
-        "active_balance_24": "71530813188162504",
-        "active_shares": "50569847077703065",
+        "active_balance": "71540328120937590",
+        "active_balance_24": "71535469273735213",
+        "active_shares": "50570340817522810",
         "debonding_balance": "1374167480299",
         "debonding_shares": "1374167480299",
         "num_delegators": 472,
-        "self_delegation_balance": "74990009272444",
-        "self_delegation_shares": "53011780138912"
+        "self_delegation_balance": "75692637072308",
+        "self_delegation_shares": "53505519958657"
       },
       "in_validator_set": true,
       "media": {
@@ -253,24 +253,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1196,
-          1199,
-          1200,
-          1196,
-          1200,
-          1198,
-          1200,
-          1198,
-          1198,
           1200,
           1195,
-          1200
+          1199,
+          1200,
+          1195,
+          1200,
+          1199,
+          1198,
+          1200,
+          1198,
+          1200,
+          1197
         ],
         "window_length": 14400,
-        "window_uptime": 14380
+        "window_uptime": 14381
       },
-      "voting_power": 4470966829608450,
-      "voting_power_cumulative": 49176789198081754
+      "voting_power": 4471257853898872,
+      "voting_power_cumulative": 49144660947411224
     },
     {
       "active": true,
@@ -284,14 +284,14 @@
       "entity_address": "oasis1qrdx0n7lgheek24t24vejdks9uqmfldtmgdv7jzz",
       "entity_id": "UkwjS1YvEfHx9b6MMT5Q1WvCY3aWn2lxRDsB/Pw+zGk=",
       "escrow": {
-        "active_balance": "70448266890449158",
-        "active_balance_24": "70443482213421758",
-        "active_shares": "51489481163369645",
+        "active_balance": "70452852510889795",
+        "active_balance_24": "70448067522418070",
+        "active_shares": "51490151456091104",
         "debonding_balance": "492127468912",
         "debonding_shares": "492127468912",
         "num_delegators": 291,
-        "self_delegation_balance": "128244590612031",
-        "self_delegation_shares": "93731864871717"
+        "self_delegation_balance": "129168415658933",
+        "self_delegation_shares": "94402157593176"
       },
       "in_validator_set": true,
       "media": {
@@ -324,8 +324,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 4403004220151129,
-      "voting_power_cumulative": 53579793418232883
+      "voting_power": 4403290820617589,
+      "voting_power_cumulative": 53547951768028813
     },
     {
       "active": true,
@@ -339,14 +339,14 @@
       "entity_address": "oasis1qp53ud2pcmm73mlf4qywnrr245222mvlz5a2e5ty",
       "entity_id": "N+3/m12DoAqzFS0yF3R/kXSkSj7pZnWhq8nRCo/MKwk=",
       "escrow": {
-        "active_balance": "63791767814727475",
-        "active_balance_24": "63786280696458772",
-        "active_shares": "52705947406413825",
+        "active_balance": "63795920150155260",
+        "active_balance_24": "63791587284535460",
+        "active_shares": "52706633535155574",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 28,
-        "self_delegation_balance": "1940802152837163",
-        "self_delegation_shares": "1603526907904163"
+        "self_delegation_balance": "1941733704571322",
+        "self_delegation_shares": "1604213036645912"
       },
       "in_validator_set": true,
       "media": {
@@ -378,8 +378,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3986974205283466,
-      "voting_power_cumulative": 57566767623516349
+      "voting_power": 3987233725513260,
+      "voting_power_cumulative": 57535185493542073
     },
     {
       "active": true,
@@ -393,14 +393,14 @@
       "entity_address": "oasis1qrugz89g5esmhs0ezer0plsfvmcgctge35n32vmr",
       "entity_id": "aiTgGyYB2l4uAMG93Ajq5S4EXPIRkYDg1ICLjWD45Ck=",
       "escrow": {
-        "active_balance": "61022892933638901",
-        "active_balance_24": "61018748405365138",
-        "active_shares": "48184664973508349",
+        "active_balance": "61026865037390131",
+        "active_balance_24": "61022720239340624",
+        "active_shares": "48185135425549899",
         "debonding_balance": "2044626661096",
         "debonding_shares": "2044626661096",
         "num_delegators": 54,
-        "self_delegation_balance": "627334971002067",
-        "self_delegation_shares": "495353857392051"
+        "self_delegation_balance": "627965511497080",
+        "self_delegation_shares": "495824309433601"
       },
       "in_validator_set": true,
       "media": {
@@ -420,21 +420,21 @@
           1200,
           1200,
           1200,
+          1186,
           1200,
           1200,
-          1194,
-          1195,
           1200,
           1200,
-          1198,
-          1191,
+          1200,
+          1200,
+          1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14378
+        "window_uptime": 14386
       },
-      "voting_power": 3813920014958789,
-      "voting_power_cumulative": 61380687638475138
+      "voting_power": 3814168270740677,
+      "voting_power_cumulative": 61349353764282750
     },
     {
       "active": true,
@@ -448,14 +448,14 @@
       "entity_address": "oasis1qpl883gp995zs9n6a279tqsavnaxxf0rzcdlauwu",
       "entity_id": "nw+8VTk+LbrZ4mSmeKYuQGu/swFgAOpPB5ls4STzh1g=",
       "escrow": {
-        "active_balance": "60876635804324780",
-        "active_balance_24": "60872501209483842",
-        "active_shares": "49460858948529183",
+        "active_balance": "60880598387903104",
+        "active_balance_24": "60876463523933008",
+        "active_shares": "49461502832542017",
         "debonding_balance": "493726689317",
         "debonding_shares": "493726689317",
         "num_delegators": 133,
-        "self_delegation_balance": "800198108164451",
-        "self_delegation_shares": "650142460007458"
+        "self_delegation_balance": "801032313570625",
+        "self_delegation_shares": "650786344020292"
       },
       "in_validator_set": true,
       "media": {
@@ -486,8 +486,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3804778970245813,
-      "voting_power_cumulative": 65185466608720951
+      "voting_power": 3805026631018578,
+      "voting_power_cumulative": 65154380395301328
     },
     {
       "active": true,
@@ -501,14 +501,14 @@
       "entity_address": "oasis1qzf03q57jdgdwp2w7y6a8yww6mak9khuag9qt0kd",
       "entity_id": "oOVxTw2hEYgYvSrTjjKODCt/Soy3OLcQV9YBy/PF/xY=",
       "escrow": {
-        "active_balance": "60082864939194817",
-        "active_balance_24": "60078784255363916",
-        "active_shares": "49181461027182114",
+        "active_balance": "60086775854619115",
+        "active_balance_24": "60082694905168236",
+        "active_shares": "49182005236404507",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 22,
-        "self_delegation_balance": "965476859672894",
-        "self_delegation_shares": "790301238043542"
+        "self_delegation_balance": "966193893418978",
+        "self_delegation_shares": "790845447265935"
       },
       "in_validator_set": true,
       "media": {
@@ -519,7 +519,7 @@
         "twitter": "SpectrumStaking",
         "url": "https://spectrumstaking.net"
       },
-      "node_id": "jVPUq8aUDKe9jawIs7wPB4NBml27ft5kICIY7SBh/yQ=",
+      "node_id": "TMmNbzQFfQDaBowZkFVRALBjy6fjzL6Q1kZIU5rqTtE=",
       "rank": 10,
       "start_date": "2021-09-10T13:29:18Z",
       "uptime": {
@@ -541,8 +541,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3755168431573014,
-      "voting_power_cumulative": 68940635040293965
+      "voting_power": 3755412863095292,
+      "voting_power_cumulative": 68909793258396620
     },
     {
       "active": true,
@@ -556,14 +556,14 @@
       "entity_address": "oasis1qz8vfnkcc48grazt83gstfm6yjwyptalny8cywtp",
       "entity_id": "hNBVs2ay1IWvufQwX0TbYA6X4ocKaMpzpyaMTHggi6Q=",
       "escrow": {
-        "active_balance": "58462675373604704",
-        "active_balance_24": "58458704729156413",
-        "active_shares": "49891896665268771",
+        "active_balance": "58466480827607206",
+        "active_balance_24": "58462509924701618",
+        "active_shares": "49892546160552830",
         "debonding_balance": "11299999999999",
         "debonding_shares": "11299999999999",
         "num_delegators": 20,
-        "self_delegation_balance": "4005175308774",
-        "self_delegation_shares": "3418006298115"
+        "self_delegation_balance": "4766493626226",
+        "self_delegation_shares": "4067501582174"
       },
       "in_validator_set": true,
       "media": {
@@ -580,22 +580,22 @@
         "segment_uptimes": [
           1200,
           1200,
+          1200,
+          1200,
+          1200,
+          1195,
+          1200,
+          1200,
           1199,
-          1200,
-          1200,
-          1197,
-          1200,
-          1200,
-          1200,
           1200,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14396
+        "window_uptime": 14394
       },
-      "voting_power": 3653906870293851,
-      "voting_power_cumulative": 72594541910587816
+      "voting_power": 3654144710495919,
+      "voting_power_cumulative": 72563937968892539
     },
     {
       "active": true,
@@ -609,14 +609,14 @@
       "entity_address": "oasis1qqnmppt4j5d2yl584euhn6g2cw9gewdswga9frg4",
       "entity_id": "J3ou5m1abrwcbYwTksSj1Hj21QoDjyrSkjB40rEKV4E=",
       "escrow": {
-        "active_balance": "57613454340936676",
-        "active_balance_24": "57609541373540575",
-        "active_shares": "41792542596827498",
+        "active_balance": "57617204517421387",
+        "active_balance_24": "57613291295322311",
+        "active_shares": "41793032248222472",
         "debonding_balance": "308659999999998",
         "debonding_shares": "308659999999998",
         "num_delegators": 30,
-        "self_delegation_balance": "166163481428329",
-        "self_delegation_shares": "120534247686939"
+        "self_delegation_balance": "166847399429720",
+        "self_delegation_shares": "121023899081913"
       },
       "in_validator_set": true,
       "media": {
@@ -649,8 +649,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3600830705957644,
-      "voting_power_cumulative": 76195372616545460
+      "voting_power": 3601065091324628,
+      "voting_power_cumulative": 76165003060217167
     },
     {
       "active": true,
@@ -664,14 +664,14 @@
       "entity_address": "oasis1qz26ty8q6gwt6zah7dtt8jpepvwnttkg8ssnxjl7",
       "entity_id": "kupW3Pt0XMeERSkdDWyZMU4oZrk0wGysVXVyqX3rylc=",
       "escrow": {
-        "active_balance": "57022914101165199",
-        "active_balance_24": "57019041241843344",
-        "active_shares": "41601715059754575",
+        "active_balance": "57026625838189099",
+        "active_balance_24": "57022752726774983",
+        "active_shares": "41602256633026911",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 19,
-        "self_delegation_balance": "27878685308694",
-        "self_delegation_shares": "20339211714000"
+        "self_delegation_balance": "28622502936010",
+        "self_delegation_shares": "20880784986336"
       },
       "in_validator_set": true,
       "media": {
@@ -704,8 +704,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3563922045423436,
-      "voting_power_cumulative": 79759294661968896
+      "voting_power": 3564154028330918,
+      "voting_power_cumulative": 79729157088548085
     },
     {
       "active": true,
@@ -719,14 +719,14 @@
       "entity_address": "oasis1qpcz9k0q3nzq4289rzq2hw2pwgep0ygnysa5pjdj",
       "entity_id": "JuHLTlYMfnBtwHawFRRqvMOi+1P0mx+mfhFqnrpo3L0=",
       "escrow": {
-        "active_balance": "56988701432863221",
-        "active_balance_24": "56984830897183596",
-        "active_shares": "52410054410285464",
+        "active_balance": "56992410942915213",
+        "active_balance_24": "56988540155294582",
+        "active_shares": "52410395547522680",
         "debonding_balance": "3444999958372",
         "debonding_shares": "3444999958372",
         "num_delegators": 62,
-        "self_delegation_balance": "514793415920146",
-        "self_delegation_shares": "473433334328847"
+        "self_delegation_balance": "515194535276349",
+        "self_delegation_shares": "473774471566063"
       },
       "in_validator_set": true,
       "media": {
@@ -756,8 +756,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3561783759705911,
-      "voting_power_cumulative": 83321078421674807
+      "voting_power": 3562015603428043,
+      "voting_power_cumulative": 83291172691976128
     },
     {
       "active": true,
@@ -771,14 +771,14 @@
       "entity_address": "oasis1qpaygvzwd5ffh2f5p4qdqylymgqcvl7sp5gxyrl3",
       "entity_id": "21+iPu/omYBN7X5cUY4QnD4b9VVuAiW/u8uABqt2VjM=",
       "escrow": {
-        "active_balance": "56856902304509908",
-        "active_balance_24": "56853040720310421",
-        "active_shares": "44498210380483457",
+        "active_balance": "56860603235489574",
+        "active_balance_24": "56856741399931747",
+        "active_shares": "44498760696294485",
         "debonding_balance": "25999999999998",
         "debonding_shares": "25999999999998",
         "num_delegators": 7,
-        "self_delegation_balance": "155436380092748",
-        "self_delegation_shares": "121649974968813"
+        "self_delegation_balance": "156147769973122",
+        "self_delegation_shares": "122200290779841"
       },
       "in_validator_set": true,
       "media": {
@@ -810,8 +810,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3553546337495734,
-      "voting_power_cumulative": 86874624759170541
+      "voting_power": 3553777645027363,
+      "voting_power_cumulative": 86844950337003491
     },
     {
       "active": true,
@@ -825,14 +825,14 @@
       "entity_address": "oasis1qzugextrcdueshq63w7l9x4xglnusznsgqa95w7e",
       "entity_id": "T5k7PtOR01oZrdnZveDpO9AFpMUhEREZk7WSSfm8Gtg=",
       "escrow": {
-        "active_balance": "56758375930905918",
-        "active_balance_24": "56754521038381008",
-        "active_shares": "41399602736077759",
+        "active_balance": "56762070448604283",
+        "active_balance_24": "56758215305156605",
+        "active_shares": "41400114730959379",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 15,
-        "self_delegation_balance": "677164233548484",
-        "self_delegation_shares": "493924108930020"
+        "self_delegation_balance": "677901912573742",
+        "self_delegation_shares": "494436103811640"
       },
       "in_validator_set": true,
       "media": {
@@ -864,8 +864,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3547388456572287,
-      "voting_power_cumulative": 90422013215742828
+      "voting_power": 3547619363274969,
+      "voting_power_cumulative": 90392569700278460
     },
     {
       "active": true,
@@ -879,14 +879,14 @@
       "entity_address": "oasis1qpwrq93z8s9ytu2hfjtqggc9edgwfadzevs3trvm",
       "entity_id": "1aTTEfSIcVxsPS86uIA7rSD2Jmb+aIVj1grCEjyzlzQ=",
       "escrow": {
-        "active_balance": "55979106889404033",
-        "active_balance_24": "55975304922960138",
-        "active_shares": "45511215812159773",
+        "active_balance": "55982750682901462",
+        "active_balance_24": "55978948468979866",
+        "active_shares": "45511808279514542",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 53,
-        "self_delegation_balance": "41776077860687",
-        "self_delegation_shares": "33964101982899"
+        "self_delegation_balance": "42507030127340",
+        "self_delegation_shares": "34556569337668"
       },
       "in_validator_set": true,
       "media": {
@@ -895,7 +895,7 @@
         "name": "Munay Network",
         "twitter": "MunayNetwork"
       },
-      "node_id": "DTnYXD4zdxZS/Cq8ms/3QgwThPFnQp+CieGaz6OSBFo=",
+      "node_id": "7E5It9hRik5ndQ1QtL3blTAX3pXSoPZPhGfLMQvbA+Q=",
       "rank": 17,
       "start_date": "2021-08-02T16:57:53Z",
       "uptime": {
@@ -917,8 +917,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3498684279311241,
-      "voting_power_cumulative": 93920697495054069
+      "voting_power": 3498912015760336,
+      "voting_power_cumulative": 93891481716038796
     },
     {
       "active": true,
@@ -932,14 +932,14 @@
       "entity_address": "oasis1qpqz8g88kvw49m402k8m2r6nv4p62vsdkv5d0u6r",
       "entity_id": "UDV5FoaIkssdSFWC4asZtxvsyagoyrIS5rPX8p/np2U=",
       "escrow": {
-        "active_balance": "53953192090885812",
-        "active_balance_24": "53949527719707549",
-        "active_shares": "44600869198942857",
+        "active_balance": "53956704013483909",
+        "active_balance_24": "53953039403784300",
+        "active_shares": "44601449815358461",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 5,
-        "self_delegation_balance": "235323417371573",
-        "self_delegation_shares": "194532122213595"
+        "self_delegation_balance": "236038073449593",
+        "self_delegation_shares": "195112738629199"
       },
       "in_validator_set": true,
       "media": {
@@ -970,8 +970,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3372064962736518,
-      "voting_power_cumulative": 97292762457790587
+      "voting_power": 3372284457277730,
+      "voting_power_cumulative": 97263766173316526
     },
     {
       "active": true,
@@ -985,14 +985,14 @@
       "entity_address": "oasis1qrw82ag2sypeytse9x9k4uxym53l5lc5jyfs2sxv",
       "entity_id": "kN01v7L/wv6hvrd1ak83pgCedGDnpgbGJVkXezhUUJ8=",
       "escrow": {
-        "active_balance": "53932148731332553",
-        "active_balance_24": "53928943643508784",
-        "active_shares": "40021417290504402",
+        "active_balance": "53935506646691927",
+        "active_balance_24": "53931996103783580",
+        "active_shares": "40021905921167713",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 23,
-        "self_delegation_balance": "3273457417274127",
-        "self_delegation_shares": "2429133797951456"
+        "self_delegation_balance": "3274279763328176",
+        "self_delegation_shares": "2429622428614767"
       },
       "in_validator_set": true,
       "node_id": "c7ycVhiEqHbQfOdeeaj965nuxN8Hsb4BxMPbaPIipRw=",
@@ -1001,24 +1001,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1130,
-          1052,
-          1112,
+          1054,
           1200,
-          1088,
+          1107,
+          1025,
           1200,
-          970,
-          1022,
+          1058,
           1200,
-          1042,
-          1200,
-          1056
+          1085,
+          1166,
+          1151,
+          1143,
+          1200
         ],
         "window_length": 14400,
-        "window_uptime": 13272
+        "window_uptime": 13589
       },
-      "voting_power": 3370749756486473,
-      "voting_power_cumulative": 100663512214277060
+      "voting_power": 3370959625602505,
+      "voting_power_cumulative": 100634725798919031
     },
     {
       "active": true,
@@ -1032,14 +1032,14 @@
       "entity_address": "oasis1qp9xlxurlcx3k5h3pkays56mp48zfv9nmcf982kn",
       "entity_id": "RMa2ER0wvraR+4u5QOGOrRTwmMVOYNcOot7sFppPRP0=",
       "escrow": {
-        "active_balance": "51069218010105477",
-        "active_balance_24": "51065749511517711",
-        "active_shares": "43418323987441666",
+        "active_balance": "51072542208986884",
+        "active_balance_24": "51069073484627516",
+        "active_shares": "43418889209422714",
         "debonding_balance": "3428759794566",
         "debonding_shares": "3428759794566",
         "num_delegators": 27,
-        "self_delegation_balance": "219293776388821",
-        "self_delegation_shares": "186440454792070"
+        "self_delegation_balance": "219970052072233",
+        "self_delegation_shares": "187005676773118"
       },
       "in_validator_set": true,
       "media": {
@@ -1055,23 +1055,23 @@
         "segment_length": 1200,
         "segment_uptimes": [
           1200,
-          1197,
+          1200,
+          1200,
+          1200,
           1199,
           1200,
-          1196,
-          1200,
-          1198,
           1200,
           1200,
           1200,
           1200,
-          1200
+          1200,
+          1198
         ],
         "window_length": 14400,
-        "window_uptime": 14390
+        "window_uptime": 14397
       },
-      "voting_power": 3191817092789219,
-      "voting_power_cumulative": 103855329307066279
+      "voting_power": 3192024854631341,
+      "voting_power_cumulative": 103826750653550372
     },
     {
       "active": true,
@@ -1085,14 +1085,14 @@
       "entity_address": "oasis1qqw05utlqvf2ska0fyjf5yr7peg2z4tuxcjmqztp",
       "entity_id": "cVGc1fI6xu0WeI2GUrLIwDpH/JtBE3PwD+P66YkSKg8=",
       "escrow": {
-        "active_balance": "49919707068896398",
-        "active_balance_24": "49916316642329931",
-        "active_shares": "41244308021331706",
+        "active_balance": "49922956443781396",
+        "active_balance_24": "49919565796525194",
+        "active_shares": "41244844941860780",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 16,
-        "self_delegation_balance": "668187289945105",
-        "self_delegation_shares": "552064986366997"
+        "self_delegation_balance": "668871975821725",
+        "self_delegation_shares": "552601906896071"
       },
       "in_validator_set": true,
       "media": {
@@ -1121,8 +1121,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3119972862282824,
-      "voting_power_cumulative": 106975302169349103
+      "voting_power": 3120175947638405,
+      "voting_power_cumulative": 106946926601188777
     },
     {
       "active": true,
@@ -1136,14 +1136,14 @@
       "entity_address": "oasis1qqrv4g5wu543wa7fcae76eucqfn2uc77zgqw8fxk",
       "entity_id": "p1VsfSsedbKn/5GzkPsr15XD+/AOIfbPda1/2yT84N4=",
       "escrow": {
-        "active_balance": "48629102892689125",
-        "active_balance_24": "48625800120857486",
-        "active_shares": "40983849565258299",
+        "active_balance": "48632268259533153",
+        "active_balance_24": "48628965272717404",
+        "active_shares": "40984383095125760",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 29,
-        "self_delegation_balance": "895844387869415",
-        "self_delegation_shares": "755003679737648"
+        "self_delegation_balance": "896524126575048",
+        "self_delegation_shares": "755537209605109"
       },
       "in_validator_set": true,
       "media": {
@@ -1172,8 +1172,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3039310329544837,
-      "voting_power_cumulative": 110014612498893940
+      "voting_power": 3039508164412716,
+      "voting_power_cumulative": 109986434765601493
     },
     {
       "active": true,
@@ -1187,14 +1187,14 @@
       "entity_address": "oasis1qr9zuf3n8g3znm786st3sldfw677pk3a6v85w9ds",
       "entity_id": "9yOiPY3NnNMpEzB+6XS/OqahzFwwX8mFhmT2fvbxlVI=",
       "escrow": {
-        "active_balance": "48414226903307707",
-        "active_balance_24": "48410938725337002",
-        "active_shares": "39994080914155818",
+        "active_balance": "48417378283438186",
+        "active_balance_24": "48414089891433315",
+        "active_shares": "39994601559163925",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "32882212853000",
-        "self_delegation_shares": "27163376668306"
+        "self_delegation_balance": "33514216860767",
+        "self_delegation_shares": "27684021676413"
       },
       "in_validator_set": true,
       "media": {
@@ -1224,8 +1224,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3025880618214582,
-      "voting_power_cumulative": 113040493117108522
+      "voting_power": 3026077578915338,
+      "voting_power_cumulative": 113012512344516831
     },
     {
       "active": true,
@@ -1239,14 +1239,14 @@
       "entity_address": "oasis1qzk6qlmgnq40cq2n3jfkw3307feqngt4gvksfml6",
       "entity_id": "g9UqzvW6JvfKrflRKbCPBpm41rH/O+4apCK+KkD2tG4=",
       "escrow": {
-        "active_balance": "48030408513548200",
-        "active_balance_24": "48027146403600363",
-        "active_shares": "38932028647457065",
+        "active_balance": "48033534910161959",
+        "active_balance_24": "48030272587876777",
+        "active_shares": "38932535466613983",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 57,
-        "self_delegation_balance": "111707920558127",
-        "self_delegation_shares": "90547136655940"
+        "self_delegation_balance": "112339032452582",
+        "self_delegation_shares": "91053955812858"
       },
       "in_validator_set": true,
       "media": {
@@ -1279,8 +1279,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 3001892036742298,
-      "voting_power_cumulative": 116042385153850820
+      "voting_power": 3002087435977678,
+      "voting_power_cumulative": 116014599780494509
     },
     {
       "active": true,
@@ -1294,14 +1294,14 @@
       "entity_address": "oasis1qrtq873ddwnnjqyv66ezdc9ql2a07l37d5vae9k0",
       "entity_id": "uxSkvFu6x4MIYV+M1VrDu3m/qbADs/1Ae3mWAcEmnaQ=",
       "escrow": {
-        "active_balance": "45102489840938061",
-        "active_balance_24": "45108131465017114",
-        "active_shares": "32977088135649838",
+        "active_balance": "45105425653392603",
+        "active_balance_24": "45102362201253032",
+        "active_shares": "32977517433084039",
         "debonding_balance": "8704999999999",
         "debonding_shares": "8704999999999",
         "num_delegators": 97,
-        "self_delegation_balance": "486984868564",
-        "self_delegation_shares": "356063334596"
+        "self_delegation_balance": "1074187341116",
+        "self_delegation_shares": "785360768797"
       },
       "in_validator_set": true,
       "media": {
@@ -1323,19 +1323,19 @@
           1200,
           1200,
           1200,
-          1195,
           1200,
           1200,
+          1192,
           1200,
-          1200,
+          1199,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14395
+        "window_uptime": 14391
       },
-      "voting_power": 2818897637578314,
-      "voting_power_cumulative": 118861282791429134
+      "voting_power": 2819081125337453,
+      "voting_power_cumulative": 118833680905831962
     },
     {
       "active": true,
@@ -1349,14 +1349,14 @@
       "entity_address": "oasis1qz22xm9vyg0uqxncc667m4j4p5mrsj455c743lfn",
       "entity_id": "J2nwlXuYEPNZ0mMH2Phg5RofbZzj65xDvQMNdy9Ji0E=",
       "escrow": {
-        "active_balance": "44090240188112755",
-        "active_balance_24": "44087245684930887",
-        "active_shares": "32084758640865301",
-        "debonding_balance": "150000000000000",
-        "debonding_shares": "150000000000000",
+        "active_balance": "44093110111186282",
+        "active_balance_24": "44090115413086136",
+        "active_shares": "32085176321908115",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
         "num_delegators": 5102,
-        "self_delegation_balance": "10568522396655",
-        "self_delegation_shares": "7690783466829"
+        "self_delegation_balance": "11143071643718",
+        "self_delegation_shares": "8108464509643"
       },
       "in_validator_set": true,
       "media": {
@@ -1388,8 +1388,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2755632213317883,
-      "voting_power_cumulative": 121616915004747017
+      "voting_power": 2755811583002362,
+      "voting_power_cumulative": 121589492488834324
     },
     {
       "active": true,
@@ -1403,14 +1403,14 @@
       "entity_address": "oasis1qp4f47plgld98n5g2ltalalnndnzz96euv9n89lz",
       "entity_id": "bTok0el8GbmUzTAAgcQ78uww/TsgeWwXpM3N2S49qBQ=",
       "escrow": {
-        "active_balance": "42152214546719195",
-        "active_balance_24": "42149351669582571",
-        "active_shares": "30856876938798047",
+        "active_balance": "42154958319776719",
+        "active_balance_24": "42152095256289620",
+        "active_shares": "30857278635213533",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 23,
-        "self_delegation_balance": "361669108800839",
-        "self_delegation_shares": "264754279290905"
+        "self_delegation_balance": "362236710381421",
+        "self_delegation_shares": "265155975706391"
       },
       "in_validator_set": true,
       "media": {
@@ -1441,8 +1441,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2634505953518101,
-      "voting_power_cumulative": 124251420958265118
+      "voting_power": 2634677438848893,
+      "voting_power_cumulative": 124224169927683217
     },
     {
       "active": true,
@@ -1456,14 +1456,14 @@
       "entity_address": "oasis1qqewwznmvwfvee0dyq9g48acy0wcw890g549pukz",
       "entity_id": "sDi9ZxHYB+rHTpVh4abNFXDMRSecfGe4QzbyGK8ZgQg=",
       "escrow": {
-        "active_balance": "42064834030375003",
-        "active_balance_24": "42061977087913108",
-        "active_shares": "30685160434885600",
+        "active_balance": "42067572115657658",
+        "active_balance_24": "42064714987231590",
+        "active_shares": "30685539922707841",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "335027050238591",
-        "self_delegation_shares": "244393185509164"
+        "self_delegation_balance": "335564963603304",
+        "self_delegation_shares": "244772673331405"
       },
       "in_validator_set": true,
       "media": {
@@ -1494,8 +1494,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2629044686701974,
-      "voting_power_cumulative": 126880465644967092
+      "voting_power": 2629215816547842,
+      "voting_power_cumulative": 126853385744231059
     },
     {
       "active": true,
@@ -1509,14 +1509,14 @@
       "entity_address": "oasis1qzrehfnnntdaeshy5f6kfa8v3p35yu7mluaapmgc",
       "entity_id": "YDHYz/R+Y7pCodhmgkCqzoqqN54gzRfVE5fjZriX+RI=",
       "escrow": {
-        "active_balance": "40673640481715943",
-        "active_balance_24": "40670878025777378",
-        "active_shares": "28103098780008926",
-        "debonding_balance": "0",
-        "debonding_shares": "0",
-        "num_delegators": 285,
-        "self_delegation_balance": "29833179016701",
-        "self_delegation_shares": "20612976042922"
+        "active_balance": "40852688363450768",
+        "active_balance_24": "40673525375639130",
+        "active_shares": "28225064996855319",
+        "debonding_balance": "101141277768",
+        "debonding_shares": "101141277768",
+        "num_delegators": 284,
+        "self_delegation_balance": "29967478886463",
+        "self_delegation_shares": "20704489061705"
       },
       "in_validator_set": true,
       "media": {
@@ -1530,24 +1530,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1185,
-          1199,
-          1200,
-          1196,
-          1200,
-          1196,
-          1200,
-          1197,
-          1198,
           1200,
           1193,
-          1200
+          1194,
+          1200,
+          1194,
+          1200,
+          1199,
+          1198,
+          1189,
+          1198,
+          1198,
+          1187
         ],
         "window_length": 14400,
-        "window_uptime": 14364
+        "window_uptime": 14350
       },
-      "voting_power": 2542095335977445,
-      "voting_power_cumulative": 129422560980944537
+      "voting_power": 2553285796916867,
+      "voting_power_cumulative": 129406671541147926
     },
     {
       "active": true,
@@ -1561,14 +1561,14 @@
       "entity_address": "oasis1qrs8zlh0mj37ug0jzlcykz808ylw93xwkvknm7yc",
       "entity_id": "UFXCpcvXBOHbxtObG4psGcn+LgZOedvDDUAqVengpPk=",
       "escrow": {
-        "active_balance": "38924602592236759",
-        "active_balance_24": "38921958926749387",
-        "active_shares": "28450141272665348",
-        "debonding_balance": "1562657756595",
-        "debonding_shares": "1562657756595",
-        "num_delegators": 169,
-        "self_delegation_balance": "551233167088359",
-        "self_delegation_shares": "402898435268042"
+        "active_balance": "38925687647765042",
+        "active_balance_24": "38924492435923166",
+        "active_shares": "28449452887106486",
+        "debonding_balance": "3011267085309",
+        "debonding_shares": "3011267085309",
+        "num_delegators": 168,
+        "self_delegation_balance": "551768617207867",
+        "self_delegation_shares": "403268798277489"
       },
       "in_validator_set": true,
       "media": {
@@ -1600,8 +1600,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2432780777245197,
-      "voting_power_cumulative": 131855341758189734
+      "voting_power": 2432848593023796,
+      "voting_power_cumulative": 131839520134171722
     },
     {
       "active": true,
@@ -1615,14 +1615,14 @@
       "entity_address": "oasis1qp0xuvw2a93w4yp8jwthfz93gxy87u7hes9eu2ev",
       "entity_id": "cgXH87+sYoe2mXsdDKWCyRvWZ8JqnVnxJkCq09LlBoI=",
       "escrow": {
-        "active_balance": "38419673722066234",
-        "active_balance_24": "38417064350134578",
-        "active_shares": "29693530549075769",
+        "active_balance": "38422174536478262",
+        "active_balance_24": "38419564994697300",
+        "active_shares": "29693917100987948",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 52,
-        "self_delegation_balance": "469200468944738",
-        "self_delegation_shares": "362632399198365"
+        "self_delegation_balance": "469725077098519",
+        "self_delegation_shares": "363018951110544"
       },
       "in_validator_set": true,
       "media": {
@@ -1655,8 +1655,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2401222812168581,
-      "voting_power_cumulative": 134256564570358315
+      "voting_power": 2401379112627002,
+      "voting_power_cumulative": 134240899246798724
     },
     {
       "active": true,
@@ -1670,14 +1670,14 @@
       "entity_address": "oasis1qzzytegg6jc7hxu6y8feuzkgmr75ms7hc54mz85p",
       "entity_id": "wCGlLKUiTNr9Ba49YA6dDuqm9rdtPcKKsKzHqMBn+rc=",
       "escrow": {
-        "active_balance": "36885373825430236",
-        "active_balance_24": "36882868659461231",
-        "active_shares": "30180354031075589",
+        "active_balance": "36887774769153055",
+        "active_balance_24": "36885269440117721",
+        "active_shares": "30180746920480968",
         "debonding_balance": "25526064650669",
         "debonding_shares": "25526064650669",
         "num_delegators": 31,
-        "self_delegation_balance": "76892339610800",
-        "self_delegation_shares": "62914857328400"
+        "self_delegation_balance": "77376544351640",
+        "self_delegation_shares": "63307746733779"
       },
       "in_validator_set": true,
       "media": {
@@ -1710,8 +1710,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2305329340007357,
-      "voting_power_cumulative": 136561893910365672
+      "voting_power": 2305479398565368,
+      "voting_power_cumulative": 136546378645364092
     },
     {
       "active": true,
@@ -1725,13 +1725,13 @@
       "entity_address": "oasis1qpg5vq3jt6djfw5rq9l8kcwkt4s7vmjn4vvxujwv",
       "entity_id": "QNXjdhgd/NSfLbHeZB0n8yv5dSyl6jm4MSHjjduuj5M=",
       "escrow": {
-        "active_balance": "35116785324241412",
-        "active_balance_24": "35114691234734320",
-        "active_shares": "29437780824570284",
-        "debonding_balance": "9103354743430",
-        "debonding_shares": "9103354743430",
-        "num_delegators": 608,
-        "self_delegation_balance": "238583101991",
+        "active_balance": "35017471899883164",
+        "active_balance_24": "35116685944020191",
+        "active_shares": "29352617513879995",
+        "debonding_balance": "120253173456020",
+        "debonding_shares": "120253173456020",
+        "num_delegators": 606,
+        "self_delegation_balance": "238598631848",
         "self_delegation_shares": "200000000000"
       },
       "in_validator_set": true,
@@ -1750,23 +1750,23 @@
         "segment_length": 1200,
         "segment_uptimes": [
           1200,
+          1199,
+          1200,
+          1197,
+          1200,
+          1198,
           1200,
           1200,
           1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
+          1198,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14400
+        "window_uptime": 14392
       },
-      "voting_power": 2194792871501261,
-      "voting_power_cumulative": 138756686781866933
+      "voting_power": 2188585800044883,
+      "voting_power_cumulative": 138734964445408975
     },
     {
       "active": true,
@@ -1780,14 +1780,14 @@
       "entity_address": "oasis1qpv6xr9zf4epy67wycy9llqtspjfaxpzs5u2e0lv",
       "entity_id": "1YeMK0NAZtE1ZK8u6KWddkKGZoD5VLfG9EAZI3b8HzE=",
       "escrow": {
-        "active_balance": "34802945738790184",
-        "active_balance_24": "34800582006333558",
-        "active_shares": "32307943785478476",
+        "active_balance": "34805211133049235",
+        "active_balance_24": "34802847246732476",
+        "active_shares": "32308364371957009",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 16,
-        "self_delegation_balance": "57659315961987",
-        "self_delegation_shares": "53525754767728"
+        "self_delegation_balance": "58115408607975",
+        "self_delegation_shares": "53946341246261"
       },
       "in_validator_set": true,
       "media": {
@@ -1820,8 +1820,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2175177952920779,
-      "voting_power_cumulative": 140931864734787712
+      "voting_power": 2175319539661280,
+      "voting_power_cumulative": 140910283985070255
     },
     {
       "active": true,
@@ -1835,14 +1835,14 @@
       "entity_address": "oasis1qz72lvk2jchk0fjrz7u2swpazj3t5p0edsdv7sf8",
       "entity_id": "ko5wr5SMqhKb+P1kimM1EF/T4SqvW/WjSOwPHigQl+k=",
       "escrow": {
-        "active_balance": "32616855102395898",
-        "active_balance_24": "32614639843962974",
-        "active_shares": "23807826283996295",
+        "active_balance": "32618978199585767",
+        "active_balance_24": "32616762796957183",
+        "active_shares": "23808136215506786",
         "debonding_balance": "4625951049935",
         "debonding_shares": "4625951049935",
         "num_delegators": 3630,
-        "self_delegation_balance": "124660410581587",
-        "self_delegation_shares": "90992629126898"
+        "self_delegation_balance": "125091532072871",
+        "self_delegation_shares": "91302560637389"
       },
       "in_validator_set": true,
       "media": {
@@ -1873,8 +1873,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2038547674809823,
-      "voting_power_cumulative": 142970412409597535
+      "voting_power": 2038680368008669,
+      "voting_power_cumulative": 142948964353078924
     },
     {
       "active": true,
@@ -1888,14 +1888,14 @@
       "entity_address": "oasis1qql4alk30frfa6xua42eu7tynkqf9vd5ug95yqpn",
       "entity_id": "WXs7ElBlm30la2fG4oZDpubeFu5sKkjDVeflWo+YuIA=",
       "escrow": {
-        "active_balance": "31175462033481485",
-        "active_balance_24": "31173344671002693",
-        "active_shares": "22815825089558112",
+        "active_balance": "31177491307475817",
+        "active_balance_24": "31175373807173611",
+        "active_shares": "22816122107145888",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 24,
-        "self_delegation_balance": "338627525269001",
-        "self_delegation_shares": "247825240849675"
+        "self_delegation_balance": "339051023626932",
+        "self_delegation_shares": "248122258437451"
       },
       "in_validator_set": true,
       "media": {
@@ -1917,17 +1917,17 @@
           1200,
           1200,
           1200,
-          1199,
+          1200,
           1200,
           1200,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14399
+        "window_uptime": 14400
       },
-      "voting_power": 1948460862948350,
-      "voting_power_cumulative": 144918873272545885
+      "voting_power": 1948587692214069,
+      "voting_power_cumulative": 144897552045292993
     },
     {
       "active": true,
@@ -1941,14 +1941,14 @@
       "entity_address": "oasis1qp6fzgx9zhamsk6c77cwzjeme06xwswffvhk6js2",
       "entity_id": "/ylWdaid2DDlI4BMVkX6gAR6eaBYlLolHbjCmHitrzc=",
       "escrow": {
-        "active_balance": "30526914325893585",
-        "active_balance_24": "30524841011216883",
-        "active_shares": "22265109138069220",
+        "active_balance": "30528901384603483",
+        "active_balance_24": "30526827934970530",
+        "active_shares": "22265384493897867",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 17,
-        "self_delegation_balance": "271493254995604",
-        "self_delegation_shares": "198016310728118"
+        "self_delegation_balance": "271885119942987",
+        "self_delegation_shares": "198291666556765"
       },
       "in_validator_set": true,
       "media": {
@@ -1980,8 +1980,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1907926745935658,
-      "voting_power_cumulative": 146826800018481543
+      "voting_power": 1908050936753566,
+      "voting_power_cumulative": 146805602982046559
     },
     {
       "active": true,
@@ -1995,14 +1995,14 @@
       "entity_address": "oasis1qzmwdlxy7cltmwt99u9pwqt3g0rdwgsqyvcqymmt",
       "entity_id": "F5eduX4m4O/ot3UcFs3iQk1ZPUuG43kuxGI9sZz95uU=",
       "escrow": {
-        "active_balance": "29768525357602582",
-        "active_balance_24": "29766503550882498",
-        "active_shares": "21620089735185561",
+        "active_balance": "29770463051237819",
+        "active_balance_24": "29768441112914233",
+        "active_shares": "21620343041312447",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 8,
-        "self_delegation_balance": "139469237355598",
-        "self_delegation_shares": "101292804756143"
+        "self_delegation_balance": "139825475306455",
+        "self_delegation_shares": "101546110883029"
       },
       "in_validator_set": true,
       "media": {
@@ -2033,8 +2033,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1860527569557139,
-      "voting_power_cumulative": 148687327588038682
+      "voting_power": 1860648675066613,
+      "voting_power_cumulative": 148666251657113172
     },
     {
       "active": true,
@@ -2048,14 +2048,14 @@
       "entity_address": "oasis1qqx820g2geqzeyeyfnm5hgz72eaj9emajgqmscy0",
       "entity_id": "tcon38rBr3dHmURuXOTUFpDPKwE4eOU82F121rX9esE=",
       "escrow": {
-        "active_balance": "28414237787072524",
-        "active_balance_24": "28412307960310402",
-        "active_shares": "20638005372972613",
+        "active_balance": "28416087327385611",
+        "active_balance_24": "28414157375007153",
+        "active_shares": "20638247172764918",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "134475068741045",
-        "self_delegation_shares": "97672765745320"
+        "self_delegation_balance": "134815172124301",
+        "self_delegation_shares": "97914565537625"
       },
       "in_validator_set": true,
       "media": {
@@ -2086,8 +2086,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1775884835937947,
-      "voting_power_cumulative": 150463212423976629
+      "voting_power": 1776000431880378,
+      "voting_power_cumulative": 150442252088993550
     },
     {
       "active": true,
@@ -2101,14 +2101,14 @@
       "entity_address": "oasis1qrgxl0ylc7lvkj0akv6s32rj4k98nr0f7smf6m4k",
       "entity_id": "BTAJNDyd6/UQ+pfhTDdPGsothzJ+C5/C/g52a3DIlMw=",
       "escrow": {
-        "active_balance": "27007490534443296",
-        "active_balance_24": "27006067882431897",
-        "active_shares": "19747528261210406",
-        "debonding_balance": "5349583185554",
-        "debonding_shares": "5349583185554",
+        "active_balance": "27008836825940633",
+        "active_balance_24": "27007414103461384",
+        "active_shares": "19747484335551816",
+        "debonding_balance": "5349903683954",
+        "debonding_shares": "5349903683954",
         "num_delegators": 22,
-        "self_delegation_balance": "231257542687",
-        "self_delegation_shares": "169092528386"
+        "self_delegation_balance": "171192011341",
+        "self_delegation_shares": "125166869796"
       },
       "in_validator_set": true,
       "media": {
@@ -2130,62 +2130,7 @@
           1200,
           1200,
           1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200
-        ],
-        "window_length": 14400,
-        "window_uptime": 14400
-      },
-      "voting_power": 1687963381466336,
-      "voting_power_cumulative": 152151175805442965
-    },
-    {
-      "active": true,
-      "current_commission_bound": {
-        "epoch_end": 0,
-        "epoch_start": 0,
-        "lower": 0,
-        "upper": 20000
-      },
-      "current_rate": 3000,
-      "entity_address": "oasis1qp60saapdcrhe5zp3c3zk52r4dcfkr2uyuc5qjxp",
-      "entity_id": "/AI8TCLc1a5U98yBoxOji5bheVT1pc75v+tGDdM6se4=",
-      "escrow": {
-        "active_balance": "26697229688263205",
-        "active_balance_24": "26663820281330051",
-        "active_shares": "18327073431346213",
-        "debonding_balance": "406580902904384",
-        "debonding_shares": "406580902904384",
-        "num_delegators": 1306,
-        "self_delegation_balance": "389747298776330",
-        "self_delegation_shares": "267553129959505"
-      },
-      "in_validator_set": true,
-      "media": {
-        "email": "hello@tessellatedgeometry.com",
-        "keybase": "tessellatedgeo",
-        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1be50ea4c1a26ff72b068a3ab0590205_360_360.jpg",
-        "name": "Tessellated Geometry",
-        "twitter": "tessellatedgeo",
-        "url": "https://tessellatedgeometry.com"
-      },
-      "node_id": "wdxW8Bk1hZvQANQHRCO8MzbgRsdC5c7mpLjsNYLM82I=",
-      "rank": 41,
-      "start_date": "2021-04-28T16:00:00Z",
-      "uptime": {
-        "segment_length": 1200,
-        "segment_uptimes": [
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
-          1200,
+          1186,
           1200,
           1200,
           1200,
@@ -2194,10 +2139,10 @@
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14400
+        "window_uptime": 14386
       },
-      "voting_power": 1668572133457312,
-      "voting_power_cumulative": 153819747938900277
+      "voting_power": 1688073254423141,
+      "voting_power_cumulative": 152130325343416691
     },
     {
       "active": true,
@@ -2211,14 +2156,14 @@
       "entity_address": "oasis1qp7626tphkh9784tpf2lhdmskjmrk7p2ds40e9me",
       "entity_id": "LQaKibf9tD8KXO210NhiDUHzXTsRIeK5l/3ITmfg118=",
       "escrow": {
-        "active_balance": "26422163535226775",
-        "active_balance_24": "26420369005361657",
-        "active_shares": "24206923619926610",
+        "active_balance": "26423883407390287",
+        "active_balance_24": "26422088760715583",
+        "active_shares": "24207081182881610",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 37,
-        "self_delegation_balance": "25404726329468",
-        "self_delegation_shares": "23274788569932"
+        "self_delegation_balance": "25578206640363",
+        "self_delegation_shares": "23432351524932"
       },
       "in_validator_set": true,
       "media": {
@@ -2228,7 +2173,7 @@
         "url": "https://wehaveservers.com"
       },
       "node_id": "kyMt+dLOuEKW1GXST1tQdf4AbEdc4zJt40/apqitmWA=",
-      "rank": 42,
+      "rank": 41,
       "start_date": "2022-12-12T08:19:44Z",
       "uptime": {
         "segment_length": 1200,
@@ -2249,8 +2194,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1651380547544723,
-      "voting_power_cumulative": 155471128486445000
+      "voting_power": 1651488039250741,
+      "voting_power_cumulative": 153781813382667432
     },
     {
       "active": true,
@@ -2264,14 +2209,14 @@
       "entity_address": "oasis1qpxpnxxk4qcgl7n55tx0yuqmrcw5cy2u5vzjq5u4",
       "entity_id": "klORAmjq81QKiUA0CsXaANxYVesTWM7CKdaSlm7u9tM=",
       "escrow": {
-        "active_balance": "26370844479984080",
-        "active_balance_24": "26369053435585894",
-        "active_shares": "20845649845076606",
+        "active_balance": "26372561011686298",
+        "active_balance_24": "26370769850705403",
+        "active_shares": "20845907646246640",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 25,
-        "self_delegation_balance": "259757273084919",
-        "self_delegation_shares": "205333172532647"
+        "self_delegation_balance": "260097117834166",
+        "self_delegation_shares": "205590973702681"
       },
       "in_validator_set": true,
       "media": {
@@ -2283,6 +2228,61 @@
         "url": "https://perfectstake.com"
       },
       "node_id": "IdElhqKVZCHY9Lo6222te1wSdhPPAz/OCsoSRkWrXXw=",
+      "rank": 42,
+      "start_date": "2021-04-28T16:00:00Z",
+      "uptime": {
+        "segment_length": 1200,
+        "segment_uptimes": [
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200
+        ],
+        "window_length": 14400,
+        "window_uptime": 14400
+      },
+      "voting_power": 1648280398596865,
+      "voting_power_cumulative": 155430093781264297
+    },
+    {
+      "active": true,
+      "current_commission_bound": {
+        "epoch_end": 0,
+        "epoch_start": 0,
+        "lower": 0,
+        "upper": 20000
+      },
+      "current_rate": 3000,
+      "entity_address": "oasis1qp60saapdcrhe5zp3c3zk52r4dcfkr2uyuc5qjxp",
+      "entity_id": "/AI8TCLc1a5U98yBoxOji5bheVT1pc75v+tGDdM6se4=",
+      "escrow": {
+        "active_balance": "26104645952890580",
+        "active_balance_24": "26697154135317003",
+        "active_shares": "17919146053751279",
+        "debonding_balance": "1001281659880062",
+        "debonding_shares": "1001281659880062",
+        "num_delegators": 1304,
+        "self_delegation_balance": "389823527327091",
+        "self_delegation_shares": "267588563888918"
+      },
+      "in_validator_set": true,
+      "media": {
+        "email": "hello@tessellatedgeometry.com",
+        "keybase": "tessellatedgeo",
+        "logoUrl": "https://s3.amazonaws.com/keybase_processed_uploads/1be50ea4c1a26ff72b068a3ab0590205_360_360.jpg",
+        "name": "Tessellated Geometry",
+        "twitter": "tessellatedgeo",
+        "url": "https://tessellatedgeometry.com"
+      },
+      "node_id": "wdxW8Bk1hZvQANQHRCO8MzbgRsdC5c7mpLjsNYLM82I=",
       "rank": 43,
       "start_date": "2021-04-28T16:00:00Z",
       "uptime": {
@@ -2304,8 +2304,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1648173115669087,
-      "voting_power_cumulative": 157119301602114087
+      "voting_power": 1631535754809475,
+      "voting_power_cumulative": 157061629536073772
     },
     {
       "active": true,
@@ -2319,14 +2319,14 @@
       "entity_address": "oasis1qqyynj90zkvyhja33w4ltgej45pr48f45ymmnsrx",
       "entity_id": "PrCDIA3uyoLqNOZJ1PrRWdyviFn6K0PWFz91qQ9QyTw=",
       "escrow": {
-        "active_balance": "24351008127128591",
-        "active_balance_24": "24349354265162611",
-        "active_shares": "17479439929653141",
+        "active_balance": "24352593183589823",
+        "active_balance_24": "24350939213970616",
+        "active_shares": "17479610590551248",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 31,
-        "self_delegation_balance": "2871215483094076",
-        "self_delegation_shares": "2060992230786581"
+        "self_delegation_balance": "2871612106361338",
+        "self_delegation_shares": "2061162891684688"
       },
       "in_validator_set": true,
       "media": {
@@ -2343,23 +2343,23 @@
         "segment_length": 1200,
         "segment_uptimes": [
           1198,
-          1200,
-          1197,
-          1198,
-          1191,
+          1187,
+          1199,
           1197,
           1199,
-          1199,
           1198,
-          1186,
-          1200,
-          1165
+          1198,
+          1199,
+          1199,
+          1199,
+          1197,
+          1198
         ],
         "window_length": 14400,
-        "window_uptime": 14328
+        "window_uptime": 14368
       },
-      "voting_power": 1521933700873163,
-      "voting_power_cumulative": 158641235302987250
+      "voting_power": 1522032766621634,
+      "voting_power_cumulative": 158583662302695406
     },
     {
       "active": true,
@@ -2373,14 +2373,14 @@
       "entity_address": "oasis1qr0jwz65c29l044a204e3cllvumdg8cmsgt2k3ql",
       "entity_id": "kfr2A6K6TlvhQm4nz88Hczzkd2Aq5PlkxSpnmUUBAFs=",
       "escrow": {
-        "active_balance": "24098869824501921",
-        "active_balance_24": "24097233087163664",
-        "active_shares": "17307449473109164",
+        "active_balance": "24100438468770130",
+        "active_balance_24": "24098801624893323",
+        "active_shares": "17307618454774649",
         "debonding_balance": "16132920734068",
         "debonding_shares": "16132920734068",
         "num_delegators": 709,
-        "self_delegation_balance": "109186688929448",
-        "self_delegation_shares": "78416254187205"
+        "self_delegation_balance": "109428032872949",
+        "self_delegation_shares": "78585235852690"
       },
       "in_validator_set": true,
       "media": {
@@ -2413,8 +2413,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1506175101555832,
-      "voting_power_cumulative": 160147410404543082
+      "voting_power": 1506273141545142,
+      "voting_power_cumulative": 160089935444240548
     },
     {
       "active": true,
@@ -2428,11 +2428,11 @@
       "entity_address": "oasis1qpavd66xsezz8s4wjw2fyycxw8jm2nlpnuejlg2g",
       "entity_id": "iGs5cCGos/I5KQv82MwgGMNENaxy3bhuWdFXtINcu0U=",
       "escrow": {
-        "active_balance": "22465650869772094",
-        "active_balance_24": "22464125056741254",
-        "active_shares": "18945035879330513",
-        "debonding_balance": "3187760062377",
-        "debonding_shares": "3187760062377",
+        "active_balance": "22473197272640344",
+        "active_balance_24": "22465587292160058",
+        "active_shares": "18950166173017483",
+        "debonding_balance": "5189878020028",
+        "debonding_shares": "5189878020028",
         "num_delegators": 208,
         "self_delegation_balance": "0",
         "self_delegation_shares": "0"
@@ -2466,8 +2466,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1404099205760003,
-      "voting_power_cumulative": 161551509610303085
+      "voting_power": 1404570854604503,
+      "voting_power_cumulative": 161494506298845051
     },
     {
       "active": true,
@@ -2481,14 +2481,14 @@
       "entity_address": "oasis1qrmexg6kh67xvnp7k42sx482nja5760stcrcdkhm",
       "entity_id": "LaKJUKndAqH57DVExspTjdRTRNGJOSqArzM0pm8REZw=",
       "escrow": {
-        "active_balance": "21781628517304436",
-        "active_balance_24": "21780149161428337",
-        "active_shares": "15763371461389917",
+        "active_balance": "21783046327640553",
+        "active_balance_24": "21781566875470179",
+        "active_shares": "15763545888337499",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 16,
-        "self_delegation_balance": "93840094474856",
-        "self_delegation_shares": "67912106112906"
+        "self_delegation_balance": "94086198273595",
+        "self_delegation_shares": "68086533060488"
       },
       "in_validator_set": true,
       "media": {
@@ -2520,8 +2520,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1361347929716886,
-      "voting_power_cumulative": 162912857540019971
+      "voting_power": 1361436542612119,
+      "voting_power_cumulative": 162855942841457170
     },
     {
       "active": true,
@@ -2535,14 +2535,14 @@
       "entity_address": "oasis1qp334gzlzrap6k2ch6wc9vxxplw9sg3v9cfvvgsy",
       "entity_id": "iNKCs9v4NJCuApCLPD4bRBoqTs/5DBxS0hourBkhxQo=",
       "escrow": {
-        "active_balance": "21642407528691049",
-        "active_balance_24": "21640937628370002",
-        "active_shares": "16910187009401442",
+        "active_balance": "21643816276850913",
+        "active_balance_24": "21642346280851075",
+        "active_shares": "16910407147088095",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 35,
-        "self_delegation_balance": "563943243362686",
-        "self_delegation_shares": "440634236062192"
+        "self_delegation_balance": "564254366395266",
+        "self_delegation_shares": "440854373748845"
       },
       "in_validator_set": true,
       "media": {
@@ -2574,8 +2574,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1352646642553192,
-      "voting_power_cumulative": 164265504182573163
+      "voting_power": 1352734689064012,
+      "voting_power_cumulative": 164208677530521182
     },
     {
       "active": true,
@@ -2589,14 +2589,14 @@
       "entity_address": "oasis1qppctxzn8djkqfvrxugak9v7dp25vddq7sxqhkry",
       "entity_id": "9+lM5vQ1g+cVzjaNM78gxw1yUegVj57tHDbpN7DKIvw=",
       "escrow": {
-        "active_balance": "21564962774198682",
-        "active_balance_24": "21563498133739286",
-        "active_shares": "17649380449622410",
+        "active_balance": "21566366481322551",
+        "active_balance_24": "21564901745526743",
+        "active_shares": "17649598722066013",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 9,
-        "self_delegation_balance": "869868268998259",
-        "self_delegation_shares": "711924995250785"
+        "self_delegation_balance": "870180843211032",
+        "self_delegation_shares": "712143267694388"
       },
       "in_validator_set": true,
       "media": {
@@ -2628,8 +2628,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1347806359095421,
-      "voting_power_cumulative": 165613310541668584
+      "voting_power": 1347894090542383,
+      "voting_power_cumulative": 165556571621063565
     },
     {
       "active": true,
@@ -2643,14 +2643,14 @@
       "entity_address": "oasis1qps9drw07z0gmh5z2pn7zwl3z53ate2yvqf3uzq5",
       "entity_id": "/Foi5kZdBc70HPmlguvY6AzBILNrNiPDgKQLOITuIEI=",
       "escrow": {
-        "active_balance": "21229771870341434",
-        "active_balance_24": "21228329995242896",
-        "active_shares": "17491502960839607",
+        "active_balance": "21231153759210176",
+        "active_balance_24": "21229711790257068",
+        "active_shares": "17491696510136947",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 10,
-        "self_delegation_balance": "88032036670253",
-        "self_delegation_shares": "72530813777497"
+        "self_delegation_balance": "88271719875067",
+        "self_delegation_shares": "72724363074837"
       },
       "in_validator_set": true,
       "media": {
@@ -2681,8 +2681,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1326856986891066,
-      "voting_power_cumulative": 166940167528559650
+      "voting_power": 1326943354700942,
+      "voting_power_cumulative": 166883514975764507
     },
     {
       "active": true,
@@ -2696,14 +2696,14 @@
       "entity_address": "oasis1qzt4fvcc6cw9af69tek9p3mfjwn3a5e5vcyrw7ac",
       "entity_id": "L4OY/0mNEduAS9z6jh2xLp72b8gZURgcrd76AOiRIXk=",
       "escrow": {
-        "active_balance": "20427612137146872",
-        "active_balance_24": "20426224742810137",
-        "active_shares": "15849351995256549",
+        "active_balance": "20428941811813172",
+        "active_balance_24": "20427554327168127",
+        "active_shares": "15849537690043972",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 23,
-        "self_delegation_balance": "983823595319436",
-        "self_delegation_shares": "763327909242086"
+        "self_delegation_balance": "984115454613196",
+        "self_delegation_shares": "763513604029509"
       },
       "in_validator_set": true,
       "media": {
@@ -2736,8 +2736,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1276722145448007,
-      "voting_power_cumulative": 168216889674007657
+      "voting_power": 1276805249879466,
+      "voting_power_cumulative": 168160320225643973
     },
     {
       "active": true,
@@ -2751,14 +2751,14 @@
       "entity_address": "oasis1qz0pvg26eudajp60835wl3jxhdxqz03q5qt9us34",
       "entity_id": "fhXoWYc8Ml153jBBvFrQ4CRY7vnbCk9j269rVLeg7cE=",
       "escrow": {
-        "active_balance": "19512830795000157",
-        "active_balance_24": "19511505530414316",
-        "active_shares": "17094570934332828",
-        "debonding_balance": "0",
-        "debonding_shares": "0",
-        "num_delegators": 21,
-        "self_delegation_balance": "33027082727142",
-        "self_delegation_shares": "28933977564028"
+        "active_balance": "19513503296070570",
+        "active_balance_24": "19512775573845284",
+        "active_shares": "17094269936155933",
+        "debonding_balance": "597621859602",
+        "debonding_shares": "597621859602",
+        "num_delegators": 20,
+        "self_delegation_balance": "33282833468492",
+        "self_delegation_shares": "29156514384841"
       },
       "in_validator_set": true,
       "media": {
@@ -2791,8 +2791,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1219548473365330,
-      "voting_power_cumulative": 169436438147372987
+      "voting_power": 1219590504563282,
+      "voting_power_cumulative": 169379910730207255
     },
     {
       "active": true,
@@ -2806,14 +2806,14 @@
       "entity_address": "oasis1qqs5wnxvsk009swtt7ehm5fslxve96kczszwt47s",
       "entity_id": "VsrHPScBde1FUb+BDWONvLxxwKOKevLB7FRbUAaiF+Y=",
       "escrow": {
-        "active_balance": "18831460039616998",
-        "active_balance_24": "18830424005820753",
-        "active_shares": "14028452126271469",
-        "debonding_balance": "3400347173090",
-        "debonding_shares": "3400347173090",
+        "active_balance": "18832685817509000",
+        "active_balance_24": "18831649716275215",
+        "active_shares": "14028634749384780",
+        "debonding_balance": "3157553046720",
+        "debonding_shares": "3157553046720",
         "num_delegators": 11,
-        "self_delegation_balance": "11747649421229",
-        "self_delegation_shares": "8751383968913"
+        "self_delegation_balance": "11993422843823",
+        "self_delegation_shares": "8934007082224"
       },
       "in_validator_set": true,
       "node_id": "e25jqMK9FwlwuV1VPS/dkriJlYh7zKp+1H9B8xAu2LI=",
@@ -2829,17 +2829,17 @@
           1200,
           1200,
           1200,
-          1199,
+          1200,
           1200,
           1200,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14399
+        "window_uptime": 14400
       },
-      "voting_power": 1176962921670994,
-      "voting_power_cumulative": 170613401069043981
+      "voting_power": 1177039532572435,
+      "voting_power_cumulative": 170556950262779690
     },
     {
       "active": true,
@@ -2853,14 +2853,14 @@
       "entity_address": "oasis1qzl99wft8jtt7ppprk7ce7s079z3r3t77s6pf3dd",
       "entity_id": "4gbOOU09bcyvM53Up1lTnP+sLb0feniJu0OcUUPCBSs=",
       "escrow": {
-        "active_balance": "17704655662633248",
-        "active_balance_24": "17703453204958057",
-        "active_shares": "12955936782855894",
+        "active_balance": "17705808094545118",
+        "active_balance_24": "17704605558599518",
+        "active_shares": "12956105443909149",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 2183,
-        "self_delegation_balance": "87157812451777",
-        "self_delegation_shares": "63780461465879"
+        "self_delegation_balance": "87392843168827",
+        "self_delegation_shares": "63949122519134"
       },
       "in_validator_set": true,
       "media": {
@@ -2893,8 +2893,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 1106537847412469,
-      "voting_power_cumulative": 171719938916456450
+      "voting_power": 1106609874203125,
+      "voting_power_cumulative": 171663560136982815
     },
     {
       "active": true,
@@ -2908,14 +2908,14 @@
       "entity_address": "oasis1qqxqhx9t52rsevhhtfspdxp4gsaft6ewyyeqnqy3",
       "entity_id": "TWLcdgEfahwyFPTC7nN3rZacPO2aXlLfZIDt7uXbzEI=",
       "escrow": {
-        "active_balance": "13238147014465569",
-        "active_balance_24": "13237247911326477",
-        "active_shares": "10545268977824800",
+        "active_balance": "13239008712279077",
+        "active_balance_24": "13238109550615541",
+        "active_shares": "10545406256680231",
         "debonding_balance": "1562661369460",
         "debonding_shares": "1562661369460",
         "num_delegators": 15,
-        "self_delegation_balance": "165014910088085",
-        "self_delegation_shares": "131447899039719"
+        "self_delegation_balance": "165195846813122",
+        "self_delegation_shares": "131585177895150"
       },
       "in_validator_set": true,
       "media": {
@@ -2946,8 +2946,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 827381846913471,
-      "voting_power_cumulative": 172547320763369921
+      "voting_power": 827435702874403,
+      "voting_power_cumulative": 172490995839857218
     },
     {
       "active": true,
@@ -2961,14 +2961,14 @@
       "entity_address": "oasis1qpg763ex50jp0e34lsu789smlzqvcv7025v7m7yx",
       "entity_id": "6reBpCKHsqMX1Y26o3p5V+95in5ka16I969CWyiRudY=",
       "escrow": {
-        "active_balance": "13181806851628586",
-        "active_balance_24": "13180911574977990",
-        "active_shares": "9488836557886191",
+        "active_balance": "13182664882146735",
+        "active_balance_24": "13181769547220768",
+        "active_shares": "9488929202351651",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 11,
-        "self_delegation_balance": "49138408395399",
-        "self_delegation_shares": "35371958581004"
+        "self_delegation_balance": "49269835106793",
+        "self_delegation_shares": "35464603046464"
       },
       "in_validator_set": true,
       "media": {
@@ -2983,24 +2983,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
+          1193,
           1199,
-          1190,
-          1197,
-          1200,
-          1171,
-          1200,
           1199,
-          1191,
+          1199,
           1198,
           1199,
           1200,
-          1195
+          1198,
+          1199,
+          1199,
+          1199,
+          1199
         ],
         "window_length": 14400,
-        "window_uptime": 14339
+        "window_uptime": 14381
       },
-      "voting_power": 823860596701298,
-      "voting_power_cumulative": 173371181360071219
+      "voting_power": 823914223456918,
+      "voting_power_cumulative": 173314910063314136
     },
     {
       "active": true,
@@ -3014,14 +3014,14 @@
       "entity_address": "oasis1qz65awwegd9pr8msfxkg7hpwyjemm2qdlysyc8jq",
       "entity_id": "izy38AmUeU4b4L23kVy4BlxbkHGOPy4KPSSLnJglrV0=",
       "escrow": {
-        "active_balance": "13088957622693760",
-        "active_balance_24": "13088068652139712",
-        "active_shares": "9401784376178069",
+        "active_balance": "13089809609467458",
+        "active_balance_24": "13088920581048516",
+        "active_shares": "9401876170707626",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "5280903048248",
-        "self_delegation_shares": "3793267057802"
+        "self_delegation_balance": "5408996627506",
+        "self_delegation_shares": "3885061587359"
       },
       "in_validator_set": true,
       "media": {
@@ -3036,24 +3036,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
+          1189,
           1200,
-          1192,
-          1199,
-          1164,
           1193,
-          1199,
-          1192,
-          1199,
-          1177,
           1200,
-          1190,
-          1196
+          1186,
+          1196,
+          1195,
+          1188,
+          1200,
+          1175,
+          1200,
+          1192
         ],
         "window_length": 14400,
-        "window_uptime": 14301
+        "window_uptime": 14314
       },
-      "voting_power": 818057536315532,
-      "voting_power_cumulative": 174189238896386751
+      "voting_power": 818110785338193,
+      "voting_power_cumulative": 174133020848652329
     },
     {
       "active": true,
@@ -3067,13 +3067,13 @@
       "entity_address": "oasis1qp4tj3u9qkcgjqrrjvwljrqcyx3g5ygjqgtm37t3",
       "entity_id": "pMObKfyj3dlGVgf55VX9NUAERkHLXteFvKExpOAn/tc=",
       "escrow": {
-        "active_balance": "13064567520193130",
-        "active_balance_24": "13063680206156244",
+        "active_balance": "13065417919365636",
+        "active_balance_24": "13064530547571681",
         "active_shares": "11251951031832859",
-        "debonding_balance": "12912999997",
-        "debonding_shares": "12912999997",
+        "debonding_balance": "9912999998",
+        "debonding_shares": "9912999998",
         "num_delegators": 259,
-        "self_delegation_balance": "155432536551306",
+        "self_delegation_balance": "155442653970062",
         "self_delegation_shares": "133867369687184"
       },
       "in_validator_set": true,
@@ -3107,8 +3107,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 816533159223230,
-      "voting_power_cumulative": 175005772055609981
+      "voting_power": 816586309021097,
+      "voting_power_cumulative": 174949607157673426
     },
     {
       "active": true,
@@ -3122,14 +3122,14 @@
       "entity_address": "oasis1qptk3ydjxuq3eenqwljdy45uxdye5tfg4sqar0fz",
       "entity_id": "RFpWeibJDHnfgoq9mO1BJcxyDbIstDi22ZBhvgXvE1Y=",
       "escrow": {
-        "active_balance": "12309349458851409",
-        "active_balance_24": "12308513437410758",
-        "active_shares": "8833576215322341",
+        "active_balance": "12310150699350007",
+        "active_balance_24": "12309314623491025",
+        "active_shares": "8833662462138959",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 7,
-        "self_delegation_balance": "45801897933067",
-        "self_delegation_shares": "32868882108731"
+        "self_delegation_balance": "45924621313788",
+        "self_delegation_shares": "32955128925349"
       },
       "in_validator_set": true,
       "node_id": "ROe9AtvfOFX6bu+5vhRCR87qYXSzp5NfELBqB3Hdgrw=",
@@ -3139,23 +3139,23 @@
         "segment_length": 1200,
         "segment_uptimes": [
           1198,
-          1193,
-          1199,
-          1193,
+          1198,
           1197,
-          1179,
-          1197,
-          1195,
           1198,
           1198,
-          1168,
+          1170,
+          1198,
+          1197,
+          1198,
+          1198,
+          1198,
           1198
         ],
         "window_length": 14400,
-        "window_uptime": 14313
+        "window_uptime": 14346
       },
-      "voting_power": 769332163968189,
-      "voting_power_cumulative": 175775104219578170
+      "voting_power": 769382241357632,
+      "voting_power_cumulative": 175718989399031058
     },
     {
       "active": true,
@@ -3169,14 +3169,14 @@
       "entity_address": "oasis1qq2kqzr4q942x44st97n66nmmyh7dhsuvsqyc22u",
       "entity_id": "BBba0XfI4WSTroE+/YGcFthxbEC5jQJhWhl0jIBwke0=",
       "escrow": {
-        "active_balance": "12177371902650489",
-        "active_balance_24": "12176544844808362",
-        "active_shares": "8965115390088908",
+        "active_balance": "12178164552462531",
+        "active_balance_24": "12177337440785532",
+        "active_shares": "8965226262969050",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 9,
-        "self_delegation_balance": "52885095007190",
-        "self_delegation_shares": "38934589741164"
+        "self_delegation_balance": "53038490594862",
+        "self_delegation_shares": "39045462621306"
       },
       "in_validator_set": true,
       "media": {
@@ -3208,8 +3208,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 761083590049095,
-      "voting_power_cumulative": 176536187809627265
+      "voting_power": 761133130522148,
+      "voting_power_cumulative": 176480122529553206
     },
     {
       "active": true,
@@ -3223,14 +3223,14 @@
       "entity_address": "oasis1qryc94hn6hucev6ex79ceheve2pjesenc50svvvp",
       "entity_id": "erpPSkQwGnb9j+/qqyJmeRK2e1mhJc/Do78jNdpPjk0=",
       "escrow": {
-        "active_balance": "12040069115064863",
-        "active_balance_24": "12039251382498181",
-        "active_shares": "8602128738042895",
-        "debonding_balance": "120726901494698",
-        "debonding_shares": "120726901494698",
+        "active_balance": "12040967829512958",
+        "active_balance_24": "12040035041765695",
+        "active_shares": "8602294884684488",
+        "debonding_balance": "86889075915655",
+        "debonding_shares": "86889075915655",
         "num_delegators": 38,
-        "self_delegation_balance": "511097418840",
-        "self_delegation_shares": "365157853541"
+        "self_delegation_balance": "628685974641",
+        "self_delegation_shares": "449145136861"
       },
       "in_validator_set": true,
       "media": {
@@ -3263,8 +3263,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 752502190110355,
-      "voting_power_cumulative": 177288689999737620
+      "voting_power": 752558359604402,
+      "voting_power_cumulative": 177232680889157608
     },
     {
       "active": true,
@@ -3278,14 +3278,14 @@
       "entity_address": "oasis1qr9wccuk6pqcr5ld8t2uf599e4ch5348hqeq53x4",
       "entity_id": "29VJbrrthqvw/ti3Vj7cASwkM9VMVa/RTKiwMBdWDQk=",
       "escrow": {
-        "active_balance": "11742757362538210",
-        "active_balance_24": "11741959822671437",
-        "active_shares": "8596909154184641",
+        "active_balance": "11743521722409177",
+        "active_balance_24": "11742724130628921",
+        "active_shares": "8597021069191394",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 25,
-        "self_delegation_balance": "938686321919429",
-        "self_delegation_shares": "687215173121209"
+        "self_delegation_balance": "938888078192201",
+        "self_delegation_shares": "687327088127962"
       },
       "in_validator_set": true,
       "media": {
@@ -3303,23 +3303,23 @@
         "segment_length": 1200,
         "segment_uptimes": [
           1200,
-          1177,
-          1200,
-          1200,
-          1195,
           1200,
           1200,
           1200,
           1200,
           1200,
           1200,
-          1185
+          1200,
+          1200,
+          1200,
+          1200,
+          1200
         ],
         "window_length": 14400,
-        "window_uptime": 14357
+        "window_uptime": 14400
       },
-      "voting_power": 733920258164307,
-      "voting_power_cumulative": 178022610257901927
+      "voting_power": 733968030521047,
+      "voting_power_cumulative": 177966648919678655
     },
     {
       "active": true,
@@ -3333,14 +3333,14 @@
       "entity_address": "oasis1qp4rp7adhegfktyg4aq3w6jelqumx6klfv5t7kvv",
       "entity_id": "jzTWYikeN6NIuMQ6l4iqdDOF9jyfOJG2FcnQaNBn9+s=",
       "escrow": {
-        "active_balance": "11729523121436785",
-        "active_balance_24": "11728726480407872",
-        "active_shares": "8467158430777392",
+        "active_balance": "11730286619864185",
+        "active_balance_24": "11729489926980292",
+        "active_shares": "8467268656682537",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 31,
-        "self_delegation_balance": "106987740577069",
-        "self_delegation_shares": "77230944535279"
+        "self_delegation_balance": "107146015269745",
+        "self_delegation_shares": "77341170440424"
       },
       "in_validator_set": true,
       "media": {
@@ -3373,8 +3373,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 733093120436268,
-      "voting_power_cumulative": 178755703378338195
+      "voting_power": 733140838952937,
+      "voting_power_cumulative": 178699789758631592
     },
     {
       "active": true,
@@ -3388,14 +3388,14 @@
       "entity_address": "oasis1qrjwzudz53vfy2vfqe5tavae370tukt9fulj27l0",
       "entity_id": "Ph5b+2q8cFT3ppda6yhlvZVZa/VnbNsaZ6+IMv29Qm8=",
       "escrow": {
-        "active_balance": "11633010153658500",
-        "active_balance_24": "11632220067558475",
-        "active_shares": "10961524205058806",
+        "active_balance": "11633767369861264",
+        "active_balance_24": "11632977232332933",
+        "active_shares": "10961631228142655",
         "debonding_balance": "1560266074471",
         "debonding_shares": "1560266074471",
         "num_delegators": 300,
-        "self_delegation_balance": "44142788602796",
-        "self_delegation_shares": "41594758309067"
+        "self_delegation_balance": "44258816369267",
+        "self_delegation_shares": "41701781392916"
       },
       "in_validator_set": true,
       "media": {
@@ -3428,8 +3428,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 727061077020808,
-      "voting_power_cumulative": 179482764455359003
+      "voting_power": 727108402899548,
+      "voting_power_cumulative": 179426898161531140
     },
     {
       "active": true,
@@ -3443,14 +3443,14 @@
       "entity_address": "oasis1qzp84num6xgspdst65yv7yqegln6ndcxmuuq8s9w",
       "entity_id": "xQN6ffLSdc51EfEQ2BzltK1iWYAw6Y1CkBAbFzlhhEQ=",
       "escrow": {
-        "active_balance": "11578631499776528",
-        "active_balance_24": "11577910637640054",
-        "active_shares": "8936643942405427",
+        "active_balance": "11579352406795212",
+        "active_balance_24": "11578598732342116",
+        "active_shares": "8936755221905174",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 18,
-        "self_delegation_balance": "20233336074478",
-        "self_delegation_shares": "15616536398807"
+        "self_delegation_balance": "20378528711647",
+        "self_delegation_shares": "15727815898554"
       },
       "in_validator_set": true,
       "media": {
@@ -3467,24 +3467,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1123,
+          1129,
           1200,
-          974,
+          1125,
+          1080,
+          1080,
+          1128,
           1200,
-          1120,
-          1200,
-          1095,
-          925,
-          1197,
-          1127,
-          1200,
-          1121
+          1157,
+          1032,
+          1046,
+          1100,
+          1200
         ],
         "window_length": 14400,
-        "window_uptime": 13482
+        "window_uptime": 13477
       },
-      "voting_power": 723662420771382,
-      "voting_power_cumulative": 180206426876130385
+      "voting_power": 723707477332539,
+      "voting_power_cumulative": 180150605638863679
     },
     {
       "active": true,
@@ -3498,14 +3498,14 @@
       "entity_address": "oasis1qppjm5sxqwps4dpyekdvz530sjmq3e5eusp7hdan",
       "entity_id": "3NKMT/Qz11e2xklwSCV/zeawLE3BIO/Rn4LfaV47QJI=",
       "escrow": {
-        "active_balance": "10646237767309220",
-        "active_balance_24": "10645514700418846",
-        "active_shares": "7770510012247483",
+        "active_balance": "10646930752497869",
+        "active_balance_24": "10646207638541603",
+        "active_shares": "7770608640208330",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 27,
-        "self_delegation_balance": "3186772586694963",
-        "self_delegation_shares": "2325971750105643"
+        "self_delegation_balance": "3187074705134873",
+        "self_delegation_shares": "2326070378066490"
       },
       "in_validator_set": true,
       "media": {
@@ -3538,8 +3538,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 665387977408850,
-      "voting_power_cumulative": 180871814853539235
+      "voting_power": 665431288860569,
+      "voting_power_cumulative": 180816036927724248
     },
     {
       "active": true,
@@ -3553,14 +3553,14 @@
       "entity_address": "oasis1qq4f2h225gv6g8w8w23fm740aze9lke4qun72n59",
       "entity_id": "Vt63FfFzNMgUngrMvnKks+icySi5LwkjniJEJMZAimM=",
       "escrow": {
-        "active_balance": "10567202570340014",
-        "active_balance_24": "10566484871330329",
-        "active_shares": "7640245629911224",
+        "active_balance": "10567890410967542",
+        "active_balance_24": "10567172665241372",
+        "active_shares": "7640330171769994",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 10,
-        "self_delegation_balance": "816508789386755",
-        "self_delegation_shares": "590348076359014"
+        "self_delegation_balance": "816669838096889",
+        "self_delegation_shares": "590432618217784"
       },
       "in_validator_set": true,
       "media": {
@@ -3579,21 +3579,21 @@
           1200,
           1200,
           1200,
-          1199,
           1200,
           1200,
           1200,
           1200,
           1200,
+          1196,
           1200,
-          1200,
-          1200
+          1194,
+          1197
         ],
         "window_length": 14400,
-        "window_uptime": 14399
+        "window_uptime": 14387
       },
-      "voting_power": 660448291577585,
-      "voting_power_cumulative": 181532263145116820
+      "voting_power": 660491281495144,
+      "voting_power_cumulative": 181476528209219392
     },
     {
       "active": true,
@@ -3607,14 +3607,14 @@
       "entity_address": "oasis1qpfcsun7zju6ku7d2mdh54j9nsmxvj76uqk35w57",
       "entity_id": "Z3uLK0KpBUE/sQcianpZy/Dkock7RzOOvI4TJnfJvik=",
       "escrow": {
-        "active_balance": "9792844614914266",
-        "active_balance_24": "9792179508436431",
-        "active_shares": "8353383188336648",
+        "active_balance": "9793482051013401",
+        "active_balance_24": "9792816901242436",
+        "active_shares": "8353464746778034",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 17,
-        "self_delegation_balance": "145248073980246",
-        "self_delegation_shares": "123897893516764"
+        "self_delegation_balance": "145351728205346",
+        "self_delegation_shares": "123979451958150"
       },
       "in_validator_set": true,
       "media": {
@@ -3636,7 +3636,7 @@
           1200,
           1200,
           1200,
-          1200,
+          1199,
           1200,
           1200,
           1200,
@@ -3645,10 +3645,10 @@
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14400
+        "window_uptime": 14399
       },
-      "voting_power": 612051056327652,
-      "voting_power_cumulative": 182144314201444472
+      "voting_power": 612090895971102,
+      "voting_power_cumulative": 182088619105190494
     },
     {
       "active": true,
@@ -3662,14 +3662,14 @@
       "entity_address": "oasis1qzgq240adkyxhm6598ex2jvgs7lyx5wmtg7cszmk",
       "entity_id": "nZoBfua/odt7fZThkfzGQo2oBp8UnEj+VpG52SB8onM=",
       "escrow": {
-        "active_balance": "9576283471195220",
-        "active_balance_24": "9575633073029950",
-        "active_shares": "6880158267136734",
+        "active_balance": "9576906810890692",
+        "active_balance_24": "9576256370389692",
+        "active_shares": "6880225441714040",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 8,
-        "self_delegation_balance": "34663101007714",
-        "self_delegation_shares": "24903985108646"
+        "self_delegation_balance": "34758522274912",
+        "self_delegation_shares": "24971159685952"
       },
       "in_validator_set": true,
       "node_id": "y4LZvdQ/k9RBiPLSvBHt/8GhbOVEHY/LfIdgk0iXUho=",
@@ -3678,24 +3678,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1199,
-          1200,
-          1072,
-          1200,
-          1199,
-          1200,
           1198,
-          1096,
-          1159,
           1199,
           1200,
-          1197
+          1195,
+          1187,
+          1199,
+          1200,
+          1194,
+          1177,
+          1200,
+          1199,
+          1194
         ],
         "window_length": 14400,
-        "window_uptime": 14119
+        "window_uptime": 14342
       },
-      "voting_power": 598516023149355,
-      "voting_power_cumulative": 182742830224593827
+      "voting_power": 598554981770069,
+      "voting_power_cumulative": 182687174086960563
     },
     {
       "active": true,
@@ -3709,13 +3709,13 @@
       "entity_address": "oasis1qqlckx8uus05llpl5jdcsck6zceal06zgg3ll75t",
       "entity_id": "5gBr+GeuXD6Dwbs1u0Nsrk0P/fbtdFou4W3JB0YGgSA=",
       "escrow": {
-        "active_balance": "9351179151829257",
-        "active_balance_24": "9350544042208522",
-        "active_shares": "7992048136161121",
-        "debonding_balance": "114206691934887",
-        "debonding_shares": "114206691934887",
-        "num_delegators": 249,
-        "self_delegation_balance": "3449257763418",
+        "active_balance": "9349785692740677",
+        "active_balance_24": "9351152688067150",
+        "active_shares": "7990337099749367",
+        "debonding_balance": "116208809892537",
+        "debonding_shares": "116208809892537",
+        "num_delegators": 248,
+        "self_delegation_balance": "3449482282595",
         "self_delegation_shares": "2947931339105"
       },
       "in_validator_set": true,
@@ -3749,8 +3749,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 584447043004196,
-      "voting_power_cumulative": 183327277267598023
+      "voting_power": 584359952057628,
+      "voting_power_cumulative": 183271534039018191
     },
     {
       "active": true,
@@ -3764,14 +3764,14 @@
       "entity_address": "oasis1qzzwkrjmyrzey46hyste5xszue3ggy90ag7k3687",
       "entity_id": "BdSzNycR8Y3MdHooxU0vtOEPr3ZG9KD5p8wxHtvueUU=",
       "escrow": {
-        "active_balance": "9179517406604040",
-        "active_balance_24": "9178893955836605",
-        "active_shares": "6596932023838624",
+        "active_balance": "9180114919992405",
+        "active_balance_24": "9179491428643297",
+        "active_shares": "6596996433130240",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 4,
-        "self_delegation_balance": "32926458127169",
-        "self_delegation_shares": "23662856817988"
+        "self_delegation_balance": "33017909260874",
+        "self_delegation_shares": "23727266109604"
       },
       "in_validator_set": true,
       "node_id": "yshDbuXFis8PQTRGsExAHa1N0bgY1z2N88dDOB7R99E=",
@@ -3796,8 +3796,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 573718214290206,
-      "voting_power_cumulative": 183900995481888229
+      "voting_power": 573755558771294,
+      "voting_power_cumulative": 183845289597789485
     },
     {
       "active": true,
@@ -3811,14 +3811,14 @@
       "entity_address": "oasis1qzv7a0gkxwpfelv985fvkl24k7jh3arfwy84zw7q",
       "entity_id": "GDWO0+R7qSrWB0bvT+V2Kz6vlHcm6ZnaNQM2/FsFqEA=",
       "escrow": {
-        "active_balance": "8467369235088052",
-        "active_balance_24": "8466794151713411",
-        "active_shares": "6120279520772493",
+        "active_balance": "8467920393308917",
+        "active_balance_24": "8467345272500931",
+        "active_shares": "6120347243700773",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 9,
-        "self_delegation_balance": "2219726892972076",
-        "self_delegation_shares": "1604435647906841"
+        "self_delegation_balance": "2219940515468551",
+        "self_delegation_shares": "1604503370835121"
       },
       "in_validator_set": true,
       "media": {
@@ -3851,8 +3851,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 529209079531308,
-      "voting_power_cumulative": 184430204561419537
+      "voting_power": 529243526822626,
+      "voting_power_cumulative": 184374533124612111
     },
     {
       "active": true,
@@ -3866,14 +3866,14 @@
       "entity_address": "oasis1qqf6wmc0ax3mykd028ltgtqr49h3qffcm50gwag3",
       "entity_id": "D8oCKJab4LtOMQJR0YQZXx+fMw6QHyTiv3YCfN8tM18=",
       "escrow": {
-        "active_balance": "8455887516929870",
-        "active_balance_24": "8455313213365943",
-        "active_shares": "6050919983826410",
+        "active_balance": "8456437927782432",
+        "active_balance_24": "8455863586835920",
+        "active_shares": "6050939676523187",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 76,
-        "self_delegation_balance": "732940246037720",
-        "self_delegation_shares": "524482234753108"
+        "self_delegation_balance": "733013090461141",
+        "self_delegation_shares": "524501927449885"
       },
       "in_validator_set": true,
       "media": {
@@ -3904,8 +3904,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 528491474177245,
-      "voting_power_cumulative": 184958696035596782
+      "voting_power": 528525874758176,
+      "voting_power_cumulative": 184903058999370287
     },
     {
       "active": true,
@@ -3919,14 +3919,14 @@
       "entity_address": "oasis1qresj0vhmwawll6fe2vw2nlapkp6nj6etcx7a32h",
       "entity_id": "1JttHp0rBBBHDOpPl8fAiLTcN9tUzxJGjk7llFcvhZQ=",
       "escrow": {
-        "active_balance": "8430862739930904",
-        "active_balance_24": "8430290135989703",
-        "active_shares": "6104724851992427",
+        "active_balance": "8431411521870022",
+        "active_balance_24": "8430838880656872",
+        "active_shares": "6104784455608442",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 4,
-        "self_delegation_balance": "30536300101482",
-        "self_delegation_shares": "22111107233961"
+        "self_delegation_balance": "30620309081806",
+        "self_delegation_shares": "22170710849976"
       },
       "in_validator_set": true,
       "node_id": "p7pJUBSdgF4PfgKrn8JJl4xhVZXMu9h1TfNlAU5VjBU=",
@@ -3935,24 +3935,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
+          1181,
           1200,
+          1198,
           1199,
-          1170,
-          1187,
-          1199,
-          1200,
-          1195,
-          1185,
+          1186,
           1199,
           1200,
-          1193,
-          1200
+          1189,
+          1199,
+          1199,
+          1200,
+          1186
         ],
         "window_length": 14400,
-        "window_uptime": 14327
+        "window_uptime": 14336
       },
-      "voting_power": 526927430041054,
-      "voting_power_cumulative": 185485623465637836
+      "voting_power": 526961728815183,
+      "voting_power_cumulative": 185430020728185470
     },
     {
       "active": true,
@@ -3966,14 +3966,14 @@
       "entity_address": "oasis1qpjk62axdvn2g97felfa9jpxxrptqzm4mgwh540r",
       "entity_id": "+uMsNOARzhq1lJfh7bcoa3/iiUeLSYPMkQHgYICUF2A=",
       "escrow": {
-        "active_balance": "8416975738421745",
-        "active_balance_24": "8412252101152542",
-        "active_shares": "7249242752254811",
+        "active_balance": "8420529857712759",
+        "active_balance_24": "8416951918447816",
+        "active_shares": "7251855353813898",
         "debonding_balance": "5223762357349",
         "debonding_shares": "5223762357349",
-        "num_delegators": 124,
-        "self_delegation_balance": "65833890742662",
-        "self_delegation_shares": "56700395741959"
+        "num_delegators": 125,
+        "self_delegation_balance": "65865361124219",
+        "self_delegation_shares": "56723992405544"
       },
       "in_validator_set": true,
       "media": {
@@ -3989,7 +3989,7 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1200,
+          1199,
           1200,
           1200,
           1200,
@@ -4003,10 +4003,10 @@
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14400
+        "window_uptime": 14399
       },
-      "voting_power": 526059494902988,
-      "voting_power_cumulative": 186011682960540824
+      "voting_power": 526281626730043,
+      "voting_power_cumulative": 185956302354915513
     },
     {
       "active": true,
@@ -4020,14 +4020,14 @@
       "entity_address": "oasis1qpsnzv8qz4fu3lwps2tc3eg5pnryzl4h7cqxruzf",
       "entity_id": "DIbPacWGEiealk+226eYEafYmKJpD98PYoWp/tcPXJI=",
       "escrow": {
-        "active_balance": "8351539676433426",
-        "active_balance_24": "8350972459924116",
-        "active_shares": "6076326642711887",
+        "active_balance": "8352083295073609",
+        "active_balance_24": "8351516041643029",
+        "active_shares": "6076405744645498",
         "debonding_balance": "10053154650905",
         "debonding_shares": "10053154650905",
         "num_delegators": 33,
-        "self_delegation_balance": "164347878525612",
-        "self_delegation_shares": "119574525374802"
+        "self_delegation_balance": "164465163097146",
+        "self_delegation_shares": "119653627308413"
       },
       "in_validator_set": true,
       "media": {
@@ -4044,24 +4044,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1200,
-          1200,
-          1199,
-          1199,
-          1200,
-          1200,
-          1200,
-          1196,
           1198,
           1200,
+          1199,
           1200,
+          1200,
+          1197,
+          1200,
+          1199,
+          1200,
+          1200,
+          1199,
           1200
         ],
         "window_length": 14400,
         "window_uptime": 14392
       },
-      "voting_power": 521969752602689,
-      "voting_power_cumulative": 186533652713143513
+      "voting_power": 522003728671548,
+      "voting_power_cumulative": 186478306083587061
     },
     {
       "active": true,
@@ -4075,14 +4075,14 @@
       "entity_address": "oasis1qqlq8jplttrmw982rrhp0svl8054xqevecks5yqr",
       "entity_id": "KmMS+RzjQ9vm9J2aX9YihJnmmSc/IBquCysbhPxVDFM=",
       "escrow": {
-        "active_balance": "7997861922132862",
-        "active_balance_24": "7997318726566874",
-        "active_shares": "5823758316928702",
+        "active_balance": "7998382519171363",
+        "active_balance_24": "7997839288247677",
+        "active_shares": "5823832235552618",
         "debonding_balance": "1563036158467",
         "debonding_shares": "1563036158467",
         "num_delegators": 37,
-        "self_delegation_balance": "238448130360620",
-        "self_delegation_shares": "173629439450667"
+        "self_delegation_balance": "238562143714168",
+        "self_delegation_shares": "173703358074583"
       },
       "in_validator_set": true,
       "media": {
@@ -4113,8 +4113,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 499864955515479,
-      "voting_power_cumulative": 187033517668658992
+      "voting_power": 499897492738305,
+      "voting_power_cumulative": 186978203576325366
     },
     {
       "active": true,
@@ -4128,14 +4128,14 @@
       "entity_address": "oasis1qpjuke27se2wnmvx6e8uc4l5h44yjp9h7g2clqfq",
       "entity_id": "3DRMMM7ye2HREvk8zz06OjMG6BuWjs84PLdSYChNHAw=",
       "escrow": {
-        "active_balance": "7218328754001996",
-        "active_balance_24": "7217838502455870",
-        "active_shares": "5257552483280355",
+        "active_balance": "7218798609647021",
+        "active_balance_24": "7218308326189433",
+        "active_shares": "5257620926369731",
         "debonding_balance": "174270045980776",
         "debonding_shares": "174270045980776",
         "num_delegators": 78,
-        "self_delegation_balance": "58366178367198",
-        "self_delegation_shares": "42511674997334"
+        "self_delegation_balance": "58463191155773",
+        "self_delegation_shares": "42580118086710"
       },
       "in_validator_set": true,
       "media": {
@@ -4168,8 +4168,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 451144270386839,
-      "voting_power_cumulative": 187484661939045831
+      "voting_power": 451173636281548,
+      "voting_power_cumulative": 187429377212606914
     },
     {
       "active": true,
@@ -4183,14 +4183,14 @@
       "entity_address": "oasis1qpqz2ut6a6prfcjm64xnpnjhsnqny6jqfyav829v",
       "entity_id": "bb1zWp0gzS1ij1OY3KzxC0BJNdqkAiJ26z3iD8slt7c=",
       "escrow": {
-        "active_balance": "7013597607062385",
-        "active_balance_24": "7013121260363872",
-        "active_shares": "5145168153663507",
+        "active_balance": "7014054136342214",
+        "active_balance_24": "7013577758637329",
+        "active_shares": "5145228435680501",
         "debonding_balance": "323471392315818",
         "debonding_shares": "323471392315818",
         "num_delegators": 717,
-        "self_delegation_balance": "7049882003127",
-        "self_delegation_shares": "5171786350139"
+        "self_delegation_balance": "7132435659732",
+        "self_delegation_shares": "5232068367133"
       },
       "in_validator_set": true,
       "media": {
@@ -4209,21 +4209,21 @@
           1200,
           1200,
           1200,
-          1199,
+          1200,
+          1200,
+          1198,
           1200,
           1200,
           1200,
           1200,
           1199,
-          1200,
-          1200,
-          1199
+          1200
         ],
         "window_length": 14400,
         "window_uptime": 14397
       },
-      "voting_power": 438348609914833,
-      "voting_power_cumulative": 187923010548960664
+      "voting_power": 438377142914073,
+      "voting_power_cumulative": 187867754355520987
     },
     {
       "active": true,
@@ -4237,14 +4237,14 @@
       "entity_address": "oasis1qrcmmvgf7qt8pmy543dmz0muwcm752kleund8rwr",
       "entity_id": "7nCBfl1vRS4kn7G2yJZeZdwE8OFA4avUphWdCRrFhJM=",
       "escrow": {
-        "active_balance": "6673912691489916",
-        "active_balance_24": "6673459415374738",
-        "active_shares": "4793268829039786",
+        "active_balance": "6674347109990287",
+        "active_balance_24": "6673893804370450",
+        "active_shares": "4793315628225930",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 9,
-        "self_delegation_balance": "25076566964392",
-        "self_delegation_shares": "18010233625474"
+        "self_delegation_balance": "25143118899063",
+        "self_delegation_shares": "18057032811618"
       },
       "in_validator_set": true,
       "node_id": "lTC9wxlqYTUvXSV2bJxj0w2JWGdlY6pZFIx68V/qYB4=",
@@ -4253,24 +4253,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1200,
-          1195,
-          1200,
-          1159,
-          1199,
-          1200,
-          1195,
+          1178,
           1200,
           1198,
           1200,
+          1184,
+          1199,
+          1200,
+          1181,
           1191,
-          1196
+          1199,
+          1200,
+          1181
         ],
         "window_length": 14400,
-        "window_uptime": 14333
+        "window_uptime": 14311
       },
-      "voting_power": 417118362773153,
-      "voting_power_cumulative": 188340128911733817
+      "voting_power": 417145513852588,
+      "voting_power_cumulative": 188284899869373575
     },
     {
       "active": true,
@@ -4284,14 +4284,14 @@
       "entity_address": "oasis1qzc687uuywnel4eqtdn6x3t9hkdvf6sf2gtv4ye9",
       "entity_id": "tvPlmGHv5aokL9MMBqNAkSOygldJIlRTmSIvCwuh0rU=",
       "escrow": {
-        "active_balance": "6370996994467371",
-        "active_balance_24": "6370564291658546",
-        "active_shares": "4637922716457461",
+        "active_balance": "6371411695571227",
+        "active_balance_24": "6370978964596902",
+        "active_shares": "4637980074319240",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "3187445431482024",
-        "self_delegation_shares": "2320378676520618"
+        "self_delegation_balance": "3187692282282816",
+        "self_delegation_shares": "2320436034382397"
       },
       "in_validator_set": true,
       "media": {
@@ -4324,8 +4324,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 398186185287306,
-      "voting_power_cumulative": 188738315097021123
+      "voting_power": 398212104032947,
+      "voting_power_cumulative": 188683111973406522
     },
     {
       "active": true,
@@ -4339,14 +4339,14 @@
       "entity_address": "oasis1qrw8xd7sewarn0qm3jc5km4e0j2l3qdhfqexqqry",
       "entity_id": "Hgacs48hpElimzXAoMmox5T7sAalPLp7vdVr1wAPevo=",
       "escrow": {
-        "active_balance": "6075445356882557",
-        "active_balance_24": "6075032727230860",
-        "active_shares": "5732119764918418",
-        "debonding_balance": "21618627307321",
-        "debonding_shares": "21618627307321",
+        "active_balance": "6075840819931448",
+        "active_balance_24": "6075428163420855",
+        "active_shares": "5732130958008386",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
         "num_delegators": 80,
-        "self_delegation_balance": "4033310511222",
-        "self_delegation_shares": "3805386690416"
+        "self_delegation_balance": "4045429420935",
+        "self_delegation_shares": "3816579780384"
       },
       "in_validator_set": true,
       "media": {
@@ -4374,13 +4374,13 @@
           1200,
           1200,
           1200,
-          1189
+          1200
         ],
         "window_length": 14400,
-        "window_uptime": 14389
+        "window_uptime": 14400
       },
-      "voting_power": 379714260213803,
-      "voting_power_cumulative": 189118029357234926
+      "voting_power": 379738976584411,
+      "voting_power_cumulative": 189062850949990933
     },
     {
       "active": true,
@@ -4394,13 +4394,13 @@
       "entity_address": "oasis1qp9q8g56dwuak0nwsmnykyzsfahj6z49xczp6d8c",
       "entity_id": "drOpGoCNcPxc+MpfbJU7KoBqQZa0eTQUdjTDpe3qvrY=",
       "escrow": {
-        "active_balance": "5543116562202648",
-        "active_balance_24": "5542740087043709",
-        "active_shares": "5010528325346977",
-        "debonding_balance": "59710069660716",
-        "debonding_shares": "59710069660716",
-        "num_delegators": 307,
-        "self_delegation_balance": "10700599392810",
+        "active_balance": "5541475228603863",
+        "active_balance_24": "5543100875227172",
+        "active_shares": "5008718665090791",
+        "debonding_balance": "61712187618366",
+        "debonding_shares": "61712187618366",
+        "num_delegators": 306,
+        "self_delegation_balance": "10701295916507",
         "self_delegation_shares": "9672474997452"
       },
       "in_validator_set": true,
@@ -4434,8 +4434,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 346443804701698,
-      "voting_power_cumulative": 189464473161936624
+      "voting_power": 346341221642084,
+      "voting_power_cumulative": 189409192171633017
     },
     {
       "active": true,
@@ -4449,14 +4449,14 @@
       "entity_address": "oasis1qp0j5v5mkxk3eg4kxfdsk8tj6p22g4685qk76fw6",
       "entity_id": "7DwKCCQV9THNLyTELQTBCWNPIHZJdAq7qGk1D7vx2zo=",
       "escrow": {
-        "active_balance": "5521608825742084",
-        "active_balance_24": "5521233811336929",
-        "active_shares": "4325919520979969",
+        "active_balance": "5521968238448932",
+        "active_balance_24": "5521593199633330",
+        "active_shares": "4325975836023394",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 26,
-        "self_delegation_balance": "6806195410522",
-        "self_delegation_shares": "5332332390646"
+        "self_delegation_balance": "6878434163075",
+        "self_delegation_shares": "5388647434071"
       },
       "in_validator_set": true,
       "media": {
@@ -4473,24 +4473,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1199,
-          1200,
-          1196,
-          1200,
-          1199,
-          1200,
-          1196,
           1200,
           1200,
-          1198,
           1200,
-          1197
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200,
+          1200
         ],
         "window_length": 14400,
-        "window_uptime": 14385
+        "window_uptime": 14400
       },
-      "voting_power": 345099574977083,
-      "voting_power_cumulative": 189809572736913707
+      "voting_power": 345122038207690,
+      "voting_power_cumulative": 189754314209840707
     },
     {
       "active": true,
@@ -4504,14 +4504,14 @@
       "entity_address": "oasis1qq49hl4c08rtnclqhzzql4v8ymkueq2c0595t9pl",
       "entity_id": "ec2xIwO8mRx8EFoee05rLE3WNSSajX7X5dm8UzN33ro=",
       "escrow": {
-        "active_balance": "5147077802405984",
-        "active_balance_24": "5146728225248083",
-        "active_shares": "4909736334511031",
+        "active_balance": "5147412836129613",
+        "active_balance_24": "5147063236217026",
+        "active_shares": "4909749117481716",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 24,
-        "self_delegation_balance": "741528376794",
-        "self_delegation_shares": "707335104380"
+        "self_delegation_balance": "754976463038",
+        "self_delegation_shares": "720118075065"
       },
       "in_validator_set": true,
       "media": {
@@ -4541,8 +4541,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 321691452263564,
-      "voting_power_cumulative": 190131264189177271
+      "voting_power": 321712391812032,
+      "voting_power_cumulative": 190076026601652739
     },
     {
       "active": true,
@@ -4556,14 +4556,14 @@
       "entity_address": "oasis1qq3fq8hxrlq6pedw0q3f57daea43a6v7q5rwf0ll",
       "entity_id": "Y+ve+O0hlBco/1YzuFODIn7Jo3D5c9BOqduhc7KZM8E=",
       "escrow": {
-        "active_balance": "5129290458666024",
-        "active_balance_24": "5128942089581774",
-        "active_shares": "3794601859873164",
+        "active_balance": "5129624334575407",
+        "active_balance_24": "5129275942815106",
+        "active_shares": "3794650023229623",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 16,
-        "self_delegation_balance": "23475297717733",
-        "self_delegation_shares": "17366809132496"
+        "self_delegation_balance": "23541635228135",
+        "self_delegation_shares": "17414972488955"
       },
       "in_validator_set": true,
       "media": {
@@ -4594,8 +4594,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 320579746425944,
-      "voting_power_cumulative": 190451843935603215
+      "voting_power": 320600613611226,
+      "voting_power_cumulative": 190396627215263965
     },
     {
       "active": true,
@@ -4609,14 +4609,14 @@
       "entity_address": "oasis1qzp8e4ldf9zq27jle847nawll5jwwa9x75y6spaz",
       "entity_id": "7n6AYdYIuGar561yxifDtrR9NVekDavFlpeHVZinCSc=",
       "escrow": {
-        "active_balance": "4542310466919428",
-        "active_balance_24": "4542001964105934",
-        "active_shares": "3199337892611026",
+        "active_balance": "4542606135111757",
+        "active_balance_24": "4542297612217186",
+        "active_shares": "3199358717113134",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 51,
-        "self_delegation_balance": "1370573977065955",
-        "self_delegation_shares": "965352168546846"
+        "self_delegation_balance": "1370683836557208",
+        "self_delegation_shares": "965372993048954"
       },
       "in_validator_set": true,
       "media": {
@@ -4649,8 +4649,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 283893600763574,
-      "voting_power_cumulative": 190735737536366789
+      "voting_power": 283912079973298,
+      "voting_power_cumulative": 190680539295237263
     },
     {
       "active": true,
@@ -4664,14 +4664,14 @@
       "entity_address": "oasis1qzg6dct605z9vm5d265uzskqj6szhkx3zugae2a3",
       "entity_id": "1kZdUPgo42/mQB8rIsCQBPeqkJr1VEBX+4lZfUo6bAA=",
       "escrow": {
-        "active_balance": "3821736940990496",
-        "active_balance_24": "3821477377799623",
-        "active_shares": "3657299488962238",
+        "active_balance": "3821985705591927",
+        "active_balance_24": "3821726125505561",
+        "active_shares": "3657299727015174",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 28,
-        "self_delegation_balance": "88825596165",
-        "self_delegation_shares": "85003707078"
+        "self_delegation_balance": "89080144536",
+        "self_delegation_shares": "85241760014"
       },
       "in_validator_set": true,
       "node_id": "UZ3Fz1nYHt41zR1eyL1g0kocea3WMUsbfoAkOvBcZko=",
@@ -4696,8 +4696,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 238857882844097,
-      "voting_power_cumulative": 190974595419210886
+      "voting_power": 238873430587686,
+      "voting_power_cumulative": 190919412725824949
     },
     {
       "active": true,
@@ -4711,14 +4711,14 @@
       "entity_address": "oasis1qr33agzz8r4xxfw9nhrdqcp9ejcv0f72ks05qt39",
       "entity_id": "NPpx1ozb2JfWypxnksSzRHi+fLA2w2YpWmtZvEptMNk=",
       "escrow": {
-        "active_balance": "2762230340058927",
-        "active_balance_24": "2762042736010807",
-        "active_shares": "2439032840200061",
+        "active_balance": "2762410139228835",
+        "active_balance_24": "2762222522969187",
+        "active_shares": "2439048715873784",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 10,
-        "self_delegation_balance": "84726312183106",
-        "self_delegation_shares": "74812826014803"
+        "self_delegation_balance": "84749256094978",
+        "self_delegation_shares": "74828701688526"
       },
       "in_validator_set": true,
       "node_id": "AiYyIwAJcdc9yGoBHnP4ycPtd/N2DOR0kqVrQWlS46Y=",
@@ -4735,16 +4735,16 @@
           1200,
           1200,
           1200,
-          1200,
+          1199,
           1200,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14400
+        "window_uptime": 14399
       },
-      "voting_power": 172638907685574,
-      "voting_power_cumulative": 191147234326896460
+      "voting_power": 172650145101891,
+      "voting_power_cumulative": 191092062870926840
     },
     {
       "active": true,
@@ -4758,14 +4758,14 @@
       "entity_address": "oasis1qp3rhyfjagkj65cnn6lt8ej305gh3kamsvzspluq",
       "entity_id": "IYoCG9YW+623ri5Mgzr0rcrnJTGaLhTeq/JdOzMx2Mw=",
       "escrow": {
-        "active_balance": "1935524138225813",
-        "active_balance_24": "1935392682076668",
-        "active_shares": "1359460838623319",
+        "active_balance": "1935650125413899",
+        "active_balance_24": "1935518660708004",
+        "active_shares": "1359468802482641",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 51,
-        "self_delegation_balance": "1361759991522672",
-        "self_delegation_shares": "956464114044086"
+        "self_delegation_balance": "1361851992607432",
+        "self_delegation_shares": "956472077903408"
       },
       "in_validator_set": true,
       "media": {
@@ -4797,8 +4797,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 120969916294250,
-      "voting_power_cumulative": 191268204243190710
+      "voting_power": 120977790471221,
+      "voting_power_cumulative": 191213040661398061
     },
     {
       "active": true,
@@ -4812,14 +4812,14 @@
       "entity_address": "oasis1qztpm422n7v98f4s7ja0wt5jey7fy3xpg5ye2vtl",
       "entity_id": "RDCyARTIdpiG75L9vVXAYIhRCToSrchZkv3JUW3Pji8=",
       "escrow": {
-        "active_balance": "1210473530242180",
-        "active_balance_24": "1210391317788312",
-        "active_shares": "853545541470405",
-        "debonding_balance": "2000004528000000",
-        "debonding_shares": "2000004528000000",
+        "active_balance": "1210552322417024",
+        "active_balance_24": "1210470104611784",
+        "active_shares": "853556652970268",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
         "num_delegators": 92,
-        "self_delegation_balance": "669735985348617",
-        "self_delegation_shares": "472253337206168"
+        "self_delegation_balance": "669786619536777",
+        "self_delegation_shares": "472264448706031"
       },
       "in_validator_set": true,
       "media": {
@@ -4834,24 +4834,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1199,
+          1200,
           1192,
           1200,
+          1195,
+          1195,
           1200,
+          1198,
           1200,
-          1196,
+          1192,
           1200,
-          1196,
-          1200,
-          1200,
-          1197,
-          1200
+          1195,
+          1199
         ],
         "window_length": 14400,
-        "window_uptime": 14380
+        "window_uptime": 14366
       },
-      "voting_power": 75654381538236,
-      "voting_power_cumulative": 191343858624728946
+      "voting_power": 75659306035227,
+      "voting_power_cumulative": 191288699967433288
     },
     {
       "active": true,
@@ -4865,14 +4865,14 @@
       "entity_address": "oasis1qq4jqh66ga62pe9td5zsnfge3c9rfp6zucjr03q8",
       "entity_id": "MfN+qM5pwFRl6i/UVDSBll2UB0D6b2vKy7He1g5CEok=",
       "escrow": {
-        "active_balance": "771896609265108",
-        "active_balance_24": "771844183901984",
-        "active_shares": "698118422915147",
+        "active_balance": "771946853579483",
+        "active_balance_24": "771894424803886",
+        "active_shares": "698122966970512",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 122,
-        "self_delegation_balance": "6478575369510",
-        "self_delegation_shares": "5859350546967"
+        "self_delegation_balance": "6483979473752",
+        "self_delegation_shares": "5863894602332"
       },
       "in_validator_set": true,
       "media": {
@@ -4888,24 +4888,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1197,
-          1192,
+          1186,
+          1195,
+          1189,
           1193,
           1187,
-          1184,
-          1197,
-          1191,
+          1186,
           1195,
-          1172,
-          1194,
-          1140,
-          1191
+          1189,
+          1195,
+          1190,
+          1192,
+          1194
         ],
         "window_length": 14400,
-        "window_uptime": 14233
+        "window_uptime": 14291
       },
-      "voting_power": 48243401550242,
-      "voting_power_cumulative": 191392102026279188
+      "voting_power": 48246541811004,
+      "voting_power_cumulative": 191336946509244292
     },
     {
       "active": true,
@@ -4919,14 +4919,14 @@
       "entity_address": "oasis1qrtz5ywlwjx9gca7qqxdr5f5s7sh7dkhks44cpvx",
       "entity_id": "9NtPTr6f0Sc0+y/z3as4OzytmNHgrD8SV541PBKb2XA=",
       "escrow": {
-        "active_balance": "686899430471570",
-        "active_balance_24": "686852777912616",
-        "active_shares": "631710169475568",
+        "active_balance": "686944142147346",
+        "active_balance_24": "686897486551684",
+        "active_shares": "631714281279366",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 42,
-        "self_delegation_balance": "425942489885805",
-        "self_delegation_shares": "391719938227178"
+        "self_delegation_balance": "425971914014733",
+        "self_delegation_shares": "391724050030976"
       },
       "in_validator_set": true,
       "media": {
@@ -4957,8 +4957,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 42931092909480,
-      "voting_power_cumulative": 191435033119188668
+      "voting_power": 42933887381307,
+      "voting_power_cumulative": 191379880396625599
     },
     {
       "active": true,
@@ -4972,13 +4972,13 @@
       "entity_address": "oasis1qzu6fvune28lsa8tllsc3t3nk2s0gcpllv8am6tk",
       "entity_id": "9h2pHzNn2PBUpQhZxUzcLBbAbxh82CySXENxC3AQuU8=",
       "escrow": {
-        "active_balance": "644734555185962",
-        "active_balance_24": "644690766364034",
+        "active_balance": "644776522264569",
+        "active_balance_24": "644732730592335",
         "active_shares": "625098198042682",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 48,
-        "self_delegation_balance": "207314060412",
+        "self_delegation_balance": "207327554904",
         "self_delegation_shares": "201000000000"
       },
       "in_validator_set": true,
@@ -5012,8 +5012,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 40295795662020,
-      "voting_power_cumulative": 191475328914850688
+      "voting_power": 40298418597010,
+      "voting_power_cumulative": 191420178815222609
     },
     {
       "active": true,
@@ -5027,14 +5027,14 @@
       "entity_address": "oasis1qq2stnud2we0gfkvrf2stgg96qxhsh3fyc9mxt82",
       "entity_id": "7hvHIq4ykrbyJPaEiEGetCisIXHVGTdpMYv5JhSwGFY=",
       "escrow": {
-        "active_balance": "603820072731794",
-        "active_balance_24": "603779062723209",
-        "active_shares": "555304672732529",
+        "active_balance": "603859376603830",
+        "active_balance_24": "603818363925825",
+        "active_shares": "555308287212667",
         "debonding_balance": "3444982409627",
         "debonding_shares": "3444982409627",
         "num_delegators": 40,
-        "self_delegation_balance": "382816018169884",
-        "self_delegation_shares": "352057729258400"
+        "self_delegation_balance": "382842375040663",
+        "self_delegation_shares": "352061343738538"
       },
       "in_validator_set": true,
       "media": {
@@ -5064,8 +5064,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 37738647745364,
-      "voting_power_cumulative": 191513067562596052
+      "voting_power": 37741104230414,
+      "voting_power_cumulative": 191457919919453023
     },
     {
       "active": true,
@@ -5079,14 +5079,14 @@
       "entity_address": "oasis1qqqn56k79st0zy4060m0wvmec76vd3pl6czmg90a",
       "entity_id": "BkBqXMdd10xDKn7b/iIXycHLBaroci6xoFxoEN1kQ+A=",
       "escrow": {
-        "active_balance": "396811386308764",
-        "active_balance_24": "396784435832800",
-        "active_shares": "339001222989326",
+        "active_balance": "396837215565943",
+        "active_balance_24": "396810263335719",
+        "active_shares": "339005614058882",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 31,
-        "self_delegation_balance": "3119665182340",
-        "self_delegation_shares": "2665171284444"
+        "self_delegation_balance": "3124967986982",
+        "self_delegation_shares": "2669562354000"
       },
       "in_validator_set": true,
       "media": {
@@ -5101,24 +5101,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1200,
-          1198,
-          1198,
+          1196,
           1197,
+          1199,
           1198,
-          1200,
           1196,
           1198,
-          1195,
-          1200,
           1197,
-          1199
+          1197,
+          1197,
+          1198,
+          1199,
+          1197
         ],
         "window_length": 14400,
-        "window_uptime": 14376
+        "window_uptime": 14369
       },
-      "voting_power": 24800641458482,
-      "voting_power_cumulative": 191537868204054534
+      "voting_power": 24802255782487,
+      "voting_power_cumulative": 191482722175235510
     },
     {
       "active": true,
@@ -5132,14 +5132,14 @@
       "entity_address": "oasis1qrc8s2trrm9zgha8wq636yetx7sxjf7x35pf3vrc",
       "entity_id": "dUF4nN35B7VmJllLtIID0HwyjVCXzGmAk+og9hpAARY=",
       "escrow": {
-        "active_balance": "164132444068586",
-        "active_balance_24": "164121296587343",
-        "active_shares": "150516379198890",
-        "debonding_balance": "544806396020",
-        "debonding_shares": "544806396020",
+        "active_balance": "164143127781939",
+        "active_balance_24": "164131979575084",
+        "active_shares": "150517848768862",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
         "num_delegators": 40,
-        "self_delegation_balance": "248252526326",
-        "self_delegation_shares": "227658045316"
+        "self_delegation_balance": "249868861017",
+        "self_delegation_shares": "229127615288"
       },
       "in_validator_set": true,
       "media": {
@@ -5151,24 +5151,24 @@
       "uptime": {
         "segment_length": 1200,
         "segment_uptimes": [
-          1196,
-          1158,
-          1175,
-          1200,
-          1170,
-          1200,
-          1123,
-          1185,
           1200,
           1200,
           1200,
-          1200
+          1200,
+          1200,
+          1199,
+          1190,
+          1190,
+          1163,
+          1200,
+          1200,
+          1199
         ],
         "window_length": 14400,
-        "window_uptime": 14207
+        "window_uptime": 14341
       },
-      "voting_power": 10258248723442,
-      "voting_power_cumulative": 191548126452777976
+      "voting_power": 10258916453637,
+      "voting_power_cumulative": 191492981091689147
     },
     {
       "active": true,
@@ -5182,14 +5182,14 @@
       "entity_address": "oasis1qq3df975et3rwst0qfc5dq4lmygp8hxjzq9z3hlt",
       "entity_id": "UjRo9HS8ho/tkzQZyJ7AD//CqOuH0YvXILKTpmfD3dg=",
       "escrow": {
-        "active_balance": "160718145240488",
-        "active_balance_24": "156707410765863",
-        "active_shares": "151864810738045",
+        "active_balance": "160728606710212",
+        "active_balance_24": "160717690409425",
+        "active_shares": "151865206132660",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 36,
-        "self_delegation_balance": "358276415770",
-        "self_delegation_shares": "338540368242"
+        "self_delegation_balance": "358717275112",
+        "self_delegation_shares": "338935762857"
       },
       "in_validator_set": true,
       "media": {
@@ -5222,8 +5222,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 10044855650589,
-      "voting_power_cumulative": 191558171308428565
+      "voting_power": 10045509490596,
+      "voting_power_cumulative": 191503026601179743
     },
     {
       "active": true,
@@ -5237,14 +5237,14 @@
       "entity_address": "oasis1qp7x33cuvy8ydr0xwvqrdxn26wa04yj5lcl6r3v7",
       "entity_id": "Qeign1c5EYmWrFOU2iydJ3zQUP5yQoNbdxckqLpVYfI=",
       "escrow": {
-        "active_balance": "35056874113399",
-        "active_balance_24": "35054493134749",
-        "active_shares": "34404956466294",
+        "active_balance": "35059156036359",
+        "active_balance_24": "35056774902727",
+        "active_shares": "34404990057471",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 13,
-        "self_delegation_balance": "512596644316",
-        "self_delegation_shares": "503064396883"
+        "self_delegation_balance": "512663739635",
+        "self_delegation_shares": "503097988060"
       },
       "in_validator_set": true,
       "media": {
@@ -5277,8 +5277,8 @@
         "window_length": 14400,
         "window_uptime": 14400
       },
-      "voting_power": 2191048431420,
-      "voting_power_cumulative": 191560362356859985
+      "voting_power": 2191191051201,
+      "voting_power_cumulative": 191505217792230944
     },
     {
       "active": true,
@@ -5292,13 +5292,13 @@
       "entity_address": "oasis1qqvnnc0fhy6umzhqpxx0txffv28hsdgpcc3qlvza",
       "entity_id": "u/dmi2ur7VdkzGfKsCJIi3aEyiSjOm+yVM5rmnbUM58=",
       "escrow": {
-        "active_balance": "200671266446",
-        "active_balance_24": "200657637347",
+        "active_balance": "200684328534",
+        "active_balance_24": "200670698548",
         "active_shares": "200000000000",
         "debonding_balance": "0",
         "debonding_shares": "0",
         "num_delegators": 1,
-        "self_delegation_balance": "200671266446",
+        "self_delegation_balance": "200684328534",
         "self_delegation_shares": "200000000000"
       },
       "in_validator_set": true,
@@ -5311,21 +5311,21 @@
           1200,
           1200,
           1200,
-          1195,
+          1200,
+          1200,
+          1197,
           1200,
           1200,
           1200,
-          1200,
-          1199,
-          1200,
+          1198,
           1200,
           1200
         ],
         "window_length": 14400,
-        "window_uptime": 14394
+        "window_uptime": 14395
       },
-      "voting_power": 12541918659,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power": 12542735037,
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5339,12 +5339,12 @@
       "entity_address": "oasis1qpn83e8hm3gdhvpfv66xj3qsetkj3ulmkugmmxn3",
       "entity_id": "9D+kziTxFhg77+cyt+Fwd6eXREkZ1wHw7WX7VG57MeA=",
       "escrow": {
-        "active_balance": "84754091251641766",
-        "active_balance_24": "84754571002118218",
-        "active_shares": "58745618630358212",
-        "debonding_balance": "83347026961231",
-        "debonding_shares": "83347026961231",
-        "num_delegators": 1789,
+        "active_balance": "84716841875683029",
+        "active_balance_24": "84754091251641766",
+        "active_shares": "58719799963648734",
+        "debonding_balance": "120596402919968",
+        "debonding_shares": "120596402919968",
+        "num_delegators": 1788,
         "self_delegation_balance": "0",
         "self_delegation_shares": "0"
       },
@@ -5355,7 +5355,7 @@
       "rank": 101,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5390,7 +5390,7 @@
       "rank": 102,
       "start_date": "2022-04-11T19:47:03Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5404,12 +5404,12 @@
       "entity_address": "oasis1qqr8y5cez0aczdlnfp9fre82whjsdgqgd5xxtv6p",
       "entity_id": "XSQLBoubhOq/X86vKIj4Xzouo1Fhe39+kLF/2PDgKpM=",
       "escrow": {
-        "active_balance": "20839419993150083",
+        "active_balance": "20838413501011437",
         "active_balance_24": "20839419993150083",
-        "active_shares": "17172668493990738",
-        "debonding_balance": "425944602534338",
-        "debonding_shares": "425944602534338",
-        "num_delegators": 9,
+        "active_shares": "17171839096826879",
+        "debonding_balance": "426951094672984",
+        "debonding_shares": "426951094672984",
+        "num_delegators": 8,
         "self_delegation_balance": "102224423840334",
         "self_delegation_shares": "84237763967341"
       },
@@ -5422,7 +5422,7 @@
       "rank": 103,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5456,7 +5456,7 @@
       "rank": 104,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5491,7 +5491,7 @@
       "rank": 105,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5526,7 +5526,7 @@
       "rank": 106,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5561,7 +5561,7 @@
       "rank": 107,
       "start_date": "2021-12-11T06:24:39Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5578,8 +5578,8 @@
         "active_balance": "6486894827264269",
         "active_balance_24": "6486894827264269",
         "active_shares": "4633600577462629",
-        "debonding_balance": "1074641257736",
-        "debonding_shares": "1074641257736",
+        "debonding_balance": "0",
+        "debonding_shares": "0",
         "num_delegators": 407,
         "self_delegation_balance": "8226203675",
         "self_delegation_shares": "5875991998"
@@ -5591,7 +5591,7 @@
       "rank": 108,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5626,7 +5626,7 @@
       "rank": 109,
       "start_date": "2022-04-27T09:17:55Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5660,7 +5660,7 @@
       "rank": 110,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5690,7 +5690,7 @@
       "rank": 111,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5721,7 +5721,7 @@
       "rank": 112,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5756,7 +5756,7 @@
       "rank": 113,
       "start_date": "2023-01-28T13:53:56Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5790,7 +5790,7 @@
       "rank": 114,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5825,7 +5825,7 @@
       "rank": 115,
       "start_date": "2021-11-24T06:05:57Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5860,7 +5860,7 @@
       "rank": 116,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5886,7 +5886,7 @@
       "rank": 117,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5912,7 +5912,7 @@
       "rank": 118,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5938,7 +5938,7 @@
       "rank": 119,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -5967,7 +5967,7 @@
       "rank": 120,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6002,7 +6002,7 @@
       "rank": 121,
       "start_date": "2023-01-13T17:23:42Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6035,7 +6035,7 @@
       "rank": 122,
       "start_date": "2022-06-27T04:34:59Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6065,7 +6065,7 @@
       "rank": 123,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6100,7 +6100,7 @@
       "rank": 124,
       "start_date": "2022-09-10T15:48:04Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6133,7 +6133,7 @@
       "rank": 125,
       "start_date": "2025-03-17T09:22:42Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6159,7 +6159,7 @@
       "rank": 126,
       "start_date": "2021-10-21T13:51:48Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6173,20 +6173,20 @@
       "entity_address": "oasis1qq58f3mqxt6htvtxcayt4zfshysj36zksvwkmjg9",
       "entity_id": "o8leC3xb2Wsrt3FwX33R9S9vKQJR8zPBSB62YyNRAQc=",
       "escrow": {
-        "active_balance": "180807395433428",
+        "active_balance": "170377778934737",
         "active_balance_24": "180807395433428",
-        "active_shares": "148129220302670",
-        "debonding_balance": "0",
-        "debonding_shares": "0",
-        "num_delegators": 16,
-        "self_delegation_balance": "10429616498691",
-        "self_delegation_shares": "8544622615151"
+        "active_shares": "139584597687519",
+        "debonding_balance": "10429616498691",
+        "debonding_shares": "10429616498691",
+        "num_delegators": 15,
+        "self_delegation_balance": "0",
+        "self_delegation_shares": "0"
       },
       "in_validator_set": false,
       "rank": 127,
       "start_date": "2021-10-01T10:14:05Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6212,7 +6212,7 @@
       "rank": 128,
       "start_date": "2022-02-14T15:11:15Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6247,7 +6247,7 @@
       "rank": 129,
       "start_date": "2023-12-02T08:49:27Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6279,7 +6279,7 @@
       "rank": 130,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6305,7 +6305,7 @@
       "rank": 131,
       "start_date": "2021-09-10T00:25:43Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6332,7 +6332,7 @@
       "rank": 132,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6366,7 +6366,7 @@
       "rank": 133,
       "start_date": "2021-05-23T04:57:30Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6397,7 +6397,7 @@
       "rank": 134,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6424,7 +6424,7 @@
       "rank": 135,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6451,7 +6451,7 @@
       "rank": 136,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6482,7 +6482,7 @@
       "rank": 137,
       "start_date": "2021-07-15T16:17:27Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6514,7 +6514,7 @@
       "rank": 138,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6547,7 +6547,7 @@
       "rank": 139,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6573,7 +6573,7 @@
       "rank": 140,
       "start_date": "2025-03-03T19:08:08Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6599,7 +6599,7 @@
       "rank": 141,
       "start_date": "2025-03-05T13:24:59Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6631,7 +6631,7 @@
       "rank": 142,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6658,7 +6658,7 @@
       "rank": 143,
       "start_date": "2025-05-20T12:37:20Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6684,7 +6684,7 @@
       "rank": 144,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6716,7 +6716,7 @@
       "rank": 145,
       "start_date": "2024-01-06T21:51:18Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6750,7 +6750,7 @@
       "rank": 146,
       "start_date": "2024-08-27T14:28:55Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6784,7 +6784,7 @@
       "rank": 147,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6819,7 +6819,7 @@
       "rank": 148,
       "start_date": "2021-10-24T16:44:48Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6852,7 +6852,7 @@
       "rank": 149,
       "start_date": "2021-08-28T08:49:53Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6879,7 +6879,7 @@
       "rank": 150,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6911,7 +6911,7 @@
       "rank": 151,
       "start_date": "2021-10-03T22:48:28Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6937,7 +6937,7 @@
       "rank": 152,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6970,7 +6970,7 @@
       "rank": 153,
       "start_date": "2022-04-08T18:21:32Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -6997,7 +6997,7 @@
       "rank": 154,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7031,7 +7031,7 @@
       "rank": 155,
       "start_date": "2021-10-17T12:52:36Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7063,7 +7063,7 @@
       "rank": 156,
       "start_date": "2021-08-23T14:55:18Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7098,7 +7098,7 @@
       "rank": 157,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7124,7 +7124,7 @@
       "rank": 158,
       "start_date": "2022-04-13T09:09:11Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7156,7 +7156,7 @@
       "rank": 159,
       "start_date": "2022-05-31T15:10:13Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7189,7 +7189,7 @@
       "rank": 160,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7223,7 +7223,7 @@
       "rank": 161,
       "start_date": "2022-04-17T09:03:15Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7249,7 +7249,7 @@
       "rank": 162,
       "start_date": "2022-12-13T16:40:18Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7275,7 +7275,7 @@
       "rank": 163,
       "start_date": "2022-12-16T16:42:45Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7301,7 +7301,7 @@
       "rank": 164,
       "start_date": "2022-12-13T16:42:33Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7327,7 +7327,7 @@
       "rank": 165,
       "start_date": "2022-12-16T16:42:39Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7353,7 +7353,7 @@
       "rank": 166,
       "start_date": "2022-12-13T16:42:45Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7379,7 +7379,7 @@
       "rank": 167,
       "start_date": "2022-12-16T16:42:28Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7405,7 +7405,7 @@
       "rank": 168,
       "start_date": "2022-12-13T16:42:39Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7431,7 +7431,7 @@
       "rank": 169,
       "start_date": "2022-12-13T16:21:07Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7457,7 +7457,7 @@
       "rank": 170,
       "start_date": "2022-12-16T16:42:33Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7486,7 +7486,7 @@
       "rank": 171,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7512,7 +7512,7 @@
       "rank": 172,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7544,7 +7544,7 @@
       "rank": 173,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7570,7 +7570,7 @@
       "rank": 174,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7599,7 +7599,7 @@
       "rank": 175,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7625,7 +7625,7 @@
       "rank": 176,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7651,7 +7651,7 @@
       "rank": 177,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7677,7 +7677,7 @@
       "rank": 178,
       "start_date": "2024-06-29T10:40:47Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7711,7 +7711,7 @@
       "rank": 179,
       "start_date": "2023-01-24T14:17:51Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7743,7 +7743,7 @@
       "rank": 180,
       "start_date": "2024-01-07T01:31:37Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7769,7 +7769,7 @@
       "rank": 181,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7795,7 +7795,7 @@
       "rank": 182,
       "start_date": "2022-02-01T11:54:40Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7829,7 +7829,7 @@
       "rank": 183,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7855,7 +7855,7 @@
       "rank": 184,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7881,7 +7881,7 @@
       "rank": 185,
       "start_date": "2025-03-14T11:52:33Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7913,7 +7913,7 @@
       "rank": 186,
       "start_date": "2022-03-07T13:51:44Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7940,7 +7940,7 @@
       "rank": 187,
       "start_date": "2025-06-16T23:50:07Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7966,7 +7966,7 @@
       "rank": 188,
       "start_date": "2021-11-06T15:03:17Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -7992,7 +7992,7 @@
       "rank": 189,
       "start_date": "2022-03-18T03:09:52Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8023,7 +8023,7 @@
       "rank": 190,
       "start_date": "2022-05-06T17:44:16Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8049,7 +8049,7 @@
       "rank": 191,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8075,7 +8075,7 @@
       "rank": 192,
       "start_date": "2024-11-14T18:05:04Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8104,7 +8104,7 @@
       "rank": 193,
       "start_date": "2022-04-14T17:49:52Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8130,7 +8130,7 @@
       "rank": 194,
       "start_date": "2021-10-28T21:46:07Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8156,7 +8156,7 @@
       "rank": 195,
       "start_date": "2023-03-13T14:47:01Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8182,7 +8182,7 @@
       "rank": 196,
       "start_date": "2022-12-14T08:40:24Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8208,7 +8208,7 @@
       "rank": 197,
       "start_date": "2021-10-31T17:29:43Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8234,7 +8234,7 @@
       "rank": 198,
       "start_date": "2021-10-24T11:21:02Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8268,7 +8268,7 @@
       "rank": 199,
       "start_date": "2022-01-10T09:41:01Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8294,7 +8294,7 @@
       "rank": 200,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8326,7 +8326,7 @@
       "rank": 201,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8353,7 +8353,7 @@
       "rank": 202,
       "start_date": "2025-05-22T13:38:20Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8379,7 +8379,7 @@
       "rank": 203,
       "start_date": "2021-05-05T01:27:24Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8405,7 +8405,7 @@
       "rank": 204,
       "start_date": "2021-05-04T13:36:46Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8439,7 +8439,7 @@
       "rank": 205,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8465,7 +8465,7 @@
       "rank": 206,
       "start_date": "2022-03-04T21:34:38Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8491,7 +8491,7 @@
       "rank": 207,
       "start_date": "2021-05-02T16:08:34Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8522,7 +8522,7 @@
       "rank": 208,
       "start_date": "2021-08-04T01:31:57Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8548,7 +8548,7 @@
       "rank": 209,
       "start_date": "2022-02-02T12:00:41Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8574,7 +8574,7 @@
       "rank": 210,
       "start_date": "2022-03-31T05:49:08Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8600,7 +8600,7 @@
       "rank": 211,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8626,7 +8626,7 @@
       "rank": 212,
       "start_date": "2025-03-07T19:54:31Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8660,7 +8660,7 @@
       "rank": 213,
       "start_date": "2022-01-16T12:53:33Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8686,7 +8686,7 @@
       "rank": 214,
       "start_date": "2021-10-15T20:20:07Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8712,7 +8712,7 @@
       "rank": 215,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8738,7 +8738,7 @@
       "rank": 216,
       "start_date": "2023-02-25T15:05:21Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8764,7 +8764,7 @@
       "rank": 217,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8790,7 +8790,7 @@
       "rank": 218,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8822,7 +8822,7 @@
       "rank": 219,
       "start_date": "2022-01-27T18:04:02Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8854,7 +8854,7 @@
       "rank": 220,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8886,7 +8886,7 @@
       "rank": 222,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8920,7 +8920,7 @@
       "rank": 223,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8952,7 +8952,7 @@
       "rank": 224,
       "start_date": "2024-01-07T00:32:30Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -8981,7 +8981,7 @@
       "rank": 226,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9013,7 +9013,7 @@
       "rank": 227,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9045,7 +9045,7 @@
       "rank": 228,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9071,7 +9071,7 @@
       "rank": 229,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9097,7 +9097,7 @@
       "rank": 230,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9123,7 +9123,7 @@
       "rank": 231,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9157,7 +9157,7 @@
       "rank": 233,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9189,7 +9189,7 @@
       "rank": 234,
       "start_date": "2021-09-09T14:33:59Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9215,7 +9215,7 @@
       "rank": 236,
       "start_date": "2022-04-18T13:47:38Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9246,7 +9246,7 @@
       "rank": 237,
       "start_date": "2021-12-21T20:36:29Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9272,7 +9272,7 @@
       "rank": 238,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9298,7 +9298,7 @@
       "rank": 239,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9324,7 +9324,7 @@
       "rank": 241,
       "start_date": "2023-03-02T19:23:06Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9350,7 +9350,7 @@
       "rank": 242,
       "start_date": "2025-01-31T10:46:13Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9376,7 +9376,7 @@
       "rank": 244,
       "start_date": "2021-11-28T08:04:54Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9402,7 +9402,7 @@
       "rank": 251,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9428,7 +9428,7 @@
       "rank": 252,
       "start_date": "2021-05-24T06:54:32Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9454,7 +9454,7 @@
       "rank": 253,
       "start_date": "2022-01-21T06:58:10Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9483,7 +9483,7 @@
       "rank": 254,
       "start_date": "2021-04-30T04:16:44Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9509,7 +9509,7 @@
       "rank": 263,
       "start_date": "2021-04-28T16:00:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9536,7 +9536,7 @@
       "rank": 268,
       "start_date": "2024-11-12T18:19:48Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9562,7 +9562,7 @@
       "rank": 274,
       "start_date": "2022-12-13T09:51:09Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9588,7 +9588,7 @@
       "rank": 275,
       "start_date": "2021-08-26T05:26:13Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9620,7 +9620,7 @@
       "rank": 277,
       "start_date": "2021-06-28T01:47:00Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9646,7 +9646,7 @@
       "rank": 278,
       "start_date": "2021-12-10T15:12:50Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9672,7 +9672,7 @@
       "rank": 279,
       "start_date": "2021-09-25T07:39:54Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9705,7 +9705,7 @@
       "rank": 280,
       "start_date": "2023-12-24T15:40:23Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9731,7 +9731,7 @@
       "rank": 283,
       "start_date": "2021-10-25T18:59:14Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9757,7 +9757,7 @@
       "rank": 286,
       "start_date": "2023-03-07T11:05:58Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9783,7 +9783,7 @@
       "rank": 287,
       "start_date": "2022-02-08T17:23:32Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9809,7 +9809,7 @@
       "rank": 288,
       "start_date": "2021-05-01T16:27:42Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9835,7 +9835,7 @@
       "rank": 289,
       "start_date": "2021-05-10T11:02:06Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9866,7 +9866,7 @@
       "rank": 291,
       "start_date": "2024-04-22T18:56:19Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     },
     {
       "active": false,
@@ -9892,7 +9892,7 @@
       "rank": 292,
       "start_date": "2021-12-02T00:18:45Z",
       "voting_power": 0,
-      "voting_power_cumulative": 191560374898778644
+      "voting_power_cumulative": 191505230334965981
     }
   ]
 }
