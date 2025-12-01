@@ -23,7 +23,7 @@ jobs:
         run: echo "Update cached validators" > "$FILE_NAME"
       - name: Create Pull Request with updated dumped validators
         # https://github.com/peter-evans/create-pull-request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.PAT || secrets.GITHUB_TOKEN }}
           branch: create-pull-request/dump-validators
@@ -35,3 +35,4 @@ jobs:
             If CI actions and checks don't run in this PR: close it and reopen.
             https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
           labels: bot
+          sign-commits: true
