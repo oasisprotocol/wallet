@@ -1139,13 +1139,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capacitor-community/bluetooth-le@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-6.0.0.tgz#1ef3c1600ad9b76718150bae4a1adebf8c0a9dc6"
-  integrity sha512-oMVqMSQ5w05odnc8Dq+OGgsFGbxolohB6XfcyjOP/8s5htckksjsApcbbyVvcyWkWHr4CU6YCA9cwhSHH3rQYg==
-  dependencies:
-    "@types/web-bluetooth" "^0.0.20"
-
 "@capacitor-community/bluetooth-le@^7.0.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-7.2.0.tgz#30104077c9e244ae1e4bba4e7ce71f6524cf3df2"
@@ -1894,12 +1887,12 @@
   resolved "https://registry.yarnpkg.com/@oasisprotocol/deoxysii/-/deoxysii-0.0.6.tgz#c99d5566930653e903ab96737329acfa8402ed37"
   integrity sha512-TI51bIpChfsla9aRbjip6zvTbz6rpsqKgM7MqJvSfeFF6G5xLXQcbSC9u/1hOnOOazd7HaqA9NvaXQdeKCb3yw==
 
-"@oasisprotocol/ionic-ledger-hw-transport-ble@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/ionic-ledger-hw-transport-ble/-/ionic-ledger-hw-transport-ble-6.0.0.tgz#39ae549397405116fb916bcc4eea06f6251b5668"
-  integrity sha512-RdU4EdXoTCODJZsUz9U1YabsEVpGuscn0T6iaZuUDGz/sVuTSe3K3m467839ZA0lqGdld2gHQ3WLfCATcCsxIg==
+"@oasisprotocol/ionic-ledger-hw-transport-ble@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/ionic-ledger-hw-transport-ble/-/ionic-ledger-hw-transport-ble-7.0.0.tgz#695cde301cebb2de989582de5ac85e52b40a514f"
+  integrity sha512-4S3pYUJWPM9ytY1nG6DDiBwiC0FsfXclVGkNFEoMYPckifb+cgywIIZ9hztIKbEzEKG6rHVtkanR5ljWTlXTXg==
   dependencies:
-    "@capacitor-community/bluetooth-le" "^6.0.0"
+    "@capacitor-community/bluetooth-le" "^7.0.0"
     "@ledgerhq/hw-transport" "^6.28.8"
 
 "@oasisprotocol/ledger@1.0.0":
