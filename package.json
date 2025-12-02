@@ -28,8 +28,8 @@
     "extract-messages": "rm src/locales/en/translation.json && i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js | grep -v 'Added a new translation key' && node ./internals/scripts/normalize-translations.js ./src/locales/*/translation.json",
     "fix-grommet-icons-types": "node ./internals/scripts/fix-grommet-icons-types.js",
     "print-extension-dev-csp": "node ./internals/scripts/print-extension-dev-csp.js",
-    "android": "yarn build && yarn cap sync android && yarn cap run android -l --external",
-    "ios": "yarn build && yarn cap sync ios && yarn cap run ios -l --external"
+    "android": "yarn build && yarn cap sync android && yarn cap run android -l",
+    "ios": "yarn build && yarn cap sync ios && yarn cap run ios -l"
   },
   "browserslist": {
     "production": [
@@ -48,19 +48,19 @@
     ]
   },
   "dependencies": {
-    "@capacitor-community/bluetooth-le": "6.0.0",
-    "@capacitor/android": "6.0.0",
-    "@capacitor/app": "6.0.0",
-    "@capacitor/core": "6.0.0",
-    "@capacitor/ios": "6.0.0",
-    "@capawesome/capacitor-app-update": "6.0.0",
+    "@capacitor-community/bluetooth-le": "^7.0.0",
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/app": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
+    "@capawesome/capacitor-app-update": "^7.0.0",
     "@ethereumjs/util": "9.0.3",
     "@ledgerhq/hw-transport-webusb": "6.29.4",
     "@metamask/browser-passworder": "=3.0.0",
     "@metamask/jazzicon": "2.0.0",
     "@oasisprotocol/client": "1.2.0",
     "@oasisprotocol/client-rt": "1.2.0",
-    "@oasisprotocol/ionic-ledger-hw-transport-ble": "6.0.0",
+    "@oasisprotocol/ionic-ledger-hw-transport-ble": "^7.0.0",
     "@oasisprotocol/ledger": "1.0.0",
     "@reduxjs/toolkit": "2.6.1",
     "bignumber.js": "9.1.2",
@@ -89,7 +89,7 @@
     "webextension-polyfill": "0.12.0"
   },
   "devDependencies": {
-    "@capacitor/cli": "6.0.0",
+    "@capacitor/cli": "^7.0.0",
     "@parcel/config-webextension": "2.14.4",
     "@parcel/packager-raw-url": "2.14.4",
     "@parcel/transformer-webmanifest": "2.14.4",
@@ -181,5 +181,6 @@
       "distDir": "./build-ext",
       "scopeHoist": false
     }
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha512.ff4579ab459bb25aa7c0ff75b62acebe576f6084b36aa842971cf250a5d8c6cd3bc9420b22ce63c7f93a0857bc6ef29291db39c3e7a23aab5adfd5a4dd6c5d71"
 }
