@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  appId: 'org.oasisprotocol.wallet',
+  appId: 'net.oasis.wallet',
   appName: 'ROSE Wallet',
   webDir: 'build',
   android: {
