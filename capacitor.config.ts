@@ -4,6 +4,9 @@ const config: CapacitorConfig = {
   appId: 'org.oasisprotocol.wallet',
   appName: 'ROSE Wallet',
   webDir: 'build',
+  android: {
+    adjustMarginsForEdgeToEdge: 'force',
+  },
   server: {
     androidScheme: 'https',
   },
