@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "org.oasisprotocol.wallet"
+    namespace "net.oasis.wallet"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "org.oasisprotocol.wallet"
+        applicationId "net.oasis.wallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
