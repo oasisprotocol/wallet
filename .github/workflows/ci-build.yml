@@ -26,11 +26,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Set up OpenJDK 17
+      - name: Set up OpenJDK 21
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '21'
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -53,11 +53,11 @@ jobs:
       - name: Accept SDK licenses
         if: github.event_name == 'push'
         run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
-      # Capacitor v6 sets a deployment target of Android 14 (SDK 34)
+      # Capacitor v7 sets a deployment target of Android 15 (SDK 35)
       - name: Install SDK components
         if: github.event_name == 'push'
         run: |
-          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
       - name: Build Android App Bundle (AAB)
         if: github.event_name == 'push'
         run: ./gradlew bundleRelease
@@ -78,11 +78,11 @@ jobs:
       - name: Zipalign APK
         if: github.event_name == 'push'
         run: |
-          "$ANDROID_SDK_ROOT/build-tools/34.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Sign APK using apksigner
         if: github.event_name == 'push'
         run: |
-          "$ANDROID_SDK_ROOT/build-tools/34.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Upload Android AAB build artifacts
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
