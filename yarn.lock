@@ -1139,10 +1139,17 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@capacitor-community/bluetooth-le@6.0.0", "@capacitor-community/bluetooth-le@^6.0.0":
+"@capacitor-community/bluetooth-le@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-6.0.0.tgz#1ef3c1600ad9b76718150bae4a1adebf8c0a9dc6"
   integrity sha512-oMVqMSQ5w05odnc8Dq+OGgsFGbxolohB6XfcyjOP/8s5htckksjsApcbbyVvcyWkWHr4CU6YCA9cwhSHH3rQYg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+
+"@capacitor-community/bluetooth-le@^7.0.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-7.2.0.tgz#30104077c9e244ae1e4bba4e7ce71f6524cf3df2"
+  integrity sha512-eBM0Ia6C68YKqYbGjy6xgjaBrCvfH9EICn77EqxpR3Pu9yniRGTlCuZQdcCAonLwp16uuyAh/5tESxkkVJMccA==
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
@@ -1191,10 +1198,10 @@
   resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.4.tgz#051c37df4ffa878bd757b3849ce61668ac174083"
   integrity sha512-Xp3bGWlSQAwsZGngRMWTdoD2agdMV12Whnm+/xsYPxfQSj+Tksbr7r/8Mso7VWkpnTKO4iMlx762g3PjW+wi4w==
 
-"@capawesome/capacitor-app-update@6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-6.0.0.tgz#cda175030417f5bfa3b2b7c8bbe22a531854aa40"
-  integrity sha512-T4k0dC3XoJDgtX1QOQx0Rr5eMi3NhJn93QawQ6ZYYMmssnqCoRPpo2rg3VKVKMUZgAmIUN5Rwons9T4QkjTOzA==
+"@capawesome/capacitor-app-update@^7.0.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-7.2.0.tgz#51a70a405d73c62e3f670db22e6fa17c4aebc00c"
+  integrity sha512-fwPxR9tV5qecn3FSgwS5wBwlHDV9JND5dnY1iqIYnqRG2s/Oq0h32u4hV6+/zpDARJFMZycb3pddEfwLwhglEg==
 
 "@emotion/is-prop-valid@^1.1.0":
   version "1.2.0"

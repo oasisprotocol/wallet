@@ -48,12 +48,12 @@
     ]
   },
   "dependencies": {
-    "@capacitor-community/bluetooth-le": "6.0.0",
+    "@capacitor-community/bluetooth-le": "^7.0.0",
     "@capacitor/android": "^7.0.0",
     "@capacitor/app": "^7.0.0",
     "@capacitor/core": "^7.0.0",
     "@capacitor/ios": "^7.0.0",
-    "@capawesome/capacitor-app-update": "6.0.0",
+    "@capawesome/capacitor-app-update": "^7.0.0",
     "@ethereumjs/util": "9.0.3",
     "@ledgerhq/hw-transport-webusb": "6.29.4",
     "@metamask/browser-passworder": "=3.0.0",
