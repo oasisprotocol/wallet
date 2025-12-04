@@ -53,17 +53,30 @@ prettier
 
 execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
 
+// Mobile build version used internally in stores
+const gitCommitCount = execSync('git rev-list --count HEAD', { encoding: 'utf8' }).trim()
+const versionPrefix = version
+  .split('.')
+  .map((n, i) => (i > 0 ? n.padStart(3, '0') : n))
+  .join('')
+const newVersionCode = `${versionPrefix}${gitCommitCount}`
+
 // Android app needs to bump versionName in build.gradle
 const gradleFilePath = './android/app/build.gradle'
 const gradleContent = fs.readFileSync(gradleFilePath, 'utf8')
-const updatedGradleContent = gradleContent.replace(/versionName\s+"[\d.]+"/, `versionName "${version}"`)
+let updatedGradleContent = gradleContent.replace(/versionName\s+"[\d.]+"/, `versionName "${version}"`)
+updatedGradleContent = updatedGradleContent.replace(/versionCode\s+\d+/, `versionCode ${newVersionCode}`)
 fs.writeFileSync(gradleFilePath, updatedGradleContent, 'utf8')
 
 // iOS app needs to bump MARKETING_VERSION in project.pbxproj
 const pbxprojFilePath = './ios/App/App.xcodeproj/project.pbxproj'
 const pbxprojContent = fs.readFileSync(pbxprojFilePath, 'utf8')
-const updatedPbxprojContent = pbxprojContent.replace(
+let updatedPbxprojContent = pbxprojContent.replace(
   /MARKETING_VERSION = [\d.]+;/g,
   `MARKETING_VERSION = ${version};`,
+)
+updatedPbxprojContent = updatedPbxprojContent.replace(
+  /CURRENT_PROJECT_VERSION = \d+;/g,
+  `CURRENT_PROJECT_VERSION = ${newVersionCode};`,
 )
 fs.writeFileSync(pbxprojFilePath, updatedPbxprojContent, 'utf8')
