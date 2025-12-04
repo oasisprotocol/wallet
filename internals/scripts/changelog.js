@@ -52,3 +52,18 @@ prettier
   })
 
 execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
+
+// Android app needs to bump versionName in build.gradle
+const gradleFilePath = './android/app/build.gradle'
+const gradleContent = fs.readFileSync(gradleFilePath, 'utf8')
+const updatedGradleContent = gradleContent.replace(/versionName\s+"[\d.]+"/, `versionName "${version}"`)
+fs.writeFileSync(gradleFilePath, updatedGradleContent, 'utf8')
+
+// iOS app needs to bump MARKETING_VERSION in project.pbxproj
+const pbxprojFilePath = './ios/App/App.xcodeproj/project.pbxproj'
+const pbxprojContent = fs.readFileSync(pbxprojFilePath, 'utf8')
+const updatedPbxprojContent = pbxprojContent.replace(
+  /MARKETING_VERSION = [\d.]+;/g,
+  `MARKETING_VERSION = ${version};`,
+)
+fs.writeFileSync(pbxprojFilePath, updatedPbxprojContent, 'utf8')
