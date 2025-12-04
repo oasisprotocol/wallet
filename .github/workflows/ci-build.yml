@@ -80,6 +80,9 @@ jobs:
         run: |
           echo "${{ secrets.KEYSTORE_FILE }}" | base64 --decode > "android/release.jks"
       - name: Sign AAB and APK
+        # Security: should not sign apks on unmerged pullrequest. Otherwise someone
+        # could sign a malicious app and distribute it with our valid signature (though
+        # outside playstore).
         if: github.event_name == 'push'
         run: |
           jarsigner -verbose -keystore "android/release.jks" -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEYSTORE_PASSWORD }}" -signedjar "android/app/build/outputs/bundle/release/app-release-signed.aab" "android/app/build/outputs/bundle/release/app-release.aab" "${{ secrets.KEY_ALIAS }}"
