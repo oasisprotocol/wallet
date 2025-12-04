@@ -1,4 +1,4 @@
-import { useState, ReactNode } from 'react'
+import { useState, useContext, ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { ContactAccount } from './ContactAccount'
 import { AddContact } from './AddContact'
 import { ScrollableContainer } from '../ScrollableContainer'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 
 type ContactsListEmptyStateProps = {
   children: ReactNode
@@ -34,6 +35,7 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
   const contacts = useSelector(selectContactsList)
   const unlockedStatus = useSelector(selectUnlockedStatus)
   const isAvailable = unlockedStatus === 'unlockedProfile'
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const navigate = useNavigate()
 
   if (!isAvailable) {
@@ -63,7 +65,7 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
 
   return (
     <>
-      <Box flex="grow" justify="between" gap="medium">
+      <Box flex="grow" justify="between" gap="medium" style={{ height: isMobile ? '0' : 'auto' }}>
         {!contacts.length && (
           <ContactsListEmptyState>
             {t('toolbar.contacts.emptyList', 'You have no contacts yet.')}
@@ -76,7 +78,7 @@ export const Contacts = ({ closeHandler }: ContactsProps) => {
             ))}
           </ScrollableContainer>
         )}
-        <Box align="end">
+        <Box direction="row" justify="end" gap="medium" flex="grow" align="end">
           <Button
             primary
             label={t('toolbar.contacts.add', 'Add contact')}

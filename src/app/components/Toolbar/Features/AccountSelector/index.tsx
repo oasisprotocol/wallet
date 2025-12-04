@@ -62,7 +62,7 @@ export const AccountSelector = memo((props: Props) => {
   return (
     <Box flex="grow" justify="between" gap="medium" style={{ height: isMobile ? '0' : 'auto' }}>
       <ScrollableContainer>{accounts}</ScrollableContainer>
-      <Box direction="row" justify="between" gap="medium" flex="grow">
+      <Box direction="row" justify="between" gap="medium" flex="grow" align="end">
         <ButtonLink
           icon={<Add a11yTitle={undefined} />}
           label={t('menu.addAccounts', 'Add accounts')}
