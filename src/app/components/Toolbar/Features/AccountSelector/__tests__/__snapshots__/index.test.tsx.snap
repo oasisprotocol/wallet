@@ -233,11 +233,18 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
@@ -667,10 +674,11 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
     >
       <div
         class="c1"
+        style="height: 0px;"
       >
         <div
           class="c2"
-          style="max-height: 400px;"
+          style=""
         >
           <div
             aria-checked="false"

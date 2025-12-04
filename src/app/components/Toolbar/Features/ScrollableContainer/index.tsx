@@ -17,7 +17,7 @@ export const ScrollableContainer = ({ children }: ScrollableContainerProps) => {
       gap="small"
       pad={{ right: 'small', left: spaceForFocusIndicator }}
       overflow={{ vertical: 'auto' }}
-      style={{ maxHeight: layerScrollableAreaHeight }}
+      style={{ maxHeight: isMobile ? undefined : layerScrollableAreaHeight }}
       margin={{ bottom: isMobile ? 'large' : 'none', left: `-${spaceForFocusIndicator}` }}
     >
       {children}

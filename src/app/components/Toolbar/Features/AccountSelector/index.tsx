@@ -8,13 +8,14 @@ import { selectAddress, selectWallets, selectHasOneAccount } from 'app/state/wal
 import { selectUnlockedStatus } from 'app/state/selectUnlockedStatus'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
-import { memo } from 'react'
+import { memo, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { ManageableAccount } from '../Account/ManageableAccount'
 import { ScrollableContainer } from '../ScrollableContainer'
 import { ButtonLink } from '../../../ButtonLink'
 import { Add } from 'grommet-icons/es6/icons/Add'
+import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 
 interface Props {
   closeHandler: () => any
@@ -32,7 +33,7 @@ export const AccountSelector = memo((props: Props) => {
     dispatch(walletActions.selectWallet(address))
     props.closeHandler()
   }
-
+  const isMobile = useContext(ResponsiveContext) === 'small'
   const accounts = Object.values(wallets).map(wallet => (
     <ManageableAccount
       closeHandler={props.closeHandler}
@@ -59,9 +60,9 @@ export const AccountSelector = memo((props: Props) => {
   ))
 
   return (
-    <Box flex="grow" justify="between" gap="medium">
+    <Box flex="grow" justify="between" gap="medium" style={{ height: isMobile ? '0' : 'auto' }}>
       <ScrollableContainer>{accounts}</ScrollableContainer>
-      <Box direction="row" justify="between" gap="medium">
+      <Box direction="row" justify="between" gap="medium" flex="grow" align="end">
         <ButtonLink
           icon={<Add a11yTitle={undefined} />}
           label={t('menu.addAccounts', 'Add accounts')}
