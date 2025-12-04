@@ -134,9 +134,16 @@ exports[`<Contacts  /> should match snapshot 1`] = `
   align-items: flex-end;
   min-width: 0;
   min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .c2 {
@@ -394,10 +401,11 @@ exports[`<Contacts  /> should match snapshot 1`] = `
 >
   <div
     class="c1"
+    style="height: 0px;"
   >
     <div
       class="c2"
-      style="max-height: 400px;"
+      style=""
     >
       <div
         aria-checked="false"
