@@ -57,9 +57,12 @@ execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
 const gitCommitCount = execSync('git rev-list --count HEAD', { encoding: 'utf8' }).trim()
 const versionPrefix = version
   .split('.')
-  .map((n, i) => (i > 0 ? n.padStart(3, '0') : n))
+  .map((n, i) => (i > 0 ? n.padStart(2, '0') : n))
   .join('')
-const newVersionCode = `${versionPrefix}${gitCommitCount}`
+
+// The greatest value Google Play allows for versionCode is 2100000000
+// https://developer.android.com/studio/publish/versioning
+const newVersionCode = `${versionPrefix}${gitCommitCount.padStart(4, '0')}`
 
 // Android app needs to bump versionName in build.gradle
 const gradleFilePath = './android/app/build.gradle'
