@@ -35,7 +35,14 @@ export const ScreenPrivacySelect = () => {
 
     try {
       if (newValue === 'on') {
-        await PrivacyScreen.enable()
+        await PrivacyScreen.enable({
+          android: {
+            preventScreenshots: true,
+            dimBackground: true,
+            privacyModeOnActivityHidden: 'dim',
+          },
+          ios: { blurEffect: 'dark' },
+        })
       } else {
         await PrivacyScreen.disable()
       }
