@@ -170,6 +170,7 @@ async function encryptState(
   const persistedRootState: PersistedRootState = {
     contacts: state.contacts,
     evmAccounts: state.evmAccounts,
+    settings: state.settings,
     theme: state.theme,
     wallet: state.wallet,
     network: state.network,

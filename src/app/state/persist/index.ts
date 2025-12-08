@@ -125,6 +125,7 @@ export function receivePersistedRootState(
 
     contacts: persistedRootState.contacts,
     evmAccounts: persistedRootState.evmAccounts,
+    settings: persistedRootState.settings,
     theme: persistedRootState.theme,
     wallet: persistedRootState.wallet,
     network: persistedRootState.network,
