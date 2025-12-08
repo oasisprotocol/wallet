@@ -444,6 +444,11 @@
       "wrongPassword": "Wrong password"
     }
   },
+  "screenPrivacy": {
+    "off": "Off",
+    "on": "On",
+    "title": "Screen Privacy"
+  },
   "theme": {
     "darkMode": "Dark mode",
     "lightMode": "Light mode",
