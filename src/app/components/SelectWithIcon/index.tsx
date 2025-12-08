@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { Box } from 'grommet/es6/components/Box'
 import { FormField } from 'grommet/es6/components/FormField'
 import { Select } from 'grommet/es6/components/Select'
+import { Tip } from 'grommet/es6/components/Tip'
+import { CircleQuestion } from 'grommet-icons/es6/icons/CircleQuestion'
 
 const StyledBox = styled(Box)`
   position: relative;
@@ -23,6 +25,7 @@ interface SelectWithIconProps<T> {
   onChange: (option: T) => void
   options: { value: T; label: string }[]
   value: string
+  tooltip?: string
 }
 
 export function SelectWithIcon<T>({
@@ -33,9 +36,27 @@ export function SelectWithIcon<T>({
   onChange,
   options,
   value,
+  tooltip,
 }: SelectWithIconProps<T>) {
   return (
-    <FormField name={name} label={label} contentProps={{ border: false }} style={{ margin: 0 }}>
+    <FormField
+      name={name}
+      label={
+        <>
+          {label}
+          {tooltip && (
+            <>
+              {' '}
+              <Tip content={tooltip} dropProps={{ align: { bottom: 'top' } }}>
+                <CircleQuestion size="16px" />
+              </Tip>
+            </>
+          )}
+        </>
+      }
+      contentProps={{ border: false }}
+      style={{ margin: 0 }}
+    >
       <StyledBox>
         <StyledIconContainer>{icon}</StyledIconContainer>
         <Select

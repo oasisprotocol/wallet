@@ -38,6 +38,10 @@ export const ScreenPrivacySelect = () => {
       value={currentValue}
       options={screenPrivacyOptions}
       onChange={value => console.log('change', value)}
+      tooltip={t(
+        'screenPrivacy.tooltip',
+        'Prevent sensitive information from being visible in app switchers and when leaving an app.',
+      )}
     />
   )
 }

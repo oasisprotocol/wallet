@@ -447,7 +447,8 @@
   "screenPrivacy": {
     "off": "Off",
     "on": "On",
-    "title": "Screen Privacy"
+    "title": "Screen Privacy",
+    "tooltip": "Prevent sensitive information from being visible in app switchers and when leaving an app."
   },
   "theme": {
     "darkMode": "Dark mode",
