@@ -1,7 +1,11 @@
+import { PrivacyScreen } from '@capacitor/privacy-screen'
 import { Lock } from 'grommet-icons/es6/icons/Lock'
 import { Unlock } from 'grommet-icons/es6/icons/Unlock'
 import { TFunction } from 'i18next'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
+import { settingsActions } from 'app/state/settings/slice'
+import { selectScreenPrivacy } from 'app/state/settings/slice/selectors'
 import { SelectWithIcon } from '../SelectWithIcon'
 import { runtimeIs } from 'app/lib/runtimeIs'
 
@@ -12,7 +16,8 @@ const getScreenPrivacyIcons = (t: TFunction, size?: string) => ({
 
 export const ScreenPrivacySelect = () => {
   const { t } = useTranslation()
-  const currentValue = 'on'
+  const screenPrivacy = useSelector(selectScreenPrivacy)
+  const dispatch = useDispatch()
   const icons = getScreenPrivacyIcons(t, '24px')
   const screenPrivacyOptions: { value: 'on' | 'off'; label: string }[] = [
     {
@@ -25,6 +30,20 @@ export const ScreenPrivacySelect = () => {
     },
   ]
 
+  const handlePrivacyChange = async (newValue: 'on' | 'off') => {
+    dispatch(settingsActions.changeScreenPrivacy(newValue))
+
+    try {
+      if (newValue === 'on') {
+        await PrivacyScreen.enable()
+      } else {
+        await PrivacyScreen.disable()
+      }
+    } catch (error) {
+      dispatch(settingsActions.changeScreenPrivacy(newValue === 'on' ? 'off' : 'on'))
+    }
+  }
+
   if (runtimeIs !== 'mobile-app') {
     return null
   }
@@ -34,10 +53,10 @@ export const ScreenPrivacySelect = () => {
       label={t('screenPrivacy.title', 'Screen Privacy')}
       id="screenPrivacy"
       name="screenPrivacy"
-      icon={icons[currentValue]}
-      value={currentValue}
+      icon={icons[screenPrivacy]}
+      value={screenPrivacy}
       options={screenPrivacyOptions}
-      onChange={value => console.log('change', value)}
+      onChange={handlePrivacyChange}
       tooltip={t(
         'screenPrivacy.tooltip',
         'Prevent sensitive information from being visible in app switchers and when leaving an app.',
