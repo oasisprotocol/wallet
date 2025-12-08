@@ -11,6 +11,7 @@ import { transactionSlice } from 'app/state/transaction'
 import { walletSlice } from 'app/state/wallet'
 import { themeSlice } from 'styles/theme/slice'
 import { persistSlice } from 'app/state/persist'
+import { settingsSlice } from 'app/state/settings/slice'
 
 export const rootSlices = {
   account: accountSlice,
@@ -21,6 +22,7 @@ export const rootSlices = {
   importAccounts: importAccountsSlice,
   network: networkSlice,
   paraTimes: paraTimesSlice,
+  settings: settingsSlice,
   staking: stakingSlice,
   theme: themeSlice,
   transaction: transactionSlice,
