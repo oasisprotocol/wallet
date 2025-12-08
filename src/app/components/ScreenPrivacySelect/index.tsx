@@ -1,4 +1,3 @@
-import { PrivacyScreen } from '@capacitor/privacy-screen'
 import { Lock } from 'grommet-icons/es6/icons/Lock'
 import { Unlock } from 'grommet-icons/es6/icons/Unlock'
 import { TFunction } from 'i18next'
@@ -8,6 +7,7 @@ import { settingsActions } from 'app/state/settings/slice'
 import { selectScreenPrivacy } from 'app/state/settings/slice/selectors'
 import { SelectWithIcon } from '../SelectWithIcon'
 import { runtimeIs } from 'app/lib/runtimeIs'
+import { setPrivacyScreen } from 'app/lib/privacyScreen'
 
 const getScreenPrivacyIcons = (t: TFunction, size?: string) => ({
   on: <Lock aria-label={t('screenPrivacy.on', 'On')} size={size} />,
@@ -31,23 +31,11 @@ export const ScreenPrivacySelect = () => {
   ]
 
   const handlePrivacyChange = async (newValue: 'on' | 'off') => {
-    dispatch(settingsActions.changeScreenPrivacy(newValue))
-
     try {
-      if (newValue === 'on') {
-        await PrivacyScreen.enable({
-          android: {
-            preventScreenshots: true,
-            dimBackground: true,
-            privacyModeOnActivityHidden: 'dim',
-          },
-          ios: { blurEffect: 'dark' },
-        })
-      } else {
-        await PrivacyScreen.disable()
-      }
+      await setPrivacyScreen(newValue)
+      dispatch(settingsActions.changeScreenPrivacy(newValue))
     } catch (error) {
-      dispatch(settingsActions.changeScreenPrivacy(newValue === 'on' ? 'off' : 'on'))
+      console.error('Failed to change privacy screen:', error)
     }
   }
 
