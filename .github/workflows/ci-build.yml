@@ -43,6 +43,7 @@ jobs:
         id: vars
         run: |
           echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          echo "VERSION_CODE_OVERRIDE=2" >> "$GITHUB_OUTPUT"
       - name: Build web ROSE Wallet
         run: yarn build
       - name: Build extension ROSE Wallet
@@ -60,11 +61,11 @@ jobs:
           "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
       - name: Build Android App Bundle (AAB)
         if: github.event_name == 'push'
-        run: ./gradlew bundleRelease
+        run: ./gradlew bundleRelease -PversionCodeOverride=${{ steps.vars.outputs.VERSION_CODE_OVERRIDE }}
         working-directory: android
       - name: Build Android Package (APK)
         if: github.event_name == 'push'
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleRelease -PversionCodeOverride=${{ steps.vars.outputs.VERSION_CODE_OVERRIDE }}
         working-directory: android
       - name: Decode and Save Keystore File
         if: github.event_name == 'push'
