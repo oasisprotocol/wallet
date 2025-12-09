@@ -68,7 +68,10 @@ const newVersionCode = `${versionPrefix}${gitCommitCount.padStart(4, '0')}`
 const gradleFilePath = './android/app/build.gradle'
 const gradleContent = fs.readFileSync(gradleFilePath, 'utf8')
 let updatedGradleContent = gradleContent.replace(/versionName\s+"[\d.]+"/, `versionName "${version}"`)
-updatedGradleContent = updatedGradleContent.replace(/versionCode\s+\d+/, `versionCode ${newVersionCode}`)
+updatedGradleContent = updatedGradleContent.replace(
+  /(def versionCodeOverride = project\.hasProperty\('versionCodeOverride'\) \? project\.property\('versionCodeOverride'\)\.toInteger\(\) : )\d+/,
+  `$1${newVersionCode}`,
+)
 fs.writeFileSync(gradleFilePath, updatedGradleContent, 'utf8')
 
 // iOS app needs to bump MARKETING_VERSION in project.pbxproj
