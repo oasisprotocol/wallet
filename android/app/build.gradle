@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def versionCodeOverride = project.hasProperty('versionCodeOverride') ? project.property('versionCodeOverride').toInteger() : 2
+
 android {
     namespace "net.oasis.wallet"
     compileSdk rootProject.ext.compileSdkVersion
@@ -7,7 +9,7 @@ android {
         applicationId "net.oasis.wallet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
+        versionCode versionCodeOverride
         versionName "2.4.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
