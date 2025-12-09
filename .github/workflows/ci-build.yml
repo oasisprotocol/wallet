@@ -43,7 +43,7 @@ jobs:
         id: vars
         run: |
           echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
-          echo "VERSION_CODE_OVERRIDE=2" >> "$GITHUB_OUTPUT"
+          echo "VERSION_CODE_OVERRIDE=$(node ./internals/scripts/getVersionCode.js)" >> "$GITHUB_OUTPUT"
       - name: Build web ROSE Wallet
         run: yarn build
       - name: Build extension ROSE Wallet

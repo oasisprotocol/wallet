@@ -5,6 +5,7 @@ const fs = require('fs')
 const prettier = require('prettier')
 const packageJson = require('../../package.json')
 const extensionManifest = require('../../public/manifest.json')
+const { getVersionCode } = require('./getVersionCode')
 
 const folderPath = '.changelog/'
 const majorPattern = `${folderPath}*breaking*.md`
@@ -54,15 +55,7 @@ prettier
 execSync(`towncrier build --version ${version}`, { stdio: 'inherit' })
 
 // Mobile build version used internally in stores
-const gitCommitCount = execSync('git rev-list --count HEAD', { encoding: 'utf8' }).trim()
-const versionPrefix = version
-  .split('.')
-  .map((n, i) => (i > 0 ? n.padStart(2, '0') : n))
-  .join('')
-
-// The greatest value Google Play allows for versionCode is 2100000000
-// https://developer.android.com/studio/publish/versioning
-const newVersionCode = `${versionPrefix}${gitCommitCount.padStart(4, '0')}`
+const newVersionCode = getVersionCode()
 
 // Android app needs to bump versionName in build.gradle
 const gradleFilePath = './android/app/build.gradle'
