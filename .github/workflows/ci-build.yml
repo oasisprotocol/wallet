@@ -26,6 +26,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Needed for correct git commit count
+          fetch-depth: 0
       - name: Set up OpenJDK 21
         uses: actions/setup-java@v4
         with:
@@ -43,6 +46,7 @@ jobs:
         id: vars
         run: |
           echo "SHORT_SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          echo "VERSION_CODE_OVERRIDE=$(node ./internals/scripts/getVersionCode.js)" >> "$GITHUB_OUTPUT"
       - name: Build web ROSE Wallet
         run: yarn build
       - name: Build extension ROSE Wallet
@@ -60,11 +64,11 @@ jobs:
           "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
       - name: Build Android App Bundle (AAB)
         if: github.event_name == 'push'
-        run: ./gradlew bundleRelease
+        run: ./gradlew bundleRelease -PversionCodeOverride=${{ steps.vars.outputs.VERSION_CODE_OVERRIDE }}
         working-directory: android
       - name: Build Android Package (APK)
         if: github.event_name == 'push'
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleRelease -PversionCodeOverride=${{ steps.vars.outputs.VERSION_CODE_OVERRIDE }}
         working-directory: android
       - name: Decode and Save Keystore File
         if: github.event_name == 'push'
