@@ -84,7 +84,6 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   } = useContext(IonicContext)
 
   if (updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE) return children
-  if (updateAvailability === UpdateAvailability.UNKNOWN) return children
 
   const handleNavigateToAppStore = () => {
     navigateToAppStore()
@@ -105,6 +104,7 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
       {[
         UpdateAvailability.UPDATE_AVAILABLE,
         UpdateAvailability.UPDATE_IN_PROGRESS,
+        UpdateAvailability.UNKNOWN,
         UpdateAvailability.ERROR,
       ].includes(updateAvailability) && (
         <Box flex="grow">
@@ -161,7 +161,7 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
                 }
               />
             )}
-            {UpdateAvailability.ERROR === updateAvailability && (
+            {[UpdateAvailability.UNKNOWN, UpdateAvailability.ERROR].includes(updateAvailability) && (
               <Button type="button" onClick={skipUpdate}>
                 <Text color="white" weight="bolder" size="small">
                   {t('mobileUpdate.later', 'Later')}
