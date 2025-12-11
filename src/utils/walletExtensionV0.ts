@@ -272,6 +272,9 @@ export async function decryptWithPasswordV0(
   const state: PersistedRootState = {
     contacts: contacts,
     evmAccounts: evmAccounts,
+    settings: {
+      screenPrivacy: 'on',
+    },
     network: initialNetworkState,
     theme: {
       selected: 'light',

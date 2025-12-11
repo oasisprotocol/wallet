@@ -28,6 +28,7 @@ export function receiveInitialTabSyncState(
     staking: prevState.staking,
     transaction: prevState.transaction,
 
+    settings: initialSyncState.settings,
     theme: initialSyncState.theme,
     wallet: initialSyncState.wallet,
     evmAccounts: initialSyncState.evmAccounts,
@@ -49,6 +50,7 @@ export const whitelistTabSyncActions: Record<AllActions, boolean> = {
   [rootSlices.contacts.actions.delete.type]: true,
   [rootSlices.evmAccounts.actions.add.type]: true,
   [rootSlices.evmAccounts.actions.delete.type]: true,
+  [rootSlices.settings.actions.changeScreenPrivacy.type]: true,
   [rootSlices.theme.actions.changeTheme.type]: true,
   [rootSlices.wallet.actions.walletOpened.type]: true,
   [rootSlices.wallet.actions.updateBalance.type]: true,
@@ -160,6 +162,7 @@ const stateSyncConfig: StateSyncConfig = {
     return {
       contacts: state.contacts,
       evmAccounts: state.evmAccounts,
+      settings: state.settings,
       theme: state.theme,
       wallet: state.wallet,
       network: state.network,

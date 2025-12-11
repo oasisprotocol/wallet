@@ -1191,6 +1191,11 @@
   resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.4.tgz#051c37df4ffa878bd757b3849ce61668ac174083"
   integrity sha512-Xp3bGWlSQAwsZGngRMWTdoD2agdMV12Whnm+/xsYPxfQSj+Tksbr7r/8Mso7VWkpnTKO4iMlx762g3PjW+wi4w==
 
+"@capacitor/privacy-screen@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/privacy-screen/-/privacy-screen-1.1.1.tgz#0a2a3f41c73d642e490fc70a9367b72374262a24"
+  integrity sha512-UbNtrhhj3fLqnCERYhS3sEOwO22C4bQmyidjdh6bT7Z8hz8kAdNnmCUSb+toAnNVjSD5M+727AwrWysuktRypA==
+
 "@capawesome/capacitor-app-update@^7.0.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-7.2.0.tgz#51a70a405d73c62e3f670db22e6fa17c4aebc00c"

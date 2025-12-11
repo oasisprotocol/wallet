@@ -34,6 +34,9 @@ exports[`decryptWithPasswordV0 1`] = `
       "selectedNetwork": "local",
       "ticker": "",
     },
+    "settings": {
+      "screenPrivacy": "on",
+    },
     "theme": {
       "selected": "light",
     },

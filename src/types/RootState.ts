@@ -11,6 +11,7 @@ import { ParaTimesState } from 'app/state/paratimes/types'
 import { StakingState } from 'app/state/staking/types'
 import { FatalErrorState } from 'app/state/fatalerror/types'
 import { PersistState } from 'app/state/persist/types'
+import { SettingsState } from 'app/state/settings/slice/types'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { receivePersistedRootState } from 'app/state/persist'
@@ -21,6 +22,7 @@ export interface RootState {
   /** Stored slices, see {@link receivePersistedRootState} */
   contacts: ContactsState
   evmAccounts: EvmAccounts
+  settings: SettingsState
   theme: ThemeState
   wallet: WalletState
   network: NetworkState

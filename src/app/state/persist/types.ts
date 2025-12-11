@@ -45,6 +45,9 @@ export interface PersistState {
 }
 
 export interface PersistedRootState
-  extends Pick<RootState, 'contacts' | 'evmAccounts' | 'theme' | 'wallet' | 'network'> {}
+  extends Pick<RootState, 'contacts' | 'evmAccounts' | 'settings' | 'theme' | 'wallet' | 'network'> {}
 export interface SyncedRootState
-  extends Pick<RootState, 'contacts' | 'evmAccounts' | 'theme' | 'wallet' | 'network' | 'persist'> {}
+  extends Pick<
+    RootState,
+    'contacts' | 'evmAccounts' | 'settings' | 'theme' | 'wallet' | 'network' | 'persist'
+  > {}

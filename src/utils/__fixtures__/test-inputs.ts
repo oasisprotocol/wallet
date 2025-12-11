@@ -58,6 +58,7 @@ export const privateKeyUnlockedState = {
   },
   contacts: {},
   evmAccounts: {},
+  settings: { screenPrivacy: 'on' },
   createWallet: { checkbox: false, mnemonic: [] },
   fatalError: {},
   importAccounts: {
@@ -258,6 +259,7 @@ export const walletExtensionV0UnlockedState = {
       ethPrivateKey: ethAccount.privateKey,
     },
   },
+  settings: { screenPrivacy: 'on' },
   createWallet: { checkbox: false, mnemonic: [] },
   fatalError: {},
   importAccounts: {
