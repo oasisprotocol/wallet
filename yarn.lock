@@ -1196,6 +1196,16 @@
   resolved "https://registry.yarnpkg.com/@capacitor/privacy-screen/-/privacy-screen-1.1.1.tgz#0a2a3f41c73d642e490fc70a9367b72374262a24"
   integrity sha512-UbNtrhhj3fLqnCERYhS3sEOwO22C4bQmyidjdh6bT7Z8hz8kAdNnmCUSb+toAnNVjSD5M+727AwrWysuktRypA==
 
+"@capacitor/status-bar@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-8.0.0.tgz#07ad5a765d2aa9a201a7472f6fd5cb44b25d25a5"
+  integrity sha512-aIj3bc7z8lfPgOen8HlrBrkfnxpFnh21OCx6jCUx4Mvv+B6eEkUQ49b32DOddgVfr+igRHLX2SYi7duqIsNDXg==
+
+"@capawesome/capacitor-android-edge-to-edge-support@7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-android-edge-to-edge-support/-/capacitor-android-edge-to-edge-support-7.2.3.tgz#21130706ab310e2c18247fca307100c986c9bac7"
+  integrity sha512-WtwXeU5Clg13t3SO6JvtIfJlpO+E48tHC+vNmC519zcS6GV9URl705UOvwOOvEyh6GFxAi2dHi8lj8iqIOYCdA==
+
 "@capawesome/capacitor-app-update@^7.0.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-7.2.0.tgz#51a70a405d73c62e3f670db22e6fa17c4aebc00c"
