@@ -12,6 +12,8 @@ dependencies {
     implementation project(':capacitor-community-bluetooth-le')
     implementation project(':capacitor-app')
     implementation project(':capacitor-privacy-screen')
+    implementation project(':capacitor-status-bar')
+    implementation project(':capawesome-capacitor-android-edge-to-edge-support')
     implementation project(':capawesome-capacitor-app-update')
 
 }

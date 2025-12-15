@@ -54,6 +54,8 @@
     "@capacitor/core": "^7.0.0",
     "@capacitor/ios": "^7.0.0",
     "@capacitor/privacy-screen": "1.1.1",
+    "@capacitor/status-bar": "8.0.0",
+    "@capawesome/capacitor-android-edge-to-edge-support": "7.2.3",
     "@capawesome/capacitor-app-update": "^7.0.0",
     "@ethereumjs/util": "9.0.3",
     "@ledgerhq/hw-transport-webusb": "6.29.4",
