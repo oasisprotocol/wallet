@@ -41,7 +41,6 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
-  margin-bottom: 12px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: column;
@@ -56,6 +55,21 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   display: flex;
   box-sizing: border-box;
   max-width: 100%;
+  margin-bottom: 12px;
+  min-width: 0;
+  min-height: 0;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   border-bottom: solid 1px rgba(0,0,0,0.33);
   min-width: 0;
   min-height: 0;
@@ -64,7 +78,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c8 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -79,7 +93,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: row;
 }
 
-.c10 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -95,7 +109,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   flex-direction: column;
 }
 
-.c12 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -114,7 +128,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding: 6px;
 }
 
-.c13 {
+.c14 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -129,21 +143,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding-right: 12px;
 }
 
-.c15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  box-sizing: border-box;
-  max-width: 100%;
-  min-width: 0;
-  min-height: 0;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.c11 {
+.c12 {
   display: grid;
   box-sizing: border-box;
   grid-template-columns: repeat( auto-fill,minmax(14ch,1fr) );
@@ -157,12 +157,12 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   padding: 0px;
 }
 
-.c14 {
+.c15 {
   font-size: 16px;
   line-height: 20px;
 }
 
-.c9 {
+.c10 {
   display: inline-block;
   box-sizing: border-box;
   cursor: pointer;
@@ -191,47 +191,47 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   font-weight: bold;
 }
 
-.c9:hover {
+.c10:hover {
   box-shadow: 0px 0px 0px 2px #0500e2;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c9:focus > circle,
-.c9:focus > ellipse,
-.c9:focus > line,
-.c9:focus > path,
-.c9:focus > polygon,
-.c9:focus > polyline,
-.c9:focus > rect {
+.c10:focus > circle,
+.c10:focus > ellipse,
+.c10:focus > line,
+.c10:focus > path,
+.c10:focus > polygon,
+.c10:focus > polyline,
+.c10:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c9:focus::-moz-focus-inner {
+.c10:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c9:focus:not(:focus-visible) {
+.c10:focus:not(:focus-visible) {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible) > circle,
-.c9:focus:not(:focus-visible) > ellipse,
-.c9:focus:not(:focus-visible) > line,
-.c9:focus:not(:focus-visible) > path,
-.c9:focus:not(:focus-visible) > polygon,
-.c9:focus:not(:focus-visible) > polyline,
-.c9:focus:not(:focus-visible) > rect {
+.c10:focus:not(:focus-visible) > circle,
+.c10:focus:not(:focus-visible) > ellipse,
+.c10:focus:not(:focus-visible) > line,
+.c10:focus:not(:focus-visible) > path,
+.c10:focus:not(:focus-visible) > polygon,
+.c10:focus:not(:focus-visible) > polyline,
+.c10:focus:not(:focus-visible) > rect {
   outline: none;
   box-shadow: none;
 }
 
-.c9:focus:not(:focus-visible)::-moz-focus-inner {
+.c10:focus:not(:focus-visible)::-moz-focus-inner {
   border: 0;
 }
 
@@ -250,7 +250,7 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   overflow-wrap: break-word;
 }
 
-.c7 {
+.c8 {
   box-sizing: border-box;
   font-size: inherit;
   font-family: inherit;
@@ -273,65 +273,65 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
   max-width: 100%;
 }
 
-.c7:focus {
+.c8:focus {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c7:focus > circle,
-.c7:focus > ellipse,
-.c7:focus > line,
-.c7:focus > path,
-.c7:focus > polygon,
-.c7:focus > polyline,
-.c7:focus > rect {
+.c8:focus > circle,
+.c8:focus > ellipse,
+.c8:focus > line,
+.c8:focus > path,
+.c8:focus > polygon,
+.c8:focus > polyline,
+.c8:focus > rect {
   outline: none;
   box-shadow: 0 0 2px 2px #00A9FF;
 }
 
-.c7:focus::-moz-focus-inner {
+.c8:focus::-moz-focus-inner {
   border: 0;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   color: #AAAAAA;
 }
 
-.c7::-moz-placeholder {
+.c8::-moz-placeholder {
   color: #AAAAAA;
 }
 
-.c7:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   color: #AAAAAA;
 }
 
-.c7::-webkit-search-decoration {
+.c8::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-.c7::-moz-focus-inner {
+.c8::-moz-focus-inner {
   border: none;
   outline: none;
 }
 
-.c7:-moz-placeholder,
-.c7::-moz-placeholder {
+.c8:-moz-placeholder,
+.c8::-moz-placeholder {
   opacity: 1;
 }
 
-.c7::-webkit-input-placeholder {
+.c8::-webkit-input-placeholder {
   font-size: 14px;
 }
 
-.c7::-moz-placeholder {
+.c8::-moz-placeholder {
   font-size: 14px;
 }
 
-.c7:-ms-input-placeholder {
+.c8:-ms-input-placeholder {
   font-size: 14px;
 }
 
-.c7::placeholder {
+.c8::placeholder {
   font-size: 14px;
 }
 
@@ -354,43 +354,43 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
 }
 
 @media only screen and (max-width:768px) {
-  .c5 {
+  .c6 {
     margin-bottom: 6px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c6 {
+  .c7 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c8 {
+  .c9 {
     margin-top: 12px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     margin: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     border-bottom: solid 1px rgba(0,0,0,0.33);
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c12 {
+  .c13 {
     padding: 3px;
   }
 }
 
 @media only screen and (max-width:768px) {
-  .c13 {
+  .c14 {
     padding-right: 6px;
   }
 }
@@ -446,28 +446,33 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
           openWallet.mnemonic.instruction
         </p>
         <div
-          class="c5 "
+          class="c5"
+          style="scroll-margin-top: 70px;"
         >
           <div
             class="c6 "
           >
-            <textarea
-              autocapitalize="off"
-              autocomplete="off"
-              autocorrect="off"
-              class="c7"
-              id="mnemonic"
-              placeholder="openWallet.mnemonic.enterPhraseHere"
-              rows="5"
-              spellcheck="false"
-            />
+            <div
+              class="c7 "
+            >
+              <textarea
+                autocapitalize="off"
+                autocomplete="off"
+                autocorrect="off"
+                class="c8"
+                id="mnemonic"
+                placeholder="openWallet.mnemonic.enterPhraseHere"
+                rows="5"
+                spellcheck="false"
+              />
+            </div>
           </div>
         </div>
         <div
-          class="c8"
+          class="c9"
         >
           <button
-            class="c9"
+            class="c10"
             type="submit"
           >
             openWallet.mnemonic.import
@@ -475,39 +480,39 @@ exports[`<FromMnemonic/> should match snapshot 1`] = `
         </div>
       </form>
       <div
-        class="c10"
+        class="c11"
       >
         <span
           class="notranslate"
           translate="no"
         >
           <div
-            class="c11"
+            class="c12"
             data-testid="mnemonic-grid"
           >
             <div
-              class="c12"
+              class="c13"
             >
               <div
-                class="c13"
+                class="c14"
               >
                 <span
-                  class="c14"
-                  style="user-select: none;"
+                  class="c15"
+                  style="user-select: none; font-size: 16px;"
                 >
                   1
                   .
                 </span>
               </div>
               <div
-                class="c15"
+                class="c5"
               >
                 <span
                   class="notranslate"
                   translate="no"
                 >
                   <strong
-                    style="white-space: pre; text-decoration: red wavy underline;"
+                    style="white-space: pre; text-decoration: red wavy underline; font-size: 16px;"
                   />
                 </span>
               </div>
