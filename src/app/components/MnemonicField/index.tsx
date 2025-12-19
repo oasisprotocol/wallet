@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FormField } from 'grommet/es6/components/FormField'
 import { TextArea } from 'grommet/es6/components/TextArea'
-
+import { runtimeIs } from 'app/lib/runtimeIs'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
 
 interface Props {
@@ -25,7 +25,7 @@ export function MnemonicField(props: Props) {
         autoFocus={props.autoFocus}
         focusIndicator
         size="medium"
-        rows={5}
+        rows={runtimeIs === 'mobile-app' ? 3 : 5}
         fill
         {...preventSavingInputsToUserData}
       />
