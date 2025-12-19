@@ -6,6 +6,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import * as React from 'react'
 import { useContext } from 'react'
 import { getDefaultWordlist, wordlists } from 'bip39'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 const validWords = new Set(wordlists[getDefaultWordlist()])
 
@@ -38,7 +39,9 @@ function MnemonicWord(props: WordProp) {
       border={{ side: 'bottom' }}
     >
       <Box pad={{ right: 'small' }}>
-        <Text style={noSelect}>{props.id}.</Text>
+        <Text style={{ ...noSelect, fontSize: runtimeIs === 'mobile-app' ? '14px' : '16px' }}>
+          {props.id}.
+        </Text>
       </Box>
       <Box>
         <NoTranslate>
@@ -46,6 +49,7 @@ function MnemonicWord(props: WordProp) {
             style={{
               whiteSpace: 'pre',
               textDecoration: isWordValid ? undefined : 'red wavy underline',
+              fontSize: runtimeIs === 'mobile-app' ? '14px' : '16px',
             }}
           >
             {props.word}
@@ -66,7 +70,11 @@ export function MnemonicGrid({ mnemonic }: Props) {
   const maxEnglishLength = 8
   const numberDotSpaceLength = 4
   const columnSize =
-    size === 'large' ? ['1fr', '1fr', '1fr', '1fr'] : `${maxEnglishLength + numberDotSpaceLength + 2}ch`
+    size === 'large'
+      ? ['1fr', '1fr', '1fr', '1fr']
+      : runtimeIs === 'mobile-app' && size === 'small'
+      ? ['1fr', '1fr', '1fr']
+      : `${maxEnglishLength + numberDotSpaceLength + 2}ch`
 
   return (
     <NoTranslate>

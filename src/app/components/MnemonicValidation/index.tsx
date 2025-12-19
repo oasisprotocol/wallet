@@ -38,7 +38,8 @@ export function MnemonicValidation(props: Props) {
       return
     }
     const wordCount = rawMnemonic.split(' ').length
-    if (wordCount === 8 && mnemonicFieldBoxRef.current) {
+    // Arbitrary value when to force scroll down the view
+    if (wordCount === 10 && mnemonicFieldBoxRef.current) {
       mnemonicFieldBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }, [rawMnemonic])
