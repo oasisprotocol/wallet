@@ -745,7 +745,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 1
                 .
@@ -759,7 +759,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -774,7 +774,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 2
                 .
@@ -788,7 +788,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -803,7 +803,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 3
                 .
@@ -817,7 +817,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -832,7 +832,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 4
                 .
@@ -846,7 +846,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -861,7 +861,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 5
                 .
@@ -875,7 +875,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -890,7 +890,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 6
                 .
@@ -904,7 +904,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -919,7 +919,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 7
                 .
@@ -933,7 +933,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -948,7 +948,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 8
                 .
@@ -962,7 +962,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -977,7 +977,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 9
                 .
@@ -991,7 +991,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1006,7 +1006,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 10
                 .
@@ -1020,7 +1020,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1035,7 +1035,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 11
                 .
@@ -1049,7 +1049,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1064,7 +1064,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 12
                 .
@@ -1078,7 +1078,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1093,7 +1093,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 13
                 .
@@ -1107,7 +1107,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1122,7 +1122,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 14
                 .
@@ -1136,7 +1136,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1151,7 +1151,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 15
                 .
@@ -1165,7 +1165,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1180,7 +1180,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 16
                 .
@@ -1194,7 +1194,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1209,7 +1209,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 17
                 .
@@ -1223,7 +1223,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1238,7 +1238,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 18
                 .
@@ -1252,7 +1252,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1267,7 +1267,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 19
                 .
@@ -1281,7 +1281,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1296,7 +1296,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 20
                 .
@@ -1310,7 +1310,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1325,7 +1325,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 21
                 .
@@ -1339,7 +1339,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1354,7 +1354,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 22
                 .
@@ -1368,7 +1368,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1383,7 +1383,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 23
                 .
@@ -1397,7 +1397,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>
@@ -1412,7 +1412,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
             >
               <span
                 class="c6"
-                style="user-select: none;"
+                style="user-select: none; font-size: 16px;"
               >
                 24
                 .
@@ -1426,7 +1426,7 @@ exports[`<CreateWalletPage  /> should match snapshot 1`] = `
                 translate="no"
               >
                 <strong
-                  style="white-space: pre;"
+                  style="white-space: pre; font-size: 16px;"
                 >
                   test
                 </strong>

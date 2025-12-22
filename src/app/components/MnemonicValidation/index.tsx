@@ -6,11 +6,12 @@ import { Button } from 'grommet/es6/components/Button'
 import { Form } from 'grommet/es6/components/Form'
 import { Paragraph } from 'grommet/es6/components/Paragraph'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import * as React from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Header } from 'app/components/Header'
 import { MnemonicField } from 'app/components/MnemonicField'
 import { preventSavingInputsToUserData } from 'app/lib/preventSavingInputsToUserData'
+import { runtimeIs } from 'app/lib/runtimeIs'
 
 interface Props {
   /** Called once the mnemonic is confirmed */
@@ -22,14 +23,27 @@ interface Props {
 export function MnemonicValidation(props: Props) {
   const { t } = useTranslation()
 
-  const [rawMnemonic, setRawMnemonic] = React.useState('')
-  const [mnemonicIsValid, setMnemonicIsValid] = React.useState(true)
-  const size = React.useContext(ResponsiveContext)
+  const [rawMnemonic, setRawMnemonic] = useState('')
+  const [mnemonicIsValid, setMnemonicIsValid] = useState(true)
+  const size = useContext(ResponsiveContext)
+  const mnemonicFieldBoxRef = useRef<HTMLDivElement>(null)
 
   const mnemonic = rawMnemonic.trim().replace(/[ \n]+/g, ' ')
   const onChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setRawMnemonic(event.target.value)
   }
+
+  useEffect(() => {
+    if (runtimeIs !== 'mobile-app') {
+      return
+    }
+    const wordCount = mnemonic.split(' ').length
+    // Arbitrary value when to force scroll down the view
+    if (wordCount >= 10 && mnemonicFieldBoxRef.current) {
+      mnemonicFieldBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [mnemonic])
+
   const onSubmit = () => {
     const isValid = validateMnemonic(mnemonic)
     setMnemonicIsValid(isValid)
@@ -56,21 +70,23 @@ export function MnemonicValidation(props: Props) {
               'Enter all your mnemonic words below separated by spaces. Most mnemonics are made of either 24 or 12 words.',
             )}
           </Paragraph>
-          <MnemonicField
-            inputElementId="mnemonic"
-            placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your mnemonic here')}
-            autoFocus
-            value={rawMnemonic}
-            onChange={onChange}
-            error={
-              mnemonicIsValid === false
-                ? t(
-                    'openWallet.mnemonic.error',
-                    'Invalid mnemonic. Please make sure to input the words in the right order, all lowercase.',
-                  )
-                : ''
-            }
-          ></MnemonicField>
+          <Box ref={mnemonicFieldBoxRef} style={{ scrollMarginTop: '70px' }}>
+            <MnemonicField
+              inputElementId="mnemonic"
+              placeholder={t('openWallet.mnemonic.enterPhraseHere', 'Enter your mnemonic here')}
+              autoFocus
+              value={rawMnemonic}
+              onChange={onChange}
+              error={
+                mnemonicIsValid === false
+                  ? t(
+                      'openWallet.mnemonic.error',
+                      'Invalid mnemonic. Please make sure to input the words in the right order, all lowercase.',
+                    )
+                  : ''
+              }
+            ></MnemonicField>
+          </Box>
           <Box direction="row" gap="small" margin={{ top: 'medium' }}>
             <Button type="submit" label={t('openWallet.mnemonic.import', 'Import my wallet')} primary />
             {props.abortHandler && (
