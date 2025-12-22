@@ -37,12 +37,12 @@ export function MnemonicValidation(props: Props) {
     if (runtimeIs !== 'mobile-app') {
       return
     }
-    const wordCount = rawMnemonic.split(' ').length
+    const wordCount = mnemonic.split(' ').length
     // Arbitrary value when to force scroll down the view
-    if (wordCount === 10 && mnemonicFieldBoxRef.current) {
+    if (wordCount >= 10 && mnemonicFieldBoxRef.current) {
       mnemonicFieldBoxRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
-  }, [rawMnemonic])
+  }, [mnemonic])
 
   const onSubmit = () => {
     const isValid = validateMnemonic(mnemonic)
