@@ -84,7 +84,7 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
   }
 
   if (!bluetoothInfos) {
-    throw new TransportError('service not found', 'BLEServiceNotFound')
+    throw new TransportError('service not found1', 'BLEServiceNotFound')
   }
 
   const { deviceModel, serviceUuid, writeUuid, writeCmdUuid, notifyUuid } = bluetoothInfos
@@ -99,7 +99,7 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
   }
 
   if (!characteristics.length) {
-    throw new TransportError('service not found', 'BLEServiceNotFound')
+    throw new TransportError('service not found2', 'BLEServiceNotFound')
   }
 
   if (!writeUuid) {
