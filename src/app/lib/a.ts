@@ -9,6 +9,7 @@ import { Observable, defer, merge, from, Subject, firstValueFrom } from 'rxjs'
 import { share, ignoreElements, first, map, tap } from 'rxjs/operators'
 import { CantOpenDevice, TransportError, DisconnectedDeviceDuringOperation } from '@ledgerhq/errors'
 import { ScanResult } from '@capacitor-community/bluetooth-le/dist/esm/definitions'
+import { requestLedgerDevice } from '@ledgerhq/hw-transport-webusb/lib/webusb'
 
 const TAG = 'ble-verbose'
 
@@ -149,6 +150,8 @@ const open = async (scanResult: ScanResult): Promise<BleTransport> => {
   return transport
 }
 
+requestLedgerDevice
+
 /**
  * Ionic bluetooth BLE implementation
  */
@@ -174,6 +177,22 @@ export default class BleTransport extends Transport {
         await bleInstance().stopLEScan()
         try {
           log(TAG, 'BLE scan complete')
+          alert(
+            `requestLEScan ${JSON.stringify(
+              devices.map(a => a.device),
+              null,
+              2,
+            )}`,
+          )
+
+          alert(
+            `requestDevice ${JSON.stringify(
+              await bleInstance().requestDevice(),
+              null,
+              2,
+            )}`,
+          )
+
           resolve(devices)
         } catch (err) {
           log(TAG, 'BLE scan failed')

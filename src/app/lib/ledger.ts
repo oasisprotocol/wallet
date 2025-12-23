@@ -22,6 +22,7 @@ export async function canAccessNavigatorUsb(): Promise<boolean> {
 export async function canAccessBle(): Promise<boolean> {
   const hasBLE = await BleTransport.isEnabled().catch(() => false)
   // Scan depends on requestLEScan method, which is not available on the web(feature flag)
+  //
   const hasLEScan = runtimeIs === 'mobile-app' || !!navigator?.bluetooth?.requestLEScan
   return hasBLE && hasLEScan
 }
