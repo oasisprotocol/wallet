@@ -66,6 +66,7 @@ export const privateKeyUnlockedState = {
     showAccountsSelectionModal: false,
     accountsSelectionPageNumber: 0,
     step: 'idle' satisfies `${ImportAccountsStep}` as ImportAccountsStep,
+    // @ts-expect-error Deprecated and removed from types
     bleDevices: [],
     showBleLedgerDevicesModal: false,
   },
@@ -267,6 +268,7 @@ export const walletExtensionV0UnlockedState = {
     showAccountsSelectionModal: false,
     accountsSelectionPageNumber: 0,
     step: 'idle' satisfies `${ImportAccountsStep}` as ImportAccountsStep,
+    // @ts-expect-error Deprecated and removed from types
     bleDevices: [],
     showBleLedgerDevicesModal: false,
   },

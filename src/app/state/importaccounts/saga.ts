@@ -164,7 +164,6 @@ function* ensureAllBalancesArePresentOnCurrentPage() {
   yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
 }
 
-
 /**
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
