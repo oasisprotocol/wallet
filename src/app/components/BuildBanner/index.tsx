@@ -5,6 +5,7 @@ import { AlertBox } from 'app/components/AlertBox'
 import { buildBannerZIndex } from '../../../styles/theme/elementSizes'
 import styled from 'styled-components'
 import { deploys } from '../../../config'
+import { runtimeIs } from '../../lib/runtimeIs'
 
 const StickyBanner = styled(Box)`
   position: sticky;
@@ -20,6 +21,12 @@ export const BuildBanner = () => {
   }
 
   if (window.location.origin === deploys.extension) {
+    return null
+  }
+
+  if (runtimeIs === 'mobile-app') {
+    // On web we want to deploy the exact same bundle on staging and then production, so we
+    // show banner based on location. That can't work with apk files.
     return null
   }
 
