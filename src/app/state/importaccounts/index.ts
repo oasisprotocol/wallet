@@ -26,13 +26,6 @@ export const importAccountsSlice = createSlice({
       state.bleDevices = []
       state.showBleLedgerDevicesModal = false
     },
-    enumerateDevicesFromBleLedger(state) {
-      state.bleDevices = []
-      state.step = ImportAccountsStep.Idle
-      state.showBleLedgerDevicesModal = true
-      state.bleDevices = []
-      state.selectedBleDevice = undefined
-    },
     enumerateAccountsFromLedger(state, _action: PayloadAction<LedgerWalletType>) {
       state.accounts = []
       state.accountsSelectionPageNumber = 0
@@ -75,12 +68,6 @@ export const importAccountsSlice = createSlice({
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload
       state.step = ImportAccountsStep.Idle
-    },
-    setBleDevices(state, { payload }: PayloadAction<ScanResult[]>) {
-      state.bleDevices = payload
-    },
-    setSelectedBleDevice(state, { payload }: PayloadAction<ScanResult>) {
-      state.selectedBleDevice = payload
     },
   },
 })

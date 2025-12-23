@@ -150,8 +150,6 @@ const open = async (scanResult: ScanResult): Promise<BleTransport> => {
   return transport
 }
 
-requestLedgerDevice
-
 /**
  * Ionic bluetooth BLE implementation
  */
@@ -165,41 +163,18 @@ export default class BleTransport extends Transport {
     return bleInstance().connect(deviceId, onDisconnect)
   }
 
-  static list = (stopScanTimeout = BleTransport.disconnectTimeoutMs): Promise<ScanResult[]> => {
-    let devices: ScanResult[] = []
+  static async create(): Promise<BleTransport> {
+    log(TAG, 'Requesting BLE device')
+    let scanResult: ScanResult
+    try {
+      scanResult = await bleInstance().requestDevice({ services: getBluetoothServiceUuids() })
+      log(TAG, `BLE device selected: ${scanResult.device.deviceId}`)
+    } catch (err) {
+      log(TAG, `BLE device request failed: ${String(err)}`)
+      throw new CantOpenDevice(String(err))
+    }
 
-    return new Promise((resolve, reject) => {
-      bleInstance().requestLEScan({ services: getBluetoothServiceUuids() }, data => {
-        devices = [...devices.filter(prevDevice => prevDevice.device.deviceId !== data.device.deviceId), data]
-      })
-
-      setTimeout(async () => {
-        await bleInstance().stopLEScan()
-        try {
-          log(TAG, 'BLE scan complete')
-          alert(
-            `requestLEScan ${JSON.stringify(
-              devices.map(a => a.device),
-              null,
-              2,
-            )}`,
-          )
-
-          alert(
-            `requestDevice ${JSON.stringify(
-              await bleInstance().requestDevice(),
-              null,
-              2,
-            )}`,
-          )
-
-          resolve(devices)
-        } catch (err) {
-          log(TAG, 'BLE scan failed')
-          reject(err)
-        }
-      }, stopScanTimeout)
-    })
+    return open(scanResult)
   }
 
   static async open(scanResult: ScanResult): Promise<BleTransport> {
