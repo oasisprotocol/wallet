@@ -71,6 +71,8 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
 
   let bluetoothInfos: BluetoothInfos | undefined
   let characteristics: string[] | undefined = []
+  alert(JSON.stringify({scanResult}, null, 2))
+  alert(JSON.stringify({getBluetoothServiceUuids: getBluetoothServiceUuids()}, null, 2))
 
   for (const uuid of getBluetoothServiceUuids()) {
     if (scanResult.uuids) {
@@ -78,6 +80,7 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
       if (peripheralCharacteristic.length) {
         characteristics.push(...peripheralCharacteristic)
         bluetoothInfos = getInfosForServiceUuid(uuid)
+        alert(JSON.stringify({bluetoothInfos}, null, 2))
         break
       }
     }
