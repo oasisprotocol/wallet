@@ -19,9 +19,9 @@ import {
   selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { getChainContext } from '../network/saga'
+import BleTransport from '../../lib/a'
 
 class TransportWebUSBDetectLedgerLikelyFaultyFirmware extends TransportWebUSB {
   static async open(a: any) {
