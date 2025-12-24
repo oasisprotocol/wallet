@@ -166,7 +166,10 @@ export default class BleTransport extends Transport {
   static async create(): Promise<BleTransport> {
     log(TAG, 'Requesting BLE device')
     try {
-      const scanResult = await bleInstance().requestDevice({ services: getBluetoothServiceUuids() })
+      const scanResult = await bleInstance().requestDevice({
+        services: getBluetoothServiceUuids(),
+        optionalServices: getBluetoothServiceUuids(),
+      })
       log(TAG, `BLE device selected: ${scanResult.deviceId}`)
       return open(scanResult)
     } catch (err) {
