@@ -48,22 +48,15 @@ function* isBluetoothSupported() {
   }
 }
 
-function* getBluetoothDevices() {
+export function* getBluetoothTransport() {
   yield* call(isBluetoothSupported)
-  return yield* call(BleTransport.list)
-}
-
-export function* getBluetoothTransport(device?: ScanResult) {
-  yield* call(isBluetoothSupported)
-
-  if (!device) {
-    throw new WalletError(WalletErrors.LedgerNoDeviceSelected, 'No device selected')
-  }
 
   try {
-    return yield* call(BleTransport.open, device)
+    return yield* call([BleTransport, BleTransport.create])
   } catch (e: any) {
-    if (e.message.match(/No device selected/)) {
+    if (e instanceof WalletError) {
+      throw e
+    } else if (e.message.match(/No device selected/)) {
       throw new WalletError(WalletErrors.LedgerNoDeviceSelected, e.message)
     } else {
       throw new WalletError(WalletErrors.USBTransportError, e.message)
@@ -194,8 +187,7 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
   let transport: Transport | undefined
   try {
     if (action.payload === WalletType.BleLedger) {
-      const device = yield* select(selectSelectedBleDevice)
-      transport = yield* getBluetoothTransport(device)
+      transport = yield* getBluetoothTransport()
     } else {
       transport = yield* getUSBTransport()
     }
@@ -245,9 +237,7 @@ function* enumerateAccountsFromLedger(action: PayloadAction<LedgerWalletType>) {
 export function* sign<T>(signer: LedgerSigner, tw: oasis.consensus.TransactionWrapper<T>) {
   let transport
   if (signer.transportType === WalletType.BleLedger) {
-    const bleDevice = yield* select(selectSelectedBleDevice)
-    // TODO: this doesn't work after restarting mobile app and unlocking profile
-    transport = yield* getBluetoothTransport(bleDevice)
+    transport = yield* getBluetoothTransport()
   } else {
     transport = yield* getUSBTransport()
   }
