@@ -2,7 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { hex2uint, publicKeyToAddress, uint2hex } from 'app/lib/helpers'
 import nacl from 'tweetnacl'
 import { call, delay, fork, put, select, take, takeEvery, takeLeading } from 'typed-redux-saga'
-import { selectSelectedAccounts } from 'app/state/importaccounts/selectors'
+import { selectSelectedAccounts, selectSelectedBleDevice } from 'app/state/importaccounts/selectors'
 
 import { walletActions } from '.'
 import { importAccountsActions } from '../importaccounts'
@@ -189,7 +189,9 @@ export function* verifyAddressOnLedger(action: PayloadAction<Wallet>) {
   let transport
   try {
     if (wallet.type === WalletType.BleLedger) {
-      transport = yield* getBluetoothTransport()
+      const bleDevice = yield* select(selectSelectedBleDevice)
+      // TODO: this doesn't work after restarting mobile app and unlocking profile
+      transport = yield* getBluetoothTransport(bleDevice)
     } else {
       transport = yield* getUSBTransport()
     }

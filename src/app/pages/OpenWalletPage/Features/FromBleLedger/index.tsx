@@ -4,8 +4,12 @@ import { Button } from 'grommet/es6/components/Button'
 import { Heading } from 'grommet/es6/components/Heading'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectShowAccountsSelectionModal } from 'app/state/importaccounts/selectors'
+import {
+  selectShowAccountsSelectionModal,
+  selectShowBleLedgerDevicesModal,
+} from 'app/state/importaccounts/selectors'
 import { Header } from 'app/components/Header'
+import { ListBleLedgerDevicesModal } from '../ListBleLedgerDevicesModal'
 import { ImportAccountsSelectionModal } from '../ImportAccountsSelectionModal'
 import { WalletType } from '../../../../state/wallet/types'
 
@@ -13,6 +17,7 @@ export function FromBleLedger() {
   const { t } = useTranslation()
   const dispatch = useDispatch()
   const showAccountsSelectionModal = useSelector(selectShowAccountsSelectionModal)
+  const showBleLedgerDevicesModal = useSelector(selectShowBleLedgerDevicesModal)
 
   return (
     <Box
@@ -45,11 +50,21 @@ export function FromBleLedger() {
           type="submit"
           label={t('openWallet.importAccounts.selectDevice', 'Select device')}
           onClick={() => {
-            dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.BleLedger))
+            dispatch(importAccountsActions.enumerateDevicesFromBleLedger())
           }}
           primary
         />
       </Box>
+      {showBleLedgerDevicesModal && (
+        <ListBleLedgerDevicesModal
+          abort={() => {
+            dispatch(importAccountsActions.clear())
+          }}
+          next={() => {
+            dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.BleLedger))
+          }}
+        />
+      )}
       {showAccountsSelectionModal && (
         <ImportAccountsSelectionModal
           abort={() => {

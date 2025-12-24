@@ -11,7 +11,7 @@ import { selectActiveWallet, selectAddress } from '../wallet/selectors'
 import { Wallet, WalletType } from '../wallet/types'
 import { doTransaction, getAllowanceDifference, setAllowance, submitParaTimeTransaction } from './saga'
 import { addressToPublicKey } from '../../lib/helpers'
-import BleTransport from '../../lib/a'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 const makeState = (wallet: Partial<Wallet>, rootState: DeepPartialRootState = {}): DeepPartialRootState => {
   return {
@@ -101,17 +101,33 @@ describe('Transaction Sagas', () => {
         publicKey: (await addressToPublicKey(matchingAddress)).toString(),
       } as Partial<Wallet>
 
+      const selectedBleDevice = {
+        device: {
+          deviceId: 'xx:xx:xx:xx:xx:xx',
+          name: 'Nano X ABCD',
+        },
+        localName: 'Nano X ABCD',
+        rssi: -50,
+        txPower: 100,
+      }
+
       return expectSaga(
         doTransaction,
         actions.sendTransaction({ type: 'transfer', amount: '10000000000', to: validAddress }),
       )
-        .withState(makeState(wallet))
+        .withState(
+          makeState(wallet, {
+            importAccounts: {
+              selectedBleDevice,
+            },
+          }),
+        )
         .provide(providers)
         .provide([
           ...sendProviders,
           [matchers.call.fn(BleTransport.isSupported), true],
           [
-            matchers.call.fn(BleTransport.create),
+            matchers.call.fn(BleTransport.open),
             {
               close: () => {},
             },
