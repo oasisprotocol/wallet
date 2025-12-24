@@ -16,10 +16,8 @@ import {
   selectImportAccountsFullList,
   selectImportAccountsOnCurrentPage,
   selectImportAccountsPageNumber,
-  selectSelectedBleDevice,
 } from './selectors'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { getChainContext } from '../network/saga'
 import BleTransport from '../../lib/a'
 
@@ -166,13 +164,6 @@ function* ensureAllBalancesArePresentOnCurrentPage() {
   yield* all(accounts.filter(a => !a.balance).map(a => call(fetchBalanceForAccount, a)))
 }
 
-function* enumerateDevicesFromBleLedger() {
-  yield* setStep(ImportAccountsStep.LoadingBleDevices)
-  const devices = yield* getBluetoothDevices()
-  yield* put(importAccountsActions.setBleDevices(devices))
-  yield* setStep(ImportAccountsStep.Idle)
-}
-
 /**
  * Enumerate more accounts from Ledger, enough to fill up one page.
  */
@@ -256,5 +247,4 @@ export function* importAccountsSaga() {
   yield* takeEvery(importAccountsActions.enumerateMoreAccountsFromLedger, enumerateAccountsFromLedger)
   yield* takeEvery(importAccountsActions.enumerateAccountsFromMnemonic, enumerateAccountsFromMnemonic)
   yield* takeEvery(importAccountsActions.setPage, ensureAllBalancesArePresentOnCurrentPage)
-  yield* takeEvery(importAccountsActions.enumerateDevicesFromBleLedger, enumerateDevicesFromBleLedger)
 }
