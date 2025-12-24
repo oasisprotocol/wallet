@@ -74,7 +74,6 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
   try {
     const services = await bleInstance().getServices(scanResult.deviceId)
     availableServiceUuids = services.map(service => service.uuid)
-    alert(`Discovered services: ${JSON.stringify(availableServiceUuids)}`)
     log(TAG, `Discovered services: ${JSON.stringify(availableServiceUuids)}`)
   } catch (error) {
     log(TAG, `Failed to get services: ${String(error)}`)
