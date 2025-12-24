@@ -69,41 +69,30 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
     throw new CantOpenDevice()
   }
 
-  let bluetoothInfos: BluetoothInfos | undefined
-  let characteristics: string[] | undefined = []
-  alert(JSON.stringify({scanResult}, null, 2))
-  alert(JSON.stringify({getBluetoothServiceUuids: getBluetoothServiceUuids()}, null, 2))
 
+  let availableServiceUuids: string[] = []
+  try {
+    const services = await bleInstance().getServices(scanResult.deviceId)
+    availableServiceUuids = services.map(service => service.uuid)
+    alert(`Discovered services: ${JSON.stringify(availableServiceUuids)}`)
+    log(TAG, `Discovered services: ${JSON.stringify(availableServiceUuids)}`)
+  } catch (error) {
+    log(TAG, `Failed to get services: ${String(error)}`)
+  }
+
+  let bluetoothInfos: BluetoothInfos | undefined
   for (const uuid of getBluetoothServiceUuids()) {
-    if (scanResult.uuids) {
-      const peripheralCharacteristic = scanResult.uuids.filter(service => service === uuid)
-      if (peripheralCharacteristic.length) {
-        characteristics.push(...peripheralCharacteristic)
-        bluetoothInfos = getInfosForServiceUuid(uuid)
-        alert(JSON.stringify({bluetoothInfos}, null, 2))
-        break
-      }
+    if (availableServiceUuids.includes(uuid)) {
+      bluetoothInfos = getInfosForServiceUuid(uuid)
+      break
     }
   }
 
   if (!bluetoothInfos) {
-    throw new TransportError('service not found1', 'BLEServiceNotFound')
+    throw new TransportError('service not found', 'BLEServiceNotFound')
   }
 
   const { deviceModel, serviceUuid, writeUuid, writeCmdUuid, notifyUuid } = bluetoothInfos
-
-  if (!characteristics) {
-    if (scanResult.uuids) {
-      const characteristic = scanResult.uuids.find(uuid => uuid === serviceUuid)
-      if (characteristic) {
-        characteristics = [characteristic]
-      }
-    }
-  }
-
-  if (!characteristics.length) {
-    throw new TransportError('service not found2', 'BLEServiceNotFound')
-  }
 
   if (!writeUuid) {
     throw new TransportError('write characteristic not found', 'BLECharacteristicNotFound')
