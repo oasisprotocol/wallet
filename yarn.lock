@@ -1146,6 +1146,13 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
+"@capacitor-community/bluetooth-le@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-7.3.0.tgz#2c6f6b7628b038632cac098e97a0544871efaef1"
+  integrity sha512-QsM8jIlseTWnpEHdlzB5OxweNoxS9QDKUyQEX49IyeRCmi0uVMf4A8l6VPtyfT6wKUdWf4VrEZAED8UCOWW1DQ==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+
 "@capacitor/android@^7.0.0":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.4.tgz#a14a1e844bd5079982427e247fdd17555b5fbedd"
