@@ -154,6 +154,7 @@ export default class BleTransport extends Transport {
     log(TAG, 'Requesting BLE device')
     try {
       // Similar to TransportWebUSB.create > TransportWebUSB.listen > getFirstLedgerDevice > navigator.usb.getDevices[0] || navigator.usb.requestDevice
+      // make test that exposes this is called
       const scanResult =
         (await bleInstance().getConnectedDevices(getBluetoothServiceUuids()))?.[0] ||
         (await bleInstance().requestDevice({ services: getBluetoothServiceUuids() }))
