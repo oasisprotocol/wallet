@@ -141,7 +141,8 @@ const open = async (scanResult: BleDevice): Promise<BleTransport> => {
  * Ionic bluetooth BLE implementation
  */
 export default class BleTransport extends Transport {
-  static disconnectTimeoutMs = 5000
+  // try longer?
+  static disconnectTimeoutMs = 20000
   static isSupported = (): Promise<boolean> => Promise.resolve(typeof BleClient === 'object')
 
   static isEnabled = (): Promise<boolean> => bleInstance().isEnabled()
