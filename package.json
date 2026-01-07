@@ -179,6 +179,8 @@
       "source": "public/index.html",
       "distDir": "./build",
       "context": "browser",
+      "publicUrl": "https://msadosfdsnfisdfjr-android.surge.sh/",
+      "sourceMap": false,
       "scopeHoist": false
     },
     "ext": {
