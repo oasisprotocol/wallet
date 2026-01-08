@@ -14,7 +14,7 @@ const getScreenPrivacyIcons = (t: TFunction, size?: string) => ({
   off: <Unlock aria-label={t('screenPrivacy.off', 'Off')} size={size} />,
 })
 
-export const ScreenPrivacySelect = () => {
+export const MobileScreenPrivacySelect = () => {
   const { t } = useTranslation()
   const screenPrivacy = useSelector(selectScreenPrivacy)
   const dispatch = useDispatch()
