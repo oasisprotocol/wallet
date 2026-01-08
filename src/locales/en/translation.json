@@ -274,6 +274,7 @@
     "title": "Important Wallet Update"
   },
   "mobileUpdate": {
+    "disableUpdateGateCheck": "Permanently disable this error notification. Update checks will still work when available. You can re-enable this in profile settings.",
     "errorTitle": "Unexpected error",
     "later": "Later",
     "retry": "Retry",
