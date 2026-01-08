@@ -5,6 +5,7 @@ import { ThemeSelect } from 'app/components/ThemeSwitcher'
 import { LanguageSelect } from 'app/components/LanguageSelect'
 import { MobileScreenPrivacySelect } from 'app/components/MobileScreenPrivacySelect'
 import { Footer } from 'app/components/Footer'
+import { MobileUpdateGateSelect } from 'app/components/MobileUpdateGateSelect'
 
 export const Settings = () => {
   const responsiveContext = useContext(ResponsiveContext)
@@ -16,6 +17,7 @@ export const Settings = () => {
         <LanguageSelect />
         <ThemeSelect />
         <MobileScreenPrivacySelect />
+        <MobileUpdateGateSelect />
       </Box>
       {isMobileOrTablet && <Footer />}
     </Box>

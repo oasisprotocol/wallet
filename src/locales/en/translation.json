@@ -450,6 +450,11 @@
     "title": "Screen Privacy",
     "tooltip": "Prevent sensitive information from being visible in app switchers and when leaving an app."
   },
+  "updateGateCheck": {
+    "off": "Off",
+    "on": "On",
+    "title": "Show Update Errors"
+  },
   "theme": {
     "darkMode": "Dark mode",
     "lightMode": "Light mode",
