@@ -17,5 +17,6 @@ process.env.REACT_APP_META_CSP = csp.replace(/frame-ancestors .*?;/, '')
 
 execSync('yarn clean && parcel build --target web --dist-dir build', { stdio: 'inherit' })
 execSync('cp public/robots.txt build/robots.txt', { encoding: 'utf8' })
+execSync('cp build/public.*.js build/public.js', { encoding: 'utf8' })
 fs.writeFileSync('build/Content-Security-Policy.txt', csp, 'utf8')
 fs.writeFileSync('build/Permissions-Policy.txt', permissionsPolicy, 'utf8')
