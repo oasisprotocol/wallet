@@ -93,8 +93,9 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   if (
     (updateGateCheck === 'off' && [UpdateAvailability.UNKNOWN].includes(updateAvailability)) ||
     updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE
-  )
+  ) {
     return children
+  }
 
   const handleNavigateToAppStore = () => {
     navigateToAppStore()
