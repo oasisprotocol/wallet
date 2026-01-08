@@ -39,35 +39,6 @@ const warnImportMapViolation = async () => {
  */
 const getCsp = ({ isExtension, isDev }) =>
   `
-    default-src 'none';
-    script-src
-      'self'
-      ${!isExtension && isDev ? hmrScripts : '' /* Manifest v3 doesn't allow anything */}
-      ${!isExtension ? 'report-sample' : ''}
-      ;
-    style-src
-      'self'
-      'unsafe-inline'
-      'report-sample';
-    font-src
-      'self';
-    connect-src
-      'self'
-      https://grpc.oasis.io
-      https://testnet.grpc.oasis.io
-      https://api.oasisscan.com
-      https://nexus.oasis.io
-      https://testnet.nexus.oasis.io
-      ${isDev ? localnet : ''}
-      ${isDev ? hmr : ''}
-      ;
-    frame-ancestors
-      ${isExtension ? dappFrameAncestors : `'self'`};
-    frame-src
-      'self';
-    img-src 'self' data: https:;
-    base-uri 'self';
-    manifest-src 'self';
   `
     .trim()
     .split('\n')
