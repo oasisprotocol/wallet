@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useContext } from 'react'
+import { FC, PropsWithChildren, useContext } from 'react'
 import { IonicContext, UpdateAvailability } from '../../providers/IonicContext'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
@@ -15,6 +15,11 @@ import { Spinner } from 'grommet/es6/components/Spinner'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { useTranslation } from 'react-i18next'
 import { TFunction } from 'i18next'
+import { CheckBox } from 'grommet/es6/components/CheckBox'
+import { FormField } from 'grommet/es6/components/FormField'
+import { useDispatch, useSelector } from 'react-redux'
+import { settingsActions } from 'app/state/settings/slice'
+import { selectUpdateGateCheck } from 'app/state/settings/slice/selectors'
 
 const SpinKeyFrames = keyframes`
   0% {
@@ -57,7 +62,7 @@ const getUpdateStatusMap: (t: TFunction) => {
     ),
   },
   [UpdateAvailability.UNKNOWN]: {
-    title: t('mobileUpdate.unknownTitle', 'Unknown error'),
+    title: t('mobileUpdate.unknownTitle', 'Unable to check for updates'),
     desc: t(
       'mobileUpdate.unknownOrErrorDescription',
       'Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the "{{retryButtonLabel}}" button.',
@@ -76,6 +81,8 @@ const getUpdateStatusMap: (t: TFunction) => {
 
 export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const updateGateCheck = useSelector(selectUpdateGateCheck)
   const isMobile = useContext(ResponsiveContext) === 'small'
   const {
     requiresUpdateState: { updateAvailability },
@@ -83,13 +90,21 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
     skipUpdate,
   } = useContext(IonicContext)
 
-  if (updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE) return children
+  if (
+    (updateGateCheck === 'off' && [UpdateAvailability.UNKNOWN].includes(updateAvailability)) ||
+    updateAvailability === UpdateAvailability.UPDATE_NOT_AVAILABLE
+  )
+    return children
 
   const handleNavigateToAppStore = () => {
     navigateToAppStore()
   }
 
   const updateStatusMap = getUpdateStatusMap(t)
+
+  const handleUpdateCheckChange = (newValue: 'on' | 'off') => {
+    dispatch(settingsActions.changeUpdateGateCheck(newValue))
+  }
 
   return (
     <Box direction="column" background="brand-blue" fill pad="large" style={{ minHeight: '100dvh' }}>
@@ -116,8 +131,8 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
             <Paragraph
               size="medium"
               color="brand-light-blue"
-              alignSelf={isMobile ? 'start' : 'center'}
-              textAlign={isMobile ? 'start' : 'center'}
+              alignSelf="center"
+              textAlign="center"
               margin={{ bottom: 'small', top: 'none' }}
             >
               <Text weight="bolder">{updateStatusMap[updateAvailability]?.title}</Text>
@@ -125,12 +140,34 @@ export const UpdateGate: FC<PropsWithChildren> = ({ children }) => {
             <Paragraph
               size="small"
               color="brand-light-blue"
-              alignSelf={isMobile ? 'start' : 'center'}
-              textAlign={isMobile ? 'start' : 'center'}
+              alignSelf="center"
+              textAlign="center"
               margin="none"
             >
               {updateStatusMap[updateAvailability]?.desc}
             </Paragraph>
+            {[UpdateAvailability.UNKNOWN].includes(updateAvailability) && (
+              <Box margin={{ top: 'medium' }}>
+                <FormField
+                  name="disableUpdateGateCheck"
+                  contentProps={{
+                    border: false,
+                    pad: 'none',
+                  }}
+                  margin={{ top: 'xsmall' }}
+                >
+                  <CheckBox
+                    name="disableUpdateGateCheck"
+                    label={
+                      <Paragraph size="small" fill>
+                        {t('mobileUpdate.disableUpdateGateCheck', 'Don’t remind me')}
+                      </Paragraph>
+                    }
+                    onChange={event => handleUpdateCheckChange(event.target.checked ? 'off' : 'on')}
+                  ></CheckBox>
+                </FormField>
+              </Box>
+            )}
           </Box>
           <Box align="center" justify="end" flex="shrink">
             {updateAvailability === UpdateAvailability.UPDATE_AVAILABLE && (
