@@ -274,6 +274,7 @@ export async function decryptWithPasswordV0(
     evmAccounts: evmAccounts,
     settings: {
       screenPrivacy: 'on',
+      updateGateCheck: 'on',
     },
     network: initialNetworkState,
     theme: {
