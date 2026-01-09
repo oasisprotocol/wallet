@@ -1206,15 +1206,15 @@
   resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-8.0.0.tgz#07ad5a765d2aa9a201a7472f6fd5cb44b25d25a5"
   integrity sha512-aIj3bc7z8lfPgOen8HlrBrkfnxpFnh21OCx6jCUx4Mvv+B6eEkUQ49b32DOddgVfr+igRHLX2SYi7duqIsNDXg==
 
-"@capawesome/capacitor-android-edge-to-edge-support@7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-android-edge-to-edge-support/-/capacitor-android-edge-to-edge-support-7.2.3.tgz#21130706ab310e2c18247fca307100c986c9bac7"
-  integrity sha512-WtwXeU5Clg13t3SO6JvtIfJlpO+E48tHC+vNmC519zcS6GV9URl705UOvwOOvEyh6GFxAi2dHi8lj8iqIOYCdA==
+"@capawesome/capacitor-android-edge-to-edge-support@^8.0.0":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-android-edge-to-edge-support/-/capacitor-android-edge-to-edge-support-8.0.2.tgz#14d8241bf9d9f8b66909320fa951605de77d5fc1"
+  integrity sha512-3ntgO/ILqsm81KW7EBiUpC6RnEPjYsTBliwJhwl9B+VAsIa42STziqX6Q8qS8ZBS66ikWOwMucCSbvPMdP1p8Q==
 
-"@capawesome/capacitor-app-update@^7.0.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-7.2.0.tgz#51a70a405d73c62e3f670db22e6fa17c4aebc00c"
-  integrity sha512-fwPxR9tV5qecn3FSgwS5wBwlHDV9JND5dnY1iqIYnqRG2s/Oq0h32u4hV6+/zpDARJFMZycb3pddEfwLwhglEg==
+"@capawesome/capacitor-app-update@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-8.0.1.tgz#52ae66bc35db8abc9e5167b522a543eafaddba5f"
+  integrity sha512-NE7J2igAUuXdB7kCdfm4SnCae58PmesITBYXF152NjPItBefznPVUu09p+xg4+rJ2JmKCJa0fBGi/YGB8xvwUg==
 
 "@emotion/is-prop-valid@^1.1.0":
   version "1.2.0"
