@@ -51,6 +51,7 @@ export const whitelistTabSyncActions: Record<AllActions, boolean> = {
   [rootSlices.evmAccounts.actions.add.type]: true,
   [rootSlices.evmAccounts.actions.delete.type]: true,
   [rootSlices.settings.actions.changeScreenPrivacy.type]: true,
+  [rootSlices.settings.actions.changeUpdateGateCheck.type]: true,
   [rootSlices.theme.actions.changeTheme.type]: true,
   [rootSlices.wallet.actions.walletOpened.type]: true,
   [rootSlices.wallet.actions.updateBalance.type]: true,

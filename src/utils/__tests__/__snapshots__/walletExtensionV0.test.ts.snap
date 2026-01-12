@@ -36,6 +36,7 @@ exports[`decryptWithPasswordV0 1`] = `
     },
     "settings": {
       "screenPrivacy": "on",
+      "updateGateCheck": "on",
     },
     "theme": {
       "selected": "light",

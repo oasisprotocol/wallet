@@ -3,8 +3,9 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { Box } from 'grommet/es6/components/Box'
 import { ThemeSelect } from 'app/components/ThemeSwitcher'
 import { LanguageSelect } from 'app/components/LanguageSelect'
-import { ScreenPrivacySelect } from 'app/components/ScreenPrivacySelect'
+import { MobileScreenPrivacySelect } from 'app/components/MobileScreenPrivacySelect'
 import { Footer } from 'app/components/Footer'
+import { MobileUpdateGateSelect } from 'app/components/MobileUpdateGateSelect'
 
 export const Settings = () => {
   const responsiveContext = useContext(ResponsiveContext)
@@ -15,7 +16,8 @@ export const Settings = () => {
       <Box>
         <LanguageSelect />
         <ThemeSelect />
-        <ScreenPrivacySelect />
+        <MobileScreenPrivacySelect />
+        <MobileUpdateGateSelect />
       </Box>
       {isMobileOrTablet && <Footer />}
     </Box>

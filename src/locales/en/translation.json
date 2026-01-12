@@ -274,11 +274,12 @@
     "title": "Important Wallet Update"
   },
   "mobileUpdate": {
+    "disableUpdateGateCheck": "Don’t remind me",
     "errorTitle": "Unexpected error",
     "later": "Later",
     "retry": "Retry",
     "unknownOrErrorDescription": "Apologies for the inconvenience, an unexpected error has transpired. Please verify your internet connection and retry by clicking on the \"{{retryButtonLabel}}\" button.",
-    "unknownTitle": "Unknown error",
+    "unknownTitle": "Unable to check for updates",
     "updateAvailableDescription": "A new update is available for your ROSE Wallet. We recommend updating to the latest version for bug fixes, enhanced security and new features.",
     "updateAvailableTitle": "Update pending...",
     "updateInProgressDescription": "Your ROSE Wallet is currently undergoing an update. Please check back at later time. Alternatively, you may choose to retry by clicking on the \"{{retryButtonLabel}}\" button.",
@@ -449,6 +450,11 @@
     "on": "On",
     "title": "Screen Privacy",
     "tooltip": "Prevent sensitive information from being visible in app switchers and when leaving an app."
+  },
+  "updateGateCheck": {
+    "off": "Off",
+    "on": "On",
+    "title": "Show Update Errors"
   },
   "theme": {
     "darkMode": "Dark mode",
