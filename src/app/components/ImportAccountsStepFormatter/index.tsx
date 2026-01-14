@@ -15,7 +15,6 @@ export const ImportAccountsStepFormatter = memo((props: Props) => {
     [Step.AccessingLedger]: t('ledger.steps.accessingLedger', 'Connecting with Ledger device'),
     [Step.LoadingAccounts]: t('ledger.steps.loadingAccounts', 'Loading account details'),
     [Step.LoadingBalances]: t('ledger.steps.loadingBalances', 'Loading balance details'),
-    [Step.LoadingBleDevices]: t('ledger.steps.loadingBluetoothDevices', 'Loading bluetooth devices'),
   }
 
   const message = stepMap[step]

@@ -31,7 +31,7 @@ describe('Ledger Library', () => {
       Object.defineProperty(window.navigator, 'bluetooth', {
         writable: true,
         value: {
-          requestLEScan: jest.fn(),
+          requestDevice: jest.fn(),
         },
       })
 

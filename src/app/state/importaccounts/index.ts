@@ -2,7 +2,6 @@ import { PayloadAction } from '@reduxjs/toolkit'
 import { ErrorPayload } from 'types/errors'
 import { createSlice } from 'utils/@reduxjs/toolkit'
 import { ImportAccountsListAccount, ImportAccountsState, ImportAccountsStep } from './types'
-import { ScanResult } from '@capacitor-community/bluetooth-le'
 import { LedgerWalletType } from '../wallet/types'
 
 export const initialState: ImportAccountsState = {
@@ -10,8 +9,6 @@ export const initialState: ImportAccountsState = {
   showAccountsSelectionModal: false,
   accountsSelectionPageNumber: 0,
   step: ImportAccountsStep.Idle,
-  bleDevices: [],
-  showBleLedgerDevicesModal: false,
 }
 
 export const importAccountsSlice = createSlice({
@@ -23,15 +20,6 @@ export const importAccountsSlice = createSlice({
       state.error = undefined
       state.step = ImportAccountsStep.Idle
       state.showAccountsSelectionModal = false
-      state.bleDevices = []
-      state.showBleLedgerDevicesModal = false
-    },
-    enumerateDevicesFromBleLedger(state) {
-      state.bleDevices = []
-      state.step = ImportAccountsStep.Idle
-      state.showBleLedgerDevicesModal = true
-      state.bleDevices = []
-      state.selectedBleDevice = undefined
     },
     enumerateAccountsFromLedger(state, _action: PayloadAction<LedgerWalletType>) {
       state.accounts = []
@@ -75,12 +63,6 @@ export const importAccountsSlice = createSlice({
     operationFailed(state, action: PayloadAction<ErrorPayload>) {
       state.error = action.payload
       state.step = ImportAccountsStep.Idle
-    },
-    setBleDevices(state, { payload }: PayloadAction<ScanResult[]>) {
-      state.bleDevices = payload
-    },
-    setSelectedBleDevice(state, { payload }: PayloadAction<ScanResult>) {
-      state.selectedBleDevice = payload
     },
   },
 })

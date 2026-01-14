@@ -12,7 +12,6 @@ import { OasisTransaction } from 'app/lib/transaction'
 import { WalletType } from 'app/state/wallet/types'
 import delayP from '@redux-saga/delay-p'
 import { getAccountBalanceWithFallback } from '../../lib/getAccountBalanceWithFallback'
-import { ScanResult } from '@capacitor-community/bluetooth-le'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 describe('importAccounts Sagas', () => {
@@ -50,28 +49,36 @@ describe('importAccounts Sagas', () => {
         .silentRun(50)
     })
 
-    it('should list ble devices', async () => {
-      const bleDevices: ScanResult[] = []
-      for (let i = 0; i < 3; i++) {
-        bleDevices.push({
-          device: {
-            deviceId: `${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}:${i}${i}`,
-            name: `Nano X ABC${i}`,
-          },
-          localName: `Nano X ABC${i}`,
-          rssi: -50,
-          txPower: 100,
-        })
+    it('should enumerate accounts from ble ledger', async () => {
+      const validAccount = {
+        publicKey: await addressToPublicKey('oasis1qz0k5q8vjqvu4s4nwxyj406ylnflkc4vrcjghuwk'),
+        path: [44, 474, 0, 0, 0],
+        pathDisplay: `m/44'/474'/0'/0'/0'`,
       }
 
       return expectSaga(importAccountsSaga)
         .withState({})
         .provide([
           [matchers.call.fn(BleTransport.isSupported), true],
-          [matchers.call.fn(BleTransport.list), bleDevices],
+          [
+            matchers.call.fn(BleTransport.create),
+            {
+              close: () => {},
+            },
+          ],
+          [matchers.call.fn(Ledger.getOasisApp), undefined],
+          [matchers.call.fn(Ledger.deriveAccountUsingOasisApp), validAccount],
+          [matchers.call.fn(getAccountBalanceWithFallback), {}],
         ])
-        .dispatch(importAccountsActions.enumerateDevicesFromBleLedger)
-        .put.like({ action: { payload: bleDevices } })
+        .dispatch(importAccountsActions.enumerateAccountsFromLedger(WalletType.BleLedger))
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.accountGenerated.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
+        .put.actionType(importAccountsActions.updateAccountBalance.type)
         .silentRun(50)
     })
 
