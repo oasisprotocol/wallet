@@ -21,7 +21,8 @@ export async function canAccessNavigatorUsb(): Promise<boolean> {
 
 export async function canAccessBle(): Promise<boolean> {
   const hasBLE = await BleTransport.isEnabled().catch(() => false)
-  // Scan depends on requestDevice method, which is not available on the web(feature flag)
+  // Depends on requestDevice method, which is sometimes available on the web (sometimes requires feature flag)
+  // chrome://flags/#enable-web-bluetooth
   const hasRequestDevice = runtimeIs === 'mobile-app' || !!navigator?.bluetooth?.requestDevice
   return hasBLE && hasRequestDevice
 }

@@ -1907,10 +1907,10 @@
   resolved "https://registry.yarnpkg.com/@oasisprotocol/deoxysii/-/deoxysii-0.0.6.tgz#c99d5566930653e903ab96737329acfa8402ed37"
   integrity sha512-TI51bIpChfsla9aRbjip6zvTbz6rpsqKgM7MqJvSfeFF6G5xLXQcbSC9u/1hOnOOazd7HaqA9NvaXQdeKCb3yw==
 
-"@oasisprotocol/ionic-ledger-hw-transport-ble@7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@oasisprotocol/ionic-ledger-hw-transport-ble/-/ionic-ledger-hw-transport-ble-7.2.0.tgz#938c463dc68e0926a11d07886315a56b324083a7"
-  integrity sha512-F/DYba8wR1fJBUmWf0l0wDKNxqdzwMwmcFAnrdv2VJMFfzsaQEsXRAEv6AMAZOyF2eiA2i1RM4F5xRZIveZ/xQ==
+"@oasisprotocol/ionic-ledger-hw-transport-ble@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@oasisprotocol/ionic-ledger-hw-transport-ble/-/ionic-ledger-hw-transport-ble-7.3.0.tgz#23a65ddc8f317294fea94262c33e4b77e00c8df8"
+  integrity sha512-eubhfrlIUAhyjkQW+gD+PzsaUy4y4YFIoLWEwMWMyYPrUIXAKbFlVmGjHLNXmdeVTViEIdBZoyiFdmzGS2OVIA==
   dependencies:
     "@capacitor-community/bluetooth-le" "^7.0.0"
     "@ledgerhq/hw-transport" "^6.28.8"

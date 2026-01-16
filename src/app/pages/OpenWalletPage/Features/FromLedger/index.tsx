@@ -24,8 +24,7 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
   useEffect(() => {
     async function getLedgerSupport() {
       const usbLedgerSupported = await canAccessNavigatorUsb()
-
-      const bleLedgerSupported = runtimeIs === 'mobile-app' && (await canAccessBle())
+      const bleLedgerSupported = await canAccessBle()
 
       setSupportsUsbLedger(usbLedgerSupported)
       setSupportsBleLedger(bleLedgerSupported)
