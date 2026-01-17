@@ -66,8 +66,6 @@ export const privateKeyUnlockedState = {
     showAccountsSelectionModal: false,
     accountsSelectionPageNumber: 0,
     step: 'idle' satisfies `${ImportAccountsStep}` as ImportAccountsStep,
-    bleDevices: [],
-    showBleLedgerDevicesModal: false,
   },
   network: {
     ticker: 'ROSE',
@@ -267,8 +265,6 @@ export const walletExtensionV0UnlockedState = {
     showAccountsSelectionModal: false,
     accountsSelectionPageNumber: 0,
     step: 'idle' satisfies `${ImportAccountsStep}` as ImportAccountsStep,
-    bleDevices: [],
-    showBleLedgerDevicesModal: false,
   },
   network: {
     chainContext: '',

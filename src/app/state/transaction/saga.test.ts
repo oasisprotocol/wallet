@@ -101,33 +101,17 @@ describe('Transaction Sagas', () => {
         publicKey: (await addressToPublicKey(matchingAddress)).toString(),
       } as Partial<Wallet>
 
-      const selectedBleDevice = {
-        device: {
-          deviceId: 'xx:xx:xx:xx:xx:xx',
-          name: 'Nano X ABCD',
-        },
-        localName: 'Nano X ABCD',
-        rssi: -50,
-        txPower: 100,
-      }
-
       return expectSaga(
         doTransaction,
         actions.sendTransaction({ type: 'transfer', amount: '10000000000', to: validAddress }),
       )
-        .withState(
-          makeState(wallet, {
-            importAccounts: {
-              selectedBleDevice,
-            },
-          }),
-        )
+        .withState(makeState(wallet))
         .provide(providers)
         .provide([
           ...sendProviders,
           [matchers.call.fn(BleTransport.isSupported), true],
           [
-            matchers.call.fn(BleTransport.open),
+            matchers.call.fn(BleTransport.create),
             {
               close: () => {},
             },

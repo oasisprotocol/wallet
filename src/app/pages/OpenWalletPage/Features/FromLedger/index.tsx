@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { runtimeIs } from 'app/lib/runtimeIs'
 import { runSaga } from 'redux-saga'
 import { getUSBTransport } from '../../../../state/importaccounts/saga'
+import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 
 type SelectOpenMethodProps = {
   openLedgerAccessPopup?: () => void
@@ -31,6 +32,11 @@ export function FromLedger({ openLedgerAccessPopup }: SelectOpenMethodProps) {
     }
 
     getLedgerSupport()
+
+    runtimeIs === 'mobile-app' && BleTransport.startEnabledNotifications(() => getLedgerSupport())
+    return () => {
+      runtimeIs === 'mobile-app' && BleTransport.stopEnabledNotifications()
+    }
   }, [])
 
   useEffect(() => {
