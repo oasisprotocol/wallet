@@ -5,7 +5,7 @@ import { LedgerWalletType, Wallet, WalletType } from 'app/state/wallet/types'
 import { WalletError, WalletErrors } from 'types/errors'
 import { hex2uint, publicKeyToAddress } from './helpers'
 import type Transport from '@ledgerhq/hw-transport'
-import TransportWebUSB from '@ledgerhq/hw-transport-webusb'
+import TransportWebUSB from '@ledgerhq/hw-transport-web-ble'
 import BleTransport from '@oasisprotocol/ionic-ledger-hw-transport-ble/lib'
 import { runtimeIs } from 'app/lib/runtimeIs'
 
