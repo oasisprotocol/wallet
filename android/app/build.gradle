@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-def versionCodeOverride = project.hasProperty('versionCodeOverride') ? project.property('versionCodeOverride').toInteger() : 2
+def versionCodeOverride = project.hasProperty('versionCodeOverride') ? project.property('versionCodeOverride').toInteger() : 204004226
 
 android {
     namespace "net.oasis.wallet"
@@ -10,7 +10,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode versionCodeOverride
-        versionName "2.4.0"
+        versionName "2.5.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

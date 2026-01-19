@@ -12,6 +12,91 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.5.0 (2026-01-19)
+
+### Features
+
+- Add "Verify address on Ledger" button in settings
+  ([#2214](https://github.com/oasisprotocol/wallet/issues/2214))
+
+- Allow to change secure flag in app settings on native mobile envs
+  ([#2232](https://github.com/oasisprotocol/wallet/issues/2232))
+
+- Enable using bluetooth to connect to Ledger devices in Chrome browser on
+  Windows, macOS, and Android
+  ([#2257](https://github.com/oasisprotocol/wallet/issues/2257))
+
+- Add Portuguese translation (AI generated)
+  ([#2258](https://github.com/oasisprotocol/wallet/issues/2258))
+
+### Bug Fixes and Improvements
+
+- Ignore UpdateGate in mobile app until we publish on Google Play
+  ([#2199](https://github.com/oasisprotocol/wallet/issues/2199))
+
+- Display unhandled transaction methods as generic not unrecognized
+  ([#2215](https://github.com/oasisprotocol/wallet/issues/2215))
+
+- Prevent throwing unknown error in transactions list
+  ([#2216](https://github.com/oasisprotocol/wallet/issues/2216))
+
+- Adjust margins for mobile edge to edge layout
+  ([#2223](https://github.com/oasisprotocol/wallet/issues/2223))
+
+- Adjust My accounts and Contacts scrollable area heights on mobile
+  ([#2230](https://github.com/oasisprotocol/wallet/issues/2230))
+
+- Keep native mobile status bar in sync with app theme
+  ([#2239](https://github.com/oasisprotocol/wallet/issues/2239))
+
+- Adjust enter your mnemonic view to native mobile env
+  ([#2241](https://github.com/oasisprotocol/wallet/issues/2241))
+
+- Hide experimental build banner in mobile app
+  ([#2244](https://github.com/oasisprotocol/wallet/issues/2244))
+
+- Allow user to permanently suppress update error notifications on mobile
+  ([#2248](https://github.com/oasisprotocol/wallet/issues/2248))
+
+- Fix reconnecting to bluetooth by upgrading ionic-ledger-hw-transport-ble
+  ([#2251](https://github.com/oasisprotocol/wallet/issues/2251))
+
+- Add mobile build files to towncrier ignore list
+  ([#2260](https://github.com/oasisprotocol/wallet/issues/2260))
+
+### Internal Changes
+
+- Update cached validators
+  ([#](https://github.com/oasisprotocol/wallet/issues/))
+
+- Trigger workflows for stable/* branches
+  ([#2207](https://github.com/oasisprotocol/wallet/issues/2207))
+
+- Update dependencies
+  ([#2210](https://github.com/oasisprotocol/wallet/issues/2210))
+
+- Generate signed commits in cron CI jobs
+  ([#2219](https://github.com/oasisprotocol/wallet/issues/2219))
+
+- Upgrade Capacitor to v7
+  ([#2220](https://github.com/oasisprotocol/wallet/issues/2220))
+
+- Update mobile package name
+  ([#2224](https://github.com/oasisprotocol/wallet/issues/2224))
+
+- Keep mobile versions in sync
+  ([#2228](https://github.com/oasisprotocol/wallet/issues/2228))
+
+- Update internal mobile build versions
+  ([#2229](https://github.com/oasisprotocol/wallet/issues/2229),
+   [#2231](https://github.com/oasisprotocol/wallet/issues/2231))
+
+- Add configurable Android versionCode with CI support
+  ([#2233](https://github.com/oasisprotocol/wallet/issues/2233))
+
+- Generate Play Store screenshots
+  ([#2256](https://github.com/oasisprotocol/wallet/issues/2256))
+
 ## 2.4.0 (2025-08-25)
 
 ### Removals and Breaking Changes

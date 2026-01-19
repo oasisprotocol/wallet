@@ -4,7 +4,7 @@
   "short_name": "__MSG_appName__",
   "description": "__MSG_appDescription__",
   "manifest_version": 3,
-  "version": "2.4.0",
+  "version": "2.5.0",
   "default_locale": "en",
   "icons": {
     "16": "./Icon Blue 512.png",
@@ -29,14 +29,12 @@
     "default_popup": "../extension/src/popup.html"
   },
   "permissions": ["storage", "notifications"],
-  "content_security_policy": {
-    "extension_pages": "{{{ EXTENSION_CSP }}}"
-  },
-  "background": {
-    "service_worker": "service-worker.js"
-  },
-  "web_accessible_resources": [{
-    "matches": [],
-    "resources": ["../extension/src/ExtLedgerAccessPopup/index.html"]
-  }]
+  "content_security_policy": { "extension_pages": "{{{ EXTENSION_CSP }}}" },
+  "background": { "service_worker": "service-worker.js" },
+  "web_accessible_resources": [
+    {
+      "matches": [],
+      "resources": ["../extension/src/ExtLedgerAccessPopup/index.html"]
+    }
+  ]
 }
