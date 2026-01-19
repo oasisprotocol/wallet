@@ -16,20 +16,23 @@ The format is inspired by [Keep a Changelog].
 
 ### Features
 
-- Add "Verify address on Ledger" button in settings
-  ([#2214](https://github.com/oasisprotocol/wallet/issues/2214))
-
-- Allow to change secure flag in app settings on native mobile envs
-  ([#2232](https://github.com/oasisprotocol/wallet/issues/2232))
-
 - Enable using bluetooth to connect to Ledger devices in Chrome browser on
   Windows, macOS, and Android
   ([#2257](https://github.com/oasisprotocol/wallet/issues/2257))
+
+- Add "Verify address on Ledger" button in settings
+  ([#2214](https://github.com/oasisprotocol/wallet/issues/2214))
+
+- Option to change screen privacy setting in mobile app
+  ([#2232](https://github.com/oasisprotocol/wallet/issues/2232))
 
 - Add Portuguese translation (AI generated)
   ([#2258](https://github.com/oasisprotocol/wallet/issues/2258))
 
 ### Bug Fixes and Improvements
+
+- Fix reconnecting to bluetooth by upgrading ionic-ledger-hw-transport-ble
+  ([#2251](https://github.com/oasisprotocol/wallet/issues/2251))
 
 - Ignore UpdateGate in mobile app until we publish on Google Play
   ([#2199](https://github.com/oasisprotocol/wallet/issues/2199))
@@ -58,16 +61,10 @@ The format is inspired by [Keep a Changelog].
 - Allow user to permanently suppress update error notifications on mobile
   ([#2248](https://github.com/oasisprotocol/wallet/issues/2248))
 
-- Fix reconnecting to bluetooth by upgrading ionic-ledger-hw-transport-ble
-  ([#2251](https://github.com/oasisprotocol/wallet/issues/2251))
-
-- Add mobile build files to towncrier ignore list
-  ([#2260](https://github.com/oasisprotocol/wallet/issues/2260))
-
 ### Internal Changes
 
 - Update cached validators
-  ([#](https://github.com/oasisprotocol/wallet/issues/))
+  ([#2163](https://github.com/oasisprotocol/wallet/issues/2163))
 
 - Trigger workflows for stable/* branches
   ([#2207](https://github.com/oasisprotocol/wallet/issues/2207))
@@ -96,6 +93,9 @@ The format is inspired by [Keep a Changelog].
 
 - Generate Play Store screenshots
   ([#2256](https://github.com/oasisprotocol/wallet/issues/2256))
+
+- Add mobile build files to towncrier ignore list
+  ([#2260](https://github.com/oasisprotocol/wallet/issues/2260))
 
 ## 2.4.0 (2025-08-25)
 
