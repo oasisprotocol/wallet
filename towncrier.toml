@@ -10,6 +10,8 @@ check_ignore_files = [
   # File where we store app version.
   "package.json",
   "public/manifest.json",
+  "ios/App/App.xcodeproj/project.pbxproj",
+  "android/app/build.gradle",
 ]
 issue_format = "[#{issue}](https://github.com/oasisprotocol/wallet/issues/{issue})"
 start_string = "<!-- TOWNCRIER -->\n"
