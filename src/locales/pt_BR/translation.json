@@ -1,0 +1,581 @@
+{
+  "account": {
+    "addEscrow": {
+      "availableAmount": "Disponível:",
+      "confirmDelegatingToInactive": {
+        "description": "O status deste validador é {{validatorStatus}}. Sua delegação pode não gerar recompensas.",
+        "title": "Tem certeza de que deseja continuar?"
+      },
+      "confirmDelegatingToTop": {
+        "acknowledge": "Delegar mesmo assim",
+        "description": "Este validador está entre os 20 principais por stake. Por favor, considere delegar para um validador menor para aumentar a segurança e descentralização da rede."
+      },
+      "delegate": "Delegar"
+    },
+    "addressCopied": "Endereço copiado.",
+    "emptyActiveDelegationsList": "Atualmente não há delegações ativas para esta conta.",
+    "emptyDebondingDelegationsList": "Não há delegações em desvinculação para esta conta.",
+    "loading": "Carregando conta",
+    "loadingError": "Não foi possível carregar a conta.",
+    "reclaimEscrow": {
+      "convertedToShares": "Número correspondente de ações: {{shares}}",
+      "reclaim": "Reivindicar",
+      "reclaimAll": "Reivindicar tudo",
+      "reclaimableAmount": "Disponível:"
+    },
+    "sendTransaction": {
+      "confirmSendingToValidator": {
+        "description": "Este é um endereço de validador. Transferências para este endereço não fazem stake dos seus fundos com o validador.",
+        "title": "Tem certeza de que deseja continuar?"
+      },
+      "enterAddress": "Digite um endereço",
+      "enterAmount": "Digite um valor",
+      "recipient": "Destinatário",
+      "send": "Enviar",
+      "success": "Transação enviada com sucesso. A transação pode levar até um minuto para aparecer na sua conta."
+    },
+    "subnavigation": {
+      "activeDelegations": "Em stake",
+      "debondingDelegations": "Desvinculando",
+      "mobileActiveDelegations": "Em stake",
+      "mobileDebondingDelegations": "Desvinculando"
+    },
+    "summary": {
+      "activity": "Atividade",
+      "balance": {
+        "available": "Disponível",
+        "debonding": "Desvinculando",
+        "delegations": "Em stake",
+        "total": "Total"
+      },
+      "noTransactionFound": "Nenhuma transação encontrada.",
+      "noTransactionFoundOasisscanV2": "Nenhuma transação desde 29 de novembro de 2023.",
+      "noWalletIsOpen": "Para enviar, receber, fazer stake e trocar tokens {{ticker}}, <HomeLink>abra sua carteira</HomeLink>.",
+      "notYourAccount": "Esta não é sua conta.",
+      "pendingTransactions": "Transações pendentes",
+      "someTxsInPendingState": "Algumas transações estão atualmente em estado pendente.",
+      "viewAccountTxs": "Ver transações da conta"
+    },
+    "transaction": {
+      "addEscrow": {
+        "received": "Recebeu delegação <Amount/> em escrow",
+        "sent": "Delegou <Amount/> para validador"
+      },
+      "consensusDeposit": {
+        "received": "Recebeu depósito <Amount/> no ParaTime {{runtimeName}}",
+        "sent": "Depositou <Amount/> no ParaTime {{runtimeName}}"
+      },
+      "consensusWithdraw": {
+        "received": "Retirou <Amount/> do ParaTime {{runtimeName}}",
+        "sent": "Recebeu <Amount/> da retirada do ParaTime {{runtimeName}}"
+      },
+      "explorerLink": "Ver registros de transação através do explorador",
+      "failed": "Falhou",
+      "genericTransaction": {
+        "destination": "Outro endereço",
+        "header": "Método '{{method}}'"
+      },
+      "loadingError": "Não foi possível carregar as transações.",
+      "pending": "Pendente",
+      "reclaimEscrow": {
+        "received": "<Amount/> reivindicado pelo delegador",
+        "sent": "Reivindicou <Amount/> do validador"
+      },
+      "stakingAllow": {
+        "received": "Recebeu permissão <Amount/>",
+        "sent": "Alterou permissão <Amount />",
+        "sentToParaTime": "Alterou permissão <Amount /> para o ParaTime {{runtimeName}}"
+      },
+      "stakingBurn": {
+        "sent": "Queimou <Amount/>"
+      },
+      "successful": "Bem-sucedida",
+      "transfer": {
+        "received": "Recebeu <Amount/>",
+        "sent": {
+          "header": "Enviou <Amount/>"
+        }
+      },
+      "unrecognizedTransaction": {
+        "destination": "Outro endereço",
+        "header": "Transação não reconhecida, método '{{method}}'"
+      }
+    },
+    "validator": {
+      "loadingError": "Não foi possível carregar os validadores.",
+      "showingStale": "Mostrando lista de validadores a partir de {{staleTimestamp}}."
+    }
+  },
+  "appTitle": "ROSE Wallet",
+  "backends": {
+    "nexus": "Nexus API",
+    "oasisscanV2": "Oasis Scan API v2"
+  },
+  "banner": {
+    "buildPreview": "Observe que esta é uma versão experimental do ROSE Wallet e seus segredos não estão seguros. USE APENAS PARA TESTES.",
+    "buildStaging": "Observe que esta é a implantação de staging do ROSE Wallet. USE APENAS PARA TESTES."
+  },
+  "common": {
+    "amount": "Valor",
+    "block": "Bloco",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delegator": "Delegador",
+    "from": "De",
+    "hash": "Hash da Tx",
+    "postfixAmountInBillions": "B",
+    "round": "Rodada",
+    "time": "Hora",
+    "to": "Para",
+    "unavailable": "Indisponível",
+    "validator": "Validador",
+    "validators": "Validadores"
+  },
+  "createWallet": {
+    "confirmSaved": "Armazenei meu mnemônico com segurança",
+    "doNotShare": "Nunca compartilhe seu mnemônico, qualquer pessoa com seu mnemônico pode acessar sua carteira e seus tokens.",
+    "instruction": "Salve seu mnemônico <strong>na ordem correta</strong> em um local seguro, você precisará dele para abrir sua carteira.",
+    "mnemonicMismatch": "O mnemônico digitado não corresponde.",
+    "newMnemonic": "Gerar um novo mnemônico",
+    "thisIsYourPhrase": "Este é seu mnemônico"
+  },
+  "delegations": {
+    "debondingTimeEnd": "Fim da desvinculação",
+    "delegatedAmount": "Valor delegado",
+    "loadingError": "Não foi possível carregar as delegações.",
+    "reclaimedAmount": "Valor a reivindicar"
+  },
+  "deleteForm": {
+    "confirm": "Sim, excluir",
+    "confirmationKeyword": "excluir",
+    "hint": "Digite <strong>{{confirmationKeyword}}</strong>"
+  },
+  "errors": {
+    "LedgerDerivedDifferentAccount": "Esta conta não pertence ao Ledger atualmente conectado.",
+    "LedgerLikelyFaultyFirmware": "A conexão com o Ledger expirou. Isso provavelmente se deve a um firmware com falha do Ledger: Nano X 2.5.0, Nano S Plus 1.4.0, Stax 1.8.0, Flex 1.4.0. Atualize para a próxima versão do firmware e tente novamente.",
+    "LedgerOasisAppIsNotOpen": "O aplicativo Oasis no Ledger está fechado.",
+    "bluetoothTransportNotSupported": "O Bluetooth pode estar desligado ou sua plataforma atual não suporta capacidade Bluetooth.",
+    "cannotSendToSelf": "Não é possível enviar para você mesmo",
+    "disconnectedError": "Conexão perdida.",
+    "duplicateTransaction": "Transação duplicada",
+    "indexerAPIError": "{{indexerName}} parece estar fora do ar, algumas informações podem estar faltando ou desatualizadas. Por favor, volte mais tarde.",
+    "insufficientBalance": "Saldo insuficiente",
+    "invalidAddress": "Endereço inválido",
+    "invalidNonce": "Nonce inválido (número da transação)",
+    "invalidPrivateKey": "Chave privada inválida",
+    "ledgerAppVersionNotSupported": "O aplicativo Oasis no Ledger está fechado ou desatualizado. Certifique-se de que o Ledger está desbloqueado, o aplicativo Oasis está aberto e atualizado.",
+    "ledgerCannotOpenOasisApp": "Não foi possível abrir o aplicativo Oasis no Ledger. Certifique-se de que o Ledger está desbloqueado e o aplicativo Oasis está aberto.",
+    "ledgerNoDeviceSelected": "Nenhum dispositivo Ledger selecionado. Certifique-se de que está conectado, <LedgerHelp>verifique problemas comuns de conexão USB com Ledger</LedgerHelp> e <ChromeHelp>verifique se as permissões do site não bloqueiam dispositivos USB</ChromeHelp>.",
+    "ledgerTransactionRejected": "Transação rejeitada no Ledger.",
+    "noOpenWallet": "Nenhuma carteira aberta",
+    "unknown": "Erro desconhecido: {{message}}",
+    "unknownGrpc": "Erro gRPC desconhecido: {{message}}",
+    "unknownLedgerError": "Erro de Ledger desconhecido: {{message}}",
+    "unknownParaTimeError": "Erro de ParaTime desconhecido: {{message}}",
+    "usbTransportError": "Erro de transporte USB: {{message}}.",
+    "usbTransportNotSupported": "A plataforma atual não suporta capacidade WebUSB. Tente em uma plataforma ou navegador diferente (de preferência Chrome)."
+  },
+  "fatalError": {
+    "checkStatus": "Verificar status da rede",
+    "copied": "Erro copiado para a área de transferência",
+    "copy": "Copiar erro para a área de transferência",
+    "description": "O erro que ocorreu faz com que a carteira pare. <strong>Seus fundos estão seguros.</strong><br/><br/>Por favor, tente atualizar a página e reabrir sua carteira para ver se o problema persiste. Você pode verificar o status atual da rede abaixo.",
+    "heading": "Ocorreu um erro.",
+    "instruction": "Se o problema não for resolvido após atualizar, por favor envie um e-mail para nossa equipe de suporte em <Email/> e anexe o relatório de erro.",
+    "reloadApp": "Recarregar aplicativo"
+  },
+  "footer": {
+    "feedback": "Adoraríamos seu feedback em <EmailLink>wallet@oasisprotocol.org</EmailLink>",
+    "github": "ROSE Wallet é <GithubLink>código aberto</GithubLink> e alimentado por",
+    "poweredBy": {
+      "nexus": "Nexus API & Oasis gRPC",
+      "oasisscanV2": "Oasis Scan API v2 & Oasis gRPC"
+    },
+    "terms": "<TermsLink>Termos e Condições</TermsLink>",
+    "version": "Versão: <ReleaseLink/> (commit: <CommitLink/>) construída em {{buildTime}}"
+  },
+  "home": {
+    "create": {
+      "button": "Criar carteira",
+      "description": "Crie uma carteira totalmente nova para enviar, receber, fazer stake e trocar tokens ROSE.",
+      "header": "Criar nova carteira"
+    },
+    "existing": {
+      "button": "Abrir carteira",
+      "description": "Abra sua carteira existente armazenada no Ledger, importe uma chave privada ou uma frase mnemônica.",
+      "header": "Acessar carteira existente"
+    }
+  },
+  "icons": {
+    "bluetooth": "Bluetooth",
+    "mnemonic": "Mnemônico",
+    "privateKey": "Chave privada",
+    "usb": "USB",
+    "wallet": {
+      "label": "Carteira"
+    }
+  },
+  "infoBox": {
+    "valueCopied": "{{label}} copiado."
+  },
+  "language": "Idioma",
+  "ledger": {
+    "extension": {
+      "closingPopup": "Fechando... Por favor, reabra o aplicativo da carteira",
+      "connect": "Conectar dispositivo Ledger",
+      "failed": "Falha na conexão",
+      "grantAccess": "Conceder acesso ao seu Ledger USB",
+      "succeed": "Dispositivo conectado"
+    },
+    "instructionSteps": {
+      "closeLedgerLive": "Feche o aplicativo Ledger Live no seu computador",
+      "connectBluetoothLedger": "Conecte seu Ledger a este dispositivo via Bluetooth",
+      "connectUsbLedger": "Conecte seu Ledger a este dispositivo via USB",
+      "deviceIsPaired": "Certifique-se de que seu Ledger está emparelhado com este dispositivo",
+      "header": "Passos:",
+      "openOasisApp": "Abra o aplicativo Oasis no seu Ledger"
+    },
+    "steps": {
+      "accessingLedger": "Conectando com dispositivo Ledger",
+      "idle": "Inativo",
+      "loadingAccounts": "Carregando detalhes da conta",
+      "loadingBalances": "Carregando detalhes do saldo",
+      "loadingBluetoothDevices": "Carregando dispositivos bluetooth"
+    },
+    "verifyAddressOnLedger": "Verificar endereço no Ledger"
+  },
+  "menu": {
+    "addAccounts": "Adicionar contas",
+    "closeWallet": "Fechar carteira",
+    "home": "Início",
+    "lockProfile": "Bloquear perfil",
+    "openMenu": "Menu",
+    "paraTimes": "ParaTimes",
+    "stake": "Fazer stake de ROSE",
+    "stake-mobile": "Stake",
+    "unlockProfile": "Desbloquear perfil",
+    "wallet": "Conta"
+  },
+  "migrateV0Extension": {
+    "backupInvalidPrivateKeys": {
+      "confirm": "Armazenei minhas chaves privadas com segurança",
+      "description": "{{count}} de suas chaves privadas têm erros de digitação e não serão armazenadas pela nova extensão da carteira. Por favor, certifique-se de copiá-las e armazená-las em outro lugar antes de prosseguir, para que você possa corrigi-las mais tarde.",
+      "description_one": "1 de suas chaves privadas tem erros de digitação e não será armazenada pela nova extensão da carteira. Por favor, certifique-se de copiá-la e armazená-la em outro lugar antes de prosseguir, para que você possa corrigi-la mais tarde.",
+      "description_plural": "{{count}} de suas chaves privadas têm erros de digitação e não serão armazenadas pela nova extensão da carteira. Por favor, certifique-se de copiá-las e armazená-las em outro lugar antes de prosseguir, para que você possa corrigi-las mais tarde.",
+      "reveal": "Toque para mostrar chave privada inválida"
+    },
+    "backupMnemonic": {
+      "description": "A nova versão da extensão da carteira não armazenará mais seu mnemônico. Esta frase é a única maneira de restaurar sua conta se você perdeu o acesso. Agora você tem uma última chance de fazer backup do seu mnemônico.",
+      "reveal": "Toque para mostrar seu mnemônico"
+    },
+    "finishMigration": "Abrir a nova versão da carteira",
+    "nextStep": "Próximo",
+    "requiredField": "Este campo é obrigatório",
+    "title": "Atualização Importante da Carteira"
+  },
+  "mobileUpdate": {
+    "disableUpdateGateCheck": "Não me lembrar",
+    "errorTitle": "Erro inesperado",
+    "later": "Mais tarde",
+    "retry": "Tentar novamente",
+    "unknownOrErrorDescription": "Desculpe pelo inconveniente, ocorreu um erro inesperado. Por favor, verifique sua conexão com a internet e tente novamente clicando no botão \"{{retryButtonLabel}}\".",
+    "unknownTitle": "Não foi possível verificar atualizações",
+    "updateAvailableDescription": "Uma nova atualização está disponível para seu ROSE Wallet. Recomendamos atualizar para a versão mais recente para correções de bugs, segurança aprimorada e novos recursos.",
+    "updateAvailableTitle": "Atualização pendente...",
+    "updateInProgressDescription": "Seu ROSE Wallet está atualmente passando por uma atualização. Por favor, verifique mais tarde. Alternativamente, você pode optar por tentar novamente clicando no botão \"{{retryButtonLabel}}\".",
+    "updateInProgressTitle": "Atualização em andamento...",
+    "updateNow": "Atualizar agora"
+  },
+  "openWallet": {
+    "bitpie": {
+      "warning": "❗ Usuários da carteira BitPie: Você não pode importar a frase mnemônica diretamente da sua carteira BitPie. <DocsLink>Consulte a documentação para detalhes.</DocsLink>"
+    },
+    "header": "Como você deseja abrir sua carteira?",
+    "importAccounts": {
+      "NoBLEDevicesFound": "Nenhum dispositivo Bluetooth encontrado",
+      "accountCounter": "{{count}} contas selecionadas",
+      "accountCounter_one": "Uma conta selecionada",
+      "accountCounter_plural": "{{count}} contas selecionadas",
+      "accountCounter_zero": "Nenhuma conta selecionada",
+      "bluetoothLedger": "Ledger Bluetooth",
+      "connectDeviceHeader": "Como você deseja conectar seu dispositivo Ledger?",
+      "next": "Próximo",
+      "openWallets": "Abrir",
+      "pageNumber": "Página {{pageNum}} de {{totalPages}}",
+      "prev": "Anterior",
+      "selectDevice": "Selecionar dispositivo",
+      "selectLedgerDevice": "Selecionar dispositivo Ledger",
+      "selectWallets": "Selecionar contas para abrir",
+      "usbLedger": "Ledger USB"
+    },
+    "ledger": {
+      "header": "Abrir do dispositivo Ledger"
+    },
+    "method": {
+      "ledger": "Ledger",
+      "mnemonic": "Mnemônico",
+      "privateKey": "Chave privada"
+    },
+    "mnemonic": {
+      "enterPhraseHere": "Digite seu mnemônico aqui",
+      "error": "Mnemônico inválido. Por favor, certifique-se de inserir as palavras na ordem correta, todas em minúsculas.",
+      "header": "Digite seu mnemônico",
+      "import": "Importar minha carteira",
+      "instruction": "Digite todas as suas palavras mnemônicas abaixo separadas por espaços. A maioria dos mnemônicos é composta de 24 ou 12 palavras."
+    },
+    "privateKey": {
+      "enterPrivateKeyHere": "Digite sua chave privada aqui",
+      "error": "Chave privada inválida",
+      "errorKeyIsInEthFormat": "Esta entrada é destinada para chaves privadas do Oasis Consensus. A chave privada que você digitou parece ser uma chave privada compatível com Ethereum (por exemplo, do MetaMask para Sapphire). Se você quiser usar sua chave privada compatível com Ethereum para mover ROSE do Sapphire para o Consensus, clique em \"{{paratimesMenu}}\", depois em \"{{withdrawButton}}\" e cole lá.",
+      "header": "Digite sua chave privada",
+      "hidePrivateKey": "Ocultar chave privada",
+      "instruction": "Digite sua chave privada no formato Base64.",
+      "showPrivateKey": "Mostrar chave privada"
+    }
+  },
+  "paraTimes": {
+    "amount": {
+      "advanced": "Avançado",
+      "available": "Disponível:",
+      "depositDescription": "Por favor, digite o valor de {{ticker}} para depositar e depois clique em \"{{nextButtonLabel}}\"",
+      "emptyAccount": "A conta está vazia. Não há nada para retirar.",
+      "feeAmountPlaceholder": "Valor da Taxa (nano {{ticker}})",
+      "feeGasPlaceholder": "Taxa de Gas",
+      "max": "MÁX",
+      "tooltip": "O valor máximo pode ser diminuído pela taxa",
+      "withdrawDescription": "Por favor, digite o valor de {{ticker}} para retirar e depois clique em \"{{nextButtonLabel}}\""
+    },
+    "common": {
+      "cipher": "Cipher",
+      "discouragedType": "(experimental)",
+      "emerald": "Emerald",
+      "evmcType": "(EVMc)",
+      "header": "Transferências ParaTime",
+      "sapphire": "Sapphire"
+    },
+    "confirmation": {
+      "confirmDepositDescription": "Por favor, confirme se o valor do depósito e o endereço do destinatário estão corretos e depois clique em \"{{nextButtonLabel}}\".",
+      "confirmDepositToForeignAccountDescription": "O endereço de destino não corresponde a nenhuma das contas na sua carteira! Alguns serviços, como exchanges, podem não suportar depósitos diretos para financiar sua conta. Para melhor compatibilidade, recomendamos fortemente que você primeiro deposite na sua conta ParaTime e depois transfira {{ticker}} para o endereço de destino.",
+      "confirmTransferLabel": "Confirmo que o valor e o endereço estão corretos",
+      "confirmTransferToForeignAccount": "Confirmo que desejo retirar diretamente para uma conta externa",
+      "confirmTransferToValidatorLabel": "Confirmo que desejo transferir {{ticker}} para um endereço de validador",
+      "confirmWithdrawDescription": "Por favor, confirme se o valor da retirada e o endereço do destinatário estão corretos e depois clique em \"{{nextButtonLabel}}\".",
+      "confirmWithdrawToForeignAccountDescription": "O endereço de destino não corresponde a nenhuma das contas na sua carteira! Alguns serviços, como exchanges, podem não suportar retiradas diretas para financiar a conta. Para melhor compatibilidade, recomendamos fortemente que você primeiro retire para sua conta de consenso e depois transfira {{ticker}} para o endereço de destino.",
+      "depositDescription": "Você está prestes a depositar <strong>{{value}} {{ticker}}</strong> para <strong>{{address}}</strong> em <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "depositLabel": "Depositar",
+      "withdrawDescription": "Você está prestes a retirar <strong>{{value}} {{ticker}}</strong> de <strong>{{paraTime}}</strong> {{paratimeType}} para <strong>{{address}}</strong>",
+      "withdrawLabel": "Retirar"
+    },
+    "error": {
+      "depositDescription": "Transação falhou. Não conseguimos completar o depósito de <strong>{{value}} {{ticker}}</strong> para <strong>{{address}}</strong> em <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "withdrawDescription": "Transação falhou. Não conseguimos completar a retirada de <strong>{{value}} {{ticker}}</strong> de <strong>{{paraTime}}</strong> {{paratimeType}} para <strong>{{address}}</strong>"
+    },
+    "footer": {
+      "back": "Voltar",
+      "next": "Próximo",
+      "notice": "* EVMc - compatível com Ethereum Virtual Machine"
+    },
+    "pageInaccessible": {
+      "foreignAccount": "Transferências não estão disponíveis.",
+      "ledgerAccount": "Conta Ledger não é suportada."
+    },
+    "recipient": {
+      "depositDescription": "Por favor, digite o endereço do destinatário em <strong>{{paraTime}}</strong> {{paratimeType}} e depois clique em \"{{nextButtonLabel}}\"",
+      "ethPrivateKeyPlaceholder": "Digite chave privada compatível com Ethereum",
+      "ethPrivateKeySelectInstructions": "Digite uma chave privada ou selecione uma conta ParaTime previamente inserida",
+      "evmcWithdrawDescription": "Por favor, digite a chave privada da conta no ParaTime, o endereço do destinatário no consenso e clique em \"{{nextButtonLabel}}\"",
+      "placeholder": "0x...",
+      "withdrawDescription": "Por favor, digite o endereço do destinatário no consenso e clique em \"{{nextButtonLabel}}\""
+    },
+    "selection": {
+      "cancel": "Cancelar transferência",
+      "depositDescription": "Por favor, selecione para qual ParaTime você deseja depositar seu {{ticker}} e depois clique em \"{{nextButtonLabel}}\".",
+      "evmc": "EVMc",
+      "select": "Selecionar um ParaTime",
+      "withdrawDescription": "Por favor, selecione de qual ParaTime você deseja retirar seu {{ticker}} e depois clique em \"{{nextButtonLabel}}\"."
+    },
+    "summary": {
+      "depositDescription": "Você depositou com sucesso <strong>{{value}} {{ticker}}</strong> para <strong>{{address}}</strong> em <strong>{{paraTime}}</strong> {{paratimeType}}",
+      "navigate": "Navegar para Transferências ParaTime",
+      "withdrawDescription": "Você retirou com sucesso <strong>{{value}} {{ticker}}</strong> de <strong>{{paraTime}}</strong> {{paratimeType}} para <strong>{{address}}</strong>"
+    },
+    "transfers": {
+      "deposit": "Depositar no ParaTime",
+      "depositDisabled": "Você não tem tokens {{ticker}} para transferir",
+      "description": "Clique no botão \"{{depositButtonLabel}}\" para depositar seu {{ticker}} do consenso para um ParaTime de sua escolha ou \"{{withdrawButtonLabel}}\" para retirar seu {{ticker}} de um ParaTime de volta para o consenso.",
+      "withdraw": "Retirar do ParaTime"
+    },
+    "unsupportedFormStep": "Etapa do formulário não suportada",
+    "validation": {
+      "insufficientBalanceToPayFee": "Saldo insuficiente para pagar a taxa",
+      "invalidDecimalValue": "Máximo de {{decimals}} casas decimais é permitido",
+      "invalidEthPrivateKey": "Chave privada compatível com Ethereum é inválida",
+      "invalidEthPrivateKeyLength": "A chave privada deve ter 64 caracteres",
+      "invalidFee": "O valor deve ser um inteiro maior ou igual a 0",
+      "required": "Campo é obrigatório",
+      "unsupportedParaTime": "ParaTime não suportado"
+    }
+  },
+  "persist": {
+    "createProfile": {
+      "passwordMismatch": "A senha digitada não corresponde",
+      "repeatPassword": "Confirme sua senha",
+      "requiredField": "Este campo é obrigatório",
+      "startPersisting": "Armazene suas chaves privadas localmente e proteja-as com uma senha criando um perfil.",
+      "startPersistingToggle": "Criar um perfil",
+      "undependableAcknowledge": "Entendo que esta senha e perfil não substituem meu mnemônico.",
+      "unsupported": "A persistência não é suportada neste navegador."
+    },
+    "loading": "Carregando",
+    "loginToProfile": {
+      "deleteProfile": {
+        "button": "Excluir perfil",
+        "description": "Isso <strong>removerá permanentemente suas chaves privadas deste dispositivo.</strong><br/><br/>Para confirmar e prosseguir, por favor digite <strong>{{confirmationKeyword}}</strong> abaixo.",
+        "forgotPasswordButton": "Esqueceu a senha?",
+        "forgotPasswordDescription": "ROSE Wallet não armazena sua senha e não pode ajudá-lo a recuperá-la. Se você esqueceu sua senha, pode excluir seu perfil bloqueado aqui. Depois disso, você pode criar um novo usando sua frase mnemônica ou chaves privadas, e usar seus tokens ROSE novamente.",
+        "title": "Excluir Perfil"
+      },
+      "description": "Digite sua senha para acessar suas carteiras existentes neste dispositivo.",
+      "enterPasswordHere": "Digite sua senha",
+      "hidePassword": "Ocultar senha",
+      "showPassword": "Mostrar senha",
+      "skipUnlocking": "Continuar sem o perfil",
+      "title": "Bem-vindo de volta!",
+      "unlock": "Desbloquear",
+      "wrongPassword": "Senha incorreta"
+    }
+  },
+  "screenPrivacy": {
+    "off": "Desligado",
+    "on": "Ligado",
+    "title": "Privacidade da Tela",
+    "tooltip": "Impedir que informações sensíveis sejam visíveis nos alternadores de aplicativos e ao sair de um aplicativo."
+  },
+  "updateGateCheck": {
+    "off": "Desligado",
+    "on": "Ligado",
+    "title": "Mostrar Erros de Atualização"
+  },
+  "theme": {
+    "darkMode": "Modo escuro",
+    "lightMode": "Modo claro",
+    "system": "Sistema",
+    "title": "Tema"
+  },
+  "toolbar": {
+    "contacts": {
+      "add": "Adicionar contato",
+      "address": "Endereço",
+      "cancel": "Cancelar",
+      "delete": {
+        "button": "Excluir contato",
+        "confirm": "Sim, excluir",
+        "description": "Tem certeza de que deseja excluir este contato?",
+        "title": "Excluir Contato"
+      },
+      "emptyList": "Você ainda não tem contatos.",
+      "manage": "Gerenciar Contato",
+      "name": "Nome",
+      "notAvailable": "Para começar a adicionar contatos, crie um perfil ao <OpenWalletButton>abrir uma carteira</OpenWalletButton>.",
+      "save": "Salvar",
+      "validation": {
+        "addressError": "Por favor, digite um endereço de carteira válido",
+        "addressNotUniqueError": "Endereço já existe",
+        "nameLengthError": "Não mais que 16 caracteres",
+        "required": "Campo é obrigatório"
+      }
+    },
+    "networks": {
+      "local": "Local",
+      "mainnet": "Mainnet",
+      "selector": "Selecionar rede",
+      "testnet": "Testnet"
+    },
+    "profile": {
+      "notAvailable": "Você pode configurar seu perfil ao <OpenWalletButton>abrir uma carteira</OpenWalletButton>.",
+      "password": {
+        "current": "Senha atual",
+        "enterCurrent": "Digite sua senha atual",
+        "enterNewPassword": "Nova senha",
+        "reenterNewPassword": "Digite a nova senha novamente",
+        "submit": "Atualizar senha",
+        "success": "Senha atualizada.",
+        "title": "Definir uma nova senha"
+      }
+    },
+    "settings": {
+      "accountNamingNotAvailable": "Para nomear sua conta, crie um perfil ao <OpenWalletButton>abrir uma carteira</OpenWalletButton>.",
+      "cancel": "Cancelar",
+      "contacts": "Contatos",
+      "delete": {
+        "description": "Tem certeza de que deseja excluir a seguinte conta?",
+        "inputHelp": "Esta ação não pode ser desfeita. Para continuar, por favor digite <strong>{{confirmationKeyword}}</strong> abaixo.",
+        "title": "Excluir Conta",
+        "tooltip": "Você deve ter pelo menos uma conta em todos os momentos."
+      },
+      "exportPrivateKey": {
+        "confirm": "Entendo, revelar minha chave privada",
+        "copied": "Chave privada copiada.",
+        "hint1": "A chave privada consiste em uma string de caracteres. Qualquer pessoa com acesso à sua chave privada tem acesso direto aos ativos dessa conta.",
+        "hint2": "Se a chave privada for perdida, ela não pode ser recuperada. Por favor, certifique-se de fazer backup da chave privada e mantê-la em um local seguro.",
+        "title": "Exportar Chave Privada"
+      },
+      "manageAccount": "Gerenciar",
+      "myAccountsTab": "Minhas Contas",
+      "nameLengthError": "Não mais que 16 caracteres",
+      "optionalName": "Nome (opcional)",
+      "profile": "Perfil",
+      "save": "Salvar",
+      "settings": "Configurações"
+    },
+    "wallets": {
+      "select": "Selecionar"
+    }
+  },
+  "transaction": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "preview": {
+      "amount": "Valor",
+      "fee": "Taxa",
+      "from": "De",
+      "gas": "Gas",
+      "genesisHash": "Hash do Genesis",
+      "shares": "Ações",
+      "to": "Para",
+      "type": "Tipo",
+      "validator": "Validador",
+      "warning": "Uma vez que você confirmar esta transação, não poderá cancelá-la. Revise cuidadosamente e confirme quando tiver certeza de que deseja enviá-la."
+    },
+    "step": {
+      "building": "Construindo transação",
+      "preview": "Visualizar transação",
+      "signing": "Assinando transação",
+      "submitting": "Enviando transação"
+    },
+    "types": {
+      "addEscrow": "delegando seus tokens para um validador e gerar recompensas",
+      "reclaimEscrow": "reivindicando seus tokens delegados a um validador",
+      "transfer": "enviando tokens da sua conta para outra"
+    }
+  },
+  "validator": {
+    "boundsNotSet": "Nenhum limite definido (0% - 100%)",
+    "commission": "Comissão",
+    "commissionBounds": {
+      "current": "<strong>{{lowerBound}}% - {{upperBound}}%</strong> na Época atual {{epoch}}",
+      "future": "{{lowerBound}}% - {{upperBound}}% a partir da Época {{epoch}}",
+      "label": "Limites de comissão"
+    },
+    "escrow": "Escrow",
+    "fee": "Taxa",
+    "name": "Nome",
+    "rank": "Classificação",
+    "status": "Status",
+    "statusActive": "Ativo",
+    "statusInactive": "Inativo",
+    "statusUnknown": "Desconhecido",
+    "totalEscrow": "Escrow total",
+    "unknownValidator": "Validador desconhecido"
+  }
+}
