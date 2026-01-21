@@ -16,7 +16,7 @@ Make a release:
 
 Staging:
 
-- download <https://github.com/oasisprotocol/wallet/releases>
+- download from [releases]
 - deploy to <https://wallet.stg.oasis.io/>
 
 Production:
@@ -29,7 +29,9 @@ Production:
 
 ### Deploy
 
-<https://github.com/oasisprotocol/wallet/wiki/Deployment-on-AWS>.
+Update Terraform module in oasisprotocol/internal-ops with security headers
+from Content-Security-Policy.txt and Permissions-Policy.txt, e.g.
+<https://github.com/oasisprotocol/internal-ops/pull/1022/changes>
 
 Verify deployed version by opening the page in
 incognito (no cache) - it is displayed in the footer.
@@ -44,12 +46,23 @@ Verify security headers were updated:
   ```
 
 - Compare to Content-Security-Policy.txt and Permissions-Policy.txt in
-  <https://github.com/oasisprotocol/wallet/releases>
+  [releases]
 
 ## Extension wallet
 
-- download rose-wallet-ext-*.zip from
-  <https://github.com/oasisprotocol/wallet/releases>
-- download
-  <https://github.com/oasisprotocol/wallet/tree/master/playwright/screenshots>
-- upload to Chrome Web Store
+- download rose-wallet-ext-*.zip from [releases]
+- download [screenshots]
+- upload to [Chrome Web Store]
+
+## Mobile app
+
+- download rose-wallet-android-*.aab from [releases]
+- download [screenshots]
+- upload to [Play Store]
+- promote [to production] and wait for google to review
+
+[releases]: https://github.com/oasisprotocol/wallet/releases
+[screenshots]: https://github.com/oasisprotocol/wallet/tree/master/playwright/screenshots
+[Chrome Web Store]: https://chrome.google.com/webstore/devconsole/6ed673e9-0220-4b12-8378-41c35ae7a50b/ppdadbejkmjnefldpcdjhnkpbjkikoip/edit/package
+[Play Store]: https://play.google.com/console/u/0/developers/6581971779742676467/app/4976309565338229564/tracks/internal-testing
+[to production]: https://play.google.com/console/u/0/developers/6581971779742676467/app/4976309565338229564/tracks/production
