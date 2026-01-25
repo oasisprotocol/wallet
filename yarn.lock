@@ -1146,20 +1146,20 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
-"@capacitor/android@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.4.tgz#a14a1e844bd5079982427e247fdd17555b5fbedd"
-  integrity sha512-y8knfV1JXNrd6XZZLZireGT+EBCN0lvOo+HZ/s7L8LkrPBu4nY5UZn0Wxz4yOezItEII9rqYJSHsS5fMJG9gdw==
+"@capacitor/android@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.5.tgz#3832b457e0a3a7079a645bf5be3cc23d406c2971"
+  integrity sha512-G76C+PGIFkG+hxj6JLlY003txRaGZwsXBPo4b4xiZMZaD6DG++sDCoumYl/5xL40dL2b8P5tb3CKf/khWyL2Gw==
 
 "@capacitor/app@^7.0.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-7.1.0.tgz#d275eebbb0fec6104b3f9c41f09f7598d7808b47"
   integrity sha512-W7m09IWrUjZbo7AKeq+rc/KyucxrJekTBg0l4QCm/yDtCejE3hebxp/W2esU26KKCzMc7H3ClkUw32E9lZkwRA==
 
-"@capacitor/cli@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-7.4.4.tgz#bfce7db8b15d6f44c9d58dc338a5e3d662fecfbb"
-  integrity sha512-J7ciBE7GlJ70sr2s8oz1+H4ZdNk4MGG41fsakUlDHWva5UWgFIZYMiEdDvGbYazAYTaxN3lVZpH9zil9FfZj+Q==
+"@capacitor/cli@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/cli/-/cli-7.4.5.tgz#056d8acc0d27ec3f8f79a5588e6cd6539db2895d"
+  integrity sha512-ApKxpzcWTqmyTD+WxBvL7UJt+x0xr9Vqa+S4Iqbl/R2kC0tf1ay22wE9pOrdWXbTqFbNhBuUuRvTvZ6Edp7QzQ==
   dependencies:
     "@ionic/cli-framework-output" "^2.2.8"
     "@ionic/utils-subprocess" "^3.0.1"
@@ -1169,7 +1169,7 @@
     env-paths "^2.2.0"
     fs-extra "^11.2.0"
     kleur "^4.1.5"
-    native-run "^2.0.1"
+    native-run "^2.0.3"
     open "^8.4.0"
     plist "^3.1.0"
     prompts "^2.4.2"
@@ -1179,17 +1179,17 @@
     tslib "^2.8.1"
     xml2js "^0.6.2"
 
-"@capacitor/core@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-7.4.4.tgz#b752dd7a12141e40d1c8ce2e37a79571d9f83518"
-  integrity sha512-xzjxpr+d2zwTpCaN0k+C6wKSZzWFAb9OVEUtmO72ihjr/NEDoLvsGl4WLfjWPcCO2zOy0b2X52tfRWjECFUjtw==
+"@capacitor/core@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-7.4.5.tgz#334d77356fa473e95d51cf6375e9b36471faf2d6"
+  integrity sha512-JnUywi0WRbqm4QYoplNsMQ7KAVuyrQFha0dOH9YDVCyrVHUvPcvrnK+9j5elUMgy+pOh3ve+pk6BVoySr91c+A==
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/ios@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.4.tgz#051c37df4ffa878bd757b3849ce61668ac174083"
-  integrity sha512-Xp3bGWlSQAwsZGngRMWTdoD2agdMV12Whnm+/xsYPxfQSj+Tksbr7r/8Mso7VWkpnTKO4iMlx762g3PjW+wi4w==
+"@capacitor/ios@^7.4.5":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.5.tgz#06dfd067e386758563fbf2b72e39a96f7894b673"
+  integrity sha512-i9cfo15Vn0GvFJ0Pm2zPhxQrK3NW5ISrf7bdzmKWUM5TUaCnWkCO4Zxsgjm8/VMXwt/gabA/di1O1c9pC3enCA==
 
 "@capacitor/keyboard@^7.0.0":
   version "7.0.4"
@@ -7660,10 +7660,10 @@ nano-time@1.0.0:
   dependencies:
     big-integer "^1.6.16"
 
-native-run@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/native-run/-/native-run-2.0.1.tgz#a9b213c32824b007cbdd0279e0edd3c24bcc2f7a"
-  integrity sha512-XfG1FBZLM50J10xH9361whJRC9SHZ0Bub4iNRhhI61C8Jv0e1ud19muex6sNKB51ibQNUJNuYn25MuYET/rE6w==
+native-run@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/native-run/-/native-run-2.0.3.tgz#b1ceb39c8d24abf4916c07ae9aad5a9fbcd31a02"
+  integrity sha512-U1PllBuzW5d1gfan+88L+Hky2eZx+9gv3Pf6rNBxKbORxi7boHzqiA6QFGSnqMem4j0A9tZ08NMIs5+0m/VS1Q==
   dependencies:
     "@ionic/utils-fs" "^3.1.7"
     "@ionic/utils-terminal" "^2.3.4"
