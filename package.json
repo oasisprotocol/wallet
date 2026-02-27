@@ -148,7 +148,7 @@
     "wait-on": "7.0.1"
   },
   "resolutions": {
-    "@ledgerhq/hw-transport": "^6.31.4",
+    "@ledgerhq/hw-transport": "^6.32.0",
     "@parcel/error-overlay": "https://github.com/lukaw3d/parcel-error-overlay-ignore-console#2.14.4",
     "@testing-library/dom": "9.3.3",
     "@typescript-eslint/eslint-plugin": "6.9.1",
