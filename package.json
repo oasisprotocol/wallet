@@ -48,7 +48,7 @@
     ]
   },
   "dependencies": {
-    "@capacitor-community/bluetooth-le": "^7.0.0",
+    "@capacitor-community/bluetooth-le": "^7.3.2",
     "@capacitor/android": "^7.0.0",
     "@capacitor/app": "^7.0.0",
     "@capacitor/core": "^7.0.0",
