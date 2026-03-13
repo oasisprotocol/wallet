@@ -775,6 +775,7 @@ exports[`<AccountSelector  /> should match snapshot 1`] = `
         >
           <a
             aria-label="menu.addAccounts"
+            data-discover="true"
             href="/"
           >
             <button
