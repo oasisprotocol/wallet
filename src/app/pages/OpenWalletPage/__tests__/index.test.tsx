@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 import { SelectOpenMethod } from '..'
 
 jest.mock('app/lib/ledger', () => ({
@@ -16,8 +16,8 @@ jest.mock('react-redux', () => ({
 jest.mock('app/lib/ledger')
 
 const mockNavigate = jest.fn()
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
   useNavigate: () => mockNavigate,
 }))
 

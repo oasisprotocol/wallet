@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { WalletType } from 'app/state/wallet/types'
 import * as React from 'react'
 import { Provider } from 'react-redux'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 import { configureAppStore } from 'store/configureStore'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 

@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { HelmetProvider } from 'react-helmet-async'
 import { configureAppStore } from 'store/configureStore'
-import { createHashRouter, RouterProvider } from 'react-router-dom'
+import { createHashRouter, RouterProvider } from 'react-router'
 
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import browser from 'webextension-polyfill'

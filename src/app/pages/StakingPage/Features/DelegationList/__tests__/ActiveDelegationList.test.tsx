@@ -6,7 +6,7 @@ import { ActiveDelegationList } from '../ActiveDelegationList'
 import { configureAppStore } from 'store/configureStore'
 import { stakingActions } from 'app/state/staking'
 import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 
 const renderComponent = (store: any) =>
   render(

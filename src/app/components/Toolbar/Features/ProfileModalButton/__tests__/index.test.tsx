@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
@@ -40,8 +40,8 @@ const renderComponent = (store: any, responsiveContext: string) =>
   )
 
 const mockNavigate = jest.fn()
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+jest.mock('react-router', () => ({
+  ...jest.requireActual('react-router'),
   useNavigate: () => mockNavigate,
 }))
 

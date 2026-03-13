@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteObject } from 'react-router-dom'
+import { RouteObject } from 'react-router'
 import { CreateWalletPage } from 'app/pages/CreateWalletPage'
 import { HomePage } from 'app/pages/HomePage'
 import { FromMnemonic } from 'app/pages/OpenWalletPage/Features/FromMnemonic'

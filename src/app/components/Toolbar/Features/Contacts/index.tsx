@@ -1,7 +1,7 @@
 import { useState, useContext, ReactNode } from 'react'
 import { useSelector } from 'react-redux'
 import { Trans, useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 import { Box } from 'grommet/es6/components/Box'
 import { Button } from 'grommet/es6/components/Button'
 import { Inbox } from 'grommet-icons/es6/icons/Inbox'

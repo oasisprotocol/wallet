@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { configureAppStore } from 'store/configureStore'

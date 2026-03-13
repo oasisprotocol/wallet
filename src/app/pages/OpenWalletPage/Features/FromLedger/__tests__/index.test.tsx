@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { FromLedger } from '..'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),

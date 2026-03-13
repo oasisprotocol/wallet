@@ -1,5 +1,5 @@
 import { Anchor, AnchorExtendedProps } from 'grommet/es6/components/Anchor'
-import { Link, LinkProps } from 'react-router-dom'
+import { Link, LinkProps } from 'react-router'
 import React from 'react'
 
 type AnchorLinkProps = LinkProps & AnchorExtendedProps
