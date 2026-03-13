@@ -6,6 +6,7 @@ for (const net of ['mainnet', 'testnet']) {
     page,
   }) => {
     await page.goto('/e2e')
+    await page.waitForFunction(() => !!(window as any).oasis)
 
     const estimatedGas = await page.evaluate(
       async ([net]) => {

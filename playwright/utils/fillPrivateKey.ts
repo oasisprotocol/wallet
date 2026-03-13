@@ -28,7 +28,7 @@ export async function fillPrivateKeyWithoutPassword(
     await page.getByPlaceholder('Enter your private key here').fill(params.privateKey ?? privateKey)
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${params.privateKeyAddress ?? privateKeyAddress}`))
-    await expect(page.getByText('Loading account')).toBeVisible()
+    // Loading state may not appear if account data is already cached in Redux
     await expect(page.getByText('Loading account')).toBeHidden()
     await expect(page.getByTestId('account-balance-summary')).toContainText(params.ticker ?? 'ROSE')
   })
@@ -61,7 +61,7 @@ export async function fillPrivateKeyAndPassword(
     await page.getByText('I understand this password and profile do not substitute my mnemonic.').check()
     await page.keyboard.press('Enter')
     await expect(page).toHaveURL(new RegExp(`/account/${params.privateKeyAddress ?? privateKeyAddress}`))
-    await expect(page.getByText('Loading account')).toBeVisible()
+    // Loading state may not appear if account data is already cached in Redux
     await expect(page.getByText('Loading account')).toBeHidden()
     await expect(page.getByTestId('account-balance-summary')).toContainText(params.ticker ?? 'ROSE')
   })

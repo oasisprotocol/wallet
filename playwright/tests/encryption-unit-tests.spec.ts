@@ -4,6 +4,7 @@ import { E2EWindow } from '../../src/app/pages/E2EPage/E2EWindow'
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/e2e')
+  await page.waitForFunction(() => !!(window as any).encryption)
 })
 
 test.describe('encryption unit tests in browser', () => {

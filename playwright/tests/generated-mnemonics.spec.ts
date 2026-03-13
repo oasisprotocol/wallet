@@ -7,6 +7,7 @@ test('Generated mnemonics should have more than 32 bits of entropy (thus no coll
   page,
 }) => {
   await page.goto('/e2e')
+  await page.waitForFunction(() => !!(window as any).oasis)
 
   const numberOfMnemonics = await page.evaluate(async () => {
     const { oasis } = window as E2EWindow
