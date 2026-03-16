@@ -9,7 +9,7 @@ import { configureAppStore } from 'store/configureStore'
 
 import { ValidatorList } from '..'
 import { ThemeProvider } from '../../../../../../styles/theme/ThemeProvider'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 
 jest.mock('@oasisprotocol/client/dist/client')
 

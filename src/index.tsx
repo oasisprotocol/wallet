@@ -11,7 +11,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 
 import { HelmetProvider } from 'react-helmet-async'
 

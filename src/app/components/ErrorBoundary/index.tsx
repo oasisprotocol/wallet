@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
+import { isRouteErrorResponse, useRouteError } from 'react-router'
 import { ErrorPayload, WalletError, WalletErrors } from 'types/errors'
 import { Box } from 'grommet/es6/components/Box'
 import { AlertBox } from 'app/components/AlertBox'

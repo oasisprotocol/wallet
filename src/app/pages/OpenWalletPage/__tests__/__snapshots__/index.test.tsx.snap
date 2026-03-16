@@ -210,6 +210,7 @@ exports[`<SelectOpenMethod /> should render component 1`] = `
       <span>
         <a
           aria-label="openWallet.method.mnemonic"
+          data-discover="true"
           href="/mnemonic"
         >
           <button
@@ -227,6 +228,7 @@ exports[`<SelectOpenMethod /> should render component 1`] = `
       <span>
         <a
           aria-label="openWallet.method.privateKey"
+          data-discover="true"
           href="/private-key"
         >
           <button
@@ -244,6 +246,7 @@ exports[`<SelectOpenMethod /> should render component 1`] = `
       <span>
         <a
           aria-label="openWallet.method.ledger"
+          data-discover="true"
           href="/ledger"
         >
           <button

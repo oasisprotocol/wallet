@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router'
 import { Provider } from 'react-redux'
 import { configureAppStore } from 'store/configureStore'
 import { Wallet } from 'app/state/wallet/types'

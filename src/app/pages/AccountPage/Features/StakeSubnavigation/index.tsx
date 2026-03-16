@@ -4,7 +4,7 @@ import { ResponsiveContext } from 'grommet/es6/contexts/ResponsiveContext'
 import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router'
 import styled from 'styled-components'
 import { normalizeColor } from 'grommet/es6/utils'
 

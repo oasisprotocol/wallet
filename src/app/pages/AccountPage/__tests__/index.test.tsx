@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Provider, useDispatch } from 'react-redux'
-import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router'
 import { ThemeProvider } from 'styles/theme/ThemeProvider'
 import { configureAppStore } from 'store/configureStore'
 

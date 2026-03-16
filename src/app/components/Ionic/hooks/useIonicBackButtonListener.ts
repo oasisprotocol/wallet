@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { App } from '@capacitor/app'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router'
 
 export const useIonicBackButtonListener = () => {
   const navigate = useNavigate()

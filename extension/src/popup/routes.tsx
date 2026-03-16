@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteObject } from 'react-router-dom'
+import { RouteObject } from 'react-router'
 import { App } from 'app'
 import { FromLedgerWebExtension } from 'app/pages/OpenWalletPage/FromLedgerWebExtension'
 import { commonRoutes } from '../../../src/commonRoutes'
