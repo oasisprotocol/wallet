@@ -1146,6 +1146,13 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
+"@capacitor-community/bluetooth-le@^8.0.0":
+  version "8.1.3"
+  resolved "https://registry.yarnpkg.com/@capacitor-community/bluetooth-le/-/bluetooth-le-8.1.3.tgz#044e0ceb2a2d4c3e5c72634d34582529f7932a72"
+  integrity sha512-fDwKrxNPZ6muXVGKWsEi971NJ5xNRWmO/N8H7pSTjicT3TXceBdeGSSDDMoT3dRbfcDHjaPI70NfJKwXwf9idg==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.20"
+
 "@capacitor/android@^8.0.0":
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-8.2.0.tgz#b832a72d6279ab439a7ea5f8b497e13a7f8e4b36"
@@ -1206,15 +1213,15 @@
   resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-8.0.1.tgz#a20642b4563c827e8b0f520468ec44b077af6fea"
   integrity sha512-OR59dlbwvmrV5dKsC9lvwv48QaGbqcbSTBpk+9/WXWxXYSdXXdzJZU9p8oyNPAkuJhCdnSa3XmU43fZRPBJJ5w==
 
-"@capawesome/capacitor-android-edge-to-edge-support@7.2.3":
-  version "7.2.3"
-  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-android-edge-to-edge-support/-/capacitor-android-edge-to-edge-support-7.2.3.tgz#21130706ab310e2c18247fca307100c986c9bac7"
-  integrity sha512-WtwXeU5Clg13t3SO6JvtIfJlpO+E48tHC+vNmC519zcS6GV9URl705UOvwOOvEyh6GFxAi2dHi8lj8iqIOYCdA==
+"@capawesome/capacitor-android-edge-to-edge-support@^8.0.0":
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-android-edge-to-edge-support/-/capacitor-android-edge-to-edge-support-8.0.6.tgz#b4997a8442b62281bb463e3d93cf281694fb8260"
+  integrity sha512-DhE45F0D73d1nEZyU8J103l7NiBIPKEC3BfvF1+LBxcDkxQpV9J/63VASblKjqHaM0/5k+UZGxmQT5WEp2D1iA==
 
-"@capawesome/capacitor-app-update@^7.0.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-7.2.0.tgz#51a70a405d73c62e3f670db22e6fa17c4aebc00c"
-  integrity sha512-fwPxR9tV5qecn3FSgwS5wBwlHDV9JND5dnY1iqIYnqRG2s/Oq0h32u4hV6+/zpDARJFMZycb3pddEfwLwhglEg==
+"@capawesome/capacitor-app-update@^8.0.0":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@capawesome/capacitor-app-update/-/capacitor-app-update-8.0.3.tgz#85535d1f1441de5416577ab20fe48fb981fb0eeb"
+  integrity sha512-5pS9I+i2TuUl8b6L3h2WsWF/PE68exzoc9CciXK/I2SdB2fIkdxObrYBeYS2Z09ndCGqJgx4iwZJmhXwVcMh4w==
 
 "@emotion/is-prop-valid@^1.1.0":
   version "1.2.0"
