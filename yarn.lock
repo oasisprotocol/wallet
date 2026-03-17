@@ -1146,15 +1146,15 @@
   dependencies:
     "@types/web-bluetooth" "^0.0.20"
 
-"@capacitor/android@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-7.4.4.tgz#a14a1e844bd5079982427e247fdd17555b5fbedd"
-  integrity sha512-y8knfV1JXNrd6XZZLZireGT+EBCN0lvOo+HZ/s7L8LkrPBu4nY5UZn0Wxz4yOezItEII9rqYJSHsS5fMJG9gdw==
+"@capacitor/android@^8.0.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/android/-/android-8.2.0.tgz#b832a72d6279ab439a7ea5f8b497e13a7f8e4b36"
+  integrity sha512-XLm5OsWLPfXQxDxzFS7SOdMEgGvW+2c7TGLXkTR2cSKdkWK5Abns4imlT5qghKYhjM9r74IrDkBWg/9ALUGNKQ==
 
-"@capacitor/app@^7.0.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-7.1.0.tgz#d275eebbb0fec6104b3f9c41f09f7598d7808b47"
-  integrity sha512-W7m09IWrUjZbo7AKeq+rc/KyucxrJekTBg0l4QCm/yDtCejE3hebxp/W2esU26KKCzMc7H3ClkUw32E9lZkwRA==
+"@capacitor/app@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/app/-/app-8.0.1.tgz#5f01b17555fa310f5cd8fdf9c6d8d521df21c253"
+  integrity sha512-yeG3yyA0ETKqvgqexwHMBlmVOF13A1hRXzv/km0Ptv5TrNIZvZJK4MTI3uiqvnbHrzoJGP5DwWAjEXEfi90v3Q==
 
 "@capacitor/cli@^8.0.0":
   version "8.2.0"
@@ -1179,32 +1179,32 @@
     tslib "^2.8.1"
     xml2js "^0.6.2"
 
-"@capacitor/core@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-7.4.4.tgz#b752dd7a12141e40d1c8ce2e37a79571d9f83518"
-  integrity sha512-xzjxpr+d2zwTpCaN0k+C6wKSZzWFAb9OVEUtmO72ihjr/NEDoLvsGl4WLfjWPcCO2zOy0b2X52tfRWjECFUjtw==
+"@capacitor/core@^8.0.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/core/-/core-8.2.0.tgz#7b9b012f1d34b62d441f557649b755ce451cb81e"
+  integrity sha512-oKaoNeNtH2iIZMDFVrb1atoyRECDGHcfLMunJ5KWN8DtvpVBeeA4c41e20NTuhMxw1cSYbpq2PV2hb+/9CJxlQ==
   dependencies:
     tslib "^2.1.0"
 
-"@capacitor/ios@^7.0.0":
-  version "7.4.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-7.4.4.tgz#051c37df4ffa878bd757b3849ce61668ac174083"
-  integrity sha512-Xp3bGWlSQAwsZGngRMWTdoD2agdMV12Whnm+/xsYPxfQSj+Tksbr7r/8Mso7VWkpnTKO4iMlx762g3PjW+wi4w==
+"@capacitor/ios@^8.0.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@capacitor/ios/-/ios-8.2.0.tgz#f346587edf9552d05a1a38d99cfbf469a814e878"
+  integrity sha512-X2/VtM4qP/R1SM0VQ5W/VotEc6PS/KTooD33EijsfAHWBdee+xmBapW8SeNLnu16wJ+tsfWlvtipaJEyfKbRKQ==
 
-"@capacitor/keyboard@^7.0.0":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@capacitor/keyboard/-/keyboard-7.0.4.tgz#d170dbaf19b59de1d64371c4e02072166475b4e0"
-  integrity sha512-kKHsuDOC0q9iC1XANhQBK35S+hFKx4EfY9I+SEMPR6RuUAIuXQXYaA3+D0LkdRdHIf3OrlTDznPvXQ5Dg2WrCA==
+"@capacitor/keyboard@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/keyboard/-/keyboard-8.0.1.tgz#f694a06eca5f140d33d68165b4738df88146f504"
+  integrity sha512-HDf4qrvvhLRMsgBoqeqIld6hP8JMK/WPbCYMvz8ajhY6TaibYt6B+NQyky4oIPCOfHTz5OcVsuHkbb8fQvGDAg==
 
 "@capacitor/privacy-screen@1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@capacitor/privacy-screen/-/privacy-screen-1.1.1.tgz#0a2a3f41c73d642e490fc70a9367b72374262a24"
   integrity sha512-UbNtrhhj3fLqnCERYhS3sEOwO22C4bQmyidjdh6bT7Z8hz8kAdNnmCUSb+toAnNVjSD5M+727AwrWysuktRypA==
 
-"@capacitor/status-bar@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-8.0.0.tgz#07ad5a765d2aa9a201a7472f6fd5cb44b25d25a5"
-  integrity sha512-aIj3bc7z8lfPgOen8HlrBrkfnxpFnh21OCx6jCUx4Mvv+B6eEkUQ49b32DOddgVfr+igRHLX2SYi7duqIsNDXg==
+"@capacitor/status-bar@^8.0.0":
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/@capacitor/status-bar/-/status-bar-8.0.1.tgz#a20642b4563c827e8b0f520468ec44b077af6fea"
+  integrity sha512-OR59dlbwvmrV5dKsC9lvwv48QaGbqcbSTBpk+9/WXWxXYSdXXdzJZU9p8oyNPAkuJhCdnSa3XmU43fZRPBJJ5w==
 
 "@capawesome/capacitor-android-edge-to-edge-support@7.2.3":
   version "7.2.3"
