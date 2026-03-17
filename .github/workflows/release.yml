@@ -44,10 +44,10 @@ jobs:
         run: yarn cap sync android
       - name: Accept SDK licenses
         run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
-      # Capacitor v7 sets a deployment target of Android 15 (SDK 35)
+      # Capacitor v8 targets SDK 36
       - name: Install SDK components
         run: |
-          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
       - name: Build Android ROSE Wallet
         run: ./gradlew bundleRelease
         working-directory: android
