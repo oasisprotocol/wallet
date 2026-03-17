@@ -7,11 +7,7 @@ const config: CapacitorConfig = {
   android: {
     adjustMarginsForEdgeToEdge: 'force',
   },
-  plugins: {
-    Keyboard: {
-      resizeOnFullScreen: true,
-    },
-  },
+
   server: {
     androidScheme: 'https',
   },
