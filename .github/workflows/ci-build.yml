@@ -57,11 +57,11 @@ jobs:
       - name: Accept SDK licenses
         if: github.event_name == 'push'
         run: yes | "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --licenses
-      # Capacitor v7 sets a deployment target of Android 15 (SDK 35)
+      # Capacitor v8 targets SDK 36
       - name: Install SDK components
         if: github.event_name == 'push'
         run: |
-          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+          "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
       - name: Build Android App Bundle (AAB)
         if: github.event_name == 'push'
         run: ./gradlew bundleRelease -PversionCodeOverride=${{ steps.vars.outputs.VERSION_CODE_OVERRIDE }}
@@ -74,7 +74,7 @@ jobs:
       - name: Zipalign APK
         if: github.event_name == 'push'
         run: |
-          "$ANDROID_SDK_ROOT/build-tools/35.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/36.0.0/zipalign" -v 4 "android/app/build/outputs/apk/release/app-release-unsigned.apk" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Decode and Save Keystore File
         if: github.event_name == 'push'
         run: |
@@ -86,7 +86,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           jarsigner -verbose -keystore "android/release.jks" -storepass "${{ secrets.KEYSTORE_PASSWORD }}" -keypass "${{ secrets.KEYSTORE_PASSWORD }}" -signedjar "android/app/build/outputs/bundle/release/app-release-signed.aab" "android/app/build/outputs/bundle/release/app-release.aab" "${{ secrets.KEY_ALIAS }}"
-          "$ANDROID_SDK_ROOT/build-tools/35.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
+          "$ANDROID_SDK_ROOT/build-tools/36.0.0/apksigner" sign --ks "android/release.jks" --ks-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --key-pass "pass:${{ secrets.KEYSTORE_PASSWORD }}" --ks-key-alias "${{ secrets.KEY_ALIAS }}" "android/app/build/outputs/apk/release/app-release-aligned.apk"
       - name: Upload Android AAB build artifacts
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v4
