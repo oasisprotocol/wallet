@@ -31,7 +31,9 @@ jobs:
       - name: Install playwright's system dependencies
         working-directory: ./playwright/
         run: npx playwright install --with-deps
-      - run: npx wait-on http://localhost:3000/ --timeout 60000
+      - run: |
+          timeout 60 bash -c 'until curl -fsS http://localhost:3000/ >/dev/null; do sleep 1; done' \
+            || (echo "Server did not become ready on :3000 within 60s" && exit 1)
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
         run: xvfb-run yarn test:screenshots
