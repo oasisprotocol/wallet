@@ -112,7 +112,9 @@ jobs:
       # outside sharding: yarn + build:ext + build + upload
       # and then 8x shard: download builds + serve + test
       - run: REACT_APP_E2E_TEST=1 node ./playwright/serve-prod.js &
-      - run: npx wait-on http://localhost:5000/ --timeout 60000
+      - run: |
+          timeout 60 bash -c 'until curl -fsS http://localhost:5000/ >/dev/null; do sleep 1; done' \
+            || (echo "Server did not become ready on :5000 within 60s" && exit 1)
       - name: Run playwright tests (with xvfb-run to support headed extension test)
         working-directory: ./playwright/
         run: xvfb-run yarn test:prod --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
