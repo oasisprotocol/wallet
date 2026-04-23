@@ -91,13 +91,7 @@ export async function mockApi(context: BrowserContext | Page, balance: number | 
   await context.route('**/oasis-core.Staking/Account', route => {
     route.fulfill({
       contentType: 'application/grpc-web-text+proto',
-      body: 'AAAAAAGggAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
-    })
-  })
-  await context.route('**/oasis-core.Consensus/GetSignerNonce', route => {
-    route.fulfill({
-      contentType: 'application/grpc-web-text+proto',
-      body: 'AAAAAAIYKQ==gAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
+      body: 'AAAAABKhZ2dlbmVyYWyhZW5vbmNlGCk=gAAAAB5ncnBjLXN0YXR1czowDQpncnBjLW1lc3NhZ2U6DQo=',
     })
   })
   await context.route('**/oasis-core.Consensus/EstimateGas', route => {
