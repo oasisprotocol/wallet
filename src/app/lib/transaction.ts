@@ -210,11 +210,11 @@ export class OasisTransaction {
   }
 
   protected static async getNonce(nic: OasisClient, signer: Signer): Promise<bigint> {
-    const nonce = await nic.consensusGetSignerNonce({
-      account_address: await shortPublicKey(signer.public()),
+    const account = await nic.stakingAccount({
+      owner: await shortPublicKey(signer.public()),
       height: 0,
     })
 
-    return BigInt(nonce || 0)
+    return BigInt(account?.general?.nonce ?? 0)
   }
 }
