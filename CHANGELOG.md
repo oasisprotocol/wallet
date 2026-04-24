@@ -12,6 +12,35 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.5.1 (2026-04-24)
+
+### Bug Fixes and Improvements
+
+- Replace removed GetSignerNonce RPC with stakingAccount
+  ([#2274](https://github.com/oasisprotocol/wallet/issues/2274))
+
+### Internal Changes
+
+- Upgrade Capacitor to v8
+  ([#2249](https://github.com/oasisprotocol/wallet/issues/2249))
+
+- Update release process notes for extension and mobile app
+  ([#2261](https://github.com/oasisprotocol/wallet/issues/2261))
+
+- Update dependencies
+  ([#2262](https://github.com/oasisprotocol/wallet/issues/2262),
+   [#2265](https://github.com/oasisprotocol/wallet/issues/2265),
+   [#2266](https://github.com/oasisprotocol/wallet/issues/2266),
+   [#2267](https://github.com/oasisprotocol/wallet/issues/2267),
+   [#2270](https://github.com/oasisprotocol/wallet/issues/2270),
+   [#2272](https://github.com/oasisprotocol/wallet/issues/2272))
+
+- Lock setuptools version to keep compatibility with towncrier fork
+  ([#2264](https://github.com/oasisprotocol/wallet/issues/2264))
+
+- Remove wait-on dependency
+  ([#2271](https://github.com/oasisprotocol/wallet/issues/2271))
+
 ## 2.5.0 (2026-01-19)
 
 ### Features
