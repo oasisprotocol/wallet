@@ -1658,6 +1658,13 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@ledgerhq/devices@8.18.0":
+  version "8.18.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.18.0.tgz#0eabaa3a17fc1bf172b8ef04b5a159fbaa1acc85"
+  integrity sha512-90qS23wtqdviis+8pDWRbgyp4jE4YLK24CyAmH79rLySaPbgEJX5mZzbEKlDQ6cXvSA/51Z2/PtzmlAi26rzug==
+  dependencies:
+    semver "7.7.3"
+
 "@ledgerhq/devices@^8.4.4":
   version "8.4.4"
   resolved "https://registry.yarnpkg.com/@ledgerhq/devices/-/devices-8.4.4.tgz#0d195c1650fe57da2fad7f0d9074a0190947cd6f"
@@ -1683,15 +1690,19 @@
     "@ledgerhq/hw-transport" "^6.31.4"
     "@ledgerhq/logs" "^6.12.0"
 
-"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.28.8", "@ledgerhq/hw-transport@^6.31.4":
-  version "6.31.4"
-  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.31.4.tgz#9b23a6de4a4caaa5c24b149c2dea8adde46f0eb1"
-  integrity sha512-6c1ir/cXWJm5dCWdq55NPgCJ3UuKuuxRvf//Xs36Bq9BwkV2YaRQhZITAkads83l07NAdR16hkTWqqpwFMaI6A==
+"@ledgerhq/hw-transport@^6.1.0", "@ledgerhq/hw-transport@^6.28.8", "@ledgerhq/hw-transport@^6.31.4", "@ledgerhq/hw-transport@^6.36.0":
+  version "6.36.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/hw-transport/-/hw-transport-6.36.0.tgz#71e8519ed0630fdb7149c0a049c8a631dec61a78"
+  integrity sha512-fU1rNnn6TgI9CrtynakAkhH09Tu4fTS5QEukO+71n0C5bFBL2Mee5WMQsuGaXBB8Ana3iJwbqZnm+0msssmY3g==
   dependencies:
-    "@ledgerhq/devices" "^8.4.4"
-    "@ledgerhq/errors" "^6.19.1"
-    "@ledgerhq/logs" "^6.12.0"
+    "@ledgerhq/devices" "8.18.0"
+    "@ledgerhq/logs" "6.19.0"
     events "^3.3.0"
+
+"@ledgerhq/logs@6.19.0":
+  version "6.19.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/logs/-/logs-6.19.0.tgz#80b628992799ce26fe8d2675e3ca2940b91f838b"
+  integrity sha512-kmWj18C7eTtuytdaWygzVrQm9EoD4YWuYnd/kY8stVBBAzRdJzrGlm013ijQF6I/kGLKlGY7JKmll6j32KGpfQ==
 
 "@ledgerhq/logs@^6.12.0":
   version "6.12.0"
@@ -9040,6 +9051,11 @@ scheduler@^0.23.2:
   integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
   dependencies:
     loose-envify "^1.1.0"
+
+semver@7.7.3:
+  version "7.7.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.3.tgz#4b5f4143d007633a8dc671cd0a6ef9147b8bb946"
+  integrity sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==
 
 semver@^6.0.0, semver@^6.3.0, semver@^6.3.1:
   version "6.3.1"
