@@ -183,7 +183,7 @@
     "reloadApp": "Tải lại app"
   },
   "footer": {
-    "feedback": "Chúng tôi sẽ rất vui khi nhận được phản hồi của bạn tại <EmailLink>wallet@oasisprotocol.org</EmailLink>",
+    "feedback": "Chúng tôi sẽ rất vui khi nhận được phản hồi của bạn tại <EmailLink>wallet@oasis.net</EmailLink>",
     "github": "Ví ROSE là <GithubLink>mã nguồn mở</GithubLink> và được vận hành bởi ",
     "poweredBy": {
       "nexus": "Nexus API & Oasis gRPC",

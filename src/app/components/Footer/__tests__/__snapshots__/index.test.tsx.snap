@@ -248,10 +248,10 @@ exports[`<Footer /> should render mobile version of footer 1`] = `
     </span>
     <a
       class="c3"
-      href="mailto:wallet@oasisprotocol.org"
+      href="mailto:wallet@oasis.net"
     >
       <span>
-        wallet@oasisprotocol.org
+        wallet@oasis.net
       </span>
     </a>
   </span>
