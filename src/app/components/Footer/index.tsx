@@ -99,9 +99,9 @@ export const Footer = memo(() => {
             i18nKey="footer.feedback"
             t={t}
             components={{
-              EmailLink: <Anchor href="mailto:wallet@oasisprotocol.org" />,
+              EmailLink: <Anchor href="mailto:wallet@oasis.net" />,
             }}
-            defaults="We’d love your feedback at <EmailLink>wallet@oasisprotocol.org</EmailLink>"
+            defaults="We’d love your feedback at <EmailLink>wallet@oasis.net</EmailLink>"
           />
         </Text>
       )}

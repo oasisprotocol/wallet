@@ -120,8 +120,8 @@ export function FatalErrorHandler({ children }: Props) {
             components={{
               Email: (
                 <Anchor
-                  href="mailto:wallet@oasisprotocol.org"
-                  label="wallet@oasisprotocol.org"
+                  href="mailto:wallet@oasis.net"
+                  label="wallet@oasis.net"
                   style={{ color: normalizeColor('brand-blue', theme) }}
                 ></Anchor>
               ),

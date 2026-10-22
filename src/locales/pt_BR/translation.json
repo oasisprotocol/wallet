@@ -185,7 +185,7 @@
     "reloadApp": "Recarregar aplicativo"
   },
   "footer": {
-    "feedback": "Adoraríamos seu feedback em <EmailLink>wallet@oasisprotocol.org</EmailLink>",
+    "feedback": "Adoraríamos seu feedback em <EmailLink>wallet@oasis.net</EmailLink>",
     "github": "ROSE Wallet é <GithubLink>código aberto</GithubLink> e alimentado por",
     "poweredBy": {
       "nexus": "Nexus API & Oasis gRPC",
