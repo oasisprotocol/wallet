@@ -5,6 +5,7 @@ import {
   publicKeyToAddress,
   addressToPublicKey,
   isValidAddress,
+  isWebUri,
   parseRpcBalance,
 } from '../helpers'
 
@@ -45,6 +46,20 @@ describe('parsing public key', () => {
 
     const validBechBTC = 'bc1q9swhsc6qpd309scrzwzhgs2jd56xtxvjuxwx4c'
     expect(isValidAddress(validBechBTC)).toEqual(false)
+  })
+})
+
+describe('isWebUri', () => {
+  it('should accept only http and https urls', () => {
+    expect(isWebUri('https://example.com')).toEqual(true)
+    expect(isWebUri('http://example.com')).toEqual(true)
+    // eslint-disable-next-line no-script-url
+    expect(isWebUri('javascript:alert(1)')).toEqual(false)
+    expect(isWebUri('data:image/png;base64,AAAA')).toEqual(false)
+  })
+
+  it('should not throw on invalid urls', () => {
+    expect(isWebUri('example.com')).toEqual(false)
   })
 })
 
