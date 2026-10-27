@@ -12,6 +12,22 @@ The format is inspired by [Keep a Changelog].
 
 <!-- TOWNCRIER -->
 
+## 2.5.2 (2026-10-27)
+
+### Bug Fixes and Improvements
+
+- Update contact email address
+  ([#2279](https://github.com/oasisprotocol/wallet/issues/2279))
+
+### Internal Changes
+
+- Update dependencies
+  ([#2273](https://github.com/oasisprotocol/wallet/issues/2273),
+   [#2276](https://github.com/oasisprotocol/wallet/issues/2276),
+   [#2277](https://github.com/oasisprotocol/wallet/issues/2277),
+   [#2278](https://github.com/oasisprotocol/wallet/issues/2278),
+   [#2281](https://github.com/oasisprotocol/wallet/issues/2281))
+
 ## 2.5.1 (2026-04-24)
 
 ### Bug Fixes and Improvements
