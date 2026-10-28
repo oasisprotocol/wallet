@@ -88,7 +88,6 @@
     "styled-components": "5.3.11",
     "tweetnacl": "1.0.3",
     "typed-redux-saga": "1.5.0",
-    "valid-url": "1.0.9",
     "webextension-polyfill": "0.12.0"
   },
   "devDependencies": {
@@ -111,7 +110,6 @@
     "@types/redux-state-sync": "3.1.10",
     "@types/styled-components": "5.1.34",
     "@types/testing-library__jest-dom": "5.14.9",
-    "@types/valid-url": "1.0.7",
     "@types/w3c-web-usb": "1.0.10",
     "@types/webextension-polyfill": "0.12.3",
     "@typescript-eslint/eslint-plugin": "6.9.1",

@@ -6,7 +6,7 @@
 import { AmountFormatter } from 'app/components/AmountFormatter'
 import { ShortAddress } from 'app/components/ShortAddress'
 import { TimeToEpoch } from 'app/components/TimeToEpoch'
-import { formatCommissionPercent } from 'app/lib/helpers'
+import { formatCommissionPercent, isWebUri } from 'app/lib/helpers'
 import { ValidatorStatus } from 'app/pages/StakingPage/Features/ValidatorList/ValidatorStatus'
 import { selectIsAddressInWallet } from 'app/state/selectIsAddressInWallet'
 import { stakingActions } from 'app/state/staking'
@@ -19,7 +19,6 @@ import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { dataTableCustomStyles } from 'styles/theme/dataTableTheme'
 import { TypeSafeDataTable, ITypeSafeDataTableColumn } from 'types/TypeSafeDataTable'
-import { isWebUri } from 'valid-url'
 
 import { DelegationItem } from './DelegationItem'
 
