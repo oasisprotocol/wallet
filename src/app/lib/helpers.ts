@@ -33,6 +33,15 @@ export const isValidAddress = (addr: string) => {
   }
 }
 
+export const isWebUri = (value: string) => {
+  try {
+    const { protocol } = new URL(value)
+    return protocol === 'http:' || protocol === 'https:'
+  } catch (e) {
+    return false
+  }
+}
+
 export function concat(...parts: Uint8Array[]) {
   let length = 0
   for (const part of parts) {
